@@ -3,7 +3,7 @@
 import { BookOpen, Briefcase, History, Home, Plus, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Logo from "@/components/atoms/logo-the-mockr";
+import Logo from "@/components/atoms/logo-blairify";
 import { Button } from "@/components/ui/button";
 
 interface DashboardSidebarProps {
