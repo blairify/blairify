@@ -1,8 +1,8 @@
-# Grant Guide Documentation Index
+# Blairify Documentation Index
 
 ## 📚 Complete Documentation System
 
-Welcome to the comprehensive documentation for the Grant Guide application. This documentation covers all aspects of the system from architecture to deployment, including the powerful job scraping functionality.
+Welcome to the comprehensive documentation for the Blairify application. This documentation covers all aspects of the system from architecture to deployment, including the powerful job scraping functionality.
 
 ## 📋 Documentation Structure
 
@@ -203,4 +203,4 @@ When contributing to the project:
 
 ---
 
-*This documentation system provides complete coverage of the Grant Guide application, from initial setup through production deployment. Use it as your primary reference for development, testing, and deployment activities.*
+*This documentation system provides complete coverage of the Blairify application, from initial setup through production deployment. Use it as your primary reference for development, testing, and deployment activities.*

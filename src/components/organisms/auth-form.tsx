@@ -343,7 +343,7 @@ export default function AuthForm({
 
   const getStepTitle = () => {
     if (currentMode === "login") {
-      return "Welcome";
+      return "Welcome back";
     }
 
     switch (currentStep) {

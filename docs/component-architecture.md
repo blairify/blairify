@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Grant Guide application uses a modular component architecture built with React and TypeScript. Components are organized by atomic design principles, separating concerns into atoms, molecules, organisms, and layout components. The architecture supports both interview preparation features and job market functionality.
+The Blairify application uses a modular component architecture built with React and TypeScript. Components are organized by atomic design principles, separating concerns into atoms, molecules, organisms, and layout components. The architecture supports both interview preparation features and job market functionality.
 
 ## Component Hierarchy
 
@@ -12,7 +12,7 @@ src/components/
 │   ├── company-logos.tsx
 │   ├── light-rays.tsx
 │   ├── loading-page.tsx
-│   ├── logo-the-mockr.tsx
+│   ├── logo-blairify.tsx
 │   └── theme-toggle.tsx
 ├── molecules/          # Simple component combinations
 │   ├── cubes.tsx
@@ -789,4 +789,4 @@ export function JobMarketPage() {
 
 ---
 
-*This component architecture provides a scalable, maintainable foundation for the Grant Guide application with consistent design patterns, excellent developer experience, and seamless integration between interview preparation and job market features.*
+*This component architecture provides a scalable, maintainable foundation for the Blairify application with consistent design patterns, excellent developer experience, and seamless integration between interview preparation and job market features.*

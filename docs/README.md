@@ -1,6 +1,6 @@
-# Grant Guide Documentation
+# Blairify Documentation
 
-Welcome to the Grant Guide documentation. This guide covers the complete architecture, data flow, and services of the Grant Guide application, including the powerful job market integration.
+Welcome to the Blairify documentation. This guide covers the complete architecture, data flow, and services of the Blairify application, including the powerful job market integration.
 
 ## 📚 Table of Contents
 

@@ -128,7 +128,7 @@ export default function DashboardSidebar({
         {/* Footer - Sticky at bottom */}
         <div className="mt-auto p-4 border-t border-sidebar-border">
           <p className="text-xs text-sidebar-foreground/60 text-center">
-            © Rights Reserved the:mockr
+            © Rights Reserved Blairify
           </p>
         </div>
       </div>
