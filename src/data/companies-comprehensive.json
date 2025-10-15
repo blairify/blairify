@@ -1,0 +1,366 @@
+[
+  {
+    "id": "google",
+    "name": "Google",
+    "logo": "https://logo.clearbit.com/google.com",
+    "industry": "Technology",
+    "headquarters": "Mountain View, CA"
+  },
+  {
+    "id": "meta",
+    "name": "Meta",
+    "logo": "https://logo.clearbit.com/meta.com",
+    "industry": "Social Media",
+    "headquarters": "Menlo Park, CA"
+  },
+  {
+    "id": "amazon",
+    "name": "Amazon",
+    "logo": "https://logo.clearbit.com/amazon.com",
+    "industry": "E-commerce/Cloud",
+    "headquarters": "Seattle, WA"
+  },
+  {
+    "id": "microsoft",
+    "name": "Microsoft",
+    "logo": "https://logo.clearbit.com/microsoft.com",
+    "industry": "Technology",
+    "headquarters": "Redmond, WA"
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "logo": "https://logo.clearbit.com/apple.com",
+    "industry": "Consumer Electronics",
+    "headquarters": "Cupertino, CA"
+  },
+  {
+    "id": "netflix",
+    "name": "Netflix",
+    "logo": "https://logo.clearbit.com/netflix.com",
+    "industry": "Streaming",
+    "headquarters": "Los Gatos, CA"
+  },
+  {
+    "id": "uber",
+    "name": "Uber",
+    "logo": "https://logo.clearbit.com/uber.com",
+    "industry": "Transportation",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "tesla",
+    "name": "Tesla",
+    "logo": "https://logo.clearbit.com/tesla.com",
+    "industry": "Automotive/Energy",
+    "headquarters": "Austin, TX"
+  },
+  {
+    "id": "airbnb",
+    "name": "Airbnb",
+    "logo": "https://logo.clearbit.com/airbnb.com",
+    "industry": "Hospitality",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "stripe",
+    "name": "Stripe",
+    "logo": "https://logo.clearbit.com/stripe.com",
+    "industry": "Financial Services",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify",
+    "logo": "https://logo.clearbit.com/spotify.com",
+    "industry": "Music Streaming",
+    "headquarters": "Stockholm, Sweden"
+  },
+  {
+    "id": "dropbox",
+    "name": "Dropbox",
+    "logo": "https://logo.clearbit.com/dropbox.com",
+    "industry": "Cloud Storage",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "twitter",
+    "name": "Twitter",
+    "logo": "https://logo.clearbit.com/twitter.com",
+    "industry": "Social Media",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "linkedin",
+    "name": "LinkedIn",
+    "logo": "https://logo.clearbit.com/linkedin.com",
+    "industry": "Professional Networking",
+    "headquarters": "Sunnyvale, CA"
+  },
+  {
+    "id": "adobe",
+    "name": "Adobe",
+    "logo": "https://logo.clearbit.com/adobe.com",
+    "industry": "Software",
+    "headquarters": "San Jose, CA"
+  },
+  {
+    "id": "salesforce",
+    "name": "Salesforce",
+    "logo": "https://logo.clearbit.com/salesforce.com",
+    "industry": "CRM Software",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "oracle",
+    "name": "Oracle",
+    "logo": "https://logo.clearbit.com/oracle.com",
+    "industry": "Database Software",
+    "headquarters": "Austin, TX"
+  },
+  {
+    "id": "paypal",
+    "name": "PayPal",
+    "logo": "https://logo.clearbit.com/paypal.com",
+    "industry": "Financial Technology",
+    "headquarters": "San Jose, CA"
+  },
+  {
+    "id": "shopify",
+    "name": "Shopify",
+    "logo": "https://logo.clearbit.com/shopify.com",
+    "industry": "E-commerce Platform",
+    "headquarters": "Ottawa, Canada"
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "logo": "https://logo.clearbit.com/github.com",
+    "industry": "Developer Tools",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "atlassian",
+    "name": "Atlassian",
+    "logo": "https://logo.clearbit.com/atlassian.com",
+    "industry": "Software Development Tools",
+    "headquarters": "Sydney, Australia"
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "logo": "https://logo.clearbit.com/slack.com",
+    "industry": "Business Communication",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "zoom",
+    "name": "Zoom",
+    "logo": "https://logo.clearbit.com/zoom.us",
+    "industry": "Video Communications",
+    "headquarters": "San Jose, CA"
+  },
+  {
+    "id": "databricks",
+    "name": "Databricks",
+    "logo": "https://logo.clearbit.com/databricks.com",
+    "industry": "Data Analytics",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "snowflake",
+    "name": "Snowflake",
+    "logo": "https://logo.clearbit.com/snowflake.com",
+    "industry": "Cloud Data Platform",
+    "headquarters": "Bozeman, MT"
+  },
+  {
+    "id": "openai",
+    "name": "OpenAI",
+    "logo": "https://logo.clearbit.com/openai.com",
+    "industry": "Artificial Intelligence",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "anthropic",
+    "name": "Anthropic",
+    "logo": "https://logo.clearbit.com/anthropic.com",
+    "industry": "AI Safety",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "figma",
+    "name": "Figma",
+    "logo": "https://logo.clearbit.com/figma.com",
+    "industry": "Design Tools",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "logo": "https://logo.clearbit.com/notion.so",
+    "industry": "Productivity Software",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "twilio",
+    "name": "Twilio",
+    "logo": "https://logo.clearbit.com/twilio.com",
+    "industry": "Cloud Communications",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB",
+    "logo": "https://logo.clearbit.com/mongodb.com",
+    "industry": "Database Technology",
+    "headquarters": "New York, NY"
+  },
+  {
+    "id": "redis",
+    "name": "Redis",
+    "logo": "https://logo.clearbit.com/redis.com",
+    "industry": "Database Technology",
+    "headquarters": "Mountain View, CA"
+  },
+  {
+    "id": "elastic",
+    "name": "Elastic",
+    "logo": "https://logo.clearbit.com/elastic.co",
+    "industry": "Search and Analytics",
+    "headquarters": "Mountain View, CA"
+  },
+  {
+    "id": "hashicorp",
+    "name": "HashiCorp",
+    "logo": "https://logo.clearbit.com/hashicorp.com",
+    "industry": "Cloud Infrastructure",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "logo": "https://logo.clearbit.com/docker.com",
+    "industry": "Containerization",
+    "headquarters": "Palo Alto, CA"
+  },
+  {
+    "id": "kubernetes",
+    "name": "Kubernetes",
+    "logo": "https://logo.clearbit.com/kubernetes.io",
+    "industry": "Container Orchestration",
+    "headquarters": "Open Source"
+  },
+  {
+    "id": "gitlab",
+    "name": "GitLab",
+    "logo": "https://logo.clearbit.com/gitlab.com",
+    "industry": "DevOps Platform",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "datadog",
+    "name": "Datadog",
+    "logo": "https://logo.clearbit.com/datadoghq.com",
+    "industry": "Monitoring and Analytics",
+    "headquarters": "New York, NY"
+  },
+  {
+    "id": "aws",
+    "name": "AWS",
+    "logo": "https://logo.clearbit.com/aws.amazon.com",
+    "industry": "Cloud Computing",
+    "headquarters": "Seattle, WA"
+  },
+  {
+    "id": "istio",
+    "name": "Istio",
+    "logo": "https://logo.clearbit.com/istio.io",
+    "industry": "Service Mesh",
+    "headquarters": "Open Source"
+  },
+  {
+    "id": "locust",
+    "name": "Locust",
+    "logo": "https://logo.clearbit.com/locust.io",
+    "industry": "Performance Testing",
+    "headquarters": "Open Source"
+  },
+  {
+    "id": "firebase",
+    "name": "Firebase",
+    "logo": "https://logo.clearbit.com/firebase.google.com",
+    "industry": "Mobile Backend",
+    "headquarters": "Mountain View, CA"
+  },
+  {
+    "id": "realm",
+    "name": "Realm",
+    "logo": "https://logo.clearbit.com/realm.io",
+    "industry": "Mobile Database",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "amplitude",
+    "name": "Amplitude",
+    "logo": "https://logo.clearbit.com/amplitude.com",
+    "industry": "Product Analytics",
+    "headquarters": "San Francisco, CA"
+  },
+  {
+    "id": "jpmorgan",
+    "name": "JPMorgan Chase",
+    "logo": "https://logo.clearbit.com/jpmorganchase.com",
+    "industry": "Financial Services",
+    "headquarters": "New York, NY"
+  },
+  {
+    "id": "quantlab",
+    "name": "QuantLab",
+    "logo": "https://logo.clearbit.com/quantlab.com",
+    "industry": "Quantitative Finance",
+    "headquarters": "Houston, TX"
+  },
+  {
+    "id": "facebook",
+    "name": "Facebook",
+    "logo": "https://logo.clearbit.com/facebook.com",
+    "industry": "Social Media",
+    "headquarters": "Menlo Park, CA"
+  },
+  {
+    "id": "auth0",
+    "name": "Auth0",
+    "logo": "https://logo.clearbit.com/auth0.com",
+    "industry": "Identity Management",
+    "headquarters": "Bellevue, WA"
+  },
+  {
+    "id": "postgresql",
+    "name": "PostgreSQL",
+    "logo": "https://logo.clearbit.com/postgresql.org",
+    "industry": "Database Technology",
+    "headquarters": "Open Source"
+  },
+  {
+    "id": "webpack",
+    "name": "Webpack",
+    "logo": "https://logo.clearbit.com/webpack.js.org",
+    "industry": "Build Tools",
+    "headquarters": "Open Source"
+  },
+  {
+    "id": "chrome",
+    "name": "Chrome",
+    "logo": "https://logo.clearbit.com/google.com/chrome",
+    "industry": "Web Browser",
+    "headquarters": "Mountain View, CA"
+  },
+  {
+    "id": "vercel",
+    "name": "Vercel",
+    "logo": "https://logo.clearbit.com/vercel.com",
+    "industry": "Frontend Cloud",
+    "headquarters": "San Francisco, CA"
+  }
+]

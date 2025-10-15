@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ultra-modern geometric design - three ascending bars forming an arrow -->
+  <g fill="#10B981">
+    <!-- Bottom bar - shortest -->
+    <rect x="8" y="32" width="12" height="4" rx="2" fill="#10B981"></rect>
+    
+    <!-- Middle bar - medium -->
+    <rect x="14" y="24" width="16" height="4" rx="2" fill="#10B981"></rect>
+    
+    <!-- Top bar - longest with arrow point -->
+    <path d="M20 16 L36 16 C37.105 16 38 16.895 38 18 C38 19.105 37.105 20 36 20 L20 20 C18.895 20 18 19.105 18 18 C18 16.895 18.895 16 20 16 Z" fill="#10B981"></path>
+    
+    <!-- Modern arrow point -->
+    <path d="M36 12 L42 18 L36 24 L36 20 L36 16 Z" fill="#10B981"></path>
+  </g>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

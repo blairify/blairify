@@ -1,0 +1,150 @@
+[
+  {
+    "path": "Individual Contributor",
+    "levels": [
+      {
+        "level": "Junior Developer",
+        "years": "0-2",
+        "responsibilities": [
+          "Code implementation",
+          "Bug fixes",
+          "Learning technologies"
+        ],
+        "skills": [
+          "Programming fundamentals",
+          "Version control",
+          "Testing basics"
+        ]
+      },
+      {
+        "level": "Mid-level Developer",
+        "years": "3-5",
+        "responsibilities": [
+          "Feature development",
+          "Code reviews",
+          "Technical design"
+        ],
+        "skills": ["System design basics", "Database design", "API development"]
+      },
+      {
+        "level": "Senior Developer",
+        "years": "6-8",
+        "responsibilities": [
+          "Architecture decisions",
+          "Mentoring",
+          "Cross-team collaboration"
+        ],
+        "skills": [
+          "System architecture",
+          "Performance optimization",
+          "Leadership"
+        ]
+      },
+      {
+        "level": "Staff Engineer",
+        "years": "9-12",
+        "responsibilities": [
+          "Technical strategy",
+          "System-wide improvements",
+          "Technical leadership"
+        ],
+        "skills": [
+          "Distributed systems",
+          "Technical vision",
+          "Influence without authority"
+        ]
+      },
+      {
+        "level": "Principal Engineer",
+        "years": "12+",
+        "responsibilities": [
+          "Company-wide technical strategy",
+          "Innovation",
+          "Technical excellence"
+        ],
+        "skills": [
+          "Technology strategy",
+          "Industry expertise",
+          "Technical evangelism"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Engineering Management",
+    "levels": [
+      {
+        "level": "Tech Lead",
+        "years": "5-7",
+        "responsibilities": [
+          "Team technical direction",
+          "Project planning",
+          "Individual contribution"
+        ],
+        "skills": [
+          "Technical leadership",
+          "Project management",
+          "Team coordination"
+        ]
+      },
+      {
+        "level": "Engineering Manager",
+        "years": "7-10",
+        "responsibilities": [
+          "People management",
+          "Team growth",
+          "Delivery execution"
+        ],
+        "skills": [
+          "People management",
+          "Performance reviews",
+          "Hiring",
+          "Team building"
+        ]
+      },
+      {
+        "level": "Senior Engineering Manager",
+        "years": "10-12",
+        "responsibilities": [
+          "Multiple team management",
+          "Organizational planning",
+          "Strategy execution"
+        ],
+        "skills": [
+          "Organizational design",
+          "Strategic planning",
+          "Cross-functional leadership"
+        ]
+      },
+      {
+        "level": "Director of Engineering",
+        "years": "12-15",
+        "responsibilities": [
+          "Department leadership",
+          "Technology roadmap",
+          "Business alignment"
+        ],
+        "skills": [
+          "Business acumen",
+          "Technology strategy",
+          "Organizational leadership"
+        ]
+      },
+      {
+        "level": "VP of Engineering",
+        "years": "15+",
+        "responsibilities": [
+          "Engineering organization",
+          "Company strategy",
+          "Technology vision"
+        ],
+        "skills": [
+          "Executive leadership",
+          "Company strategy",
+          "Technology vision",
+          "Board communication"
+        ]
+      }
+    ]
+  }
+]

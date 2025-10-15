@@ -1,0 +1,3027 @@
+{
+  "categories": [
+    {
+      "id": "technical",
+      "name": "Technical Skills",
+      "description": "Core technical programming and system design questions",
+      "questions": [
+        {
+          "id": "tech-001",
+          "title": "Two Sum Problem",
+          "question": "Given an array of integers and a target sum, find two numbers that add up to the target. Return their indices.",
+          "difficulty": "beginner",
+          "company": "google",
+          "language": "python",
+          "tags": ["algorithms", "arrays", "hash-tables", "two-pointers"],
+          "documentationLinks": [
+            {
+              "title": "LeetCode Two Sum",
+              "url": "https://leetcode.com/problems/two-sum/",
+              "description": "Practice the classic Two Sum problem"
+            },
+            {
+              "title": "Hash Table Implementation",
+              "url": "https://www.geeksforgeeks.org/hashing-data-structure/",
+              "description": "Understanding hash tables and their applications"
+            }
+          ]
+        },
+        {
+          "id": "tech-002",
+          "title": "Binary Tree Traversal",
+          "question": "Implement inorder, preorder, and postorder traversal of a binary tree both recursively and iteratively.",
+          "difficulty": "intermediate",
+          "company": "meta",
+          "language": "java",
+          "tags": ["trees", "recursion", "algorithms", "dfs"],
+          "documentationLinks": [
+            {
+              "title": "Binary Tree Traversal",
+              "url": "https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/",
+              "description": "Complete guide to tree traversal methods"
+            },
+            {
+              "title": "Recursion vs Iteration",
+              "url": "https://stackoverflow.com/questions/15688019/recursion-vs-iteration",
+              "description": "Understanding when to use recursion vs iteration"
+            }
+          ]
+        },
+        {
+          "id": "tech-003",
+          "title": "Valid Parentheses",
+          "question": "Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+          "difficulty": "beginner",
+          "company": "apple",
+          "language": "python",
+          "tags": ["stacks", "strings", "algorithms"],
+          "documentationLinks": [
+            {
+              "title": "Stack Data Structure",
+              "url": "https://www.geeksforgeeks.org/stack-data-structure/",
+              "description": "Understanding stack operations and applications"
+            },
+            {
+              "title": "LeetCode Valid Parentheses",
+              "url": "https://leetcode.com/problems/valid-parentheses/",
+              "description": "Practice the valid parentheses problem"
+            }
+          ]
+        },
+        {
+          "id": "tech-004",
+          "title": "Longest Substring Without Repeating Characters",
+          "question": "Given a string, find the length of the longest substring without repeating characters.",
+          "difficulty": "intermediate",
+          "company": "microsoft",
+          "language": "javascript",
+          "tags": ["sliding-window", "strings", "hash-tables"],
+          "documentationLinks": [
+            {
+              "title": "Sliding Window Technique",
+              "url": "https://www.geeksforgeeks.org/window-sliding-technique/",
+              "description": "Understanding the sliding window algorithm pattern"
+            },
+            {
+              "title": "String Algorithms",
+              "url": "https://www.programiz.com/dsa/string-algorithm",
+              "description": "Common string manipulation algorithms"
+            }
+          ]
+        },
+        {
+          "id": "tech-005",
+          "title": "Merge Sort Implementation",
+          "question": "Implement merge sort algorithm and explain its time and space complexity.",
+          "difficulty": "intermediate",
+          "company": "amazon",
+          "language": "cpp",
+          "tags": ["sorting", "divide-and-conquer", "algorithms"],
+          "documentationLinks": [
+            {
+              "title": "Merge Sort Algorithm",
+              "url": "https://www.geeksforgeeks.org/merge-sort/",
+              "description": "Detailed explanation of merge sort with examples"
+            },
+            {
+              "title": "Sorting Algorithms Comparison",
+              "url": "https://www.bigocheatsheet.com/",
+              "description": "Time and space complexity of various sorting algorithms"
+            }
+          ]
+        },
+        {
+          "id": "tech-006",
+          "title": "LRU Cache Implementation",
+          "question": "Design and implement a data structure for Least Recently Used (LRU) cache with O(1) operations.",
+          "difficulty": "advanced",
+          "company": "netflix",
+          "language": "python",
+          "tags": ["design", "hash-tables", "linked-lists", "caching"],
+          "documentationLinks": [
+            {
+              "title": "LRU Cache Design",
+              "url": "https://leetcode.com/problems/lru-cache/",
+              "description": "LeetCode problem for implementing LRU cache"
+            },
+            {
+              "title": "Caching Strategies",
+              "url": "https://redis.io/docs/manual/eviction/",
+              "description": "Different cache eviction policies"
+            }
+          ]
+        },
+        {
+          "id": "tech-007",
+          "title": "Graph BFS and DFS",
+          "question": "Implement breadth-first search and depth-first search for a graph. Explain when to use each.",
+          "difficulty": "intermediate",
+          "company": "uber",
+          "language": "go",
+          "tags": ["graphs", "bfs", "dfs", "algorithms"],
+          "documentationLinks": [
+            {
+              "title": "Graph Traversal Algorithms",
+              "url": "https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/",
+              "description": "Complete guide to graph algorithms"
+            },
+            {
+              "title": "BFS vs DFS",
+              "url": "https://www.programiz.com/dsa/graph-bfs",
+              "description": "When to use BFS vs DFS in graph problems"
+            }
+          ]
+        },
+        {
+          "id": "tech-008",
+          "title": "Dynamic Programming - Fibonacci",
+          "question": "Solve the Fibonacci sequence using dynamic programming. Compare memoization vs tabulation approaches.",
+          "difficulty": "intermediate",
+          "company": "tesla",
+          "language": "java",
+          "tags": ["dynamic-programming", "memoization", "optimization"],
+          "documentationLinks": [
+            {
+              "title": "Dynamic Programming Guide",
+              "url": "https://www.geeksforgeeks.org/dynamic-programming/",
+              "description": "Introduction to dynamic programming concepts"
+            },
+            {
+              "title": "Memoization vs Tabulation",
+              "url": "https://www.geeksforgeeks.org/tabulation-vs-memoization/",
+              "description": "Comparing top-down vs bottom-up DP approaches"
+            }
+          ]
+        },
+        {
+          "id": "tech-009",
+          "title": "SQL Query Optimization",
+          "question": "Given a slow-performing SQL query, identify bottlenecks and optimize it using indexes, joins, and query restructuring.",
+          "difficulty": "advanced",
+          "company": "oracle",
+          "tags": ["sql", "database", "optimization", "indexing"],
+          "documentationLinks": [
+            {
+              "title": "SQL Query Optimization",
+              "url": "https://www.postgresql.org/docs/current/sql-performance.html",
+              "description": "PostgreSQL performance optimization guide"
+            },
+            {
+              "title": "Database Indexing Strategies",
+              "url": "https://use-the-index-luke.com/",
+              "description": "Comprehensive guide to database indexing"
+            }
+          ]
+        },
+        {
+          "id": "tech-010",
+          "title": "API Rate Limiting",
+          "question": "Design a rate limiting system for an API. Discuss different algorithms like token bucket, leaky bucket, and sliding window.",
+          "difficulty": "advanced",
+          "company": "stripe",
+          "language": "typescript",
+          "tags": [
+            "system-design",
+            "rate-limiting",
+            "algorithms",
+            "api-design"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Rate Limiting Algorithms",
+              "url": "https://www.nginx.com/blog/rate-limiting-nginx/",
+              "description": "Different approaches to implementing rate limiting"
+            },
+            {
+              "title": "API Design Best Practices",
+              "url": "https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design",
+              "description": "Microsoft's guide to API design patterns"
+            }
+          ]
+        },
+        {
+          "id": "tech-011",
+          "title": "Concurrent Programming",
+          "question": "Explain the difference between processes and threads. Implement a thread-safe counter using mutex/locks.",
+          "difficulty": "advanced",
+          "company": "spotify",
+          "language": "java",
+          "tags": [
+            "concurrency",
+            "threading",
+            "synchronization",
+            "performance"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Concurrency in Programming",
+              "url": "https://www.geeksforgeeks.org/concurrency-in-programming-language/",
+              "description": "Understanding concurrent programming concepts"
+            },
+            {
+              "title": "Thread Synchronization",
+              "url": "https://docs.oracle.com/javase/tutorial/essential/concurrency/sync.html",
+              "description": "Java tutorial on thread synchronization"
+            }
+          ]
+        },
+        {
+          "id": "tech-012",
+          "title": "Memory Management",
+          "question": "Explain how garbage collection works. Compare mark-and-sweep vs generational garbage collection.",
+          "difficulty": "advanced",
+          "company": "dropbox",
+          "language": "java",
+          "tags": ["memory-management", "garbage-collection", "performance"],
+          "documentationLinks": [
+            {
+              "title": "Garbage Collection Algorithms",
+              "url": "https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html",
+              "description": "Oracle's guide to garbage collection in Java"
+            },
+            {
+              "title": "Memory Management Techniques",
+              "url": "https://www.geeksforgeeks.org/memory-management-in-operating-system/",
+              "description": "Operating system memory management concepts"
+            }
+          ]
+        },
+        {
+          "id": "tech-013",
+          "title": "Quicksort Algorithm",
+          "question": "Implement quicksort with different pivot selection strategies. Analyze worst-case and average-case performance.",
+          "difficulty": "intermediate",
+          "company": "adobe",
+          "language": "cpp",
+          "tags": [
+            "sorting",
+            "divide-and-conquer",
+            "algorithms",
+            "complexity-analysis"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Quicksort Algorithm",
+              "url": "https://www.geeksforgeeks.org/quick-sort/",
+              "description": "Detailed explanation of quicksort algorithm"
+            },
+            {
+              "title": "Pivot Selection Strategies",
+              "url": "https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/",
+              "description": "Different approaches to choosing pivot in quicksort"
+            }
+          ]
+        },
+        {
+          "id": "tech-014",
+          "title": "Reverse Linked List",
+          "question": "Implement both iterative and recursive solutions to reverse a singly linked list. Discuss space complexity.",
+          "difficulty": "beginner",
+          "company": "linkedin",
+          "language": "python",
+          "tags": ["linked-lists", "recursion", "pointers"],
+          "documentationLinks": [
+            {
+              "title": "Linked List Operations",
+              "url": "https://www.geeksforgeeks.org/data-structures/linked-list/",
+              "description": "Complete guide to linked list data structure"
+            },
+            {
+              "title": "LeetCode Reverse Linked List",
+              "url": "https://leetcode.com/problems/reverse-linked-list/",
+              "description": "Practice reversing linked lists"
+            }
+          ]
+        },
+        {
+          "id": "tech-015",
+          "title": "Sliding Window Maximum",
+          "question": "Given an array and a window size k, find the maximum element in each sliding window of size k.",
+          "difficulty": "advanced",
+          "company": "amazon",
+          "language": "java",
+          "tags": ["sliding-window", "deque", "algorithms", "arrays"],
+          "documentationLinks": [
+            {
+              "title": "Sliding Window Problems",
+              "url": "https://leetcode.com/problems/sliding-window-maximum/",
+              "description": "Advanced sliding window problem"
+            },
+            {
+              "title": "Deque Data Structure",
+              "url": "https://www.geeksforgeeks.org/deque-set-1-introduction-applications/",
+              "description": "Understanding double-ended queue operations"
+            }
+          ]
+        },
+        {
+          "id": "tech-016",
+          "title": "Trie Data Structure",
+          "question": "Implement a trie (prefix tree) with insert, search, and startsWith operations. Discuss use cases.",
+          "difficulty": "intermediate",
+          "company": "google",
+          "language": "cpp",
+          "tags": ["trie", "strings", "data-structures", "prefix-search"],
+          "documentationLinks": [
+            {
+              "title": "Trie Data Structure",
+              "url": "https://www.geeksforgeeks.org/trie-insert-and-search/",
+              "description": "Implementation and applications of trie"
+            },
+            {
+              "title": "String Search Algorithms",
+              "url": "https://www.topcoder.com/community/competitive-programming/tutorials/introduction-to-string-searching-algorithms/",
+              "description": "Various string searching techniques"
+            }
+          ]
+        },
+        {
+          "id": "tech-017",
+          "title": "Binary Search Variants",
+          "question": "Implement binary search to find first and last occurrence of an element in a sorted array.",
+          "difficulty": "intermediate",
+          "company": "microsoft",
+          "language": "python",
+          "tags": ["binary-search", "algorithms", "arrays", "searching"],
+          "documentationLinks": [
+            {
+              "title": "Binary Search Algorithm",
+              "url": "https://www.geeksforgeeks.org/binary-search/",
+              "description": "Complete guide to binary search variants"
+            },
+            {
+              "title": "Search Algorithm Patterns",
+              "url": "https://leetcode.com/explore/learn/card/binary-search/",
+              "description": "LeetCode binary search exploration"
+            }
+          ]
+        },
+        {
+          "id": "tech-018",
+          "title": "Topological Sort",
+          "question": "Implement topological sorting using both DFS and Kahn's algorithm. Explain applications in task scheduling.",
+          "difficulty": "intermediate",
+          "company": "facebook",
+          "language": "java",
+          "tags": ["graphs", "topological-sort", "dfs", "algorithms"],
+          "documentationLinks": [
+            {
+              "title": "Topological Sorting",
+              "url": "https://www.geeksforgeeks.org/topological-sorting/",
+              "description": "Understanding topological sort algorithms"
+            },
+            {
+              "title": "Graph Applications",
+              "url": "https://www.programiz.com/dsa/graph",
+              "description": "Real-world applications of graph algorithms"
+            }
+          ]
+        },
+        {
+          "id": "tech-019",
+          "title": "Heap Implementation",
+          "question": "Implement a min-heap and max-heap. Show how to use heaps for finding the kth largest element.",
+          "difficulty": "intermediate",
+          "company": "apple",
+          "language": "go",
+          "tags": ["heaps", "priority-queue", "data-structures"],
+          "documentationLinks": [
+            {
+              "title": "Heap Data Structure",
+              "url": "https://www.geeksforgeeks.org/heap-data-structure/",
+              "description": "Complete guide to heap operations"
+            },
+            {
+              "title": "Priority Queue Applications",
+              "url": "https://www.programiz.com/dsa/priority-queue",
+              "description": "Understanding priority queues and heaps"
+            }
+          ]
+        },
+        {
+          "id": "tech-020",
+          "title": "Edit Distance",
+          "question": "Calculate the minimum edit distance between two strings using dynamic programming (Levenshtein distance).",
+          "difficulty": "advanced",
+          "company": "google",
+          "language": "python",
+          "tags": ["dynamic-programming", "strings", "algorithms"],
+          "documentationLinks": [
+            {
+              "title": "Edit Distance Algorithm",
+              "url": "https://www.geeksforgeeks.org/edit-distance-dp-5/",
+              "description": "Dynamic programming approach to edit distance"
+            },
+            {
+              "title": "String Similarity Algorithms",
+              "url": "https://en.wikipedia.org/wiki/Levenshtein_distance",
+              "description": "Understanding different string similarity measures"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "system-design",
+      "name": "System Design",
+      "description": "Architecture and scalability questions for senior roles",
+      "questions": [
+        {
+          "id": "sys-001",
+          "title": "URL Shortener Design",
+          "question": "Design a URL shortener service like bit.ly. Consider scalability, caching, and analytics.",
+          "difficulty": "advanced",
+          "company": "google",
+          "tags": ["system-design", "scalability", "caching", "databases"],
+          "documentationLinks": [
+            {
+              "title": "System Design Primer",
+              "url": "https://github.com/donnemartin/system-design-primer",
+              "description": "Comprehensive guide to system design concepts"
+            },
+            {
+              "title": "Caching Strategies",
+              "url": "https://aws.amazon.com/caching/",
+              "description": "AWS guide to different caching approaches"
+            },
+            {
+              "title": "Database Sharding",
+              "url": "https://www.mongodb.com/features/database-sharding-explained",
+              "description": "Understanding database partitioning strategies"
+            }
+          ]
+        },
+        {
+          "id": "sys-002",
+          "title": "Chat Application Design",
+          "question": "Design a real-time chat application. How would you handle message delivery, user presence, and scaling?",
+          "difficulty": "expert",
+          "company": "meta",
+          "tags": ["real-time", "websockets", "messaging", "scalability"],
+          "documentationLinks": [
+            {
+              "title": "WebSocket API",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+              "description": "MDN documentation for WebSocket implementation"
+            },
+            {
+              "title": "Real-time Architecture",
+              "url": "https://socket.io/docs/v4/",
+              "description": "Socket.IO documentation for real-time applications"
+            },
+            {
+              "title": "Message Queue Patterns",
+              "url": "https://www.rabbitmq.com/getstarted.html",
+              "description": "RabbitMQ tutorials for message queuing"
+            }
+          ]
+        },
+        {
+          "id": "sys-003",
+          "title": "Design Twitter Feed",
+          "question": "Design a Twitter-like social media feed. Handle user timelines, follower relationships, and real-time updates.",
+          "difficulty": "expert",
+          "company": "twitter",
+          "tags": ["system-design", "social-media", "real-time", "scalability"],
+          "documentationLinks": [
+            {
+              "title": "Designing Twitter",
+              "url": "https://github.com/donnemartin/system-design-primer#design-twitter",
+              "description": "System design primer for Twitter-like system"
+            },
+            {
+              "title": "Feed Architecture Patterns",
+              "url": "https://www.infoq.com/articles/facebook-news-feed-architecture/",
+              "description": "Facebook's approach to news feed architecture"
+            }
+          ]
+        },
+        {
+          "id": "sys-004",
+          "title": "Load Balancer Design",
+          "question": "Design a load balancer system. Discuss different algorithms and how to handle server failures.",
+          "difficulty": "advanced",
+          "company": "amazon",
+          "tags": ["system-design", "load-balancing", "fault-tolerance"],
+          "documentationLinks": [
+            {
+              "title": "Load Balancing Algorithms",
+              "url": "https://www.nginx.com/resources/glossary/load-balancing/",
+              "description": "Different load balancing strategies"
+            },
+            {
+              "title": "AWS Load Balancer",
+              "url": "https://docs.aws.amazon.com/elasticloadbalancing/",
+              "description": "AWS Elastic Load Balancing documentation"
+            }
+          ]
+        },
+        {
+          "id": "sys-005",
+          "title": "Design YouTube",
+          "question": "Design a video sharing platform like YouTube. Consider video storage, streaming, recommendations, and global distribution.",
+          "difficulty": "expert",
+          "company": "google",
+          "tags": [
+            "system-design",
+            "video-streaming",
+            "cdn",
+            "recommendations"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Video Streaming Architecture",
+              "url": "https://netflixtechblog.com/serving-100-gbps-from-an-open-connect-appliance-cdb51dda3b99",
+              "description": "Netflix's approach to video streaming"
+            },
+            {
+              "title": "CDN Architecture",
+              "url": "https://aws.amazon.com/cloudfront/",
+              "description": "Content delivery network concepts"
+            }
+          ]
+        },
+        {
+          "id": "sys-006",
+          "title": "Distributed Cache System",
+          "question": "Design a distributed caching system like Redis Cluster. Handle consistency, partitioning, and failover.",
+          "difficulty": "expert",
+          "company": "redis",
+          "tags": [
+            "caching",
+            "distributed-systems",
+            "consistency",
+            "partitioning"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Redis Cluster Design",
+              "url": "https://redis.io/topics/cluster-tutorial",
+              "description": "Redis clustering and partitioning"
+            },
+            {
+              "title": "Distributed Systems Patterns",
+              "url": "https://martinfowler.com/articles/patterns-of-distributed-systems/",
+              "description": "Common patterns in distributed systems"
+            }
+          ]
+        },
+        {
+          "id": "sys-007",
+          "title": "Search Engine Design",
+          "question": "Design a web search engine. Cover crawling, indexing, ranking, and serving search results at scale.",
+          "difficulty": "expert",
+          "company": "google",
+          "tags": ["search", "indexing", "ranking", "crawling", "big-data"],
+          "documentationLinks": [
+            {
+              "title": "Search Engine Architecture",
+              "url": "https://www.elastic.co/guide/en/elasticsearch/guide/current/intro.html",
+              "description": "Elasticsearch guide to search systems"
+            },
+            {
+              "title": "Web Crawling Strategies",
+              "url": "https://web.archive.org/web/20080704054554/http://googleresearch.blogspot.com/2008/06/our-new-search-index-caffeine.html",
+              "description": "Google's approach to web crawling"
+            }
+          ]
+        },
+        {
+          "id": "sys-008",
+          "title": "Payment Processing System",
+          "question": "Design a payment processing system like Stripe. Handle transactions, fraud detection, and compliance.",
+          "difficulty": "expert",
+          "company": "stripe",
+          "tags": ["payments", "transactions", "security", "compliance"],
+          "documentationLinks": [
+            {
+              "title": "Payment System Design",
+              "url": "https://stripe.com/docs/payments",
+              "description": "Stripe's payment processing documentation"
+            },
+            {
+              "title": "Financial System Security",
+              "url": "https://www.pcisecuritystandards.org/",
+              "description": "PCI DSS compliance standards"
+            }
+          ]
+        },
+        {
+          "id": "sys-009",
+          "title": "Notification System",
+          "question": "Design a push notification system supporting multiple channels (email, SMS, push, in-app). Handle rate limiting and user preferences.",
+          "difficulty": "advanced",
+          "company": "uber",
+          "tags": ["notifications", "messaging", "rate-limiting", "queues"],
+          "documentationLinks": [
+            {
+              "title": "Push Notification Services",
+              "url": "https://firebase.google.com/docs/cloud-messaging",
+              "description": "Firebase Cloud Messaging documentation"
+            },
+            {
+              "title": "Message Queue Systems",
+              "url": "https://aws.amazon.com/sqs/",
+              "description": "Amazon SQS for message queuing"
+            }
+          ]
+        },
+        {
+          "id": "sys-010",
+          "title": "Ride Sharing Service",
+          "question": "Design a ride sharing service like Uber. Handle driver-rider matching, real-time tracking, and pricing algorithms.",
+          "difficulty": "expert",
+          "company": "uber",
+          "tags": [
+            "geolocation",
+            "matching-algorithms",
+            "real-time",
+            "pricing"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Geospatial Indexing",
+              "url": "https://www.uber.com/blog/h3/",
+              "description": "Uber's H3 geospatial indexing system"
+            },
+            {
+              "title": "Real-time Location Services",
+              "url": "https://engineering.uber.com/real-time-exactly-once-ad-event-processing/",
+              "description": "Uber's real-time processing architecture"
+            }
+          ]
+        },
+        {
+          "id": "sys-011",
+          "title": "Music Streaming Service",
+          "question": "Design a music streaming platform like Spotify. Handle music storage, streaming, playlists, and recommendations.",
+          "difficulty": "expert",
+          "company": "spotify",
+          "tags": [
+            "streaming",
+            "recommendations",
+            "content-delivery",
+            "personalization"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Music Recommendation Systems",
+              "url": "https://engineering.atspotify.com/2022/03/introducing-natural-language-search-for-podcast-episodes/",
+              "description": "Spotify's approach to music recommendations"
+            },
+            {
+              "title": "Audio Streaming Protocols",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio",
+              "description": "Web audio streaming technologies"
+            }
+          ]
+        },
+        {
+          "id": "sys-012",
+          "title": "Email Service Design",
+          "question": "Design an email service like Gmail. Handle storage, search, spam detection, and real-time delivery.",
+          "difficulty": "advanced",
+          "company": "google",
+          "tags": ["email", "storage", "search", "spam-detection"],
+          "documentationLinks": [
+            {
+              "title": "Email Protocol Standards",
+              "url": "https://tools.ietf.org/html/rfc5321",
+              "description": "SMTP protocol specification"
+            },
+            {
+              "title": "Spam Detection Systems",
+              "url": "https://ai.googleblog.com/2019/02/gmail-spam-detection.html",
+              "description": "Gmail's approach to spam detection"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frontend",
+      "name": "Frontend Development",
+      "description": "React, JavaScript, and web development questions",
+      "questions": [
+        {
+          "id": "fe-001",
+          "title": "React Hooks",
+          "question": "Explain the useState and useEffect hooks. When would you create a custom hook?",
+          "difficulty": "intermediate",
+          "company": "meta",
+          "language": "javascript",
+          "tags": ["react", "hooks", "state-management"],
+          "documentationLinks": [
+            {
+              "title": "React Hooks Documentation",
+              "url": "https://reactjs.org/docs/hooks-intro.html",
+              "description": "Official React documentation for hooks"
+            },
+            {
+              "title": "Custom Hooks Guide",
+              "url": "https://reactjs.org/docs/hooks-custom.html",
+              "description": "Building your own React hooks"
+            }
+          ]
+        },
+        {
+          "id": "fe-002",
+          "title": "Performance Optimization",
+          "question": "What techniques would you use to optimize the performance of a React application?",
+          "difficulty": "advanced",
+          "company": "netflix",
+          "language": "javascript",
+          "tags": ["performance", "optimization", "react"],
+          "documentationLinks": [
+            {
+              "title": "React Performance",
+              "url": "https://reactjs.org/docs/optimizing-performance.html",
+              "description": "Official guide to React performance optimization"
+            },
+            {
+              "title": "Web Vitals",
+              "url": "https://web.dev/vitals/",
+              "description": "Google's guide to essential web performance metrics"
+            }
+          ]
+        },
+        {
+          "id": "fe-003",
+          "title": "JavaScript Closures",
+          "question": "Explain closures in JavaScript. Provide examples of practical use cases and potential memory leaks.",
+          "difficulty": "intermediate",
+          "company": "airbnb",
+          "language": "javascript",
+          "tags": ["javascript", "closures", "memory-management"],
+          "documentationLinks": [
+            {
+              "title": "MDN Closures",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures",
+              "description": "Complete guide to JavaScript closures"
+            },
+            {
+              "title": "JavaScript Memory Management",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management",
+              "description": "Understanding memory management in JavaScript"
+            }
+          ]
+        },
+        {
+          "id": "fe-004",
+          "title": "CSS Grid vs Flexbox",
+          "question": "Compare CSS Grid and Flexbox. When would you use each for layout design?",
+          "difficulty": "beginner",
+          "company": "spotify",
+          "tags": ["css", "layout", "responsive-design"],
+          "documentationLinks": [
+            {
+              "title": "CSS Grid Guide",
+              "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+              "description": "Complete guide to CSS Grid layout"
+            },
+            {
+              "title": "Flexbox Guide",
+              "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+              "description": "Complete guide to CSS Flexbox"
+            }
+          ]
+        },
+        {
+          "id": "fe-005",
+          "title": "JavaScript Event Loop",
+          "question": "Explain how the JavaScript event loop works. What's the difference between the call stack, task queue, and microtask queue?",
+          "difficulty": "advanced",
+          "company": "google",
+          "language": "javascript",
+          "tags": ["javascript", "event-loop", "asynchronous", "concurrency"],
+          "documentationLinks": [
+            {
+              "title": "JavaScript Event Loop",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop",
+              "description": "MDN guide to the JavaScript event loop"
+            },
+            {
+              "title": "Tasks, microtasks, queues and schedules",
+              "url": "https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/",
+              "description": "Detailed explanation of JavaScript's execution model"
+            }
+          ]
+        },
+        {
+          "id": "fe-006",
+          "title": "State Management in React",
+          "question": "Compare different state management solutions: useState, useReducer, Context API, Redux, and Zustand. When would you use each?",
+          "difficulty": "advanced",
+          "company": "meta",
+          "language": "typescript",
+          "tags": ["react", "state-management", "redux", "context"],
+          "documentationLinks": [
+            {
+              "title": "React State Management",
+              "url": "https://reactjs.org/docs/state-and-lifecycle.html",
+              "description": "Official React state management guide"
+            },
+            {
+              "title": "Redux Toolkit",
+              "url": "https://redux-toolkit.js.org/",
+              "description": "Modern Redux usage patterns"
+            }
+          ]
+        },
+        {
+          "id": "fe-007",
+          "title": "Web Accessibility (a11y)",
+          "question": "How would you make a complex web application accessible? Discuss ARIA attributes, keyboard navigation, and screen reader support.",
+          "difficulty": "intermediate",
+          "company": "microsoft",
+          "language": "html",
+          "tags": [
+            "accessibility",
+            "aria",
+            "semantic-html",
+            "inclusive-design"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Web Accessibility Guidelines",
+              "url": "https://www.w3.org/WAI/WCAG21/quickref/",
+              "description": "WCAG 2.1 quick reference guide"
+            },
+            {
+              "title": "ARIA Authoring Practices",
+              "url": "https://www.w3.org/WAI/ARIA/apg/",
+              "description": "WAI-ARIA authoring practices guide"
+            }
+          ]
+        },
+        {
+          "id": "fe-008",
+          "title": "Progressive Web Apps",
+          "question": "What makes a Progressive Web App? Implement service worker caching strategies and offline functionality.",
+          "difficulty": "advanced",
+          "company": "google",
+          "language": "javascript",
+          "tags": ["pwa", "service-workers", "caching", "offline"],
+          "documentationLinks": [
+            {
+              "title": "Progressive Web Apps",
+              "url": "https://web.dev/progressive-web-apps/",
+              "description": "Complete guide to building PWAs"
+            },
+            {
+              "title": "Service Worker API",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API",
+              "description": "MDN Service Worker documentation"
+            }
+          ]
+        },
+        {
+          "id": "fe-009",
+          "title": "CSS-in-JS vs Traditional CSS",
+          "question": "Compare CSS-in-JS solutions (styled-components, emotion) with traditional CSS approaches. Discuss performance implications.",
+          "difficulty": "intermediate",
+          "company": "airbnb",
+          "language": "javascript",
+          "tags": ["css", "styling", "performance", "architecture"],
+          "documentationLinks": [
+            {
+              "title": "Styled Components",
+              "url": "https://styled-components.com/docs",
+              "description": "CSS-in-JS library documentation"
+            },
+            {
+              "title": "CSS Performance",
+              "url": "https://web.dev/css-performance/",
+              "description": "Optimizing CSS performance"
+            }
+          ]
+        },
+        {
+          "id": "fe-010",
+          "title": "React Server Components",
+          "question": "Explain React Server Components and how they differ from traditional client-side rendering. When would you use them?",
+          "difficulty": "expert",
+          "company": "vercel",
+          "language": "typescript",
+          "tags": ["react", "server-components", "ssr", "performance"],
+          "documentationLinks": [
+            {
+              "title": "React Server Components",
+              "url": "https://react.dev/blog/2020/12/21/data-fetching-with-react-server-components",
+              "description": "Introduction to React Server Components"
+            },
+            {
+              "title": "Next.js App Router",
+              "url": "https://nextjs.org/docs/app",
+              "description": "Next.js implementation of Server Components"
+            }
+          ]
+        },
+        {
+          "id": "fe-011",
+          "title": "Browser Rendering Pipeline",
+          "question": "Explain the browser rendering process from HTML parsing to paint. How can you optimize for better rendering performance?",
+          "difficulty": "advanced",
+          "company": "chrome",
+          "language": "javascript",
+          "tags": ["browser", "rendering", "performance", "optimization"],
+          "documentationLinks": [
+            {
+              "title": "Rendering Performance",
+              "url": "https://web.dev/rendering-performance/",
+              "description": "Google's guide to rendering optimization"
+            },
+            {
+              "title": "Critical Rendering Path",
+              "url": "https://developers.google.com/web/fundamentals/performance/critical-rendering-path",
+              "description": "Understanding the critical rendering path"
+            }
+          ]
+        },
+        {
+          "id": "fe-012",
+          "title": "Module Bundlers",
+          "question": "Compare different module bundlers: Webpack, Rollup, Vite, and esbuild. Discuss their strengths and use cases.",
+          "difficulty": "intermediate",
+          "company": "webpack",
+          "language": "javascript",
+          "tags": ["bundlers", "build-tools", "performance", "tooling"],
+          "documentationLinks": [
+            {
+              "title": "Webpack Documentation",
+              "url": "https://webpack.js.org/concepts/",
+              "description": "Webpack core concepts and configuration"
+            },
+            {
+              "title": "Vite Guide",
+              "url": "https://vitejs.dev/guide/",
+              "description": "Fast build tool for modern web development"
+            }
+          ]
+        },
+        {
+          "id": "fe-013",
+          "title": "TypeScript Advanced Types",
+          "question": "Explain TypeScript's advanced type features: generics, conditional types, mapped types, and utility types.",
+          "difficulty": "advanced",
+          "company": "microsoft",
+          "language": "typescript",
+          "tags": ["typescript", "types", "generics", "advanced"],
+          "documentationLinks": [
+            {
+              "title": "TypeScript Handbook",
+              "url": "https://www.typescriptlang.org/docs/",
+              "description": "Official TypeScript documentation"
+            },
+            {
+              "title": "Advanced Types",
+              "url": "https://www.typescriptlang.org/docs/handbook/2/types-from-types.html",
+              "description": "Creating types from types in TypeScript"
+            }
+          ]
+        },
+        {
+          "id": "fe-014",
+          "title": "Web Performance Metrics",
+          "question": "Explain Core Web Vitals (LCP, FID, CLS). How would you measure and improve these metrics in a React application?",
+          "difficulty": "intermediate",
+          "company": "google",
+          "language": "javascript",
+          "tags": ["performance", "metrics", "core-web-vitals", "optimization"],
+          "documentationLinks": [
+            {
+              "title": "Core Web Vitals",
+              "url": "https://web.dev/vitals/",
+              "description": "Essential metrics for a healthy site"
+            },
+            {
+              "title": "Measuring Performance",
+              "url": "https://web.dev/user-centric-performance-metrics/",
+              "description": "User-centric performance metrics"
+            }
+          ]
+        },
+        {
+          "id": "fe-015",
+          "title": "Micro-frontends Architecture",
+          "question": "Explain micro-frontends architecture. How would you implement and manage multiple frontend applications in a single system?",
+          "difficulty": "expert",
+          "company": "spotify",
+          "language": "javascript",
+          "tags": [
+            "architecture",
+            "micro-frontends",
+            "scalability",
+            "integration"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Micro Frontends",
+              "url": "https://micro-frontends.org/",
+              "description": "Introduction to micro-frontend architecture"
+            },
+            {
+              "title": "Module Federation",
+              "url": "https://webpack.js.org/concepts/module-federation/",
+              "description": "Webpack's module federation for micro-frontends"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "name": "Backend Development",
+      "description": "Server-side programming, databases, and API design",
+      "questions": [
+        {
+          "id": "be-001",
+          "title": "RESTful API Design",
+          "question": "Design a RESTful API for an e-commerce system. Include proper HTTP methods, status codes, and resource naming conventions.",
+          "difficulty": "intermediate",
+          "company": "amazon",
+          "language": "python",
+          "tags": ["rest", "api-design", "http", "web-services"],
+          "documentationLinks": [
+            {
+              "title": "REST API Design Best Practices",
+              "url": "https://restfulapi.net/",
+              "description": "Comprehensive guide to RESTful API design"
+            },
+            {
+              "title": "HTTP Status Codes",
+              "url": "https://httpstatuses.com/",
+              "description": "Complete reference for HTTP status codes"
+            }
+          ]
+        },
+        {
+          "id": "be-002",
+          "title": "Database Normalization",
+          "question": "Explain database normalization forms (1NF, 2NF, 3NF, BCNF). Design a normalized schema for a library management system.",
+          "difficulty": "intermediate",
+          "company": "oracle",
+          "tags": ["database", "normalization", "schema-design", "sql"],
+          "documentationLinks": [
+            {
+              "title": "Database Normalization",
+              "url": "https://www.geeksforgeeks.org/normal-forms-in-dbms/",
+              "description": "Complete guide to database normalization"
+            },
+            {
+              "title": "Database Design Principles",
+              "url": "https://www.lucidchart.com/pages/database-diagram/database-design",
+              "description": "Best practices for database design"
+            }
+          ]
+        },
+        {
+          "id": "be-003",
+          "title": "Microservices Architecture",
+          "question": "Design a microservices architecture for an online shopping platform. Address service communication, data consistency, and deployment.",
+          "difficulty": "expert",
+          "company": "netflix",
+          "language": "java",
+          "tags": [
+            "microservices",
+            "architecture",
+            "distributed-systems",
+            "scalability"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Microservices Patterns",
+              "url": "https://microservices.io/patterns/",
+              "description": "Collection of microservice architecture patterns"
+            },
+            {
+              "title": "Building Microservices",
+              "url": "https://martinfowler.com/articles/microservices.html",
+              "description": "Martin Fowler's guide to microservices"
+            }
+          ]
+        },
+        {
+          "id": "be-004",
+          "title": "Message Queue Systems",
+          "question": "Compare different message queue systems (RabbitMQ, Apache Kafka, Redis Pub/Sub). When would you use each?",
+          "difficulty": "advanced",
+          "company": "uber",
+          "language": "go",
+          "tags": [
+            "message-queues",
+            "asynchronous",
+            "event-driven",
+            "scalability"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Apache Kafka Documentation",
+              "url": "https://kafka.apache.org/documentation/",
+              "description": "Kafka's official documentation"
+            },
+            {
+              "title": "Message Queue Patterns",
+              "url": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/",
+              "description": "Enterprise integration patterns for messaging"
+            }
+          ]
+        },
+        {
+          "id": "be-005",
+          "title": "Authentication and Authorization",
+          "question": "Implement JWT-based authentication with refresh tokens. Explain the security considerations and best practices.",
+          "difficulty": "advanced",
+          "company": "auth0",
+          "language": "nodejs",
+          "tags": ["authentication", "jwt", "security", "oauth"],
+          "documentationLinks": [
+            {
+              "title": "JWT Introduction",
+              "url": "https://jwt.io/introduction/",
+              "description": "Understanding JSON Web Tokens"
+            },
+            {
+              "title": "OAuth 2.0 Security",
+              "url": "https://oauth.net/2/",
+              "description": "OAuth 2.0 authorization framework"
+            }
+          ]
+        },
+        {
+          "id": "be-006",
+          "title": "Database Transactions",
+          "question": "Explain ACID properties and implement a transaction handling system. Discuss isolation levels and their trade-offs.",
+          "difficulty": "advanced",
+          "company": "postgresql",
+          "language": "sql",
+          "tags": ["database", "transactions", "acid", "concurrency"],
+          "documentationLinks": [
+            {
+              "title": "Database Transactions",
+              "url": "https://www.postgresql.org/docs/current/tutorial-transactions.html",
+              "description": "PostgreSQL transaction documentation"
+            },
+            {
+              "title": "Isolation Levels",
+              "url": "https://en.wikipedia.org/wiki/Isolation_(database_systems)",
+              "description": "Understanding transaction isolation levels"
+            }
+          ]
+        },
+        {
+          "id": "be-007",
+          "title": "Caching Strategies",
+          "question": "Implement different caching strategies: cache-aside, write-through, write-behind. Discuss cache invalidation patterns.",
+          "difficulty": "advanced",
+          "company": "redis",
+          "language": "python",
+          "tags": ["caching", "redis", "performance", "scalability"],
+          "documentationLinks": [
+            {
+              "title": "Caching Patterns",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html",
+              "description": "AWS guide to database caching strategies"
+            },
+            {
+              "title": "Redis Documentation",
+              "url": "https://redis.io/documentation",
+              "description": "Redis official documentation"
+            }
+          ]
+        },
+        {
+          "id": "be-008",
+          "title": "GraphQL vs REST",
+          "question": "Compare GraphQL and REST APIs. Implement a GraphQL schema with queries, mutations, and subscriptions.",
+          "difficulty": "intermediate",
+          "company": "facebook",
+          "language": "javascript",
+          "tags": ["graphql", "api-design", "rest", "data-fetching"],
+          "documentationLinks": [
+            {
+              "title": "GraphQL Documentation",
+              "url": "https://graphql.org/learn/",
+              "description": "Official GraphQL learning guide"
+            },
+            {
+              "title": "Apollo Server",
+              "url": "https://www.apollographql.com/docs/apollo-server/",
+              "description": "GraphQL server implementation"
+            }
+          ]
+        },
+        {
+          "id": "be-009",
+          "title": "API Rate Limiting",
+          "question": "Implement various rate limiting algorithms: token bucket, leaky bucket, sliding window. Handle distributed rate limiting.",
+          "difficulty": "advanced",
+          "company": "stripe",
+          "language": "go",
+          "tags": ["rate-limiting", "algorithms", "api-gateway", "throttling"],
+          "documentationLinks": [
+            {
+              "title": "Rate Limiting Algorithms",
+              "url": "https://konghq.com/blog/how-to-design-a-scalable-rate-limiting-algorithm/",
+              "description": "Kong's guide to rate limiting algorithms"
+            },
+            {
+              "title": "Distributed Rate Limiting",
+              "url": "https://stripe.com/blog/rate-limiters",
+              "description": "Stripe's approach to rate limiting"
+            }
+          ]
+        },
+        {
+          "id": "be-010",
+          "title": "Container Orchestration",
+          "question": "Design a Kubernetes deployment for a microservices application. Include service discovery, load balancing, and auto-scaling.",
+          "difficulty": "expert",
+          "company": "kubernetes",
+          "language": "yaml",
+          "tags": ["kubernetes", "security", "rbac", "network-policies"],
+          "documentationLinks": [
+            {
+              "title": "Kubernetes Security",
+              "url": "https://kubernetes.io/docs/concepts/security/",
+              "description": "Official Kubernetes security documentation"
+            },
+            {
+              "title": "Pod Security Standards",
+              "url": "https://kubernetes.io/docs/concepts/security/pod-security-standards/",
+              "description": "Kubernetes pod security standards guide"
+            }
+          ]
+        },
+        {
+          "id": "devops-006",
+          "title": "AWS Auto Scaling",
+          "question": "Design an auto-scaling architecture on AWS using EC2, ALB, and CloudWatch. Handle traffic spikes and cost optimization.",
+          "difficulty": "advanced",
+          "company": "aws",
+          "language": "json",
+          "tags": [
+            "aws",
+            "auto-scaling",
+            "load-balancing",
+            "cost-optimization"
+          ],
+          "documentationLinks": [
+            {
+              "title": "AWS Auto Scaling",
+              "url": "https://docs.aws.amazon.com/autoscaling/",
+              "description": "AWS Auto Scaling documentation"
+            },
+            {
+              "title": "EC2 Best Practices",
+              "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-best-practices.html",
+              "description": "AWS EC2 best practices guide"
+            }
+          ]
+        },
+        {
+          "id": "devops-007",
+          "title": "Service Mesh Implementation",
+          "question": "Implement Istio service mesh for microservices communication. Configure traffic management, security, and observability.",
+          "difficulty": "expert",
+          "company": "istio",
+          "language": "yaml",
+          "tags": [
+            "service-mesh",
+            "istio",
+            "microservices",
+            "traffic-management"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Istio Documentation",
+              "url": "https://istio.io/latest/docs/",
+              "description": "Official Istio service mesh documentation"
+            },
+            {
+              "title": "Service Mesh Patterns",
+              "url": "https://servicemesh.es/",
+              "description": "Service mesh architecture patterns"
+            }
+          ]
+        },
+        {
+          "id": "devops-008",
+          "title": "Database Migration Strategy",
+          "question": "Plan a zero-downtime database migration from monolith to microservices. Handle data consistency and rollback scenarios.",
+          "difficulty": "expert",
+          "company": "stripe",
+          "language": "sql",
+          "tags": [
+            "database-migration",
+            "zero-downtime",
+            "data-consistency",
+            "microservices"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Database Migration Patterns",
+              "url": "https://martinfowler.com/articles/evodb.html",
+              "description": "Martin Fowler's guide to evolutionary database design"
+            },
+            {
+              "title": "Zero Downtime Deployments",
+              "url": "https://blog.travis-ci.com/2013-08-08-zero-downtime-deployments/",
+              "description": "Strategies for zero-downtime deployments"
+            }
+          ]
+        },
+        {
+          "id": "devops-009",
+          "title": "Backup and Disaster Recovery",
+          "question": "Design a comprehensive backup and disaster recovery strategy for a multi-region cloud application.",
+          "difficulty": "advanced",
+          "company": "aws",
+          "language": "bash",
+          "tags": ["backup", "disaster-recovery", "multi-region", "rpo-rto"],
+          "documentationLinks": [
+            {
+              "title": "AWS Disaster Recovery",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html",
+              "description": "AWS disaster recovery whitepaper"
+            },
+            {
+              "title": "Backup Strategies",
+              "url": "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html",
+              "description": "AWS Backup service documentation"
+            }
+          ]
+        },
+        {
+          "id": "devops-010",
+          "title": "Performance Testing at Scale",
+          "question": "Design a performance testing strategy for a high-traffic web application. Include load testing, stress testing, and capacity planning.",
+          "difficulty": "advanced",
+          "company": "locust",
+          "language": "python",
+          "tags": [
+            "performance-testing",
+            "load-testing",
+            "capacity-planning",
+            "scalability"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Performance Testing Guide",
+              "url": "https://docs.locust.io/en/stable/",
+              "description": "Locust performance testing documentation"
+            },
+            {
+              "title": "Capacity Planning",
+              "url": "https://sre.google/sre-book/capacity-planning/",
+              "description": "Google SRE book chapter on capacity planning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mobile",
+      "name": "Mobile Development",
+      "description": "iOS, Android, and cross-platform mobile development",
+      "questions": [
+        {
+          "id": "mobile-001",
+          "title": "iOS Memory Management",
+          "question": "Explain ARC (Automatic Reference Counting) in iOS. How do you handle retain cycles and memory leaks?",
+          "difficulty": "intermediate",
+          "company": "apple",
+          "language": "swift",
+          "tags": ["ios", "memory-management", "arc", "retain-cycles"],
+          "documentationLinks": [
+            {
+              "title": "Swift ARC Guide",
+              "url": "https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html",
+              "description": "Official Swift ARC documentation"
+            },
+            {
+              "title": "iOS Memory Management",
+              "url": "https://developer.apple.com/documentation/swift/swift_standard_library/manual_memory_management",
+              "description": "Apple's memory management guide"
+            }
+          ]
+        },
+        {
+          "id": "mobile-002",
+          "title": "Android Activity Lifecycle",
+          "question": "Explain Android Activity lifecycle. How do you handle configuration changes and state preservation?",
+          "difficulty": "intermediate",
+          "company": "google",
+          "language": "kotlin",
+          "tags": [
+            "android",
+            "activity-lifecycle",
+            "state-management",
+            "configuration-changes"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Android Activity Lifecycle",
+              "url": "https://developer.android.com/guide/components/activities/activity-lifecycle",
+              "description": "Official Android activity lifecycle guide"
+            },
+            {
+              "title": "Handling Configuration Changes",
+              "url": "https://developer.android.com/guide/topics/resources/runtime-changes",
+              "description": "Android configuration changes documentation"
+            }
+          ]
+        },
+        {
+          "id": "mobile-003",
+          "title": "React Native Performance",
+          "question": "Optimize React Native app performance. Address bridge communication, list rendering, and memory usage.",
+          "difficulty": "advanced",
+          "company": "meta",
+          "language": "javascript",
+          "tags": ["react-native", "performance", "bridge", "optimization"],
+          "documentationLinks": [
+            {
+              "title": "React Native Performance",
+              "url": "https://reactnative.dev/docs/performance",
+              "description": "Official React Native performance guide"
+            },
+            {
+              "title": "Optimizing Flatlist",
+              "url": "https://reactnative.dev/docs/optimizing-flatlist-configuration",
+              "description": "React Native FlatList optimization"
+            }
+          ]
+        },
+        {
+          "id": "mobile-004",
+          "title": "Flutter State Management",
+          "question": "Compare different state management solutions in Flutter: setState, Provider, Bloc, and Riverpod. When would you use each?",
+          "difficulty": "intermediate",
+          "company": "google",
+          "language": "dart",
+          "tags": ["flutter", "state-management", "bloc", "provider"],
+          "documentationLinks": [
+            {
+              "title": "Flutter State Management",
+              "url": "https://docs.flutter.dev/development/data-and-backend/state-mgmt/intro",
+              "description": "Official Flutter state management guide"
+            },
+            {
+              "title": "Bloc Pattern",
+              "url": "https://bloclibrary.dev/#/",
+              "description": "Bloc pattern library for Flutter"
+            }
+          ]
+        },
+        {
+          "id": "mobile-005",
+          "title": "Mobile Security Best Practices",
+          "question": "Implement security measures for a mobile banking app. Cover data encryption, secure storage, and API communication.",
+          "difficulty": "advanced",
+          "company": "jpmorgan",
+          "language": "swift",
+          "tags": [
+            "mobile-security",
+            "encryption",
+            "secure-storage",
+            "banking"
+          ],
+          "documentationLinks": [
+            {
+              "title": "iOS Security Guide",
+              "url": "https://developer.apple.com/documentation/security",
+              "description": "Apple's security framework documentation"
+            },
+            {
+              "title": "OWASP Mobile Security",
+              "url": "https://owasp.org/www-project-mobile-security-testing-guide/",
+              "description": "OWASP mobile security testing guide"
+            }
+          ]
+        },
+        {
+          "id": "mobile-006",
+          "title": "Cross-Platform Architecture",
+          "question": "Design a cross-platform mobile architecture that shares business logic between iOS and Android. Consider code reusability and platform-specific features.",
+          "difficulty": "advanced",
+          "company": "uber",
+          "language": "kotlin",
+          "tags": ["cross-platform", "architecture", "code-sharing", "kmm"],
+          "documentationLinks": [
+            {
+              "title": "Kotlin Multiplatform Mobile",
+              "url": "https://kotlinlang.org/lp/mobile/",
+              "description": "Kotlin Multiplatform Mobile documentation"
+            },
+            {
+              "title": "Flutter Architecture",
+              "url": "https://docs.flutter.dev/development/data-and-backend/state-mgmt/options",
+              "description": "Flutter app architecture options"
+            }
+          ]
+        },
+        {
+          "id": "mobile-007",
+          "title": "Mobile App Testing",
+          "question": "Design a comprehensive testing strategy for mobile apps. Include unit testing, UI testing, and device testing across different platforms.",
+          "difficulty": "intermediate",
+          "company": "firebase",
+          "language": "dart",
+          "tags": [
+            "mobile-testing",
+            "unit-testing",
+            "ui-testing",
+            "automation"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Flutter Testing",
+              "url": "https://docs.flutter.dev/testing",
+              "description": "Complete Flutter testing guide"
+            },
+            {
+              "title": "Firebase Test Lab",
+              "url": "https://firebase.google.com/docs/test-lab",
+              "description": "Cloud-based app testing with Firebase"
+            }
+          ]
+        },
+        {
+          "id": "mobile-008",
+          "title": "Push Notifications",
+          "question": "Implement a scalable push notification system for mobile apps. Handle different platforms, user preferences, and delivery optimization.",
+          "difficulty": "advanced",
+          "company": "firebase",
+          "language": "javascript",
+          "tags": ["push-notifications", "fcm", "apns", "messaging"],
+          "documentationLinks": [
+            {
+              "title": "Firebase Cloud Messaging",
+              "url": "https://firebase.google.com/docs/cloud-messaging",
+              "description": "Firebase push notification service"
+            },
+            {
+              "title": "Apple Push Notifications",
+              "url": "https://developer.apple.com/documentation/usernotifications",
+              "description": "Apple's push notification framework"
+            }
+          ]
+        },
+        {
+          "id": "mobile-009",
+          "title": "Mobile Database Design",
+          "question": "Design a local database solution for mobile apps with offline capability. Handle data synchronization and conflict resolution.",
+          "difficulty": "advanced",
+          "company": "realm",
+          "language": "swift",
+          "tags": [
+            "mobile-database",
+            "offline-sync",
+            "conflict-resolution",
+            "local-storage"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Realm Database",
+              "url": "https://docs.mongodb.com/realm/",
+              "description": "Realm mobile database documentation"
+            },
+            {
+              "title": "SQLite for Mobile",
+              "url": "https://developer.android.com/training/data-storage/sqlite",
+              "description": "Android SQLite database guide"
+            }
+          ]
+        },
+        {
+          "id": "mobile-010",
+          "title": "Mobile App Analytics",
+          "question": "Implement comprehensive analytics for mobile apps. Track user behavior, performance metrics, and business KPIs while respecting privacy.",
+          "difficulty": "intermediate",
+          "company": "amplitude",
+          "language": "kotlin",
+          "tags": [
+            "analytics",
+            "user-tracking",
+            "performance-metrics",
+            "privacy"
+          ],
+          "documentationLinks": [
+            {
+              "title": "Firebase Analytics",
+              "url": "https://firebase.google.com/docs/analytics",
+              "description": "Firebase Analytics implementation guide"
+            },
+            {
+              "title": "Privacy-Focused Analytics",
+              "url": "https://developer.apple.com/app-store/user-privacy-and-data-use/",
+              "description": "Apple's privacy guidelines for analytics"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "3.0.0",
+    "lastUpdated": "2025-09-27",
+    "totalQuestions": 92,
+    "totalCategories": 6
+  },
+  "languages": [
+    {
+      "id": "python",
+      "name": "Python",
+      "color": "#3776ab",
+      "description": "Popular language for data science, backend development, and automation"
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "color": "#f7df1e",
+      "description": "Essential for frontend development and Node.js backend"
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "color": "#ed8b00",
+      "description": "Enterprise-grade language for large-scale applications"
+    },
+    {
+      "id": "cpp",
+      "name": "C++",
+      "color": "#00599c",
+      "description": "High-performance systems programming language"
+    },
+    {
+      "id": "csharp",
+      "name": "C#",
+      "color": "#239120",
+      "description": "Microsoft's language for .NET development"
+    },
+    {
+      "id": "go",
+      "name": "Go",
+      "color": "#00add8",
+      "description": "Google's language for concurrent and networked applications"
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "color": "#ce422b",
+      "description": "Memory-safe systems programming language"
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "color": "#3178c6",
+      "description": "Typed superset of JavaScript for large applications"
+    },
+    {
+      "id": "swift",
+      "name": "Swift",
+      "color": "#fa7343",
+      "description": "Apple's language for iOS and macOS development"
+    },
+    {
+      "id": "kotlin",
+      "name": "Kotlin",
+      "color": "#7f52ff",
+      "description": "Modern language for Android development and beyond"
+    },
+    {
+      "id": "dart",
+      "name": "Dart",
+      "color": "#0175c2",
+      "description": "Google's language for Flutter cross-platform development"
+    },
+    {
+      "id": "php",
+      "name": "PHP",
+      "color": "#777bb4",
+      "description": "Server-side scripting language for web development"
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "color": "#cc342d",
+      "description": "Dynamic language known for Ruby on Rails framework"
+    },
+    {
+      "id": "scala",
+      "name": "Scala",
+      "color": "#dc322f",
+      "description": "Functional programming language running on JVM"
+    },
+    {
+      "id": "r",
+      "name": "R",
+      "color": "#276dc3",
+      "description": "Statistical computing and data analysis language"
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "color": "#4479a1",
+      "description": "Standard language for managing relational databases"
+    },
+    {
+      "id": "html",
+      "name": "HTML",
+      "color": "#e34f26",
+      "description": "Markup language for web content structure"
+    },
+    {
+      "id": "css",
+      "name": "CSS",
+      "color": "#1572b6",
+      "description": "Styling language for web presentation"
+    },
+    {
+      "id": "bash",
+      "name": "Bash",
+      "color": "#4eaa25",
+      "description": "Unix shell scripting for automation and system administration"
+    },
+    {
+      "id": "yaml",
+      "name": "YAML",
+      "color": "#cb171e",
+      "description": "Human-readable data serialization for configuration files"
+    },
+    {
+      "id": "json",
+      "name": "JSON",
+      "color": "#000000",
+      "description": "Lightweight data interchange format"
+    },
+    {
+      "id": "dockerfile",
+      "name": "Dockerfile",
+      "color": "#2496ed",
+      "description": "Instructions for building Docker container images"
+    },
+    {
+      "id": "hcl",
+      "name": "HCL",
+      "color": "#623ce4",
+      "description": "HashiCorp Configuration Language for Infrastructure as Code"
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "color": "#339933",
+      "description": "JavaScript runtime for server-side development"
+    }
+  ],
+  "companies": [
+    {
+      "id": "google",
+      "name": "Google",
+      "logo": "https://logo.clearbit.com/google.com",
+      "industry": "Technology",
+      "headquarters": "Mountain View, CA"
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "logo": "https://logo.clearbit.com/meta.com",
+      "industry": "Social Media",
+      "headquarters": "Menlo Park, CA"
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "logo": "https://logo.clearbit.com/amazon.com",
+      "industry": "E-commerce/Cloud",
+      "headquarters": "Seattle, WA"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "logo": "https://logo.clearbit.com/microsoft.com",
+      "industry": "Technology",
+      "headquarters": "Redmond, WA"
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "logo": "https://logo.clearbit.com/apple.com",
+      "industry": "Consumer Electronics",
+      "headquarters": "Cupertino, CA"
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "logo": "https://logo.clearbit.com/netflix.com",
+      "industry": "Streaming",
+      "headquarters": "Los Gatos, CA"
+    },
+    {
+      "id": "uber",
+      "name": "Uber",
+      "logo": "https://logo.clearbit.com/uber.com",
+      "industry": "Transportation",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "tesla",
+      "name": "Tesla",
+      "logo": "https://logo.clearbit.com/tesla.com",
+      "industry": "Automotive/Energy",
+      "headquarters": "Austin, TX"
+    },
+    {
+      "id": "airbnb",
+      "name": "Airbnb",
+      "logo": "https://logo.clearbit.com/airbnb.com",
+      "industry": "Hospitality",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "logo": "https://logo.clearbit.com/stripe.com",
+      "industry": "Financial Services",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "logo": "https://logo.clearbit.com/spotify.com",
+      "industry": "Music Streaming",
+      "headquarters": "Stockholm, Sweden"
+    },
+    {
+      "id": "dropbox",
+      "name": "Dropbox",
+      "logo": "https://logo.clearbit.com/dropbox.com",
+      "industry": "Cloud Storage",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "twitter",
+      "name": "Twitter",
+      "logo": "https://logo.clearbit.com/twitter.com",
+      "industry": "Social Media",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "logo": "https://logo.clearbit.com/linkedin.com",
+      "industry": "Professional Networking",
+      "headquarters": "Sunnyvale, CA"
+    },
+    {
+      "id": "adobe",
+      "name": "Adobe",
+      "logo": "https://logo.clearbit.com/adobe.com",
+      "industry": "Software",
+      "headquarters": "San Jose, CA"
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "logo": "https://logo.clearbit.com/salesforce.com",
+      "industry": "CRM Software",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "logo": "https://logo.clearbit.com/oracle.com",
+      "industry": "Database Software",
+      "headquarters": "Austin, TX"
+    },
+    {
+      "id": "paypal",
+      "name": "PayPal",
+      "logo": "https://logo.clearbit.com/paypal.com",
+      "industry": "Financial Technology",
+      "headquarters": "San Jose, CA"
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "logo": "https://logo.clearbit.com/shopify.com",
+      "industry": "E-commerce Platform",
+      "headquarters": "Ottawa, Canada"
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "logo": "https://logo.clearbit.com/github.com",
+      "industry": "Developer Tools",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "logo": "https://logo.clearbit.com/atlassian.com",
+      "industry": "Software Development Tools",
+      "headquarters": "Sydney, Australia"
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "logo": "https://logo.clearbit.com/slack.com",
+      "industry": "Business Communication",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "zoom",
+      "name": "Zoom",
+      "logo": "https://logo.clearbit.com/zoom.us",
+      "industry": "Video Communications",
+      "headquarters": "San Jose, CA"
+    },
+    {
+      "id": "databricks",
+      "name": "Databricks",
+      "logo": "https://logo.clearbit.com/databricks.com",
+      "industry": "Data Analytics",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "snowflake",
+      "name": "Snowflake",
+      "logo": "https://logo.clearbit.com/snowflake.com",
+      "industry": "Cloud Data Platform",
+      "headquarters": "Bozeman, MT"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "logo": "https://logo.clearbit.com/openai.com",
+      "industry": "Artificial Intelligence",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "logo": "https://logo.clearbit.com/anthropic.com",
+      "industry": "AI Safety",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "logo": "https://logo.clearbit.com/figma.com",
+      "industry": "Design Tools",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "logo": "https://logo.clearbit.com/notion.so",
+      "industry": "Productivity Software",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "twilio",
+      "name": "Twilio",
+      "logo": "https://logo.clearbit.com/twilio.com",
+      "industry": "Cloud Communications",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "mongodb",
+      "name": "MongoDB",
+      "logo": "https://logo.clearbit.com/mongodb.com",
+      "industry": "Database Technology",
+      "headquarters": "New York, NY"
+    },
+    {
+      "id": "redis",
+      "name": "Redis",
+      "logo": "https://logo.clearbit.com/redis.com",
+      "industry": "Database Technology",
+      "headquarters": "Mountain View, CA"
+    },
+    {
+      "id": "elastic",
+      "name": "Elastic",
+      "logo": "https://logo.clearbit.com/elastic.co",
+      "industry": "Search and Analytics",
+      "headquarters": "Mountain View, CA"
+    },
+    {
+      "id": "hashicorp",
+      "name": "HashiCorp",
+      "logo": "https://logo.clearbit.com/hashicorp.com",
+      "industry": "Cloud Infrastructure",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "logo": "https://logo.clearbit.com/docker.com",
+      "industry": "Containerization",
+      "headquarters": "Palo Alto, CA"
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "logo": "https://logo.clearbit.com/kubernetes.io",
+      "industry": "Container Orchestration",
+      "headquarters": "Open Source"
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab",
+      "logo": "https://logo.clearbit.com/gitlab.com",
+      "industry": "DevOps Platform",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "datadog",
+      "name": "Datadog",
+      "logo": "https://logo.clearbit.com/datadoghq.com",
+      "industry": "Monitoring and Analytics",
+      "headquarters": "New York, NY"
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "logo": "https://logo.clearbit.com/aws.amazon.com",
+      "industry": "Cloud Computing",
+      "headquarters": "Seattle, WA"
+    },
+    {
+      "id": "istio",
+      "name": "Istio",
+      "logo": "https://logo.clearbit.com/istio.io",
+      "industry": "Service Mesh",
+      "headquarters": "Open Source"
+    },
+    {
+      "id": "locust",
+      "name": "Locust",
+      "logo": "https://logo.clearbit.com/locust.io",
+      "industry": "Performance Testing",
+      "headquarters": "Open Source"
+    },
+    {
+      "id": "firebase",
+      "name": "Firebase",
+      "logo": "https://logo.clearbit.com/firebase.google.com",
+      "industry": "Mobile Backend",
+      "headquarters": "Mountain View, CA"
+    },
+    {
+      "id": "realm",
+      "name": "Realm",
+      "logo": "https://logo.clearbit.com/realm.io",
+      "industry": "Mobile Database",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "amplitude",
+      "name": "Amplitude",
+      "logo": "https://logo.clearbit.com/amplitude.com",
+      "industry": "Product Analytics",
+      "headquarters": "San Francisco, CA"
+    },
+    {
+      "id": "jpmorgan",
+      "name": "JPMorgan Chase",
+      "logo": "https://logo.clearbit.com/jpmorganchase.com",
+      "industry": "Financial Services",
+      "headquarters": "New York, NY"
+    },
+    {
+      "id": "quantlab",
+      "name": "QuantLab",
+      "logo": "https://logo.clearbit.com/quantlab.com",
+      "industry": "Quantitative Finance",
+      "headquarters": "Houston, TX"
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "logo": "https://logo.clearbit.com/facebook.com",
+      "industry": "Social Media",
+      "headquarters": "Menlo Park, CA"
+    },
+    {
+      "id": "auth0",
+      "name": "Auth0",
+      "logo": "https://logo.clearbit.com/auth0.com",
+      "industry": "Identity Management",
+      "headquarters": "Bellevue, WA"
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "logo": "https://logo.clearbit.com/postgresql.org",
+      "industry": "Database Technology",
+      "headquarters": "Open Source"
+    },
+    {
+      "id": "webpack",
+      "name": "Webpack",
+      "logo": "https://logo.clearbit.com/webpack.js.org",
+      "industry": "Build Tools",
+      "headquarters": "Open Source"
+    },
+    {
+      "id": "chrome",
+      "name": "Chrome",
+      "logo": "https://logo.clearbit.com/google.com/chrome",
+      "industry": "Web Browser",
+      "headquarters": "Mountain View, CA"
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "logo": "https://logo.clearbit.com/vercel.com",
+      "industry": "Frontend Cloud",
+      "headquarters": "San Francisco, CA"
+    }
+  ],
+  "difficultyLevels": [
+    {
+      "id": "beginner",
+      "name": "Beginner",
+      "color": "#10b981",
+      "description": "Entry-level questions suitable for junior developers",
+      "experienceRange": "0-2 years"
+    },
+    {
+      "id": "intermediate",
+      "name": "Intermediate",
+      "color": "#f59e0b",
+      "description": "Mid-level questions for developers with some experience",
+      "experienceRange": "2-5 years"
+    },
+    {
+      "id": "advanced",
+      "name": "Advanced",
+      "color": "#ef4444",
+      "description": "Senior-level questions requiring deep technical knowledge",
+      "experienceRange": "5-8 years"
+    },
+    {
+      "id": "expert",
+      "name": "Expert",
+      "color": "#8b5cf6",
+      "description": "Architect-level questions for highly experienced professionals",
+      "experienceRange": "8+ years"
+    }
+  ],
+  "tags": [
+    {
+      "id": "algorithms",
+      "name": "Algorithms",
+      "category": "technical",
+      "description": "Algorithm design and analysis questions"
+    },
+    {
+      "id": "data-structures",
+      "name": "Data Structures",
+      "category": "technical",
+      "description": "Implementation and usage of data structures"
+    },
+    {
+      "id": "system-design",
+      "name": "System Design",
+      "category": "architecture",
+      "description": "Large-scale system architecture and design"
+    },
+    {
+      "id": "scalability",
+      "name": "Scalability",
+      "category": "architecture",
+      "description": "Building systems that handle growth"
+    },
+    {
+      "id": "performance",
+      "name": "Performance",
+      "category": "optimization",
+      "description": "Performance optimization and tuning"
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "category": "security",
+      "description": "Application and system security"
+    },
+    {
+      "id": "databases",
+      "name": "Databases",
+      "category": "backend",
+      "description": "Database design and optimization"
+    },
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "category": "frontend",
+      "description": "Frontend and web technologies"
+    },
+    {
+      "id": "mobile-development",
+      "name": "Mobile Development",
+      "category": "mobile",
+      "description": "iOS, Android, and cross-platform development"
+    },
+    {
+      "id": "devops",
+      "name": "DevOps",
+      "category": "infrastructure",
+      "description": "Deployment, monitoring, and infrastructure"
+    },
+    {
+      "id": "machine-learning",
+      "name": "Machine Learning",
+      "category": "data-science",
+      "description": "ML algorithms and implementations"
+    },
+    {
+      "id": "data-analysis",
+      "name": "Data Analysis",
+      "category": "data-science",
+      "description": "Data processing and statistical analysis"
+    }
+  ],
+  "interviewFormats": [
+    {
+      "id": "coding",
+      "name": "Coding Interview",
+      "description": "Live coding session with algorithmic problems",
+      "duration": "45-60 minutes",
+      "tools": ["IDE", "Whiteboard", "Screen sharing"]
+    },
+    {
+      "id": "system-design",
+      "name": "System Design Interview",
+      "description": "High-level architecture design discussion",
+      "duration": "60-90 minutes",
+      "tools": ["Whiteboard", "Diagramming tools", "Discussion"]
+    },
+    {
+      "id": "behavioral",
+      "name": "Behavioral Interview",
+      "description": "Past experience and soft skills assessment",
+      "duration": "30-45 minutes",
+      "tools": ["Conversation", "STAR method"]
+    },
+    {
+      "id": "technical-deep-dive",
+      "name": "Technical Deep Dive",
+      "description": "In-depth discussion of technical concepts",
+      "duration": "45-60 minutes",
+      "tools": ["Technical discussion", "Code review"]
+    },
+    {
+      "id": "take-home",
+      "name": "Take-home Assignment",
+      "description": "Complete project or problem set at home",
+      "duration": "2-8 hours",
+      "tools": ["Any preferred tools", "Time flexibility"]
+    }
+  ],
+  "preparationResources": [
+    {
+      "category": "Books",
+      "resources": [
+        {
+          "title": "Cracking the Coding Interview",
+          "author": "Gayle Laakmann McDowell",
+          "description": "Comprehensive guide to technical interviews",
+          "url": "https://www.crackingthecodinginterview.com/"
+        },
+        {
+          "title": "System Design Interview",
+          "author": "Alex Xu",
+          "description": "An insider's guide to system design interviews",
+          "url": "https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF"
+        },
+        {
+          "title": "Designing Data-Intensive Applications",
+          "author": "Martin Kleppmann",
+          "description": "The big ideas behind reliable, scalable, and maintainable systems",
+          "url": "https://dataintensive.net/"
+        }
+      ]
+    },
+    {
+      "category": "Online Platforms",
+      "resources": [
+        {
+          "title": "LeetCode",
+          "description": "Practice coding problems from tech companies",
+          "url": "https://leetcode.com/",
+          "features": [
+            "Problem sets",
+            "Mock interviews",
+            "Company-specific questions"
+          ]
+        },
+        {
+          "title": "HackerRank",
+          "description": "Coding challenges and skill assessments",
+          "url": "https://www.hackerrank.com/",
+          "features": [
+            "Skill certifications",
+            "Interview preparation",
+            "Competitive programming"
+          ]
+        },
+        {
+          "title": "Pramp",
+          "description": "Free mock interviews with peers",
+          "url": "https://www.pramp.com/",
+          "features": [
+            "Peer-to-peer interviews",
+            "Real-time feedback",
+            "Various interview types"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Courses",
+      "resources": [
+        {
+          "title": "Grokking the System Design Interview",
+          "platform": "Educative",
+          "description": "Step-by-step system design interview preparation",
+          "url": "https://www.educative.io/courses/grokking-the-system-design-interview"
+        },
+        {
+          "title": "Algorithms Specialization",
+          "platform": "Coursera",
+          "author": "Stanford University",
+          "description": "Comprehensive algorithms course",
+          "url": "https://www.coursera.org/specializations/algorithms"
+        }
+      ]
+    }
+  ],
+  "interviewTips": {
+    "preparation": [
+      "Practice coding problems daily for consistency",
+      "Study system design patterns and trade-offs",
+      "Review your past projects and be ready to discuss them",
+      "Mock interview with friends or online platforms",
+      "Research the company's tech stack and recent developments",
+      "Prepare thoughtful questions to ask the interviewer"
+    ],
+    "duringInterview": [
+      "Think out loud and explain your approach",
+      "Ask clarifying questions before starting to code",
+      "Start with a brute force solution, then optimize",
+      "Test your code with example inputs",
+      "Discuss time and space complexity",
+      "Stay calm and communicate clearly throughout"
+    ],
+    "systemDesign": [
+      "Start with requirements gathering and scope definition",
+      "Estimate scale (users, data, requests per second)",
+      "Design high-level architecture first",
+      "Deep dive into key components",
+      "Discuss trade-offs and alternatives",
+      "Address scalability, reliability, and consistency"
+    ],
+    "behavioral": [
+      "Use the STAR method (Situation, Task, Action, Result)",
+      "Prepare specific examples from your experience",
+      "Show leadership, problem-solving, and collaboration",
+      "Be honest about challenges and failures",
+      "Demonstrate growth mindset and learning ability",
+      "Research company culture and values"
+    ]
+  },
+  "salaryRanges": {
+    "byLevel": {
+      "entry": {
+        "title": "Entry Level (0-2 years)",
+        "ranges": {
+          "frontend": "$70K - $120K",
+          "backend": "$80K - $130K",
+          "fullstack": "$75K - $125K",
+          "mobile": "$85K - $135K",
+          "devops": "$90K - $140K",
+          "data": "$85K - $140K"
+        }
+      },
+      "mid": {
+        "title": "Mid Level (3-5 years)",
+        "ranges": {
+          "frontend": "$120K - $180K",
+          "backend": "$130K - $190K",
+          "fullstack": "$125K - $185K",
+          "mobile": "$140K - $200K",
+          "devops": "$150K - $210K",
+          "data": "$140K - $200K"
+        }
+      },
+      "senior": {
+        "title": "Senior Level (6-8 years)",
+        "ranges": {
+          "frontend": "$180K - $280K",
+          "backend": "$190K - $300K",
+          "fullstack": "$185K - $290K",
+          "mobile": "$200K - $320K",
+          "devops": "$210K - $330K",
+          "data": "$200K - $320K"
+        }
+      },
+      "staff": {
+        "title": "Staff/Principal (9+ years)",
+        "ranges": {
+          "frontend": "$280K - $450K",
+          "backend": "$300K - $500K",
+          "fullstack": "$290K - $480K",
+          "mobile": "$320K - $520K",
+          "devops": "$330K - $550K",
+          "data": "$320K - $550K"
+        }
+      }
+    },
+    "byCompany": {
+      "faang": {
+        "name": "FAANG (Meta, Apple, Amazon, Netflix, Google)",
+        "multiplier": 1.3,
+        "description": "Top tech companies with highest compensation"
+      },
+      "unicorn": {
+        "name": "Unicorn Startups",
+        "multiplier": 1.1,
+        "description": "High-growth private companies valued at $1B+"
+      },
+      "established": {
+        "name": "Established Tech Companies",
+        "multiplier": 1.0,
+        "description": "Mature technology companies"
+      },
+      "startup": {
+        "name": "Early Stage Startups",
+        "multiplier": 0.8,
+        "description": "Early stage companies with equity upside"
+      }
+    }
+  },
+  "industryTrends": {
+    "2024": [
+      {
+        "trend": "AI/ML Integration",
+        "description": "Growing demand for AI/ML skills across all roles",
+        "impact": "High",
+        "skills": [
+          "Machine Learning",
+          "Deep Learning",
+          "NLP",
+          "Computer Vision"
+        ]
+      },
+      {
+        "trend": "Cloud-Native Development",
+        "description": "Shift towards microservices and container orchestration",
+        "impact": "High",
+        "skills": ["Kubernetes", "Docker", "Serverless", "Cloud Platforms"]
+      },
+      {
+        "trend": "Developer Experience Focus",
+        "description": "Emphasis on improving developer productivity and tools",
+        "impact": "Medium",
+        "skills": [
+          "CI/CD",
+          "Infrastructure as Code",
+          "Monitoring",
+          "Developer Tools"
+        ]
+      },
+      {
+        "trend": "Security-First Development",
+        "description": "Integration of security practices throughout development lifecycle",
+        "impact": "High",
+        "skills": ["DevSecOps", "Security Testing", "Compliance", "Zero Trust"]
+      },
+      {
+        "trend": "Remote-First Culture",
+        "description": "Continued adoption of remote and hybrid work models",
+        "impact": "Medium",
+        "skills": [
+          "Async Communication",
+          "Remote Collaboration",
+          "Time Management"
+        ]
+      }
+    ]
+  },
+  "careerPaths": [
+    {
+      "path": "Individual Contributor",
+      "levels": [
+        {
+          "level": "Junior Developer",
+          "years": "0-2",
+          "responsibilities": [
+            "Code implementation",
+            "Bug fixes",
+            "Learning technologies"
+          ],
+          "skills": [
+            "Programming fundamentals",
+            "Version control",
+            "Testing basics"
+          ]
+        },
+        {
+          "level": "Mid-level Developer",
+          "years": "3-5",
+          "responsibilities": [
+            "Feature development",
+            "Code reviews",
+            "Technical design"
+          ],
+          "skills": [
+            "System design basics",
+            "Database design",
+            "API development"
+          ]
+        },
+        {
+          "level": "Senior Developer",
+          "years": "6-8",
+          "responsibilities": [
+            "Architecture decisions",
+            "Mentoring",
+            "Cross-team collaboration"
+          ],
+          "skills": [
+            "System architecture",
+            "Performance optimization",
+            "Leadership"
+          ]
+        },
+        {
+          "level": "Staff Engineer",
+          "years": "9-12",
+          "responsibilities": [
+            "Technical strategy",
+            "System-wide improvements",
+            "Technical leadership"
+          ],
+          "skills": [
+            "Distributed systems",
+            "Technical vision",
+            "Influence without authority"
+          ]
+        },
+        {
+          "level": "Principal Engineer",
+          "years": "12+",
+          "responsibilities": [
+            "Company-wide technical strategy",
+            "Innovation",
+            "Technical excellence"
+          ],
+          "skills": [
+            "Technology strategy",
+            "Industry expertise",
+            "Technical evangelism"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "Engineering Management",
+      "levels": [
+        {
+          "level": "Tech Lead",
+          "years": "5-7",
+          "responsibilities": [
+            "Team technical direction",
+            "Project planning",
+            "Individual contribution"
+          ],
+          "skills": [
+            "Technical leadership",
+            "Project management",
+            "Team coordination"
+          ]
+        },
+        {
+          "level": "Engineering Manager",
+          "years": "7-10",
+          "responsibilities": [
+            "People management",
+            "Team growth",
+            "Delivery execution"
+          ],
+          "skills": [
+            "People management",
+            "Performance reviews",
+            "Hiring",
+            "Team building"
+          ]
+        },
+        {
+          "level": "Senior Engineering Manager",
+          "years": "10-12",
+          "responsibilities": [
+            "Multiple team management",
+            "Organizational planning",
+            "Strategy execution"
+          ],
+          "skills": [
+            "Organizational design",
+            "Strategic planning",
+            "Cross-functional leadership"
+          ]
+        },
+        {
+          "level": "Director of Engineering",
+          "years": "12-15",
+          "responsibilities": [
+            "Department leadership",
+            "Technology roadmap",
+            "Business alignment"
+          ],
+          "skills": [
+            "Business acumen",
+            "Technology strategy",
+            "Organizational leadership"
+          ]
+        },
+        {
+          "level": "VP of Engineering",
+          "years": "15+",
+          "responsibilities": [
+            "Engineering organization",
+            "Company strategy",
+            "Technology vision"
+          ],
+          "skills": [
+            "Executive leadership",
+            "Company strategy",
+            "Technology vision",
+            "Board communication"
+          ]
+        }
+      ]
+    }
+  ],
+  "assessmentCriteria": {
+    "coding": {
+      "correctness": {
+        "weight": 30,
+        "description": "Does the solution work correctly for all test cases?"
+      },
+      "efficiency": {
+        "weight": 25,
+        "description": "Time and space complexity optimization"
+      },
+      "codeQuality": {
+        "weight": 20,
+        "description": "Clean, readable, and maintainable code"
+      },
+      "problemSolving": {
+        "weight": 15,
+        "description": "Approach to breaking down the problem"
+      },
+      "communication": {
+        "weight": 10,
+        "description": "Ability to explain thought process clearly"
+      }
+    },
+    "systemDesign": {
+      "requirements": {
+        "weight": 20,
+        "description": "Clear understanding and definition of requirements"
+      },
+      "architecture": {
+        "weight": 25,
+        "description": "High-level system design and component interaction"
+      },
+      "scalability": {
+        "weight": 20,
+        "description": "Ability to handle growth in users, data, and traffic"
+      },
+      "tradeoffs": {
+        "weight": 15,
+        "description": "Understanding of design decisions and alternatives"
+      },
+      "deepDive": {
+        "weight": 10,
+        "description": "Detailed exploration of key components"
+      },
+      "communication": {
+        "weight": 10,
+        "description": "Clear explanation and structured thinking"
+      }
+    }
+  },
+  "commonMistakes": {
+    "coding": [
+      "Not asking clarifying questions before starting",
+      "Jumping to code without explaining the approach",
+      "Not considering edge cases and error handling",
+      "Poor variable naming and code organization",
+      "Not testing the solution with examples",
+      "Ignoring time and space complexity discussion",
+      "Getting stuck on optimization without working solution first"
+    ],
+    "systemDesign": [
+      "Not defining scope and requirements clearly",
+      "Starting with details instead of high-level design",
+      "Not considering scale and performance requirements",
+      "Ignoring data consistency and availability trade-offs",
+      "Over-engineering the solution for given scale",
+      "Not discussing monitoring and operational concerns",
+      "Failing to address single points of failure"
+    ],
+    "behavioral": [
+      "Not using the STAR method for structuring answers",
+      "Giving vague examples without specific details",
+      "Not showing learning from failures or challenges",
+      "Focusing only on technical aspects, ignoring teamwork",
+      "Not preparing questions to ask the interviewer",
+      "Speaking negatively about previous employers or colleagues"
+    ]
+  },
+  "negotiationTips": {
+    "preparation": [
+      "Research market rates for your role and location",
+      "Document your achievements and impact quantitatively",
+      "Understand the complete compensation package",
+      "Know your minimum acceptable offer (walk-away point)",
+      "Prepare multiple offer scenarios for comparison"
+    ],
+    "strategy": [
+      "Express enthusiasm for the role and company first",
+      "Ask for time to consider the initial offer",
+      "Negotiate total compensation, not just base salary",
+      "Use competing offers as leverage respectfully",
+      "Be prepared to justify your requested compensation",
+      "Consider non-monetary benefits (vacation, remote work, learning budget)"
+    ],
+    "commonElements": [
+      {
+        "element": "Base Salary",
+        "negotiable": "High",
+        "tips": "Primary component, most directly comparable across offers"
+      },
+      {
+        "element": "Equity/Stock Options",
+        "negotiable": "Medium",
+        "tips": "Consider vesting schedule, company stage, and dilution risk"
+      },
+      {
+        "element": "Signing Bonus",
+        "negotiable": "Medium",
+        "tips": "Often available to offset lost bonuses from previous job"
+      },
+      {
+        "element": "Annual Bonus",
+        "negotiable": "Low",
+        "tips": "Usually tied to company performance and role level"
+      },
+      {
+        "element": "Vacation Days",
+        "negotiable": "Medium",
+        "tips": "More flexible at smaller companies"
+      },
+      {
+        "element": "Learning Budget",
+        "negotiable": "High",
+        "tips": "Often easy for companies to approve"
+      },
+      {
+        "element": "Remote Work",
+        "negotiable": "Medium",
+        "tips": "Varies greatly by company policy and role requirements"
+      }
+    ]
+  },
+  "onboardingChecklist": {
+    "beforeStarting": [
+      "Complete background check and paperwork",
+      "Set up home office if working remotely",
+      "Review company handbook and policies",
+      "Connect with your manager and team members",
+      "Prepare questions about role expectations",
+      "Set up necessary accounts and tools"
+    ],
+    "firstWeek": [
+      "Attend orientation and training sessions",
+      "Meet key stakeholders and cross-functional partners",
+      "Set up development environment and tools",
+      "Review codebase and documentation",
+      "Understand team processes and workflows",
+      "Set initial goals with your manager"
+    ],
+    "first30Days": [
+      "Complete first small project or bug fix",
+      "Attend team meetings and planning sessions",
+      "Shadow senior team members on important tasks",
+      "Provide feedback on onboarding experience",
+      "Establish regular 1:1 cadence with manager",
+      "Begin contributing to code reviews"
+    ],
+    "first90Days": [
+      "Take ownership of medium-sized features",
+      "Identify areas for process improvement",
+      "Build relationships across the organization",
+      "Set quarterly goals and success metrics",
+      "Seek feedback on performance and growth areas",
+      "Consider mentorship opportunities"
+    ]
+  },
+  "continuousLearning": {
+    "technicalSkills": [
+      {
+        "category": "Programming Languages",
+        "recommendation": "Learn one new language per year that complements your stack",
+        "resources": [
+          "Language documentation",
+          "Project-based tutorials",
+          "Code challenges"
+        ]
+      },
+      {
+        "category": "Frameworks and Tools",
+        "recommendation": "Stay current with ecosystem updates and new tools in your domain",
+        "resources": [
+          "Official documentation",
+          "Community forums",
+          "Conference talks"
+        ]
+      },
+      {
+        "category": "System Design",
+        "recommendation": "Study large-scale system architectures and design patterns",
+        "resources": [
+          "Engineering blogs",
+          "System design courses",
+          "Architecture books"
+        ]
+      },
+      {
+        "category": "Cloud Technologies",
+        "recommendation": "Gain hands-on experience with major cloud platforms",
+        "resources": [
+          "Free tier accounts",
+          "Certification programs",
+          "Practice projects"
+        ]
+      }
+    ],
+    "softSkills": [
+      {
+        "skill": "Communication",
+        "importance": "Critical for all roles",
+        "development": [
+          "Technical writing",
+          "Public speaking",
+          "Active listening"
+        ]
+      },
+      {
+        "skill": "Leadership",
+        "importance": "Important for career growth",
+        "development": [
+          "Mentoring others",
+          "Leading projects",
+          "Cross-team collaboration"
+        ]
+      },
+      {
+        "skill": "Problem Solving",
+        "importance": "Core engineering skill",
+        "development": [
+          "Diverse problem domains",
+          "Root cause analysis",
+          "Creative thinking"
+        ]
+      },
+      {
+        "skill": "Time Management",
+        "importance": "Essential for productivity",
+        "development": [
+          "Priority setting",
+          "Estimation skills",
+          "Focus techniques"
+        ]
+      }
+    ]
+  },
+  "remoteWorkTips": {
+    "setup": [
+      "Invest in a good desk, chair, and monitor setup",
+      "Ensure reliable internet connection and backup options",
+      "Create a dedicated workspace separate from living areas",
+      "Set up proper lighting and minimize background noise",
+      "Have backup power solutions for important meetings"
+    ],
+    "productivity": [
+      "Establish consistent work hours and routines",
+      "Use time-blocking techniques for focused work",
+      "Take regular breaks and maintain work-life boundaries",
+      "Communicate your availability clearly to teammates",
+      "Over-communicate progress and blockers proactively"
+    ],
+    "collaboration": [
+      "Use video calls for important discussions",
+      "Document decisions and share context asynchronously",
+      "Participate actively in team rituals and social events",
+      "Be mindful of timezone differences in global teams",
+      "Use collaborative tools effectively for code reviews and planning"
+    ]
+  },
+  "interviewQuestionTemplates": {
+    "behavioral": [
+      {
+        "question": "Tell me about a time when you had to solve a difficult technical problem.",
+        "followups": [
+          "What made this problem particularly challenging?",
+          "How did you approach breaking it down?",
+          "What would you do differently next time?"
+        ],
+        "lookingFor": [
+          "Problem-solving approach",
+          "Technical depth",
+          "Learning from experience"
+        ]
+      },
+      {
+        "question": "Describe a situation where you had to work with a difficult team member.",
+        "followups": [
+          "How did you handle the interpersonal challenges?",
+          "What was the outcome?",
+          "How did this experience change your approach to teamwork?"
+        ],
+        "lookingFor": [
+          "Interpersonal skills",
+          "Conflict resolution",
+          "Emotional intelligence"
+        ]
+      },
+      {
+        "question": "Tell me about a project you led from start to finish.",
+        "followups": [
+          "How did you ensure the project stayed on track?",
+          "What obstacles did you encounter?",
+          "How did you measure success?"
+        ],
+        "lookingFor": [
+          "Leadership skills",
+          "Project management",
+          "Results orientation"
+        ]
+      }
+    ],
+    "technical": [
+      {
+        "question": "How would you debug a performance issue in production?",
+        "followups": [
+          "What tools would you use for monitoring?",
+          "How would you prioritize different potential causes?",
+          "How would you prevent similar issues in the future?"
+        ],
+        "lookingFor": [
+          "Debugging methodology",
+          "Production experience",
+          "Preventive thinking"
+        ]
+      },
+      {
+        "question": "Explain the trade-offs between SQL and NoSQL databases.",
+        "followups": [
+          "When would you choose one over the other?",
+          "How do you handle data consistency in each?",
+          "What about scalability considerations?"
+        ],
+        "lookingFor": [
+          "Database knowledge",
+          "Trade-off analysis",
+          "Practical experience"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "algorithms",
+    "name": "Algorithms",
+    "category": "technical",
+    "description": "Algorithm design and analysis questions"
+  },
+  {
+    "id": "data-structures",
+    "name": "Data Structures",
+    "category": "technical",
+    "description": "Implementation and usage of data structures"
+  },
+  {
+    "id": "system-design",
+    "name": "System Design",
+    "category": "architecture",
+    "description": "Large-scale system architecture and design"
+  },
+  {
+    "id": "scalability",
+    "name": "Scalability",
+    "category": "architecture",
+    "description": "Building systems that handle growth"
+  },
+  {
+    "id": "performance",
+    "name": "Performance",
+    "category": "optimization",
+    "description": "Performance optimization and tuning"
+  },
+  {
+    "id": "security",
+    "name": "Security",
+    "category": "security",
+    "description": "Application and system security"
+  },
+  {
+    "id": "databases",
+    "name": "Databases",
+    "category": "backend",
+    "description": "Database design and optimization"
+  },
+  {
+    "id": "web-development",
+    "name": "Web Development",
+    "category": "frontend",
+    "description": "Frontend and web technologies"
+  },
+  {
+    "id": "mobile-development",
+    "name": "Mobile Development",
+    "category": "mobile",
+    "description": "iOS, Android, and cross-platform development"
+  },
+  {
+    "id": "devops",
+    "name": "DevOps",
+    "category": "infrastructure",
+    "description": "Deployment, monitoring, and infrastructure"
+  },
+  {
+    "id": "machine-learning",
+    "name": "Machine Learning",
+    "category": "data-science",
+    "description": "ML algorithms and implementations"
+  },
+  {
+    "id": "data-analysis",
+    "name": "Data Analysis",
+    "category": "data-science",
+    "description": "Data processing and statistical analysis"
+  }
+]

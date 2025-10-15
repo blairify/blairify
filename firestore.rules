@@ -1,0 +1,130 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isValidUserData() {
+      return request.resource.data.keys().hasAll(['uid', 'email', 'createdAt']) &&
+             request.resource.data.uid == request.auth.uid;
+    }
+    
+    function isValidSkillData() {
+      return request.resource.data.keys().hasAll(['skillId', 'category', 'name', 'currentLevel']) &&
+             request.resource.data.currentLevel is number &&
+             request.resource.data.currentLevel >= 1 &&
+             request.resource.data.currentLevel <= 10;
+    }
+    
+    function isValidSessionData() {
+      return request.resource.data.keys().hasAll(['sessionId', 'config', 'status']) &&
+             request.resource.data.status in ['scheduled', 'in-progress', 'completed', 'abandoned', 'paused'];
+    }
+    
+    // Users collection - users can read/write their own data
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidUserData();
+      allow update: if isOwner(userId);
+      allow delete: if false; // Users shouldn't be able to delete their profiles
+      
+      // User skills subcollection
+      match /skills/{skillId} {
+        allow read, write: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidSkillData();
+        allow update: if isOwner(userId);
+      }
+      
+      // User interview sessions subcollection
+      match /sessions/{sessionId} {
+        allow read, write: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidSessionData();
+        allow update: if isOwner(userId);
+      }
+      
+      // User analytics subcollection
+      match /analytics/{analyticsId} {
+        allow read, write: if isOwner(userId);
+      }
+      
+      // User progress tracking subcollection
+      match /progress/{progressId} {
+        allow read, write: if isOwner(userId);
+      }
+      
+      // User activities subcollection
+      match /activities/{activityId} {
+        allow read, write: if isOwner(userId);
+        // Allow creation with auto-generated timestamps
+        allow create: if isOwner(userId) && 
+                     request.resource.data.timestamp == request.time;
+      }
+      
+      // User achievements subcollection
+      match /achievements/{achievementId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+    
+    // Allow connection test document for connectivity checks
+    match /connection-test/{docId} {
+      allow read: if isAuthenticated();
+    }
+    
+    // System-wide collections (admin only)
+    match /system/{document} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Only admins should write system data
+    }
+    
+    // Global achievements definitions (read-only for all authenticated users)
+    match /global_achievements/{achievementId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Only admins should write global data
+    }
+    
+    // Company information (read-only for all authenticated users)
+    match /companies/{companyId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Only admins should write company data
+    }
+    
+    // Question banks (read-only for all authenticated users)
+    match /questions/{questionId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Only admins should write questions
+    }
+    
+    // Grant application data - users can read and write their own grant applications
+    match /grants/{grantId} {
+      allow read, write: if isAuthenticated() && request.auth.uid == resource.data.userId;
+    }
+    
+    // User applications - users can manage their own applications
+    match /applications/{applicationId} {
+      allow read, write: if isAuthenticated() && request.auth.uid == resource.data.userId;
+    }
+    
+    // Interview data - users can manage their own interview data
+    match /interviews/{interviewId} {
+      allow read, write: if isAuthenticated() && request.auth.uid == resource.data.userId;
+    }
+    
+    // Profile data - users can manage their own profiles
+    match /profiles/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+    
+    // Deny all other requests
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

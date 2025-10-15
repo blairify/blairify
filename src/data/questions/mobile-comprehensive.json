@@ -1,0 +1,222 @@
+[
+  {
+    "id": "mobile-001",
+    "title": "iOS Memory Management",
+    "question": "Explain ARC (Automatic Reference Counting) in iOS. How do you handle retain cycles and memory leaks?",
+    "difficulty": "intermediate",
+    "company": "apple",
+    "language": "swift",
+    "tags": ["ios", "memory-management", "arc", "retain-cycles"],
+    "documentationLinks": [
+      {
+        "title": "Swift ARC Guide",
+        "url": "https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html",
+        "description": "Official Swift ARC documentation"
+      },
+      {
+        "title": "iOS Memory Management",
+        "url": "https://developer.apple.com/documentation/swift/swift_standard_library/manual_memory_management",
+        "description": "Apple's memory management guide"
+      }
+    ]
+  },
+  {
+    "id": "mobile-002",
+    "title": "Android Activity Lifecycle",
+    "question": "Explain Android Activity lifecycle. How do you handle configuration changes and state preservation?",
+    "difficulty": "intermediate",
+    "company": "google",
+    "language": "kotlin",
+    "tags": [
+      "android",
+      "activity-lifecycle",
+      "state-management",
+      "configuration-changes"
+    ],
+    "documentationLinks": [
+      {
+        "title": "Android Activity Lifecycle",
+        "url": "https://developer.android.com/guide/components/activities/activity-lifecycle",
+        "description": "Official Android activity lifecycle guide"
+      },
+      {
+        "title": "Handling Configuration Changes",
+        "url": "https://developer.android.com/guide/topics/resources/runtime-changes",
+        "description": "Android configuration changes documentation"
+      }
+    ]
+  },
+  {
+    "id": "mobile-003",
+    "title": "React Native Performance",
+    "question": "Optimize React Native app performance. Address bridge communication, list rendering, and memory usage.",
+    "difficulty": "advanced",
+    "company": "meta",
+    "language": "javascript",
+    "tags": ["react-native", "performance", "bridge", "optimization"],
+    "documentationLinks": [
+      {
+        "title": "React Native Performance",
+        "url": "https://reactnative.dev/docs/performance",
+        "description": "Official React Native performance guide"
+      },
+      {
+        "title": "Optimizing Flatlist",
+        "url": "https://reactnative.dev/docs/optimizing-flatlist-configuration",
+        "description": "React Native FlatList optimization"
+      }
+    ]
+  },
+  {
+    "id": "mobile-004",
+    "title": "Flutter State Management",
+    "question": "Compare different state management solutions in Flutter: setState, Provider, Bloc, and Riverpod. When would you use each?",
+    "difficulty": "intermediate",
+    "company": "google",
+    "language": "dart",
+    "tags": ["flutter", "state-management", "bloc", "provider"],
+    "documentationLinks": [
+      {
+        "title": "Flutter State Management",
+        "url": "https://docs.flutter.dev/development/data-and-backend/state-mgmt/intro",
+        "description": "Official Flutter state management guide"
+      },
+      {
+        "title": "Bloc Pattern",
+        "url": "https://bloclibrary.dev/#/",
+        "description": "Bloc pattern library for Flutter"
+      }
+    ]
+  },
+  {
+    "id": "mobile-005",
+    "title": "Mobile Security Best Practices",
+    "question": "Implement security measures for a mobile banking app. Cover data encryption, secure storage, and API communication.",
+    "difficulty": "advanced",
+    "company": "jpmorgan",
+    "language": "swift",
+    "tags": ["mobile-security", "encryption", "secure-storage", "banking"],
+    "documentationLinks": [
+      {
+        "title": "iOS Security Guide",
+        "url": "https://developer.apple.com/documentation/security",
+        "description": "Apple's security framework documentation"
+      },
+      {
+        "title": "OWASP Mobile Security",
+        "url": "https://owasp.org/www-project-mobile-security-testing-guide/",
+        "description": "OWASP mobile security testing guide"
+      }
+    ]
+  },
+  {
+    "id": "mobile-006",
+    "title": "Cross-Platform Architecture",
+    "question": "Design a cross-platform mobile architecture that shares business logic between iOS and Android. Consider code reusability and platform-specific features.",
+    "difficulty": "advanced",
+    "company": "uber",
+    "language": "kotlin",
+    "tags": ["cross-platform", "architecture", "code-sharing", "kmm"],
+    "documentationLinks": [
+      {
+        "title": "Kotlin Multiplatform Mobile",
+        "url": "https://kotlinlang.org/lp/mobile/",
+        "description": "Kotlin Multiplatform Mobile documentation"
+      },
+      {
+        "title": "Flutter Architecture",
+        "url": "https://docs.flutter.dev/development/data-and-backend/state-mgmt/options",
+        "description": "Flutter app architecture options"
+      }
+    ]
+  },
+  {
+    "id": "mobile-007",
+    "title": "Mobile App Testing",
+    "question": "Design a comprehensive testing strategy for mobile apps. Include unit testing, UI testing, and device testing across different platforms.",
+    "difficulty": "intermediate",
+    "company": "firebase",
+    "language": "dart",
+    "tags": ["mobile-testing", "unit-testing", "ui-testing", "automation"],
+    "documentationLinks": [
+      {
+        "title": "Flutter Testing",
+        "url": "https://docs.flutter.dev/testing",
+        "description": "Complete Flutter testing guide"
+      },
+      {
+        "title": "Firebase Test Lab",
+        "url": "https://firebase.google.com/docs/test-lab",
+        "description": "Cloud-based app testing with Firebase"
+      }
+    ]
+  },
+  {
+    "id": "mobile-008",
+    "title": "Push Notifications",
+    "question": "Implement a scalable push notification system for mobile apps. Handle different platforms, user preferences, and delivery optimization.",
+    "difficulty": "advanced",
+    "company": "firebase",
+    "language": "javascript",
+    "tags": ["push-notifications", "fcm", "apns", "messaging"],
+    "documentationLinks": [
+      {
+        "title": "Firebase Cloud Messaging",
+        "url": "https://firebase.google.com/docs/cloud-messaging",
+        "description": "Firebase push notification service"
+      },
+      {
+        "title": "Apple Push Notifications",
+        "url": "https://developer.apple.com/documentation/usernotifications",
+        "description": "Apple's push notification framework"
+      }
+    ]
+  },
+  {
+    "id": "mobile-009",
+    "title": "Mobile Database Design",
+    "question": "Design a local database solution for mobile apps with offline capability. Handle data synchronization and conflict resolution.",
+    "difficulty": "advanced",
+    "company": "realm",
+    "language": "swift",
+    "tags": [
+      "mobile-database",
+      "offline-sync",
+      "conflict-resolution",
+      "local-storage"
+    ],
+    "documentationLinks": [
+      {
+        "title": "Realm Database",
+        "url": "https://docs.mongodb.com/realm/",
+        "description": "Realm mobile database documentation"
+      },
+      {
+        "title": "SQLite for Mobile",
+        "url": "https://developer.android.com/training/data-storage/sqlite",
+        "description": "Android SQLite database guide"
+      }
+    ]
+  },
+  {
+    "id": "mobile-010",
+    "title": "Mobile App Analytics",
+    "question": "Implement comprehensive analytics for mobile apps. Track user behavior, performance metrics, and business KPIs while respecting privacy.",
+    "difficulty": "intermediate",
+    "company": "amplitude",
+    "language": "kotlin",
+    "tags": ["analytics", "user-tracking", "performance-metrics", "privacy"],
+    "documentationLinks": [
+      {
+        "title": "Firebase Analytics",
+        "url": "https://firebase.google.com/docs/analytics",
+        "description": "Firebase Analytics implementation guide"
+      },
+      {
+        "title": "Privacy-Focused Analytics",
+        "url": "https://developer.apple.com/app-store/user-privacy-and-data-use/",
+        "description": "Apple's privacy guidelines for analytics"
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "preparation": [
+    "Practice coding problems daily for consistency",
+    "Study system design patterns and trade-offs",
+    "Review your past projects and be ready to discuss them",
+    "Mock interview with friends or online platforms",
+    "Research the company's tech stack and recent developments",
+    "Prepare thoughtful questions to ask the interviewer"
+  ],
+  "duringInterview": [
+    "Think out loud and explain your approach",
+    "Ask clarifying questions before starting to code",
+    "Start with a brute force solution, then optimize",
+    "Test your code with example inputs",
+    "Discuss time and space complexity",
+    "Stay calm and communicate clearly throughout"
+  ],
+  "systemDesign": [
+    "Start with requirements gathering and scope definition",
+    "Estimate scale (users, data, requests per second)",
+    "Design high-level architecture first",
+    "Deep dive into key components",
+    "Discuss trade-offs and alternatives",
+    "Address scalability, reliability, and consistency"
+  ],
+  "behavioral": [
+    "Use the STAR method (Situation, Task, Action, Result)",
+    "Prepare specific examples from your experience",
+    "Show leadership, problem-solving, and collaboration",
+    "Be honest about challenges and failures",
+    "Demonstrate growth mindset and learning ability",
+    "Research company culture and values"
+  ]
+}

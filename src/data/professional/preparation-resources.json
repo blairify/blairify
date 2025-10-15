@@ -1,0 +1,78 @@
+[
+  {
+    "category": "Books",
+    "resources": [
+      {
+        "title": "Cracking the Coding Interview",
+        "author": "Gayle Laakmann McDowell",
+        "description": "Comprehensive guide to technical interviews",
+        "url": "https://www.crackingthecodinginterview.com/"
+      },
+      {
+        "title": "System Design Interview",
+        "author": "Alex Xu",
+        "description": "An insider's guide to system design interviews",
+        "url": "https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF"
+      },
+      {
+        "title": "Designing Data-Intensive Applications",
+        "author": "Martin Kleppmann",
+        "description": "The big ideas behind reliable, scalable, and maintainable systems",
+        "url": "https://dataintensive.net/"
+      }
+    ]
+  },
+  {
+    "category": "Online Platforms",
+    "resources": [
+      {
+        "title": "LeetCode",
+        "description": "Practice coding problems from tech companies",
+        "url": "https://leetcode.com/",
+        "features": [
+          "Problem sets",
+          "Mock interviews",
+          "Company-specific questions"
+        ]
+      },
+      {
+        "title": "HackerRank",
+        "description": "Coding challenges and skill assessments",
+        "url": "https://www.hackerrank.com/",
+        "features": [
+          "Skill certifications",
+          "Interview preparation",
+          "Competitive programming"
+        ]
+      },
+      {
+        "title": "Pramp",
+        "description": "Free mock interviews with peers",
+        "url": "https://www.pramp.com/",
+        "features": [
+          "Peer-to-peer interviews",
+          "Real-time feedback",
+          "Various interview types"
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Courses",
+    "resources": [
+      {
+        "title": "Grokking the System Design Interview",
+        "platform": "Educative",
+        "description": "Step-by-step system design interview preparation",
+        "url": "https://www.educative.io/courses/grokking-the-system-design-interview"
+      },
+      {
+        "title": "Algorithms Specialization",
+        "platform": "Coursera",
+        "author": "Stanford University",
+        "description": "Comprehensive algorithms course",
+        "url": "https://www.coursera.org/specializations/algorithms"
+      }
+    ]
+  }
+]

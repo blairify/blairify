@@ -1,0 +1,50 @@
+{
+  "coding": {
+    "correctness": {
+      "weight": 30,
+      "description": "Does the solution work correctly for all test cases?"
+    },
+    "efficiency": {
+      "weight": 25,
+      "description": "Time and space complexity optimization"
+    },
+    "codeQuality": {
+      "weight": 20,
+      "description": "Clean, readable, and maintainable code"
+    },
+    "problemSolving": {
+      "weight": 15,
+      "description": "Approach to breaking down the problem"
+    },
+    "communication": {
+      "weight": 10,
+      "description": "Ability to explain thought process clearly"
+    }
+  },
+  "systemDesign": {
+    "requirements": {
+      "weight": 20,
+      "description": "Clear understanding and definition of requirements"
+    },
+    "architecture": {
+      "weight": 25,
+      "description": "High-level system design and component interaction"
+    },
+    "scalability": {
+      "weight": 20,
+      "description": "Ability to handle growth in users, data, and traffic"
+    },
+    "tradeoffs": {
+      "weight": 15,
+      "description": "Understanding of design decisions and alternatives"
+    },
+    "deepDive": {
+      "weight": 10,
+      "description": "Detailed exploration of key components"
+    },
+    "communication": {
+      "weight": 10,
+      "description": "Clear explanation and structured thinking"
+    }
+  }
+}

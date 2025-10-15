@@ -1,0 +1,71 @@
+{
+  "behavioral": [
+    {
+      "question": "Tell me about a time when you had to solve a difficult technical problem.",
+      "followups": [
+        "What made this problem particularly challenging?",
+        "How did you approach breaking it down?",
+        "What would you do differently next time?"
+      ],
+      "lookingFor": [
+        "Problem-solving approach",
+        "Technical depth",
+        "Learning from experience"
+      ]
+    },
+    {
+      "question": "Describe a situation where you had to work with a difficult team member.",
+      "followups": [
+        "How did you handle the interpersonal challenges?",
+        "What was the outcome?",
+        "How did this experience change your approach to teamwork?"
+      ],
+      "lookingFor": [
+        "Interpersonal skills",
+        "Conflict resolution",
+        "Emotional intelligence"
+      ]
+    },
+    {
+      "question": "Tell me about a project you led from start to finish.",
+      "followups": [
+        "How did you ensure the project stayed on track?",
+        "What obstacles did you encounter?",
+        "How did you measure success?"
+      ],
+      "lookingFor": [
+        "Leadership skills",
+        "Project management",
+        "Results orientation"
+      ]
+    }
+  ],
+  "technical": [
+    {
+      "question": "How would you debug a performance issue in production?",
+      "followups": [
+        "What tools would you use for monitoring?",
+        "How would you prioritize different potential causes?",
+        "How would you prevent similar issues in the future?"
+      ],
+      "lookingFor": [
+        "Debugging methodology",
+        "Production experience",
+        "Preventive thinking"
+      ]
+    },
+    {
+      "question": "Explain the trade-offs between SQL and NoSQL databases.",
+      "followups": [
+        "When would you choose one over the other?",
+        "How do you handle data consistency in each?",
+        "What about scalability considerations?"
+      ],
+      "lookingFor": [
+        "Database knowledge",
+        "Trade-off analysis",
+        "Practical experience"
+      ]
+    }
+  ]
+}

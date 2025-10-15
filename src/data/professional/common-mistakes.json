@@ -1,0 +1,28 @@
+{
+  "coding": [
+    "Not asking clarifying questions before starting",
+    "Jumping to code without explaining the approach",
+    "Not considering edge cases and error handling",
+    "Poor variable naming and code organization",
+    "Not testing the solution with examples",
+    "Ignoring time and space complexity discussion",
+    "Getting stuck on optimization without working solution first"
+  ],
+  "systemDesign": [
+    "Not defining scope and requirements clearly",
+    "Starting with details instead of high-level design",
+    "Not considering scale and performance requirements",
+    "Ignoring data consistency and availability trade-offs",
+    "Over-engineering the solution for given scale",
+    "Not discussing monitoring and operational concerns",
+    "Failing to address single points of failure"
+  ],
+  "behavioral": [
+    "Not using the STAR method for structuring answers",
+    "Giving vague examples without specific details",
+    "Not showing learning from failures or challenges",
+    "Focusing only on technical aspects, ignoring teamwork",
+    "Not preparing questions to ask the interviewer",
+    "Speaking negatively about previous employers or colleagues"
+  ]
+}

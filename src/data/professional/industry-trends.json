@@ -1,0 +1,43 @@
+{
+  "2024": [
+    {
+      "trend": "AI/ML Integration",
+      "description": "Growing demand for AI/ML skills across all roles",
+      "impact": "High",
+      "skills": ["Machine Learning", "Deep Learning", "NLP", "Computer Vision"]
+    },
+    {
+      "trend": "Cloud-Native Development",
+      "description": "Shift towards microservices and container orchestration",
+      "impact": "High",
+      "skills": ["Kubernetes", "Docker", "Serverless", "Cloud Platforms"]
+    },
+    {
+      "trend": "Developer Experience Focus",
+      "description": "Emphasis on improving developer productivity and tools",
+      "impact": "Medium",
+      "skills": [
+        "CI/CD",
+        "Infrastructure as Code",
+        "Monitoring",
+        "Developer Tools"
+      ]
+    },
+    {
+      "trend": "Security-First Development",
+      "description": "Integration of security practices throughout development lifecycle",
+      "impact": "High",
+      "skills": ["DevSecOps", "Security Testing", "Compliance", "Zero Trust"]
+    },
+    {
+      "trend": "Remote-First Culture",
+      "description": "Continued adoption of remote and hybrid work models",
+      "impact": "Medium",
+      "skills": [
+        "Async Communication",
+        "Remote Collaboration",
+        "Time Management"
+      ]
+    }
+  ]
+}

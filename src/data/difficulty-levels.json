@@ -1,0 +1,30 @@
+[
+  {
+    "id": "beginner",
+    "name": "Beginner",
+    "color": "#10b981",
+    "description": "Entry-level questions suitable for junior developers",
+    "experienceRange": "0-2 years"
+  },
+  {
+    "id": "intermediate",
+    "name": "Intermediate",
+    "color": "#f59e0b",
+    "description": "Mid-level questions for developers with some experience",
+    "experienceRange": "2-5 years"
+  },
+  {
+    "id": "advanced",
+    "name": "Advanced",
+    "color": "#ef4444",
+    "description": "Senior-level questions requiring deep technical knowledge",
+    "experienceRange": "5-8 years"
+  },
+  {
+    "id": "expert",
+    "name": "Expert",
+    "color": "#8b5cf6",
+    "description": "Architect-level questions for highly experienced professionals",
+    "experienceRange": "8+ years"
+  }
+]

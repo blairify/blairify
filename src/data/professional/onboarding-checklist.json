@@ -1,0 +1,34 @@
+{
+  "beforeStarting": [
+    "Complete background check and paperwork",
+    "Set up home office if working remotely",
+    "Review company handbook and policies",
+    "Connect with your manager and team members",
+    "Prepare questions about role expectations",
+    "Set up necessary accounts and tools"
+  ],
+  "firstWeek": [
+    "Attend orientation and training sessions",
+    "Meet key stakeholders and cross-functional partners",
+    "Set up development environment and tools",
+    "Review codebase and documentation",
+    "Understand team processes and workflows",
+    "Set initial goals with your manager"
+  ],
+  "first30Days": [
+    "Complete first small project or bug fix",
+    "Attend team meetings and planning sessions",
+    "Shadow senior team members on important tasks",
+    "Provide feedback on onboarding experience",
+    "Establish regular 1:1 cadence with manager",
+    "Begin contributing to code reviews"
+  ],
+  "first90Days": [
+    "Take ownership of medium-sized features",
+    "Identify areas for process improvement",
+    "Build relationships across the organization",
+    "Set quarterly goals and success metrics",
+    "Seek feedback on performance and growth areas",
+    "Consider mentorship opportunities"
+  ]
+}

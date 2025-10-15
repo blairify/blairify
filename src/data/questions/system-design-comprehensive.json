@@ -1,0 +1,269 @@
+[
+  {
+    "id": "sys-001",
+    "title": "URL Shortener Design",
+    "question": "Design a URL shortener service like bit.ly. Consider scalability, caching, and analytics.",
+    "difficulty": "advanced",
+    "company": "google",
+    "language": "yaml",
+    "tags": ["system-design", "scalability", "caching", "databases"],
+    "documentationLinks": [
+      {
+        "title": "System Design Primer",
+        "url": "https://github.com/donnemartin/system-design-primer",
+        "description": "Comprehensive guide to system design concepts"
+      },
+      {
+        "title": "Caching Strategies",
+        "url": "https://aws.amazon.com/caching/",
+        "description": "AWS guide to different caching approaches"
+      },
+      {
+        "title": "Database Sharding",
+        "url": "https://www.mongodb.com/features/database-sharding-explained",
+        "description": "Understanding database partitioning strategies"
+      }
+    ]
+  },
+  {
+    "id": "sys-002",
+    "title": "Chat Application Design",
+    "question": "Design a real-time chat application. How would you handle message delivery, user presence, and scaling?",
+    "difficulty": "expert",
+    "company": "meta",
+    "tags": ["real-time", "websockets", "messaging", "scalability"],
+    "documentationLinks": [
+      {
+        "title": "WebSocket API",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+        "description": "MDN documentation for WebSocket implementation"
+      },
+      {
+        "title": "Real-time Architecture",
+        "url": "https://socket.io/docs/v4/",
+        "description": "Socket.IO documentation for real-time applications"
+      },
+      {
+        "title": "Message Queue Patterns",
+        "url": "https://www.rabbitmq.com/getstarted.html",
+        "description": "RabbitMQ tutorials for message queuing"
+      }
+    ],
+    "language": "json"
+  },
+  {
+    "id": "sys-003",
+    "title": "Design Twitter Feed",
+    "question": "Design a Twitter-like social media feed. Handle user timelines, follower relationships, and real-time updates.",
+    "difficulty": "expert",
+    "company": "twitter",
+    "tags": ["system-design", "social-media", "real-time", "scalability"],
+    "documentationLinks": [
+      {
+        "title": "Designing Twitter",
+        "url": "https://github.com/donnemartin/system-design-primer#design-twitter",
+        "description": "System design primer for Twitter-like system"
+      },
+      {
+        "title": "Feed Architecture Patterns",
+        "url": "https://www.infoq.com/articles/facebook-news-feed-architecture/",
+        "description": "Facebook's approach to news feed architecture"
+      }
+    ],
+    "language": "python"
+  },
+  {
+    "id": "sys-004",
+    "title": "Load Balancer Design",
+    "question": "Design a load balancer system. Discuss different algorithms and how to handle server failures.",
+    "difficulty": "advanced",
+    "company": "amazon",
+    "tags": ["system-design", "load-balancing", "fault-tolerance"],
+    "documentationLinks": [
+      {
+        "title": "Load Balancing Algorithms",
+        "url": "https://www.nginx.com/resources/glossary/load-balancing/",
+        "description": "Different load balancing strategies"
+      },
+      {
+        "title": "AWS Load Balancer",
+        "url": "https://docs.aws.amazon.com/elasticloadbalancing/",
+        "description": "AWS Elastic Load Balancing documentation"
+      }
+    ],
+    "language": "yaml"
+  },
+  {
+    "id": "sys-005",
+    "title": "Design YouTube",
+    "question": "Design a video sharing platform like YouTube. Consider video storage, streaming, recommendations, and global distribution.",
+    "difficulty": "expert",
+    "company": "google",
+    "tags": ["system-design", "video-streaming", "cdn", "recommendations"],
+    "documentationLinks": [
+      {
+        "title": "Video Streaming Architecture",
+        "url": "https://netflixtechblog.com/serving-100-gbps-from-an-open-connect-appliance-cdb51dda3b99",
+        "description": "Netflix's approach to video streaming"
+      },
+      {
+        "title": "CDN Architecture",
+        "url": "https://aws.amazon.com/cloudfront/",
+        "description": "Content delivery network concepts"
+      }
+    ],
+    "language": "go"
+  },
+  {
+    "id": "sys-006",
+    "title": "Distributed Cache System",
+    "question": "Design a distributed caching system like Redis Cluster. Handle consistency, partitioning, and failover.",
+    "difficulty": "expert",
+    "company": "redis",
+    "tags": ["caching", "distributed-systems", "consistency", "partitioning"],
+    "documentationLinks": [
+      {
+        "title": "Redis Cluster Design",
+        "url": "https://redis.io/topics/cluster-tutorial",
+        "description": "Redis clustering and partitioning"
+      },
+      {
+        "title": "Distributed Systems Patterns",
+        "url": "https://martinfowler.com/articles/patterns-of-distributed-systems/",
+        "description": "Common patterns in distributed systems"
+      }
+    ],
+    "language": "java"
+  },
+  {
+    "id": "sys-007",
+    "title": "Search Engine Design",
+    "question": "Design a web search engine. Cover crawling, indexing, ranking, and serving search results at scale.",
+    "difficulty": "expert",
+    "company": "google",
+    "tags": ["search", "indexing", "ranking", "crawling", "big-data"],
+    "documentationLinks": [
+      {
+        "title": "Search Engine Architecture",
+        "url": "https://www.elastic.co/guide/en/elasticsearch/guide/current/intro.html",
+        "description": "Elasticsearch guide to search systems"
+      },
+      {
+        "title": "Web Crawling Strategies",
+        "url": "https://web.archive.org/web/20080704054554/http://googleresearch.blogspot.com/2008/06/our-new-search-index-caffeine.html",
+        "description": "Google's approach to web crawling"
+      }
+    ],
+    "language": "python"
+  },
+  {
+    "id": "sys-008",
+    "title": "Payment Processing System",
+    "question": "Design a payment processing system like Stripe. Handle transactions, fraud detection, and compliance.",
+    "difficulty": "expert",
+    "company": "stripe",
+    "tags": ["payments", "transactions", "security", "compliance"],
+    "documentationLinks": [
+      {
+        "title": "Payment System Design",
+        "url": "https://stripe.com/docs/payments",
+        "description": "Stripe's payment processing documentation"
+      },
+      {
+        "title": "Financial System Security",
+        "url": "https://www.pcisecuritystandards.org/",
+        "description": "PCI DSS compliance standards"
+      }
+    ],
+    "language": "yaml"
+  },
+  {
+    "id": "sys-009",
+    "title": "Notification System",
+    "question": "Design a push notification system supporting multiple channels (email, SMS, push, in-app). Handle rate limiting and user preferences.",
+    "difficulty": "advanced",
+    "company": "uber",
+    "tags": ["notifications", "messaging", "rate-limiting", "queues"],
+    "documentationLinks": [
+      {
+        "title": "Push Notification Services",
+        "url": "https://firebase.google.com/docs/cloud-messaging",
+        "description": "Firebase Cloud Messaging documentation"
+      },
+      {
+        "title": "Message Queue Systems",
+        "url": "https://aws.amazon.com/sqs/",
+        "description": "Amazon SQS for message queuing"
+      }
+    ],
+    "language": "go"
+  },
+  {
+    "id": "sys-010",
+    "title": "Ride Sharing Service",
+    "question": "Design a ride sharing service like Uber. Handle driver-rider matching, real-time tracking, and pricing algorithms.",
+    "difficulty": "expert",
+    "company": "uber",
+    "tags": ["geolocation", "matching-algorithms", "real-time", "pricing"],
+    "documentationLinks": [
+      {
+        "title": "Geospatial Indexing",
+        "url": "https://www.uber.com/blog/h3/",
+        "description": "Uber's H3 geospatial indexing system"
+      },
+      {
+        "title": "Real-time Location Services",
+        "url": "https://engineering.uber.com/real-time-exactly-once-ad-event-processing/",
+        "description": "Uber's real-time processing architecture"
+      }
+    ],
+    "language": "python"
+  },
+  {
+    "id": "sys-011",
+    "title": "Music Streaming Service",
+    "question": "Design a music streaming platform like Spotify. Handle music storage, streaming, playlists, and recommendations.",
+    "difficulty": "expert",
+    "company": "spotify",
+    "tags": [
+      "streaming",
+      "recommendations",
+      "content-delivery",
+      "personalization"
+    ],
+    "documentationLinks": [
+      {
+        "title": "Music Recommendation Systems",
+        "url": "https://engineering.atspotify.com/2022/03/introducing-natural-language-search-for-podcast-episodes/",
+        "description": "Spotify's approach to music recommendations"
+      },
+      {
+        "title": "Audio Streaming Protocols",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio",
+        "description": "Web audio streaming technologies"
+      }
+    ],
+    "language": "java"
+  },
+  {
+    "id": "sys-012",
+    "title": "Email Service Design",
+    "question": "Design an email service like Gmail. Handle storage, search, spam detection, and real-time delivery.",
+    "difficulty": "advanced",
+    "company": "google",
+    "tags": ["email", "storage", "search", "spam-detection"],
+    "documentationLinks": [
+      {
+        "title": "Email Protocol Standards",
+        "url": "https://tools.ietf.org/html/rfc5321",
+        "description": "SMTP protocol specification"
+      },
+      {
+        "title": "Spam Detection Systems",
+        "url": "https://ai.googleblog.com/2019/02/gmail-spam-detection.html",
+        "description": "Gmail's approach to spam detection"
+      }
+    ],
+    "language": "nodejs"
+  }
+]

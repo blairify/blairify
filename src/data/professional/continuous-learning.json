@@ -1,0 +1,78 @@
+{
+  "technicalSkills": [
+    {
+      "category": "Programming Languages",
+      "recommendation": "Learn one new language per year that complements your stack",
+      "resources": [
+        "Language documentation",
+        "Project-based tutorials",
+        "Code challenges"
+      ]
+    },
+    {
+      "category": "Frameworks and Tools",
+      "recommendation": "Stay current with ecosystem updates and new tools in your domain",
+      "resources": [
+        "Official documentation",
+        "Community forums",
+        "Conference talks"
+      ]
+    },
+    {
+      "category": "System Design",
+      "recommendation": "Study large-scale system architectures and design patterns",
+      "resources": [
+        "Engineering blogs",
+        "System design courses",
+        "Architecture books"
+      ]
+    },
+    {
+      "category": "Cloud Technologies",
+      "recommendation": "Gain hands-on experience with major cloud platforms",
+      "resources": [
+        "Free tier accounts",
+        "Certification programs",
+        "Practice projects"
+      ]
+    }
+  ],
+  "softSkills": [
+    {
+      "skill": "Communication",
+      "importance": "Critical for all roles",
+      "development": [
+        "Technical writing",
+        "Public speaking",
+        "Active listening"
+      ]
+    },
+    {
+      "skill": "Leadership",
+      "importance": "Important for career growth",
+      "development": [
+        "Mentoring others",
+        "Leading projects",
+        "Cross-team collaboration"
+      ]
+    },
+    {
+      "skill": "Problem Solving",
+      "importance": "Core engineering skill",
+      "development": [
+        "Diverse problem domains",
+        "Root cause analysis",
+        "Creative thinking"
+      ]
+    },
+    {
+      "skill": "Time Management",
+      "importance": "Essential for productivity",
+      "development": [
+        "Priority setting",
+        "Estimation skills",
+        "Focus techniques"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "coding",
+    "name": "Coding Interview",
+    "description": "Live coding session with algorithmic problems",
+    "duration": "45-60 minutes",
+    "tools": ["IDE", "Whiteboard", "Screen sharing"]
+  },
+  {
+    "id": "system-design",
+    "name": "System Design Interview",
+    "description": "High-level architecture design discussion",
+    "duration": "60-90 minutes",
+    "tools": ["Whiteboard", "Diagramming tools", "Discussion"]
+  },
+  {
+    "id": "behavioral",
+    "name": "Behavioral Interview",
+    "description": "Past experience and soft skills assessment",
+    "duration": "30-45 minutes",
+    "tools": ["Conversation", "STAR method"]
+  },
+  {
+    "id": "technical-deep-dive",
+    "name": "Technical Deep Dive",
+    "description": "In-depth discussion of technical concepts",
+    "duration": "45-60 minutes",
+    "tools": ["Technical discussion", "Code review"]
+  },
+  {
+    "id": "take-home",
+    "name": "Take-home Assignment",
+    "description": "Complete project or problem set at home",
+    "duration": "2-8 hours",
+    "tools": ["Any preferred tools", "Time flexibility"]
+  }
+]

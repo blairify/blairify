@@ -1,0 +1,338 @@
+[
+  {
+    "id": "fe-001",
+    "title": "React Hooks",
+    "question": "Explain the useState and useEffect hooks. When would you create a custom hook?",
+    "difficulty": "intermediate",
+    "company": "meta",
+    "language": "javascript",
+    "tags": ["react", "hooks", "state-management"],
+    "documentationLinks": [
+      {
+        "title": "React Hooks Documentation",
+        "url": "https://reactjs.org/docs/hooks-intro.html",
+        "description": "Official React documentation for hooks"
+      },
+      {
+        "title": "Custom Hooks Guide",
+        "url": "https://reactjs.org/docs/hooks-custom.html",
+        "description": "Building your own React hooks"
+      }
+    ]
+  },
+  {
+    "id": "fe-002",
+    "title": "Performance Optimization",
+    "question": "What techniques would you use to optimize the performance of a React application?",
+    "difficulty": "advanced",
+    "company": "netflix",
+    "language": "javascript",
+    "tags": ["performance", "optimization", "react"],
+    "documentationLinks": [
+      {
+        "title": "React Performance",
+        "url": "https://reactjs.org/docs/optimizing-performance.html",
+        "description": "Official guide to React performance optimization"
+      },
+      {
+        "title": "Web Vitals",
+        "url": "https://web.dev/vitals/",
+        "description": "Google's guide to essential web performance metrics"
+      }
+    ]
+  },
+  {
+    "id": "fe-003",
+    "title": "JavaScript Closures",
+    "question": "Explain closures in JavaScript. Provide examples of practical use cases and potential memory leaks.",
+    "difficulty": "intermediate",
+    "company": "airbnb",
+    "language": "javascript",
+    "tags": ["javascript", "closures", "memory-management"],
+    "documentationLinks": [
+      {
+        "title": "MDN Closures",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures",
+        "description": "Complete guide to JavaScript closures"
+      },
+      {
+        "title": "JavaScript Memory Management",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management",
+        "description": "Understanding memory management in JavaScript"
+      }
+    ]
+  },
+  {
+    "id": "fe-004",
+    "title": "CSS Grid vs Flexbox",
+    "question": "Compare CSS Grid and Flexbox. When would you use each for layout design?",
+    "difficulty": "beginner",
+    "company": "spotify",
+    "language": "css",
+    "tags": ["css", "layout", "responsive-design"],
+    "documentationLinks": [
+      {
+        "title": "CSS Grid Guide",
+        "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+        "description": "Complete guide to CSS Grid layout"
+      },
+      {
+        "title": "Flexbox Guide",
+        "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+        "description": "Complete guide to CSS Flexbox"
+      }
+    ]
+  },
+  {
+    "id": "fe-005",
+    "title": "JavaScript Event Loop",
+    "question": "Explain how the JavaScript event loop works. What's the difference between the call stack, task queue, and microtask queue?",
+    "difficulty": "advanced",
+    "company": "google",
+    "language": "javascript",
+    "tags": ["javascript", "event-loop", "asynchronous", "concurrency"],
+    "documentationLinks": [
+      {
+        "title": "JavaScript Event Loop",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop",
+        "description": "MDN guide to the JavaScript event loop"
+      },
+      {
+        "title": "Tasks, microtasks, queues and schedules",
+        "url": "https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/",
+        "description": "Detailed explanation of JavaScript's execution model"
+      }
+    ]
+  },
+  {
+    "id": "fe-006",
+    "title": "State Management in React",
+    "question": "Compare different state management solutions: useState, useReducer, Context API, Redux, and Zustand. When would you use each?",
+    "difficulty": "advanced",
+    "company": "meta",
+    "language": "typescript",
+    "tags": ["react", "state-management", "redux", "context"],
+    "documentationLinks": [
+      {
+        "title": "React State Management",
+        "url": "https://reactjs.org/docs/state-and-lifecycle.html",
+        "description": "Official React state management guide"
+      },
+      {
+        "title": "Redux Toolkit",
+        "url": "https://redux-toolkit.js.org/",
+        "description": "Modern Redux usage patterns"
+      }
+    ]
+  },
+  {
+    "id": "fe-007",
+    "title": "Web Accessibility (a11y)",
+    "question": "How would you make a complex web application accessible? Discuss ARIA attributes, keyboard navigation, and screen reader support.",
+    "difficulty": "intermediate",
+    "company": "microsoft",
+    "language": "html",
+    "tags": ["accessibility", "aria", "semantic-html", "inclusive-design"],
+    "documentationLinks": [
+      {
+        "title": "Web Accessibility Guidelines",
+        "url": "https://www.w3.org/WAI/WCAG21/quickref/",
+        "description": "WCAG 2.1 quick reference guide"
+      },
+      {
+        "title": "ARIA Authoring Practices",
+        "url": "https://www.w3.org/WAI/ARIA/apg/",
+        "description": "WAI-ARIA authoring practices guide"
+      }
+    ]
+  },
+  {
+    "id": "fe-008",
+    "title": "Progressive Web Apps",
+    "question": "What makes a Progressive Web App? Implement service worker caching strategies and offline functionality.",
+    "difficulty": "advanced",
+    "company": "google",
+    "language": "javascript",
+    "tags": ["pwa", "service-workers", "caching", "offline"],
+    "documentationLinks": [
+      {
+        "title": "Progressive Web Apps",
+        "url": "https://web.dev/progressive-web-apps/",
+        "description": "Complete guide to building PWAs"
+      },
+      {
+        "title": "Service Worker API",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API",
+        "description": "MDN Service Worker documentation"
+      }
+    ]
+  },
+  {
+    "id": "fe-009",
+    "title": "CSS-in-JS vs Traditional CSS",
+    "question": "Compare CSS-in-JS solutions (styled-components, emotion) with traditional CSS approaches. Discuss performance implications.",
+    "difficulty": "intermediate",
+    "company": "airbnb",
+    "language": "javascript",
+    "tags": ["css", "styling", "performance", "architecture"],
+    "documentationLinks": [
+      {
+        "title": "Styled Components",
+        "url": "https://styled-components.com/docs",
+        "description": "CSS-in-JS library documentation"
+      },
+      {
+        "title": "CSS Performance",
+        "url": "https://web.dev/css-performance/",
+        "description": "Optimizing CSS performance"
+      }
+    ]
+  },
+  {
+    "id": "fe-010",
+    "title": "React Server Components",
+    "question": "Explain React Server Components and how they differ from traditional client-side rendering. When would you use them?",
+    "difficulty": "expert",
+    "company": "vercel",
+    "language": "typescript",
+    "tags": ["react", "server-components", "ssr", "performance"],
+    "documentationLinks": [
+      {
+        "title": "React Server Components",
+        "url": "https://react.dev/blog/2020/12/21/data-fetching-with-react-server-components",
+        "description": "Introduction to React Server Components"
+      },
+      {
+        "title": "Next.js App Router",
+        "url": "https://nextjs.org/docs/app",
+        "description": "Next.js implementation of Server Components"
+      }
+    ]
+  },
+  {
+    "id": "fe-011",
+    "title": "Browser Rendering Pipeline",
+    "question": "Explain the browser rendering process from HTML parsing to paint. How can you optimize for better rendering performance?",
+    "difficulty": "advanced",
+    "company": "chrome",
+    "language": "javascript",
+    "tags": ["browser", "rendering", "performance", "optimization"],
+    "documentationLinks": [
+      {
+        "title": "Rendering Performance",
+        "url": "https://web.dev/rendering-performance/",
+        "description": "Google's guide to rendering optimization"
+      },
+      {
+        "title": "Critical Rendering Path",
+        "url": "https://developers.google.com/web/fundamentals/performance/critical-rendering-path",
+        "description": "Understanding the critical rendering path"
+      }
+    ]
+  },
+  {
+    "id": "fe-012",
+    "title": "Module Bundlers",
+    "question": "Compare different module bundlers: Webpack, Rollup, Vite, and esbuild. Discuss their strengths and use cases.",
+    "difficulty": "intermediate",
+    "company": "webpack",
+    "language": "javascript",
+    "tags": ["bundlers", "build-tools", "performance", "tooling"],
+    "documentationLinks": [
+      {
+        "title": "Webpack Documentation",
+        "url": "https://webpack.js.org/concepts/",
+        "description": "Webpack core concepts and configuration"
+      },
+      {
+        "title": "Vite Guide",
+        "url": "https://vitejs.dev/guide/",
+        "description": "Fast build tool for modern web development"
+      }
+    ]
+  },
+  {
+    "id": "fe-013",
+    "title": "TypeScript Advanced Types",
+    "question": "Explain TypeScript's advanced type features: generics, conditional types, mapped types, and utility types.",
+    "difficulty": "advanced",
+    "company": "microsoft",
+    "language": "typescript",
+    "tags": ["typescript", "types", "generics", "advanced"],
+    "documentationLinks": [
+      {
+        "title": "TypeScript Handbook",
+        "url": "https://www.typescriptlang.org/docs/",
+        "description": "Official TypeScript documentation"
+      },
+      {
+        "title": "Advanced Types",
+        "url": "https://www.typescriptlang.org/docs/handbook/2/types-from-types.html",
+        "description": "Creating types from types in TypeScript"
+      }
+    ]
+  },
+  {
+    "id": "fe-014",
+    "title": "Web Performance Metrics",
+    "question": "Explain Core Web Vitals (LCP, FID, CLS). How would you measure and improve these metrics in a React application?",
+    "difficulty": "intermediate",
+    "company": "google",
+    "language": "javascript",
+    "tags": ["performance", "metrics", "core-web-vitals", "optimization"],
+    "documentationLinks": [
+      {
+        "title": "Core Web Vitals",
+        "url": "https://web.dev/vitals/",
+        "description": "Essential metrics for a healthy site"
+      },
+      {
+        "title": "Measuring Performance",
+        "url": "https://web.dev/user-centric-performance-metrics/",
+        "description": "User-centric performance metrics"
+      }
+    ]
+  },
+  {
+    "id": "fe-015",
+    "title": "Micro-frontends Architecture",
+    "question": "Explain micro-frontends architecture. How would you implement and manage multiple frontend applications in a single system?",
+    "difficulty": "expert",
+    "company": "spotify",
+    "language": "javascript",
+    "tags": ["architecture", "micro-frontends", "scalability", "integration"],
+    "documentationLinks": [
+      {
+        "title": "Micro Frontends",
+        "url": "https://micro-frontends.org/",
+        "description": "Introduction to micro-frontend architecture"
+      },
+      {
+        "title": "Module Federation",
+        "url": "https://webpack.js.org/concepts/module-federation/",
+        "description": "Webpack's module federation for micro-frontends"
+      }
+    ]
+  },
+  {
+    "id": "frontend-016",
+    "title": "Advanced CSS Grid and Flexbox",
+    "question": "Create a complex responsive layout using CSS Grid and Flexbox. Implement nested grids and responsive design patterns.",
+    "difficulty": "intermediate",
+    "company": "adobe",
+    "language": "css",
+    "tags": ["css", "grid", "flexbox", "responsive-design"],
+    "documentationLinks": [
+      {
+        "title": "CSS Grid Complete Guide",
+        "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+        "description": "Comprehensive guide to CSS Grid"
+      },
+      {
+        "title": "Flexbox Complete Guide",
+        "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+        "description": "Complete guide to CSS Flexbox"
+      }
+    ]
+  }
+]

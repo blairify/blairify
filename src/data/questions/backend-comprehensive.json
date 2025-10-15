@@ -1,0 +1,374 @@
+[
+  {
+    "id": "be-001",
+    "title": "RESTful API Design",
+    "question": "Design a RESTful API for an e-commerce system. Include proper HTTP methods, status codes, and resource naming conventions.",
+    "difficulty": "intermediate",
+    "company": "amazon",
+    "language": "python",
+    "tags": ["rest", "api-design", "http", "web-services"],
+    "documentationLinks": [
+      {
+        "title": "REST API Design Best Practices",
+        "url": "https://restfulapi.net/",
+        "description": "Comprehensive guide to RESTful API design"
+      },
+      {
+        "title": "HTTP Status Codes",
+        "url": "https://httpstatuses.com/",
+        "description": "Complete reference for HTTP status codes"
+      }
+    ]
+  },
+  {
+    "id": "be-002",
+    "title": "Database Normalization",
+    "question": "Explain database normalization forms (1NF, 2NF, 3NF, BCNF). Design a normalized schema for a library management system.",
+    "difficulty": "intermediate",
+    "company": "oracle",
+    "language": "sql",
+    "tags": ["database", "normalization", "schema-design", "sql"],
+    "documentationLinks": [
+      {
+        "title": "Database Normalization",
+        "url": "https://www.geeksforgeeks.org/normal-forms-in-dbms/",
+        "description": "Complete guide to database normalization"
+      },
+      {
+        "title": "Database Design Principles",
+        "url": "https://www.lucidchart.com/pages/database-diagram/database-design",
+        "description": "Best practices for database design"
+      }
+    ]
+  },
+  {
+    "id": "be-003",
+    "title": "Microservices Architecture",
+    "question": "Design a microservices architecture for an online shopping platform. Address service communication, data consistency, and deployment.",
+    "difficulty": "expert",
+    "company": "netflix",
+    "language": "java",
+    "tags": [
+      "microservices",
+      "architecture",
+      "distributed-systems",
+      "scalability"
+    ],
+    "documentationLinks": [
+      {
+        "title": "Microservices Patterns",
+        "url": "https://microservices.io/patterns/",
+        "description": "Collection of microservice architecture patterns"
+      },
+      {
+        "title": "Building Microservices",
+        "url": "https://martinfowler.com/articles/microservices.html",
+        "description": "Martin Fowler's guide to microservices"
+      }
+    ]
+  },
+  {
+    "id": "be-004",
+    "title": "Message Queue Systems",
+    "question": "Compare different message queue systems (RabbitMQ, Apache Kafka, Redis Pub/Sub). When would you use each?",
+    "difficulty": "advanced",
+    "company": "uber",
+    "language": "go",
+    "tags": ["message-queues", "asynchronous", "event-driven", "scalability"],
+    "documentationLinks": [
+      {
+        "title": "Apache Kafka Documentation",
+        "url": "https://kafka.apache.org/documentation/",
+        "description": "Kafka's official documentation"
+      },
+      {
+        "title": "Message Queue Patterns",
+        "url": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/",
+        "description": "Enterprise integration patterns for messaging"
+      }
+    ]
+  },
+  {
+    "id": "be-005",
+    "title": "Authentication and Authorization",
+    "question": "Implement JWT-based authentication with refresh tokens. Explain the security considerations and best practices.",
+    "difficulty": "advanced",
+    "company": "auth0",
+    "language": "nodejs",
+    "tags": ["authentication", "jwt", "security", "oauth"],
+    "documentationLinks": [
+      {
+        "title": "JWT Introduction",
+        "url": "https://jwt.io/introduction/",
+        "description": "Understanding JSON Web Tokens"
+      },
+      {
+        "title": "OAuth 2.0 Security",
+        "url": "https://oauth.net/2/",
+        "description": "OAuth 2.0 authorization framework"
+      }
+    ]
+  },
+  {
+    "id": "be-006",
+    "title": "Database Transactions",
+    "question": "Explain ACID properties and implement a transaction handling system. Discuss isolation levels and their trade-offs.",
+    "difficulty": "advanced",
+    "company": "postgresql",
+    "language": "sql",
+    "tags": ["database", "transactions", "acid", "concurrency"],
+    "documentationLinks": [
+      {
+        "title": "Database Transactions",
+        "url": "https://www.postgresql.org/docs/current/tutorial-transactions.html",
+        "description": "PostgreSQL transaction documentation"
+      },
+      {
+        "title": "Isolation Levels",
+        "url": "https://en.wikipedia.org/wiki/Isolation_(database_systems)",
+        "description": "Understanding transaction isolation levels"
+      }
+    ]
+  },
+  {
+    "id": "be-007",
+    "title": "Caching Strategies",
+    "question": "Implement different caching strategies: cache-aside, write-through, write-behind. Discuss cache invalidation patterns.",
+    "difficulty": "advanced",
+    "company": "redis",
+    "language": "python",
+    "tags": ["caching", "redis", "performance", "scalability"],
+    "documentationLinks": [
+      {
+        "title": "Caching Patterns",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html",
+        "description": "AWS guide to database caching strategies"
+      },
+      {
+        "title": "Redis Documentation",
+        "url": "https://redis.io/documentation",
+        "description": "Redis official documentation"
+      }
+    ]
+  },
+  {
+    "id": "be-008",
+    "title": "GraphQL vs REST",
+    "question": "Compare GraphQL and REST APIs. Implement a GraphQL schema with queries, mutations, and subscriptions.",
+    "difficulty": "intermediate",
+    "company": "facebook",
+    "language": "javascript",
+    "tags": ["graphql", "api-design", "rest", "data-fetching"],
+    "documentationLinks": [
+      {
+        "title": "GraphQL Documentation",
+        "url": "https://graphql.org/learn/",
+        "description": "Official GraphQL learning guide"
+      },
+      {
+        "title": "Apollo Server",
+        "url": "https://www.apollographql.com/docs/apollo-server/",
+        "description": "GraphQL server implementation"
+      }
+    ]
+  },
+  {
+    "id": "be-009",
+    "title": "API Rate Limiting",
+    "question": "Implement various rate limiting algorithms: token bucket, leaky bucket, sliding window. Handle distributed rate limiting.",
+    "difficulty": "advanced",
+    "company": "stripe",
+    "language": "go",
+    "tags": ["rate-limiting", "algorithms", "api-gateway", "throttling"],
+    "documentationLinks": [
+      {
+        "title": "Rate Limiting Algorithms",
+        "url": "https://konghq.com/blog/how-to-design-a-scalable-rate-limiting-algorithm/",
+        "description": "Kong's guide to rate limiting algorithms"
+      },
+      {
+        "title": "Distributed Rate Limiting",
+        "url": "https://stripe.com/blog/rate-limiters",
+        "description": "Stripe's approach to rate limiting"
+      }
+    ]
+  },
+  {
+    "id": "be-010",
+    "title": "Container Orchestration",
+    "question": "Design a Kubernetes deployment for a microservices application. Include service discovery, load balancing, and auto-scaling.",
+    "difficulty": "expert",
+    "company": "kubernetes",
+    "language": "yaml",
+    "tags": ["kubernetes", "security", "rbac", "network-policies"],
+    "documentationLinks": [
+      {
+        "title": "Kubernetes Security",
+        "url": "https://kubernetes.io/docs/concepts/security/",
+        "description": "Official Kubernetes security documentation"
+      },
+      {
+        "title": "Pod Security Standards",
+        "url": "https://kubernetes.io/docs/concepts/security/pod-security-standards/",
+        "description": "Kubernetes pod security standards guide"
+      }
+    ]
+  },
+  {
+    "id": "devops-006",
+    "title": "AWS Auto Scaling",
+    "question": "Design an auto-scaling architecture on AWS using EC2, ALB, and CloudWatch. Handle traffic spikes and cost optimization.",
+    "difficulty": "advanced",
+    "company": "aws",
+    "language": "json",
+    "tags": ["aws", "auto-scaling", "load-balancing", "cost-optimization"],
+    "documentationLinks": [
+      {
+        "title": "AWS Auto Scaling",
+        "url": "https://docs.aws.amazon.com/autoscaling/",
+        "description": "AWS Auto Scaling documentation"
+      },
+      {
+        "title": "EC2 Best Practices",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-best-practices.html",
+        "description": "AWS EC2 best practices guide"
+      }
+    ]
+  },
+  {
+    "id": "devops-007",
+    "title": "Service Mesh Implementation",
+    "question": "Implement Istio service mesh for microservices communication. Configure traffic management, security, and observability.",
+    "difficulty": "expert",
+    "company": "istio",
+    "language": "yaml",
+    "tags": ["service-mesh", "istio", "microservices", "traffic-management"],
+    "documentationLinks": [
+      {
+        "title": "Istio Documentation",
+        "url": "https://istio.io/latest/docs/",
+        "description": "Official Istio service mesh documentation"
+      },
+      {
+        "title": "Service Mesh Patterns",
+        "url": "https://servicemesh.es/",
+        "description": "Service mesh architecture patterns"
+      }
+    ]
+  },
+  {
+    "id": "devops-008",
+    "title": "Database Migration Strategy",
+    "question": "Plan a zero-downtime database migration from monolith to microservices. Handle data consistency and rollback scenarios.",
+    "difficulty": "expert",
+    "company": "stripe",
+    "language": "sql",
+    "tags": [
+      "database-migration",
+      "zero-downtime",
+      "data-consistency",
+      "microservices"
+    ],
+    "documentationLinks": [
+      {
+        "title": "Database Migration Patterns",
+        "url": "https://martinfowler.com/articles/evodb.html",
+        "description": "Martin Fowler's guide to evolutionary database design"
+      },
+      {
+        "title": "Zero Downtime Deployments",
+        "url": "https://blog.travis-ci.com/2013-08-08-zero-downtime-deployments/",
+        "description": "Strategies for zero-downtime deployments"
+      }
+    ]
+  },
+  {
+    "id": "devops-009",
+    "title": "Backup and Disaster Recovery",
+    "question": "Design a comprehensive backup and disaster recovery strategy for a multi-region cloud application.",
+    "difficulty": "advanced",
+    "company": "aws",
+    "language": "bash",
+    "tags": ["backup", "disaster-recovery", "multi-region", "rpo-rto"],
+    "documentationLinks": [
+      {
+        "title": "AWS Disaster Recovery",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html",
+        "description": "AWS disaster recovery whitepaper"
+      },
+      {
+        "title": "Backup Strategies",
+        "url": "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html",
+        "description": "AWS Backup service documentation"
+      }
+    ]
+  },
+  {
+    "id": "devops-010",
+    "title": "Performance Testing at Scale",
+    "question": "Design a performance testing strategy for a high-traffic web application. Include load testing, stress testing, and capacity planning.",
+    "difficulty": "advanced",
+    "company": "locust",
+    "language": "python",
+    "tags": [
+      "performance-testing",
+      "load-testing",
+      "capacity-planning",
+      "scalability"
+    ],
+    "documentationLinks": [
+      {
+        "title": "Performance Testing Guide",
+        "url": "https://docs.locust.io/en/stable/",
+        "description": "Locust performance testing documentation"
+      },
+      {
+        "title": "Capacity Planning",
+        "url": "https://sre.google/sre-book/capacity-planning/",
+        "description": "Google SRE book chapter on capacity planning"
+      }
+    ]
+  },
+  {
+    "id": "backend-016",
+    "title": "Docker Multi-stage Builds",
+    "question": "Create a Dockerfile with multi-stage builds for a production application. Optimize image size and security.",
+    "difficulty": "intermediate",
+    "company": "docker",
+    "language": "dockerfile",
+    "tags": ["docker", "containers", "optimization", "security"],
+    "documentationLinks": [
+      {
+        "title": "Docker Multi-stage Builds",
+        "url": "https://docs.docker.com/develop/dev-best-practices/#use-multi-stage-builds",
+        "description": "Official Docker multi-stage build documentation"
+      },
+      {
+        "title": "Dockerfile Best Practices",
+        "url": "https://docs.docker.com/develop/dev-best-practices/",
+        "description": "Docker development best practices"
+      }
+    ]
+  },
+  {
+    "id": "backend-017",
+    "title": "Terraform Infrastructure as Code",
+    "question": "Design cloud infrastructure using Terraform HCL. Implement modules, state management, and CI/CD integration.",
+    "difficulty": "advanced",
+    "company": "hashicorp",
+    "language": "hcl",
+    "tags": ["terraform", "infrastructure", "iac", "cloud"],
+    "documentationLinks": [
+      {
+        "title": "Terraform Documentation",
+        "url": "https://www.terraform.io/docs",
+        "description": "Official Terraform documentation"
+      },
+      {
+        "title": "HCL Configuration Language",
+        "url": "https://www.terraform.io/docs/language/index.html",
+        "description": "HashiCorp Configuration Language guide"
+      }
+    ]
+  }
+]

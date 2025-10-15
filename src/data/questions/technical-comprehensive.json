@@ -1,0 +1,553 @@
+[
+  {
+    "id": "tech-001",
+    "title": "Two Sum Problem",
+    "question": "Given an array of integers and a target sum, find two numbers that add up to the target. Return their indices.",
+    "difficulty": "beginner",
+    "company": "google",
+    "language": "python",
+    "tags": ["algorithms", "arrays", "hash-tables", "two-pointers"],
+    "documentationLinks": [
+      {
+        "title": "LeetCode Two Sum",
+        "url": "https://leetcode.com/problems/two-sum/",
+        "description": "Practice the classic Two Sum problem"
+      },
+      {
+        "title": "Hash Table Implementation",
+        "url": "https://www.geeksforgeeks.org/hashing-data-structure/",
+        "description": "Understanding hash tables and their applications"
+      }
+    ]
+  },
+  {
+    "id": "tech-002",
+    "title": "Binary Tree Traversal",
+    "question": "Implement inorder, preorder, and postorder traversal of a binary tree both recursively and iteratively.",
+    "difficulty": "intermediate",
+    "company": "meta",
+    "language": "java",
+    "tags": ["trees", "recursion", "algorithms", "dfs"],
+    "documentationLinks": [
+      {
+        "title": "Binary Tree Traversal",
+        "url": "https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/",
+        "description": "Complete guide to tree traversal methods"
+      },
+      {
+        "title": "Recursion vs Iteration",
+        "url": "https://stackoverflow.com/questions/15688019/recursion-vs-iteration",
+        "description": "Understanding when to use recursion vs iteration"
+      }
+    ]
+  },
+  {
+    "id": "tech-003",
+    "title": "Valid Parentheses",
+    "question": "Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+    "difficulty": "beginner",
+    "company": "apple",
+    "language": "python",
+    "tags": ["stacks", "strings", "algorithms"],
+    "documentationLinks": [
+      {
+        "title": "Stack Data Structure",
+        "url": "https://www.geeksforgeeks.org/stack-data-structure/",
+        "description": "Understanding stack operations and applications"
+      },
+      {
+        "title": "LeetCode Valid Parentheses",
+        "url": "https://leetcode.com/problems/valid-parentheses/",
+        "description": "Practice the valid parentheses problem"
+      }
+    ]
+  },
+  {
+    "id": "tech-004",
+    "title": "Longest Substring Without Repeating Characters",
+    "question": "Given a string, find the length of the longest substring without repeating characters.",
+    "difficulty": "intermediate",
+    "company": "microsoft",
+    "language": "javascript",
+    "tags": ["sliding-window", "strings", "hash-tables"],
+    "documentationLinks": [
+      {
+        "title": "Sliding Window Technique",
+        "url": "https://www.geeksforgeeks.org/window-sliding-technique/",
+        "description": "Understanding the sliding window algorithm pattern"
+      },
+      {
+        "title": "String Algorithms",
+        "url": "https://www.programiz.com/dsa/string-algorithm",
+        "description": "Common string manipulation algorithms"
+      }
+    ]
+  },
+  {
+    "id": "tech-005",
+    "title": "Merge Sort Implementation",
+    "question": "Implement merge sort algorithm and explain its time and space complexity.",
+    "difficulty": "intermediate",
+    "company": "amazon",
+    "language": "cpp",
+    "tags": ["sorting", "divide-and-conquer", "algorithms"],
+    "documentationLinks": [
+      {
+        "title": "Merge Sort Algorithm",
+        "url": "https://www.geeksforgeeks.org/merge-sort/",
+        "description": "Detailed explanation of merge sort with examples"
+      },
+      {
+        "title": "Sorting Algorithms Comparison",
+        "url": "https://www.bigocheatsheet.com/",
+        "description": "Time and space complexity of various sorting algorithms"
+      }
+    ]
+  },
+  {
+    "id": "tech-006",
+    "title": "LRU Cache Implementation",
+    "question": "Design and implement a data structure for Least Recently Used (LRU) cache with O(1) operations.",
+    "difficulty": "advanced",
+    "company": "netflix",
+    "language": "python",
+    "tags": ["design", "hash-tables", "linked-lists", "caching"],
+    "documentationLinks": [
+      {
+        "title": "LRU Cache Design",
+        "url": "https://leetcode.com/problems/lru-cache/",
+        "description": "LeetCode problem for implementing LRU cache"
+      },
+      {
+        "title": "Caching Strategies",
+        "url": "https://redis.io/docs/manual/eviction/",
+        "description": "Different cache eviction policies"
+      }
+    ]
+  },
+  {
+    "id": "tech-007",
+    "title": "Graph BFS and DFS",
+    "question": "Implement breadth-first search and depth-first search for a graph. Explain when to use each.",
+    "difficulty": "intermediate",
+    "company": "uber",
+    "language": "go",
+    "tags": ["graphs", "bfs", "dfs", "algorithms"],
+    "documentationLinks": [
+      {
+        "title": "Graph Traversal Algorithms",
+        "url": "https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/",
+        "description": "Complete guide to graph algorithms"
+      },
+      {
+        "title": "BFS vs DFS",
+        "url": "https://www.programiz.com/dsa/graph-bfs",
+        "description": "When to use BFS vs DFS in graph problems"
+      }
+    ]
+  },
+  {
+    "id": "tech-008",
+    "title": "Dynamic Programming - Fibonacci",
+    "question": "Solve the Fibonacci sequence using dynamic programming. Compare memoization vs tabulation approaches.",
+    "difficulty": "intermediate",
+    "company": "tesla",
+    "language": "java",
+    "tags": ["dynamic-programming", "memoization", "optimization"],
+    "documentationLinks": [
+      {
+        "title": "Dynamic Programming Guide",
+        "url": "https://www.geeksforgeeks.org/dynamic-programming/",
+        "description": "Introduction to dynamic programming concepts"
+      },
+      {
+        "title": "Memoization vs Tabulation",
+        "url": "https://www.geeksforgeeks.org/tabulation-vs-memoization/",
+        "description": "Comparing top-down vs bottom-up DP approaches"
+      }
+    ]
+  },
+  {
+    "id": "tech-009",
+    "title": "SQL Query Optimization",
+    "question": "Given a slow-performing SQL query, identify bottlenecks and optimize it using indexes, joins, and query restructuring.",
+    "difficulty": "advanced",
+    "company": "oracle",
+    "language": "sql",
+    "tags": ["sql", "database", "optimization", "indexing"],
+    "documentationLinks": [
+      {
+        "title": "SQL Query Optimization",
+        "url": "https://www.postgresql.org/docs/current/sql-performance.html",
+        "description": "PostgreSQL performance optimization guide"
+      },
+      {
+        "title": "Database Indexing Strategies",
+        "url": "https://use-the-index-luke.com/",
+        "description": "Comprehensive guide to database indexing"
+      }
+    ]
+  },
+  {
+    "id": "tech-010",
+    "title": "API Rate Limiting",
+    "question": "Design a rate limiting system for an API. Discuss different algorithms like token bucket, leaky bucket, and sliding window.",
+    "difficulty": "advanced",
+    "company": "stripe",
+    "language": "typescript",
+    "tags": ["system-design", "rate-limiting", "algorithms", "api-design"],
+    "documentationLinks": [
+      {
+        "title": "Rate Limiting Algorithms",
+        "url": "https://www.nginx.com/blog/rate-limiting-nginx/",
+        "description": "Different approaches to implementing rate limiting"
+      },
+      {
+        "title": "API Design Best Practices",
+        "url": "https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design",
+        "description": "Microsoft's guide to API design patterns"
+      }
+    ]
+  },
+  {
+    "id": "tech-011",
+    "title": "Concurrent Programming",
+    "question": "Explain the difference between processes and threads. Implement a thread-safe counter using mutex/locks.",
+    "difficulty": "advanced",
+    "company": "spotify",
+    "language": "java",
+    "tags": ["concurrency", "threading", "synchronization", "performance"],
+    "documentationLinks": [
+      {
+        "title": "Concurrency in Programming",
+        "url": "https://www.geeksforgeeks.org/concurrency-in-programming-language/",
+        "description": "Understanding concurrent programming concepts"
+      },
+      {
+        "title": "Thread Synchronization",
+        "url": "https://docs.oracle.com/javase/tutorial/essential/concurrency/sync.html",
+        "description": "Java tutorial on thread synchronization"
+      }
+    ]
+  },
+  {
+    "id": "tech-012",
+    "title": "Memory Management",
+    "question": "Explain how garbage collection works. Compare mark-and-sweep vs generational garbage collection.",
+    "difficulty": "advanced",
+    "company": "dropbox",
+    "language": "java",
+    "tags": ["memory-management", "garbage-collection", "performance"],
+    "documentationLinks": [
+      {
+        "title": "Garbage Collection Algorithms",
+        "url": "https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html",
+        "description": "Oracle's guide to garbage collection in Java"
+      },
+      {
+        "title": "Memory Management Techniques",
+        "url": "https://www.geeksforgeeks.org/memory-management-in-operating-system/",
+        "description": "Operating system memory management concepts"
+      }
+    ]
+  },
+  {
+    "id": "tech-013",
+    "title": "Quicksort Algorithm",
+    "question": "Implement quicksort with different pivot selection strategies. Analyze worst-case and average-case performance.",
+    "difficulty": "intermediate",
+    "company": "adobe",
+    "language": "cpp",
+    "tags": [
+      "sorting",
+      "divide-and-conquer",
+      "algorithms",
+      "complexity-analysis"
+    ],
+    "documentationLinks": [
+      {
+        "title": "Quicksort Algorithm",
+        "url": "https://www.geeksforgeeks.org/quick-sort/",
+        "description": "Detailed explanation of quicksort algorithm"
+      },
+      {
+        "title": "Pivot Selection Strategies",
+        "url": "https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/",
+        "description": "Different approaches to choosing pivot in quicksort"
+      }
+    ]
+  },
+  {
+    "id": "tech-014",
+    "title": "Reverse Linked List",
+    "question": "Implement both iterative and recursive solutions to reverse a singly linked list. Discuss space complexity.",
+    "difficulty": "beginner",
+    "company": "linkedin",
+    "language": "python",
+    "tags": ["linked-lists", "recursion", "pointers"],
+    "documentationLinks": [
+      {
+        "title": "Linked List Operations",
+        "url": "https://www.geeksforgeeks.org/data-structures/linked-list/",
+        "description": "Complete guide to linked list data structure"
+      },
+      {
+        "title": "LeetCode Reverse Linked List",
+        "url": "https://leetcode.com/problems/reverse-linked-list/",
+        "description": "Practice reversing linked lists"
+      }
+    ]
+  },
+  {
+    "id": "tech-015",
+    "title": "Sliding Window Maximum",
+    "question": "Given an array and a window size k, find the maximum element in each sliding window of size k.",
+    "difficulty": "advanced",
+    "company": "amazon",
+    "language": "java",
+    "tags": ["sliding-window", "deque", "algorithms", "arrays"],
+    "documentationLinks": [
+      {
+        "title": "Sliding Window Problems",
+        "url": "https://leetcode.com/problems/sliding-window-maximum/",
+        "description": "Advanced sliding window problem"
+      },
+      {
+        "title": "Deque Data Structure",
+        "url": "https://www.geeksforgeeks.org/deque-set-1-introduction-applications/",
+        "description": "Understanding double-ended queue operations"
+      }
+    ]
+  },
+  {
+    "id": "tech-016",
+    "title": "Trie Data Structure",
+    "question": "Implement a trie (prefix tree) with insert, search, and startsWith operations. Discuss use cases.",
+    "difficulty": "intermediate",
+    "company": "google",
+    "language": "cpp",
+    "tags": ["trie", "strings", "data-structures", "prefix-search"],
+    "documentationLinks": [
+      {
+        "title": "Trie Data Structure",
+        "url": "https://www.geeksforgeeks.org/trie-insert-and-search/",
+        "description": "Implementation and applications of trie"
+      },
+      {
+        "title": "String Search Algorithms",
+        "url": "https://www.topcoder.com/community/competitive-programming/tutorials/introduction-to-string-searching-algorithms/",
+        "description": "Various string searching techniques"
+      }
+    ]
+  },
+  {
+    "id": "tech-017",
+    "title": "Binary Search Variants",
+    "question": "Implement binary search to find first and last occurrence of an element in a sorted array.",
+    "difficulty": "intermediate",
+    "company": "microsoft",
+    "language": "python",
+    "tags": ["binary-search", "algorithms", "arrays", "searching"],
+    "documentationLinks": [
+      {
+        "title": "Binary Search Algorithm",
+        "url": "https://www.geeksforgeeks.org/binary-search/",
+        "description": "Complete guide to binary search variants"
+      },
+      {
+        "title": "Search Algorithm Patterns",
+        "url": "https://leetcode.com/explore/learn/card/binary-search/",
+        "description": "LeetCode binary search exploration"
+      }
+    ]
+  },
+  {
+    "id": "tech-018",
+    "title": "Topological Sort",
+    "question": "Implement topological sorting using both DFS and Kahn's algorithm. Explain applications in task scheduling.",
+    "difficulty": "intermediate",
+    "company": "facebook",
+    "language": "java",
+    "tags": ["graphs", "topological-sort", "dfs", "algorithms"],
+    "documentationLinks": [
+      {
+        "title": "Topological Sorting",
+        "url": "https://www.geeksforgeeks.org/topological-sorting/",
+        "description": "Understanding topological sort algorithms"
+      },
+      {
+        "title": "Graph Applications",
+        "url": "https://www.programiz.com/dsa/graph",
+        "description": "Real-world applications of graph algorithms"
+      }
+    ]
+  },
+  {
+    "id": "tech-019",
+    "title": "Heap Implementation",
+    "question": "Implement a min-heap and max-heap. Show how to use heaps for finding the kth largest element.",
+    "difficulty": "intermediate",
+    "company": "apple",
+    "language": "go",
+    "tags": ["heaps", "priority-queue", "data-structures"],
+    "documentationLinks": [
+      {
+        "title": "Heap Data Structure",
+        "url": "https://www.geeksforgeeks.org/heap-data-structure/",
+        "description": "Complete guide to heap operations"
+      },
+      {
+        "title": "Priority Queue Applications",
+        "url": "https://www.programiz.com/dsa/priority-queue",
+        "description": "Understanding priority queues and heaps"
+      }
+    ]
+  },
+  {
+    "id": "tech-020",
+    "title": "Edit Distance",
+    "question": "Calculate the minimum edit distance between two strings using dynamic programming (Levenshtein distance).",
+    "difficulty": "advanced",
+    "company": "google",
+    "language": "python",
+    "tags": ["dynamic-programming", "strings", "algorithms"],
+    "documentationLinks": [
+      {
+        "title": "Edit Distance Algorithm",
+        "url": "https://www.geeksforgeeks.org/edit-distance-dp-5/",
+        "description": "Dynamic programming approach to edit distance"
+      },
+      {
+        "title": "String Similarity Algorithms",
+        "url": "https://en.wikipedia.org/wiki/Levenshtein_distance",
+        "description": "Understanding different string similarity measures"
+      }
+    ]
+  },
+  {
+    "id": "tech-021",
+    "title": "LINQ Query Optimization",
+    "question": "Optimize LINQ queries in C# for better performance. Compare query syntax vs method syntax and explain deferred execution.",
+    "difficulty": "intermediate",
+    "company": "microsoft",
+    "language": "csharp",
+    "tags": ["linq", "performance", "csharp", "query-optimization"],
+    "documentationLinks": [
+      {
+        "title": "LINQ Documentation",
+        "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/",
+        "description": "Official Microsoft LINQ documentation"
+      },
+      {
+        "title": "LINQ Performance Best Practices",
+        "url": "https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ef/language-reference/query-execution",
+        "description": "Performance considerations for LINQ queries"
+      }
+    ]
+  },
+  {
+    "id": "tech-022",
+    "title": "Memory Safety in Rust",
+    "question": "Implement a data structure in Rust demonstrating ownership, borrowing, and lifetimes. Explain how Rust prevents memory leaks.",
+    "difficulty": "advanced",
+    "company": "dropbox",
+    "language": "rust",
+    "tags": ["rust", "memory-safety", "ownership", "lifetimes"],
+    "documentationLinks": [
+      {
+        "title": "The Rust Book",
+        "url": "https://doc.rust-lang.org/book/",
+        "description": "Official Rust programming language book"
+      },
+      {
+        "title": "Rust Ownership Guide",
+        "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+        "description": "Understanding ownership in Rust"
+      }
+    ]
+  },
+  {
+    "id": "tech-023",
+    "title": "Laravel Eloquent ORM",
+    "question": "Build a PHP application using Laravel's Eloquent ORM. Implement complex relationships and optimize database queries.",
+    "difficulty": "intermediate",
+    "company": "shopify",
+    "language": "php",
+    "tags": ["php", "laravel", "orm", "database"],
+    "documentationLinks": [
+      {
+        "title": "Laravel Eloquent",
+        "url": "https://laravel.com/docs/eloquent",
+        "description": "Laravel's Eloquent ORM documentation"
+      },
+      {
+        "title": "PHP Best Practices",
+        "url": "https://www.php.net/manual/en/",
+        "description": "Official PHP documentation"
+      }
+    ]
+  },
+  {
+    "id": "tech-024",
+    "title": "Ruby Metaprogramming",
+    "question": "Demonstrate Ruby's metaprogramming capabilities by creating dynamic methods and classes. Explain method_missing and define_method.",
+    "difficulty": "advanced",
+    "company": "github",
+    "language": "ruby",
+    "tags": ["ruby", "metaprogramming", "dynamic-methods", "reflection"],
+    "documentationLinks": [
+      {
+        "title": "Ruby Metaprogramming",
+        "url": "https://ruby-doc.org/core/",
+        "description": "Ruby core documentation"
+      },
+      {
+        "title": "Metaprogramming Ruby Book",
+        "url": "https://pragprog.com/titles/ppmetr2/metaprogramming-ruby-2/",
+        "description": "Comprehensive guide to Ruby metaprogramming"
+      }
+    ]
+  },
+  {
+    "id": "tech-025",
+    "title": "Scala Functional Programming",
+    "question": "Implement functional programming patterns in Scala using higher-order functions, monads, and immutable data structures.",
+    "difficulty": "advanced",
+    "company": "twitter",
+    "language": "scala",
+    "tags": ["scala", "functional-programming", "monads", "immutable"],
+    "documentationLinks": [
+      {
+        "title": "Scala Documentation",
+        "url": "https://docs.scala-lang.org/",
+        "description": "Official Scala documentation"
+      },
+      {
+        "title": "Functional Programming in Scala",
+        "url": "https://www.manning.com/books/functional-programming-in-scala",
+        "description": "Comprehensive guide to FP in Scala"
+      }
+    ]
+  },
+  {
+    "id": "tech-026",
+    "title": "R Statistical Analysis",
+    "question": "Perform statistical analysis and data visualization in R. Implement regression models and create interactive plots.",
+    "difficulty": "intermediate",
+    "company": "databricks",
+    "language": "r",
+    "tags": ["r", "statistics", "data-analysis", "visualization"],
+    "documentationLinks": [
+      {
+        "title": "R Documentation",
+        "url": "https://www.r-project.org/other-docs.html",
+        "description": "Official R programming documentation"
+      },
+      {
+        "title": "R for Data Science",
+        "url": "https://r4ds.had.co.nz/",
+        "description": "Comprehensive guide to data science with R"
+      }
+    ]
+  }
+]

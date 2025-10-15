@@ -1,0 +1,146 @@
+[
+  {
+    "id": "python",
+    "name": "Python",
+    "color": "#3776ab",
+    "description": "Popular language for data science, backend development, and automation"
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "color": "#f7df1e",
+    "description": "Essential for frontend development and Node.js backend"
+  },
+  {
+    "id": "java",
+    "name": "Java",
+    "color": "#ed8b00",
+    "description": "Enterprise-grade language for large-scale applications"
+  },
+  {
+    "id": "cpp",
+    "name": "C++",
+    "color": "#00599c",
+    "description": "High-performance systems programming language"
+  },
+  {
+    "id": "csharp",
+    "name": "C#",
+    "color": "#239120",
+    "description": "Microsoft's language for .NET development"
+  },
+  {
+    "id": "go",
+    "name": "Go",
+    "color": "#00add8",
+    "description": "Google's language for concurrent and networked applications"
+  },
+  {
+    "id": "rust",
+    "name": "Rust",
+    "color": "#ce422b",
+    "description": "Memory-safe systems programming language"
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "color": "#3178c6",
+    "description": "Typed superset of JavaScript for large applications"
+  },
+  {
+    "id": "swift",
+    "name": "Swift",
+    "color": "#fa7343",
+    "description": "Apple's language for iOS and macOS development"
+  },
+  {
+    "id": "kotlin",
+    "name": "Kotlin",
+    "color": "#7f52ff",
+    "description": "Modern language for Android development and beyond"
+  },
+  {
+    "id": "dart",
+    "name": "Dart",
+    "color": "#0175c2",
+    "description": "Google's language for Flutter cross-platform development"
+  },
+  {
+    "id": "php",
+    "name": "PHP",
+    "color": "#777bb4",
+    "description": "Server-side scripting language for web development"
+  },
+  {
+    "id": "ruby",
+    "name": "Ruby",
+    "color": "#cc342d",
+    "description": "Dynamic language known for Ruby on Rails framework"
+  },
+  {
+    "id": "scala",
+    "name": "Scala",
+    "color": "#dc322f",
+    "description": "Functional programming language running on JVM"
+  },
+  {
+    "id": "r",
+    "name": "R",
+    "color": "#276dc3",
+    "description": "Statistical computing and data analysis language"
+  },
+  {
+    "id": "sql",
+    "name": "SQL",
+    "color": "#4479a1",
+    "description": "Standard language for managing relational databases"
+  },
+  {
+    "id": "html",
+    "name": "HTML",
+    "color": "#e34f26",
+    "description": "Markup language for web content structure"
+  },
+  {
+    "id": "css",
+    "name": "CSS",
+    "color": "#1572b6",
+    "description": "Styling language for web presentation"
+  },
+  {
+    "id": "bash",
+    "name": "Bash",
+    "color": "#4eaa25",
+    "description": "Unix shell scripting for automation and system administration"
+  },
+  {
+    "id": "yaml",
+    "name": "YAML",
+    "color": "#cb171e",
+    "description": "Human-readable data serialization for configuration files"
+  },
+  {
+    "id": "json",
+    "name": "JSON",
+    "color": "#000000",
+    "description": "Lightweight data interchange format"
+  },
+  {
+    "id": "dockerfile",
+    "name": "Dockerfile",
+    "color": "#2496ed",
+    "description": "Instructions for building Docker container images"
+  },
+  {
+    "id": "hcl",
+    "name": "HCL",
+    "color": "#623ce4",
+    "description": "HashiCorp Configuration Language for Infrastructure as Code"
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "color": "#339933",
+    "description": "JavaScript runtime for server-side development"
+  }
+]

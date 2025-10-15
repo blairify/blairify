@@ -1,0 +1,54 @@
+{
+  "preparation": [
+    "Research market rates for your role and location",
+    "Document your achievements and impact quantitatively",
+    "Understand the complete compensation package",
+    "Know your minimum acceptable offer (walk-away point)",
+    "Prepare multiple offer scenarios for comparison"
+  ],
+  "strategy": [
+    "Express enthusiasm for the role and company first",
+    "Ask for time to consider the initial offer",
+    "Negotiate total compensation, not just base salary",
+    "Use competing offers as leverage respectfully",
+    "Be prepared to justify your requested compensation",
+    "Consider non-monetary benefits (vacation, remote work, learning budget)"
+  ],
+  "commonElements": [
+    {
+      "element": "Base Salary",
+      "negotiable": "High",
+      "tips": "Primary component, most directly comparable across offers"
+    },
+    {
+      "element": "Equity/Stock Options",
+      "negotiable": "Medium",
+      "tips": "Consider vesting schedule, company stage, and dilution risk"
+    },
+    {
+      "element": "Signing Bonus",
+      "negotiable": "Medium",
+      "tips": "Often available to offset lost bonuses from previous job"
+    },
+    {
+      "element": "Annual Bonus",
+      "negotiable": "Low",
+      "tips": "Usually tied to company performance and role level"
+    },
+    {
+      "element": "Vacation Days",
+      "negotiable": "Medium",
+      "tips": "More flexible at smaller companies"
+    },
+    {
+      "element": "Learning Budget",
+      "negotiable": "High",
+      "tips": "Often easy for companies to approve"
+    },
+    {
+      "element": "Remote Work",
+      "negotiable": "Medium",
+      "tips": "Varies greatly by company policy and role requirements"
+    }
+  ]
+}

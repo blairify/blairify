@@ -1,0 +1,23 @@
+{
+  "setup": [
+    "Invest in a good desk, chair, and monitor setup",
+    "Ensure reliable internet connection and backup options",
+    "Create a dedicated workspace separate from living areas",
+    "Set up proper lighting and minimize background noise",
+    "Have backup power solutions for important meetings"
+  ],
+  "productivity": [
+    "Establish consistent work hours and routines",
+    "Use time-blocking techniques for focused work",
+    "Take regular breaks and maintain work-life boundaries",
+    "Communicate your availability clearly to teammates",
+    "Over-communicate progress and blockers proactively"
+  ],
+  "collaboration": [
+    "Use video calls for important discussions",
+    "Document decisions and share context asynchronously",
+    "Participate actively in team rituals and social events",
+    "Be mindful of timezone differences in global teams",
+    "Use collaborative tools effectively for code reviews and planning"
+  ]
+}
