@@ -1,5 +1,5 @@
 /**
- * Simplified Database Service for Themockr Application
+ * Simplified Database Service for Blairify Application
  * Core Firestore operations with proper error handling
  */
 

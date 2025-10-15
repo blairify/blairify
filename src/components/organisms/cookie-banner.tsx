@@ -52,7 +52,7 @@ interface CookieConsent {
 }
 
 const COOKIE_CONSENT_VERSION = "1.0";
-const COOKIE_NAME = "Themockr-cookie-consent";
+const COOKIE_NAME = "Blairify-cookie-consent";
 
 export const CookieBanner = () => {
   const { user } = useAuth();
@@ -314,7 +314,7 @@ export const CookieBanner = () => {
                     We value your privacy
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Themockr uses cookies to enhance your experience
+                    Blairify uses cookies to enhance your experience
                   </p>
                 </div>
               </div>
@@ -371,10 +371,10 @@ export const CookieBanner = () => {
                 Customize
               </Button>
               <Button
-                variant="ghost"
+                variant="outline"
                 onClick={handleRejectAll}
                 disabled={loading}
-                className="flex-1 sm:flex-none text-muted-foreground"
+                className="flex-1 sm:flex-none"
               >
                 Reject Optional
               </Button>

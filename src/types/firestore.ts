@@ -1,5 +1,5 @@
 /**
- * Firestore Data Models for Themockr Application
+ * Firestore Data Models for Blairify Application
  * Comprehensive TypeScript interfaces for all database entities
  */
 

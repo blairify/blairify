@@ -565,11 +565,10 @@ export default function ConfigurePage() {
           return (
             <Card
               key={position.value}
-              className={`cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full ${
-                config.position === position.value
+              className={`cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full ${config.position === position.value
                   ? "ring-2 ring-primary bg-primary/10"
                   : "border-border"
-              }`}
+                }`}
               onClick={() =>
                 setConfig((prev) => ({
                   ...prev,
@@ -613,11 +612,10 @@ export default function ConfigurePage() {
             />
             <Label
               htmlFor={level.value}
-              className={`flex flex-col p-6 rounded-lg border cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full min-h-[120px] ${
-                config.seniority === level.value
+              className={`flex flex-col p-6 rounded-lg border cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full min-h-[120px] ${config.seniority === level.value
                   ? "ring-2 ring-primary bg-primary/10 border-primary"
                   : "border-border"
-              }`}
+                }`}
             >
               <div className="flex items-center gap-2 mb-3">
                 <div className={`w-3 h-3 rounded-full ${level.color}`} />
@@ -701,11 +699,10 @@ export default function ConfigurePage() {
                   <button
                     key={tech}
                     type="button"
-                    className={`p-2 rounded-md border cursor-pointer transition-all hover:scale-105 text-left text-xs ${
-                      config.technologies.includes(tech)
+                    className={`p-2 rounded-md border cursor-pointer transition-all hover:scale-105 text-left text-xs ${config.technologies.includes(tech)
                         ? "bg-primary text-primary-foreground border-primary"
                         : "bg-card hover:bg-accent border-border"
-                    }`}
+                      }`}
                     onClick={() => {
                       setConfig((prev) => ({
                         ...prev,
@@ -767,11 +764,10 @@ export default function ConfigurePage() {
               return (
                 <Card
                   key={profile.value}
-                  className={`cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full ${
-                    config.companyProfile === profile.value
+                  className={`cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full ${config.companyProfile === profile.value
                       ? "ring-2 ring-primary bg-primary/10"
                       : "border-border"
-                  }`}
+                    }`}
                   onClick={() =>
                     setConfig((prev) => ({
                       ...prev,
@@ -807,11 +803,10 @@ export default function ConfigurePage() {
               return (
                 <Card
                   key={company.value}
-                  className={`cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 hover:scale-105 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full ${
-                    config.specificCompany === company.value
+                  className={`cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 hover:scale-105 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full ${config.specificCompany === company.value
                       ? "ring-2 ring-primary bg-primary/10"
                       : "border-border"
-                  }`}
+                    }`}
                   onClick={() =>
                     setConfig((prev) => ({
                       ...prev,
@@ -850,11 +845,10 @@ export default function ConfigurePage() {
           return (
             <Card
               key={type.value}
-              className={`cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full ${
-                config.interviewType === type.value
+              className={`cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full ${config.interviewType === type.value
                   ? "ring-2 ring-primary bg-primary/10"
                   : "border-border"
-              }`}
+                }`}
               onClick={() =>
                 setConfig((prev) => ({
                   ...prev,
@@ -889,11 +883,10 @@ export default function ConfigurePage() {
             return (
               <Card
                 key={mode.value}
-                className={`cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full ${
-                  config.interviewMode === mode.value
+                className={`cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-300 dark:hover:bg-purple-900/20 dark:hover:border-purple-600 h-full ${config.interviewMode === mode.value
                     ? "ring-2 ring-primary bg-primary/10"
                     : "border-border"
-                }`}
+                  }`}
                 onClick={() =>
                   setConfig((prev) => ({
                     ...prev,
@@ -993,20 +986,19 @@ export default function ConfigurePage() {
               {/* Step Navigation Breadcrumb */}
               <div className="flex items-center mt-4 space-x-2 overflow-x-auto pb-2">
                 {STEPS.map((step, index) => {
-                  const StepIcon = step.icon;
+                  const StepIcon = step.icon as React.ComponentType<{ className?: string }>;
                   const isActive = index === currentStep;
                   const isCompleted = index < currentStep;
 
                   return (
                     <div key={step.id} className="flex items-center">
                       <div
-                        className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${
-                          isActive
+                        className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${isActive
                             ? "bg-primary text-primary-foreground"
                             : isCompleted
                               ? "bg-primary/20 text-primary"
                               : "bg-muted text-muted-foreground"
-                        }`}
+                          }`}
                       >
                         <StepIcon className="h-4 w-4" />
                         <span className="text-sm font-medium">
@@ -1027,7 +1019,7 @@ export default function ConfigurePage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   {(() => {
-                    const StepIcon = STEPS[currentStep].icon;
+                    const StepIcon = STEPS[currentStep].icon as React.ComponentType<{ className?: string }>;;
                     return <StepIcon className="h-5 w-5 text-primary" />;
                   })()}
                   {STEPS[currentStep].title}

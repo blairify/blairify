@@ -184,7 +184,7 @@ function generateSystemPrompt(config: InterviewConfig): string {
   } = config;
 
   if (isDemoMode) {
-    return `You are Alex, a friendly AI demo guide showing users how the Themockr interview system works. Your role is to:
+    return `You are Alex, a friendly AI demo guide showing users how the Blairify interview system works. Your role is to:
 
 1. Keep things casual and relaxed - this is just a demo!
 2. Ask only 2-3 simple, non-intimidating questions
