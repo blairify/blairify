@@ -3,142 +3,109 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ==============================
+   LIGHT MODE — modern & educational
+   ============================== */
 :root {
-  --background: oklch(0.985 0 0);
-  /* Light background */
-  --foreground: oklch(0.145 0 0);
-  /* Dark text */
-  --card: oklch(0.975 0 0);
-  /* Light gray cards */
-  --card-foreground: oklch(0.145 0 0);
-  /* Dark text on cards */
-  --popover: oklch(0.975 0 0);
-  /* Light popover background */
-  --popover-foreground: #0a0a0a;
-  /* Dark popover text */
-  --primary: #6817ae;
-  /* Celadon primary */
-  --primary-foreground: #fafafa;
-  /* Light text on celadon */
-  --secondary: oklch(0.95 0 0);
-  /* Light gray secondary */
-  --secondary-foreground: oklch(0.145 0 0);
-  /* Dark text on secondary */
-  --muted: oklch(0.95 0 0);
-  /* Light muted gray */
-  --muted-foreground: oklch(0.45 0 0);
-  /* Medium gray muted text */
-  --accent: #e9e4ff;
-  /* Light purple accent */
-  --accent-foreground: oklch(0.985 0 0);
-  /* Light text on accent */
-  --destructive: oklch(0.55 0.245 27.325);
-  /* Red for errors */
-  --destructive-foreground: oklch(0.985 0 0);
-  /* White text on red */
-  --border: #d1d5db;
-  /* Light border */
-  --input: #f3f4f6;
-  /* Light input background */
-  --ring: #00b47b;
-  /* Celadon focus ring */
-  --chart-1: #00b47b;
-  /* Celadon */
-  --chart-2: #4ade80;
-  /* Green */
-  --chart-3: #a3e635;
-  /* Yellow-green */
-  --chart-4: #f97316;
-  /* Orange */
-  --chart-5: #3b82f6;
-  /* Blue */
-  --radius: 0.75rem;
-  /* Slightly larger radius for futuristic feel */
-  --sidebar: #f9fafb;
-  /* Light sidebar */
-  --sidebar-foreground: #0a0a0a;
-  /* Dark sidebar text */
-  --sidebar-primary: #6817ae;
-  /* Purple active items */
-  --sidebar-primary-foreground: #fafafa;
-  /* Light text on purple */
-  --sidebar-accent: #f3f4f6;
-  /* Light sidebar accent */
-  --sidebar-accent-foreground: #374151;
-  /* Dark accent text */
-  --sidebar-border: #e5e7eb;
-  /* Light sidebar border */
-  --sidebar-ring: #6817ae;
-  /* Purple sidebar focus */
-}
+  --background: #f9fafb; /* Light neutral base */
+  --foreground: #0b0d17; /* Deep navy text */
+  --card: #ffffff; /* White cards */
+  --card-foreground: #0b0d17;
+  --popover: #ffffff;
+  --popover-foreground: #0b0d17;
 
-.dark {
-  --background: oklch(0.08 0 0);
-  /* Even deeper black */
-  --foreground: oklch(0.985 0 0);
-  /* Bright white */
-  --card: #121212;
-  /* Very dark cards */
-  --card-foreground: #ffffff;
-  /* White card text */
-  --popover: #121212;
-  /* Dark popover */
-  --popover-foreground: #ffffff;
-  /* White popover text */
-  --primary: #7309a4;
-  /* Brighter celadon */
+  --primary: #0077b6; /* Professional teal-blue */
   --primary-foreground: #ffffff;
-  /* Deep black text */
-  --secondary: #181818;
-  /* Darker secondary */
-  --secondary-foreground: #ffffff;
-  /* White secondary text */
-  --muted: #181818;
-  /* Darker muted */
-  --muted-foreground: #a0a0a0;
-  /* Medium gray muted text */
-  --accent: #6b4eff;
-  /* Purple accent */
-  --accent-foreground: #080808;
-  /* Deep black accent text */
-  --destructive: #e57373;
-  /* Bright red */
+
+  --secondary: #e9f1f7; /* Pale blue-gray */
+  --secondary-foreground: #0b0d17;
+
+  --muted: #f2f4f6;
+  --muted-foreground: #6b7280;
+
+  --accent: #90e0ef; /* Aqua accent */
+  --accent-foreground: #0b0d17;
+
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  /* White destructive text */
-  --border: #404040;
-  /* Medium dark border */
-  --input: #2d2d2d;
-  /* Dark input */
-  --ring: #78c2a8;
-  /* Bright celadon ring */
-  --chart-1: #78c2a8;
-  /* Bright celadon */
-  --chart-2: oklch(0.8 0.15 85);
-  /* Bright green */
-  --chart-3: oklch(0.75 0.2 45);
-  /* Bright yellow-green */
-  --chart-4: oklch(0.7 0.25 25);
-  /* Bright orange */
-  --chart-5: oklch(0.68 0.28 220);
-  /* Bright blue */
-  --sidebar: oklch(0.08 0 0);
-  /* Deep black sidebar */
-  --sidebar-foreground: oklch(0.985 0 0);
-  /* White sidebar text */
-  --sidebar-primary: #6817ae;
-  /* Purple active */
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  /* White active text */
-  --sidebar-accent: oklch(0.18 0 0);
-  /* Dark sidebar accent */
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  /* White accent text */
-  --sidebar-border: oklch(0.25 0 0);
-  /* Medium dark sidebar border */
-  --sidebar-ring: #6817ae;
-  /* Purple sidebar ring */
+
+  --border: #d1d5db;
+  --input: #f3f4f6;
+  --ring: #00b4d8;
+
+  /* Chart palette */
+  --chart-1: #0077b6;
+  --chart-2: #00b4d8;
+  --chart-3: #48cae4;
+  --chart-4: #90e0ef;
+  --chart-5: #caf0f8;
+
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #0b0d17;
+  --sidebar-primary: #0077b6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e5f3fa;
+  --sidebar-accent-foreground: #0b0d17;
+  --sidebar-border: #dce4ea;
+  --sidebar-ring: #00b4d8;
 }
 
+/* ==============================
+   DARK MODE — elegant, soft contrast
+   ============================== */
+.dark {
+  --background: #101214; /* Deep slate, not black */
+  --foreground: #f1f5f9; /* Light neutral text */
+  --card: #181b1f;
+  --card-foreground: #f1f5f9;
+  --popover: #1c1f24;
+  --popover-foreground: #f1f5f9;
+
+  --primary: #00b4d8; /* Bright teal for highlights */
+  --primary-foreground: #ffffff;
+
+  --secondary: #202327; /* Muted gray-blue */
+  --secondary-foreground: #f1f5f9;
+
+  --muted: #1a1d21;
+  --muted-foreground: #9ca3af;
+
+  --accent: #0ea5e9; /* Light blue accent */
+  --accent-foreground: #f9fafb;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #f9fafb;
+
+  --border: #2a2e32;
+  --input: #202327;
+  --ring: #00b4d8;
+
+  /* Charts */
+  --chart-1: #00b4d8;
+  --chart-2: #48cae4;
+  --chart-3: #90e0ef;
+  --chart-4: #0077b6;
+  --chart-5: #caf0f8;
+
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar: #16181c;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #00b4d8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1e2126;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: #2d3238;
+  --sidebar-ring: #00b4d8;
+}
+
+/* ==============================
+   Theme Variable Bindings
+   ============================== */
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -180,6 +147,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ==============================
+   Base Layer
+   ============================== */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -189,93 +159,81 @@
     @apply bg-background text-foreground;
   }
 
-  /* Custom scrollbar styles */
+  /* Scrollbars */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
-
   ::-webkit-scrollbar-track {
     background: var(--muted);
     border-radius: 4px;
   }
-
   ::-webkit-scrollbar-thumb {
     background: var(--border);
     border-radius: 4px;
     transition: background-color 0.2s ease;
   }
-
   ::-webkit-scrollbar-thumb:hover {
     background: var(--muted-foreground);
   }
 
-  /* Dark mode scrollbar improvements */
   .dark ::-webkit-scrollbar-track {
-    background: oklch(0.12 0 0);
+    background: #1a1d21;
   }
-
   .dark ::-webkit-scrollbar-thumb {
-    background: oklch(0.3 0 0);
+    background: #2e3237;
   }
-
   .dark ::-webkit-scrollbar-thumb:hover {
-    background: oklch(0.45 0 0);
+    background: #4b4f55;
   }
 
-  /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--border) var(--muted);
   }
-
   .dark * {
-    scrollbar-color: oklch(0.3 0 0) oklch(0.12 0 0);
+    scrollbar-color: #2e3237 #1a1d21;
   }
 }
 
-/* Adding carousel animation for company logos */
+/* ==============================
+   Animations
+   ============================== */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-50%);
   }
 }
-
 @keyframes fade-in-up {
   0% {
     opacity: 0;
     transform: translateY(20px);
   }
-
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 .animate-scroll {
   animation: scroll 20s linear infinite;
 }
-
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out forwards;
 }
-
 .delay-100 {
   animation-delay: 0.1s;
 }
-
 .delay-200 {
   animation-delay: 0.2s;
 }
 
-/* Mobile optimizations */
+/* ==============================
+   Mobile Optimizations
+   ============================== */
 @media (max-width: 768px) {
-  /* Increase touch targets for mobile */
   button,
   [role="button"],
   input[type="button"],
@@ -284,14 +242,6 @@
     min-height: 44px;
   }
 
-  /* Better text legibility on mobile */
-  body {
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
-
-  /* Optimize typography for mobile */
   h1 {
     font-size: 1.75rem;
     line-height: 1.2;
@@ -305,13 +255,11 @@
     line-height: 1.4;
   }
 
-  /* Better spacing for mobile */
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  /* Improve tap targets for mobile */
   a,
   button {
     min-height: 44px;
@@ -321,7 +269,6 @@
     justify-content: center;
   }
 
-  /* Mobile-friendly form inputs */
   input,
   select,
   textarea {

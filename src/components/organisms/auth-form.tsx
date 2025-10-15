@@ -26,7 +26,7 @@ import {
   signInWithGitHub,
   signInWithGoogle,
 } from "@/lib/auth";
-import Logo from "../atoms/logo-the-mockr";
+import Logo from "../atoms/logo-blairify";
 
 type AuthMode = "login" | "register";
 

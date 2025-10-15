@@ -12,7 +12,7 @@ const DEFAULT_REPEAT_COUNT = 7;
 
 export const LogoText = () => (
   <>
-    the<span className="!text-primary dark:text-foreground">:</span>mockr
+   Blairify
   </>
 );
 

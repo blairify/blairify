@@ -1,4 +1,4 @@
-import Logo from "@/components/atoms/logo-the-mockr";
+import Logo from "@/components/atoms/logo-blairify";
 
 interface LoadingPageProps {
   message?: string;

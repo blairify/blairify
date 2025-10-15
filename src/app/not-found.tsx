@@ -30,14 +30,17 @@ export default function NotFound() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button variant="default" size="lg" asChild className="min-w-32">
+              {/* Default button */}
+              <Button variant="default" size="lg" className="min-w-32">
                 <Link href="/">Back to Home</Link>
               </Button>
+
+              {/* Outline button */}
               <Button
                 variant="outline"
                 size="lg"
-                asChild
-                className="min-w-32 hover:text-primary hover:border-primary"
+                className="min-w-32 border-[color:var(--border)] text-[color:var(--foreground)] 
+               hover:text-[color:var(--secondary)] hover:border-[color:var(--primary)] transition-colors"
               >
                 <Link href="/dashboard">Go to Dashboard</Link>
               </Button>

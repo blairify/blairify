@@ -3,7 +3,7 @@
 import { LogOut, Settings, User } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Logo from "@/components/atoms/logo-the-mockr";
+import Logo from "@/components/atoms/logo-blairify";
 import { ThemeToggle } from "@/components/atoms/theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
