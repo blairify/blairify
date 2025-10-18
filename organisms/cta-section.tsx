@@ -1,6 +1,6 @@
 "use client";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -11,7 +11,8 @@ export default function CTASection() {
           <span className="text-[color:var(--primary)]">Confidence</span>
         </h2>
         <p className="text-lg text-[color:var(--muted-foreground)] max-w-2xl mx-auto">
-          Your AI interview coach is ready — get personalized feedback, targeted questions, and track your performance over time.
+          Your AI interview coach is ready — get personalized feedback, targeted
+          questions, and track your performance over time.
         </p>
         <Link
           href="/auth"

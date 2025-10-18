@@ -233,19 +233,15 @@ export const CookieBanner = () => {
     // Marketing cookies (future: Facebook Pixel, etc.)
     if (prefs.marketing) {
       // Enable marketing tracking
-      console.log("Marketing cookies enabled");
     } else {
       // Disable marketing tracking
-      console.log("Marketing cookies disabled");
     }
 
     // Personalization cookies
     if (prefs.personalization) {
       // Enable personalization features
-      console.log("Personalization cookies enabled");
     } else {
       // Disable personalization features
-      console.log("Personalization cookies disabled");
     }
   };
 

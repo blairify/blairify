@@ -1,271 +1,286 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { FiMapPin, FiClock, FiBriefcase, FiGlobe } from 'react-icons/fi';
+import { useCallback, useEffect, useState } from "react";
+import { FiBriefcase, FiClock, FiGlobe, FiMapPin } from "react-icons/fi";
+import { Button } from "../ui/button";
 
 interface Job {
-    id: number;
-    name: string;
-    company: { name: string };
-    locations: { name: string }[];
-    levels: { name: string }[];
-    refs: { landing_page: string };
-    publication_date: string;
-    type?: string;
-    remote?: boolean;
-    categories?: string[];
+  id: number;
+  name: string;
+  company: { name: string };
+  locations: { name: string }[];
+  levels: { name: string }[];
+  refs: { landing_page: string };
+  publication_date: string;
+  type?: string;
+  remote?: boolean;
+  categories?: string[];
 }
 
 interface JobListProps {
-    initialQuery?: string;
-    initialPerPage?: number;
-    maxPagesToFetch?: number;
+  initialQuery?: string;
+  initialPerPage?: number;
 }
 
-const programmingKeywords = [
-    'front end', 'frontend', 'back end', 'backend', 'full stack', 'full-stack',
-    'devops', 'software engineer', 'developer', 'programmer', 'mobile', 'ios', 'android',
-    'react', 'vue', 'angular', 'javascript', 'typescript', 'python', 'java', 'c++', 'c#',
-    'ruby', 'php', 'golang', 'go', 'scala', 'swift', 'kotlin', 'docker', 'kubernetes',
-    'cloud', 'aws', 'azure', 'gcp', 'machine learning', 'ml', 'data engineer', 'backend engineer',
-    'frontend engineer', 'site reliability engineer', 'sre'
-];
-
 export default function JobList({
-    initialQuery = 'developer',
-    initialPerPage = 20,
-    maxPagesToFetch = 20,
+  initialQuery = "developer",
+  initialPerPage = 20,
 }: JobListProps) {
-    const [allJobs, setAllJobs] = useState<Job[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+  const [allJobs, setAllJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-    const [page, setPage] = useState(1);
-    const [perPage, setPerPage] = useState(initialPerPage);
+  const [page, setPage] = useState(1);
+  const [perPage, setPerPage] = useState(initialPerPage);
 
-    const [searchInput, setSearchInput] = useState(initialQuery);
-    const [query, setQuery] = useState(initialQuery);
-    const [locationFilter, setLocationFilter] = useState('');
-    const [levelFilter, setLevelFilter] = useState('');
-    const [typeFilter, setTypeFilter] = useState('');
-    const [remoteFilter, setRemoteFilter] = useState('');
-    const [companyFilter, setCompanyFilter] = useState('');
+  const [searchInput, setSearchInput] = useState(initialQuery);
+  const [query, setQuery] = useState(initialQuery);
+  const [locationFilter, setLocationFilter] = useState("");
+  const [levelFilter, setLevelFilter] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
+  const [remoteFilter, setRemoteFilter] = useState("");
+  const [companyFilter, setCompanyFilter] = useState("");
 
-    // Fetch multiple pages and store jobs locally
-    const fetchAllJobs = async () => {
-        setLoading(true);
-        setError(null);
-        try {
-            let jobsAccumulator: Job[] = [];
-            for (let p = 1; p <= maxPagesToFetch; p++) {
-                const res = await fetch(
-                    `/api/jobs?page=${p}&per_page=50&query=${encodeURIComponent(query)}`,
-                    { cache: 'no-store' }
-                );
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                const data = await res.json();
-                const activeJobs = (data.results || []).filter((job: Job) => job.refs?.landing_page);
-                jobsAccumulator.push(...activeJobs);
-                if (!data.page_count || p >= data.page_count) break;
-            }
+  // Fetch jobs from cache
+  const fetchAllJobs = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(`/api/jobs?query=${encodeURIComponent(query)}`, {
+        cache: "no-store",
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
 
-            const programmingJobs = jobsAccumulator.filter((job: Job) => {
-                const title = job.name.toLowerCase();
-                const categories = job.categories?.join(' ').toLowerCase() || '';
-                return programmingKeywords.some(
-                    (kw) => title.includes(kw) || categories.includes(kw)
-                );
-            });
+      // Show warning if cache needs refresh
+      if (data.cache_needs_refresh) {
+        // Job cache is stale. Consider triggering a refresh.
+      }
 
-            setAllJobs(programmingJobs);
-        } catch (err: any) {
-            setError(err.message || 'Failed to fetch jobs');
-        } finally {
-            setLoading(false);
-        }
-    };
+      setAllJobs(data.results || []);
+    } catch (err: unknown) {
+      const error = err as Error;
+      setError(error.message || "Failed to fetch jobs");
+    } finally {
+      setLoading(false);
+    }
+  }, [query]);
 
-    useEffect(() => {
-        fetchAllJobs();
-    }, [query]);
+  useEffect(() => {
+    fetchAllJobs();
+  }, [fetchAllJobs]);
 
-    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setPage(1);
-        setQuery(searchInput);
-    };
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setPage(1);
+    setQuery(searchInput);
+  };
 
-    const filteredJobs = allJobs.filter((job) => {
-        const matchesLocation = locationFilter
-            ? job.locations.some((l) => l.name.toLowerCase().includes(locationFilter.toLowerCase()))
-            : true;
-        const matchesLevel = levelFilter
-            ? job.levels.some((l) => l.name.toLowerCase().includes(levelFilter.toLowerCase()))
-            : true;
-        const matchesType = typeFilter ? job.type?.toLowerCase() === typeFilter.toLowerCase() : true;
-        const matchesRemote =
-            remoteFilter === 'remote'
-                ? job.remote
-                : remoteFilter === 'onsite'
-                    ? !job.remote
-                    : true;
-        const matchesCompany = companyFilter
-            ? job.company?.name.toLowerCase().includes(companyFilter.toLowerCase())
-            : true;
-
-        return matchesLocation && matchesLevel && matchesType && matchesRemote && matchesCompany;
-    });
-
-    const startIdx = (page - 1) * perPage;
-    const paginatedJobs = filteredJobs.slice(startIdx, startIdx + perPage);
-    const totalPages = Math.ceil(filteredJobs.length / perPage);
+  const filteredJobs = allJobs.filter((job) => {
+    const matchesLocation = locationFilter
+      ? job.locations.some((l) =>
+          l.name.toLowerCase().includes(locationFilter.toLowerCase()),
+        )
+      : true;
+    const matchesLevel = levelFilter
+      ? job.levels.some((l) =>
+          l.name.toLowerCase().includes(levelFilter.toLowerCase()),
+        )
+      : true;
+    const matchesType = typeFilter
+      ? job.type?.toLowerCase() === typeFilter.toLowerCase()
+      : true;
+    const matchesRemote =
+      remoteFilter === "remote"
+        ? job.remote
+        : remoteFilter === "onsite"
+          ? !job.remote
+          : true;
+    const matchesCompany = companyFilter
+      ? job.company?.name.toLowerCase().includes(companyFilter.toLowerCase())
+      : true;
 
     return (
-        <section className="py-12">
-            <div className="max-w-7xl mx-auto px-6 md:px-12 border border-border rounded-xl bg-card pb-6">
-                {/* Padding above filters */}
-                <div className="pt-6">
-                    <form
-                        onSubmit={handleSearch}
-                        className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8 p-4 rounded-lg bg-background shadow-sm"
-                    >
-                        <input
-                            type="text"
-                            placeholder="Keyword..."
-                            value={searchInput}
-                            onChange={(e) => setSearchInput(e.target.value)}
-                            className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary outline-none"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Location..."
-                            value={locationFilter}
-                            onChange={(e) => setLocationFilter(e.target.value)}
-                            className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary outline-none"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Company..."
-                            value={companyFilter}
-                            onChange={(e) => setCompanyFilter(e.target.value)}
-                            className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary outline-none"
-                        />
-                        <select
-                            value={levelFilter}
-                            onChange={(e) => setLevelFilter(e.target.value)}
-                            className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground"
-                        >
-                            <option value="">All Levels</option>
-                            <option value="Internship">Internship</option>
-                            <option value="Entry">Entry</option>
-                            <option value="Mid">Mid</option>
-                            <option value="Senior">Senior</option>
-                            <option value="Director">Director</option>
-                        </select>
-
-                        <select
-                            value={typeFilter}
-                            onChange={(e) => setTypeFilter(e.target.value)}
-                            className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground"
-                        >
-                            <option value="">All Types</option>
-                            <option value="Full-Time">Full-Time</option>
-                            <option value="Part-Time">Part-Time</option>
-                            <option value="Contract">Contract</option>
-                        </select>
-                        <select
-                            value={remoteFilter}
-                            onChange={(e) => setRemoteFilter(e.target.value)}
-                            className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground"
-                        >
-                            <option value="">All Locations</option>
-                            <option value="remote">Remote</option>
-                            <option value="onsite">On-site</option>
-                        </select>
-                        <select
-                            value={perPage}
-                            onChange={(e) => setPerPage(Number(e.target.value))}
-                            className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground"
-                        >
-                            <option value={20}>20 per page</option>
-                            <option value={50}>50 per page</option>
-                            <option value={100}>100 per page</option>
-                        </select>
-                        <button
-                            type="submit"
-                            className="w-full p-2 md:p-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition"
-                        >
-                            Search
-                        </button>
-                    </form>
-                </div>
-
-                {/* Jobs */}
-                {loading ? (
-                    <p className="text-muted-foreground animate-pulse mt-4">Loading jobs...</p>
-                ) : error ? (
-                    <p className="text-destructive mt-4">{error}</p>
-                ) : filteredJobs.length === 0 ? (
-                    <p className="text-muted-foreground mt-4">No active programming jobs found.</p>
-                ) : (
-                    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {paginatedJobs.map((job) => (
-                            <li
-                                key={job.id}
-                                className="flex flex-col justify-between p-4 border border-border rounded-lg bg-background shadow hover:shadow-lg transition group"
-                            >
-                                <div className="space-y-1">
-                                    <h3 className="text-md md:text-lg font-semibold text-primary">{job.name}</h3>
-                                    <p className="text-sm text-muted-foreground">{job.company?.name || 'Unknown Company'}</p>
-                                    <div className="flex flex-wrap text-xs text-muted-foreground gap-2 mt-1">
-                                        <span className="flex items-center gap-1"><FiMapPin className="inline" />{job.locations.map(l => l.name).join(', ') || 'Remote'}</span>
-                                        <span className="flex items-center gap-1"><FiBriefcase className="inline" />{job.levels.map(l => l.name).join(', ') || 'Level N/A'}</span>
-                                        {job.type && <span>{job.type}</span>}
-                                        <span className="flex items-center gap-1"><FiClock className="inline" />{new Date(job.publication_date).toLocaleDateString()}</span>
-                                        {job.remote !== undefined && <span className="flex items-center gap-1"><FiGlobe className="inline" />{job.remote ? 'Remote' : 'On-site'}</span>}
-                                    </div>
-                                </div>
-                                <div className="flex gap-2 mt-4">
-                                    <a
-                                        href={job.refs.landing_page}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex-1 px-3 py-2 bg-primary text-primary-foreground rounded-lg text-center hover:opacity-90 transition"
-                                    >
-                                        View Job
-                                    </a>
-                                    <button className="flex-1 px-3 py-2 border rounded-lg bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition">
-                                        Prepare
-                                    </button>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                )}
-
-                {/* Pagination */}
-                {filteredJobs.length > 0 && (
-                    <div className="flex justify-center items-center gap-4 mt-6 pt-4 border-t border-border pb-6">
-                        <button
-                            disabled={page <= 1}
-                            onClick={() => setPage((p) => Math.max(1, p - 1))}
-                            className="px-3 py-2 rounded-md bg-secondary hover:bg-accent text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            ← Prev
-                        </button>
-                        <span className="text-sm text-muted-foreground">
-                            Page <strong>{page}</strong> of {totalPages}
-                        </span>
-                        <button
-                            disabled={page >= totalPages}
-                            onClick={() => setPage((p) => p + 1)}
-                            className="px-3 py-2 rounded-md bg-secondary hover:bg-accent text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            Next →
-                        </button>
-                    </div>
-                )}
-            </div>
-        </section>
+      matchesLocation &&
+      matchesLevel &&
+      matchesType &&
+      matchesRemote &&
+      matchesCompany
     );
+  });
+
+  const startIdx = (page - 1) * perPage;
+  const paginatedJobs = filteredJobs.slice(startIdx, startIdx + perPage);
+  const totalPages = Math.ceil(filteredJobs.length / perPage);
+
+  return (
+    <section className="py-6">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 border border-border rounded-xl bg-card pb-6">
+        {/* Padding above filters */}
+        <div className="pt-6">
+          <form
+            onSubmit={handleSearch}
+            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8 p-4 rounded-lg bg-background shadow-sm"
+          >
+            <input
+              type="text"
+              placeholder="Keyword..."
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary outline-none"
+            />
+            <input
+              type="text"
+              placeholder="Location..."
+              value={locationFilter}
+              onChange={(e) => setLocationFilter(e.target.value)}
+              className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary outline-none"
+            />
+            <input
+              type="text"
+              placeholder="Company..."
+              value={companyFilter}
+              onChange={(e) => setCompanyFilter(e.target.value)}
+              className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary outline-none"
+            />
+            <select
+              value={levelFilter}
+              onChange={(e) => setLevelFilter(e.target.value)}
+              className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground"
+            >
+              <option value="">All Levels</option>
+              <option value="Internship">Internship</option>
+              <option value="Entry">Entry</option>
+              <option value="Mid">Mid</option>
+              <option value="Senior">Senior</option>
+              <option value="Director">Director</option>
+            </select>
+
+            <select
+              value={typeFilter}
+              onChange={(e) => setTypeFilter(e.target.value)}
+              className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground"
+            >
+              <option value="">All Types</option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+              <option value="Contract">Contract</option>
+            </select>
+            <select
+              value={remoteFilter}
+              onChange={(e) => setRemoteFilter(e.target.value)}
+              className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground"
+            >
+              <option value="">All Locations</option>
+              <option value="remote">Remote</option>
+              <option value="onsite">On-site</option>
+            </select>
+            <select
+              value={perPage}
+              onChange={(e) => setPerPage(Number(e.target.value))}
+              className="w-full p-2 md:p-3 border border-border rounded-lg bg-background text-foreground"
+            >
+              <option value={20}>20 per page</option>
+              <option value={50}>50 per page</option>
+              <option value={100}>100 per page</option>
+            </select>
+            <Button
+              type="submit"
+              className="w-full p-2 md:p-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition"
+            >
+              Search
+            </Button>
+          </form>
+        </div>
+
+        {/* Jobs */}
+        {loading ? (
+          <p className="text-muted-foreground animate-pulse mt-4">
+            Loading jobs...
+          </p>
+        ) : error ? (
+          <p className="text-destructive mt-4">{error}</p>
+        ) : filteredJobs.length === 0 ? (
+          <p className="text-muted-foreground mt-4">
+            No active programming jobs found.
+          </p>
+        ) : (
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {paginatedJobs.map((job) => (
+              <li
+                key={job.id}
+                className="flex flex-col justify-between p-4 border border-border rounded-lg bg-background shadow hover:shadow-lg transition group"
+              >
+                <div className="space-y-1">
+                  <h3 className="text-md md:text-lg font-semibold text-primary">
+                    {job.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {job.company?.name || "Unknown Company"}
+                  </p>
+                  <div className="flex flex-wrap text-xs text-muted-foreground gap-2 mt-1">
+                    <span className="flex items-center gap-1">
+                      <FiMapPin className="inline" />
+                      {job.locations.map((l) => l.name).join(", ") || "Remote"}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <FiBriefcase className="inline" />
+                      {job.levels.map((l) => l.name).join(", ") || "Level N/A"}
+                    </span>
+                    {job.type && <span>{job.type}</span>}
+                    <span className="flex items-center gap-1">
+                      <FiClock className="inline" />
+                      {new Date(job.publication_date).toLocaleDateString()}
+                    </span>
+                    {job.remote !== undefined && (
+                      <span className="flex items-center gap-1">
+                        <FiGlobe className="inline" />
+                        {job.remote ? "Remote" : "On-site"}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="flex gap-2 mt-4">
+                  <a
+                    href={job.refs.landing_page}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 px-3 py-2 bg-primary text-primary-foreground rounded-lg text-center hover:opacity-90 transition"
+                  >
+                    View Job
+                  </a>
+                  <Button className="flex-1 px-3 py-2 border rounded-lg bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition">
+                    Prepare
+                  </Button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {/* Pagination */}
+        {filteredJobs.length > 0 && (
+          <div className="flex justify-center items-center gap-4 mt-6 pt-4 border-t border-border pb-6">
+            <Button
+              disabled={page <= 1}
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              className="px-3 py-2 rounded-md bg-secondary hover:bg-accent text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              ← Prev
+            </Button>
+            <span className="text-sm text-muted-foreground">
+              Page <strong>{page}</strong> of {totalPages}
+            </span>
+            <Button
+              disabled={page >= totalPages}
+              onClick={() => setPage((p) => p + 1)}
+              className="px-3 py-2 rounded-md bg-secondary hover:bg-accent text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Next →
+            </Button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }
