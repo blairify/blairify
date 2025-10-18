@@ -1,37 +1,77 @@
-import { NextResponse } from 'next/server';
+/**
+ * Jobs API Route
+ * Retrieves cached jobs from Firestore
+ */
 
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const page = searchParams.get('page') || '1';
-  const per_page = searchParams.get('per_page') || '100';
-  const query = searchParams.get('query') || 'developer'; // keyword search
+import { NextResponse } from "next/server";
+import {
+  filterCachedJobs,
+  getCachedJobs,
+  needsCacheRefresh,
+  searchCachedJobs,
+} from "@/lib/jobs-cache-service";
 
+export async function GET(request: Request) {
   try {
-    const url = `https://www.themuse.com/api/public/jobs?page=${page}&per_page=${per_page}&q=${encodeURIComponent(query)}`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+    const { searchParams } = new URL(request.url);
 
-    const now = new Date();
-    const ninetyDaysAgo = new Date(now);
-    ninetyDaysAgo.setDate(now.getDate() - 90);
+    const query = searchParams.get("query");
+    const location = searchParams.get("location");
+    const level = searchParams.get("level");
+    const type = searchParams.get("type");
+    const remote = searchParams.get("remote");
+    const company = searchParams.get("company");
+    const category = searchParams.get("category");
+    const page = Number.parseInt(searchParams.get("page") || "1", 10);
+    const perPage = Number.parseInt(searchParams.get("per_page") || "20", 10);
 
-    // Keep only jobs with a landing page and recently published
-    const activeJobs = (data.results || []).filter((job: any) => {
-      const hasLanding = job.refs?.landing_page?.startsWith('https');
-      const pubDate = job.publication_date ? new Date(job.publication_date) : null;
-      const isRecent = pubDate && pubDate > ninetyDaysAgo;
-      return hasLanding && isRecent;
-    });
+    // Check if cache needs refresh
+    const needsRefresh = await needsCacheRefresh(24); // 24 hours
+
+    let jobs: Awaited<ReturnType<typeof getCachedJobs>>;
+
+    // If we have a search query, use search
+    if (query) {
+      jobs = await searchCachedJobs(query);
+    }
+    // If we have filters, use filter
+    else if (location || level || type || remote || company || category) {
+      jobs = await filterCachedJobs({
+        location: location || undefined,
+        level: level || undefined,
+        type: type || undefined,
+        remote:
+          remote === "true" ? true : remote === "false" ? false : undefined,
+        company: company || undefined,
+        category: category || undefined,
+      });
+    }
+    // Otherwise get all jobs
+    else {
+      jobs = await getCachedJobs();
+    }
+
+    // Pagination
+    const startIdx = (page - 1) * perPage;
+    const endIdx = startIdx + perPage;
+    const paginatedJobs = jobs.slice(startIdx, endIdx);
 
     return NextResponse.json({
-      ...data,
-      results: activeJobs,
-      page: data.page,
-      page_count: data.page_count,
+      results: paginatedJobs,
+      page,
+      per_page: perPage,
+      total: jobs.length,
+      page_count: Math.ceil(jobs.length / perPage),
+      cache_needs_refresh: needsRefresh,
     });
-  } catch (err: any) {
-    console.error('API /jobs error:', err);
-    return NextResponse.json({ error: 'Failed to fetch jobs' }, { status: 500 });
+  } catch (error) {
+    console.error("API /jobs error:", error);
+    return NextResponse.json(
+      {
+        error: "Failed to fetch jobs",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 },
+    );
   }
 }

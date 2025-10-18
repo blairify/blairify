@@ -1,23 +1,25 @@
-'use client';
+"use client";
 
 import {
-  Cpu,
-  Repeat,
   Activity,
   BarChart2,
-  UserCheck,
+  Cpu,
   FileText,
-} from 'lucide-react';
+  Repeat,
+  UserCheck,
+} from "lucide-react";
 
 const features = [
   {
     title: "AI-Generated Questions",
-    description: "Adaptive, real-life interview questions tailored to your experience and target role.",
+    description:
+      "Adaptive, real-life interview questions tailored to your experience and target role.",
     icon: Cpu,
   },
   {
     title: "Smart Follow-Ups",
-    description: "AI maintains context and asks intelligent follow-up questions.",
+    description:
+      "AI maintains context and asks intelligent follow-up questions.",
     icon: Repeat,
   },
   {
@@ -37,7 +39,8 @@ const features = [
   },
   {
     title: "Multiple Formats",
-    description: "Practice via text, voice recording, or whiteboard challenges.",
+    description:
+      "Practice via text, voice recording, or whiteboard challenges.",
     icon: FileText,
   },
 ];
@@ -51,7 +54,8 @@ export default function FeaturesGrid() {
           <span className="text-[color:var(--primary)]">Succeed</span>
         </h2>
         <p className="text-lg text-[color:var(--muted-foreground)] max-w-2xl mx-auto">
-          Train smarter with AI that understands your skill level and adapts to your learning goals.
+          Train smarter with AI that understands your skill level and adapts to
+          your learning goals.
         </p>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-12">
@@ -68,7 +72,9 @@ export default function FeaturesGrid() {
                 <h3 className="text-xl font-semibold text-[color:var(--foreground)] mb-3">
                   {f.title}
                 </h3>
-                <p className="text-[color:var(--muted-foreground)]">{f.description}</p>
+                <p className="text-[color:var(--muted-foreground)]">
+                  {f.description}
+                </p>
               </div>
             );
           })}

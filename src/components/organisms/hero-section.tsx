@@ -1,20 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const MainLogo = dynamic(() => import("../molecules/MainLogo"), { ssr: false });
 
 export default function HeroSection() {
   return (
-    <header
-      className="bg-[color:var(--background)] text-[color:var(--foreground)] relative overflow-visible"
-      aria-label="Hero"
-    >
+    <header className="bg-[color:var(--background)] text-[color:var(--foreground)] relative overflow-visible">
       <div className="container mx-auto px-6 py-8 sm:py-12 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-
           {/* Logo */}
           <div className="flex justify-center lg:justify-end items-center order-1 lg:order-2">
             <div className="relative w-full max-w-[300px] sm:max-w-[350px] lg:max-w-[500px] aspect-[1/1]">
@@ -32,11 +28,13 @@ export default function HeroSection() {
             </p>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-              Ace Every Interview <span className="text-[color:var(--primary)]">with AI</span>
+              Ace Every Interview{" "}
+              <span className="text-[color:var(--primary)]">with AI</span>
             </h1>
 
             <p className="text-lg text-[color:var(--muted-foreground)] max-w-2xl mx-auto lg:mx-0">
-              Practice with AI-generated questions, get instant feedback, and track your progress on a career-focused platform.
+              Practice with AI-generated questions, get instant feedback, and
+              track your progress on a career-focused platform.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-2 justify-center lg:justify-start">

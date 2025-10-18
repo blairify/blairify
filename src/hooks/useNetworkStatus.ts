@@ -18,7 +18,6 @@ export const useNetworkStatus = () => {
     };
 
     const handleOffline = () => {
-      console.log("Network: Gone offline");
       setIsOnline(false);
       setWasOffline(true);
     };

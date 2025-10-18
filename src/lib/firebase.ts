@@ -61,12 +61,11 @@ try {
   functions = getFunctions(app);
 
   firebaseMonitor.reportSuccess("initialization");
-  console.log("🟢 Firebase initialized successfully");
 } catch (error) {
   firebaseMonitor.reportError(error, "initialization");
-  console.error("🔴 Firebase initialization failed:", error);
+  console.error("Firebase initialization failed:", error);
   console.error(
-    "❗ This might be due to missing environment variables or invalid configuration",
+    "This might be due to missing environment variables or invalid configuration",
   );
 
   // Set to null to prevent crashes
@@ -101,10 +100,9 @@ export const enableFirestoreNetwork = async () => {
   if (db) {
     try {
       await enableNetwork(db);
-      console.log("🟢 Firestore network enabled");
       firebaseMonitor.reportSuccess("network-enable");
     } catch (error) {
-      console.warn("⚠️ Failed to enable Firestore network:", error);
+      console.warn("Failed to enable Firestore network:", error);
       firebaseMonitor.reportError(error, "network-enable");
     }
   }
@@ -114,10 +112,9 @@ export const disableFirestoreNetwork = async () => {
   if (db) {
     try {
       await disableNetwork(db);
-      console.log("🔴 Firestore network disabled");
       firebaseMonitor.reportSuccess("network-disable");
     } catch (error) {
-      console.warn("⚠️ Failed to disable Firestore network:", error);
+      console.warn("Failed to disable Firestore network:", error);
       firebaseMonitor.reportError(error, "network-disable");
     }
   }
@@ -126,12 +123,10 @@ export const disableFirestoreNetwork = async () => {
 // Auto-reconnect logic for network issues
 if (typeof window !== "undefined") {
   window.addEventListener("online", () => {
-    console.log("🌐 Network back online, enabling Firestore");
     enableFirestoreNetwork();
   });
 
   window.addEventListener("offline", () => {
-    console.log("🌐 Network offline, disabling Firestore");
     disableFirestoreNetwork();
   });
 }

@@ -1,6 +1,6 @@
-import Navbar from "@/components/organisms/landing-page-navbar";
-import JobList from "@/components/organisms/job-list"
 import Footer from "@/components/organisms/footer";
+import JobList from "@/components/organisms/job-list";
+import Navbar from "@/components/organisms/landing-page-navbar";
 
 export default function ExplorePage() {
   const scrollThreshold = 500; // optional if your navbar changes on scroll
@@ -18,8 +18,9 @@ export default function ExplorePage() {
               Explore Programming Jobs
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-              Discover the latest active programming roles from top companies around the world. 
-              Filter by keyword, page size, and find your next opportunity.
+              Discover the latest active programming roles from top companies
+              around the world. Filter by keyword, page size, and find your next
+              opportunity.
             </p>
           </div>
         </section>

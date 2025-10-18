@@ -267,8 +267,6 @@ const updateUserLastLogin = async (uid: string) => {
 // Get user data from Firestore using our database service
 export const getUserData = async (uid: string): Promise<UserData | null> => {
   try {
-    console.log("🔍 getUserData called for uid:", uid);
-
     const profile = await DatabaseService.getUserProfile(uid);
 
     if (profile) {
@@ -278,14 +276,14 @@ export const getUserData = async (uid: string): Promise<UserData | null> => {
     }
   } catch (error: unknown) {
     const firebaseError = error as { code?: string; message?: string };
-    console.error("❌ Error getting user data:", error);
+    console.error("Error getting user data:", error);
 
     if (firebaseError?.code === "permission-denied") {
       console.error(
-        "❌ Permission denied: User document access not allowed. Check Firestore security rules.",
+        "Permission denied: User document access not allowed. Check Firestore security rules.",
       );
     } else if (firebaseError?.code === "not-found") {
-      console.warn("⚠️ User document not found in Firestore for uid:", uid);
+      console.warn("User document not found in Firestore for uid:", uid);
     } else {
       console.warn(
         "Firebase is offline or experiencing connectivity issues. User data will be available when connection is restored.",

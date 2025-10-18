@@ -198,7 +198,7 @@ export default function InterviewPage() {
         recognition.lang = "en-US";
 
         recognition.onstart = () => {
-          console.log("Speech recognition started");
+          setIsListening(true);
         };
 
         recognition.onresult = (event: SpeechRecognitionEvent) => {
@@ -437,16 +437,6 @@ export default function InterviewPage() {
             JSON.stringify(updatedSession),
           );
           localStorage.setItem("interviewConfig", JSON.stringify(config));
-
-          if (user?.uid) {
-            try {
-              console.log(
-                "Interview completed, will save to database after analysis",
-              );
-            } catch (error) {
-              console.error("Error saving interview to database:", error);
-            }
-          }
         }
 
         setSession((prev) => ({ ...prev, isComplete: true }));

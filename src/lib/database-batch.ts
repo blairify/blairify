@@ -42,7 +42,7 @@ export async function createUserWithCompleteProfile(
       subscription: {
         plan: "free",
         status: "active",
-        features: ["basic-interviews", "progress-tracking"],
+        features: ["practice_questions", "basic_analytics"],
         limits: {
           sessionsPerMonth: 10,
           skillsTracking: 5,

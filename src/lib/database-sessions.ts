@@ -129,7 +129,6 @@ export async function getUserSessions(
     console.error("Error getting user sessions:", error);
     // Return empty array for new users rather than throwing
     if (error instanceof Error && error.message.includes("collection")) {
-      console.log("Sessions collection doesn't exist yet for user:", userId);
       return [];
     }
     throw error;

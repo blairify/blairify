@@ -119,8 +119,6 @@ export const safeSetDoc = async (
     console.error(`Firestore setDoc error (attempt ${retryCount + 1}):`, error);
 
     if (isConnectionError(error) && retryCount < RETRY_ATTEMPTS) {
-      console.log(`Retrying Firestore operation in ${RETRY_DELAY}ms...`);
-
       // Try to re-enable network connection
       try {
         await enableNetwork(db);
@@ -157,8 +155,6 @@ export const safeUpdateDoc = async (
     );
 
     if (isConnectionError(error) && retryCount < RETRY_ATTEMPTS) {
-      console.log(`Retrying Firestore operation in ${RETRY_DELAY}ms...`);
-
       try {
         await enableNetwork(db);
       } catch (networkError) {
@@ -194,8 +190,6 @@ export const safeGetDocs = async (
     );
 
     if (isConnectionError(error) && retryCount < RETRY_ATTEMPTS) {
-      console.log(`Retrying Firestore operation in ${RETRY_DELAY}ms...`);
-
       try {
         await enableNetwork(db);
       } catch (networkError) {

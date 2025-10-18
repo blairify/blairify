@@ -1,328 +1,230 @@
-import { spawn } from "node:child_process";
-import path from "node:path";
-import { type NextRequest, NextResponse } from "next/server";
+/**
+ * Jobs Scraping API Route
+ * Scrapes jobs from Muse API and caches them in Firestore
+ */
 
-export interface JobSearchRequest {
-  search_term: string;
-  location?: string;
-  site_names?: string[];
-  results_wanted?: number;
-  job_type?: "fulltime" | "parttime" | "internship" | "contract";
-  is_remote?: boolean;
-  hours_old?: number;
-  distance?: number;
-  country_indeed?: string;
-  easy_apply?: boolean;
-  linkedin_fetch_description?: boolean;
-  google_search_term?: string;
-  description_format?: "markdown" | "html";
-  offset?: number;
-  enforce_annual_salary?: boolean;
+import { NextResponse } from "next/server";
+import {
+  type CachedJob,
+  cacheJobs,
+  clearExpiredJobs,
+  saveJobsMetadata,
+} from "@/lib/jobs-cache-service";
+
+interface MuseJob {
+  id: number;
+  name: string;
+  company: {
+    name: string;
+    id?: number;
+  };
+  locations: Array<{ name: string }>;
+  levels: Array<{ name: string }>;
+  categories: Array<{ name: string }>;
+  refs: {
+    landing_page: string;
+  };
+  publication_date: string;
+  type?: string;
 }
 
-export interface JobData {
-  id: string;
-  title: string;
-  company: string;
-  company_url?: string;
-  location: {
-    city?: string;
-    state?: string;
-    country?: string;
-    full_location?: string;
-  };
-  job_url?: string;
-  is_remote: boolean;
-  job_type?: string;
-  description?: string;
-  salary: {
-    min_amount?: number;
-    max_amount?: number;
-    interval?: string;
-    currency?: string;
-  };
-  date_posted?: string;
-  site: string;
-  scraped_at: string;
-  search_term: string;
-  search_location: string;
-  company_industry?: string;
-  job_level?: string;
-  emails?: string[];
-  skills?: string[];
+interface MuseApiResponse {
+  results: MuseJob[];
+  page: number;
+  page_count: number;
+  total: number;
 }
 
-export interface JobSearchResponse {
-  success: boolean;
-  data?: JobData[];
-  count?: number;
-  error?: string;
-  message?: string;
+const programmingKeywords = [
+  "front end",
+  "frontend",
+  "back end",
+  "backend",
+  "full stack",
+  "full-stack",
+  "devops",
+  "software engineer",
+  "developer",
+  "programmer",
+  "mobile",
+  "ios",
+  "android",
+  "react",
+  "vue",
+  "angular",
+  "javascript",
+  "typescript",
+  "python",
+  "java",
+  "c++",
+  "c#",
+  "ruby",
+  "php",
+  "golang",
+  "go",
+  "scala",
+  "swift",
+  "kotlin",
+  "docker",
+  "kubernetes",
+  "cloud",
+  "aws",
+  "azure",
+  "gcp",
+  "machine learning",
+  "ml",
+  "data engineer",
+  "backend engineer",
+  "frontend engineer",
+  "site reliability engineer",
+  "sre",
+];
+
+/**
+ * Check if a job is programming-related
+ */
+function isProgrammingJob(job: MuseJob): boolean {
+  const title = job.name.toLowerCase();
+  const categories = job.categories.map((c) => c.name.toLowerCase()).join(" ");
+
+  return programmingKeywords.some(
+    (kw) => title.includes(kw) || categories.includes(kw),
+  );
 }
 
 /**
- * Interface for the raw request body from the client
- * All fields are optional strings/primitives as they come from JSON
+ * Fetch jobs from Muse API
  */
-export interface JobSearchRequestBody {
-  search_term?: string;
-  location?: string;
-  site_names?: string[];
-  results_wanted?: string | number;
-  job_type?: string;
-  is_remote?: boolean;
-  hours_old?: string | number;
-  distance?: string | number;
-  country_indeed?: string;
-  easy_apply?: boolean;
-  linkedin_fetch_description?: boolean;
-  google_search_term?: string;
-  description_format?: string;
-  offset?: string | number;
-  enforce_annual_salary?: boolean;
-}
+async function fetchMuseJobs(
+  page: number,
+  perPage = 100,
+): Promise<MuseApiResponse> {
+  const url = `${process.env.NEXT_PUBLIC_MUSE_API_BASE}?page=${page}&per_page=${perPage}`;
 
-/**
- * Execute the job scraper via Python API or local script
- */
-async function executeJobScraper(params: JobSearchRequest): Promise<JobData[]> {
-  // In production (Vercel), use the Python API endpoint
-  if (process.env.VERCEL || process.env.NODE_ENV === "production") {
-    try {
-      // Get the base URL for the current deployment
-      const baseUrl = process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : process.env.NEXT_PUBLIC_SITE_URL || "https://grant-guide.vercel.app";
-
-      const apiUrl = `${baseUrl}/api`;
-
-      console.log("Calling Python API at:", apiUrl);
-
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(params),
-        // Add timeout for serverless function
-        signal: AbortSignal.timeout(55000), // 55 seconds timeout
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(
-          `Python API responded with status: ${response.status}, body: ${errorText}`,
-        );
-      }
-
-      const result = await response.json();
-
-      if (result.success && result.data) {
-        return result.data.jobs || [];
-      } else {
-        throw new Error(result.error?.message || "Python API returned error");
-      }
-    } catch (error) {
-      console.error("Python API error:", error);
-      throw new Error(
-        `Failed to call Python API: ${error instanceof Error ? error.message : "Unknown error"}`,
-      );
-    }
-  }
-
-  // In development, use local Python script
-  return new Promise((resolve, reject) => {
-    const pythonPath =
-      process.env.PYTHON_PATH ||
-      path.join(process.cwd(), ".venv", "bin", "python");
-    const scriptPath = path.join(
-      process.cwd(),
-      "scripts",
-      "jobspy_api_bridge.py",
-    );
-
-    const child = spawn(pythonPath, [scriptPath, JSON.stringify(params)], {
-      stdio: ["pipe", "pipe", "pipe"],
-      cwd: process.cwd(),
-    });
-
-    let stdout = "";
-    let stderr = "";
-
-    child.stdout.on("data", (data) => {
-      stdout += data.toString();
-    });
-
-    child.stderr.on("data", (data) => {
-      stderr += data.toString();
-    });
-
-    child.on("close", (code) => {
-      if (code === 0) {
-        try {
-          const result = JSON.parse(stdout);
-          if (result.success) {
-            resolve(result.data || []);
-          } else {
-            reject(new Error(result.error || "Unknown error occurred"));
-          }
-        } catch (error) {
-          reject(new Error(`Failed to parse JSON response: ${error}`));
-        }
-      } else {
-        reject(new Error(`Python script failed with code ${code}: ${stderr}`));
-      }
-    });
-
-    child.on("error", (error) => {
-      console.error("Python spawn error:", {
-        pythonPath,
-        scriptPath,
-        error: error.message,
-        cwd: process.cwd(),
-      });
-      reject(new Error(`Failed to spawn Python process: ${error.message}`));
-    });
+  const response = await fetch(url, {
+    headers: {
+      "User-Agent": "Blairify Job Scraper",
+    },
   });
+
+  if (!response.ok) {
+    throw new Error(`Muse API error: ${response.status}`);
+  }
+
+  return response.json();
 }
 
 /**
- * Validate job search request parameters
+ * Scrape all jobs from Muse API
  */
-function validateJobSearchRequest(
-  body: JobSearchRequestBody,
-): JobSearchRequest | null {
-  if (!body.search_term || typeof body.search_term !== "string") {
-    return null;
+async function scrapeAllJobs(maxPages = 50): Promise<CachedJob[]> {
+  const allJobs: CachedJob[] = [];
+  let currentPage = 1;
+  let totalPages = 1;
+
+  while (currentPage <= Math.min(maxPages, totalPages)) {
+    try {
+      const data = await fetchMuseJobs(currentPage, 100);
+      totalPages = data.page_count;
+
+      // Filter for programming jobs with landing pages
+      const programmingJobs = data.results.filter(
+        (job) => job.refs?.landing_page && isProgrammingJob(job),
+      );
+
+      // Transform to CachedJob format
+      const cachedJobs: Omit<CachedJob, "cachedAt" | "expiresAt">[] =
+        programmingJobs.map((job) => ({
+          id: job.id.toString(),
+          name: job.name,
+          company: job.company,
+          locations: job.locations,
+          levels: job.levels,
+          categories: job.categories.map((c) => c.name),
+          refs: job.refs,
+          publication_date: job.publication_date,
+          type: job.type,
+          remote: job.locations.some((l) =>
+            l.name.toLowerCase().includes("remote"),
+          ),
+          source: "muse_api" as const,
+        }));
+
+      allJobs.push(...(cachedJobs as CachedJob[]));
+
+      // Rate limiting - wait 500ms between requests
+      if (currentPage < totalPages) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+      }
+
+      currentPage++;
+    } catch (error) {
+      console.error(`Error scraping page ${currentPage}:`, error);
+      break;
+    }
   }
 
-  const validJobTypes = [
-    "fulltime",
-    "parttime",
-    "internship",
-    "contract",
-  ] as const;
-  const validSites = [
-    "indeed",
-    "linkedin",
-    "zip_recruiter",
-    "google",
-    "glassdoor",
-    "bayt",
-    "naukri",
-    "bdjobs",
-  ];
-  const validDescriptionFormats = ["markdown", "html"] as const;
-
-  // Helper function to safely parse integers
-  const safeParseInt = (
-    value: string | number | undefined,
-    defaultValue: number,
-  ): number => {
-    if (typeof value === "number") return value;
-    if (typeof value === "string") {
-      const parsed = parseInt(value, 10);
-      return Number.isNaN(parsed) ? defaultValue : parsed;
-    }
-    return defaultValue;
-  };
-
-  // Helper function to check if job type is valid
-  const isValidJobType = (
-    type: string | undefined,
-  ): type is "fulltime" | "parttime" | "internship" | "contract" => {
-    return (
-      type !== undefined && (validJobTypes as readonly string[]).includes(type)
-    );
-  };
-
-  // Helper function to check if description format is valid
-  const isValidDescriptionFormat = (
-    format: string | undefined,
-  ): format is "markdown" | "html" => {
-    return (
-      format !== undefined &&
-      (validDescriptionFormats as readonly string[]).includes(format)
-    );
-  };
-
-  return {
-    search_term: body.search_term,
-    location: body.location || "",
-    site_names: Array.isArray(body.site_names)
-      ? body.site_names.filter((site: string) => validSites.includes(site))
-      : ["indeed", "linkedin", "zip_recruiter"],
-    results_wanted: Math.min(
-      Math.max(1, safeParseInt(body.results_wanted, 20)),
-      100,
-    ), // Limit to 100
-    job_type: isValidJobType(body.job_type) ? body.job_type : undefined,
-    is_remote: typeof body.is_remote === "boolean" ? body.is_remote : undefined,
-    hours_old: body.hours_old
-      ? Math.max(1, safeParseInt(body.hours_old, 0))
-      : undefined,
-    distance: Math.max(1, safeParseInt(body.distance, 50)),
-    country_indeed: body.country_indeed || "USA",
-    easy_apply:
-      typeof body.easy_apply === "boolean" ? body.easy_apply : undefined,
-    linkedin_fetch_description:
-      typeof body.linkedin_fetch_description === "boolean"
-        ? body.linkedin_fetch_description
-        : false,
-    google_search_term: body.google_search_term || undefined,
-    description_format: isValidDescriptionFormat(body.description_format)
-      ? body.description_format
-      : "markdown",
-    offset: Math.max(0, safeParseInt(body.offset, 0)),
-    enforce_annual_salary:
-      typeof body.enforce_annual_salary === "boolean"
-        ? body.enforce_annual_salary
-        : true,
-  };
+  return allJobs;
 }
 
 /**
  * POST /api/jobs/scrape
- * Scrape jobs from various job boards
+ * Trigger job scraping manually or via cron
  */
-export async function POST(
-  request: NextRequest,
-): Promise<NextResponse<JobSearchResponse>> {
-  try {
-    const body = await request.json();
-    console.log("Job search request:", body);
+export async function POST(request: Request) {
+  const startTime = Date.now();
 
-    // Validate request
-    const params = validateJobSearchRequest(body);
-    if (!params) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: "Invalid request parameters. search_term is required.",
-        },
-        { status: 400 },
-      );
+  try {
+    // Check for authorization (optional - add API key check here)
+    const authHeader = request.headers.get("authorization");
+    const apiKey = process.env.CRON_SECRET;
+
+    if (apiKey && authHeader !== `Bearer ${apiKey}`) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Execute job scraping
-    const jobs = await executeJobScraper(params);
+    // Clear expired jobs first
+    const expiredCount = await clearExpiredJobs();
+
+    // Scrape new jobs
+    const jobs = await scrapeAllJobs(50); // Scrape up to 50 pages
+
+    // Cache jobs in Firestore
+    if (jobs.length > 0) {
+      await cacheJobs(jobs);
+    }
+
+    // Save metadata
+    const duration = Date.now() - startTime;
+    await saveJobsMetadata({
+      totalJobsCached: jobs.length,
+      scrapeDuration: duration,
+      jobsScraped: jobs.length,
+      status: "success",
+    });
 
     return NextResponse.json({
       success: true,
-      data: jobs,
-      count: jobs.length,
-      message: `Successfully scraped ${jobs.length} jobs`,
+      jobsScraped: jobs.length,
+      expiredJobsCleared: expiredCount,
+      duration: `${(duration / 1000).toFixed(2)}s`,
     });
   } catch (error) {
-    console.error("Job scraping error:", error);
+    console.error("❌ Scrape error:", error);
 
-    const errorMessage =
-      error instanceof Error ? error.message : "Unknown error occurred";
+    const duration = Date.now() - startTime;
+    await saveJobsMetadata({
+      totalJobsCached: 0,
+      scrapeDuration: duration,
+      jobsScraped: 0,
+      status: "failed",
+      error: error instanceof Error ? error.message : "Unknown error",
+    });
 
     return NextResponse.json(
       {
-        success: false,
-        error: errorMessage,
+        error: "Failed to scrape jobs",
+        details: error instanceof Error ? error.message : "Unknown error",
       },
       { status: 500 },
     );
@@ -331,97 +233,24 @@ export async function POST(
 
 /**
  * GET /api/jobs/scrape
- * Get available job scraping options and status
+ * Get scrape status and metadata
  */
-export async function GET(): Promise<NextResponse> {
-  return NextResponse.json({
-    success: true,
-    message: "Job scraping API endpoint",
-    supported_sites: [
-      "indeed",
-      "linkedin",
-      "zip_recruiter",
-      "google",
-      "glassdoor",
-      "bayt",
-      "naukri",
-      "bdjobs",
-    ],
-    supported_job_types: ["fulltime", "parttime", "internship", "contract"],
-    supported_countries: [
-      "Argentina",
-      "Australia",
-      "Austria",
-      "Bahrain",
-      "Belgium",
-      "Brazil",
-      "Canada",
-      "Chile",
-      "China",
-      "Colombia",
-      "Costa Rica",
-      "Czech Republic",
-      "Denmark",
-      "Ecuador",
-      "Egypt",
-      "Finland",
-      "France",
-      "Germany",
-      "Greece",
-      "Hong Kong",
-      "Hungary",
-      "India",
-      "Indonesia",
-      "Ireland",
-      "Israel",
-      "Italy",
-      "Japan",
-      "Kuwait",
-      "Luxembourg",
-      "Malaysia",
-      "Mexico",
-      "Morocco",
-      "Netherlands",
-      "New Zealand",
-      "Nigeria",
-      "Norway",
-      "Oman",
-      "Pakistan",
-      "Panama",
-      "Peru",
-      "Philippines",
-      "Poland",
-      "Portugal",
-      "Qatar",
-      "Romania",
-      "Saudi Arabia",
-      "Singapore",
-      "South Africa",
-      "South Korea",
-      "Spain",
-      "Sweden",
-      "Switzerland",
-      "Taiwan",
-      "Thailand",
-      "Turkey",
-      "Ukraine",
-      "United Arab Emirates",
-      "UK",
-      "USA",
-      "Uruguay",
-      "Venezuela",
-      "Vietnam",
-    ],
-    example_request: {
-      search_term: "software engineer",
-      location: "San Francisco, CA",
-      site_names: ["indeed", "linkedin"],
-      results_wanted: 20,
-      job_type: "fulltime",
-      hours_old: 72,
-      is_remote: false,
-      distance: 50,
-      country_indeed: "USA",
-    },
-  });
+export async function GET() {
+  try {
+    const { getCacheStats } = await import("@/lib/jobs-cache-service");
+    const stats = await getCacheStats();
+
+    return NextResponse.json({
+      success: true,
+      stats,
+    });
+  } catch (error) {
+    return NextResponse.json(
+      {
+        error: "Failed to get scrape status",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 },
+    );
+  }
 }

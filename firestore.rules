@@ -2,127 +2,180 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Helper functions
-    function isAuthenticated() {
+    
+    // Helper function to check authentication
+    function isSignedIn() {
       return request.auth != null;
     }
     
     function isOwner(userId) {
-      return isAuthenticated() && request.auth.uid == userId;
+      return request.auth.uid == userId;
     }
     
-    function isValidUserData() {
-      return request.resource.data.keys().hasAll(['uid', 'email', 'createdAt']) &&
-             request.resource.data.uid == request.auth.uid;
+    function isSuperAdmin() {
+      return request.auth.uid == 'IO77D68k8EcS9mzAA5tYsepiI532';
     }
     
-    function isValidSkillData() {
-      return request.resource.data.keys().hasAll(['skillId', 'category', 'name', 'currentLevel']) &&
-             request.resource.data.currentLevel is number &&
-             request.resource.data.currentLevel >= 1 &&
-             request.resource.data.currentLevel <= 10;
+    function isAdmin() {
+      return isSuperAdmin() || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
     }
-    
-    function isValidSessionData() {
-      return request.resource.data.keys().hasAll(['sessionId', 'config', 'status']) &&
-             request.resource.data.status in ['scheduled', 'in-progress', 'completed', 'abandoned', 'paused'];
-    }
-    
-    // Users collection - users can read/write their own data
+
+    // ===== USERS COLLECTION =====
     match /users/{userId} {
-      allow read: if isOwner(userId);
-      allow create: if isOwner(userId) && isValidUserData();
-      allow update: if isOwner(userId);
-      allow delete: if false; // Users shouldn't be able to delete their profiles
+      allow read: if isSignedIn() && (isOwner(userId) || isAdmin());
+      allow write: if isSignedIn() && isOwner(userId);
+      allow create: if isSignedIn();
       
-      // User skills subcollection
-      match /skills/{skillId} {
-        allow read, write: if isOwner(userId);
-        allow create: if isOwner(userId) && isValidSkillData();
-        allow update: if isOwner(userId);
+      // User preferences subcollection
+      match /preferences/{document=**} {
+        allow read, write: if isSignedIn() && isOwner(userId);
       }
       
-      // User interview sessions subcollection
+      // User practice progress
+      match /practice-progress/{questionId} {
+        allow read, write: if isSignedIn() && isOwner(userId);
+      }
+      
+      // User skills subcollection (keep for backward compatibility)
+      match /skills/{skillId} {
+        allow read, write: if isSignedIn() && isOwner(userId);
+      }
+      
+      // User sessions subcollection (keep for backward compatibility)
       match /sessions/{sessionId} {
-        allow read, write: if isOwner(userId);
-        allow create: if isOwner(userId) && isValidSessionData();
-        allow update: if isOwner(userId);
+        allow read, write: if isSignedIn() && isOwner(userId);
       }
       
       // User analytics subcollection
       match /analytics/{analyticsId} {
-        allow read, write: if isOwner(userId);
+        allow read, write: if isSignedIn() && isOwner(userId);
       }
       
-      // User progress tracking subcollection
+      // User progress subcollection
       match /progress/{progressId} {
-        allow read, write: if isOwner(userId);
+        allow read, write: if isSignedIn() && isOwner(userId);
       }
       
       // User activities subcollection
       match /activities/{activityId} {
-        allow read, write: if isOwner(userId);
-        // Allow creation with auto-generated timestamps
-        allow create: if isOwner(userId) && 
-                     request.resource.data.timestamp == request.time;
+        allow read, write: if isSignedIn() && isOwner(userId);
       }
       
       // User achievements subcollection
       match /achievements/{achievementId} {
-        allow read, write: if isOwner(userId);
+        allow read, write: if isSignedIn() && isOwner(userId);
       }
     }
-    
-    // Allow connection test document for connectivity checks
-    match /connection-test/{docId} {
-      allow read: if isAuthenticated();
+
+    // ===== INTERVIEW SESSIONS =====
+    match /interview-sessions/{sessionId} {
+      allow create: if isSignedIn();
+      allow read, update: if isSignedIn() && 
+        (resource.data.uid == request.auth.uid || isAdmin());
+      allow delete: if isSignedIn() && 
+        (resource.data.uid == request.auth.uid || isAdmin());
+      
+      // Subcollections
+      match /{document=**} {
+        allow read, write: if isSignedIn() && 
+          (get(/databases/$(database)/documents/interview-sessions/$(sessionId)).data.uid == request.auth.uid || isAdmin());
+      }
+    }
+
+    // ===== PRACTICE QUESTIONS (Public Read, Admin Write) =====
+    match /practice-questions/{questionId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isSignedIn() && isAdmin();
+      
+      // Usage stats subcollection
+      match /stats/{statType} {
+        allow read: if isSignedIn();
+        allow write: if isSignedIn() && isAdmin();
+      }
+    }
+
+    // ===== PRACTICE COLLECTIONS =====
+    match /practice-collections/{collectionId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update, delete: if isSignedIn() && 
+        (resource.data.createdBy == request.auth.uid || isAdmin());
+    }
+
+    // ===== TRAINING SETS =====
+    match /training-sets/{setId} {
+      allow read: if isSignedIn() && 
+        (resource.data.uid == request.auth.uid || resource.data.isPublic == true || isAdmin());
+      allow create: if isSignedIn();
+      allow update, delete: if isSignedIn() && 
+        (resource.data.uid == request.auth.uid || isAdmin());
+    }
+
+    // ===== AI RESPONSES (Immutable, Read-Only) =====
+    match /ai-responses/{responseId} {
+      allow read: if isSignedIn() && 
+        (get(/databases/$(database)/documents/interview-sessions/$(resource.data.sessionId)).data.uid == request.auth.uid || isAdmin());
+      allow create: if isSignedIn();
+      allow delete: if false; // Immutable - no deletions
+    }
+
+    // ===== QUESTION FACETS (Public Read, Admin Write) =====
+    match /question-facets/{document=**} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && isAdmin();
+    }
+
+    // ===== USER SKILLS =====
+    match /user-skills/{userId}/{skillId} {
+      allow read, write: if isSignedIn() && isOwner(userId);
+    }
+
+    // ===== ANALYTICS (User-scoped) =====
+    match /analytics/{userId}/{document=**} {
+      allow read, write: if isSignedIn() && isOwner(userId);
+    }
+
+    // ===== PROGRESS TRACKING =====
+    match /progress-tracking/{trackingId} {
+      allow read, write: if isSignedIn() && 
+        (resource.data.uid == request.auth.uid || isAdmin());
+    }
+
+    // ===== ACTIVITY LOGS =====
+    match /activity-logs/{activityId} {
+      allow read, write: if isSignedIn() && 
+        (resource.data.uid == request.auth.uid || isAdmin());
+    }
+
+    // ===== ACHIEVEMENTS =====
+    match /achievements/{achievementId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isSignedIn() && isAdmin();
     }
     
-    // System-wide collections (admin only)
-    match /system/{document} {
-      allow read: if isAuthenticated();
-      allow write: if false; // Only admins should write system data
-    }
-    
-    // Global achievements definitions (read-only for all authenticated users)
-    match /global_achievements/{achievementId} {
-      allow read: if isAuthenticated();
-      allow write: if false; // Only admins should write global data
-    }
-    
-    // Company information (read-only for all authenticated users)
-    match /companies/{companyId} {
-      allow read: if isAuthenticated();
-      allow write: if false; // Only admins should write company data
-    }
-    
-    // Question banks (read-only for all authenticated users)
+    // ===== BACKWARD COMPATIBILITY =====
+    // Keep old collections for existing data
     match /questions/{questionId} {
-      allow read: if isAuthenticated();
-      allow write: if false; // Only admins should write questions
+      allow read: if isSignedIn();
+      allow write: if false;
     }
     
-    // Grant application data - users can read and write their own grant applications
-    match /grants/{grantId} {
-      allow read, write: if isAuthenticated() && request.auth.uid == resource.data.userId;
+    match /connection-test/{docId} {
+      allow read: if isSignedIn();
     }
-    
-    // User applications - users can manage their own applications
-    match /applications/{applicationId} {
-      allow read, write: if isAuthenticated() && request.auth.uid == resource.data.userId;
+
+    // ===== JOBS CACHE (Public Read, System Write) =====
+    match /cached_jobs/{jobId} {
+      allow read: if true; // Public read for all users
+      allow write: if false; // Only backend can write via Admin SDK
     }
-    
-    // Interview data - users can manage their own interview data
-    match /interviews/{interviewId} {
-      allow read, write: if isAuthenticated() && request.auth.uid == resource.data.userId;
+
+    match /jobs_metadata/{metadataId} {
+      allow read: if isSignedIn(); // Authenticated users can read metadata
+      allow write: if false; // Only backend can write via Admin SDK
     }
-    
-    // Profile data - users can manage their own profiles
-    match /profiles/{userId} {
-      allow read, write: if isOwner(userId);
-    }
-    
-    // Deny all other requests
+
+    // ===== DEFAULT DENY =====
     match /{document=**} {
       allow read, write: if false;
     }

@@ -129,7 +129,6 @@ export default function ResultsPage() {
                 config,
                 data.feedback,
               );
-              console.log("Interview results saved to database");
             } catch (dbError) {
               console.error("Error saving to database:", dbError);
             }

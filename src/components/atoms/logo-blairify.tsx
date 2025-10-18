@@ -10,11 +10,7 @@ interface LogoProps {
 
 const DEFAULT_REPEAT_COUNT = 7;
 
-export const LogoText = () => (
-  <>
-   Blairify
-  </>
-);
+export const LogoText = () => <>Blairify</>;
 
 export default function Logo({
   variant = "minimal",

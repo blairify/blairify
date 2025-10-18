@@ -13,8 +13,6 @@ import type { UserProfile } from "@/types/firestore";
  */
 export async function testCreateUserProfile(userId: string): Promise<boolean> {
   try {
-    console.log("Testing user profile creation...");
-
     const profileData: Partial<UserProfile> = {
       email: "test@example.com",
       displayName: "Test User",
@@ -35,10 +33,9 @@ export async function testCreateUserProfile(userId: string): Promise<boolean> {
       userId,
       profileData,
     );
-    console.log("✅ User profile created successfully");
     return true;
   } catch (error) {
-    console.error("❌ Failed to create user profile:", error);
+    console.error("Failed to create user profile:", error);
     return false;
   }
 
@@ -50,32 +47,22 @@ export async function testCreateUserProfile(userId: string): Promise<boolean> {
  */
 export async function testGetUserSkills(userId: string): Promise<boolean> {
   try {
-    console.log("Testing user skills retrieval...");
-
     const skills = await DatabaseService.getUserSkills(userId);
-    console.log(`✅ Found ${skills.length} user skills`);
 
     // If no skills exist, let's create some default ones
     if (skills.length === 0) {
-      console.log("No skills found, this is expected for a new user");
-
       // Show what default skills would look like
       const defaultSkills = DatabaseService.getDefaultSkills();
-      console.log(`Default skills available: ${defaultSkills.length}`);
       defaultSkills.slice(0, 3).forEach((skill) => {
         console.log(
           `  - ${skill.name} (${skill.category}): Level ${skill.currentLevel}`,
         );
       });
-    } else {
-      skills.forEach((skill) => {
-        console.log(`  - ${skill.name}: Level ${skill.currentLevel}`);
-      });
     }
 
     return true;
   } catch (error) {
-    console.error("❌ Failed to get user skills:", error);
+    console.error("Failed to get user skills:", error);
     return false;
   }
 }
@@ -85,16 +72,11 @@ export async function testGetUserSkills(userId: string): Promise<boolean> {
  */
 export async function testSessionOperations(_userId: string): Promise<boolean> {
   try {
-    console.log("Testing session operations...");
-
     // For now, just test that we can access session-related methods
     // Full session creation would require more complex setup
-    console.log(
-      "✅ Session operations accessible (creation test skipped for complexity)",
-    );
     return true;
   } catch (error) {
-    console.error("❌ Failed session operations test:", error);
+    console.error("Failed session operations test:", error);
     return false;
   }
 }
@@ -104,26 +86,15 @@ export async function testSessionOperations(_userId: string): Promise<boolean> {
  */
 export async function testReadUserData(userId: string): Promise<boolean> {
   try {
-    console.log("Testing user data retrieval...");
-
     // Test reading user profile
     const profile = await DatabaseService.getUserProfile(userId);
-    if (profile) {
-      console.log("✅ User profile retrieved:", profile.displayName);
-    } else {
-      console.log("⚠️ No user profile found");
-    }
 
     // Test reading user skills
     const skills = await DatabaseService.getUserSkills(userId);
-    console.log(`✅ Found ${skills.length} user skills`);
-    skills.forEach((skill) => {
-      console.log(`  - ${skill.name}: Level ${skill.currentLevel}`);
-    });
 
     return true;
   } catch (error) {
-    console.error("❌ Failed to read user data:", error);
+    console.error("Failed to read user data:", error);
     return false;
   }
 }
@@ -132,26 +103,12 @@ export async function testReadUserData(userId: string): Promise<boolean> {
  * Run all tests
  */
 export async function runAllTests(userId: string): Promise<void> {
-  console.log("🧪 Starting database tests...\n");
-
   const results = {
     createProfile: await testCreateUserProfile(userId),
     getSkills: await testGetUserSkills(userId),
     sessionOps: await testSessionOperations(userId),
     readData: await testReadUserData(userId),
   };
-
-  console.log("\n📊 Test Results:");
-  Object.entries(results).forEach(([test, passed]) => {
-    console.log(
-      `${passed ? "✅" : "❌"} ${test}: ${passed ? "PASSED" : "FAILED"}`,
-    );
-  });
-
-  const allPassed = Object.values(results).every((result) => result);
-  console.log(
-    `\n${allPassed ? "🎉" : "⚠️"} Overall: ${allPassed ? "ALL TESTS PASSED" : "SOME TESTS FAILED"}`,
-  );
 }
 
 /**
@@ -159,14 +116,11 @@ export async function runAllTests(userId: string): Promise<void> {
  */
 export async function testBasicOperations(userId: string): Promise<boolean> {
   try {
-    console.log("Testing basic database operations...");
-
     // Try to get user profile (this tests connection and permissions)
     const _profile = await DatabaseService.getUserProfile(userId);
-    console.log("✅ Database connection and permissions working");
     return true;
   } catch (error) {
-    console.error("❌ Database operations failed:", error);
+    console.error("Database operations failed:", error);
     return false;
   }
 }

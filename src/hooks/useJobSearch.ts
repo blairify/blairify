@@ -21,8 +21,6 @@ async function jobScraper(key: string): Promise<JobData[]> {
   // Extract search params from the SWR key
   const params = JSON.parse(key.replace("job-search:", ""));
 
-  console.log("🔍 Fetching job data for:", params);
-
   const response = await fetch("/api/jobs/scrape", {
     method: "POST",
     headers: {
@@ -43,7 +41,6 @@ async function jobScraper(key: string): Promise<JobData[]> {
     throw new Error(data.error || "Failed to fetch jobs");
   }
 
-  console.log("✅ Job data fetched successfully:", data.data?.length, "jobs");
   return data.data || [];
 }
 

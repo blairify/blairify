@@ -1,31 +1,102 @@
 {
   "indexes": [
     {
+      "collectionGroup": "practice-questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "category", "order": "ASCENDING" },
+        { "fieldPath": "difficulty", "order": "ASCENDING" },
+        { "fieldPath": "verified", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "practice-questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "companies", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "difficulty", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "practice-questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "primaryTechStack", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "difficulty", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "practice-questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "programmingLanguages", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "difficulty", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "practice-questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "programmingLanguages", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "difficulty", "order": "ASCENDING" },
+        { "fieldPath": "verified", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "practice-questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "techCategories", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "difficulty", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "practice-questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "popularityScore", "order": "DESCENDING" },
+        { "fieldPath": "verified", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "practice-questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "qualityScore", "order": "DESCENDING" },
+        { "fieldPath": "isActive", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "practice-questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "isActive", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "practice-questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "category", "order": "ASCENDING" },
+        { "fieldPath": "difficulty", "order": "ASCENDING" },
+        { "fieldPath": "popularityScore", "order": "DESCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "sessions",
       "queryScope": "COLLECTION",
       "fields": [
-        {
-          "fieldPath": "status",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "createdAt",
-          "order": "DESCENDING"
-        }
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
       ]
     },
     {
       "collectionGroup": "skills",
       "queryScope": "COLLECTION",
       "fields": [
-        {
-          "fieldPath": "category",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "name",
-          "order": "ASCENDING"
-        }
+        { "fieldPath": "category", "order": "ASCENDING" },
+        { "fieldPath": "name", "order": "ASCENDING" }
       ]
     }
   ],

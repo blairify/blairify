@@ -494,8 +494,7 @@ function validateAIResponse(
   if (response.length > 2000) {
     return {
       isValid: true,
-      sanitized:
-        response.substring(0, 1800) + "... [Response truncated for clarity]",
+      sanitized: `${response.substring(0, 1800)}... [Response truncated for clarity]`,
     };
   }
 
@@ -552,7 +551,7 @@ function validateAIResponse(
   if (sentences.length > 8) {
     return {
       isValid: true,
-      sanitized: sentences.slice(0, 6).join(". ") + ". [Question continued...]",
+      sanitized: `${sentences.slice(0, 6).join(". ")}. [Question continued...]`,
     };
   }
 

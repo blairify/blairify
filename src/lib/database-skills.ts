@@ -48,7 +48,6 @@ export async function getUserSkills(userId: string): Promise<UserSkill[]> {
     console.error("Error getting user skills:", error);
     // Return empty array for new users rather than throwing
     if (error instanceof Error && error.message.includes("collection")) {
-      console.log("Skills collection doesn't exist yet for user:", userId);
       return [];
     }
     throw error;
