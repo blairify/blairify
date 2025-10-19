@@ -7,8 +7,11 @@
 //  * 
 //  * Or add to package.json:
 //  * "scripts": {
-//  *   "seed:questions": "ts-node scripts/seed-questions.ts"
+//  *   "seed:questions": "ts-node scripts/seed-interview-questions.ts"
 //  * }
+//  * 
+//  * 
+//  * run npx ts-node scripts/seed-interview-questions.ts
 //  */
 
 // import { initializeApp, cert } from 'firebase-admin/app';

@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "prisma generate && next build --turbopack",
-    "postinstall": "prisma generate",
+    "build": "next build --turbopack",
     "start": "next start",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -14,7 +13,8 @@
     "test:setup": "jest __tests__/setup.test.ts",
     "fix": "npm run fix:biome ",
     "fix:biome": "biome check --write --formatter-enabled=true  src",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
