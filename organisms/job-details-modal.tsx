@@ -23,6 +23,106 @@ import {
 import { Separator } from "@/components/ui/separator";
 import type { JobData } from "@/types/job-market";
 
+interface JobDescriptionParserProps {
+  description: string;
+}
+
+function JobDescriptionParser({ description }: JobDescriptionParserProps) {
+  // Parse the description and format it nicely
+  const parseDescription = (text: string): React.ReactNode[] => {
+    // Handle different section markers
+    const sectionPatterns = [
+      /\*\*([^*]+)\*\*/g, // **SECTION**
+      /## ([^\n]+)/g, // ## SECTION
+      /### ([^\n]+)/g, // ### SECTION
+      /([A-Z][A-Z\s]+):/g, // SECTION NAME:
+    ];
+
+    let sections: Array<{ header: string; content: string }> = [];
+    const _remainingText = text;
+
+    // Try to extract sections using different patterns
+    for (const pattern of sectionPatterns) {
+      const matches = [...text.matchAll(pattern)];
+      if (matches.length > 0) {
+        sections = [];
+        const _lastIndex = 0;
+
+        matches.forEach((match, index) => {
+          const header = match[1].trim();
+          const startIndex = match.index ?? 0 + match[0].length;
+          const endIndex =
+            index < matches.length - 1
+              ? (matches[index + 1].index ?? 0)
+              : text.length;
+
+          const content = text.slice(startIndex, endIndex).trim();
+          if (content) {
+            sections.push({ header, content });
+          }
+        });
+
+        if (sections.length > 0) break;
+      }
+    }
+
+    // If no sections found, format as paragraphs
+    if (sections.length === 0) {
+      return text
+        .split("\n\n")
+        .filter((p) => p.trim())
+        .map((paragraph, index) => (
+          <p
+            key={`para-${paragraph.slice(0, 20)}-${index}`}
+            className="mb-4 last:mb-0 leading-relaxed"
+          >
+            {paragraph.split("\n").map((line) => (
+              <span key={`line-${line}`}>
+                {line.trim()}
+                {line !==
+                  paragraph.split("\n")[paragraph.split("\n").length - 1] && (
+                  <br />
+                )}
+              </span>
+            ))}
+          </p>
+        ));
+    }
+
+    // Render sections
+    return sections.map((section) => (
+      <div key={`section-${section.header}`} className="mb-6">
+        <h4 className="font-semibold text-base mb-3 text-primary">
+          {section.header}
+        </h4>
+        <div className="text-sm leading-relaxed">
+          {section.content
+            .split("\n\n")
+            .filter((p) => p.trim())
+            .map((paragraph, pIndex) => (
+              <p
+                key={`para-${paragraph.slice(0, 20)}-${pIndex}`}
+                className="mb-3 last:mb-0"
+              >
+                {paragraph.split("\n").map((line) => (
+                  <span key={`line-${line}`}>
+                    {line.trim()}
+                    {line !==
+                      paragraph.split("\n")[
+                        paragraph.split("\n").length - 1
+                      ] && <br />}
+                  </span>
+                ))}
+              </p>
+            ))}
+        </div>
+      </div>
+    ));
+  };
+
+  return <div>{parseDescription(description)}</div>;
+}
+
 interface JobDetailsModalProps {
   job: JobData | null;
   open: boolean;
@@ -191,7 +291,7 @@ export default function JobDetailsModal({
             <div className="space-y-3">
               <h3 className="text-lg font-semibold">Job Description</h3>
               <div className="prose prose-sm max-w-none text-sm leading-relaxed">
-                <p className="mb-4 whitespace-pre-line">{job.description}</p>
+                <JobDescriptionParser description={job.description} />
               </div>
             </div>
           )}
