@@ -11,7 +11,6 @@ import {
   getDoc,
   getDocs,
   limit,
-  orderBy,
   query,
   serverTimestamp,
   type Timestamp,
@@ -20,13 +19,14 @@ import {
 } from "firebase/firestore";
 import type {
   APIArchitecture,
-  BackendLanguage,
+  BackendFramework,
   CachingTech,
   CICD,
   CloudProvider,
   ContainerTech,
   CSSFramework,
   FrontendFramework,
+  IaC,
   LLMProvider,
   MessageQueue,
   MLFramework,
@@ -34,11 +34,16 @@ import type {
   Monitoring,
   NoSQLDatabase,
   ORM,
+  ProgrammingLanguage,
+  Protocol,
+  SearchEngine,
   SecurityTool,
   SQLDatabase,
   StateManagement,
   TechStack,
   TestingFramework,
+  VectorDatabase,
+  WebServer,
 } from "@/types/tech-stack";
 import { db } from "./firebase";
 
@@ -66,26 +71,7 @@ export type QuestionCategory =
   | "communication"
   | "problem-solving";
 
-export type InterviewType =
-  | "behavioral"
-  | "technical"
-  | "system-design"
-  | "coding"
-  | "architecture"
-  | "case-study"
-  | "take-home"
-  | "pair-programming"
-  | "whiteboard"
-  | "live-coding";
-
-export type ExperienceLevel =
-  | "entry"
-  | "junior"
-  | "mid"
-  | "senior"
-  | "staff"
-  | "principal"
-  | "architect";
+export type ExperienceLevel = "entry" | "junior" | "mid" | "senior";
 
 export type CompanySize =
   | "startup"
@@ -96,29 +82,65 @@ export type CompanySize =
   | "faang"
   | "unicorn";
 
+export type CompanyLogo =
+  // FAANG/Big Tech
+  | "SiGoogle"
+  | "SiMeta"
+  | "SiAmazon"
+  | "SiApple"
+  | "SiNetflix"
+  | "SiMicrosoft"
+
+  // Other Tech Giants
+  | "SiTesla"
+  | "SiNvidia"
+  | "SiOracle"
+  | "SiSalesforce"
+  | "SiIbm"
+  | "SiIntel"
+  | "SiAdobe"
+  | "SiSap"
+  | "SiCisco"
+  | "SiX"
+  | "SiLinkedin"
+  | "SiSnapchat"
+  | "SiTiktok"
+  | "SiReddit"
+  | "SiAmazonaws"
+  | "SiMicrosoftazure"
+  | "SiGooglecloud"
+  | "SiCloudflare"
+  | "SiVercel"
+  | "SiStripe"
+  | "SiSpotify"
+  | "SiUber"
+  | "SiAirbnb"
+  | "SiShopify"
+  | "SiZoom"
+  | "SiSlack"
+  | "SiDropbox"
+  | "SiNotion"
+  | "SiAtlassian"
+  | "SiTwilio"
+  | "SiDatadog"
+  | "SiSnowflake"
+  | "SiPaypal"
+  | "SiSquare"
+  | "SiCoinbase"
+  | "SiGithub"
+  | "SiGitlab";
+
 export interface PracticeQuestion {
-  id?: string;
-
-  // Core Question Info
+  id: string;
   category: QuestionCategory;
-  subcategory?: string;
   difficulty: "easy" | "medium" | "hard";
-  interviewType: InterviewType;
-  experienceLevel?: ExperienceLevel[];
-
-  // Company & Industry
-  companies: string[];
+  companyName: string;
+  companyLogo: CompanyLogo;
   companySize?: CompanySize[];
-  industries?: string[];
-
-  // Tech Stack - Using comprehensive types
   primaryTechStack: TechStack[];
-  secondaryTechStack?: TechStack[];
-
-  // Specific Tech Categories
-  languages?: BackendLanguage[];
+  languages?: ProgrammingLanguage[];
   frontendFrameworks?: FrontendFramework[];
-  backendFrameworks?: string[];
+  backendFrameworks?: BackendFramework[];
   databases?: (SQLDatabase | NoSQLDatabase)[];
   cloudProviders?: CloudProvider[];
   containers?: ContainerTech[];
@@ -135,88 +157,21 @@ export interface PracticeQuestion {
   security?: SecurityTool[];
   mlFrameworks?: MLFramework[];
   llmProviders?: LLMProvider[];
-
-  // Question Content
+  protocol?: Protocol[];
+  webServers?: WebServer[];
+  searchEngines?: SearchEngine[];
+  vectorDBs?: VectorDatabase[];
+  iac?: IaC[];
   question: string;
-  context?: string;
-  followUpQuestions?: string[];
-  hints?: string[];
-  commonMistakes?: string[];
-
-  // Answer
-  answer: {
-    content: string;
-    keyPoints: string[];
-    codeExamples?: {
-      language: string;
-      code: string;
-      explanation?: string;
-    }[];
-    diagrams?: string[];
-    starFramework?: {
-      situation: string;
-      task: string;
-      action: string;
-      result: string;
-    };
-    tradeoffs?: {
-      approach: string;
-      pros: string[];
-      cons: string[];
-    }[];
-  };
-
-  // Metadata
+  answer: string;
   topicTags: string[];
-  relatedQuestions?: string[]; // IDs of related questions
-  prerequisites?: string[];
+  relatedQuestions?: string[];
   learningResources?: {
     title: string;
     url: string;
-    type: "article" | "video" | "documentation" | "course" | "book";
+    type: "article" | "documentation" | "course" | "book";
   }[];
-
-  // Quality & Verification
-  verified: boolean;
-  aiGenerated: boolean;
-  reviewedBy?: string[];
-  lastReviewDate?: Timestamp;
-
-  // Status
-  isActive: boolean;
-  isDraft?: boolean;
-
-  // Source
-  source: string;
-  sourceUrl?: string;
-  contributor?: string;
-
-  // Timing
-  estimatedMinutes: number;
-  actualAvgMinutes?: number;
-
-  // Usage Statistics
-  usageStats: {
-    usedByCount: number;
-    totalAttempts: number;
-    avgScore: number;
-    avgTimeToComplete: number;
-    completionRate: number;
-    successRate: number;
-    usageLast7Days: number;
-    usageLast30Days: number;
-    lastUsed?: Timestamp;
-  };
-
-  // Scoring
-  popularityScore: number;
-  qualityScore: number;
-  difficultyRating?: number; // User-reported difficulty
-
-  // Timestamps
-  createdAt?: Timestamp;
   lastUpdatedAt?: Timestamp;
-  version?: number;
 }
 
 const COLLECTION_NAME = "practice-questions";
@@ -228,11 +183,8 @@ export async function getAllPracticeQuestions(): Promise<PracticeQuestion[]> {
   if (!db) throw new Error("Firestore not initialized");
 
   const questionsRef = collection(db, COLLECTION_NAME);
-  const q = query(
-    questionsRef,
-    where("isActive", "==", true),
-    orderBy("createdAt", "desc"),
-  );
+  // Removed filters for non-existent fields (isActive, createdAt)
+  const q = query(questionsRef);
 
   const snapshot = await getDocs(q);
   return snapshot.docs.map((doc) => ({
@@ -250,18 +202,20 @@ export async function getPracticeQuestionsByCategory(
   if (!db) throw new Error("Firestore not initialized");
 
   const questionsRef = collection(db, COLLECTION_NAME);
-  const q = query(
-    questionsRef,
-    where("category", "==", category),
-    where("isActive", "==", true),
-    orderBy("difficulty", "asc"),
-  );
+  // Removed isActive filter and orderBy difficulty (sorting client-side instead)
+  const q = query(questionsRef, where("category", "==", category));
 
   const snapshot = await getDocs(q);
-  return snapshot.docs.map((doc) => ({
+  const questions = snapshot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
   })) as PracticeQuestion[];
+
+  // Sort by difficulty client-side
+  const difficultyOrder = { easy: 1, medium: 2, hard: 3 };
+  return questions.sort(
+    (a, b) => difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty],
+  );
 }
 
 /**
@@ -273,11 +227,10 @@ export async function getPracticeQuestionsByDifficulty(
   if (!db) throw new Error("Firestore not initialized");
 
   const questionsRef = collection(db, COLLECTION_NAME);
+  // Removed isActive and popularityScore filters
   const q = query(
     questionsRef,
     where("difficulty", "==", difficulty),
-    where("isActive", "==", true),
-    orderBy("popularityScore", "desc"),
     limit(50),
   );
 
@@ -311,19 +264,15 @@ export async function getPracticeQuestionById(
  * Create a new practice question
  */
 export async function createPracticeQuestion(
-  question: Omit<
-    PracticeQuestion,
-    "id" | "createdAt" | "lastUpdatedAt" | "version"
-  >,
+  question: Omit<PracticeQuestion, "id" | "lastUpdatedAt">,
 ): Promise<string> {
   if (!db) throw new Error("Firestore not initialized");
 
   const questionsRef = collection(db, COLLECTION_NAME);
+  // Only add lastUpdatedAt, removed createdAt and version
   const docRef = await addDoc(questionsRef, {
     ...question,
-    createdAt: serverTimestamp(),
     lastUpdatedAt: serverTimestamp(),
-    version: 1,
   });
 
   return docRef.id;
@@ -346,16 +295,13 @@ export async function updatePracticeQuestion(
 }
 
 /**
- * Delete a practice question (soft delete by setting isActive to false)
+ * Delete a practice question (permanent delete)
  */
 export async function deletePracticeQuestion(id: string): Promise<void> {
   if (!db) throw new Error("Firestore not initialized");
 
   const docRef = doc(db, COLLECTION_NAME, id);
-  await updateDoc(docRef, {
-    isActive: false,
-    lastUpdatedAt: serverTimestamp(),
-  });
+  await deleteDoc(docRef);
 }
 
 /**
@@ -386,6 +332,7 @@ export async function searchPracticeQuestions(
     (q) =>
       q.question.toLowerCase().includes(lowerSearchTerm) ||
       q.category.toLowerCase().includes(lowerSearchTerm) ||
+      q.companyName.toLowerCase().includes(lowerSearchTerm) ||
       q.topicTags.some((tag) => tag.toLowerCase().includes(lowerSearchTerm)),
   );
 }

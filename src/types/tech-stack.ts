@@ -1,6 +1,7 @@
 // ============= FRONTEND =============
+export type FrontendLibrary = "react" | "preact" | "jquery" | "alpine";
+
 export type FrontendFramework =
-  | "react"
   | "vue"
   | "angular"
   | "svelte"
@@ -11,11 +12,8 @@ export type FrontendFramework =
   | "gatsby"
   | "astro"
   | "qwik"
-  | "preact"
   | "ember"
-  | "backbone"
-  | "jquery"
-  | "alpine";
+  | "backbone";
 
 export type MobileDevelopment =
   | "react-native"
@@ -60,8 +58,8 @@ export type StateManagement =
   | "ngrx"
   | "rxjs";
 
-// ============= BACKEND =============
-export type BackendLanguage =
+// ============= PROGRAMMING LANGUAGES =============
+export type ProgrammingLanguage =
   | "javascript"
   | "typescript"
   | "python"
@@ -78,9 +76,16 @@ export type BackendLanguage =
   | "haskell"
   | "perl"
   | "r"
-  | "swift-server"
-  | "dart";
+  | "swift"
+  | "dart"
+  | "c"
+  | "cpp"
+  | "objective-c"
+  | "sql"
+  | "bash"
+  | "powershell";
 
+// ============= BACKEND =============
 export type BackendFramework =
   | "nodejs"
   | "express"
@@ -551,11 +556,12 @@ export type ProjectManagement =
 
 // ============= COMPREHENSIVE UNION TYPE =============
 export type TechStack =
+  | FrontendLibrary
   | FrontendFramework
   | MobileDevelopment
   | CSSFramework
   | StateManagement
-  | BackendLanguage
+  | ProgrammingLanguage
   | BackendFramework
   | APIArchitecture
   | SQLDatabase
@@ -589,11 +595,12 @@ export type TechStack =
 // ============= HELPER TYPE FOR CATEGORIZATION =============
 export interface TechStackCategory {
   category:
-    | "frontend"
+    | "frontend-library"
+    | "frontend-framework"
     | "mobile"
     | "css"
     | "state-management"
-    | "backend-language"
+    | "programming-language"
     | "backend-framework"
     | "api"
     | "database-sql"

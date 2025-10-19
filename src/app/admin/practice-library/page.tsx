@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/select";
 import { isSuperAdmin } from "@/lib/auth-roles";
 import {
+  type CompanyLogo,
   createPracticeQuestion,
   deletePracticeQuestion,
   getAllPracticeQuestions,
@@ -36,6 +37,71 @@ import {
   updatePracticeQuestion,
 } from "@/lib/practice-questions-service";
 import { useAuth } from "@/providers/auth-provider";
+
+// Helper function to get company name from logo
+const getCompanyNameFromLogo = (logo: CompanyLogo): string => {
+  const logoToName: Record<CompanyLogo, string> = {
+    // FAANG/Big Tech
+    SiGoogle: "Google",
+    SiMeta: "Meta",
+    SiAmazon: "Amazon",
+    SiApple: "Apple",
+    SiNetflix: "Netflix",
+    SiMicrosoft: "Microsoft",
+
+    // Other Tech Giants
+    SiTesla: "Tesla",
+    SiNvidia: "NVIDIA",
+    SiOracle: "Oracle",
+    SiSalesforce: "Salesforce",
+    SiIbm: "IBM",
+    SiIntel: "Intel",
+    SiAdobe: "Adobe",
+    SiSap: "SAP",
+    SiCisco: "Cisco",
+    SiX: "X (Twitter)",
+    SiLinkedin: "LinkedIn",
+    SiSnapchat: "Snapchat",
+    SiTiktok: "TikTok",
+    SiReddit: "Reddit",
+
+    // Cloud & Infrastructure
+    SiAmazonaws: "AWS",
+    SiMicrosoftazure: "Microsoft Azure",
+    SiGooglecloud: "Google Cloud",
+    SiCloudflare: "Cloudflare",
+    SiVercel: "Vercel",
+
+    // Payment & Fintech
+    SiStripe: "Stripe",
+    SiPaypal: "PayPal",
+    SiSquare: "Square",
+    SiCoinbase: "Coinbase",
+
+    // Other Tech Companies
+    SiSpotify: "Spotify",
+    SiUber: "Uber",
+    SiAirbnb: "Airbnb",
+    SiShopify: "Shopify",
+
+    // Communication & Collaboration
+    SiZoom: "Zoom",
+    SiSlack: "Slack",
+    SiDropbox: "Dropbox",
+    SiNotion: "Notion",
+    SiAtlassian: "Atlassian",
+    SiTwilio: "Twilio",
+
+    // Developer Tools & Platforms
+    SiGithub: "GitHub",
+    SiGitlab: "GitLab",
+
+    // Data & Analytics
+    SiDatadog: "Datadog",
+    SiSnowflake: "Snowflake",
+  };
+  return logoToName[logo] || logo;
+};
 
 export default function ManagePracticeLibraryPage() {
   const router = useRouter();
@@ -49,9 +115,11 @@ export default function ManagePracticeLibraryPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [difficultyFilter, setDifficultyFilter] = useState<string>("all");
+  const [companyFilter, setCompanyFilter] = useState<string>("all");
   const [showAddDialog, setShowAddDialog] = useState(false);
-  const [_editingQuestion, _setEditingQuestion] =
-    useState<PracticeQuestion | null>(null);
+  const [editingQuestionId, setEditingQuestionId] = useState<string | null>(
+    null,
+  );
 
   // Check authorization
   useEffect(() => {
@@ -87,7 +155,13 @@ export default function ManagePracticeLibraryPage() {
       filtered = filtered.filter(
         (q) =>
           q.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          q.category.toLowerCase().includes(searchTerm.toLowerCase()),
+          q.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          getCompanyNameFromLogo(q.companyLogo)
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          q.topicTags.some((tag) =>
+            tag.toLowerCase().includes(searchTerm.toLowerCase()),
+          ),
       );
     }
 
@@ -99,8 +173,12 @@ export default function ManagePracticeLibraryPage() {
       filtered = filtered.filter((q) => q.difficulty === difficultyFilter);
     }
 
+    if (companyFilter !== "all") {
+      filtered = filtered.filter((q) => q.companyLogo === companyFilter);
+    }
+
     setFilteredQuestions(filtered);
-  }, [questions, searchTerm, categoryFilter, difficultyFilter]);
+  }, [questions, searchTerm, categoryFilter, difficultyFilter, companyFilter]);
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this question?")) return;
@@ -116,6 +194,7 @@ export default function ManagePracticeLibraryPage() {
   };
 
   const categories = Array.from(new Set(questions.map((q) => q.category)));
+  const companies = Array.from(new Set(questions.map((q) => q.companyLogo)));
 
   if (loading || !isSuperAdmin(user)) {
     return (
@@ -192,6 +271,16 @@ export default function ManagePracticeLibraryPage() {
               <Card>
                 <CardHeader className="pb-3">
                   <CardTitle className="text-sm font-medium">
+                    Companies
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">{companies.length}</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-sm font-medium">
                     Categories
                   </CardTitle>
                 </CardHeader>
@@ -201,23 +290,11 @@ export default function ManagePracticeLibraryPage() {
               </Card>
               <Card>
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium">
-                    Verified
-                  </CardTitle>
+                  <CardTitle className="text-sm font-medium">Medium</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">
-                    {questions.filter((q) => q.verified).length}
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium">Active</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">
-                    {questions.filter((q) => q.isActive).length}
+                    {questions.filter((q) => q.difficulty === "medium").length}
                   </div>
                 </CardContent>
               </Card>
@@ -229,7 +306,7 @@ export default function ManagePracticeLibraryPage() {
                 <CardTitle>Filters</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="search">Search</Label>
                     <div className="relative">
@@ -244,6 +321,25 @@ export default function ManagePracticeLibraryPage() {
                     </div>
                   </div>
                   <div className="space-y-2">
+                    <Label htmlFor="company">Company</Label>
+                    <Select
+                      value={companyFilter}
+                      onValueChange={setCompanyFilter}
+                    >
+                      <SelectTrigger id="company">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All Companies</SelectItem>
+                        {companies.map((logo) => (
+                          <SelectItem key={logo} value={logo}>
+                            {getCompanyNameFromLogo(logo)}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
                     <Label htmlFor="category">Category</Label>
                     <Select
                       value={categoryFilter}
@@ -256,7 +352,7 @@ export default function ManagePracticeLibraryPage() {
                         <SelectItem value="all">All Categories</SelectItem>
                         {categories.map((cat) => (
                           <SelectItem key={cat} value={cat}>
-                            {cat}
+                            {cat.replace("-", " ").toUpperCase()}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -316,15 +412,8 @@ export default function ManagePracticeLibraryPage() {
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1 space-y-2">
                           <div className="flex items-center gap-2 flex-wrap">
-                            <h3 className="font-semibold">
-                              {question.question}
-                            </h3>
-                            <Badge
-                              variant={
-                                question.verified ? "default" : "secondary"
-                              }
-                            >
-                              {question.verified ? "Verified" : "Unverified"}
+                            <Badge variant="outline" className="font-semibold">
+                              {getCompanyNameFromLogo(question.companyLogo)}
                             </Badge>
                             <Badge
                               variant={
@@ -335,12 +424,17 @@ export default function ManagePracticeLibraryPage() {
                                     : "destructive"
                               }
                             >
-                              {question.difficulty}
+                              {question.difficulty.toUpperCase()}
+                            </Badge>
+                            <Badge variant="outline">
+                              {question.category.replace("-", " ")}
                             </Badge>
                           </div>
-                          <p className="text-sm text-muted-foreground">
-                            Category: {question.category} | Type:{" "}
-                            {question.interviewType}
+                          <h3 className="font-semibold text-lg">
+                            {question.question}
+                          </h3>
+                          <p className="text-sm text-muted-foreground line-clamp-2">
+                            {question.answer}
                           </p>
                           <div className="flex gap-2 flex-wrap">
                             {question.topicTags.slice(0, 5).map((tag) => (
@@ -352,18 +446,66 @@ export default function ManagePracticeLibraryPage() {
                                 {tag}
                               </Badge>
                             ))}
+                            {question.topicTags.length > 5 && (
+                              <Badge variant="outline" className="text-xs">
+                                +{question.topicTags.length - 5} more
+                              </Badge>
+                            )}
                           </div>
+                          {/* Tech Stack Preview */}
+                          {(question.languages ||
+                            question.databases ||
+                            question.cloudProviders) && (
+                            <div className="flex gap-2 flex-wrap text-xs text-muted-foreground">
+                              {question.languages &&
+                                question.languages.length > 0 && (
+                                  <span>
+                                    💻{" "}
+                                    {question.languages.slice(0, 3).join(", ")}
+                                  </span>
+                                )}
+                              {question.databases &&
+                                question.databases.length > 0 && (
+                                  <span>
+                                    🗄️{" "}
+                                    {question.databases.slice(0, 2).join(", ")}
+                                  </span>
+                                )}
+                              {question.cloudProviders &&
+                                question.cloudProviders.length > 0 && (
+                                  <span>
+                                    ☁️ {question.cloudProviders.join(", ")}
+                                  </span>
+                                )}
+                            </div>
+                          )}
                         </div>
                         <div className="flex gap-2">
-                          <Dialog>
+                          <Dialog
+                            open={editingQuestionId === question.id}
+                            onOpenChange={(open) => {
+                              if (!open) {
+                                setEditingQuestionId(null);
+                              }
+                            }}
+                          >
                             <DialogTrigger asChild>
-                              <Button variant="outline" size="sm">
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() =>
+                                  setEditingQuestionId(question.id || null)
+                                }
+                              >
                                 <Edit className="h-4 w-4" />
                               </Button>
                             </DialogTrigger>
                             <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
                               <DialogHeader>
                                 <DialogTitle>Edit Question</DialogTitle>
+                                <DialogDescription>
+                                  Update the practice question details
+                                </DialogDescription>
                               </DialogHeader>
                               <ComprehensiveQuestionForm
                                 initialData={question}
@@ -377,6 +519,7 @@ export default function ManagePracticeLibraryPage() {
                                     toast.success(
                                       "Question updated successfully",
                                     );
+                                    setEditingQuestionId(null);
                                     loadQuestions();
                                   } catch (error) {
                                     console.error(
