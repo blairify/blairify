@@ -1,7 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { FiBriefcase, FiClock, FiGlobe, FiMapPin } from "react-icons/fi";
+import {
+  FiBriefcase,
+  FiClock,
+  FiGlobe,
+  FiGrid,
+  FiList,
+  FiMapPin,
+} from "react-icons/fi";
 import { Button } from "../ui/button";
 
 interface Job {
@@ -40,6 +47,7 @@ export default function JobList({
   const [typeFilter, setTypeFilter] = useState("");
   const [remoteFilter, setRemoteFilter] = useState("");
   const [companyFilter, setCompanyFilter] = useState("");
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   // Fetch jobs from cache
   const fetchAllJobs = useCallback(async () => {
@@ -116,8 +124,33 @@ export default function JobList({
   return (
     <section className="py-6">
       <div className="max-w-7xl mx-auto px-6 md:px-12 border border-border rounded-xl bg-card pb-6">
-        {/* Padding above filters */}
-        <div className="pt-6">
+        {/* View Mode Toggle */}
+        <div className="pt-6 px-6">
+          <div className="flex justify-end mb-4">
+            <div className="flex items-center gap-2 bg-background rounded-lg p-1 border">
+              <Button
+                type="button"
+                variant={viewMode === "grid" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setViewMode("grid")}
+                className="flex items-center gap-2"
+              >
+                <FiGrid className="h-4 w-4" />
+                Grid
+              </Button>
+              <Button
+                type="button"
+                variant={viewMode === "list" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setViewMode("list")}
+                className="flex items-center gap-2"
+              >
+                <FiList className="h-4 w-4" />
+                List
+              </Button>
+            </div>
+          </div>
+
           <form
             onSubmit={handleSearch}
             className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8 p-4 rounded-lg bg-background shadow-sm"
@@ -205,57 +238,119 @@ export default function JobList({
             No active programming jobs found.
           </p>
         ) : (
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {paginatedJobs.map((job) => (
-              <li
-                key={job.id}
-                className="flex flex-col justify-between p-4 border border-border rounded-lg bg-background shadow hover:shadow-lg transition group"
-              >
-                <div className="space-y-1">
-                  <h3 className="text-md md:text-lg font-semibold text-primary">
-                    {job.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {job.company?.name || "Unknown Company"}
-                  </p>
-                  <div className="flex flex-wrap text-xs text-muted-foreground gap-2 mt-1">
-                    <span className="flex items-center gap-1">
-                      <FiMapPin className="inline" />
-                      {job.locations.map((l) => l.name).join(", ") || "Remote"}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <FiBriefcase className="inline" />
-                      {job.levels.map((l) => l.name).join(", ") || "Level N/A"}
-                    </span>
-                    {job.type && <span>{job.type}</span>}
-                    <span className="flex items-center gap-1">
-                      <FiClock className="inline" />
-                      {new Date(job.publication_date).toLocaleDateString()}
-                    </span>
-                    {job.remote !== undefined && (
-                      <span className="flex items-center gap-1">
-                        <FiGlobe className="inline" />
-                        {job.remote ? "Remote" : "On-site"}
-                      </span>
-                    )}
-                  </div>
-                </div>
-                <div className="flex gap-2 mt-4">
-                  <a
-                    href={job.refs.landing_page}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-3 py-2 bg-primary text-primary-foreground rounded-lg text-center hover:opacity-90 transition"
+          <div className="px-6">
+            {viewMode === "grid" ? (
+              <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {paginatedJobs.map((job) => (
+                  <li
+                    key={job.id}
+                    className="flex flex-col justify-between p-4 border border-border rounded-lg bg-background shadow hover:shadow-lg transition group"
                   >
-                    View Job
-                  </a>
-                  <Button className="flex-1 px-3 py-2 border rounded-lg bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition">
-                    Prepare
-                  </Button>
-                </div>
-              </li>
-            ))}
-          </ul>
+                    <div className="space-y-1">
+                      <h3 className="text-md md:text-lg font-semibold text-primary">
+                        {job.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {job.company?.name || "Unknown Company"}
+                      </p>
+                      <div className="flex flex-wrap text-xs text-muted-foreground gap-2 mt-1">
+                        <span className="flex items-center gap-1">
+                          <FiMapPin className="inline" />
+                          {job.locations.map((l) => l.name).join(", ") ||
+                            "Remote"}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <FiBriefcase className="inline" />
+                          {job.levels.map((l) => l.name).join(", ") ||
+                            "Level N/A"}
+                        </span>
+                        {job.type && <span>{job.type}</span>}
+                        <span className="flex items-center gap-1">
+                          <FiClock className="inline" />
+                          {new Date(job.publication_date).toLocaleDateString()}
+                        </span>
+                        {job.remote !== undefined && (
+                          <span className="flex items-center gap-1">
+                            <FiGlobe className="inline" />
+                            {job.remote ? "Remote" : "On-site"}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex gap-2 mt-4">
+                      <a
+                        href={job.refs.landing_page}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-3 py-2 bg-primary text-primary-foreground rounded-lg text-center hover:opacity-90 transition"
+                      >
+                        View Job
+                      </a>
+                      <Button className="flex-1 px-3 py-2 border rounded-lg bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition">
+                        Prepare
+                      </Button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <ul className="space-y-4">
+                {paginatedJobs.map((job) => (
+                  <li
+                    key={job.id}
+                    className="flex flex-col md:flex-row md:items-center justify-between p-4 border border-border rounded-lg bg-background shadow hover:shadow-lg transition group"
+                  >
+                    <div className="flex-1 space-y-2">
+                      <div>
+                        <h3 className="text-lg font-semibold text-primary">
+                          {job.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {job.company?.name || "Unknown Company"}
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap text-xs text-muted-foreground gap-4">
+                        <span className="flex items-center gap-1">
+                          <FiMapPin className="inline" />
+                          {job.locations.map((l) => l.name).join(", ") ||
+                            "Remote"}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <FiBriefcase className="inline" />
+                          {job.levels.map((l) => l.name).join(", ") ||
+                            "Level N/A"}
+                        </span>
+                        {job.type && <span>{job.type}</span>}
+                        <span className="flex items-center gap-1">
+                          <FiClock className="inline" />
+                          {new Date(job.publication_date).toLocaleDateString()}
+                        </span>
+                        {job.remote !== undefined && (
+                          <span className="flex items-center gap-1">
+                            <FiGlobe className="inline" />
+                            {job.remote ? "Remote" : "On-site"}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex gap-2 mt-4 md:mt-0 md:ml-4">
+                      <a
+                        href={job.refs.landing_page}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-center hover:opacity-90 transition"
+                      >
+                        View Job
+                      </a>
+                      <Button className="px-4 py-2 border rounded-lg bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition">
+                        Prepare
+                      </Button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         )}
 
         {/* Pagination */}

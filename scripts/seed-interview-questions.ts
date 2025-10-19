@@ -341,6 +341,8 @@ class InterviewQuestionSeeder {
       throw new Error("Firestore not initialized");
     }
 
+    const firestoreDb = db;
+
     console.log(`Preparing to seed ${this.questions.length} questions...`);
 
     // Process in batches (Firestore batch limit is 500)
@@ -352,7 +354,7 @@ class InterviewQuestionSeeder {
       const questionsChunk = this.questions.slice(i, i + batchSize);
 
       questionsChunk.forEach((question) => {
-        const docRef = doc(collection(db!, "questions"), question.id);
+        const docRef = doc(collection(firestoreDb, "questions"), question.id);
         batch.set(docRef, question);
       });
 

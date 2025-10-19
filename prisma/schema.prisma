@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Job {
+  id                  String    @id @db.VarChar(255)
+  site                String?   @db.VarChar(50)
+  jobUrl              String?   @map("job_url") @db.Text
+  jobUrlDirect        String?   @map("job_url_direct") @db.Text
+  title               String?   @db.Text
+  company             String?   @db.Text
+  location            String?   @db.Text
+  datePosted          DateTime? @map("date_posted") @db.Date
+  jobType             String?   @map("job_type") @db.VarChar(50)
+  salarySource        String?   @map("salary_source") @db.VarChar(50)
+  interval            String?   @db.VarChar(20)
+  minAmount           Decimal?  @map("min_amount") @db.Decimal(15, 2)
+  maxAmount           Decimal?  @map("max_amount") @db.Decimal(15, 2)
+  currency            String?   @db.VarChar(10)
+  isRemote            Boolean?  @map("is_remote") @default(false)
+  jobLevel            String?   @map("job_level") @db.VarChar(50)
+  jobFunction         String?   @map("job_function") @db.Text
+  listingType         String?   @map("listing_type") @db.VarChar(50)
+  emails              String?   @db.Text
+  description         String?   @db.Text
+  companyIndustry     String?   @map("company_industry") @db.Text
+  companyUrl          String?   @map("company_url") @db.Text
+  companyLogo         String?   @map("company_logo") @db.Text
+  companyUrlDirect    String?   @map("company_url_direct") @db.Text
+  companyAddresses    String?   @map("company_addresses") @db.Text
+  companyNumEmployees String?   @map("company_num_employees") @db.VarChar(50)
+  companyRevenue      String?   @map("company_revenue") @db.VarChar(50)
+  companyDescription  String?   @map("company_description") @db.Text
+  skills              String?   @db.Text
+  experienceRange     String?   @map("experience_range") @db.Text
+  companyRating       Decimal?  @map("company_rating") @db.Decimal(3, 1)
+  companyReviewsCount Int?      @map("company_reviews_count")
+  vacancyCount        Int?      @map("vacancy_count")
+  workFromHomeType    String?   @map("work_from_home_type") @db.Text
+  createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamp
+  updatedAt           DateTime  @updatedAt @map("updated_at") @db.Timestamp
+
+  @@map("jobs")  // Maps to the existing jobs table in your database
+  @@index([site], name: "idx_jobs_site")
+  @@index([datePosted], name: "idx_jobs_date_posted")
+  @@index([company], name: "idx_jobs_company")
+  @@index([title], name: "idx_jobs_title")
+}

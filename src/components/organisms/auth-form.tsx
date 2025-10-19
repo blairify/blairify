@@ -132,7 +132,7 @@ export default function AuthForm({
         // Email doesn't exist - continue with signup
         setCurrentStep(2); // Move to next step in signup flow
       }
-    } catch (error) {
+    } catch (_error) {
       setIsCheckingEmail(false);
       setError("Unable to verify email. Please try again.");
     }
