@@ -24,6 +24,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
+import { useAuth } from "@/providers/auth-provider";
+import LoadingPage from "@/components/atoms/loading-page";
+
 
 interface JobsResponse {
   results: Job[];
@@ -37,6 +41,17 @@ interface JobsResponse {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function JobMarketPage() {
+  const { loading: authLoading } = useAuthGuard();
+  const { user } = useAuth();
+
+  if (authLoading) {
+    return <LoadingPage message="Checking authentication..." />;
+  }
+
+  if (!user) {
+    return null;
+  }
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Basic Filters
