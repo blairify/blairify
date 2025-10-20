@@ -459,7 +459,7 @@ export default function JobMarketPage() {
             </div>
 
             {/* Jobs Grid */}
-            {!error && !isLoading && data?.results.length === 0 && (
+            {!error && !isLoading && (data?.results?.length === 0) && (
               <div className="text-center py-12">
                 <p className="text-muted-foreground text-lg">
                   No jobs found matching your criteria.
@@ -485,7 +485,7 @@ export default function JobMarketPage() {
                 </p>
                 <Button onClick={() => mutate()}>Retry</Button>
               </div>
-            ) : data && data.results.length > 0 ? (
+            ) : data && data?.results?.length > 0 ? (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                   {data.results.map((job) => (

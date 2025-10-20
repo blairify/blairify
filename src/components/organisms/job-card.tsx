@@ -9,7 +9,7 @@ import {
   ExternalLink,
   MapPin,
 } from "lucide-react";
-// import Image from "next/image";
+import Image from "next/image";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -200,16 +200,16 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
                 </DialogDescription>
               </div>
 
-              {/* TODO (OPS-7): fix image in comes as nan from db sometimes */}
-              {/* {job.companyLogo && job.companyLogo !== "nan" && (
+              {job.companyLogo && job.companyLogo !== "nan" && (
                 <Image
-                  src={job.companyLogo || ""}
+                  src={job.companyLogo}
                   alt={`${job.company} logo`}
                   width={48}
                   height={48}
                   className="h-12 w-12 object-contain"
                 />
-              )} */}
+              )}
+
             </div>
           </DialogHeader>
 
