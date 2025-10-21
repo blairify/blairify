@@ -2,6 +2,7 @@
 
 import {
   Bookmark,
+  Brain,
   Briefcase,
   Building2,
   Clock,
@@ -169,11 +170,11 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
             <Button
               variant="outline"
               size="sm"
-              className="flex-1"
+              className="flex-1 hover:bg-primary/10 hover:border-primary"
               onClick={handlePrepare}
             >
-              <Bookmark className="h-4 w-4 mr-2" />
-              Prepare
+              <Brain className="h-4 w-4 mr-2" />
+              Interview Prep
             </Button>
             <Button
               size="sm"
@@ -209,7 +210,6 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
                   className="h-12 w-12 object-contain"
                 />
               )}
-
             </div>
           </DialogHeader>
 

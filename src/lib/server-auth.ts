@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { getUserData, type UserData } from "@/lib/services/auth/auth";
+import type { UserData } from "@/lib/services/auth/auth";
 
 /**
  * Server-side authentication check for Next.js App Router

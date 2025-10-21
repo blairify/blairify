@@ -22,6 +22,14 @@ export interface InterviewConfig {
   interviewType: InterviewType;
   duration: string;
   isDemoMode: boolean;
+  // Job-specific context fields
+  contextType?: string;
+  jobId?: string;
+  company?: string;
+  jobDescription?: string;
+  jobRequirements?: string;
+  jobLocation?: string;
+  jobType?: string;
 }
 
 export interface InterviewSession {

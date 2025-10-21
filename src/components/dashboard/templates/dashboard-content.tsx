@@ -3,12 +3,10 @@
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Button } from "@/components/ui/button";
 import { useDashboardData } from "@/hooks/useDashboardData";
-import { useAuth } from "@/providers/auth-provider";
 import { StatsGrid } from "../molecules/stats-grid";
 import { DashboardTabs } from "../organisms/dashboard-tabs";
 
 export function DashboardContent() {
-  const { user, userData } = useAuth();
   const dashboardData = useDashboardData();
 
   // Use dashboard data from hook
@@ -121,20 +119,7 @@ export function DashboardContent() {
 
   return (
     <>
-      {/* Header */}
-      <div className="mb-8 hidden lg:block">
-        <h1 className="text-4xl font-bold mb-2">
-          Welcome back, {userData?.displayName || user?.displayName || "User"}!
-        </h1>
-        <p className="text-xl text-muted-foreground">
-          Track your interview preparation progress and insights
-        </p>
-      </div>
-
-      {/* Stats Grid */}
       <StatsGrid stats={stats} />
-
-      {/* Dashboard Tabs */}
       <DashboardTabs
         performanceData={
           performanceData.length > 0 ? performanceData : fallbackPerformanceData

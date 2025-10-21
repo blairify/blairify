@@ -27,6 +27,10 @@ export class PromptGenerator {
       interviewMode,
       specificCompany,
       isDemoMode,
+      contextType,
+      company,
+      jobDescription,
+      jobRequirements,
     } = config;
 
     if (isDemoMode) {
@@ -51,6 +55,17 @@ export class PromptGenerator {
     const companyPrompt = specificCompany
       ? PromptGenerator.getCompanyPrompt(specificCompany)
       : "";
+
+    // Add job-specific context if available
+    const jobContextPrompt =
+      contextType === "job-specific"
+        ? PromptGenerator.getJobSpecificPrompt(
+            company,
+            jobDescription,
+            jobRequirements,
+          )
+        : "";
+
     const guidelines = PromptGenerator.getSystemPromptGuidelines(seniority);
 
     return [
@@ -58,6 +73,7 @@ export class PromptGenerator {
       modeSpecificPrompt,
       typeSpecificPrompt,
       companyPrompt,
+      jobContextPrompt,
       guidelines,
     ]
       .filter(Boolean)
@@ -365,7 +381,36 @@ This should be the final demo question. Ask something fun and encouraging that w
   }
 
   private static generateFirstQuestionPrompt(config: InterviewConfig): string {
+    if (config.contextType === "job-specific" && config.company) {
+      return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Please introduce yourself as Sarah, the interviewer, and ask the first question that's specifically tailored to this job opportunity and the requirements mentioned in the job context.`;
+    }
+
     return `This is the start of a ${config.interviewType} interview. Please introduce yourself as Sarah, the interviewer, and ask the first question appropriate for a ${config.seniority}-level ${config.position} position.`;
+  }
+
+  /**
+   * Generate job-specific context prompt
+   */
+  private static getJobSpecificPrompt(
+    company?: string,
+    jobDescription?: string,
+    jobRequirements?: string,
+  ): string {
+    if (!company) return "";
+
+    let prompt = `\n**JOB-SPECIFIC CONTEXT:**\nThis interview is for a specific position at ${company}.`;
+
+    if (jobDescription) {
+      prompt += `\n\n**Job Description:**\n${jobDescription}`;
+    }
+
+    if (jobRequirements) {
+      prompt += `\n\n**Key Requirements:**\n${jobRequirements}`;
+    }
+
+    prompt += `\n\n**IMPORTANT:** Tailor your questions specifically to this job posting. Focus on the technologies, skills, and requirements mentioned above. Ask about real-world scenarios that would be relevant to this specific role at ${company}. Make the interview feel personalized and directly related to what they would actually be doing in this job.`;
+
+    return prompt;
   }
 
   private static generateFollowUpPrompt(userMessage: string): string {

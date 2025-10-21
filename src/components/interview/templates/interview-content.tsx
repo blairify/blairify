@@ -92,6 +92,14 @@ export function InterviewContent({ user }: InterviewContentProps) {
     interviewType: "technical",
     duration: "30",
     isDemoMode: false,
+    // Job-specific context
+    contextType: "",
+    jobId: "",
+    company: "",
+    jobDescription: "",
+    jobRequirements: "",
+    jobLocation: "",
+    jobType: "",
   });
 
   useEffect(() => {
@@ -116,6 +124,14 @@ export function InterviewContent({ user }: InterviewContentProps) {
       interviewType: params.get("interviewType") || "technical",
       duration: params.get("duration") || "30",
       isDemoMode: params.get("demo") === "true",
+      // Job-specific context from URL params
+      contextType: params.get("contextType") || "",
+      jobId: params.get("jobId") || "",
+      company: params.get("company") || "",
+      jobDescription: params.get("jobDescription") || "",
+      jobRequirements: params.get("jobRequirements") || "",
+      jobLocation: params.get("jobLocation") || "",
+      jobType: params.get("jobType") || "",
     });
     setMounted(true);
   }, []);
@@ -237,7 +253,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          config,
+          interviewConfig: config,
           userId: user?.uid,
         }),
       });
@@ -298,9 +314,8 @@ export function InterviewContent({ user }: InterviewContentProps) {
         body: JSON.stringify({
           message: currentMessage,
           conversationHistory: session.messages,
-          config,
-          currentQuestionCount: session.currentQuestionCount,
-          totalQuestions: session.totalQuestions,
+          interviewConfig: config,
+          questionCount: session.currentQuestionCount,
         }),
       });
 
@@ -360,9 +375,8 @@ export function InterviewContent({ user }: InterviewContentProps) {
         },
         body: JSON.stringify({
           conversationHistory: session.messages,
-          config,
-          currentQuestionCount: session.currentQuestionCount,
-          totalQuestions: session.totalQuestions,
+          interviewConfig: config,
+          questionCount: session.currentQuestionCount,
         }),
       });
 
@@ -557,6 +571,31 @@ export function InterviewContent({ user }: InterviewContentProps) {
                   </p>
                 </div>
               </div>
+
+              {/* Job-specific context indicator */}
+              {config.contextType === "job-specific" && config.company && (
+                <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-lg">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Building className="h-5 w-5 text-primary" />
+                    <h3 className="font-semibold text-primary">
+                      Job-Specific Interview
+                    </h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    This interview is tailored for the{" "}
+                    <strong>{config.position}</strong> position at{" "}
+                    <strong>{config.company}</strong>
+                  </p>
+                  {config.jobDescription && (
+                    <div className="text-xs text-muted-foreground">
+                      <p className="font-medium mb-1">Job Focus:</p>
+                      <p className="line-clamp-2">
+                        {config.jobDescription.substring(0, 150)}...
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
             </CardContent>
           </Card>
 

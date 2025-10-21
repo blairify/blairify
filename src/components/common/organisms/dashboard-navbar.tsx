@@ -2,6 +2,7 @@
 
 import { HelpCircle, LogOut, Menu, Settings } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -14,7 +15,6 @@ import {
 } from "@/components/ui/tooltip";
 import useIsMobile from "@/hooks/useIsMobile";
 import { useAuth } from "@/providers/auth-provider";
-import { redirect } from "next/navigation";
 
 interface DashboardNavbarProps {
   setSidebarOpen: (open: boolean) => void;
@@ -23,6 +23,7 @@ interface DashboardNavbarProps {
 export default function DashboardNavbar({
   setSidebarOpen,
 }: DashboardNavbarProps) {
+  const router = useRouter();
   const { user, userData, signOut } = useAuth();
   const { isMobile, isLoading } = useIsMobile();
 
@@ -38,8 +39,9 @@ export default function DashboardNavbar({
 
   const handleSignOut = async () => {
     try {
-      redirect("/");
       await signOut();
+      router.push("/");
+      router.refresh(); // Ensure the page updates after sign out
     } catch (error) {
       console.error("Error signing out:", error);
     }

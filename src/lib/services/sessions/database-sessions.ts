@@ -243,7 +243,8 @@ export async function saveInterviewResults(
       }
     }
 
-    const session: InterviewSession = {
+    // Build session object without undefined values
+    const sessionBase = {
       sessionId: sessionDoc.id,
       config: {
         position: config.position,
@@ -255,7 +256,9 @@ export async function saveInterviewResults(
           specificCompany: config.specificCompany,
         }),
       },
-      status: sessionData.isComplete ? "completed" : "abandoned",
+      status: (sessionData.isComplete
+        ? "completed"
+        : "abandoned") as SessionStatus,
       startedAt: sessionData.startTime
         ? Timestamp.fromDate(new Date(sessionData.startTime))
         : Timestamp.now(),
@@ -270,20 +273,11 @@ export async function saveInterviewResults(
                 60000,
             )
           : config.duration,
-      scores:
-        analysis.score > 0
-          ? {
-              overall: analysis.score,
-              technical: analysis.score,
-              communication: analysis.score,
-              problemSolving: analysis.score,
-            }
-          : undefined,
       questions,
       responses,
       analysis: {
-        strengths: analysis.strengths,
-        improvements: analysis.improvements,
+        strengths: analysis.strengths || [],
+        improvements: analysis.improvements || [],
         skillsAssessed: [
           config.position,
           config.seniority,
@@ -291,7 +285,7 @@ export async function saveInterviewResults(
         ],
         difficulty: 5,
         aiConfidence: 85,
-        summary: analysis.overallScore,
+        summary: analysis.overallScore || "Analysis pending",
         recommendations: analysis.recommendations
           ? analysis.recommendations.split("\n").filter((r) => r.trim())
           : [],
@@ -302,6 +296,20 @@ export async function saveInterviewResults(
       createdAt: Timestamp.now(),
       updatedAt: Timestamp.now(),
     };
+
+    // Only add scores if they exist and are valid
+    const session: InterviewSession =
+      analysis.score > 0
+        ? {
+            ...sessionBase,
+            scores: {
+              overall: analysis.score,
+              technical: analysis.score,
+              communication: analysis.score,
+              problemSolving: analysis.score,
+            },
+          }
+        : sessionBase;
 
     await safeSetDoc(sessionDoc, session);
     return sessionDoc.id;

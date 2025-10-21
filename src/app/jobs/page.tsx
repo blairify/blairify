@@ -5,7 +5,6 @@ import { JobsPageClient } from "@/components/jobs/templates/jobs-page-client";
 import { requireAuth } from "@/lib/server-auth";
 
 export default async function JobsPage() {
-  // Server-side authentication check - will redirect if not authenticated
   const user = await requireAuth("/jobs");
 
   return (
