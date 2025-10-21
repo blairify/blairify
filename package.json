@@ -7,6 +7,8 @@
     "build": "next build --turbopack",
     "start": "next start",
     "test": "jest",
+    "pre-release": "pnpm run build && pnpm run test",
+    "release": "pnpm version patch && git push origin main",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:ci": "jest --coverage --watchAll=false --passWithNoTests",
@@ -14,7 +16,8 @@
     "fix": "npm run fix:biome ",
     "fix:biome": "biome check --write --formatter-enabled=true  src",
     "format": "biome format --write",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -73,11 +76,19 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/three": "^0.180.0",
+    "husky": "^9.1.7",
     "jest": "^30.1.3",
     "jest-environment-jsdom": "^30.1.2",
+    "lint-staged": "^16.2.5",
     "tailwindcss": "^4",
     "ts-jest": "^29.4.4",
     "tw-animate-css": "^1.3.7",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
