@@ -426,7 +426,8 @@ export function JobsContent() {
                 <span>Loading...</span>
               </div>
             )}
-            {!isLoading && !error && data && (
+            {/* TODO: OPS-36 - Fix back to top button functionality */}
+            {/* {!isLoading && !error && data && (
               <Button
                 variant="outline"
                 size="sm"
@@ -435,7 +436,7 @@ export function JobsContent() {
                 <ArrowUpRight className="h-4 w-4 mr-2" />
                 Back to Top
               </Button>
-            )}
+            )} */}
           </div>
         </div>
 
