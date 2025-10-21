@@ -4,9 +4,10 @@ import { Edit, Plus, RefreshCw, Search, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { ComprehensiveQuestionForm } from "@/components/forms/comprehensive-question-form";
-import DashboardNavbar from "@/components/organisms/dashboard-navbar";
-import DashboardSidebar from "@/components/organisms/dashboard-sidebar";
+import useSWR from "swr";
+import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
+import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
+import { ComprehensiveQuestionForm } from "@/components/forms/organisms/comprehensive-question-form";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,7 +28,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { isSuperAdmin } from "@/lib/auth-roles";
+import { isSuperAdmin } from "@/lib/services/auth/auth-roles";
 import {
   type CompanyLogo,
   createPracticeQuestion,
@@ -35,8 +36,13 @@ import {
   getAllPracticeQuestions,
   type PracticeQuestion,
   updatePracticeQuestion,
-} from "@/lib/practice-questions-service";
+} from "@/lib/services/practice-questions/practice-questions-service";
 import { useAuth } from "@/providers/auth-provider";
+
+// SWR fetcher function
+const fetcher = async () => {
+  return await getAllPracticeQuestions();
+};
 
 // Helper function to get company name from logo
 const getCompanyNameFromLogo = (logo: CompanyLogo): string => {
@@ -107,11 +113,9 @@ export default function ManagePracticeLibraryPage() {
   const router = useRouter();
   const { user, loading } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [questions, setQuestions] = useState<PracticeQuestion[]>([]);
   const [filteredQuestions, setFilteredQuestions] = useState<
     PracticeQuestion[]
   >([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [difficultyFilter, setDifficultyFilter] = useState<string>("all");
@@ -128,24 +132,30 @@ export default function ManagePracticeLibraryPage() {
     }
   }, [user, loading, router]);
 
-  const loadQuestions = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const data = await getAllPracticeQuestions();
-      setQuestions(data);
-      setFilteredQuestions(data);
-    } catch (error) {
-      console.error("Error loading questions:", error);
-      toast.error("Failed to load questions");
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+  // Use SWR for data fetching
+  const {
+    data: questions = [],
+    error,
+    isLoading,
+    mutate,
+  } = useSWR<PracticeQuestion[]>("practice-questions", fetcher, {
+    revalidateOnFocus: false,
+    onError: (err) => {
+      console.error("Error fetching questions:", err);
+      toast.error("Failed to load questions. Please try again.");
+    },
+  });
 
-  // Load questions
+  const _loadQuestions = useCallback(() => {
+    mutate();
+  }, [mutate]);
+
+  // Update filtered questions when questions data changes
   useEffect(() => {
-    loadQuestions();
-  }, [loadQuestions]);
+    if (questions) {
+      setFilteredQuestions(questions);
+    }
+  }, [questions]);
 
   // Filter questions
   useEffect(() => {
@@ -186,7 +196,7 @@ export default function ManagePracticeLibraryPage() {
     try {
       await deletePracticeQuestion(id);
       toast.success("Question deleted successfully");
-      loadQuestions();
+      mutate(); // Revalidate SWR cache
     } catch (error) {
       console.error("Error deleting question:", error);
       toast.error("Failed to delete question");
@@ -245,7 +255,7 @@ export default function ManagePracticeLibraryPage() {
                         await createPracticeQuestion(data);
                         toast.success("Question created successfully");
                         setShowAddDialog(false);
-                        loadQuestions();
+                        mutate(); // Revalidate SWR cache
                       } catch (error) {
                         console.error("Error creating question:", error);
                         toast.error("Failed to create question");
@@ -377,7 +387,7 @@ export default function ManagePracticeLibraryPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Button variant="outline" size="sm" onClick={loadQuestions}>
+                  <Button variant="outline" size="sm" onClick={() => mutate()}>
                     <RefreshCw className="h-4 w-4 mr-2" />
                     Refresh
                   </Button>
@@ -397,6 +407,15 @@ export default function ManagePracticeLibraryPage() {
                     <p className="mt-4 text-muted-foreground">
                       Loading questions...
                     </p>
+                  </CardContent>
+                </Card>
+              ) : error ? (
+                <Card>
+                  <CardContent className="py-12 text-center">
+                    <p className="text-destructive mb-4">
+                      Failed to load questions. Please try again.
+                    </p>
+                    <Button onClick={() => mutate()}>Retry</Button>
                   </CardContent>
                 </Card>
               ) : filteredQuestions.length === 0 ? (
@@ -520,7 +539,7 @@ export default function ManagePracticeLibraryPage() {
                                       "Question updated successfully",
                                     );
                                     setEditingQuestionId(null);
-                                    loadQuestions();
+                                    mutate(); // Revalidate SWR cache
                                   } catch (error) {
                                     console.error(
                                       "Error updating question:",

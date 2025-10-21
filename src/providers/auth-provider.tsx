@@ -2,7 +2,11 @@
 
 import type { User } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import { getUserData, onAuthStateChange, type UserData } from "@/lib/auth";
+import {
+  getUserData,
+  onAuthStateChange,
+  type UserData,
+} from "@/lib/services/auth/auth";
 
 interface AuthContextType {
   user: User | null;
@@ -36,6 +40,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setUser(user);
 
       if (user) {
+        // Set auth cookie for middleware to read
+        const token = await user.getIdToken();
+        document.cookie = `firebase-auth-token=${token}; path=/; secure; samesite=strict`;
         // Fetch additional user data from Firestore
         try {
           const data = await getUserData(user.uid);
@@ -60,6 +67,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           setUserData(null);
         }
       } else {
+        // Clear auth cookie when user signs out
+        document.cookie = `firebase-auth-token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
         setUserData(null);
       }
 
@@ -71,7 +80,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const handleSignOut = async () => {
     try {
-      const { signOutUser } = await import("@/lib/auth");
+      const { signOutUser } = await import("@/lib/services/auth/auth");
       await signOutUser();
     } catch (error) {
       console.error("Error signing out:", error);

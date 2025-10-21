@@ -1,8 +1,8 @@
-import CompanyLogos from "@/components/atoms/company-logos";
-import FeaturesGrid from "@/components/molecules/features-grid";
-import Footer from "@/components/organisms/footer";
-import HeroSection from "@/components/organisms/hero-section";
-import Navbar from "@/components/organisms/landing-page-navbar";
+import Footer from "@/components/common/organisms/footer";
+import CompanyLogos from "@/components/interview/company-logos";
+import FeaturesGrid from "@/components/landing-page/features-grid";
+import HeroSection from "@/components/landing-page/hero-section";
+import Navbar from "@/components/landing-page/landing-page-navbar";
 
 export default function HomePage() {
   const scrollThreshold = 500;

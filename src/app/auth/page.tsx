@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import AuthForm from "@/components/organisms/auth-form";
+import AuthForm from "@/components/landing-page/auth-form";
 
 type AuthMode = "login" | "register";
 

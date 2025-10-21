@@ -3,28 +3,27 @@
  * Aggregates all database operations from modular files
  */
 
-import { createUserWithCompleteProfile } from "./database-batch";
 import {
   createSession,
   getSession,
   getUserSessions,
   saveInterviewResults,
   updateSession,
-} from "./database-sessions";
+} from "./services/sessions/database-sessions";
 import {
   createOrUpdateSkill,
   getDefaultSkills,
   getSkillsByCategory,
   getUserSkills,
-} from "./database-skills";
-// Import all functions from modular files
+} from "./services/skills/database-skills";
+import { createUserWithCompleteProfile } from "./services/users/database-batch";
 import {
   createUserProfile,
   deleteUserProfile,
   getUserProfile,
   updateLastLogin,
   updateUserProfile,
-} from "./database-users";
+} from "./services/users/database-users";
 
 // Re-export all functions for backwards compatibility
 export {

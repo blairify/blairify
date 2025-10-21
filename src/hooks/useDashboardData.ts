@@ -185,8 +185,13 @@ const calculateStreakDays = (sessions: InterviewSession[]): number => {
   const today = new Date();
   const sessionDates = sessions
     .map((session) => {
-      if (session.createdAt && typeof session.createdAt.toDate === "function") {
-        return session.createdAt.toDate();
+      if (session.createdAt) {
+        // Handle both Firestore timestamp (with toDate) and ISO string formats
+        if (typeof session.createdAt === "string") {
+          return new Date(session.createdAt);
+        } else if (typeof session.createdAt.toDate === "function") {
+          return session.createdAt.toDate();
+        }
       }
       return null;
     })

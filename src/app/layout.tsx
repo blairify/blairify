@@ -1,5 +1,5 @@
 import { type ReactNode, Suspense } from "react";
-import { CookieBanner } from "../components/organisms/cookie-banner";
+import { CookieBanner } from "../components/landing-page/cookie-banner";
 import { AuthProvider } from "../providers/auth-provider";
 import { SWRProvider } from "../providers/swr-provider";
 import { ThemeProvider } from "../providers/theme-provider";

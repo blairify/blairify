@@ -1,16 +1,16 @@
 // /**
 //  * Firestore Database Seeding Script for Practice Questions
-//  * 
+//  *
 //  * Usage:
 //  * 1. Create a file: scripts/seed-questions.ts
 //  * 2. Run: npx ts-node scripts/seed-questions.ts
-//  * 
+//  *
 //  * Or add to package.json:
 //  * "scripts": {
 //  *   "seed:questions": "ts-node scripts/seed-interview-questions.ts"
 //  * }
-//  * 
-//  * 
+//  *
+//  *
 //  * run npx ts-node scripts/seed-interview-questions.ts
 //  */
 
@@ -264,11 +264,11 @@
 
 //   try {
 //     const questionsRef = db.collection('practice-questions');
-    
+
 //     // Process in batches (Firestore batch limit is 500 operations)
 //     const BATCH_SIZE = 500;
 //     const batches: any[] = [];
-    
+
 //     for (let i = 0; i < sampleQuestions.length; i += BATCH_SIZE) {
 //       batches.push(sampleQuestions.slice(i, i + BATCH_SIZE));
 //     }
@@ -288,7 +288,7 @@
 //           createdAt: new Date(),
 //           updatedAt: new Date(),
 //         });
-        
+
 //         console.log(`  ➕ Queued: ${question.companyName} - ${question.category}`);
 //       });
 

@@ -12,8 +12,8 @@ import {
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import DashboardNavbar from "@/components/organisms/dashboard-navbar";
-import DashboardSidebar from "@/components/organisms/dashboard-sidebar";
+import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
+import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -34,7 +34,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { isSuperAdmin } from "@/lib/auth-roles";
+import { isSuperAdmin } from "@/lib/services/auth/auth-roles";
 import {
   createUser,
   deleteUser,
@@ -42,7 +42,7 @@ import {
   toggleUserStatus,
   type UserManagementData,
   updateUser,
-} from "@/lib/user-management-service";
+} from "@/lib/services/users/user-management-service";
 import { useAuth } from "@/providers/auth-provider";
 
 export default function ManageUsersPage() {

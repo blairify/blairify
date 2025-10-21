@@ -2,9 +2,9 @@
 
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
 import { useState } from "react";
-import LoadingPage from "@/components/atoms/loading-page";
-import DashboardNavbar from "@/components/organisms/dashboard-navbar";
-import DashboardSidebar from "@/components/organisms/dashboard-sidebar";
+import LoadingPage from "@/components/common/atoms/loading-page";
+import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
+import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
