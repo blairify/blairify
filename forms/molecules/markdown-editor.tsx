@@ -11,8 +11,8 @@ import {
 } from "lucide-react";
 import type React from "react";
 import { useRef } from "react";
+import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "../ui/button";
 
 interface MarkdownTextareaProps {
   value: string;

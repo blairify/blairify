@@ -4,7 +4,9 @@ import { ArrowRight } from "lucide-react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-const MainLogo = dynamic(() => import("../molecules/MainLogo"), { ssr: false });
+const MainLogo = dynamic(() => import("../common/atoms/main-logo"), {
+  ssr: false,
+});
 
 export default function HeroSection() {
   return (

@@ -3,8 +3,8 @@
 import { LogOut, Settings, User } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Logo from "@/components/atoms/logo-blairify";
-import { ThemeToggle } from "@/components/atoms/theme-toggle";
+import Logo from "@/components/common/atoms/logo-blairify";
+import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/providers/auth-provider";
-import { AvatarIconDisplay } from "../molecules/avatar-icon-selector";
+import { AvatarIconDisplay } from "../common/atoms/avatar-icon-selector";
 
 interface NavbarProps {
   scrollThreshold?: number;

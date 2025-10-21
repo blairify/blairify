@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import type React from "react";
 import { useEffect, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import LoadingPage from "@/components/atoms/loading-page";
+import LoadingPage from "@/components/common/atoms/loading-page";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -25,8 +25,8 @@ import {
   signInWithEmailAndPassword,
   signInWithGitHub,
   signInWithGoogle,
-} from "@/lib/auth";
-import Logo from "../atoms/logo-blairify";
+} from "@/lib/services/auth/auth";
+import Logo from "../common/atoms/logo-blairify";
 
 type AuthMode = "login" | "register";
 

@@ -2,8 +2,8 @@
 
 import { HelpCircle, LogOut, Menu, Settings } from "lucide-react";
 import Link from "next/link";
-import { ThemeToggle } from "@/components/atoms/theme-toggle";
-import { AvatarIconDisplay } from "@/components/molecules/avatar-icon-selector";
+import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
+import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/tooltip";
 import useIsMobile from "@/hooks/useIsMobile";
 import { useAuth } from "@/providers/auth-provider";
+import { redirect } from "next/navigation";
 
 interface DashboardNavbarProps {
   setSidebarOpen: (open: boolean) => void;
@@ -23,7 +24,7 @@ export default function DashboardNavbar({
   setSidebarOpen,
 }: DashboardNavbarProps) {
   const { user, userData, signOut } = useAuth();
-  const { isMobile } = useIsMobile();
+  const { isMobile, isLoading } = useIsMobile();
 
   const getInitials = (name: string | null) => {
     if (!name) return "U";
@@ -37,11 +38,35 @@ export default function DashboardNavbar({
 
   const handleSignOut = async () => {
     try {
+      redirect("/");
       await signOut();
     } catch (error) {
       console.error("Error signing out:", error);
     }
   };
+
+  // Prevent rendering during mobile detection to avoid layout shifts
+  if (isLoading) {
+    return (
+      <nav className="border-b border-border lg:bg-card/50 backdrop-blur-sm">
+        <div className="px-4 h-16 flex items-center justify-between w-full">
+          <div className="flex items-center space-x-4">
+            <div className="size-8 rounded-full bg-muted animate-pulse" />
+            <div className="hidden lg:block">
+              <div className="h-4 w-24 bg-muted animate-pulse rounded mb-1" />
+              <div className="h-3 w-32 bg-muted animate-pulse rounded" />
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="size-9 bg-muted animate-pulse rounded" />
+            <div className="size-9 bg-muted animate-pulse rounded" />
+            <div className="size-9 bg-muted animate-pulse rounded" />
+            <div className="size-9 bg-muted animate-pulse rounded" />
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <TooltipProvider>
@@ -55,6 +80,7 @@ export default function DashboardNavbar({
                 size="icon"
                 onClick={() => setSidebarOpen(true)}
                 className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                data-testid="mobile-menu-button"
               >
                 <Menu className="size-4" />
               </Button>

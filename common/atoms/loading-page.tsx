@@ -1,4 +1,4 @@
-import Logo from "@/components/atoms/logo-blairify";
+import Logo from "@/components/common/atoms/logo-blairify";
 
 interface LoadingPageProps {
   message?: string;

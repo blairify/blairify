@@ -29,7 +29,7 @@ import type {
   CompanySize,
   PracticeQuestion,
   QuestionCategory,
-} from "@/lib/practice-questions-service";
+} from "@/lib/services/practice-questions/practice-questions-service";
 import type {
   APIArchitecture,
   BackendFramework,
@@ -57,7 +57,7 @@ import type {
   VectorDatabase,
   WebServer,
 } from "@/types/tech-stack";
-import { MarkdownTextarea } from "./markdown-editor";
+import { MarkdownTextarea } from "../molecules/markdown-editor";
 
 const formSchema = z.object({
   category: z.string(),

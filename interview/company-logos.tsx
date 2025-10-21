@@ -11,7 +11,7 @@ import {
   SiTesla,
   SiUber,
 } from "react-icons/si";
-import LogoLoop from "../organisms/logo-loop";
+import LogoLoop from "../job-market/logo-loop";
 
 export default function CompanyLogos() {
   const companyLogos = [
