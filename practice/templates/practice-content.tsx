@@ -131,7 +131,9 @@ function QuestionModal({
   onClose: () => void;
 }) {
   const CompanyIcon =
-    (SimpleIcons as any)[question.companyLogo] || SimpleIcons.SiApple;
+    (
+      SimpleIcons as Record<string, React.ComponentType<{ className?: string }>>
+    )[question.companyLogo] || SimpleIcons.SiApple;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
@@ -358,7 +360,7 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
   };
 
   const getCategoryIcon = (category: string) => {
-    const icons: Record<string, any> = {
+    const icons: Record<string, React.ComponentType<{ className?: string }>> = {
       "system-design": Building2,
       algorithms: Code,
       frontend: Code,
@@ -370,7 +372,9 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
   };
 
   const getCompanyIcon = (logoName: string) => {
-    const Icon = (SimpleIcons as any)[logoName];
+    const Icon = (
+      SimpleIcons as Record<string, React.ComponentType<{ className?: string }>>
+    )[logoName];
     return Icon || SimpleIcons.SiApple;
   };
 

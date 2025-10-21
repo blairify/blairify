@@ -8,6 +8,7 @@ import {
   Search,
   SlidersHorizontal,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import useSWR from "swr";
@@ -35,6 +36,8 @@ interface JobsResponse {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export function JobsContent() {
+  const router = useRouter();
+
   // Basic Filters
   const [searchQuery, setSearchQuery] = useState("");
   const [location, setLocation] = useState("");
@@ -166,18 +169,40 @@ export function JobsContent() {
     setCurrentPage(1);
   };
 
-  // Handle job preparation (save for later)
+  // Handle job preparation - navigate to contextual interview
   const handlePrepareJob = (job: Job) => {
-    // TODO: Implement job preparation logic (e.g., save to user's list)
-    toast.success(`Preparing for ${job.title} at ${job.company}`, {
-      action: {
-        label: "View Prep",
-        onClick: () => {
-          // Navigate to preparation page
-          console.log("Navigate to preparation page for job:", job.id);
-        },
-      },
-    });
+    try {
+      // Create URL parameters with job context
+      const interviewParams = new URLSearchParams({
+        // Basic configuration based on job
+        position: job.title,
+        seniority: job.level || "mid",
+        interviewType: "technical",
+        interviewMode: "untimed",
+        duration: "30",
+
+        // Job-specific context
+        jobId: job.id,
+        company: job.company,
+        jobDescription: job.description || "",
+        jobRequirements: job.tags?.join(", ") || "",
+        jobLocation: job.location || "",
+        jobType: job.type || "",
+
+        // Flag to indicate this is a job-specific interview
+        contextType: "job-specific",
+      });
+
+      // Navigate to interview with job context
+      router.push(`/interview?${interviewParams.toString()}`);
+
+      toast.success(`Starting interview prep for ${job.title}`, {
+        description: `Tailored questions based on ${job.company}'s requirements`,
+      });
+    } catch (error) {
+      console.error("Error preparing job interview:", error);
+      toast.error("Failed to start interview preparation");
+    }
   };
 
   // Handle job view details
@@ -427,8 +452,39 @@ export function JobsContent() {
         )}
 
         {isLoading ? (
-          <div className="flex justify-center items-center py-12">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {Array.from(
+              { length: 6 },
+              (_, index) => `skeleton-${Date.now()}-${index}`,
+            ).map((skeletonId) => (
+              <div
+                key={skeletonId}
+                className="border rounded-lg overflow-hidden"
+              >
+                <div className="p-4 space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="h-12 w-12 rounded-lg bg-muted animate-pulse" />
+                    <div className="flex-1 space-y-2">
+                      <div className="h-4 w-3/4 bg-muted rounded animate-pulse" />
+                      <div className="h-3 w-1/2 bg-muted rounded animate-pulse" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-4 w-full bg-muted rounded animate-pulse" />
+                    <div className="h-4 w-5/6 bg-muted rounded animate-pulse" />
+                    <div className="h-4 w-4/6 bg-muted rounded animate-pulse" />
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    <div className="h-6 w-20 bg-muted rounded-full animate-pulse" />
+                    <div className="h-6 w-24 bg-muted rounded-full animate-pulse" />
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <div className="h-4 w-1/3 bg-muted rounded animate-pulse" />
+                    <div className="h-9 w-24 bg-muted rounded-md animate-pulse" />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         ) : error ? (
           <div className="text-center py-12">

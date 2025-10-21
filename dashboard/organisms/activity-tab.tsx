@@ -2,8 +2,8 @@
 
 import { Activity, Target, Zap } from "lucide-react";
 import {
-  Bar,
-  BarChart,
+  Area,
+  AreaChart,
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
@@ -43,26 +43,64 @@ export function ActivityTab({ weeklyActivityData }: ActivityTabProps) {
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={weeklyActivityData}>
+            <AreaChart data={weeklyActivityData}>
+              <defs>
+                <linearGradient
+                  id="sessionsGradient"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop
+                    offset="5%"
+                    stopColor="oklch(74.6% 0.16 232.661)"
+                    stopOpacity={0.8}
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor="oklch(74.6% 0.16 232.661)"
+                    stopOpacity={0.1}
+                  />
+                </linearGradient>
+              </defs>
               <CartesianGrid
                 strokeDasharray="3 3"
                 stroke="hsl(var(--border))"
+                opacity={0.3}
               />
-              <XAxis dataKey="day" stroke="hsl(var(--muted-foreground))" />
-              <YAxis stroke="hsl(var(--muted-foreground))" />
+              <XAxis
+                dataKey="day"
+                stroke="hsl(var(--muted-foreground))"
+                fontSize={12}
+                tickLine={false}
+                axisLine={false}
+              />
+              <YAxis
+                stroke="hsl(var(--muted-foreground))"
+                fontSize={12}
+                tickLine={false}
+                axisLine={false}
+              />
               <Tooltip
                 contentStyle={{
                   backgroundColor: "hsl(var(--card))",
                   border: "1px solid hsl(var(--border))",
                   borderRadius: "8px",
+                  boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                }}
+                labelStyle={{
+                  color: "hsl(var(--foreground))",
                 }}
               />
-              <Bar
+              <Area
+                type="monotone"
                 dataKey="sessions"
-                fill="hsl(var(--primary))"
-                radius={[4, 4, 0, 0]}
+                stroke="oklch(74.6% 0.16 232.661)"
+                strokeWidth={2}
+                fill="url(#sessionsGradient)"
               />
-            </BarChart>
+            </AreaChart>
           </ResponsiveContainer>
         </CardContent>
       </Card>

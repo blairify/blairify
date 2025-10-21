@@ -19,7 +19,8 @@ export default function Logo({
 }: LogoProps) {
   const linkClasses =
     `!flex !flex-col !items-center !justify-center ${className}`.trim();
-  const logoTextClasses = "!font-stretch-extra-expanded !font-extrabold";
+  const logoTextClasses =
+    "!font-stretch-extra-expanded text-black !font-extrabold dark:text-white";
 
   if (variant === "minimal") {
     return (
