@@ -28,7 +28,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { parseJobDescription } from "@/lib/parseJobDescrpition";
+import { parseJobDescription } from "@/lib/parse-job-descrpition";
 
 export interface Job {
   id: string;
