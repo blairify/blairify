@@ -43,12 +43,12 @@ export function DashboardContent() {
   // Convert session data for display
   const displaySessions = recentSessions
     .slice(0, 5)
-    .map((session: any, index: number) => ({
+    .map((session, index: number) => ({
       id: index + 1,
       position: session.config?.position || "Interview Session",
       score: session.scores?.overall || 0,
       date: session.createdAt
-        ? new Date(session.createdAt).toLocaleDateString()
+        ? session.createdAt.toDate().toLocaleDateString()
         : "Unknown",
       duration: `${session.totalDuration || 0} min`,
       type: session.config?.interviewType || "general",
@@ -58,15 +58,15 @@ export function DashboardContent() {
   // Performance over time data from real sessions
   const performanceData = recentSessions
     .filter(
-      (session: any) =>
+      (session) =>
         session.status === "completed" &&
         session.scores &&
         session.scores.overall > 0,
     )
     .slice(-7) // Last 7 sessions
-    .map((session: any, index: number) => ({
+    .map((session, index: number) => ({
       date: session.createdAt
-        ? new Date(session.createdAt).toLocaleDateString("en-US", {
+        ? session.createdAt.toDate().toLocaleDateString("en-US", {
             month: "short",
             day: "numeric",
           })
@@ -89,14 +89,26 @@ export function DashboardContent() {
   ];
 
   // Skills breakdown data from real database
-  const skillsData = skills.slice(0, 6).map((skill: any, index: number) => ({
-    skill: skill.name,
-    score: skill.currentLevel * 10, // Convert 1-10 scale to percentage
-    sessions: skill.practiceCount || 0,
-    color: ["#68d391", "#4fd1c7", "#63b3ed", "#f6ad55", "#fc8181", "#d69e2e"][
-      index % 6
-    ],
-  }));
+  const skillsData = skills
+    .slice(0, 6)
+    .map(
+      (
+        skill: { name: string; currentLevel: number; practiceCount?: number },
+        index: number,
+      ) => ({
+        skill: skill.name,
+        score: skill.currentLevel * 10, // Convert 1-10 scale to percentage
+        sessions: skill.practiceCount || 0,
+        color: [
+          "#68d391",
+          "#4fd1c7",
+          "#63b3ed",
+          "#f6ad55",
+          "#fc8181",
+          "#d69e2e",
+        ][index % 6],
+      }),
+    );
 
   // Question types distribution
   const questionTypesData = [

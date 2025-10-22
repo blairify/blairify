@@ -75,12 +75,24 @@ export function ResultsContent({ user }: ResultsContentProps) {
   }, [isAnalyzing]);
 
   useEffect(() => {
-    const loadAnalysis = async () => {
+    const loadAnalysis = async (retryCount = 0) => {
       try {
         const interviewData = localStorage.getItem("interviewSession");
         const interviewConfig = localStorage.getItem("interviewConfig");
 
+        // Debug logging
+        console.log("Results page - checking localStorage:", {
+          hasInterviewData: !!interviewData,
+          hasInterviewConfig: !!interviewConfig,
+          interviewDataLength: interviewData?.length || 0,
+          configLength: interviewConfig?.length || 0,
+        });
+
         if (!interviewData || !interviewConfig) {
+          console.error("Missing localStorage data:", {
+            interviewData: !!interviewData,
+            interviewConfig: !!interviewConfig,
+          });
           setError(
             "No interview data found. Please complete an interview first.",
           );
@@ -91,26 +103,50 @@ export function ResultsContent({ user }: ResultsContentProps) {
         const session = JSON.parse(interviewData);
         const config = JSON.parse(interviewConfig);
 
+        // Debug parsed data
+        console.log("Parsed interview data:", {
+          sessionKeys: Object.keys(session),
+          messagesCount: session.messages?.length || 0,
+          configKeys: Object.keys(config),
+          hasMessages: !!(session.messages && session.messages.length > 0),
+        });
+
         if (!session.messages || session.messages.length === 0) {
+          console.error("No messages in session data:", session);
           setError("No interview responses found to analyze.");
           setIsAnalyzing(false);
           return;
         }
 
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 30000);
+        const timeoutId = setTimeout(() => {
+          console.log("Analysis request timed out after 30 seconds");
+          controller.abort();
+        }, 30000);
 
-        const response = await fetch("/api/interview/analyze", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            conversationHistory: session.messages,
-            interviewConfig: config,
-          }),
-          signal: controller.signal,
-        });
+        let response: Response;
+        try {
+          response = await fetch("/api/interview/analyze", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              conversationHistory: session.messages,
+              interviewConfig: config,
+            }),
+            signal: controller.signal,
+          });
+        } catch (fetchError) {
+          clearTimeout(timeoutId);
+
+          if (fetchError instanceof Error && fetchError.name === "AbortError") {
+            throw new Error(
+              "Analysis request timed out. The AI service may be experiencing high load. Please try again.",
+            );
+          }
+          throw fetchError;
+        }
 
         clearTimeout(timeoutId);
 
@@ -141,11 +177,47 @@ export function ResultsContent({ user }: ResultsContentProps) {
         }
       } catch (error) {
         console.error("Analysis error:", error);
+
+        // Retry logic for timeouts and rate limits
+        const shouldRetry =
+          retryCount < 2 &&
+          error instanceof Error &&
+          (error.message.includes("timed out") ||
+            error.message.includes("timeout") ||
+            error.message.includes("AbortError") ||
+            error.message.includes("429") ||
+            error.message.includes("rate limit"));
+
+        if (shouldRetry) {
+          const delay = 2 ** retryCount * 2000; // 2s, 4s delays
+          console.log(
+            `Retrying analysis in ${delay}ms (attempt ${retryCount + 1}/3)`,
+          );
+
+          setTimeout(() => {
+            loadAnalysis(retryCount + 1);
+          }, delay);
+          return;
+        }
+
+        // Set error after all retries exhausted
         if (error instanceof Error) {
-          if (error.name === "AbortError") {
-            setError("Analysis timed out. Please try again.");
+          if (
+            error.name === "AbortError" ||
+            error.message.includes("timed out")
+          ) {
+            setError(
+              "Analysis timed out after multiple attempts. The AI service may be experiencing high load. Please try again later.",
+            );
           } else if (error.message.includes("401")) {
             setError("API authentication failed. Please check configuration.");
+          } else if (
+            error.message.includes("429") ||
+            error.message.includes("rate limit")
+          ) {
+            setError(
+              "AI service is currently at capacity. Please try again in a few minutes.",
+            );
           } else {
             setError(error.message || "Failed to analyze interview responses");
           }
@@ -240,12 +312,27 @@ export function ResultsContent({ user }: ResultsContentProps) {
             <p className="text-muted-foreground mb-4 text-sm sm:text-base px-2">
               {error}
             </p>
-            <Button
-              onClick={() => router.push("/dashboard")}
-              className="w-full sm:w-auto"
-            >
-              Return to Dashboard
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-2 justify-center">
+              <Button
+                onClick={() => {
+                  setError(null);
+                  setIsAnalyzing(true);
+                  // Trigger retry by re-running the effect
+                  window.location.reload();
+                }}
+                className="w-full sm:w-auto"
+              >
+                <RotateCcw className="h-4 w-4 mr-2" />
+                Try Again
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => router.push("/dashboard")}
+                className="w-full sm:w-auto"
+              >
+                Return to Dashboard
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </main>
