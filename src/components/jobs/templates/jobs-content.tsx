@@ -38,20 +38,20 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export function JobsContent() {
   const router = useRouter();
 
-  // Basic Filters
+  // Basic filters
   const [searchQuery, setSearchQuery] = useState("");
   const [location, setLocation] = useState("");
-  const [jobType, setJobType] = useState("");
-  const [jobLevel, setJobLevel] = useState("");
+  const [jobType, setJobType] = useState("type-all");
+  const [jobLevel, setJobLevel] = useState("level-all");
   const [remoteOnly, setRemoteOnly] = useState(false);
 
-  // Advanced Filters
+  // Advanced filters
   const [minSalary, setMinSalary] = useState<number | "">("");
   const [maxSalary, setMaxSalary] = useState<number | "">("");
   const [currency, setCurrency] = useState("USD");
-  const [datePosted, setDatePosted] = useState<string>("");
-  const [companySize, setCompanySize] = useState<string>("");
-  const [jobFunction, setJobFunction] = useState<string>("");
+  const [datePosted, setDatePosted] = useState("date-all");
+  const [companySize, setCompanySize] = useState("size-all");
+  const [jobFunction, setJobFunction] = useState("func-all");
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   // Job Functions
@@ -70,7 +70,6 @@ export function JobsContent() {
     "Other",
   ];
 
-  // Company Sizes
   const companySizes = [
     { value: "1-50", label: "Small (1-50)" },
     { value: "51-500", label: "Medium (51-500)" },
@@ -78,16 +77,13 @@ export function JobsContent() {
     { value: "1001+", label: "Enterprise (1001+)" },
   ];
 
-  // Date Posted Options
   const datePostedOptions = [
     { value: "1", label: "Last 24 hours" },
     { value: "7", label: "Last 7 days" },
     { value: "30", label: "Last 30 days" },
     { value: "90", label: "Last 3 months" },
-    { value: "all", label: "All time" },
   ];
 
-  // Experience Levels
   const experienceLevels = [
     "Internship",
     "Entry Level",
@@ -98,42 +94,33 @@ export function JobsContent() {
     "Not Applicable",
   ];
 
-  // Currencies
   const currencies = ["USD", "EUR", "GBP", "CAD", "AUD", "INR", "JPY", "CNY"];
 
-  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = 12;
 
-  // Build the query parameters
+  // Build query string
   const buildQueryParams = () => {
     const params = new URLSearchParams({
       page: currentPage.toString(),
       per_page: perPage.toString(),
     });
 
-    // Basic filters
     if (searchQuery) params.append("query", searchQuery);
     if (location) params.append("location", location);
-    if (jobType && jobType !== "all") params.append("type", jobType);
-    if (jobLevel && jobLevel !== "all") params.append("level", jobLevel);
+    if (jobType !== "type-all") params.append("type", jobType.replace("type-", ""));
+    if (jobLevel !== "level-all") params.append("level", jobLevel.replace("level-", ""));
     if (remoteOnly) params.append("remote", "true");
-
-    // Advanced filters
     if (minSalary !== "") params.append("min_salary", minSalary.toString());
     if (maxSalary !== "") params.append("max_salary", maxSalary.toString());
     if (currency) params.append("currency", currency);
-    if (datePosted && datePosted !== "all")
-      params.append("date_posted", datePosted);
-    if (companySize && companySize !== "all")
-      params.append("company_size", companySize);
-    if (jobFunction && jobFunction !== "all")
-      params.append("job_function", jobFunction);
+    if (datePosted !== "date-all") params.append("date_posted", datePosted.replace("date-", ""));
+    if (companySize !== "size-all") params.append("company_size", companySize.replace("size-", ""));
+    if (jobFunction !== "func-all") params.append("job_function", jobFunction.replace("func-", ""));
 
     return params.toString();
   };
 
-  // Use SWR for data fetching
   const { data, error, isLoading, mutate } = useSWR<JobsResponse>(
     `/api/jobs/neon?${buildQueryParams()}`,
     fetcher,
@@ -143,55 +130,48 @@ export function JobsContent() {
         console.error("Error fetching jobs:", err);
         toast.error("Failed to load jobs. Please try again.");
       },
-    },
+    }
   );
 
-  // Handle search form submission
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     setCurrentPage(1);
     mutate();
   };
 
-  // Clear all filters
   const clearFilters = () => {
     setSearchQuery("");
     setLocation("");
-    setJobType("all");
-    setJobLevel("all");
+    setJobType("type-all");
+    setJobLevel("level-all");
     setRemoteOnly(false);
     setMinSalary("");
     setMaxSalary("");
     setCurrency("USD");
-    setDatePosted("all");
-    setCompanySize("all");
-    setJobFunction("all");
+    setDatePosted("date-all");
+    setCompanySize("size-all");
+    setJobFunction("func-all");
     setCurrentPage(1);
   };
 
-  // Handle job preparation - navigate to contextual interview
   const handlePrepareJob = (job: Job) => {
     try {
       // Create URL parameters with job context
       const interviewParams = new URLSearchParams({
         // Basic configuration based on job
-        position: job.title,
-        seniority: job.level || "mid",
-        interviewType: "technical",
-        interviewMode: "untimed",
-        duration: "30",
-
-        // Job-specific context
-        jobId: job.id,
-        company: job.company,
-        jobDescription: job.description || "",
-        jobRequirements: job.tags?.join(", ") || "",
-        jobLocation: job.location || "",
-        jobType: job.type || "",
-
-        // Flag to indicate this is a job-specific interview
-        contextType: "job-specific",
-      });
+      position: job.title,
+      seniority: job.level || "mid",
+      interviewType: "technical",
+      interviewMode: "untimed",
+      duration: "30",
+      jobId: job.id,
+      company: job.company,
+      jobDescription: job.description || "",
+      jobRequirements: job.tags?.join(", ") || "",
+      jobLocation: job.location || "",
+      jobType: job.type || "",
+      contextType: "job-specific",
+    });
 
       // Navigate to interview with job context
       router.push(`/interview?${interviewParams.toString()}`);
@@ -207,12 +187,12 @@ export function JobsContent() {
 
   // Handle job view details
   const handleViewDetails = (job: Job) => {
-    // Analytics or other tracking can be added here
     console.log("Viewing job details:", job.id);
   };
 
   return (
     <main className="flex-1 overflow-y-auto bg-background">
+      {/* Header */}
       <section className="relative py-12 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
@@ -224,7 +204,7 @@ export function JobsContent() {
             opportunity.
           </p>
 
-          {/* Search and Filters */}
+          {/* Search */}
           <div className="max-w-4xl mx-auto space-y-4">
             <form onSubmit={handleSearch} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -248,11 +228,21 @@ export function JobsContent() {
                       <SelectValue placeholder="Job Type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">All Types</SelectItem>
-                      <SelectItem value="Full-time">Full-time</SelectItem>
-                      <SelectItem value="Part-time">Part-time</SelectItem>
-                      <SelectItem value="Contract">Contract</SelectItem>
-                      <SelectItem value="Internship">Internship</SelectItem>
+                      <SelectItem key="type-all" value="type-all">
+                        All Types
+                      </SelectItem>
+                      <SelectItem key="type-full" value="type-Full-time">
+                        Full-time
+                      </SelectItem>
+                      <SelectItem key="type-part" value="type-Part-time">
+                        Part-time
+                      </SelectItem>
+                      <SelectItem key="type-contract" value="type-Contract">
+                        Contract
+                      </SelectItem>
+                      <SelectItem key="type-intern" value="type-Internship">
+                        Internship
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                   <Button type="submit">
@@ -261,7 +251,7 @@ export function JobsContent() {
                 </div>
               </div>
 
-              {/* Advanced Filters Toggle */}
+              {/* Advanced Filters */}
               <div className="flex justify-between items-center">
                 <Button
                   type="button"
@@ -283,7 +273,6 @@ export function JobsContent() {
                 </Button>
               </div>
 
-              {/* Advanced Filters */}
               {showAdvancedFilters && (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 bg-muted/50 rounded-lg">
                   {/* Experience Level */}
@@ -292,10 +281,12 @@ export function JobsContent() {
                       <SelectValue placeholder="Experience Level" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">All Levels</SelectItem>
-                      {experienceLevels.map((level) => (
-                        <SelectItem key={level} value={level}>
-                          {level}
+                      <SelectItem key="level-all" value="level-all">
+                        All Levels
+                      </SelectItem>
+                      {experienceLevels.map((lvl) => (
+                        <SelectItem key={`level-${lvl}`} value={`level-${lvl}`}>
+                          {lvl}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -307,9 +298,11 @@ export function JobsContent() {
                       <SelectValue placeholder="Job Function" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">All Functions</SelectItem>
+                      <SelectItem key="func-all" value="func-all">
+                        All Functions
+                      </SelectItem>
                       {jobFunctions.map((func) => (
-                        <SelectItem key={func} value={func}>
+                        <SelectItem key={`func-${func}`} value={`func-${func}`}>
                           {func}
                         </SelectItem>
                       ))}
@@ -322,9 +315,14 @@ export function JobsContent() {
                       <SelectValue placeholder="Company Size" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">Any Size</SelectItem>
+                      <SelectItem key="size-all" value="size-all">
+                        Any Size
+                      </SelectItem>
                       {companySizes.map((size) => (
-                        <SelectItem key={size.value} value={size.value}>
+                        <SelectItem
+                          key={`size-${size.value}`}
+                          value={`size-${size.value}`}
+                        >
                           {size.label}
                         </SelectItem>
                       ))}
@@ -337,10 +335,15 @@ export function JobsContent() {
                       <SelectValue placeholder="Date Posted" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">Any Time</SelectItem>
-                      {datePostedOptions.map((option) => (
-                        <SelectItem key={option.value} value={option.value}>
-                          {option.label}
+                      <SelectItem key="date-all" value="date-all">
+                        Any Time
+                      </SelectItem>
+                      {datePostedOptions.map((opt) => (
+                        <SelectItem
+                          key={`date-${opt.value}`}
+                          value={`date-${opt.value}`}
+                        >
+                          {opt.label}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -355,10 +358,9 @@ export function JobsContent() {
                         value={minSalary}
                         onChange={(e) =>
                           setMinSalary(
-                            e.target.value ? Number(e.target.value) : "",
+                            e.target.value ? Number(e.target.value) : ""
                           )
                         }
-                        min={0}
                       />
                     </div>
                     <div className="flex-1">
@@ -368,10 +370,9 @@ export function JobsContent() {
                         value={maxSalary}
                         onChange={(e) =>
                           setMaxSalary(
-                            e.target.value ? Number(e.target.value) : "",
+                            e.target.value ? Number(e.target.value) : ""
                           )
                         }
-                        min={minSalary !== "" ? minSalary : 0}
                       />
                     </div>
                     <Select onValueChange={setCurrency} value={currency}>
@@ -380,7 +381,7 @@ export function JobsContent() {
                       </SelectTrigger>
                       <SelectContent>
                         {currencies.map((curr) => (
-                          <SelectItem key={curr} value={curr}>
+                          <SelectItem key={`curr-${curr}`} value={curr}>
                             {curr}
                           </SelectItem>
                         ))}
@@ -388,7 +389,7 @@ export function JobsContent() {
                     </Select>
                   </div>
 
-                  {/* Remote Only Toggle */}
+                  {/* Remote Only */}
                   <div className="flex items-center space-x-2">
                     <input
                       type="checkbox"
@@ -397,10 +398,7 @@ export function JobsContent() {
                       onChange={(e) => setRemoteOnly(e.target.checked)}
                       className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
                     />
-                    <label
-                      htmlFor="remoteOnly"
-                      className="text-sm font-medium leading-none"
-                    >
+                    <label htmlFor="remoteOnly" className="text-sm font-medium">
                       Remote Only
                     </label>
                   </div>
@@ -413,21 +411,20 @@ export function JobsContent() {
 
       {/* Jobs Section */}
       <section className="container mx-auto px-6 py-8">
-        {/* Results Info */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <h2 className="text-2xl font-semibold">Available Jobs</h2>
             {data && <Badge variant="secondary">{data.total} positions</Badge>}
           </div>
-          <div className="flex items-center gap-3">
-            {isLoading && (
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <Loader2 className="h-4 w-4 animate-spin" />
-                <span>Loading...</span>
-              </div>
-            )}
-            {/* TODO: OPS-36 - Fix back to top button functionality */}
-            {/* {!isLoading && !error && data && (
+
+          {isLoading && (
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              <span>Loading...</span>
+            </div>
+          )}
+          {/* TODO: OPS-36 - Fix back to top button functionality */}
+          {/* {!isLoading && !error && data && (
               <Button
                 variant="outline"
                 size="sm"
@@ -437,7 +434,6 @@ export function JobsContent() {
                 Back to Top
               </Button>
             )} */}
-          </div>
         </div>
 
         {/* Jobs Grid */}
@@ -475,14 +471,6 @@ export function JobsContent() {
                     <div className="h-4 w-5/6 bg-muted rounded animate-pulse" />
                     <div className="h-4 w-4/6 bg-muted rounded animate-pulse" />
                   </div>
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    <div className="h-6 w-20 bg-muted rounded-full animate-pulse" />
-                    <div className="h-6 w-24 bg-muted rounded-full animate-pulse" />
-                  </div>
-                  <div className="flex justify-between items-center pt-2">
-                    <div className="h-4 w-1/3 bg-muted rounded animate-pulse" />
-                    <div className="h-9 w-24 bg-muted rounded-md animate-pulse" />
-                  </div>
                 </div>
               </div>
             ))}
@@ -499,7 +487,7 @@ export function JobsContent() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {data.results.map((job) => (
                 <JobCard
-                  key={job.id}
+                  key={`job-${job.id}`}
                   job={job}
                   onViewDetails={handleViewDetails}
                   onPrepare={handlePrepareJob}
@@ -508,7 +496,7 @@ export function JobsContent() {
             </div>
 
             {/* Pagination */}
-            {data && data.page_count > 1 && (
+            {data.page_count > 1 && (
               <div className="flex items-center justify-center gap-2">
                 <Button
                   variant="outline"
@@ -525,22 +513,16 @@ export function JobsContent() {
                     { length: Math.min(5, data.page_count) },
                     (_, i) => {
                       let pageNum: number;
-                      if (data.page_count <= 5) {
-                        pageNum = i + 1;
-                      } else if (currentPage <= 3) {
-                        pageNum = i + 1;
-                      } else if (currentPage >= data.page_count - 2) {
+                      if (data.page_count <= 5) pageNum = i + 1;
+                      else if (currentPage <= 3) pageNum = i + 1;
+                      else if (currentPage >= data.page_count - 2)
                         pageNum = data.page_count - 4 + i;
-                      } else {
-                        pageNum = currentPage - 2 + i;
-                      }
+                      else pageNum = currentPage - 2 + i;
 
                       return (
                         <Button
-                          key={pageNum}
-                          variant={
-                            currentPage === pageNum ? "default" : "outline"
-                          }
+                          key={`page-${pageNum}`}
+                          variant={currentPage === pageNum ? "default" : "outline"}
                           size="sm"
                           onClick={() => setCurrentPage(pageNum)}
                           disabled={isLoading}
@@ -548,7 +530,7 @@ export function JobsContent() {
                           {pageNum}
                         </Button>
                       );
-                    },
+                    }
                   )}
                 </div>
 
