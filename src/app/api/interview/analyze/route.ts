@@ -8,7 +8,13 @@ import { aiClient } from "@/lib/services/ai/ai-client";
 import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
 import { AnalysisService } from "@/lib/services/interview/analysis-service";
 import { InterviewService } from "@/lib/services/interview/interview-service";
-import type { AnalyzeApiRequest, AnalyzeApiResponse } from "@/types/interview";
+import type {
+  AnalyzeApiRequest,
+  AnalyzeApiResponse,
+  InterviewConfig,
+  Message,
+  ResponseAnalysis,
+} from "@/types/interview";
 
 export async function POST(
   request: NextRequest,
@@ -137,9 +143,9 @@ export async function POST(
  * Generate analysis prompt with conversation context
  */
 function generateAnalysisPrompt(
-  conversationHistory: any[],
-  config: any,
-  responseAnalysis: any,
+  conversationHistory: Message[],
+  config: InterviewConfig,
+  responseAnalysis: ResponseAnalysis,
 ): string {
   const conversation = conversationHistory
     .map(

@@ -79,9 +79,11 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
     if (!dateStr) return "Unknown";
 
     const postedDate = new Date(dateStr);
-    if (isNaN(postedDate.getTime())) return "Unknown";
+    if (Number.isNaN(postedDate.getTime())) return "Unknown";
 
-    const diffDays = Math.floor((Date.now() - postedDate.getTime()) / (1000 * 60 * 60 * 24));
+    const diffDays = Math.floor(
+      (Date.now() - postedDate.getTime()) / (1000 * 60 * 60 * 24),
+    );
 
     if (diffDays === 0) return "Today";
     if (diffDays === 1) return "Yesterday";
@@ -90,12 +92,12 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
     return `${Math.floor(diffDays / 30)} months ago`;
   };
 
-
   const formatSalary = () => {
     if (!job.minAmount && !job.maxAmount) return job.salary || null;
     const min = job.minAmount ? Number(job.minAmount) : null;
     const max = job.maxAmount ? Number(job.maxAmount) : null;
-    if (min && max) return `$${(min / 1000).toFixed(0)}k – $${(max / 1000).toFixed(0)} / ${job.interval || "year"}`;
+    if (min && max)
+      return `$${(min / 1000).toFixed(0)}k – $${(max / 1000).toFixed(0)} / ${job.interval || "year"}`;
     if (min) return `$${(min / 1000).toFixed(0)}k / ${job.interval || "year"}`;
     if (max) return `$${(max / 1000).toFixed(0)}k / ${job.interval || "year"}`;
     return null;
@@ -175,12 +177,25 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
                   if (!previewSection) return null;
                   const renderTextWithLinks = (text: string) => {
                     const urlRegex = /(https?:\/\/[^\s]+)/g;
-                    return text.split(urlRegex).map((part, idx) =>
+                    const parts = text.split(urlRegex);
+                    return parts.map((part, idx) =>
                       urlRegex.test(part) ? (
-                        <a key={idx} href={part} target="_blank" rel="noopener noreferrer" className="underline text-primary hover:text-primary/80">{part}</a>
+                        <a
+                          key={`link-${part.replace(/[^a-zA-Z0-9]/g, "")}`}
+                          href={part}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline text-primary hover:text-primary/80"
+                        >
+                          {part}
+                        </a>
                       ) : (
-                        <span key={idx}>{part}</span>
-                      )
+                        <span
+                          key={`text-${part.replace(/[^a-zA-Z0-9]/g, "").slice(0, 20) || `empty-${idx}`}`}
+                        >
+                          {part}
+                        </span>
+                      ),
                     );
                   };
                   const elements: React.ReactNode[] = [];
@@ -188,9 +203,17 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
                   for (const line of previewSection.content) {
                     if (linesShown >= 3) break;
                     if (line.startsWith("-")) {
-                      elements.push(<li key={linesShown} className="ml-5 list-disc">{renderTextWithLinks(line.replace(/^-/, "").trim())}</li>);
+                      elements.push(
+                        <li key={linesShown} className="ml-5 list-disc">
+                          {renderTextWithLinks(line.replace(/^-/, "").trim())}
+                        </li>,
+                      );
                     } else {
-                      elements.push(<p key={linesShown} className="mb-1">{renderTextWithLinks(line)}</p>);
+                      elements.push(
+                        <p key={linesShown} className="mb-1">
+                          {renderTextWithLinks(line)}
+                        </p>,
+                      );
                     }
                     linesShown++;
                   }
@@ -203,8 +226,19 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
             <div className="flex flex-wrap gap-2">
               {job.level && <Badge variant="outline">{job.level}</Badge>}
               {job.category && <Badge variant="outline">{job.category}</Badge>}
-              {job.tags?.slice(0, 3).map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-              {job.skills?.split(",").slice(0, 3).map(skill => <Badge key={skill.trim()} variant="outline">{skill.trim()}</Badge>)}
+              {job.tags?.slice(0, 3).map((tag) => (
+                <Badge key={tag} variant="secondary">
+                  {tag}
+                </Badge>
+              ))}
+              {job.skills
+                ?.split(",")
+                .slice(0, 3)
+                .map((skill) => (
+                  <Badge key={skill.trim()} variant="outline">
+                    {skill.trim()}
+                  </Badge>
+                ))}
             </div>
 
             {/* Posted Date */}
@@ -215,11 +249,21 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
 
             {/* Action Buttons */}
             <div className="mt-5 flex gap-3">
-              <Button variant="outline" size="sm" className="flex-1 hover:bg-primary/10 hover:border-primary" onClick={handlePrepare}>
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex-1 hover:bg-primary/10 hover:border-primary"
+                onClick={handlePrepare}
+              >
                 <Brain className="h-4 w-4 mr-2" />
                 Interview Prep
               </Button>
-              <Button size="sm" className="flex-1" onClick={(e) => handleApply(e, job.jobUrlDirect || job.jobUrl)} disabled={!job.jobUrl && !job.jobUrlDirect}>
+              <Button
+                size="sm"
+                className="flex-1"
+                onClick={(e) => handleApply(e, job.jobUrlDirect || job.jobUrl)}
+                disabled={!job.jobUrl && !job.jobUrlDirect}
+              >
                 <ExternalLink className="h-4 w-4 mr-2" />
                 Apply
               </Button>
@@ -240,7 +284,13 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
                 </DialogDescription>
               </div>
               {job.companyLogo && job.companyLogo !== "nan" && (
-                <Image src={job.companyLogo} alt={`${job.company} logo`} width={48} height={48} className="h-12 w-12 object-contain" />
+                <Image
+                  src={job.companyLogo}
+                  alt={`${job.company} logo`}
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 object-contain"
+                />
               )}
             </div>
           </DialogHeader>
@@ -248,66 +298,176 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
           <div className="space-y-6 py-4">
             {/* Job Metadata */}
             <div className="flex flex-wrap gap-4 text-sm">
-              {job.type && <div className="flex items-center gap-2"><Briefcase className="h-4 w-4 text-muted-foreground" /><span>{job.type}</span></div>}
-              {job.level && <div className="flex items-center gap-2"><span className="font-medium">Level:</span><span>{job.level}</span></div>}
-              {formatSalary() && <div className="flex items-center gap-2"><DollarSign className="h-4 w-4 text-muted-foreground" /><span>{formatSalary()}</span></div>}
-              {job.remote && <Badge variant="outline" className="flex items-center gap-1"><MapPin className="h-3 w-3" />Remote</Badge>}
+              {job.type && (
+                <div className="flex items-center gap-2">
+                  <Briefcase className="h-4 w-4 text-muted-foreground" />
+                  <span>{job.type}</span>
+                </div>
+              )}
+              {job.level && (
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">Level:</span>
+                  <span>{job.level}</span>
+                </div>
+              )}
+              {formatSalary() && (
+                <div className="flex items-center gap-2">
+                  <DollarSign className="h-4 w-4 text-muted-foreground" />
+                  <span>{formatSalary()}</span>
+                </div>
+              )}
+              {job.remote && (
+                <Badge variant="outline" className="flex items-center gap-1">
+                  <MapPin className="h-3 w-3" />
+                  Remote
+                </Badge>
+              )}
             </div>
 
             {/* Job Description */}
-            {job.description ? (() => {
-              const parsed = parseJobDescription(job.description || "");
-              const renderTextWithLinks = (text: string) => {
-                const urlRegex = /(https?:\/\/[^\s]+)/g;
-                return text.split(urlRegex).map((part, idx) =>
-                  urlRegex.test(part) ? <a key={idx} href={part} target="_blank" rel="noopener noreferrer" className="underline text-primary hover:text-primary/80">{part}</a> : <span key={idx}>{part}</span>
+            {job.description ? (
+              (() => {
+                const parsed = parseJobDescription(job.description || "");
+                const renderTextWithLinks = (text: string) => {
+                  const urlRegex = /(https?:\/\/[^\s]+)/g;
+                  const parts = text.split(urlRegex);
+                  return parts.map((part, idx) =>
+                    urlRegex.test(part) ? (
+                      <a
+                        key={`link-${part.replace(/[^a-zA-Z0-9]/g, "")}`}
+                        href={part}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline text-primary hover:text-primary/80"
+                      >
+                        {part}
+                      </a>
+                    ) : (
+                      <span
+                        key={`text-${part.replace(/[^a-zA-Z0-9]/g, "").slice(0, 20) || `empty-${idx}`}`}
+                      >
+                        {part}
+                      </span>
+                    ),
+                  );
+                };
+                return (
+                  <div className="text-[15px] leading-relaxed text-foreground/90 space-y-5">
+                    {parsed.sections.map((section, i) => (
+                      <div key={`section-${section.title}-${i}`}>
+                        <h4 className="text-sm font-semibold text-foreground mb-2 border-b border-border pb-1 uppercase">
+                          {section.title}
+                        </h4>
+                        {(() => {
+                          const elements: React.ReactNode[] = [];
+                          let listItems: string[] = [];
+                          const flushList = () => {
+                            if (listItems.length > 0) {
+                              elements.push(
+                                <ul
+                                  key={`ul-${i}-${elements.length}`}
+                                  className="list-disc ml-5 mb-3 space-y-1"
+                                >
+                                  {listItems.map((item, j) => (
+                                    <li
+                                      key={`item-${item.slice(0, 20)}-${j}`}
+                                      className="text-foreground/90"
+                                    >
+                                      {renderTextWithLinks(
+                                        item.replace(/^-/, "").trim(),
+                                      )}
+                                    </li>
+                                  ))}
+                                </ul>,
+                              );
+                              listItems = [];
+                            }
+                          };
+                          section.content.forEach((line) => {
+                            if (line.startsWith("-")) {
+                              listItems.push(line);
+                            } else {
+                              flushList();
+                              elements.push(
+                                <p key={elements.length} className="mb-2">
+                                  {renderTextWithLinks(line)}
+                                </p>,
+                              );
+                            }
+                          });
+                          flushList();
+                          return elements;
+                        })()}
+                      </div>
+                    ))}
+                  </div>
                 );
-              };
-              return (
-                <div className="text-[15px] leading-relaxed text-foreground/90 space-y-5">
-                  {parsed.sections.map((section, i) => (
-                    <div key={i}>
-                      <h4 className="text-sm font-semibold text-foreground mb-2 border-b border-border pb-1 uppercase">{section.title}</h4>
-                      {(() => {
-                        const elements: React.ReactNode[] = [];
-                        let listItems: string[] = [];
-                        const flushList = () => {
-                          if (listItems.length > 0) {
-                            elements.push(
-                              <ul key={`ul-${i}-${elements.length}`} className="list-disc ml-5 mb-3 space-y-1">
-                                {listItems.map((item, j) => <li key={j} className="text-foreground/90">{renderTextWithLinks(item.replace(/^-/, "").trim())}</li>)}
-                              </ul>
-                            );
-                            listItems = [];
-                          }
-                        };
-                        section.content.forEach(line => line.startsWith("-") ? listItems.push(line) : (flushList(), elements.push(<p key={elements.length} className="mb-2">{renderTextWithLinks(line)}</p>)));
-                        flushList();
-                        return elements;
-                      })()}
-                    </div>
-                  ))}
-                </div>
-              );
-            })() : <p className="text-muted-foreground">No description available</p>}
+              })()
+            ) : (
+              <p className="text-muted-foreground">No description available</p>
+            )}
 
             {/* Company Info */}
             {job.companyDescription && (
               <div className="space-y-2">
                 <h3 className="font-semibold">About {job.company}</h3>
-                <p className="text-muted-foreground">{job.companyDescription}</p>
+                <p className="text-muted-foreground">
+                  {job.companyDescription}
+                </p>
               </div>
             )}
 
             {/* Additional Job Details */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {job.jobFunction && <div><h4 className="font-medium">Job Function</h4><p className="text-muted-foreground">{job.jobFunction}</p></div>}
-              {job.experienceRange && <div><h4 className="font-medium">Experience</h4><p className="text-muted-foreground">{job.experienceRange}</p></div>}
-              {job.companyRating !== null && job.companyRating !== undefined && <div><h4 className="font-medium">Company Rating</h4><p className="text-muted-foreground">{job.companyRating.toFixed(1)}/5.0</p></div>}
-              {job.companyRevenue && <div><h4 className="font-medium">Revenue</h4><p className="text-muted-foreground">{job.companyRevenue}</p></div>}
-              {job.companyNumEmployees && <div><h4 className="font-medium">Employees</h4><p className="text-muted-foreground">{job.companyNumEmployees}</p></div>}
-              {job.companyIndustry && <div><h4 className="font-medium">Industry</h4><p className="text-muted-foreground">{job.companyIndustry}</p></div>}
-              {job.companyAddresses && <div><h4 className="font-medium">Address</h4><p className="text-muted-foreground">{job.companyAddresses}</p></div>}
+              {job.jobFunction && (
+                <div>
+                  <h4 className="font-medium">Job Function</h4>
+                  <p className="text-muted-foreground">{job.jobFunction}</p>
+                </div>
+              )}
+              {job.experienceRange && (
+                <div>
+                  <h4 className="font-medium">Experience</h4>
+                  <p className="text-muted-foreground">{job.experienceRange}</p>
+                </div>
+              )}
+              {job.companyRating !== null &&
+                job.companyRating !== undefined && (
+                  <div>
+                    <h4 className="font-medium">Company Rating</h4>
+                    <p className="text-muted-foreground">
+                      {job.companyRating.toFixed(1)}/5.0
+                    </p>
+                  </div>
+                )}
+              {job.companyRevenue && (
+                <div>
+                  <h4 className="font-medium">Revenue</h4>
+                  <p className="text-muted-foreground">{job.companyRevenue}</p>
+                </div>
+              )}
+              {job.companyNumEmployees && (
+                <div>
+                  <h4 className="font-medium">Employees</h4>
+                  <p className="text-muted-foreground">
+                    {job.companyNumEmployees}
+                  </p>
+                </div>
+              )}
+              {job.companyIndustry && (
+                <div>
+                  <h4 className="font-medium">Industry</h4>
+                  <p className="text-muted-foreground">{job.companyIndustry}</p>
+                </div>
+              )}
+              {job.companyAddresses && (
+                <div>
+                  <h4 className="font-medium">Address</h4>
+                  <p className="text-muted-foreground">
+                    {job.companyAddresses}
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Tags / Skills */}
@@ -315,8 +475,16 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
               <div className="space-y-2">
                 <h4 className="font-medium">Skills & Technologies</h4>
                 <div className="flex flex-wrap gap-2">
-                  {job.tags?.map(tag => <Badge key={tag} variant="outline">{tag}</Badge>)}
-                  {job.skills?.split(",").map(skill => <Badge key={skill.trim()} variant="outline">{skill.trim()}</Badge>)}
+                  {job.tags?.map((tag) => (
+                    <Badge key={tag} variant="outline">
+                      {tag}
+                    </Badge>
+                  ))}
+                  {job.skills?.split(",").map((skill) => (
+                    <Badge key={skill.trim()} variant="outline">
+                      {skill.trim()}
+                    </Badge>
+                  ))}
                 </div>
               </div>
             ) : null}
@@ -327,7 +495,12 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
                 <Bookmark className="h-4 w-4 mr-2" />
                 Prepare for Interview
               </Button>
-              <Button onClick={(e) => handleApply(e, job.url || job.jobUrlDirect || job.jobUrl)} disabled={!job.url && !job.jobUrlDirect && !job.jobUrl}>
+              <Button
+                onClick={(e) =>
+                  handleApply(e, job.url || job.jobUrlDirect || job.jobUrl)
+                }
+                disabled={!job.url && !job.jobUrlDirect && !job.jobUrl}
+              >
                 <ExternalLink className="h-4 w-4 mr-2" />
                 Apply Now
               </Button>

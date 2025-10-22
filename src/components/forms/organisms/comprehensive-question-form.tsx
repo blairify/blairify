@@ -607,6 +607,7 @@ export function ComprehensiveQuestionForm({
   const [tagInput, setTagInput] = useState("");
 
   const form = useForm<z.infer<typeof formSchema>>({
+    // biome-ignore lint/suspicious/noExplicitAny: Zod version compatibility issue with react-hook-form
     resolver: zodResolver(formSchema as any),
     defaultValues: {
       category: initialData?.category || "",
@@ -647,6 +648,7 @@ export function ComprehensiveQuestionForm({
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     try {
+      // biome-ignore lint/suspicious/noExplicitAny: Type mismatch between form schema and PracticeQuestion interface
       await onSubmit(values as any);
     } finally {
       setIsSubmitting(false);
@@ -683,7 +685,7 @@ export function ComprehensiveQuestionForm({
     description?: string;
   }) => {
     const [searchTerm, setSearchTerm] = useState("");
-    const fieldValue = (form.watch(name as any) || []) as string[];
+    const fieldValue = (form.watch(name) || []) as string[];
 
     const filteredOptions = options.filter((option) =>
       option.toLowerCase().includes(searchTerm.toLowerCase()),

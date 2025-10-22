@@ -26,7 +26,7 @@ interface DashboardSidebarProps {
 export default function DashboardSidebar({
   sidebarOpen,
   setSidebarOpen,
-  userAdmin,
+  userAdmin: _,
 }: DashboardSidebarProps) {
   const pathname = usePathname();
   const { user } = useAuth();

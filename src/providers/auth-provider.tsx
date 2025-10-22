@@ -2,11 +2,9 @@
 
 import type { User } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import {
-  getUserData,
-  onAuthStateChange,
-  type UserData,
-} from "@/lib/services/auth/auth";
+import type { UserData } from "@/lib/services/auth/auth";
+import { getUserData, onAuthStateChange } from "@/lib/services/auth/auth";
+import { cookieUtils } from "@/lib/utils/cookies";
 
 interface AuthContextType {
   user: User | null;
@@ -42,7 +40,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       if (user) {
         // Set auth cookie for middleware to read
         const token = await user.getIdToken();
-        document.cookie = `firebase-auth-token=${token}; path=/; secure; samesite=strict`;
+        cookieUtils.set("firebase-auth-token", token, {
+          path: "/",
+          secure: true,
+          sameSite: "strict",
+        });
         // Fetch additional user data from Firestore
         try {
           const data = await getUserData(user.uid);
@@ -68,7 +70,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         }
       } else {
         // Clear auth cookie when user signs out
-        document.cookie = `firebase-auth-token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+        cookieUtils.clear("firebase-auth-token");
         setUserData(null);
       }
 

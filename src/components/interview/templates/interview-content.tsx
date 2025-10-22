@@ -189,18 +189,27 @@ export function InterviewContent({ user }: InterviewContentProps) {
     setSession((prev) => ({ ...prev, isComplete: true }));
 
     // Store session data for results page
-    localStorage.setItem(
-      "interviewSession",
-      JSON.stringify({
-        ...session,
-        messages: session.messages,
-        endTime: new Date(),
-        totalDuration: Math.round(
-          (Date.now() - session.startTime.getTime()) / 1000 / 60,
-        ),
-        config,
-      }),
-    );
+    const sessionData = {
+      ...session,
+      messages: session.messages,
+      endTime: new Date(),
+      totalDuration: Math.round(
+        (Date.now() - session.startTime.getTime()) / 1000 / 60,
+      ),
+      isComplete: true,
+    };
+
+    localStorage.setItem("interviewSession", JSON.stringify(sessionData));
+
+    // Store configuration separately (required by results page)
+    localStorage.setItem("interviewConfig", JSON.stringify(config));
+
+    // Debug logging
+    console.log("Interview completed - stored data:", {
+      sessionDataLength: sessionData.messages?.length || 0,
+      configKeys: Object.keys(config),
+      hasMessages: sessionData.messages && sessionData.messages.length > 0,
+    });
 
     // Navigate to results
     window.location.href = "/results";
@@ -270,7 +279,11 @@ export function InterviewContent({ user }: InterviewContentProps) {
           type: "ai",
           content: data.message,
           timestamp: new Date(),
-          questionType: config.interviewType as any,
+          questionType: config.interviewType as
+            | "technical"
+            | "bullet"
+            | "coding"
+            | "system-design",
         };
 
         setSession((prev) => ({

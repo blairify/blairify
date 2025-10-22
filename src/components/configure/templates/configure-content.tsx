@@ -86,7 +86,7 @@ const STEPS: ConfigStep[] = [
   },
 ];
 
-export function ConfigureContent({ user }: ConfigureContentProps) {
+export function ConfigureContent({ user: _ }: ConfigureContentProps) {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
   const [showAdvancedSkills, setShowAdvancedSkills] = useState(false);

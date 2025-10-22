@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  ArrowUpRight,
   ChevronLeft,
   ChevronRight,
   Loader2,

@@ -15,6 +15,7 @@ import type {
   SeniorityLevel,
 } from "@/types/interview";
 
+// biome-ignore lint/complexity/noStaticOnlyClass: Utility class pattern for organizing related prompt generation functions
 export class PromptGenerator {
   /**
    * Generate system prompt for the AI interviewer

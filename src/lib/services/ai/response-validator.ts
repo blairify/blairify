@@ -9,6 +9,7 @@ import {
 } from "@/lib/config/interview-config";
 import type { InterviewConfig, ValidationResult } from "@/types/interview";
 
+// biome-ignore lint/complexity/noStaticOnlyClass: Utility class pattern for organizing related validation functions
 export class ResponseValidator {
   /**
    * Validate AI response for appropriateness and quality

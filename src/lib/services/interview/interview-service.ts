@@ -17,6 +17,7 @@ import type {
   ResponseAnalysis,
 } from "@/types/interview";
 
+// biome-ignore lint/complexity/noStaticOnlyClass: Service class pattern for organizing related interview functions
 export class InterviewService {
   /**
    * Determine the appropriate question type based on interview type and count

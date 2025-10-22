@@ -8,9 +8,12 @@ interface UseIsMobileReturn {
 }
 
 // Debounce function to prevent rapid state updates
-const debounce = (func: Function, wait: number) => {
+const debounce = <T extends unknown[]>(
+  func: (...args: T) => void,
+  wait: number,
+) => {
   let timeout: NodeJS.Timeout;
-  return function executedFunction(...args: any[]) {
+  return function executedFunction(...args: T) {
     const later = () => {
       clearTimeout(timeout);
       func(...args);

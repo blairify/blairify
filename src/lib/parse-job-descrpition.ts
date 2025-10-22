@@ -4,7 +4,9 @@ export type ParsedSection = {
   content: string[]; // paragraphs or "- item" for list items
 };
 
-export function parseJobDescription(raw: string | null | undefined): { sections: ParsedSection[] } {
+export function parseJobDescription(raw: string | null | undefined): {
+  sections: ParsedSection[];
+} {
   if (!raw) return { sections: [] };
 
   // 1. Basic HTML -> text normalization
@@ -30,7 +32,10 @@ export function parseJobDescription(raw: string | null | undefined): { sections:
   text = text.replace(/\n{3,}/g, "\n\n");
 
   // 5. Split into blocks by 2+ newlines (paragraph-like blocks)
-  const blocks = text.split(/\n{2,}/).map((b) => b.trim()).filter(Boolean);
+  const blocks = text
+    .split(/\n{2,}/)
+    .map((b) => b.trim())
+    .filter(Boolean);
 
   // 6. Recognize section headers and build sections
   const headerKeywords = [
@@ -56,7 +61,7 @@ export function parseJobDescription(raw: string | null | undefined): { sections:
     const singleLine = block.split("\n").length === 1;
     const isAllCaps = /^[A-Z0-9\s'()&.-]+$/.test(block) && /[A-Z]/.test(block);
     const containsKeyword = headerKeywords.some((k) =>
-      block.toUpperCase().includes(k.toUpperCase())
+      block.toUpperCase().includes(k.toUpperCase()),
     );
     // either all-caps short line, or contains a header keyword
     return singleLine && (isAllCaps || containsKeyword);
@@ -70,17 +75,24 @@ export function parseJobDescription(raw: string | null | undefined): { sections:
     if (looksLikeHeader(block)) {
       // start a new section
       if (current.content.length) sections.push(current);
-      const cleanTitle = toTitleCase(block.replace(/[^A-Za-z0-9\s]/g, "").trim());
+      const cleanTitle = toTitleCase(
+        block.replace(/[^A-Za-z0-9\s]/g, "").trim(),
+      );
       current = { title: cleanTitle || "Job Details", content: [] };
       continue;
     }
 
     // if the block contains bullet-like lines, split them into individual items
     // we consider lines starting with '-' or lines that look like list items
-    const lines = block.split(/\n/).map((l) => l.trim()).filter(Boolean);
+    const lines = block
+      .split(/\n/)
+      .map((l) => l.trim())
+      .filter(Boolean);
 
     // detect if many lines start with '-' or similar -> treat as list
-    const listLikeCount = lines.filter((l) => /^[-\u2022•·]/.test(l) || /^[0-9]+\./.test(l)).length;
+    const listLikeCount = lines.filter(
+      (l) => /^[-\u2022•·]/.test(l) || /^[0-9]+\./.test(l),
+    ).length;
 
     if (listLikeCount >= 1 && listLikeCount >= Math.ceil(lines.length / 2)) {
       // treat as list: normalize each item to start with "- "
@@ -91,7 +103,10 @@ export function parseJobDescription(raw: string | null | undefined): { sections:
     } else {
       // treat as a paragraph — but preserve internal sentence breaks if they are long by keeping as one string
       // collapse multiple inner newlines to a single space so paragraphs are intact
-      const paragraph = lines.join(" ").replace(/\s{2,}/g, " ").trim();
+      const paragraph = lines
+        .join(" ")
+        .replace(/\s{2,}/g, " ")
+        .trim();
       if (paragraph) current.content.push(paragraph);
     }
   }

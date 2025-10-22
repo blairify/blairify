@@ -11,6 +11,7 @@ import type {
 } from "@/types/interview";
 import { InterviewService } from "./interview-service";
 
+// biome-ignore lint/complexity/noStaticOnlyClass: Service class pattern for organizing related analysis functions
 export class AnalysisService {
   /**
    * Parse AI analysis response into structured feedback
@@ -175,6 +176,7 @@ export class AnalysisService {
       config,
       whyDecision,
       recommendations,
+      passed,
     });
   }
 
@@ -425,7 +427,24 @@ ${
 }`;
   }
 
-  private static formatMockAnalysis(data: any): string {
+  private static formatMockAnalysis(data: {
+    decision: string;
+    score: number;
+    passingThreshold: number;
+    performanceLevel: string;
+    executiveSummary: string;
+    categoryScores: {
+      technical: number;
+      problemSolving: number;
+      communication: number;
+      professional: number;
+    };
+    responseAnalysis: ResponseAnalysis;
+    config: InterviewConfig;
+    whyDecision: string;
+    recommendations: string;
+    passed: boolean;
+  }): string {
     const {
       decision,
       score,
