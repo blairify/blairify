@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "Blairify - AI-Powered Career Acceleration Platform ",
   description:
-    "Blairify is the new standard in job search. Curated jobs meet AI-powered interview prep. Browse opportunities, practice 1000+ questions, and land your dream role faster.",
+    "Blairify is the new standard in job search. Curated jobs meet AI-powered interview prep. Browse opportunities, and land your dream role faster. Start today!",
   keywords: [
     "job search platform",
     "tech jobs",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blairify - AI-powered Career Acceleration Platform",
     description:
-      "Blairify is the new standard in job search. Curated jobs meet AI-powered interview prep. Browse opportunities, practice 1000+ questions, and land your dream role faster.",
+      "Blairify is the new standard in job search. Curated jobs meet AI-powered interview prep. Land your dream role tomorrow.",
     images: ["https://blairify.com/og-image.png"],
     creator: "@blairify",
   },
