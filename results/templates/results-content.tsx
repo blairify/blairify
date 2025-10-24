@@ -80,14 +80,6 @@ export function ResultsContent({ user }: ResultsContentProps) {
         const interviewData = localStorage.getItem("interviewSession");
         const interviewConfig = localStorage.getItem("interviewConfig");
 
-        // Debug logging
-        console.log("Results page - checking localStorage:", {
-          hasInterviewData: !!interviewData,
-          hasInterviewConfig: !!interviewConfig,
-          interviewDataLength: interviewData?.length || 0,
-          configLength: interviewConfig?.length || 0,
-        });
-
         if (!interviewData || !interviewConfig) {
           console.error("Missing localStorage data:", {
             interviewData: !!interviewData,
@@ -103,14 +95,6 @@ export function ResultsContent({ user }: ResultsContentProps) {
         const session = JSON.parse(interviewData);
         const config = JSON.parse(interviewConfig);
 
-        // Debug parsed data
-        console.log("Parsed interview data:", {
-          sessionKeys: Object.keys(session),
-          messagesCount: session.messages?.length || 0,
-          configKeys: Object.keys(config),
-          hasMessages: !!(session.messages && session.messages.length > 0),
-        });
-
         if (!session.messages || session.messages.length === 0) {
           console.error("No messages in session data:", session);
           setError("No interview responses found to analyze.");
@@ -120,7 +104,6 @@ export function ResultsContent({ user }: ResultsContentProps) {
 
         const controller = new AbortController();
         const timeoutId = setTimeout(() => {
-          console.log("Analysis request timed out after 30 seconds");
           controller.abort();
         }, 30000);
 
@@ -189,10 +172,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
             error.message.includes("rate limit"));
 
         if (shouldRetry) {
-          const delay = 2 ** retryCount * 2000; // 2s, 4s delays
-          console.log(
-            `Retrying analysis in ${delay}ms (attempt ${retryCount + 1}/3)`,
-          );
+          const delay = 2 ** retryCount * 2000;
 
           setTimeout(() => {
             loadAnalysis(retryCount + 1);
@@ -200,7 +180,6 @@ export function ResultsContent({ user }: ResultsContentProps) {
           return;
         }
 
-        // Set error after all retries exhausted
         if (error instanceof Error) {
           if (
             error.name === "AbortError" ||

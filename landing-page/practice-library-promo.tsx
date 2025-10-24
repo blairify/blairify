@@ -54,9 +54,9 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
   };
 
   return (
-    <section className="py-20 bg-background overflow-hidden">
+    <section className="max-w-7xl mx-auto py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch max-h-[500px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-stretch max-h-[500px]">
           {/* Cards Side - Left */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-in slide-in-from-left-8 duration-1000 delay-200">
             {questions.slice(0, 4).map((question, index) => {
@@ -105,7 +105,7 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
                         </span>
                       </div>
 
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex gap-1">
                         {question.topicTags.slice(0, 2).map((tag) => (
                           <Badge
                             key={tag}
@@ -132,7 +132,7 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
           </div>
 
           {/* Content Side - Right */}
-          <div className="space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 text-right">
+          <div className="space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 text-left">
             <div className="space-y-4">
               <h2 className="text-4xl font-bold tracking-tight">
                 Practice Library
@@ -144,24 +144,21 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center p-4 rounded-lg bg-muted/30">
+            <div className="grid grid-cols-3 gap-6">
+              <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
                 <div className="text-2xl font-bold text-primary mb-1">500+</div>
                 <div className="text-sm text-muted-foreground">
                   Practice Questions
                 </div>
               </div>
-              <div className="text-center p-4 rounded-lg bg-muted/30">
+              <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
                 <div className="text-2xl font-bold text-primary mb-1">50+</div>
                 <div className="text-sm text-muted-foreground">
                   Top Companies
                 </div>
               </div>
-              <div className="text-center p-4 rounded-lg bg-muted/30">
-                <div className="text-2xl font-bold text-primary mb-1">6</div>
-                <div className="text-sm text-muted-foreground">Categories</div>
-              </div>
-              <div className="text-center p-4 rounded-lg bg-muted/30">
+
+              <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
                 <div className="text-2xl font-bold text-primary mb-1">AI</div>
                 <div className="text-sm text-muted-foreground">
                   Powered Feedback
@@ -170,27 +167,27 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
             </div>
 
             <div className="space-y-3">
-              <div className="flex items-center justify-end gap-3">
-                <span className="text-sm text-muted-foreground">
-                  System Design, Algorithms, Frontend & more
-                </span>
+              <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
-              </div>
-              <div className="flex items-center justify-end gap-3">
                 <span className="text-sm text-muted-foreground">
-                  Detailed solutions with explanations
+                  System Design, Algorithms, Frontend & more{" "}
                 </span>
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
               </div>
-              <div className="flex items-center justify-end gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm text-muted-foreground">
+                  Detailed solutions with explanations{" "}
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   Difficulty levels from easy to expert
                 </span>
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
               </div>
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-start">
               <Link href="/practice">
                 <Button className="group mt-6">
                   Explore Practice Library
