@@ -189,9 +189,8 @@ export function JobsContent() {
     }
   };
 
-  // Handle job view details
   const handleViewDetails = (job: Job) => {
-    console.log("Viewing job details:", job.id);
+    console.info("Viewing job details:", job.id);
   };
 
   return (

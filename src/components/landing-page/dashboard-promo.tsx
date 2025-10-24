@@ -34,9 +34,9 @@ export function DashboardPromo() {
   const router = useRouter();
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-muted/30 overflow-hidden">
+    <section className="max-w-7xl mx-auto py-12 sm:py-16 lg:py-20 bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
           <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-left-8 duration-1000 delay-200 flex flex-col justify-center text-center lg:text-left">
             <div className="space-y-4 sm:space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
@@ -49,15 +49,15 @@ export function DashboardPromo() {
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-              <div className="text-center p-3 sm:p-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
+              <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
                 <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto mb-2" />
                 <div className="text-xs sm:text-sm font-medium">Analytics</div>
               </div>
-              <div className="text-center p-3 sm:p-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
+              <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
                 <Target className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto mb-2" />
                 <div className="text-xs sm:text-sm font-medium">Insights</div>
               </div>
-              <div className="text-center p-3 sm:p-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
+              <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
                 <Award className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto mb-2" />
                 <div className="text-xs sm:text-sm font-medium">
                   Achievements

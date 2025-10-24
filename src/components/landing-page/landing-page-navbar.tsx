@@ -1,6 +1,6 @@
 "use client";
 
-import { LogOut, Menu, Settings, User, X } from "lucide-react";
+import { HelpCircle, LogOut, Menu, Settings, User, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -9,12 +9,11 @@ import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useAuth } from "@/providers/auth-provider";
 import { AvatarIconDisplay } from "../common/atoms/avatar-icon-selector";
 
@@ -107,102 +106,124 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
               - Hover states for desktop interaction
             */}
             <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
-              <ThemeToggle />
-
               {!loading && user ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="relative h-10 w-10 rounded-full p-0 hover:bg-accent/50 transition-colors"
-                    >
-                      <div className="w-8 h-8 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
-                        {userData?.avatarIcon ? (
-                          <AvatarIconDisplay
-                            iconId={userData.avatarIcon}
-                            size="sm"
-                            className="w-8 h-8"
-                          />
-                        ) : (
-                          <Avatar className="w-8 h-8 border-2 border-primary/20">
-                            <AvatarImage
-                              src={user?.photoURL || userData?.photoURL}
-                              alt={
-                                userData?.displayName ||
-                                user?.displayName ||
-                                "User"
-                              }
-                            />
-                            <AvatarFallback className="bg-primary/10 text-primary">
-                              {getInitials(
-                                userData?.displayName ||
-                                  user?.displayName ||
-                                  null,
+                <>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Link href="/profile">
+                          <Button
+                            variant="ghost"
+                            className="relative h-10 w-10 rounded-full p-0 hover:bg-accent/50 transition-colors"
+                          >
+                            <div className="w-8 h-8 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
+                              {userData?.avatarIcon ? (
+                                <AvatarIconDisplay
+                                  iconId={userData.avatarIcon}
+                                  size="sm"
+                                  className="w-8 h-8"
+                                />
+                              ) : (
+                                <Avatar className="w-8 h-8 border-2 border-primary/20">
+                                  <AvatarImage
+                                    src={user?.photoURL || userData?.photoURL}
+                                    alt={
+                                      userData?.displayName ||
+                                      user?.displayName ||
+                                      "User"
+                                    }
+                                  />
+                                  <AvatarFallback className="bg-primary/10 text-primary">
+                                    {getInitials(
+                                      userData?.displayName ||
+                                        user?.displayName ||
+                                        null,
+                                    )}
+                                  </AvatarFallback>
+                                </Avatar>
                               )}
-                            </AvatarFallback>
-                          </Avatar>
-                        )}
-                      </div>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-56" align="end" forceMount>
-                    <div className="flex items-center justify-start gap-2 p-2">
-                      <div className="flex flex-col space-y-1 leading-none">
-                        {(userData?.displayName || user.displayName) && (
-                          <p className="font-medium">
-                            {userData?.displayName || user.displayName}
-                          </p>
-                        )}
-                        {user.email && (
-                          <p className="w-[200px] truncate text-sm text-muted-foreground">
-                            {user.email}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem asChild>
-                      <Link href="/profile" className="flex items-center gap-2">
-                        <User className="h-4 w-4" />
-                        Profile
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link
-                        href="/dashboard"
-                        className="flex items-center gap-2"
-                      >
-                        <Settings className="h-4 w-4" />
-                        Dashboard
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      className="flex items-center gap-2 text-red-600 focus:text-red-600"
-                      onClick={handleSignOut}
-                    >
-                      <LogOut className="h-4 w-4" />
-                      Sign out
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                            </div>
+                          </Button>
+                        </Link>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>View Profile</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+
+                  <div className="flex items-center gap-2">
+                    <ThemeToggle />
+
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Link href="/settings">
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                            >
+                              <Settings className="h-4 w-4" />
+                            </Button>
+                          </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Settings</p>
+                        </TooltipContent>
+                      </Tooltip>
+
+                      {/* Help & Support */}
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Link href="/support">
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                            >
+                              <HelpCircle className="h-4 w-4" />
+                            </Button>
+                          </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Help & Support</p>
+                        </TooltipContent>
+                      </Tooltip>
+
+                      {/* Sign Out */}
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                            onClick={handleSignOut}
+                          >
+                            <LogOut className="h-4 w-4" />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Sign Out</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </div>
+                </>
               ) : (
-                <Button
-                  onClick={() => router.push("/auth")}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 lg:px-6"
-                  size="sm"
-                >
-                  Get Started
-                </Button>
+                <div className="flex items-center gap-4">
+                  <ThemeToggle />
+
+                  <Button
+                    onClick={() => router.push("/auth")}
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 lg:px-6"
+                    size="lg"
+                  >
+                    Get Started
+                  </Button>
+                </div>
               )}
             </div>
-
-            {/* 
-              MOBILE MENU BUTTON:
-              - Only visible on mobile (md:hidden)
-              - 44px touch target for accessibility
-              - Clear visual feedback on press
-            */}
             <div className="md:hidden flex items-center space-x-2">
               <ThemeToggle />
               <Button
@@ -222,17 +243,8 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
           </div>
         </div>
       </nav>
-
-      {/* 
-        MOBILE MENU OVERLAY:
-        - Full-screen overlay for mobile navigation
-        - Slide-in animation from top
-        - Touch-friendly menu items with proper spacing
-        - Backdrop blur for modern feel
-      */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
-          {/* Backdrop */}
           <button
             type="button"
             className="fixed inset-0 bg-black/20 backdrop-blur-sm"
@@ -244,13 +256,10 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             }}
             aria-label="Close mobile menu"
           />
-
-          {/* Menu Panel */}
           <div className="fixed top-16 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg animate-in slide-in-from-top-2 duration-200">
             <div className="container mx-auto px-4 py-6">
               {!loading && user ? (
                 <div className="space-y-4">
-                  {/* User Info Section */}
                   <div className="flex items-center gap-3 p-4 rounded-lg bg-accent/50">
                     <div className="w-10 h-10 rounded-full">
                       {userData?.avatarIcon ? (
@@ -293,7 +302,6 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                     </div>
                   </div>
 
-                  {/* Navigation Links */}
                   <div className="space-y-2">
                     <Link
                       href="/profile"

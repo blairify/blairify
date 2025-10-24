@@ -44,32 +44,32 @@ const testConversation: Message[] = [
 ];
 
 async function verifyServices() {
-  console.log("🔍 Verifying Interview Services...\n");
+  console.info("🔍 Verifying Interview Services...\n");
 
   try {
     // Test InterviewService
-    console.log("✅ Testing InterviewService...");
+    console.info("✅ Testing InterviewService...");
     const validation = InterviewService.validateInterviewConfig(testConfig);
-    console.log(
+    console.info(
       `   Config validation: ${validation.isValid ? "✅ PASS" : "❌ FAIL"}`,
     );
 
     const totalQuestions = InterviewService.calculateTotalQuestions(testConfig);
-    console.log(`   Total questions: ${totalQuestions} ✅`);
+    console.info(`   Total questions: ${totalQuestions} ✅`);
 
     const questionType = InterviewService.determineQuestionType("technical", 0);
-    console.log(`   Question type: ${questionType} ✅`);
+    console.info(`   Question type: ${questionType} ✅`);
 
     const responseAnalysis =
       InterviewService.analyzeResponseQuality(testConversation);
-    console.log(
+    console.info(
       `   Response analysis: ${responseAnalysis.substantiveResponses} substantive responses ✅`,
     );
 
     // Test PromptGenerator
-    console.log("\n✅ Testing PromptGenerator...");
+    console.info("\n✅ Testing PromptGenerator...");
     const systemPrompt = PromptGenerator.generateSystemPrompt(testConfig);
-    console.log(`   System prompt length: ${systemPrompt.length} chars ✅`);
+    console.info(`   System prompt length: ${systemPrompt.length} chars ✅`);
 
     const userPrompt = PromptGenerator.generateUserPrompt(
       "test",
@@ -78,20 +78,20 @@ async function verifyServices() {
       0,
       false,
     );
-    console.log(`   User prompt length: ${userPrompt.length} chars ✅`);
+    console.info(`   User prompt length: ${userPrompt.length} chars ✅`);
 
     const analysisPrompt =
       PromptGenerator.generateAnalysisSystemPrompt(testConfig);
-    console.log(`   Analysis prompt length: ${analysisPrompt.length} chars ✅`);
+    console.info(`   Analysis prompt length: ${analysisPrompt.length} chars ✅`);
 
     // Test ResponseValidator
-    console.log("\n✅ Testing ResponseValidator...");
+    console.info("\n✅ Testing ResponseValidator...");
     const goodResponse = ResponseValidator.validateAIResponse(
       "That's a great question! Can you tell me more?",
       testConfig,
       false,
     );
-    console.log(
+    console.info(
       `   Good response validation: ${goodResponse.isValid ? "✅ PASS" : "❌ FAIL"}`,
     );
 
@@ -100,52 +100,52 @@ async function verifyServices() {
       testConfig,
       false,
     );
-    console.log(
+    console.info(
       `   Bad response validation: ${!badResponse.isValid ? "✅ PASS" : "❌ FAIL"}`,
     );
 
     const userValidation = ResponseValidator.validateUserResponse(
       "This is a good answer",
     );
-    console.log(
+    console.info(
       `   User response validation: ${!userValidation.isNoAnswer ? "✅ PASS" : "❌ FAIL"}`,
     );
 
     // Test AnalysisService
-    console.log("\n✅ Testing AnalysisService...");
+    console.info("\n✅ Testing AnalysisService...");
     const mockAnalysis = AnalysisService.generateMockAnalysis(
       testConfig,
       responseAnalysis,
     );
-    console.log(`   Mock analysis length: ${mockAnalysis.length} chars ✅`);
+    console.info(`   Mock analysis length: ${mockAnalysis.length} chars ✅`);
 
     const parsedAnalysis = AnalysisService.parseAnalysis(
       mockAnalysis,
       responseAnalysis,
       testConfig,
     );
-    console.log(`   Parsed analysis score: ${parsedAnalysis.score}/100 ✅`);
-    console.log(
+    console.info(`   Parsed analysis score: ${parsedAnalysis.score}/100 ✅`);
+    console.info(
       `   Parsed analysis decision: ${parsedAnalysis.decision || "undefined"} ✅`,
     );
 
     // Test AIClient
-    console.log("\n✅ Testing AIClient...");
+    console.info("\n✅ Testing AIClient...");
     const aiClient = new AIClient();
-    console.log(
+    console.info(
       `   AI Client available: ${aiClient.isAvailable() ? "✅ YES" : "⚠️ NO (expected without API key)"}`,
     );
 
     const fallback = aiClient.getFallbackResponse(testConfig, false);
-    console.log(`   Fallback response length: ${fallback.length} chars ✅`);
+    console.info(`   Fallback response length: ${fallback.length} chars ✅`);
 
-    console.log("\n🎉 All services verified successfully!");
-    console.log("\n📋 Summary:");
-    console.log("   ✅ InterviewService: Configuration, questions, analysis");
-    console.log("   ✅ PromptGenerator: System, user, and analysis prompts");
-    console.log("   ✅ ResponseValidator: AI and user response validation");
-    console.log("   ✅ AnalysisService: Mock generation and parsing");
-    console.log("   ✅ AIClient: Initialization and fallbacks");
+    console.info("\n🎉 All services verified successfully!");
+    console.info("\n📋 Summary:");
+    console.info("   ✅ InterviewService: Configuration, questions, analysis");
+    console.info("   ✅ PromptGenerator: System, user, and analysis prompts");
+    console.info("   ✅ ResponseValidator: AI and user response validation");
+    console.info("   ✅ AnalysisService: Mock generation and parsing");
+    console.info("   ✅ AIClient: Initialization and fallbacks");
 
     return true;
   } catch (error) {

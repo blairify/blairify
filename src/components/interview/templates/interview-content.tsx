@@ -204,13 +204,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
     // Store configuration separately (required by results page)
     localStorage.setItem("interviewConfig", JSON.stringify(config));
 
-    // Debug logging
-    console.log("Interview completed - stored data:", {
-      sessionDataLength: sessionData.messages?.length || 0,
-      configKeys: Object.keys(config),
-      hasMessages: sessionData.messages && sessionData.messages.length > 0,
-    });
-
     // Navigate to results
     window.location.href = "/results";
   }, [session, config]);

@@ -1,8 +1,7 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
 import { useTheme } from "next-themes";
-import { useMemo, useRef } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export const LOGO_COLOR_VALUES = [
@@ -31,37 +30,83 @@ const sizeConfig: Record<LogoSize, { camera: number; scale: number }> = {
 };
 
 const colorConfig: Record<LogoColor, { light: string; dark: string }> = {
-  "light-blue": { light: "#60a5fa", dark: "#93c5fd" }, // Brighter, more saturated blue for dark mode
-  primary: { light: "#0a0a0a", dark: "#e5e5e5" }, // Slightly darker white to avoid blown-out highlights
-  secondary: { light: "#71717a", dark: "#a1a1aa" }, // Lighter gray with more contrast
-  accent: { light: "#f97316", dark: "#fdba74" }, // Brighter, warmer orange for visibility
-  muted: { light: "#737373", dark: "#d4d4d4" }, // Much lighter for better visibility in dark mode
+  "light-blue": { light: "#60a5fa", dark: "#93c5fd" },
+  primary: { light: "#0a0a0a", dark: "#e5e5e5" },
+  secondary: { light: "#71717a", dark: "#a1a1aa" },
+  accent: { light: "#f97316", dark: "#fdba74" },
+  muted: { light: "#737373", dark: "#d4d4d4" },
 };
 
-interface LogoGeometryProps {
-  colorVariant: LogoColor;
-  animated: boolean;
-}
-
-function LogoGeometry({ colorVariant, animated }: LogoGeometryProps) {
-  const meshRef = useRef<THREE.Group>(null);
+export default function MainLogo({
+  color = "light-blue",
+  size = "md",
+  animated = true,
+}: MainLogoProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const { theme, resolvedTheme } = useTheme();
+  const config = sizeConfig[size];
 
-  const currentTheme = (resolvedTheme || theme || "light") as "light" | "dark";
-  const color = colorConfig[colorVariant][currentTheme];
+  useEffect(() => {
+    if (!containerRef.current) return;
 
-  useFrame((state) => {
-    if (meshRef.current && animated) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.05;
-      meshRef.current.rotation.x =
-        Math.sin(state.clock.elapsedTime * 0.3) * 0.1;
-      meshRef.current.rotation.z =
-        Math.cos(state.clock.elapsedTime * 0.2) * 0.05;
-    }
-  });
+    // Clear any existing content
+    containerRef.current.innerHTML = "";
 
-  const logoShapes = useMemo(() => {
-    const shapes: THREE.Shape[] = [];
+    const currentTheme = (resolvedTheme || theme || "light") as
+      | "light"
+      | "dark";
+    const colorHex = colorConfig[color][currentTheme];
+
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      50,
+      containerRef.current.clientWidth / containerRef.current.clientHeight,
+      0.1,
+      1000,
+    );
+    camera.position.set(0, 0, config.camera);
+
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true,
+    });
+    renderer.setSize(
+      containerRef.current.clientWidth,
+      containerRef.current.clientHeight,
+    );
+    renderer.setClearColor(0x000000, 0);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    containerRef.current.appendChild(renderer.domElement);
+
+    // Enhanced lighting for better 3D visibility
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    scene.add(ambientLight);
+
+    // Key light from top-right
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.5);
+    keyLight.position.set(8, 8, 6);
+    keyLight.castShadow = true;
+    scene.add(keyLight);
+
+    // Fill light from left
+    const fillLight = new THREE.DirectionalLight(0x8ab4f8, 1.2);
+    fillLight.position.set(-6, 3, 4);
+    scene.add(fillLight);
+
+    // Rim light from behind
+    const rimLight = new THREE.DirectionalLight(0xffffff, 1.8);
+    rimLight.position.set(0, -3, -5);
+    scene.add(rimLight);
+
+    // Accent light for depth
+    const accentLight = new THREE.PointLight(0xffffff, 1.5);
+    accentLight.position.set(0, 0, 8);
+    scene.add(accentLight);
+
+    // Create logo geometry
+    const logoShapes: THREE.Shape[] = [];
     const scale = 0.013;
     const centerX = 566.93 / 2;
     const centerY = 566.93 / 2;
@@ -71,6 +116,7 @@ function LogoGeometry({ colorVariant, animated }: LogoGeometryProps) {
       -(y - centerY) * scale,
     ];
 
+    // Shape 1
     const shape1 = new THREE.Shape();
     const [x1, y1] = convertPoint(100.48, 371.74);
     shape1.moveTo(x1, y1);
@@ -105,8 +151,9 @@ function LogoGeometry({ colorVariant, animated }: LogoGeometryProps) {
       ...convertPoint(100.48, 371.74),
     );
     shape1.closePath();
-    shapes.push(shape1);
+    logoShapes.push(shape1);
 
+    // Shape 2
     const shape2 = new THREE.Shape();
     const [x2, y2] = convertPoint(462.56, 105.25);
     shape2.moveTo(x2, y2);
@@ -135,8 +182,9 @@ function LogoGeometry({ colorVariant, animated }: LogoGeometryProps) {
       ...convertPoint(462.56, 105.25),
     );
     shape2.closePath();
-    shapes.push(shape2);
+    logoShapes.push(shape2);
 
+    // Shape 3
     const shape3 = new THREE.Shape();
     const [x3, y3] = convertPoint(486.27, 283.42);
     shape3.moveTo(x3, y3);
@@ -161,69 +209,104 @@ function LogoGeometry({ colorVariant, animated }: LogoGeometryProps) {
       ...convertPoint(486.27, 283.42),
     );
     shape3.closePath();
-    shapes.push(shape3);
+    logoShapes.push(shape3);
 
-    return shapes;
-  }, []);
+    // Create meshes
+    const logoGroup = new THREE.Group();
+    logoGroup.scale.set(config.scale, config.scale, config.scale);
 
-  return (
-    <group ref={meshRef}>
-      {logoShapes.map((shape) => (
-        <mesh key={`logo-shape-${shape}`}>
-          <extrudeGeometry
-            args={[
-              shape,
-              {
-                depth: 0.2,
-                bevelEnabled: true,
-                bevelThickness: 0.02,
-                bevelSize: 0.01,
-                bevelSegments: 8,
-                curveSegments: 32,
-              },
-            ]}
-          />
-          <meshStandardMaterial
-            color={color}
-            roughness={0.15}
-            metalness={0.8}
-            emissive={color}
-            emissiveIntensity={0.2}
-          />
-        </mesh>
-      ))}
-    </group>
-  );
-}
+    logoShapes.forEach((shape) => {
+      const geometry = new THREE.ExtrudeGeometry(shape, {
+        depth: 0.4,
+        bevelEnabled: true,
+        bevelThickness: 0.05,
+        bevelSize: 0.03,
+        bevelSegments: 10,
+        curveSegments: 32,
+      });
 
-function Scene() {
-  return (
-    <>
-      <ambientLight intensity={0.8} />
-      <directionalLight position={[10, 10, 5]} intensity={1.5} />
-      <directionalLight position={[-5, -5, 2]} intensity={0.6} />
-      <pointLight position={[0, 0, 10]} intensity={0.5} />
-    </>
-  );
-}
+      const material = new THREE.MeshStandardMaterial({
+        color: colorHex,
+        roughness: 0.3,
+        metalness: 0.7,
+        emissive: colorHex,
+        emissiveIntensity: 0.15,
+        flatShading: false,
+      });
 
-export default function MainLogo({
-  color = "light-blue",
-  size = "md",
-  animated = true,
-}: MainLogoProps) {
-  const config = sizeConfig[size];
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
 
-  return (
-    <Canvas
-      camera={{ position: [0, 0, config.camera], fov: 50 }}
-      gl={{ alpha: true, antialias: true }}
-      style={{ background: "transparent" }}
-    >
-      <Scene />
-      <group scale={config.scale}>
-        <LogoGeometry colorVariant={color} animated={animated} />
-      </group>
-    </Canvas>
-  );
+      // Add edge highlighting
+      const edges = new THREE.EdgesGeometry(geometry, 15);
+      const edgeMaterial = new THREE.LineBasicMaterial({
+        color: currentTheme === "dark" ? 0xffffff : 0x000000,
+        transparent: true,
+        opacity: 0.15,
+      });
+      const edgeLines = new THREE.LineSegments(edges, edgeMaterial);
+      mesh.add(edgeLines);
+
+      logoGroup.add(mesh);
+    });
+
+    scene.add(logoGroup);
+
+    // Animation
+    let animationId: number;
+    const clock = new THREE.Clock();
+
+    function animate() {
+      animationId = requestAnimationFrame(animate);
+
+      if (animated) {
+        const elapsedTime = clock.getElapsedTime();
+        logoGroup.rotation.y = elapsedTime * 0.05;
+        logoGroup.rotation.x = Math.sin(elapsedTime * 0.3) * 0.1;
+        logoGroup.rotation.z = Math.cos(elapsedTime * 0.2) * 0.05;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle resize
+    const handleResize = () => {
+      if (!containerRef.current) return;
+
+      const width = containerRef.current.clientWidth;
+      const height = containerRef.current.clientHeight;
+
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationId);
+
+      logoGroup.traverse((object) => {
+        if (object instanceof THREE.Mesh) {
+          object.geometry.dispose();
+          if (object.material instanceof THREE.Material) {
+            object.material.dispose();
+          }
+        }
+      });
+
+      renderer.dispose();
+
+      if (containerRef.current) {
+        containerRef.current.removeChild(renderer.domElement);
+      }
+    };
+  }, [color, animated, theme, resolvedTheme, config]);
+
+  return <div ref={containerRef} className="w-full h-full" />;
 }

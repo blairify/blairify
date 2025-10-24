@@ -66,9 +66,6 @@ export class AIClient {
         }
 
         const delay = baseDelay * 2 ** attempt;
-        console.log(
-          `Rate limited, retrying in ${delay}ms (attempt ${attempt + 1}/${maxRetries + 1})`,
-        );
         await new Promise((resolve) => setTimeout(resolve, delay));
       }
     }

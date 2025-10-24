@@ -12,11 +12,11 @@ import {
 } from "@/lib/services/landing-page-data";
 
 export default async function HomePage() {
-  const scrollThreshold = 500;
+  const scrollThreshold = 150;
 
   // Fetch data for promo sections
-  const [_featuredJobs, practiceQuestions] = await Promise.all([
-    getFeaturedJobs(3),
+  const [featuredJobs, practiceQuestions] = await Promise.all([
+    getFeaturedJobs(4), // Get 4 jobs for the 2x2 grid display
     getFeaturedPracticeQuestions(4),
   ]);
 
@@ -52,7 +52,7 @@ export default async function HomePage() {
               - Gap utilities create consistent spacing between elements
             */}
             <HeroSection />
-            <JobListingsPromo />
+            <JobListingsPromo jobs={featuredJobs} />
             <DashboardPromo />
             <PracticeLibraryPromo questions={practiceQuestions} />
             <FeaturesGrid />

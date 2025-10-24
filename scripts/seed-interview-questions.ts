@@ -260,7 +260,7 @@
 // ];
 
 // async function seedQuestions() {
-//   console.log('🌱 Starting database seeding...\n');
+//   console.info('🌱 Starting database seeding...\n');
 
 //   try {
 //     const questionsRef = db.collection('practice-questions');
@@ -279,7 +279,7 @@
 //       const batch = db.batch();
 //       const currentBatch = batches[batchIndex];
 
-//       console.log(`📦 Processing batch ${batchIndex + 1}/${batches.length}...`);
+//       console.info(`📦 Processing batch ${batchIndex + 1}/${batches.length}...`);
 
 //       currentBatch.forEach((question : PracticeQuestion) => {
 //         const docRef = questionsRef.doc(); // Auto-generate ID
@@ -289,20 +289,20 @@
 //           updatedAt: new Date(),
 //         });
 
-//         console.log(`  ➕ Queued: ${question.companyName} - ${question.category}`);
+//         console.info(`  ➕ Queued: ${question.companyName} - ${question.category}`);
 //       });
 
 //       // Commit the batch
 //       await batch.commit();
 //       totalAdded += currentBatch.length;
-//       console.log(`  ✅ Batch ${batchIndex + 1} committed successfully!\n`);
+//       console.info(`  ✅ Batch ${batchIndex + 1} committed successfully!\n`);
 //     }
 
-//     console.log('='.repeat(50));
-//     console.log(`🎉 Seeding complete!`);
-//     console.log(`✅ Successfully added: ${totalAdded} questions`);
-//     console.log(`📊 Total batches: ${batches.length}`);
-//     console.log('='.repeat(50));
+//     console.info('='.repeat(50));
+//     console.info(`🎉 Seeding complete!`);
+//     console.info(`✅ Successfully added: ${totalAdded} questions`);
+//     console.info(`📊 Total batches: ${batches.length}`);
+//     console.info('='.repeat(50));
 
 //   } catch (error) {
 //     console.error('❌ Seeding failed:', error);
@@ -313,7 +313,7 @@
 // // Run the seeding
 // seedQuestions()
 //   .then(() => {
-//     console.log('\n✨ All done! Check your Firebase Console to verify.');
+//     console.info('\n✨ All done! Check your Firebase Console to verify.');
 //     process.exit(0);
 //   })
 //   .catch((error) => {
