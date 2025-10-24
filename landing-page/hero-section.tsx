@@ -48,8 +48,9 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-base sm:text-lg text-[color:var(--muted-foreground)] max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Practice with AI-generated questions, get instant feedback, and
-              track your progress on a career-focused platform.
+              This is a new standard in job search. Curated jobs meet AI-powered
+              interview prep. Browse opportunities, practice 1000+ questions,
+              and land your dream role faster.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 sm:mt-6 justify-center lg:justify-start">

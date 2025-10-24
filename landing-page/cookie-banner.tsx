@@ -61,21 +61,18 @@ export const CookieBanner = () => {
   const [loading, setLoading] = useState(false);
   const [showFloatingButton, setShowFloatingButton] = useState(false);
   const [preferences, setPreferences] = useState<CookiePreferences>({
-    necessary: true, // Always required
+    necessary: true,
     analytics: false,
     marketing: false,
     personalization: false,
   });
 
-  // Check if consent is needed
   const checkConsentStatus = useCallback(async () => {
     try {
-      // Check localStorage first for quick response
       const localConsent = localStorage.getItem(COOKIE_NAME);
       if (localConsent) {
         const consent: CookieConsent = JSON.parse(localConsent);
 
-        // Check if consent is current version
         if (
           consent.version === COOKIE_CONSENT_VERSION &&
           consent.hasConsented
@@ -87,18 +84,15 @@ export const CookieBanner = () => {
         }
       }
 
-      // If user is logged in, check database
       if (user?.uid) {
         const profile = await DatabaseService.getUserProfile(user.uid);
         if (profile?.cookieConsent) {
           const dbConsent = profile.cookieConsent;
 
-          // Check if database consent is current
           if (
             dbConsent.version === COOKIE_CONSENT_VERSION &&
             dbConsent.hasConsented
           ) {
-            // Update localStorage to match database
             const localConsent: CookieConsent = {
               hasConsented: dbConsent.hasConsented,
               consentDate: dbConsent.consentDate.toDate(),
@@ -114,7 +108,6 @@ export const CookieBanner = () => {
         }
       }
 
-      // Show banner if no valid consent found
       setShowBanner(true);
     } catch (error) {
       console.error("Error checking consent status:", error);
@@ -182,14 +175,12 @@ export const CookieBanner = () => {
         });
       }
 
-      // Apply cookie preferences
       applyCookiePreferences(finalPreferences);
 
       setShowBanner(false);
       setShowFloatingButton(true);
     } catch (error) {
       console.error("Error saving cookie consent:", error);
-      // Still hide banner and save locally on database error
       const consent: CookieConsent = {
         hasConsented: consentGiven,
         consentDate: new Date(),
@@ -230,7 +221,6 @@ export const CookieBanner = () => {
       }
     }
 
-    // Marketing cookies (future: Facebook Pixel, etc.)
     if (prefs.marketing) {
       // Enable marketing tracking
     } else {
@@ -285,10 +275,11 @@ export const CookieBanner = () => {
           onClick={openCookieSettings}
           variant="outline"
           size="icon"
-          className="h-12 w-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 bg-background/95 backdrop-blur-sm border-2"
+          aria-label="Cookie Settings"
+          className="size-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 bg-background/95 backdrop-blur-sm border-2"
           title="Cookie Settings"
         >
-          <Cookie className="h-5 w-5" />
+          <Cookie className="size-5" />
         </Button>
       </div>
     );
@@ -301,7 +292,6 @@ export const CookieBanner = () => {
       <Card className="max-w-4xl mx-auto p-6 shadow-2xl border-border/50 backdrop-blur-md bg-background/95 pointer-events-auto">
         {!showDetails ? (
           <div className="space-y-4">
-            {/* Header */}
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-3">
                 <Cookie className="h-6 w-6 text-primary flex-shrink-0" />
@@ -317,6 +307,7 @@ export const CookieBanner = () => {
               <Button
                 variant="ghost"
                 size="sm"
+                aria-label="Close Cookie Banner"
                 onClick={handleRejectAll}
                 className="text-muted-foreground hover:text-foreground flex-shrink-0"
               >
@@ -324,7 +315,6 @@ export const CookieBanner = () => {
               </Button>
             </div>
 
-            {/* Content */}
             <div className="text-sm text-muted-foreground space-y-2">
               <p>
                 We use cookies to provide essential functionality, analyze usage
@@ -348,9 +338,9 @@ export const CookieBanner = () => {
               </p>
             </div>
 
-            {/* Actions */}
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <Button
+                aria-label="Accept All Cookies"
                 onClick={handleAcceptAll}
                 disabled={loading}
                 className="flex-1 sm:flex-none"
@@ -359,6 +349,7 @@ export const CookieBanner = () => {
               </Button>
               <Button
                 variant="outline"
+                aria-label="Customize Cookies"
                 onClick={handleCustomize}
                 disabled={loading}
                 className="flex-1 sm:flex-none"
@@ -368,6 +359,7 @@ export const CookieBanner = () => {
               </Button>
               <Button
                 variant="outline"
+                aria-label="Reject Optional Cookies"
                 onClick={handleRejectAll}
                 disabled={loading}
                 className="flex-1 sm:flex-none"
@@ -378,7 +370,6 @@ export const CookieBanner = () => {
           </div>
         ) : (
           <div className="space-y-6">
-            {/* Header */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Shield className="h-6 w-6 text-primary" />
@@ -393,9 +384,7 @@ export const CookieBanner = () => {
               </Button>
             </div>
 
-            {/* Cookie Categories */}
             <div className="space-y-4">
-              {/* Necessary Cookies */}
               <div className="border rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-medium">Essential Cookies</h4>
@@ -409,7 +398,6 @@ export const CookieBanner = () => {
                 </p>
               </div>
 
-              {/* Analytics Cookies */}
               <div className="border rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-medium">Analytics Cookies</h4>
@@ -443,7 +431,6 @@ export const CookieBanner = () => {
                 </p>
               </div>
 
-              {/* Marketing Cookies */}
               <div className="border rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-medium">Marketing Cookies</h4>
@@ -514,11 +501,11 @@ export const CookieBanner = () => {
               </div>
             </div>
 
-            {/* Actions */}
             <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t">
               <Button
                 onClick={handleSaveCustom}
                 disabled={loading}
+                aria-label="Save Cookie Preferences"
                 className="flex-1 sm:flex-none"
               >
                 {loading ? "Saving..." : "Save Preferences"}
@@ -527,6 +514,7 @@ export const CookieBanner = () => {
                 variant="outline"
                 onClick={handleAcceptAll}
                 disabled={loading}
+                aria-label="Accept All Cookies"
                 className="flex-1 sm:flex-none"
               >
                 Accept All
@@ -535,6 +523,7 @@ export const CookieBanner = () => {
                 variant="ghost"
                 onClick={() => setShowDetails(false)}
                 disabled={loading}
+                aria-label="Back to Cookie Banner"
                 className="flex-1 sm:flex-none"
               >
                 Back
