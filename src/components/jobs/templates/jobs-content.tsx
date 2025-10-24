@@ -107,15 +107,20 @@ export function JobsContent() {
 
     if (searchQuery) params.append("query", searchQuery);
     if (location) params.append("location", location);
-    if (jobType !== "type-all") params.append("type", jobType.replace("type-", ""));
-    if (jobLevel !== "level-all") params.append("level", jobLevel.replace("level-", ""));
+    if (jobType !== "type-all")
+      params.append("type", jobType.replace("type-", ""));
+    if (jobLevel !== "level-all")
+      params.append("level", jobLevel.replace("level-", ""));
     if (remoteOnly) params.append("remote", "true");
     if (minSalary !== "") params.append("min_salary", minSalary.toString());
     if (maxSalary !== "") params.append("max_salary", maxSalary.toString());
     if (currency) params.append("currency", currency);
-    if (datePosted !== "date-all") params.append("date_posted", datePosted.replace("date-", ""));
-    if (companySize !== "size-all") params.append("company_size", companySize.replace("size-", ""));
-    if (jobFunction !== "func-all") params.append("job_function", jobFunction.replace("func-", ""));
+    if (datePosted !== "date-all")
+      params.append("date_posted", datePosted.replace("date-", ""));
+    if (companySize !== "size-all")
+      params.append("company_size", companySize.replace("size-", ""));
+    if (jobFunction !== "func-all")
+      params.append("job_function", jobFunction.replace("func-", ""));
 
     return params.toString();
   };
@@ -129,7 +134,7 @@ export function JobsContent() {
         console.error("Error fetching jobs:", err);
         toast.error("Failed to load jobs. Please try again.");
       },
-    }
+    },
   );
 
   const handleSearch = (e: React.FormEvent) => {
@@ -158,19 +163,19 @@ export function JobsContent() {
       // Create URL parameters with job context
       const interviewParams = new URLSearchParams({
         // Basic configuration based on job
-      position: job.title,
-      seniority: job.level || "mid",
-      interviewType: "technical",
-      interviewMode: "untimed",
-      duration: "30",
-      jobId: job.id,
-      company: job.company,
-      jobDescription: job.description || "",
-      jobRequirements: job.tags?.join(", ") || "",
-      jobLocation: job.location || "",
-      jobType: job.type || "",
-      contextType: "job-specific",
-    });
+        position: job.title,
+        seniority: job.level || "mid",
+        interviewType: "technical",
+        interviewMode: "untimed",
+        duration: "30",
+        jobId: job.id,
+        company: job.company,
+        jobDescription: job.description || "",
+        jobRequirements: job.tags?.join(", ") || "",
+        jobLocation: job.location || "",
+        jobType: job.type || "",
+        contextType: "job-specific",
+      });
 
       // Navigate to interview with job context
       router.push(`/interview?${interviewParams.toString()}`);
@@ -357,7 +362,7 @@ export function JobsContent() {
                         value={minSalary}
                         onChange={(e) =>
                           setMinSalary(
-                            e.target.value ? Number(e.target.value) : ""
+                            e.target.value ? Number(e.target.value) : "",
                           )
                         }
                       />
@@ -369,7 +374,7 @@ export function JobsContent() {
                         value={maxSalary}
                         onChange={(e) =>
                           setMaxSalary(
-                            e.target.value ? Number(e.target.value) : ""
+                            e.target.value ? Number(e.target.value) : "",
                           )
                         }
                       />
@@ -521,7 +526,9 @@ export function JobsContent() {
                       return (
                         <Button
                           key={`page-${pageNum}`}
-                          variant={currentPage === pageNum ? "default" : "outline"}
+                          variant={
+                            currentPage === pageNum ? "default" : "outline"
+                          }
                           size="sm"
                           onClick={() => setCurrentPage(pageNum)}
                           disabled={isLoading}
@@ -529,7 +536,7 @@ export function JobsContent() {
                           {pageNum}
                         </Button>
                       );
-                    }
+                    },
                   )}
                 </div>
 

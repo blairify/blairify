@@ -12,7 +12,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-sans antialiased">
+      {/* 
+        RESPONSIVE LAYOUT FOUNDATION:
+        - Uses system font stack for optimal performance across devices
+        - Antialiased text for crisp rendering on all screen densities
+        - Responsive typography scaling handled by Tailwind's default rem units
+      */}
+      <body className="font-sans antialiased min-h-screen bg-background text-foreground">
         <Suspense fallback={null}>
           <ThemeProvider
             attribute="class"
@@ -22,7 +28,12 @@ export default function RootLayout({
           >
             <SWRProvider>
               <AuthProvider>
-                {children}
+                {/* 
+                  MAIN CONTENT WRAPPER:
+                  - min-h-screen ensures full viewport height on all devices
+                  - Flexible layout adapts to content and screen size
+                */}
+                <div className="flex flex-col min-h-screen">{children}</div>
                 <CookieBanner />
               </AuthProvider>
             </SWRProvider>

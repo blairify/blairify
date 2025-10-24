@@ -174,7 +174,6 @@ export function AvatarIconSelector({
               <div key={avatarIcon.id} className="text-center">
                 <Button
                   variant="ghost"
-                  size="lg"
                   className={`w-16 h-16 rounded-full p-0 relative hover:scale-105 transition-all ${
                     isSelected
                       ? `${avatarIcon.bgColor} ring-2 ring-primary ring-offset-2`

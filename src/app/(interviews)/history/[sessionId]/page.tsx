@@ -589,20 +589,16 @@ export default function SessionDetailsPage() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/configure">
-                <Button size="lg" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto">
                   Start New Interview
                 </Button>
               </Link>
               <Link href="/practice">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                >
+                <Button variant="outline" className="w-full sm:w-auto">
                   Practice More Questions
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full sm:w-auto">
                 <Download className="h-4 w-4 mr-2" />
                 Export Results
               </Button>

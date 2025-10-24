@@ -31,7 +31,7 @@ export default function NotFound() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               {/* Default button */}
-              <Button variant="default" size="lg" className="min-w-32">
+              <Button variant="default" className="min-w-32">
                 <Link href="/">Back to Home</Link>
               </Button>
 
