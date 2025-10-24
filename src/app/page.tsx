@@ -13,9 +13,9 @@ import {
 } from "@/lib/services/landing-page-data";
 
 export const metadata: Metadata = {
-  title: "Blairify - Job Search & Interview Preparation Platform",
+  title: "Blairify - AI-Powered Career Acceleration Platform ",
   description:
-    "Find your next tech job and prepare for interviews with Blairify. Browse curated job listings, practice with sample interview questions, and track your application progress. Start your job search today!",
+    "Blairify is the new standard in job search. Curated jobs meet AI-powered interview prep. Browse opportunities, practice 1000+ questions, and land your dream role faster.",
   keywords: [
     "job search platform",
     "tech jobs",
@@ -40,24 +40,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://blairify.com/",
     siteName: "Blairify",
-    title: "Blairify - Job Search & Interview Preparation Platform",
+    title: "Blairify - AI-Powered Career Acceleration Platform",
     description:
-      "Find your next tech job and prepare for interviews with Blairify. Browse curated job listings, practice with sample interview questions, and track your application progress. Start your job search today!",
+      "Blairify is the new standard in job search. Curated jobs meet AI-powered interview prep. Browse opportunities, practice 1000+ questions, and land your dream role faster.",
     images: [
       {
         url: "https://blairify.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Blairify - AI powered Job Search & Interview Preparation Platform",
+        alt: "Blairify - AI powered Career Acceleration Platform",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blairify - Job Search & Interview Preparation Platform",
+    title: "Blairify - AI-powered Career Acceleration Platform",
     description:
-      "Find your next tech job and prepare for interviews with Blairify. Browse curated job listings, practice with sample interview questions, and track your application progress.",
+      "Blairify is the new standard in job search. Curated jobs meet AI-powered interview prep. Browse opportunities, practice 1000+ questions, and land your dream role faster.",
     images: ["https://blairify.com/og-image.png"],
     creator: "@blairify",
   },
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
   category: "Business",
   other: {
-    "fb:app_id": "your-facebook-app-id", // Replace with actual Facebook App ID if you have one
+    "fb:app_id": "your-facebook-app-id", // TODO replace
     "og:image:secure_url": "https://blairify.com/og-image.png",
   },
 };
