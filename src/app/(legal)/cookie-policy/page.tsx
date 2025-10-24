@@ -1,5 +1,24 @@
+import type { Metadata } from "next";
 import Footer from "@/components/common/organisms/footer";
 import Navbar from "@/components/landing-page/landing-page-navbar";
+
+export const metadata: Metadata = {
+  title: "Cookie Policy | Blairify - How We Use Cookies",
+  description:
+    "Learn about how Blairify uses cookies to improve your experience on our platform. Understand what cookies we use and how to manage your preferences.",
+  keywords: [
+    "cookie policy",
+    "cookies",
+    "tracking",
+    "website cookies",
+    "privacy preferences",
+    "data tracking",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function CookiePolicyPage() {
   return (

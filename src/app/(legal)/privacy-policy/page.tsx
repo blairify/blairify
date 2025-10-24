@@ -1,5 +1,24 @@
+import type { Metadata } from "next";
 import Footer from "@/components/common/organisms/footer";
 import Navbar from "@/components/landing-page/landing-page-navbar";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Blairify - How We Protect Your Data",
+  description:
+    "Learn how Blairify collects, uses, and protects your personal information. Our comprehensive privacy policy explains your rights and our data handling practices.",
+  keywords: [
+    "privacy policy",
+    "data protection",
+    "user privacy",
+    "GDPR compliance",
+    "data handling",
+    "personal information",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (

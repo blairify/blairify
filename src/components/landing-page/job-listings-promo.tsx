@@ -29,13 +29,18 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
   const router = useRouter();
   const featuredJobs = jobs.slice(0, 4);
   return (
-    <section className=" max-w-7xl mx-auto py-12 sm:py-16 lg:py-20 bg-muted/30 overflow-hidden">
+    <section
+      className=" max-w-7xl mx-auto py-12 sm:py-16 lg:py-20 bg-muted/30 overflow-hidden"
+      aria-labelledby="job-listings-heading"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
           {/* Job Listings - Left Side */}
           <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-left-8 duration-1000 delay-200 order-last lg:order-first">
-            {/* 2x2 Job Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <ul
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              aria-label="Featured job opportunities"
+            >
               {featuredJobs.map((job, index) => (
                 <Card
                   key={job.id}
@@ -43,6 +48,8 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                   style={{
                     animationDelay: `${600 + index * 100}ms`,
                   }}
+                  role="listitem"
+                  aria-label={`Job: ${job.title} at ${job.company}`}
                 >
                   {/* Job Header */}
                   <div className="flex items-start justify-between">
@@ -104,13 +111,16 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                   </div>
                 </Card>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Content Side - Right */}
           <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-center text-center lg:text-left">
             <div className="space-y-4 sm:space-y-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
+              <h2
+                id="job-listings-heading"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight"
+              >
                 Practice for Real Job Opportunities
               </h2>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">

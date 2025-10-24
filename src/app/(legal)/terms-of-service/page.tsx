@@ -1,5 +1,24 @@
+import type { Metadata } from "next";
 import Footer from "@/components/common/organisms/footer";
 import Navbar from "@/components/landing-page/landing-page-navbar";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | Blairify - Platform Usage Agreement",
+  description:
+    "Read Blairify's terms of service to understand your rights and responsibilities when using our job search and interview preparation platform.",
+  keywords: [
+    "terms of service",
+    "user agreement",
+    "platform terms",
+    "usage policy",
+    "legal terms",
+    "service conditions",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function TermsOfServicePage() {
   return (

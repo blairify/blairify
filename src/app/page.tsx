@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Footer from "@/components/common/organisms/footer";
 import { DashboardPromo } from "@/components/landing-page/dashboard-promo";
 import FeaturesGrid from "@/components/landing-page/features-grid";
@@ -11,46 +12,192 @@ import {
   getFeaturedPracticeQuestions,
 } from "@/lib/services/landing-page-data";
 
+export const metadata: Metadata = {
+  title: "Blairify - Job Search & Interview Preparation Platform",
+  description:
+    "Find your next tech job and prepare for interviews with Blairify. Browse curated job listings, practice with sample interview questions, and track your application progress. Start your job search today!",
+  keywords: [
+    "job search platform",
+    "tech jobs",
+    "software engineer jobs",
+    "interview preparation",
+    "job listings",
+    "career opportunities",
+    "job application tracking",
+    "interview practice",
+    "tech career",
+    "remote jobs",
+  ],
+  authors: [{ name: "Blairify" }],
+  creator: "Blairify",
+  publisher: "Blairify",
+  metadataBase: new URL("https://blairify.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://blairify.com",
+    siteName: "Blairify",
+    title: "Blairify - Job Search & Interview Preparation",
+    description:
+      "Find your next tech job and prepare for interviews. Browse curated job listings, practice with sample questions, and track your progress.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Blairify - AI powered Job Search & Interview Preparation Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blairify - Job Search & Interview Prep",
+    description:
+      "Find tech jobs and prepare for interviews with curated listings and practice questions.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "Business",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://blairify.com/#website",
+      url: "https://blairify.com",
+      name: "Blairify",
+      description:
+        "Job search platform with interview preparation tools for tech professionals",
+      publisher: {
+        "@id": "https://blairify.com/#organization",
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://blairify.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://blairify.com/#organization",
+      name: "Blairify",
+      url: "https://blairify.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://blairify.com/300.png",
+      },
+      sameAs: ["https://www.linkedin.com/company/blairify"],
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blairify.com/#webpage",
+      url: "https://blairify.com",
+      name: "Blairify - Job Search & Interview Prep",
+      description:
+        "Find tech jobs and prepare for interviews with curated listings and practice questions",
+      isPartOf: {
+        "@id": "https://blairify.com/#website",
+      },
+      about: {
+        "@id": "https://blairify.com/#organization",
+      },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: "https://blairify.com/og-image.png",
+      },
+    },
+    {
+      "@type": "Service",
+      serviceType: "Job Search and Interview Preparation Platform",
+      provider: {
+        "@id": "https://blairify.com/#organization",
+      },
+      areaServed: "Worldwide",
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Job Search and Interview Preparation Services",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Practice Interview Questions",
+              description: "Access to 1000+ curated interview questions",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Personalized Dashboard",
+              description: "Track your progress and interview preparation",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Job Listings",
+              description: "Browse and apply to relevant job opportunities",
+            },
+          },
+        ],
+      },
+    },
+  ],
+};
+
 export default async function HomePage() {
   const scrollThreshold = 150;
 
-  // Fetch data for promo sections
   const [featuredJobs, practiceQuestions] = await Promise.all([
-    getFeaturedJobs(4), // Get 4 jobs for the 2x2 grid display
+    getFeaturedJobs(4),
     getFeaturedPracticeQuestions(4),
   ]);
 
   return (
     <>
-      {/* 
-        RESPONSIVE PAGE STRUCTURE:
-        - Mobile-first approach with progressive enhancement
-        - Flexible spacing that adapts to screen size
-        - Optimized for touch interactions on mobile devices
-      */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground px-4 py-2 rounded-md z-50 focus:z-50"
+      >
+        Skip to main content
+      </a>
+      <a
+        href="#navigation"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-32 bg-primary text-primary-foreground px-4 py-2 rounded-md z-50 focus:z-50"
+      >
+        Skip to navigation
+      </a>
+
       <div className="flex-1">
-        {/* 
-          HERO VIEWPORT SECTION:
-          - min-h-screen ensures hero takes full viewport on all devices
-          - Relative positioning for layered content
-          - z-index for proper stacking context
-        */}
         <div className="min-h-screen bg-transparent relative z-10">
           <Navbar scrollThreshold={scrollThreshold} />
-
-          {/* 
-            MAIN CONTENT AREA:
-            - Semantic main element for accessibility
-            - CSS custom properties for theme consistency
-            - Responsive sections with proper spacing
-          */}
-          <main className="bg-[color:var(--background)] text-[color:var(--foreground)]">
-            {/* 
-              SECTION SPACING STRATEGY:
-              - Each section has responsive padding (py-16 to py-24)
-              - Container classes provide consistent max-width and centering
-              - Gap utilities create consistent spacing between elements
-            */}
+          <main
+            id="main-content"
+            className="bg-[color:var(--background)] text-[color:var(--foreground)]"
+            aria-label="Main content"
+          >
             <HeroSection />
             <JobListingsPromo jobs={featuredJobs} />
             <DashboardPromo />
@@ -60,13 +207,6 @@ export default async function HomePage() {
           </main>
         </div>
       </div>
-
-      {/* 
-        FOOTER SECTION:
-        - Positioned at bottom of flex container
-        - Responsive layout adapts to content
-        - Consistent with overall design system
-      */}
       <Footer />
     </>
   );
