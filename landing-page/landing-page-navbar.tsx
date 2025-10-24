@@ -82,11 +82,13 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
         - Responsive padding and spacing
       */}
       <nav
+        id="navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
             : "bg-transparent"
         }`}
+        aria-label="Main navigation"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
@@ -231,12 +233,16 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                 size="sm"
                 className="h-10 w-10 p-0"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label="Toggle mobile menu"
+                aria-label={
+                  isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"
+                }
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
               >
                 {isMobileMenuOpen ? (
-                  <X className="h-5 w-5" />
+                  <X className="h-5 w-5" aria-hidden="true" />
                 ) : (
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-5 w-5" aria-hidden="true" />
                 )}
               </Button>
             </div>
@@ -256,7 +262,12 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             }}
             aria-label="Close mobile menu"
           />
-          <div className="fixed top-16 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg animate-in slide-in-from-top-2 duration-200">
+          <div
+            id="mobile-menu"
+            className="fixed top-16 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg animate-in slide-in-from-top-2 duration-200"
+            role="menu"
+            aria-label="Mobile navigation menu"
+          >
             <div className="container mx-auto px-4 py-6">
               {!loading && user ? (
                 <div className="space-y-4">

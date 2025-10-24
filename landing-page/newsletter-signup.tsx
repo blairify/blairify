@@ -43,7 +43,10 @@ export function NewsletterSignup() {
   }
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-primary/5">
+    <section
+      className="py-12 sm:py-16 lg:py-20 bg-primary/5"
+      aria-labelledby="newsletter-heading"
+    >
       {/* 
         RESPONSIVE CONTAINER:
         - Responsive padding adapts to screen size
@@ -67,7 +70,10 @@ export function NewsletterSignup() {
             - Description adapts: text-sm → text-base → text-lg
             - Responsive spacing between elements
           */}
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4">
+          <h2
+            id="newsletter-heading"
+            className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4"
+          >
             Join Our Newsletter
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0">
@@ -87,7 +93,11 @@ export function NewsletterSignup() {
             onSubmit={handleSubmit}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-lg mx-auto"
           >
+            <label htmlFor="email-input" className="sr-only">
+              Email address
+            </label>
             <Input
+              id="email-input"
               type="email"
               placeholder="Enter your email address"
               value={email}
@@ -95,6 +105,8 @@ export function NewsletterSignup() {
               required
               className="flex-1 h-10 sm:h-12 text-sm sm:text-base"
               disabled={isLoading}
+              aria-describedby="email-description"
+              aria-invalid={false}
             />
 
             {/* 
@@ -124,7 +136,10 @@ export function NewsletterSignup() {
             - Smaller text on mobile for space efficiency
             - Proper spacing and readability
           */}
-          <p className="text-xs sm:text-sm text-muted-foreground mt-3 sm:mt-4 px-4 sm:px-0">
+          <p
+            id="email-description"
+            className="text-xs sm:text-sm text-muted-foreground mt-3 sm:mt-4 px-4 sm:px-0"
+          >
             No spam, unsubscribe at any time. We respect your privacy.
           </p>
         </div>
