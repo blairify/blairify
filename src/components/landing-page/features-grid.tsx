@@ -86,7 +86,7 @@ export default function FeaturesGrid() {
           {features.map((f, index) => {
             const Icon = f.icon;
             return (
-              <li
+              <div
                 key={f.title}
                 className="group p-4 sm:p-6 rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)] shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]"
                 style={{
@@ -103,7 +103,7 @@ export default function FeaturesGrid() {
                 <p className="text-sm sm:text-base text-[color:var(--muted-foreground)] leading-relaxed">
                   {f.description}
                 </p>
-              </li>
+              </div>
             );
           })}
         </li>
