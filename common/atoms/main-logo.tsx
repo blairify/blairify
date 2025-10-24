@@ -1,20 +1,57 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useTheme } from "next-themes";
+import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
-function LogoGeometry() {
-  const meshRef = useRef<THREE.Group>(null);
-  const [color, setColor] = useState<string>(
-    getComputedStyle(document.documentElement)
-      .getPropertyValue("--foreground")
-      .trim(),
-  );
+export const LOGO_COLOR_VALUES = [
+  "light-blue",
+  "primary",
+  "secondary",
+  "accent",
+  "muted",
+] as const;
+export type LogoColor = (typeof LOGO_COLOR_VALUES)[number];
 
-  // Rotate the logo
+export const LOGO_SIZE_VALUES = ["sm", "md", "lg", "xl"] as const;
+export type LogoSize = (typeof LOGO_SIZE_VALUES)[number];
+
+interface MainLogoProps {
+  color?: LogoColor;
+  size?: LogoSize;
+  animated?: boolean;
+}
+
+const sizeConfig: Record<LogoSize, { camera: number; scale: number }> = {
+  sm: { camera: 12, scale: 0.8 },
+  md: { camera: 10, scale: 1 },
+  lg: { camera: 9, scale: 1.3 },
+  xl: { camera: 8, scale: 1.6 },
+};
+
+const colorConfig: Record<LogoColor, { light: string; dark: string }> = {
+  "light-blue": { light: "#60a5fa", dark: "#93c5fd" }, // Brighter, more saturated blue for dark mode
+  primary: { light: "#0a0a0a", dark: "#e5e5e5" }, // Slightly darker white to avoid blown-out highlights
+  secondary: { light: "#71717a", dark: "#a1a1aa" }, // Lighter gray with more contrast
+  accent: { light: "#f97316", dark: "#fdba74" }, // Brighter, warmer orange for visibility
+  muted: { light: "#737373", dark: "#d4d4d4" }, // Much lighter for better visibility in dark mode
+};
+
+interface LogoGeometryProps {
+  colorVariant: LogoColor;
+  animated: boolean;
+}
+
+function LogoGeometry({ colorVariant, animated }: LogoGeometryProps) {
+  const meshRef = useRef<THREE.Group>(null);
+  const { theme, resolvedTheme } = useTheme();
+
+  const currentTheme = (resolvedTheme || theme || "light") as "light" | "dark";
+  const color = colorConfig[colorVariant][currentTheme];
+
   useFrame((state) => {
-    if (meshRef.current) {
+    if (meshRef.current && animated) {
       meshRef.current.rotation.y = state.clock.elapsedTime * 0.05;
       meshRef.current.rotation.x =
         Math.sin(state.clock.elapsedTime * 0.3) * 0.1;
@@ -22,22 +59,6 @@ function LogoGeometry() {
         Math.cos(state.clock.elapsedTime * 0.2) * 0.05;
     }
   });
-
-  // Watch for theme changes
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      const newColor = getComputedStyle(document.documentElement)
-        .getPropertyValue("--foreground")
-        .trim();
-      setColor(newColor);
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => observer.disconnect();
-  }, []);
 
   const logoShapes = useMemo(() => {
     const shapes: THREE.Shape[] = [];
@@ -147,9 +168,8 @@ function LogoGeometry() {
 
   return (
     <group ref={meshRef}>
-      {logoShapes.map((shape, index) => (
-        // biome-ignore lint/suspicious/noArrayIndexKey: logoShapes is a static array that never changes order
-        <mesh key={`logo-shape-${index}`}>
+      {logoShapes.map((shape) => (
+        <mesh key={`logo-shape-${shape}`}>
           <extrudeGeometry
             args={[
               shape,
@@ -163,7 +183,13 @@ function LogoGeometry() {
               },
             ]}
           />
-          <meshStandardMaterial color={color} roughness={0.3} metalness={0.5} />
+          <meshStandardMaterial
+            color={color}
+            roughness={0.15}
+            metalness={0.8}
+            emissive={color}
+            emissiveIntensity={0.2}
+          />
         </mesh>
       ))}
     </group>
@@ -173,18 +199,31 @@ function LogoGeometry() {
 function Scene() {
   return (
     <>
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[10, 10, 5]} intensity={1.2} />
-      <directionalLight position={[-5, -5, 2]} intensity={0.4} />
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[10, 10, 5]} intensity={1.5} />
+      <directionalLight position={[-5, -5, 2]} intensity={0.6} />
+      <pointLight position={[0, 0, 10]} intensity={0.5} />
     </>
   );
 }
 
-export default function MainLogo() {
+export default function MainLogo({
+  color = "light-blue",
+  size = "md",
+  animated = true,
+}: MainLogoProps) {
+  const config = sizeConfig[size];
+
   return (
-    <Canvas camera={{ position: [0, 0, 8], fov: 50 }} gl={{ alpha: true }}>
+    <Canvas
+      camera={{ position: [0, 0, config.camera], fov: 50 }}
+      gl={{ alpha: true, antialias: true }}
+      style={{ background: "transparent" }}
+    >
       <Scene />
-      <LogoGeometry />
+      <group scale={config.scale}>
+        <LogoGeometry colorVariant={color} animated={animated} />
+      </group>
     </Canvas>
   );
 }
