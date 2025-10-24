@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowRight,
   BookOpen,
@@ -6,7 +8,7 @@ import {
   Database,
   Users,
 } from "lucide-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -42,6 +44,8 @@ const difficultyColors = {
 };
 
 export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
+  const router = useRouter();
+
   const truncateQuestion = (question: string, maxLength: number = 200) => {
     if (question.length <= maxLength) return question;
     return `${question.substring(0, maxLength)}...`;
@@ -188,12 +192,14 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
             </div>
 
             <div className="flex justify-start">
-              <Link href="/practice">
-                <Button className="group mt-6">
-                  Explore Practice Library
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+              <Button
+                onClick={() => router.push("/practice")}
+                aria-label="Explore Practice Library"
+                className="group mt-6"
+              >
+                Explore Practice Library
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </div>
           </div>
         </div>

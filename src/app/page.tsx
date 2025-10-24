@@ -38,26 +38,28 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://blairify.com",
+    url: "https://blairify.com/",
     siteName: "Blairify",
-    title: "Blairify - Job Search & Interview Preparation",
+    title: "Blairify - Job Search & Interview Preparation Platform",
     description:
-      "Find your next tech job and prepare for interviews. Browse curated job listings, practice with sample questions, and track your progress.",
+      "Find your next tech job and prepare for interviews with Blairify. Browse curated job listings, practice with sample interview questions, and track your application progress. Start your job search today!",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://blairify.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Blairify - AI powered Job Search & Interview Preparation Platform",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blairify - Job Search & Interview Prep",
+    title: "Blairify - Job Search & Interview Preparation Platform",
     description:
-      "Find tech jobs and prepare for interviews with curated listings and practice questions.",
-    images: ["/og-image.png"],
+      "Find your next tech job and prepare for interviews with Blairify. Browse curated job listings, practice with sample interview questions, and track your application progress.",
+    images: ["https://blairify.com/og-image.png"],
+    creator: "@blairify",
   },
   robots: {
     index: true,
@@ -71,6 +73,10 @@ export const metadata: Metadata = {
     },
   },
   category: "Business",
+  other: {
+    "fb:app_id": "your-facebook-app-id", // Replace with actual Facebook App ID if you have one
+    "og:image:secure_url": "https://blairify.com/og-image.png",
+  },
 };
 
 const jsonLd = {

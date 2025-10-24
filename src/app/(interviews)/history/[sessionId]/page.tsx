@@ -16,8 +16,7 @@ import {
   Trophy,
   User,
 } from "lucide-react";
-import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -40,6 +39,7 @@ export default function SessionDetailsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const router = useRouter();
 
   const sessionId = params.sessionId as string;
 
@@ -130,12 +130,13 @@ export default function SessionDetailsPage() {
                 <div className="text-red-500 text-6xl mb-4">⚠️</div>
                 <h2 className="text-2xl font-bold mb-4">Session Not Found</h2>
                 <p className="text-muted-foreground mb-6">{error}</p>
-                <Link href="/history">
-                  <Button>
-                    <ArrowLeft className="h-4 w-4 mr-2" />
-                    Back to History
-                  </Button>
-                </Link>
+                <Button
+                  onClick={() => router.push("/history")}
+                  aria-label="Back to History"
+                >
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Back to History
+                </Button>
               </div>
             </div>
           </main>
@@ -156,12 +157,15 @@ export default function SessionDetailsPage() {
           <div className="container mx-auto px-6 py-8">
             {/* Header */}
             <div className="mb-6">
-              <Link href="/history">
-                <Button variant="ghost" className="mb-4">
-                  <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to History
-                </Button>
-              </Link>
+              <Button
+                aria-label="Back to History"
+                onClick={() => router.push("/history")}
+                variant="ghost"
+                className="mb-4"
+              >
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to History
+              </Button>
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
@@ -588,17 +592,27 @@ export default function SessionDetailsPage() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/configure">
-                <Button className="w-full sm:w-auto">
-                  Start New Interview
-                </Button>
-              </Link>
-              <Link href="/practice">
-                <Button variant="outline" className="w-full sm:w-auto">
-                  Practice More Questions
-                </Button>
-              </Link>
-              <Button variant="outline" className="w-full sm:w-auto">
+              <Button
+                aria-label="Start New Interview"
+                onClick={() => router.push("/configure")}
+                className="w-full sm:w-auto"
+              >
+                Start New Interview
+              </Button>
+              <Button
+                aria-label="Practice More Questions"
+                onClick={() => router.push("/practice")}
+                variant="outline"
+                className="w-full sm:w-auto"
+              >
+                Practice More Questions
+              </Button>
+              <Button
+                aria-label="Export Results"
+                onClick={() => router.push("/export")}
+                variant="outline"
+                className="w-full sm:w-auto"
+              >
                 <Download className="h-4 w-4 mr-2" />
                 Export Results
               </Button>

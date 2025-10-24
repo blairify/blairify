@@ -92,61 +92,49 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
-            {/* 
-              LOGO SECTION:
-              - Responsive sizing for different screen sizes
-              - Touch-friendly click area
-            */}
             <div className="flex-shrink-0">
               <Logo />
             </div>
-
-            {/* 
-              DESKTOP NAVIGATION:
-              - Hidden on mobile (hidden md:flex)
-              - Proper spacing and touch targets
-              - Hover states for desktop interaction
-            */}
             <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
               {!loading && user ? (
                 <>
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <Link href="/profile">
-                          <Button
-                            variant="ghost"
-                            className="relative h-10 w-10 rounded-full p-0 hover:bg-accent/50 transition-colors"
-                          >
-                            <div className="w-8 h-8 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
-                              {userData?.avatarIcon ? (
-                                <AvatarIconDisplay
-                                  iconId={userData.avatarIcon}
-                                  size="sm"
-                                  className="w-8 h-8"
+                        <Button
+                          onClick={() => router.push("/profile")}
+                          aria-label="View Profile"
+                          variant="ghost"
+                          className="relative h-10 w-10 rounded-full p-0 hover:bg-accent/50 transition-colors"
+                        >
+                          <div className="w-8 h-8 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
+                            {userData?.avatarIcon ? (
+                              <AvatarIconDisplay
+                                iconId={userData.avatarIcon}
+                                size="sm"
+                                className="w-8 h-8"
+                              />
+                            ) : (
+                              <Avatar className="w-8 h-8 border-2 border-primary/20">
+                                <AvatarImage
+                                  src={user?.photoURL || userData?.photoURL}
+                                  alt={
+                                    userData?.displayName ||
+                                    user?.displayName ||
+                                    "User"
+                                  }
                                 />
-                              ) : (
-                                <Avatar className="w-8 h-8 border-2 border-primary/20">
-                                  <AvatarImage
-                                    src={user?.photoURL || userData?.photoURL}
-                                    alt={
-                                      userData?.displayName ||
+                                <AvatarFallback className="bg-primary/10 text-primary">
+                                  {getInitials(
+                                    userData?.displayName ||
                                       user?.displayName ||
-                                      "User"
-                                    }
-                                  />
-                                  <AvatarFallback className="bg-primary/10 text-primary">
-                                    {getInitials(
-                                      userData?.displayName ||
-                                        user?.displayName ||
-                                        null,
-                                    )}
-                                  </AvatarFallback>
-                                </Avatar>
-                              )}
-                            </div>
-                          </Button>
-                        </Link>
+                                      null,
+                                  )}
+                                </AvatarFallback>
+                              </Avatar>
+                            )}
+                          </div>
+                        </Button>
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>View Profile</p>
@@ -160,15 +148,14 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
-                          <Link href="/settings">
-                            <Button
-                              variant="outline"
-                              size="icon"
-                              className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                            >
-                              <Settings className="h-4 w-4" />
-                            </Button>
-                          </Link>
+                          <Button
+                            onClick={() => router.push("/settings")}
+                            variant="outline"
+                            size="icon"
+                            className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                          >
+                            <Settings className="h-4 w-4" />
+                          </Button>
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>Settings</p>
@@ -178,15 +165,15 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       {/* Help & Support */}
                       <Tooltip>
                         <TooltipTrigger asChild>
-                          <Link href="/support">
-                            <Button
-                              variant="outline"
-                              size="icon"
-                              className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                            >
-                              <HelpCircle className="h-4 w-4" />
-                            </Button>
-                          </Link>
+                          <Button
+                            onClick={() => router.push("/support")}
+                            variant="outline"
+                            aria-label="Help & Support"
+                            size="icon"
+                            className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                          >
+                            <HelpCircle className="h-4 w-4" />
+                          </Button>
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>Help & Support</p>
@@ -199,6 +186,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                           <Button
                             variant="outline"
                             size="icon"
+                            aria-label="Sign out"
                             className="border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
                             onClick={handleSignOut}
                           >
@@ -218,6 +206,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
 
                   <Button
                     onClick={() => router.push("/auth")}
+                    aria-label="Get Started"
                     className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 lg:px-6"
                     size="lg"
                   >
@@ -350,6 +339,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       router.push("/auth");
                       setIsMobileMenuOpen(false);
                     }}
+                    aria-label="Get Started"
                     className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base font-medium"
                   >
                     Get Started

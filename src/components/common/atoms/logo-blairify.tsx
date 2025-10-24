@@ -24,7 +24,7 @@ export default function Logo({
 
   if (variant === "minimal") {
     return (
-      <Link href="/" className={linkClasses}>
+      <Link aria-label="Home" href="/" className={linkClasses}>
         <span className={logoTextClasses}>
           <LogoText />
         </span>
@@ -33,7 +33,7 @@ export default function Logo({
   }
 
   return (
-    <Link href="/" className={linkClasses}>
+    <Link aria-label="Home" href="/" className={linkClasses}>
       <div
         className={`${logoTextClasses} !flex !flex-col !items-center !justify-center !mx-auto !text-6xl`}
       >

@@ -91,7 +91,7 @@ export default function DashboardNavbar({
             <div className="flex items-center space-x-3">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link href="/profile">
+                  <Link aria-label="View Profile" href="/profile">
                     <div className="size-8 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
                       {userData?.avatarIcon ? (
                         <AvatarIconDisplay
@@ -151,15 +151,15 @@ export default function DashboardNavbar({
             <ThemeToggle />
             <Tooltip>
               <TooltipTrigger asChild>
-                <Link href="/settings">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                  >
-                    <Settings className="h-4 w-4" />
-                  </Button>
-                </Link>
+                <Button
+                  aria-label="Settings"
+                  onClick={() => router.push("/settings")}
+                  variant="outline"
+                  size="icon"
+                  className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                >
+                  <Settings className="h-4 w-4" />
+                </Button>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Settings</p>
@@ -169,15 +169,15 @@ export default function DashboardNavbar({
             {/* Help & Support */}
             <Tooltip>
               <TooltipTrigger asChild>
-                <Link href="/support">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                  >
-                    <HelpCircle className="h-4 w-4" />
-                  </Button>
-                </Link>
+                <Button
+                  onClick={() => router.push("/support")}
+                  aria-label="Help & Support"
+                  variant="outline"
+                  size="icon"
+                  className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                >
+                  <HelpCircle className="h-4 w-4" />
+                </Button>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Help & Support</p>

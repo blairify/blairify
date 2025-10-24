@@ -44,33 +44,6 @@ export const metadata: Metadata = {
     address: false,
   },
 
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://blairify.com",
-    siteName: "Blairify",
-    title: "Blairify - Master Your Job Interview Skills",
-    description:
-      "Ace your next job interview with comprehensive practice questions, expert feedback, and personalized preparation tools.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Blairify - Job Interview Preparation Platform",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Blairify - Master Your Job Interview Skills",
-    description:
-      "Ace your next job interview with comprehensive practice questions and expert feedback.",
-    creator: "@blairify",
-    images: ["/twitter-image.png"],
-  },
-
   icons: {
     icon: [
       { url: "/favicon.ico" },

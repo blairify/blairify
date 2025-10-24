@@ -9,7 +9,7 @@ import {
   Target,
   Trophy,
 } from "lucide-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -39,6 +39,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("date");
+  const router = useRouter();
 
   const loadSessions = useCallback(async () => {
     if (!user?.uid) return;
@@ -276,9 +277,12 @@ export function HistoryContent({ user }: HistoryContentProps) {
                     ? "Start your first interview to see your history here."
                     : "Try adjusting your search or filter criteria."}
                 </p>
-                <Link href="/configure">
-                  <Button>Start First Interview</Button>
-                </Link>
+                <Button
+                  onClick={() => router.push("/configure")}
+                  aria-label="Start First Interview"
+                >
+                  Start First Interview
+                </Button>
               </CardContent>
             </Card>
           ) : (
@@ -325,12 +329,17 @@ export function HistoryContent({ user }: HistoryContentProps) {
                           {session.config.interviewType}
                         </div>
                       </div>
-                      <Link href={`/history/${session.sessionId}`}>
-                        <Button variant="outline" size="sm">
-                          <Eye className="h-4 w-4 mr-1" />
-                          View Details
-                        </Button>
-                      </Link>
+                      <Button
+                        onClick={() =>
+                          router.push(`/history/${session.sessionId}`)
+                        }
+                        aria-label="View Details"
+                        variant="outline"
+                        size="sm"
+                      >
+                        <Eye className="h-4 w-4 mr-1" />
+                        View Details
+                      </Button>
                     </div>
                   </div>
 
