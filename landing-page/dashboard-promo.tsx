@@ -1,6 +1,5 @@
 "use client";
 import { Activity, ArrowRight, Award, Target, TrendingUp } from "lucide-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   Area,
@@ -65,36 +64,35 @@ export function DashboardPromo() {
               </div>
             </div>
 
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full" />
                 <span className="text-sm text-muted-foreground">
                   Real-time performance tracking
                 </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full" />
                 <span className="text-sm text-muted-foreground">
                   Personalized improvement recommendations
                 </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full" />
                 <span className="text-sm text-muted-foreground">
                   Detailed session history and analytics
                 </span>
-              </div>
-            </div>
+              </li>
+            </ul>
             <div className="flex justify-center lg:justify-start">
-              <Link href="/auth" className="w-full sm:w-auto">
-                <Button
-                  onClick={() => router.push("/auth")}
-                  className="group w-full sm:w-auto h-12 sm:h-10 text-base sm:text-sm font-medium px-6 sm:px-4"
-                >
-                  View Analytics Dashboard
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+              <Button
+                onClick={() => router.push("/auth")}
+                aria-label="View Analytics Dashboard"
+                className="group w-full sm:w-auto h-12 sm:h-10 text-base sm:text-sm font-medium px-6 sm:px-4"
+              >
+                View Analytics Dashboard
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </div>
           </div>
 

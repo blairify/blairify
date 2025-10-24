@@ -186,7 +186,7 @@ export function MarkdownEditor({
                 })}
                 title="Link"
               >
-                <Link className="h-4 w-4" />
+                <Link className="size-4" />
               </Button>
             </div>
           )}

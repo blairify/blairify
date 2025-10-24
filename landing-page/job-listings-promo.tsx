@@ -8,7 +8,6 @@ import {
   ExternalLink,
   MapPin,
 } from "lucide-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -160,14 +159,17 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="/jobs">
-                <Button className="group w-full sm:w-auto">
-                  Browse All Jobs
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+              <Button
+                onClick={() => router.push("/jobs")}
+                aria-label="Browse All Jobs"
+                className="group w-full sm:w-auto"
+              >
+                Browse All Jobs
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
               <Button
                 variant="outline"
+                aria-label="Start Practice Interview"
                 className="w-full sm:w-auto"
                 onClick={() => router.push("/configure")}
               >
