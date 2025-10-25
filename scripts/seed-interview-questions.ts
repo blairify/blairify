@@ -16,248 +16,2532 @@
 
 // import { initializeApp, cert } from 'firebase-admin/app';
 // import { getFirestore } from 'firebase-admin/firestore';
-// import * as serviceAccount from './serviceAccounts.json'; // Download from Firebase Console
-// import { PracticeQuestion } from '@/lib/practice-questions-service';
+// import { PracticeQuestion } from '@/lib/services/practice-questions/practice-questions-service';
+// import { readFileSync } from 'fs';
+// import { join } from 'path';
+
+// // Load service account
+// let serviceAccount: any;
+// try {
+//   const serviceAccountPath = join(process.cwd(), 'scripts', 'serviceAccounts.json');
+//   serviceAccount = JSON.parse(readFileSync(serviceAccountPath, 'utf8'));
+// } catch (error) {
+//   console.error('❌ Error loading service account:');
+//   console.error('Please ensure you have downloaded the Firebase service account JSON file');
+//   console.error('and placed it at: scripts/serviceAccounts.json');
+//   console.error('\nTo get the service account file:');
+//   console.error('1. Go to Firebase Console > Project Settings > Service Accounts');
+//   console.error('2. Click "Generate new private key"');
+//   console.error('3. Save the file as scripts/serviceAccounts.json');
+//   process.exit(1);
+// }
 
 // // Initialize Firebase Admin
 // initializeApp({
-//   credential: cert(serviceAccount as any)
+//   credential: cert(serviceAccount)
 // });
 
 // const db = getFirestore();
 
-// // Sample questions data
 // const sampleQuestions = [
 //   {
-//     question: "# System Design: Design Instagram\n\nDesign a photo-sharing social media platform similar to Instagram. Your design should handle:\n\n* Photo upload and storage\n* News feed generation\n* Follow/unfollow functionality\n* Like and comment features\n* Search functionality\n\nConsider scalability for millions of users.",
-//     answer: "## High-Level Architecture\n\n### Core Components\n\n1. **Client Applications** (iOS, Android, Web)\n2. **API Gateway** - Load balancer and request router\n3. **Application Servers** - Business logic\n4. **Database Layer** - User data, posts, relationships\n5. **Object Storage** - Photo/video storage (S3)\n6. **CDN** - Content delivery\n7. **Cache Layer** - Redis for frequently accessed data\n8. **Message Queue** - Async processing (Kafka/RabbitMQ)\n\n### Database Schema\n\n```sql\nUsers Table:\n- user_id (PK)\n- username\n- email\n- profile_photo_url\n- created_at\n\nPosts Table:\n- post_id (PK)\n- user_id (FK)\n- image_url\n- caption\n- created_at\n\nFollows Table:\n- follower_id (FK)\n- followee_id (FK)\n- created_at\n\nLikes Table:\n- user_id (FK)\n- post_id (FK)\n- created_at\n```\n\n### Key Design Decisions\n\n**Photo Upload Flow:**\n1. Client uploads to application server\n2. Server generates unique ID and uploads to S3\n3. Thumbnail generation service creates multiple sizes\n4. Metadata stored in database\n5. CDN URL returned to client\n\n**News Feed Generation:**\n- **Push Model** (for users with few followers)\n  - Pre-compute feed when post is created\n  - Store in Redis cache\n  - Fast read, slower write\n\n- **Pull Model** (for users with many followers)\n  - Fetch on-demand from followed users\n  - Merge and rank by timestamp\n  - Slower read, fast write\n\n- **Hybrid Approach** for optimal performance\n\n**Scalability Considerations:**\n\n* **Database Sharding** - Partition by user_id\n* **Read Replicas** - For read-heavy workload\n* **Caching Strategy** - Cache user feeds, popular posts\n* **CDN** - Serve images from edge locations\n* **Async Processing** - Use message queues for likes, comments\n\n### Estimated Capacity\n\n* 500M daily active users\n* 2M new photos per day\n* Average photo size: 2MB\n* Storage needed: 4TB/day\n* Read:Write ratio: 100:1\n\n### Trade-offs\n\n* **Consistency vs Availability** - Eventually consistent for likes/followers\n* **Push vs Pull** - Hybrid approach based on user follower count\n* **Storage Cost** - Multiple image sizes increase storage but improve UX",
-//     category: "system-design",
-//     difficulty: "hard",
-//     companyLogo: "SiMeta",
-//     companyName: "Meta",
-//     topicTags: [
-//       "System Design",
-//       "Distributed Systems",
-//       "Scalability",
-//       "CDN",
-//       "Caching",
-//       "Database Design",
-//       "Load Balancing",
-//       "Microservices"
-//     ],
-//     languages: ["Python", "Java", "Go"],
-//     databases: ["PostgreSQL", "Redis", "Cassandra"],
-//     cloudProviders: ["AWS"],
-//     frontendFrameworks: ["React", "React Native"],
-//     backendFrameworks: ["Django", "Spring Boot"],
-//     learningResources: [
-//       {
-//         title: "System Design Primer - Instagram",
-//         url: "https://github.com/donnemartin/system-design-primer",
-//         type: "article"
-//       },
-//       {
-//         title: "Designing Data-Intensive Applications",
-//         url: "https://dataintensive.net/",
-//         type: "book"
-//       }
-//     ]
-//   },
-//   {
-//     question: "## Algorithm: Two Sum\n\nGiven an array of integers `nums` and an integer `target`, return indices of the two numbers that add up to `target`.\n\n**Example:**\n```\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: nums[0] + nums[1] = 2 + 7 = 9\n```\n\n**Constraints:**\n* Each input has exactly one solution\n* Cannot use the same element twice",
-//     answer: "## Solution Approaches\n\n### Approach 1: Brute Force\n\n**Time Complexity:** O(n²)\n**Space Complexity:** O(1)\n\n```python\ndef two_sum(nums, target):\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return [i, j]\n    return []\n```\n\n### Approach 2: Hash Map (Optimal)\n\n**Time Complexity:** O(n)\n**Space Complexity:** O(n)\n\n```python\ndef two_sum(nums, target):\n    seen = {}  # value -> index\n    \n    for i, num in enumerate(nums):\n        complement = target - num\n        \n        if complement in seen:\n            return [seen[complement], i]\n        \n        seen[num] = i\n    \n    return []\n```\n\n**Key Insight:** As we iterate through the array, we check if the complement (target - current number) exists in our hash map. If it does, we've found our pair. Otherwise, we store the current number and its index.\n\n### Example Walkthrough\n\n```\nnums = [2, 7, 11, 15], target = 9\n\nIteration 1: num=2, complement=7\n  seen = {}\n  7 not in seen\n  seen = {2: 0}\n\nIteration 2: num=7, complement=2\n  seen = {2: 0}\n  2 in seen! ✓\n  return [0, 1]\n```\n\n### Edge Cases to Consider\n\n* Empty array\n* Array with duplicates\n* Negative numbers\n* Target is zero\n* No solution exists (per constraints, won't happen)",
 //     category: "algorithms",
 //     difficulty: "easy",
 //     companyLogo: "SiGoogle",
-//     companyName: "Google",
-//     topicTags: [
-//       "Array",
-//       "Hash Table",
-//       "Two Pointers"
-//     ],
-//     languages: ["Python", "JavaScript", "Java", "C++"],
-//     databases: [],
-//     cloudProviders: [],
-//     frontendFrameworks: [],
-//     backendFrameworks: [],
-//     learningResources: [
-//       {
-//         title: "LeetCode Two Sum",
-//         url: "https://leetcode.com/problems/two-sum/",
-//         type: "practice"
-//       },
-//       {
-//         title: "Hash Table Pattern",
-//         url: "https://leetcode.com/explore/learn/card/hash-table/",
-//         type: "tutorial"
-//       }
-//     ]
+//     companySize: ["large", "faang"],
+//     primaryTechStack: ["python"],
+//     languages: ["python"],
+//     title: "Two Sum Problem",
+//     question: "Given an array of integers and a target sum, return indices of two numbers that add up to the target.",
+//     answer: "Use a hash map to store seen numbers. For each number, check if target - number exists in map. Time: O(n), Space: O(n).",
+//     topicTags: ["arrays", "hash-map", "two-pointers", "optimization", "time-complexity"]
 //   },
 //   {
-//     question: "# Frontend: Build a Autocomplete Search Component\n\nDesign and implement an autocomplete search component in React that:\n\n* Fetches suggestions from an API as user types\n* Debounces API calls to reduce requests\n* Handles loading and error states\n* Keyboard navigation (up/down arrows, enter)\n* Highlights matching text\n* Accessible (ARIA labels, screen reader support)\n\nDiscuss performance optimizations and edge cases.",
-//     answer: "## Implementation\n\n```typescript\nimport { useState, useEffect, useRef, useCallback } from 'react';\n\ninterface Suggestion {\n  id: string;\n  text: string;\n}\n\ninterface AutocompleteProps {\n  fetchSuggestions: (query: string) => Promise<Suggestion[]>;\n  onSelect: (suggestion: Suggestion) => void;\n  debounceMs?: number;\n  placeholder?: string;\n}\n\nexport function Autocomplete({\n  fetchSuggestions,\n  onSelect,\n  debounceMs = 300,\n  placeholder = 'Search...'\n}: AutocompleteProps) {\n  const [query, setQuery] = useState('');\n  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);\n  const [loading, setLoading] = useState(false);\n  const [error, setError] = useState<string | null>(null);\n  const [selectedIndex, setSelectedIndex] = useState(-1);\n  const [isOpen, setIsOpen] = useState(false);\n  \n  const inputRef = useRef<HTMLInputElement>(null);\n  const debounceTimerRef = useRef<NodeJS.Timeout>();\n\n  // Debounced fetch\n  const debouncedFetch = useCallback((searchQuery: string) => {\n    if (debounceTimerRef.current) {\n      clearTimeout(debounceTimerRef.current);\n    }\n\n    if (!searchQuery.trim()) {\n      setSuggestions([]);\n      setIsOpen(false);\n      return;\n    }\n\n    debounceTimerRef.current = setTimeout(async () => {\n      try {\n        setLoading(true);\n        setError(null);\n        const results = await fetchSuggestions(searchQuery);\n        setSuggestions(results);\n        setIsOpen(true);\n      } catch (err) {\n        setError('Failed to fetch suggestions');\n        setSuggestions([]);\n      } finally {\n        setLoading(false);\n      }\n    }, debounceMs);\n  }, [fetchSuggestions, debounceMs]);\n\n  useEffect(() => {\n    debouncedFetch(query);\n    return () => {\n      if (debounceTimerRef.current) {\n        clearTimeout(debounceTimerRef.current);\n      }\n    };\n  }, [query, debouncedFetch]);\n\n  const handleKeyDown = (e: React.KeyboardEvent) => {\n    if (!isOpen) return;\n\n    switch (e.key) {\n      case 'ArrowDown':\n        e.preventDefault();\n        setSelectedIndex(prev => \n          prev < suggestions.length - 1 ? prev + 1 : prev\n        );\n        break;\n      case 'ArrowUp':\n        e.preventDefault();\n        setSelectedIndex(prev => prev > 0 ? prev - 1 : -1);\n        break;\n      case 'Enter':\n        e.preventDefault();\n        if (selectedIndex >= 0 && suggestions[selectedIndex]) {\n          handleSelect(suggestions[selectedIndex]);\n        }\n        break;\n      case 'Escape':\n        setIsOpen(false);\n        setSelectedIndex(-1);\n        break;\n    }\n  };\n\n  const handleSelect = (suggestion: Suggestion) => {\n    setQuery(suggestion.text);\n    setIsOpen(false);\n    setSelectedIndex(-1);\n    onSelect(suggestion);\n  };\n\n  const highlightMatch = (text: string) => {\n    if (!query) return text;\n    \n    const regex = new RegExp(`(${query})`, 'gi');\n    const parts = text.split(regex);\n    \n    return parts.map((part, i) => \n      regex.test(part) ? <strong key={i}>{part}</strong> : part\n    );\n  };\n\n  return (\n    <div className=\"autocomplete\">\n      <input\n        ref={inputRef}\n        type=\"text\"\n        value={query}\n        onChange={(e) => setQuery(e.target.value)}\n        onKeyDown={handleKeyDown}\n        placeholder={placeholder}\n        aria-label=\"Search\"\n        aria-autocomplete=\"list\"\n        aria-controls=\"suggestions-list\"\n        aria-expanded={isOpen}\n        className=\"autocomplete-input\"\n      />\n      \n      {loading && <div className=\"loading\">Loading...</div>}\n      {error && <div className=\"error\">{error}</div>}\n      \n      {isOpen && suggestions.length > 0 && (\n        <ul\n          id=\"suggestions-list\"\n          role=\"listbox\"\n          className=\"suggestions-list\"\n        >\n          {suggestions.map((suggestion, index) => (\n            <li\n              key={suggestion.id}\n              role=\"option\"\n              aria-selected={index === selectedIndex}\n              className={index === selectedIndex ? 'selected' : ''}\n              onClick={() => handleSelect(suggestion)}\n              onMouseEnter={() => setSelectedIndex(index)}\n            >\n              {highlightMatch(suggestion.text)}\n            </li>\n          ))}\n        </ul>\n      )}\n    </div>\n  );\n}\n```\n\n## Key Concepts\n\n### 1. Debouncing\nPrevents excessive API calls by waiting for user to stop typing\n\n### 2. Keyboard Navigation\n* Arrow keys to move through suggestions\n* Enter to select\n* Escape to close\n\n### 3. Accessibility\n* ARIA labels and roles\n* Keyboard support\n* Screen reader announcements\n\n### 4. Performance Optimizations\n* `useCallback` to memoize fetch function\n* Cleanup timers on unmount\n* Cancel previous requests if needed\n\n### 5. Edge Cases\n* Empty query\n* No results\n* API errors\n* Fast typing\n* Duplicate requests",
+//     category: "system-design",
+//     difficulty: "hard",
+//     companyLogo: "SiMeta",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["java", "spring-boot", "kafka"],
+//     languages: ["java"],
+//     backendFrameworks: ["spring-boot"],
+//     messageQueues: ["kafka"],
+//     databases: ["cassandra", "redis"],
+//     title: "Design Facebook News Feed",
+//     question: "Design a scalable news feed system that shows personalized posts to users.",
+//     answer: "Use fan-out on write for small followings, fan-out on read for celebrities. Store feeds in Redis, posts in Cassandra. Use Kafka for real-time updates. Implement ranking algorithm based on engagement.",
+//     topicTags: ["system-design", "scalability", "caching", "distributed-systems", "real-time"]
+//   },
+//   {
 //     category: "frontend",
 //     difficulty: "medium",
 //     companyLogo: "SiAirbnb",
-//     companyName: "Airbnb",
-//     topicTags: [
-//       "React",
-//       "TypeScript",
-//       "Debouncing",
-//       "Accessibility",
-//       "Keyboard Navigation",
-//       "Performance"
-//     ],
-//     languages: ["TypeScript", "JavaScript"],
-//     databases: [],
-//     cloudProviders: [],
-//     frontendFrameworks: ["React"],
-//     backendFrameworks: [],
-//     learningResources: [
-//       {
-//         title: "React Hooks Documentation",
-//         url: "https://react.dev/reference/react",
-//         type: "documentation"
-//       },
-//       {
-//         title: "WAI-ARIA Authoring Practices",
-//         url: "https://www.w3.org/WAI/ARIA/apg/",
-//         type: "documentation"
-//       }
-//     ]
+//     companySize: ["unicorn", "large"],
+//     primaryTechStack: ["react", "typescript"],
+//     languages: ["typescript"],
+//     frontendFrameworks: ["react"],
+//     cssFrameworks: ["styled-components"],
+//     stateManagement: ["redux"],
+//     title: "Build a Date Picker Component",
+//     question: "Create a reusable, accessible date picker with range selection.",
+//     answer: "Use React hooks for state, ARIA labels for accessibility. Handle keyboard navigation, edge cases like leap years. Memoize calendar calculations. Test with screen readers.",
+//     topicTags: ["react", "components", "accessibility", "user-interface", "form-controls"]
 //   },
 //   {
-//     question: "# Database: Design a Database Schema for an E-commerce Platform\n\nDesign a relational database schema for an e-commerce platform that supports:\n\n* User management (customers, sellers, admins)\n* Product catalog with categories and variants\n* Shopping cart\n* Order management\n* Payment processing\n* Reviews and ratings\n* Inventory tracking\n\nInclude indexes, constraints, and normalization decisions.",
-//     answer: "## Database Schema Design\n\n### Core Tables\n\n```sql\n-- Users Table\nCREATE TABLE users (\n    user_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    email VARCHAR(255) UNIQUE NOT NULL,\n    password_hash VARCHAR(255) NOT NULL,\n    first_name VARCHAR(100),\n    last_name VARCHAR(100),\n    role VARCHAR(20) CHECK (role IN ('customer', 'seller', 'admin')),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    INDEX idx_email (email),\n    INDEX idx_role (role)\n);\n\n-- Categories Table\nCREATE TABLE categories (\n    category_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    name VARCHAR(100) NOT NULL,\n    slug VARCHAR(100) UNIQUE NOT NULL,\n    parent_id UUID REFERENCES categories(category_id),\n    description TEXT,\n    INDEX idx_slug (slug),\n    INDEX idx_parent (parent_id)\n);\n\n-- Products Table\nCREATE TABLE products (\n    product_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    seller_id UUID REFERENCES users(user_id),\n    category_id UUID REFERENCES categories(category_id),\n    name VARCHAR(255) NOT NULL,\n    slug VARCHAR(255) UNIQUE NOT NULL,\n    description TEXT,\n    base_price DECIMAL(10, 2) NOT NULL,\n    is_active BOOLEAN DEFAULT true,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    INDEX idx_seller (seller_id),\n    INDEX idx_category (category_id),\n    INDEX idx_slug (slug),\n    INDEX idx_active (is_active)\n);\n\n-- Product Variants (e.g., size, color)\nCREATE TABLE product_variants (\n    variant_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    product_id UUID REFERENCES products(product_id) ON DELETE CASCADE,\n    sku VARCHAR(100) UNIQUE NOT NULL,\n    name VARCHAR(100), -- e.g., \"Large Red\"\n    price DECIMAL(10, 2) NOT NULL,\n    stock_quantity INT NOT NULL DEFAULT 0,\n    attributes JSONB, -- {\"size\": \"L\", \"color\": \"red\"}\n    INDEX idx_product (product_id),\n    INDEX idx_sku (sku),\n    CONSTRAINT positive_stock CHECK (stock_quantity >= 0)\n);\n\n-- Shopping Cart\nCREATE TABLE cart_items (\n    cart_item_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    user_id UUID REFERENCES users(user_id) ON DELETE CASCADE,\n    variant_id UUID REFERENCES product_variants(variant_id),\n    quantity INT NOT NULL DEFAULT 1,\n    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    INDEX idx_user (user_id),\n    CONSTRAINT positive_quantity CHECK (quantity > 0),\n    UNIQUE(user_id, variant_id)\n);\n\n-- Orders\nCREATE TABLE orders (\n    order_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    user_id UUID REFERENCES users(user_id),\n    status VARCHAR(20) CHECK (status IN (\n        'pending', 'processing', 'shipped', 'delivered', 'cancelled'\n    )),\n    subtotal DECIMAL(10, 2) NOT NULL,\n    tax DECIMAL(10, 2) NOT NULL DEFAULT 0,\n    shipping_cost DECIMAL(10, 2) NOT NULL DEFAULT 0,\n    total DECIMAL(10, 2) NOT NULL,\n    shipping_address JSONB NOT NULL,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    INDEX idx_user (user_id),\n    INDEX idx_status (status),\n    INDEX idx_created (created_at)\n);\n\n-- Order Items\nCREATE TABLE order_items (\n    order_item_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    order_id UUID REFERENCES orders(order_id) ON DELETE CASCADE,\n    variant_id UUID REFERENCES product_variants(variant_id),\n    quantity INT NOT NULL,\n    price_at_purchase DECIMAL(10, 2) NOT NULL,\n    INDEX idx_order (order_id)\n);\n\n-- Payments\nCREATE TABLE payments (\n    payment_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    order_id UUID REFERENCES orders(order_id),\n    amount DECIMAL(10, 2) NOT NULL,\n    payment_method VARCHAR(50),\n    status VARCHAR(20) CHECK (status IN (\n        'pending', 'completed', 'failed', 'refunded'\n    )),\n    transaction_id VARCHAR(255),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    INDEX idx_order (order_id),\n    INDEX idx_status (status)\n);\n\n-- Reviews\nCREATE TABLE reviews (\n    review_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    product_id UUID REFERENCES products(product_id) ON DELETE CASCADE,\n    user_id UUID REFERENCES users(user_id),\n    order_id UUID REFERENCES orders(order_id),\n    rating INT CHECK (rating >= 1 AND rating <= 5),\n    title VARCHAR(200),\n    comment TEXT,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    INDEX idx_product (product_id),\n    INDEX idx_user (user_id),\n    INDEX idx_rating (rating),\n    UNIQUE(order_id, product_id, user_id) -- One review per product per order\n);\n\n-- Inventory Logs (for tracking)\nCREATE TABLE inventory_logs (\n    log_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    variant_id UUID REFERENCES product_variants(variant_id),\n    change_type VARCHAR(20) CHECK (change_type IN (\n        'restock', 'sale', 'return', 'adjustment'\n    )),\n    quantity_change INT NOT NULL,\n    reason TEXT,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    INDEX idx_variant (variant_id),\n    INDEX idx_created (created_at)\n);\n```\n\n## Key Design Decisions\n\n### 1. Normalization (3NF)\n* Separate tables for products and variants\n* Categories support hierarchy with parent_id\n* Order items store price_at_purchase (denormalization for historical accuracy)\n\n### 2. Indexes\n* Foreign keys automatically indexed\n* Common query patterns (email, slug, status)\n* Composite indexes where needed\n\n### 3. Data Integrity\n* CHECK constraints for valid values\n* UNIQUE constraints to prevent duplicates\n* CASCADE deletes where appropriate\n* NOT NULL for required fields\n\n### 4. Performance Optimizations\n* JSONB for flexible attributes\n* Selective denormalization (price_at_purchase)\n* Strategic indexes\n\n### 5. Scalability Considerations\n* UUID for distributed system compatibility\n* Partitioning strategy for orders by date\n* Read replicas for product catalog\n* Caching layer for frequent queries\n\n## Common Queries\n\n```sql\n-- Get product with average rating\nSELECT \n    p.*,\n    AVG(r.rating) as avg_rating,\n    COUNT(r.review_id) as review_count\nFROM products p\nLEFT JOIN reviews r ON p.product_id = r.product_id\nWHERE p.is_active = true\nGROUP BY p.product_id;\n\n-- Get user's cart with product details\nSELECT \n    ci.*,\n    p.name,\n    pv.price,\n    pv.stock_quantity\nFROM cart_items ci\nJOIN product_variants pv ON ci.variant_id = pv.variant_id\nJOIN products p ON pv.product_id = p.product_id\nWHERE ci.user_id = ?;\n\n-- Get order history with items\nSELECT \n    o.*,\n    json_agg(\n        json_build_object(\n            'product_name', p.name,\n            'quantity', oi.quantity,\n            'price', oi.price_at_purchase\n        )\n    ) as items\nFROM orders o\nJOIN order_items oi ON o.order_id = oi.order_id\nJOIN product_variants pv ON oi.variant_id = pv.variant_id\nJOIN products p ON pv.product_id = p.product_id\nWHERE o.user_id = ?\nGROUP BY o.order_id;\n```",
-//     category: "database",
+//     category: "backend",
 //     difficulty: "medium",
-//     companyLogo: "SiAmazon",
-//     companyName: "Amazon",
-//     topicTags: [
-//       "Database Design",
-//       "SQL",
-//       "Normalization",
-//       "Indexing",
-//       "E-commerce",
-//       "PostgreSQL"
-//     ],
-//     languages: ["SQL"],
-//     databases: ["PostgreSQL", "MySQL"],
-//     cloudProviders: [],
-//     frontendFrameworks: [],
-//     backendFrameworks: [],
-//     learningResources: [
-//       {
-//         title: "PostgreSQL Documentation",
-//         url: "https://www.postgresql.org/docs/",
-//         type: "documentation"
-//       },
-//       {
-//         title: "Database Design for E-commerce",
-//         url: "https://www.sqlshack.com/designing-database-e-commerce-application/",
-//         type: "article"
-//       }
-//     ]
+//     companyLogo: "SiStripe",
+//     companySize: ["unicorn", "large"],
+//     primaryTechStack: ["ruby", "rails"],
+//     languages: ["ruby"],
+//     backendFrameworks: ["rails"],
+//     databases: ["postgresql"],
+//     security: ["jwt", "oauth"],
+//     title: "Implement Idempotent API Requests",
+//     question: "Design an API that handles duplicate requests safely for payment processing.",
+//     answer: "Use idempotency keys in headers. Store request signatures in Redis with TTL. Check key before processing. Return cached response for duplicates. Handle race conditions with locks.",
+//     topicTags: ["api-design", "idempotency", "payments", "distributed-systems", "concurrency"]
 //   },
 //   {
-//     question: "# Behavioral: Tell me about a time when you had a conflict with a team member\n\nDescribe a situation where you had a disagreement or conflict with a colleague. How did you handle it, and what was the outcome?",
-//     answer: "## STAR Method Framework\n\n### Situation\nProvide context about the team, project, and relationship with the team member.\n\n### Task\nExplain what needed to be accomplished and what was at stake.\n\n### Action\nDescribe the specific steps you took to address the conflict:\n\n1. **Recognized the Issue Early**\n   - Noticed communication breakdown\n   - Acknowledged different perspectives\n\n2. **Initiated Private Conversation**\n   - Chose appropriate time/place\n   - Approached with curiosity, not judgment\n\n3. **Active Listening**\n   - Let them fully explain their viewpoint\n   - Asked clarifying questions\n   - Showed empathy\n\n4. **Found Common Ground**\n   - Identified shared goals\n   - Acknowledged valid points in their perspective\n\n5. **Proposed Solutions**\n   - Brainstormed together\n   - Looked for win-win outcomes\n   - Made compromises where appropriate\n\n6. **Followed Up**\n   - Checked in after implementation\n   - Maintained positive relationship\n\n### Result\nDescribe the positive outcome:\n\n* Project completed successfully\n* Improved working relationship\n* Learned valuable lessons\n* Team became stronger\n\n## Example Response\n\n> \"During a product launch at my previous company, I had a conflict with our backend engineer about API design. I wanted to use GraphQL for flexibility, while they insisted on REST for simplicity and their team's expertise.\n>\n> Initially, we were both dug in on our positions. I realized this wasn't productive, so I scheduled a one-on-one coffee chat. I asked them to walk me through their concerns in detail. They explained their team had tight deadlines and limited GraphQL experience, making REST lower risk.\n>\n> I acknowledged these were valid concerns I hadn't fully considered. Together, we explored a hybrid approach: using REST for the initial launch with well-documented endpoints that could be wrapped in a GraphQL layer later. This gave us both what we needed - their team could move quickly, and we had a path to the flexibility I wanted.\n>\n> We implemented the solution, launched on time, and six months later successfully migrated to GraphQL. The experience taught me to dig deeper into concerns rather than defending my position, and our working relationship improved significantly.\"\n\n## Key Points to Emphasize\n\n* **Emotional Intelligence** - Self-awareness and empathy\n* **Communication Skills** - Active listening and clear expression\n* **Problem-Solving** - Focus on solutions, not blame\n* **Professionalism** - Kept it constructive and respectful\n* **Growth Mindset** - Learned from the experience\n\n## Common Mistakes to Avoid\n\n* Blaming the other person\n* Making yourself look perfect\n* Avoiding responsibility\n* Being too vague\n* Not showing resolution\n* Badmouthing previous colleagues",
-//     category: "behavioral",
+//     category: "database",
+//     difficulty: "hard",
+//     companyLogo: "SiAmazon",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["postgresql"],
+//     databases: ["postgresql"],
+//     title: "Optimize Slow Query Performance",
+//     question: "A query joining 3 tables with millions of rows is timing out. How do you fix it?",
+//     answer: "Add indexes on join columns. Use EXPLAIN ANALYZE. Consider partitioning, materialized views, or denormalization. Optimize WHERE clauses. Check statistics are up to date.",
+//     topicTags: ["sql", "performance", "indexing", "query-optimization", "database-tuning"]
+//   },
+//   {
+//     category: "devops",
+//     difficulty: "medium",
+//     companyLogo: "SiNetflix",
+//     companySize: ["faang", "large"],
+//     primaryTechStack: ["kubernetes", "docker"],
+//     containers: ["kubernetes", "docker"],
+//     cloudProviders: ["aws"],
+//     monitoring: ["prometheus", "grafana"],
+//     cicd: ["github-actions"],
+//     title: "Zero-Downtime Deployment Strategy",
+//     question: "Explain how to deploy updates without service interruption.",
+//     answer: "Use rolling updates in Kubernetes. Implement health checks and readiness probes. Blue-green or canary deployments. Monitor metrics during rollout. Have rollback plan ready.",
+//     topicTags: ["kubernetes", "deployment", "ci-cd", "reliability", "devops"]
+//   },
+//   {
+//     category: "security",
+//     difficulty: "hard",
+//     companyLogo: "SiOkta",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["nodejs", "jwt"],
+//     languages: ["javascript"],
+//     backendFrameworks: ["express"],
+//     security: ["jwt", "oauth", "auth0"],
+//     title: "Design Secure Authentication System",
+//     question: "Build authentication with OAuth, JWT, and refresh tokens.",
+//     answer: "Use OAuth for third-party. Issue short-lived access tokens (15min) and long-lived refresh tokens. Store refresh tokens securely (httpOnly cookies). Implement token rotation. Add rate limiting.",
+//     topicTags: ["authentication", "security", "oauth", "jwt", "best-practices"]
+//   },
+//   {
+//     category: "testing",
+//     difficulty: "easy",
+//     companyLogo: "SiGithub",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["typescript", "jest"],
+//     languages: ["typescript"],
+//     testing: ["jest", "testing-library"],
+//     title: "Write Unit Tests for Async Function",
+//     question: "Test a function that fetches user data from an API.",
+//     answer: "Mock fetch with jest.fn(). Use async/await in tests. Test success case, error handling, loading states. Verify correct API calls. Use jest.mock() for modules.",
+//     topicTags: ["testing", "jest", "unit-tests", "mocking", "async"]
+//   },
+//   {
+//     category: "mobile",
+//     difficulty: "medium",
+//     companyLogo: "SiUber",
+//     companySize: ["unicorn", "large"],
+//     primaryTechStack: ["react-native"],
+//     mobile: ["react-native"],
+//     languages: ["typescript"],
+//     title: "Handle Offline Mode in Mobile App",
+//     question: "Design offline-first architecture for ride-sharing app.",
+//     answer: "Use AsyncStorage for local data. Queue actions when offline. Sync on reconnection. Use optimistic updates. Handle conflicts with timestamps. Cache map tiles.",
+//     topicTags: ["mobile", "offline-first", "react-native", "sync", "architecture"]
+//   },
+//   {
+//     category: "data-structures",
 //     difficulty: "medium",
 //     companyLogo: "SiApple",
-//     companyName: "Apple",
-//     topicTags: [
-//       "Conflict Resolution",
-//       "Communication",
-//       "Teamwork",
-//       "Emotional Intelligence",
-//       "STAR Method"
-//     ],
-//     languages: [],
-//     databases: [],
-//     cloudProviders: [],
-//     frontendFrameworks: [],
-//     backendFrameworks: [],
-//     learningResources: [
-//       {
-//         title: "STAR Method Guide",
-//         url: "https://www.themuse.com/advice/star-interview-method",
-//         type: "article"
-//       },
-//       {
-//         title: "Behavioral Interview Questions",
-//         url: "https://www.amazon.jobs/en/landing_pages/interviewing-at-amazon",
-//         type: "guide"
-//       }
-//     ]
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["swift"],
+//     languages: ["swift"],
+//     title: "Implement LRU Cache",
+//     question: "Build a Least Recently Used cache with O(1) operations.",
+//     answer: "Use HashMap + Doubly Linked List. HashMap for O(1) lookup. DLL for O(1) insertion/deletion. Move accessed items to front. Remove from tail when full.",
+//     topicTags: ["data-structures", "cache", "linked-list", "hash-map", "algorithms"]
 //   },
 //   {
-//     question: "# Backend: Design a Rate Limiting System\n\nImplement a rate limiter that restricts the number of requests a client can make to an API. Requirements:\n\n* Support different rate limits per endpoint\n* Handle distributed systems (multiple servers)\n* Provide clear feedback to clients\n* Be performant and scalable\n\nDiscuss algorithms and trade-offs.",
-//     answer: "## Rate Limiting Algorithms\n\n### 1. Token Bucket Algorithm (Recommended)\n\n**Concept:** Each user has a bucket with tokens. Each request consumes a token. Tokens refill at a constant rate.\n\n```python\nimport time\nimport redis\nfrom typing import Tuple\n\nclass TokenBucketRateLimiter:\n    def __init__(self, redis_client: redis.Redis):\n        self.redis = redis_client\n    \n    def is_allowed(\n        self,\n        user_id: str,\n        max_tokens: int = 100,\n        refill_rate: float = 10.0,  # tokens per second\n        endpoint: str = 'default'\n    ) -> Tuple[bool, dict]:\n        \"\"\"\n        Check if request is allowed.\n        Returns (is_allowed, metadata)\n        \"\"\"\n        key = f\"rate_limit:{endpoint}:{user_id}\"\n        now = time.time()\n        \n        # Lua script for atomic operations\n        lua_script = \"\"\"\n        local key = KEYS[1]\n        local max_tokens = tonumber(ARGV[1])\n        local refill_rate = tonumber(ARGV[2])\n        local now = tonumber(ARGV[3])\n        \n        local bucket = redis.call('HMGET', key, 'tokens', 'last_refill')\n        local tokens = tonumber(bucket[1])\n        local last_refill = tonumber(bucket[2])\n        \n        if tokens == nil then\n            tokens = max_tokens\n            last_refill = now\n        else\n            -- Calculate tokens to add based on time elapsed\n            local time_passed = now - last_refill\n            local tokens_to_add = time_passed * refill_rate\n            tokens = math.min(max_tokens, tokens + tokens_to_add)\n            last_refill = now\n        end\n        \n        local allowed = 0\n        if tokens >= 1 then\n            tokens = tokens - 1\n            allowed = 1\n        end\n        \n        redis.call('HMSET', key, 'tokens', tokens, 'last_refill', last_refill)\n        redis.call('EXPIRE', key, 3600)\n        \n        return {allowed, tokens}\n        \"\"\"\n        \n        result = self.redis.eval(\n            lua_script,\n            1,\n            key,\n            max_tokens,\n            refill_rate,\n            now\n        )\n        \n        is_allowed = bool(result[0])\n        remaining_tokens = int(result[1])\n        \n        metadata = {\n            'remaining': remaining_tokens,\n            'limit': max_tokens,\n            'reset': int(now + (max_tokens - remaining_tokens) / refill_rate)\n        }\n        \n        return is_allowed, metadata\n\n# Usage in API endpoint\nfrom fastapi import FastAPI, HTTPException, Request\nfrom fastapi.responses import JSONResponse\n\napp = FastAPI()\nredis_client = redis.Redis(host='localhost', port=6379)\nrate_limiter = TokenBucketRateLimiter(redis_client)\n\n@app.middleware(\"http\")\nasync def rate_limit_middleware(request: Request, call_next):\n    user_id = request.headers.get('X-User-ID', 'anonymous')\n    endpoint = request.url.path\n    \n    # Different limits per endpoint\n    limits = {\n        '/api/search': (10, 1.0),      # 10 req, 1 per second\n        '/api/upload': (5, 0.1),        # 5 req, 1 per 10 seconds\n        'default': (100, 10.0)          # 100 req, 10 per second\n    }\n    \n    max_tokens, refill_rate = limits.get(endpoint, limits['default'])\n    \n    is_allowed, metadata = rate_limiter.is_allowed(\n        user_id=user_id,\n        max_tokens=max_tokens,\n        refill_rate=refill_rate,\n        endpoint=endpoint\n    )\n    \n    if not is_allowed:\n        return JSONResponse(\n            status_code=429,\n            content={\n                'error': 'Rate limit exceeded',\n                'retry_after': metadata['reset'] - int(time.time())\n            },\n            headers={\n                'X-RateLimit-Limit': str(metadata['limit']),\n                'X-RateLimit-Remaining': str(metadata['remaining']),\n                'X-RateLimit-Reset': str(metadata['reset']),\n                'Retry-After': str(metadata['reset'] - int(time.time()))\n            }\n        )\n    \n    response = await call_next(request)\n    \n    # Add rate limit headers to response\n    response.headers['X-RateLimit-Limit'] = str(metadata['limit'])\n    response.headers['X-RateLimit-Remaining'] = str(metadata['remaining'])\n    response.headers['X-RateLimit-Reset'] = str(metadata['reset'])\n    \n    return response\n```\n\n### 2. Sliding Window Log\n\n**Concept:** Track timestamp of each request in a time window.\n\n```python\ndef sliding_window_log(\n    redis_client: redis.Redis,\n    user_id: str,\n    limit: int = 100,\n    window_seconds: int = 60\n) -> bool:\n    key = f\"rate_limit:log:{user_id}\"\n    now = time.time()\n    window_start = now - window_seconds\n    \n    pipe = redis_client.pipeline()\n    \n    # Remove old entries\n    pipe.zremrangebyscore(key, 0, window_start)\n    \n    # Count current requests\n    pipe.zcard(key)\n    \n    # Add current request\n    pipe.zadd(key, {str(now): now})\n    \n    # Set expiry\n    pipe.expire(key, window_seconds)\n    \n    results = pipe.execute()\n    request_count = results[1]\n    \n    return request_count < limit\n```\n\n## Comparison of Algorithms\n\n| Algorithm | Memory | Accuracy | Distributed | Use Case |\n|-----------|--------|----------|-------------|----------|\n| **Token Bucket** | O(1) | Good | Yes (Redis) | General purpose, bursty traffic |\n| **Leaky Bucket** | O(1) | Good | Yes | Smooth rate, queue requests |\n| **Fixed Window** | O(1) | Poor | Yes | Simple, edge case issues |\n| **Sliding Window** | O(n) | Excellent | Yes | Strict enforcement |\n| **Sliding Log** | O(n) | Perfect | Yes | High accuracy needed |\n\n## Architecture for Distributed Systems\n\n```\n┌─────────────┐\n│   Client    │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐      ┌──────────────┐\n│ Load Balancer│─────▶│  API Server 1 │\n└──────┬──────┘      └───────┬───────┘\n       │                     │\n       │             ┌───────▼───────┐\n       │             │  API Server 2 │\n       │             └───────┬───────┘\n       │                     │\n       │             ┌───────▼───────┐\n       └────────────▶│  Redis Cluster│\n                     │  (Rate Limits)│\n                     └───────────────┘\n```\n\n## Key Considerations\n\n### 1. Headers to Return\n```\nX-RateLimit-Limit: 100\nX-RateLimit-Remaining: 42\nX-RateLimit-Reset: 1640000000\nRetry-After: 30\n```\n\n### 2. Error Response\n```json\n{\n  \"error\": \"rate_limit_exceeded\",\n  \"message\": \"Too many requests\",\n  \"retry_after\": 30,\n  \"limit\": 100,\n  \"window\": 60\n}\n```\n\n### 3. User Identification\n* API Key\n* JWT token\n* IP address (less reliable)\n* User ID\n\n### 4. Different Tiers\n```python\nRATE_LIMITS = {\n    'free': (100, 60),      # 100 requests per minute\n    'basic': (1000, 60),    # 1000 requests per minute\n    'premium': (10000, 60), # 10000 requests per minute\n}\n```\n\n## Trade-offs\n\n**Token Bucket Pros:**\n* Memory efficient\n* Allows bursts\n* Simple to implement\n\n**Token Bucket Cons:**\n* Approximate (race conditions possible)\n* May allow slightly more than limit\n\n**Sliding Window Log Pros:**\n* Perfect accuracy\n* No edge cases\n\n**Sliding Window Log Cons:**\n* Higher memory usage\n* More Redis operations",
+//     category: "cloud",
+//     difficulty: "hard",
+//     companyLogo: "SiMicrosoftazure",
+//     companySize: ["enterprise", "large"],
+//     primaryTechStack: ["terraform", "azure"],
+//     cloudProviders: ["azure"],
+//     iac: ["terraform"],
+//     title: "Multi-Region Disaster Recovery",
+//     question: "Design DR strategy with RPO < 1 hour, RTO < 4 hours.",
+//     answer: "Use geo-replication for databases. Deploy in multiple regions with Traffic Manager. Automated backups every 15min. Regular DR drills. Terraform for infrastructure. Monitor replication lag.",
+//     topicTags: ["disaster-recovery", "cloud", "high-availability", "infrastructure", "terraform"]
+//   },
+//   {
+//     category: "performance",
+//     difficulty: "medium",
+//     companyLogo: "SiSpotify",
+//     companySize: ["unicorn", "large"],
+//     primaryTechStack: ["python", "fastapi"],
+//     languages: ["python"],
+//     backendFrameworks: ["fastapi"],
+//     caching: ["redis"],
+//     title: "Optimize API Response Time",
+//     question: "API response time is 3s. Target is 200ms. How to optimize?",
+//     answer: "Add Redis caching layer. Use database connection pooling. Implement pagination. Add indexes. Use async operations. Consider CDN for static assets. Profile with tools.",
+//     topicTags: ["performance", "optimization", "caching", "profiling", "api"]
+//   },
+//   {
+//     category: "scalability",
+//     difficulty: "hard",
+//     companyLogo: "SiTiktok",
+//     companySize: ["unicorn", "enterprise"],
+//     primaryTechStack: ["go", "kafka"],
+//     languages: ["go"],
+//     messageQueues: ["kafka"],
+//     databases: ["cassandra"],
+//     title: "Handle 1M Concurrent Video Uploads",
+//     question: "Design system to process millions of video uploads simultaneously.",
+//     answer: "Use object storage (S3). Queue uploads with Kafka. Process async with worker pools. Shard by user_id. Use CDN for delivery. Implement backpressure. Monitor queue depth.",
+//     topicTags: ["scalability", "distributed-systems", "video-processing", "queues", "architecture"]
+//   },
+//   {
+//     category: "api-design",
+//     difficulty: "medium",
+//     companyLogo: "SiTwilio",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["rest", "graphql"],
+//     apiTypes: ["rest", "graphql"],
+//     title: "Design RESTful vs GraphQL API",
+//     question: "When would you choose REST over GraphQL and vice versa?",
+//     answer: "REST: Simple CRUD, caching important, public APIs. GraphQL: Complex queries, mobile apps (reduce requests), rapid frontend iteration. Consider learning curve and tooling.",
+//     topicTags: ["api-design", "rest", "graphql", "architecture", "trade-offs"]
+//   },
+//   {
+//     category: "debugging",
+//     difficulty: "easy",
+//     companyLogo: "SiDatadog",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["javascript"],
+//     languages: ["javascript"],
+//     monitoring: ["datadog", "sentry"],
+//     title: "Debug Memory Leak in Node.js",
+//     question: "App memory usage grows over time. How do you identify the leak?",
+//     answer: "Use heap snapshots. Compare snapshots over time. Look for growing arrays/objects. Use Chrome DevTools. Check for event listener leaks. Profile with --inspect flag.",
+//     topicTags: ["debugging", "memory-leak", "nodejs", "performance", "profiling"]
+//   },
+//   {
+//     category: "behavioral",
+//     difficulty: "medium",
+//     companyLogo: "SiMicrosoft",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: [],
+//     title: "Conflict Resolution with Team Member",
+//     question: "Tell me about a time you disagreed with a teammate on technical approach.",
+//     answer: "Use STAR format. Explain situation, your perspective, their perspective. How you found common ground. Data-driven decision. Emphasize collaboration and outcome.",
+//     topicTags: ["behavioral", "teamwork", "communication", "conflict-resolution", "leadership"]
+//   },
+//   {
+//     category: "architecture",
+//     difficulty: "hard",
+//     companyLogo: "SiOracle",
+//     companySize: ["enterprise", "large"],
+//     primaryTechStack: ["microservices"],
+//     backendFrameworks: ["spring-boot"],
+//     messageQueues: ["rabbitmq"],
+//     title: "Monolith to Microservices Migration",
+//     question: "How would you break down a monolithic application into microservices?",
+//     answer: "Start with bounded contexts. Use strangler pattern. Extract services gradually. Implement API gateway. Use message queues for async. Maintain data consistency. Monitor extensively.",
+//     topicTags: ["architecture", "microservices", "migration", "design-patterns", "distributed-systems"]
+//   },
+//   {
+//     category: "ml-ai",
+//     difficulty: "hard",
+//     companyLogo: "SiOpenai",
+//     companySize: ["startup", "unicorn"],
+//     primaryTechStack: ["python", "pytorch"],
+//     languages: ["python"],
+//     mlFrameworks: ["pytorch", "huggingface"],
+//     llmProviders: ["openai"],
+//     title: "Fine-tune LLM for Domain Task",
+//     question: "How to fine-tune GPT for customer support?",
+//     answer: "Collect quality training data. Use LoRA for efficient fine-tuning. Validate on holdout set. Monitor for hallucinations. Implement safety filters. A/B test against base model.",
+//     topicTags: ["llm", "fine-tuning", "machine-learning", "nlp", "pytorch"]
+//   },
+//   {
+//     category: "code-review",
+//     difficulty: "medium",
+//     companyLogo: "SiGitlab",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["ruby"],
+//     languages: ["ruby"],
+//     title: "Best Practices for Code Reviews",
+//     question: "What do you look for in code reviews?",
+//     answer: "Check correctness, readability, tests. Look for edge cases, security issues. Ensure consistent style. Verify documentation. Be constructive. Focus on learnings, not blame.",
+//     topicTags: ["code-review", "best-practices", "collaboration", "quality", "communication"]
+//   },
+//   {
+//     category: "leadership",
+//     difficulty: "hard",
+//     companyLogo: "SiTesla",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: [],
+//     title: "Leading Technical Project Under Pressure",
+//     question: "Describe leading a project with tight deadline and technical challenges.",
+//     answer: "Prioritize ruthlessly. Break into MVPs. Delegate effectively. Unblock team daily. Communicate risks early. Make trade-off decisions. Celebrate wins. Retrospect learnings.",
+//     topicTags: ["leadership", "project-management", "prioritization", "communication", "team-building"]
+//   },
+//   {
+//     category: "communication",
+//     difficulty: "medium",
+//     companyLogo: "SiSlack",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: [],
+//     title: "Explain Complex Technical Concept",
+//     question: "Explain how databases work to a non-technical person.",
+//     answer: "Use analogies (library with card catalog). Avoid jargon. Check understanding. Use visuals. Start simple, add complexity. Relate to their experience. Be patient.",
+//     topicTags: ["communication", "teaching", "simplification", "collaboration", "soft-skills"]
+//   },
+//   {
+//     category: "problem-solving",
+//     difficulty: "medium",
+//     companyLogo: "SiShopify",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["rails", "ruby"],
+//     languages: ["ruby"],
+//     backendFrameworks: ["rails"],
+//     title: "Production Issue Resolution",
+//     question: "Walk through how you'd handle a critical production outage.",
+//     answer: "Assess impact. Communicate to stakeholders. Check monitoring/logs. Form hypothesis. Test fixes in staging. Deploy fix. Verify resolution. Write postmortem. Implement preventive measures.",
+//     topicTags: ["problem-solving", "incident-response", "debugging", "communication", "operations"]
+//   },
+//   {
+//     category: "frontend",
+//     difficulty: "easy",
+//     companyLogo: "SiVercel",
+//     companySize: ["startup", "medium"],
+//     primaryTechStack: ["next", "react"],
+//     frontendFrameworks: ["next"],
+//     languages: ["typescript"],
+//     title: "Server-Side Rendering vs Client-Side",
+//     question: "When to use SSR vs CSR in Next.js?",
+//     answer: "SSR: SEO critical, initial load speed, dynamic data per request. CSR: Highly interactive apps, authenticated content, frequent updates. Consider ISR for best of both.",
+//     topicTags: ["nextjs", "ssr", "performance", "seo", "react"]
+//   },
+//   {
+//     category: "database",
+//     difficulty: "medium",
+//     companyLogo: "SiMongodb",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["mongodb"],
+//     databases: ["mongodb"],
+//     title: "Schema Design for MongoDB",
+//     question: "Design schema for e-commerce products with variants and inventory.",
+//     answer: "Embed variants in product doc if < 100. Reference inventory separately. Index on SKU, category. Use aggregation for queries. Consider sharding by category for scale.",
+//     topicTags: ["mongodb", "nosql", "schema-design", "database", "performance"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiAmazon",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["java"],
+//     languages: ["java"],
+//     title: "Find Kth Largest Element",
+//     question: "Find kth largest element in unsorted array efficiently.",
+//     answer: "Use QuickSelect algorithm. Average O(n), worst O(n²). Or use min-heap of size k: O(n log k). Trade-offs: QuickSelect faster average, heap more predictable.",
+//     topicTags: ["algorithms", "sorting", "heap", "quickselect", "optimization"]
+//   },
+//   {
+//     category: "security",
+//     difficulty: "medium",
+//     companyLogo: "SiCloudflare",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["nodejs"],
+//     languages: ["javascript"],
+//     security: ["oauth", "jwt"],
+//     title: "Prevent SQL Injection",
+//     question: "How do you protect against SQL injection attacks?",
+//     answer: "Use parameterized queries/prepared statements. Never concatenate user input. Use ORM safely. Input validation. Least privilege DB accounts. Regular security audits.",
+//     topicTags: ["security", "sql-injection", "best-practices", "vulnerabilities", "backend"]
+//   },
+//   {
+//     category: "cloud",
+//     difficulty: "medium",
+//     companyLogo: "SiAmazonaws",
+//     companySize: ["enterprise", "large"],
+//     primaryTechStack: ["aws", "lambda"],
+//     cloudProviders: ["aws"],
+//     title: "Serverless vs Traditional Architecture",
+//     question: "When to use Lambda vs EC2?",
+//     answer: "Lambda: Sporadic traffic, event-driven, microservices, quick scaling. EC2: Sustained load, long processes, custom runtime, cost optimization. Consider cold starts.",
+//     topicTags: ["serverless", "aws", "lambda", "architecture", "cost-optimization"]
+//   },
+//   {
+//     category: "testing",
+//     difficulty: "medium",
+//     companyLogo: "SiCypress",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["cypress"],
+//     testing: ["cypress"],
+//     languages: ["javascript"],
+//     title: "E2E Testing Strategy",
+//     question: "Design end-to-end testing approach for web app.",
+//     answer: "Test critical user journeys. Use page object pattern. Mock external APIs. Run in CI/CD. Parallel execution. Monitor flakiness. Balance coverage vs speed.",
+//     topicTags: ["e2e-testing", "cypress", "testing-strategy", "automation", "ci-cd"]
+//   },
+//   {
+//     category: "performance",
+//     difficulty: "hard",
+//     companyLogo: "SiNetflix",
+//     companySize: ["faang", "large"],
+//     primaryTechStack: ["react"],
+//     frontendFrameworks: ["react"],
+//     title: "Optimize React App Performance",
+//     question: "App is slow with large lists. How to improve?",
+//     answer: "Use React.memo for expensive components. Implement virtualization (react-window). Code splitting with lazy(). Optimize re-renders with useMemo/useCallback. Profile with React DevTools.",
+//     topicTags: ["react", "performance", "optimization", "virtualization", "profiling"]
+//   },
+//   {
+//     category: "devops",
+//     difficulty: "hard",
+//     companyLogo: "SiDocker",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["docker", "kubernetes"],
+//     containers: ["docker", "kubernetes"],
+//     title: "Container Security Best Practices",
+//     question: "How to secure Docker containers in production?",
+//     answer: "Use minimal base images. Scan for vulnerabilities (Trivy). Run as non-root user. Use secrets management. Limit resources. Regular updates. Network policies in K8s.",
+//     topicTags: ["docker", "security", "containers", "best-practices", "devops"]
+//   },
+//   {
+//     category: "backend",
+//     difficulty: "easy",
+//     companyLogo: "SiExpress",
+//     companySize: ["startup", "medium"],
+//     primaryTechStack: ["express", "nodejs"],
+//     backendFrameworks: ["express"],
+//     languages: ["javascript"],
+//     title: "Error Handling in Express",
+//     question: "Implement centralized error handling middleware.",
+//     answer: "Create error middleware with 4 params (err, req, res, next). Use try-catch in async routes. Create custom error classes. Log errors. Return appropriate status codes. Don't leak stack traces.",
+//     topicTags: ["express", "error-handling", "middleware", "backend", "nodejs"]
+//   },
+//   {
+//     category: "mobile",
+//     difficulty: "hard",
+//     companyLogo: "SiFlutter",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["flutter", "dart"],
+//     mobile: ["flutter"],
+//     languages: ["dart"],
+//     title: "State Management in Flutter",
+//     question: "Compare Provider, Riverpod, and BLoC for state management.",
+//     answer: "Provider: Simple, good for small apps. Riverpod: Type-safe, testable, compile-time. BLoC: Complex, reactive, scalable. Choose based on app size and team expertise.",
+//     topicTags: ["flutter", "state-management", "mobile", "architecture", "dart"]
+//   },
+//   {
+//     category: "api-design",
+//     difficulty: "medium",
+//     companyLogo: "SiPostman",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["rest"],
+//     apiTypes: ["rest"],
+//     title: "API Versioning Strategies",
+//     question: "How to version APIs without breaking clients?",
+//     answer: "URI versioning (/v1/users), header versioning, or query params. Maintain backward compatibility. Deprecation warnings. Clear documentation. Sunset old versions gracefully.",
+//     topicTags: ["api-design", "versioning", "rest", "backward-compatibility", "best-practices"]
+//   },
+//   {
+//     category: "scalability",
+//     difficulty: "medium",
+//     companyLogo: "SiRedis",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["redis"],
+//     caching: ["redis"],
+//     databases: ["redis"],
+//     title: "Redis as Cache vs Database",
+//     question: "When to use Redis for caching vs primary data store?",
+//     answer: "Cache: Temporary data, high read load, TTL needed. Database: Persistent data, simple data structures, pub/sub. Consider durability requirements and data size.",
+//     topicTags: ["redis", "caching", "architecture", "data-storage", "performance"]
+//   },
+//   {
+//     category: "data-structures",
+//     difficulty: "medium",
+//     companyLogo: "SiGoogle",
+//     companySize: ["faang", "large"],
+//     primaryTechStack: ["cpp"],
+//     languages: ["cpp"],
+//     title: "Implement Trie for Autocomplete",
+//     question: "Build trie data structure for word suggestions.",
+//     answer: "Each node has children map. Insert: O(m) where m = word length. Search: O(m). DFS for suggestions. Store frequency for ranking. Optimize memory with compressed tries.",
+//     topicTags: ["trie", "data-structures", "autocomplete", "algorithms", "trees"]
+//   },
+//   {
+//     category: "frontend",
+//     difficulty: "medium",
+//     companyLogo: "SiVue",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["vue"],
+//     frontendFrameworks: ["vue"],
+//     languages: ["javascript"],
+//     title: "Vuex vs Pinia State Management",
+//     question: "When to use Vuex vs Pinia in Vue 3?",
+//     answer: "Pinia: Simpler API, TypeScript support, better DevTools, Vue 3 recommended. Vuex: Legacy projects, familiar to team. Pinia is Vue 3 default now.",
+//     topicTags: ["vue", "state-management", "pinia", "vuex", "frontend"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "medium",
+//     companyLogo: "SiMeta",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["python"],
+//     languages: ["python"],
+//     title: "Binary Search Variants",
+//     question: "Find first occurrence of element in sorted array with duplicates.",
+//     answer: "Modified binary search. When found, continue searching left half. Track first occurrence. Time: O(log n). Handle edge cases: empty array, not found.",
+//     topicTags: ["binary-search", "algorithms", "arrays", "searching", "optimization"]
+//   },
+//   {
+//     category: "database",
+//     difficulty: "hard",
+//     companyLogo: "SiCockroachdb",
+//     companySize: ["startup", "medium"],
+//     primaryTechStack: ["cockroachdb"],
+//     databases: ["cockroachdb"],
+//     title: "Distributed SQL Transactions",
+//     question: "How does CockroachDB handle transactions across nodes?",
+//     answer: "Uses Raft consensus. Serializable isolation. Distributed transactions with 2PC. Automatic rebalancing. Consider latency of distributed commits. Use follower reads for performance.",
+//     topicTags: ["distributed-systems", "database", "transactions", "consistency", "cockroachdb"]
+//   },
+//   {
+//     category: "ml-ai",
+//     difficulty: "medium",
+//     companyLogo: "SiTensorflow",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["python", "tensorflow"],
+//     languages: ["python"],
+//     mlFrameworks: ["tensorflow"],
+//     title: "Prevent Model Overfitting",
+//     question: "What techniques prevent overfitting in neural networks?",
+//     answer: "Use dropout, L2 regularization, early stopping. Data augmentation. Cross-validation. Simpler architecture. More training data. Monitor train vs validation loss.",
+//     topicTags: ["machine-learning", "overfitting", "neural-networks", "tensorflow", "model-training"]
+//   },
+//   {
+//     category: "security",
+//     difficulty: "hard",
+//     companyLogo: "SiVault",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["vault"],
+//     security: ["vault"],
+//     title: "Secrets Management Architecture",
+//     question: "Design secrets management system for microservices.",
+//     answer: "Use Vault for centralized secrets. Dynamic secrets with TTL. Rotate regularly. Audit all access. Encrypt in transit and at rest. Service authentication with AppRole.",
+//     topicTags: ["secrets-management", "security", "vault", "microservices", "encryption"]
+//   },
+//   {
+//     category: "cloud",
+//     difficulty: "medium",
+//     companyLogo: "SiGooglecloud",
+//     companySize: ["enterprise", "large"],
+//     primaryTechStack: ["gcp"],
+//     cloudProviders: ["gcp"],
+//     title: "GCP vs AWS Service Comparison",
+//     question: "Compare GCP and AWS for startup deployment.",
+//     answer: "AWS: More services, mature, complex pricing. GCP: Better AI/ML tools, simpler pricing, BigQuery. Consider team expertise, specific needs, multi-cloud strategy.",
+//     topicTags: ["cloud", "gcp", "aws", "comparison", "architecture"]
+//   },
+//   {
+//     category: "devops",
+//     difficulty: "medium",
+//     companyLogo: "SiJenkins",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["jenkins"],
+//     cicd: ["jenkins"],
+//     title: "CI/CD Pipeline Best Practices",
+//     question: "Design CI/CD pipeline for Node.js app.",
+//     answer: "Build: lint, test, security scan. Automated tests at each stage. Deploy to staging first. Use blue-green deployment. Rollback strategy. Monitor after deploy.",
+//     topicTags: ["ci-cd", "jenkins", "devops", "automation", "deployment"]
+//   },
+//   {
+//     category: "performance",
+//     difficulty: "medium",
+//     companyLogo: "SiNginx",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["nginx"],
+//     webServers: ["nginx"],
+//     title: "Nginx Load Balancing Configuration",
+//     question: "Configure Nginx for optimal load balancing.",
+//     answer: "Use upstream blocks. Round-robin, least_conn, or ip_hash. Health checks. Timeouts. Connection pooling. SSL termination at load balancer. Monitor backend health.",
+//     topicTags: ["nginx", "load-balancing", "performance", "scalability", "web-servers"]
+//   },
+//   {
+//     category: "frontend",
+//     difficulty: "hard",
+//     companyLogo: "SiAngular",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["angular", "typescript"],
+//     frontendFrameworks: ["angular"],
+//     languages: ["typescript"],
+//     title: "Angular Change Detection Optimization",
+//     question: "App has performance issues with change detection. Fix it.",
+//     answer: "Use OnPush strategy. Immutable data patterns. Detach change detector for complex components. Use pure pipes. Profile with Angular DevTools. Avoid function calls in templates.",
+//     topicTags: ["angular", "performance", "change-detection", "optimization", "frontend"]
+//   },
+//   {
+//     category: "testing",
+//     difficulty: "easy",
+//     companyLogo: "SiPlaywright",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["playwright"],
+//     testing: ["playwright"],
+//     title: "Playwright vs Selenium",
+//     question: "Compare Playwright and Selenium for E2E testing.",
+//     answer: "Playwright: Modern, fast, auto-wait, better debugging. Selenium: More mature, wider browser support, larger community. Playwright recommended for new projects.",
+//     topicTags: ["testing", "playwright", "selenium", "e2e", "automation"]
+//   },
+//   {
+//     category: "backend",
+//     difficulty: "hard",
+//     companyLogo: "SiGraphql",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["graphql"],
+//     apiTypes: ["graphql"],
+//     title: "GraphQL N+1 Problem Solution",
+//     question: "Resolve N+1 query problem in GraphQL.",
+//     answer: "Use DataLoader for batching. Implement query depth limiting. Cache results. Use look-ahead for optimization. Monitor query complexity. Consider persisted queries.",
+//     topicTags: ["graphql", "performance", "optimization", "n+1-problem", "api-design"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiApple",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["swift"],
+//     languages: ["swift"],
+//     title: "Dynamic Programming - Coin Change",
+//     question: "Find minimum coins needed to make amount with given denominations.",
+//     answer: "Use DP array where dp[i] = min coins for amount i. For each amount, try each coin. dp[i] = min(dp[i], dp[i-coin] + 1). Time: O(amount * coins). Space: O(amount).",
+//     topicTags: ["dynamic-programming", "algorithms", "optimization", "recursion", "memoization"]
+//   },
+//   {
+//     category: "mobile",
+//     difficulty: "medium",
+//     companyLogo: "SiAndroid",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["kotlin"],
+//     languages: ["kotlin"],
+//     mobile: ["kotlin"],
+//     title: "Android Jetpack Compose vs XML",
+//     question: "When to use Compose vs traditional XML layouts?",
+//     answer: "Compose: Modern, declarative, less boilerplate, easier animations. XML: Legacy support, design tools, team familiarity. New projects should use Compose.",
+//     topicTags: ["android", "jetpack-compose", "mobile", "kotlin", "ui-development"]
+//   },
+//   {
+//     category: "system-design",
+//     difficulty: "hard",
+//     companyLogo: "SiTwitter",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["scala", "kafka"],
+//     languages: ["scala"],
+//     messageQueues: ["kafka"],
+//     databases: ["cassandra", "redis"],
+//     title: "Design Twitter Timeline",
+//     question: "Design system for Twitter's home timeline at scale.",
+//     answer: "Fan-out on write for regular users, fan-out on read for celebrities. Redis for timeline cache. Cassandra for tweets. Kafka for real-time events. CDN for media. Load shedding for spikes.",
+//     topicTags: ["system-design", "distributed-systems", "scalability", "social-media", "real-time"]
+//   },
+//   {
+//     category: "database",
+//     difficulty: "medium",
+//     companyLogo: "SiElasticsearch",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["elasticsearch"],
+//     searchEngines: ["elasticsearch"],
+//     title: "Elasticsearch Indexing Strategy",
+//     question: "Design indexing for log search with 10TB daily data.",
+//     answer: "Time-based indices (daily/weekly). Use ILM for lifecycle. Hot-warm-cold architecture. Optimize mappings. Set appropriate shards. Use rollover API. Curator for cleanup.",
+//     topicTags: ["elasticsearch", "indexing", "search", "logs", "performance"]
+//   },
+//   {
+//     category: "security",
+//     difficulty: "medium",
+//     companyLogo: "SiSnyk",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["nodejs"],
+//     security: ["snyk"],
+//     title: "Dependency Vulnerability Management",
+//     question: "How to handle vulnerable dependencies in production?",
+//     answer: "Use Snyk/Dependabot. Automated scanning in CI/CD. Prioritize by severity. Test updates in staging. Keep dependencies current. Security advisories subscription. Have patching SLA.",
+//     topicTags: ["security", "dependencies", "vulnerabilities", "devops", "best-practices"]
+//   },
+//   {
+//     category: "frontend",
+//     difficulty: "easy",
+//     companyLogo: "SiSvelte",
+//     companySize: ["startup", "medium"],
+//     primaryTechStack: ["svelte"],
+//     frontendFrameworks: ["svelte"],
+//     title: "Svelte Reactivity System",
+//     question: "How does Svelte's reactivity differ from React?",
+//     answer: "Svelte compiles to vanilla JS, no virtual DOM. Assignments trigger updates. Less boilerplate. Smaller bundles. Better performance. No useEffect/useState needed.",
+//     topicTags: ["svelte", "reactivity", "frontend", "performance", "compilation"]
+//   },
+//   {
+//     category: "devops",
+//     difficulty: "hard",
+//     companyLogo: "SiArgo",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["kubernetes"],
+//     cicd: ["argo-cd"],
+//     containers: ["kubernetes"],
+//     title: "GitOps with ArgoCD",
+//     question: "Implement GitOps workflow for Kubernetes deployments.",
+//     answer: "Git as single source of truth. ArgoCD monitors repo. Auto-sync on changes. Use app-of-apps pattern. Environment promotion via branches. Rollback via Git revert.",
+//     topicTags: ["gitops", "argocd", "kubernetes", "ci-cd", "automation"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "medium",
+//     companyLogo: "SiLinkedin",
+//     companySize: ["large", "faang"],
+//     primaryTechStack: ["java"],
+//     languages: ["java"],
+//     title: "Merge K Sorted Lists",
+//     question: "Merge k sorted linked lists efficiently.",
+//     answer: "Use min-heap of size k. Add first node from each list. Pop min, add result. Push next node from same list. Time: O(n log k), Space: O(k).",
+//     topicTags: ["algorithms", "heap", "linked-lists", "merging", "optimization"]
+//   },
+//   {
+//     category: "backend",
+//     difficulty: "medium",
+//     companyLogo: "SiDjango",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["django", "python"],
+//     backendFrameworks: ["django"],
+//     languages: ["python"],
+//     orms: ["django-orm"],
+//     title: "Django ORM Query Optimization",
+//     question: "Optimize Django queries causing N+1 problems.",
+//     answer: "Use select_related for FK. Use prefetch_related for M2M. Use only() for specific fields. Add db_index. Use iterator() for large querysets. Check query count.",
+//     topicTags: ["django", "orm", "optimization", "performance", "database"]
+//   },
+//   {
+//     category: "cloud",
+//     difficulty: "medium",
+//     companyLogo: "SiHeroku",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["heroku"],
+//     cloudProviders: ["heroku"],
+//     title: "When to Use Heroku vs AWS",
+//     question: "Compare Heroku and AWS for deployment.",
+//     answer: "Heroku: Fast setup, managed, higher cost, good for MVPs. AWS: More control, cheaper at scale, steeper learning curve. Start Heroku, migrate to AWS when needed.",
+//     topicTags: ["cloud", "heroku", "aws", "deployment", "cost-optimization"]
+//   },
+//   {
+//     category: "testing",
+//     difficulty: "medium",
+//     companyLogo: "SiJest",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["jest"],
+//     testing: ["jest"],
+//     languages: ["javascript"],
+//     title: "Testing Async Code with Jest",
+//     question: "Best practices for testing async functions.",
+//     answer: "Use async/await in tests. Use done callback for callbacks. Mock timers with jest.useFakeTimers(). Test error cases. Use waitFor for async updates. Clear mocks between tests.",
+//     topicTags: ["jest", "testing", "async", "javascript", "best-practices"]
+//   },
+//   {
+//     category: "ml-ai",
+//     difficulty: "hard",
+//     companyLogo: "SiAnthropic",
+//     companySize: ["startup", "unicorn"],
+//     primaryTechStack: ["python", "langchain"],
+//     languages: ["python"],
+//     mlFrameworks: ["langchain"],
+//     llmProviders: ["anthropic"],
+//     title: "Build AI Agent with Tool Use",
+//     question: "Create AI agent that uses external tools.",
+//     answer: "Define tools with clear schemas. Use function calling API. Implement retry logic. Validate tool outputs. Chain tools when needed. Handle errors gracefully. Log all actions.",
+//     topicTags: ["ai-agents", "llm", "langchain", "function-calling", "automation"]
+//   },
+//   {
+//     category: "performance",
+//     difficulty: "hard",
+//     companyLogo: "SiCdn",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["cloudflare"],
+//     cloudProviders: ["cloudflare"],
+//     caching: ["cloudflare-cache", "cdn"],
+//     title: "Global CDN Strategy",
+//     question: "Design CDN architecture for global app.",
+//     answer: "Edge caching with Cloudflare. Cache-Control headers. Purge strategy. Regional origins. Dynamic content acceleration. Image optimization. DDoS protection.",
+//     topicTags: ["cdn", "performance", "caching", "global-infrastructure", "optimization"]
+//   },
+//   {
+//     category: "data-structures",
+//     difficulty: "hard",
+//     companyLogo: "SiMicrosoft",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["csharp"],
+//     languages: ["csharp"],
+//     title: "Design LFU Cache",
+//     question: "Implement Least Frequently Used cache.",
+//     answer: "Use HashMap + frequency buckets (doubly linked lists). Track min frequency. O(1) get, put, eviction. Update frequency on access. Handle ties with recency.",
+//     topicTags: ["data-structures", "cache", "algorithms", "design", "optimization"]
+//   },
+//   {
+//     category: "backend",
+//     difficulty: "medium",
+//     companyLogo: "SiLaravel",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["laravel", "php"],
+//     backendFrameworks: ["laravel"],
+//     languages: ["php"],
+//     title: "Laravel Queue Performance",
+//     question: "Optimize Laravel queue processing for high throughput.",
+//     answer: "Use Redis/SQS for queue. Multiple workers. Use horizon for monitoring. Batch jobs. Timeout handling. Failed job handling. Scale workers with load.",
+//     topicTags: ["laravel", "queues", "performance", "php", "scalability"]
+//   },
+//   {
+//     category: "mobile",
+//     difficulty: "medium",
+//     companyLogo: "SiIonic",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["ionic"],
+//     mobile: ["ionic"],
+//     languages: ["typescript"],
+//     title: "Hybrid vs Native Mobile Apps",
+//     question: "When to choose Ionic vs native development?",
+//     answer: "Ionic: Cross-platform, web skills, faster development, good for MVPs. Native: Better performance, full API access, better UX. Consider team, timeline, requirements.",
+//     topicTags: ["mobile", "hybrid-apps", "ionic", "architecture", "trade-offs"]
+//   },
+//   {
+//     category: "system-design",
+//     difficulty: "hard",
+//     companyLogo: "SiZoom",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["webrtc"],
+//     protocol: ["webrtc", "websockets"],
+//     title: "Design Video Conferencing System",
+//     question: "Build scalable video conferencing like Zoom.",
+//     answer: "WebRTC for peer connections. SFU for routing. TURN servers for NAT. Adaptive bitrate. Recording to cloud storage. Chat with WebSockets. Load balancing by region.",
+//     topicTags: ["system-design", "webrtc", "video", "real-time", "scalability"]
+//   },
+//   {
+//     category: "security",
+//     difficulty: "hard",
+//     companyLogo: "SiAuth0",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["oauth"],
+//     security: ["oauth", "auth0"],
+//     title: "Implement OAuth 2.0 Flow",
+//     question: "Explain and implement OAuth 2.0 authorization code flow.",
+//     answer: "User redirects to auth server. User approves. Auth code returned. Exchange code for token. Use PKCE for mobile. Refresh token rotation. Store tokens securely.",
+//     topicTags: ["oauth", "authentication", "security", "authorization", "protocols"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "easy",
+//     companyLogo: "SiDropbox",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["python"],
+//     languages: ["python"],
+//     title: "Valid Parentheses",
+//     question: "Check if string has valid balanced parentheses.",
+//     answer: "Use stack. Push opening brackets. Pop and match closing brackets. Stack should be empty at end. O(n) time, O(n) space.",
+//     topicTags: ["stack", "algorithms", "strings", "validation", "data-structures"]
+//   },
+//   {
+//     category: "database",
+//     difficulty: "hard",
+//     companyLogo: "SiPinecone",
+//     companySize: ["startup", "medium"],
+//     primaryTechStack: ["pinecone"],
+//     vectorDBs: ["pinecone"],
+//     title: "Vector Database for Similarity Search",
+//     question: "When to use vector database vs traditional database?",
+//     answer: "Vector DB: Semantic search, recommendations, RAG, image similarity. Traditional: Exact matches, structured data. Use hybrid approach for best results.",
+//     topicTags: ["vector-database", "similarity-search", "embeddings", "ai", "database"]
+//   },
+//   {
+//     category: "frontend",
+//     difficulty: "medium",
+//     companyLogo: "SiTailwindcss",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["tailwind"],
+//     cssFrameworks: ["tailwind"],
+//     title: "Tailwind CSS Best Practices",
+//     question: "Optimize Tailwind CSS for production.",
+//     answer: "Enable JIT mode. Purge unused styles. Use @apply sparingly. Create component classes. Configure theme. Use plugins. Minimize bundle size.",
+//     topicTags: ["tailwind", "css", "optimization", "frontend", "performance"]
+//   },
+//   {
+//     category: "devops",
+//     difficulty: "medium",
+//     companyLogo: "SiAnsible",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["ansible"],
+//     iac: ["ansible"],
+//     title: "Infrastructure as Code with Ansible",
+//     question: "Design Ansible playbooks for infrastructure management.",
+//     answer: "Use roles for reusability. Variables in separate files. Idempotent tasks. Use handlers for services. Vault for secrets. Test with molecule. Version control playbooks.",
+//     topicTags: ["ansible", "iac", "automation", "devops", "configuration-management"]
+//   },
+//   {
+//     category: "backend",
+//     difficulty: "hard",
+//     companyLogo: "SiGo",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["go"],
+//     languages: ["go"],
+//     backendFrameworks: ["gin"],
+//     title: "Goroutines and Channels",
+//     question: "Implement worker pool pattern in Go.",
+//     answer: "Create channel for jobs. Spawn N workers as goroutines. Workers read from channel. Use WaitGroup for completion. Buffered channel for backpressure. Close channel when done.",
+//     topicTags: ["golang", "concurrency", "goroutines", "channels", "patterns"]
+//   },
+//   {
+//     category: "ml-ai",
+//     difficulty: "medium",
+//     companyLogo: "SiScikit",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["python", "scikit-learn"],
+//     languages: ["python"],
+//     mlFrameworks: ["scikit-learn"],
+//     title: "Feature Engineering for ML",
+//     question: "Best practices for preparing features for ML models.",
+//     answer: "Handle missing values. Scale numerical features. Encode categorical. Create interaction features. Remove correlations. Feature selection. Cross-validation throughout.",
+//     topicTags: ["machine-learning", "feature-engineering", "data-preprocessing", "scikit-learn", "ml-pipeline"]
+//   },
+//   {
+//     category: "testing",
+//     difficulty: "easy",
+//     companyLogo: "SiMocha",
+//     companySize: ["medium", "large"],
+//     primaryTechStack: ["mocha"],
+//     testing: ["mocha"],
+//     languages: ["javascript"],
+//     title: "BDD Testing with Mocha",
+//     question: "Write behavior-driven tests with Mocha.",
+//     answer: "Use describe/it blocks. Clear test names. Arrange-Act-Assert pattern. Use chai for assertions. Before/after hooks. Test one thing per test.",
+//     topicTags: ["mocha", "bdd", "testing", "javascript", "best-practices"]
+//   },
+//   {
+//     category: "cloud",
+//     difficulty: "hard",
+//     companyLogo: "SiTerraform",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["terraform"],
+//     iac: ["terraform"],
+//     cloudProviders: ["aws", "gcp", "azure"],
+//     title: "Multi-Cloud Terraform Strategy",
+//     question: "Manage infrastructure across AWS, GCP, Azure with Terraform.",
+//     answer: "Separate providers per cloud. Shared modules. Remote state in S3/GCS. Workspaces per environment. Use locals for common config. Test with terratest.",
+//     topicTags: ["terraform", "multi-cloud", "iac", "devops", "infrastructure"]
+//   },
+//   {
+//     category: "performance",
+//     difficulty: "medium",
+//     companyLogo: "SiWebpack",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["webpack"],
+//     languages: ["javascript"],
+//     title: "Webpack Bundle Optimization",
+//     question: "Reduce webpack bundle size for faster loads.",
+//     answer: "Code splitting with dynamic imports. Tree shaking. Minification. Analyze with bundle analyzer. Use CDN for vendors. Lazy load routes. Cache chunks.",
+//     topicTags: ["webpack", "optimization", "bundling", "performance", "frontend"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "medium",
+//     companyLogo: "SiPaypal",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["java"],
+//     languages: ["java"],
+//     title: "Detect Cycle in Linked List",
+//     question: "Detect if linked list has a cycle.",
+//     answer: "Floyd's cycle detection (two pointers). Slow moves 1, fast moves 2. If they meet, cycle exists. O(n) time, O(1) space. Find cycle start if needed.",
+//     topicTags: ["linked-list", "algorithms", "two-pointers", "cycle-detection", "optimization"]
+//   },
+//   {
+//     category: "system-design",
+//     difficulty: "hard",
+//     companyLogo: "SiAirbnb",
+//     companySize: ["unicorn", "large"],
+//     primaryTechStack: ["react", "rails"],
+//     frontendFrameworks: ["react"],
+//     backendFrameworks: ["rails"],
+//     databases: ["postgresql", "elasticsearch"],
+//     title: "Design Airbnb Search System",
+//     question: "Build search system for properties with filters.",
+//     answer: "Elasticsearch for full-text search. Postgres for ACID. Cache popular searches in Redis. Geospatial indexing. Faceted search. Ranking algorithm. Pagination.",
+//     topicTags: ["system-design", "search", "elasticsearch", "scalability", "geospatial"]
+//   },
+//   {
+//     category: "security",
+//     difficulty: "medium",
+//     companyLogo: "SiOwasp",
+//     companySize: ["enterprise", "large"],
+//     primaryTechStack: ["nodejs"],
+//     security: ["owasp-zap"],
+//     title: "OWASP Top 10 Prevention",
+//     question: "How to prevent OWASP Top 10 vulnerabilities?",
+//     answer: "Input validation, parameterized queries, authentication, encryption, logging, dependency updates, rate limiting, CORS, CSP headers, security headers.",
+//     topicTags: ["security", "owasp", "vulnerabilities", "best-practices", "web-security"]
+//   },
+//   {
+//     category: "mobile",
+//     difficulty: "hard",
+//     companyLogo: "SiApple",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["swift"],
+//     languages: ["swift"],
+//     mobile: ["swift"],
+//     title: "iOS App Architecture Patterns",
+//     question: "Compare MVC, MVVM, VIPER for iOS.",
+//     answer: "MVC: Simple, Apple default, tight coupling. MVVM: Better testability, SwiftUI default. VIPER: Enterprise scale, complex. Choose based on app complexity.",
+//     topicTags: ["ios", "architecture", "patterns", "swift", "mobile"]
+//   },
+//   {
+//     category: "database",
+//     difficulty: "medium",
+//     companyLogo: "SiFirebase",
+//     companySize: ["large", "enterprise"],
+//     primaryTechStack: ["firebase-firestore"],
+//     databases: ["firebase-firestore"],
+//     title: "Firestore Data Modeling",
+//     question: "Design Firestore schema for social media app.",
+//     answer: "Denormalize for reads. Use subcollections. Avoid deep nesting. Index frequently queried fields. Use batch writes. Consider document size limits.",
+//     topicTags: ["firestore", "nosql", "data-modeling", "firebase", "database"]
+//   },
+//   {
+//     category: "backend",
+//     difficulty: "medium",
+//     companyLogo: "SiRust",
+//     companySize: ["startup", "medium"],
+//     primaryTechStack: ["rust", "actix"],
+//     languages: ["rust"],
+//     backendFrameworks: ["actix"],
+//     title: "Rust for High-Performance APIs",
+//     question: "When to use Rust for backend services?",
+//     answer: "Use when: Performance critical, memory safety important, low latency needed. Trade-off: Steeper learning curve. Great for: API gateways, microservices, data processing.",
+//     topicTags: ["rust", "performance", "backend", "systems-programming", "actix"]
+//   }
+// ,
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiGoogle",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["python"],
+//     languages: ["python"],
+//     title: "Serialize and Deserialize Binary Tree",
+//     question: `Design an algorithm to serialize and deserialize a binary tree. Serialization converts the tree to a string, deserialization converts the string back to the original tree structure.
+
+// Example:
+//     1
+//    / \\
+//   2   3
+//      / \\
+//     4   5
+
+// serialize(root) → "1,2,null,null,3,4,null,null,5,null,null"
+// deserialize(data) → original tree
+
+// Write both functions with optimal time/space complexity.`,
+//     answer: `\`\`\`python
+// class TreeNode:
+//     def __init__(self, val=0, left=None, right=None):
+//         self.val = val
+//         self.left = left
+//         self.right = right
+
+// def serialize(root):
+//     """Preorder traversal with null markers"""
+//     if not root:
+//         return "null"
+    
+//     left = serialize(root.left)
+//     right = serialize(root.right)
+//     return f"{root.val},{left},{right}"
+
+// def deserialize(data):
+//     """Reconstruct tree from preorder string"""
+//     def build():
+//         val = next(vals)
+//         if val == "null":
+//             return None
+        
+//         node = TreeNode(int(val))
+//         node.left = build()
+//         node.right = build()
+//         return node
+    
+//     vals = iter(data.split(','))
+//     return build()
+// \`\`\`
+
+// Time: O(n) for both, Space: O(n)`,
+//     topicTags: ["binary-tree", "recursion", "serialization", "dfs", "string-manipulation"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiAmazon",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["java"],
+//     languages: ["java"],
+//     title: "Median of Two Sorted Arrays",
+//     question: `Given two sorted arrays nums1 and nums2, find the median of the two sorted arrays. The overall run time complexity should be O(log(m+n)).
+
+// Example:
+// nums1 = [1, 3], nums2 = [2]
+// Output: 2.0
+
+// nums1 = [1, 2], nums2 = [3, 4]
+// Output: 2.5`,
+//     answer: `\`\`\`java
+// public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+//     if (nums1.length > nums2.length) {
+//         return findMedianSortedArrays(nums2, nums1);
+//     }
+    
+//     int m = nums1.length, n = nums2.length;
+//     int left = 0, right = m;
+    
+//     while (left <= right) {
+//         int partition1 = (left + right) / 2;
+//         int partition2 = (m + n + 1) / 2 - partition1;
+        
+//         int maxLeft1 = (partition1 == 0) ? Integer.MIN_VALUE : nums1[partition1 - 1];
+//         int minRight1 = (partition1 == m) ? Integer.MAX_VALUE : nums1[partition1];
+        
+//         int maxLeft2 = (partition2 == 0) ? Integer.MIN_VALUE : nums2[partition2 - 1];
+//         int minRight2 = (partition2 == n) ? Integer.MAX_VALUE : nums2[partition2];
+        
+//         if (maxLeft1 <= minRight2 && maxLeft2 <= minRight1) {
+//             if ((m + n) % 2 == 0) {
+//                 return (Math.max(maxLeft1, maxLeft2) + Math.min(minRight1, minRight2)) / 2.0;
+//             }
+//             return Math.max(maxLeft1, maxLeft2);
+//         } else if (maxLeft1 > minRight2) {
+//             right = partition1 - 1;
+//         } else {
+//             left = partition1 + 1;
+//         }
+//     }
+//     throw new IllegalArgumentException();
+// }
+// \`\`\`
+
+// Binary search on smaller array. Time: O(log(min(m,n))), Space: O(1)`,
+//     topicTags: ["binary-search", "arrays", "divide-and-conquer", "median", "optimization"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiMeta",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["cpp"],
+//     languages: ["cpp"],
+//     title: "Longest Valid Parentheses",
+//     question: `Given a string containing just '(' and ')', find the length of the longest valid (well-formed) parentheses substring.
+
+// Example:
+// Input: "(()"
+// Output: 2 (The longest valid substring is "()")
+
+// Input: ")()())"
+// Output: 4 (The longest valid substring is "()()")
+
+// Solve in O(n) time with O(1) space.`,
+//     answer: `\`\`\`cpp
+// int longestValidParentheses(string s) {
+//     int maxLen = 0, left = 0, right = 0;
+    
+//     // Left to right scan
+//     for (char c : s) {
+//         if (c == '(') left++;
+//         else right++;
+        
+//         if (left == right) {
+//             maxLen = max(maxLen, 2 * right);
+//         } else if (right > left) {
+//             left = right = 0;
+//         }
+//     }
+    
+//     // Right to left scan
+//     left = right = 0;
+//     for (int i = s.length() - 1; i >= 0; i--) {
+//         if (s[i] == '(') left++;
+//         else right++;
+        
+//         if (left == right) {
+//             maxLen = max(maxLen, 2 * left);
+//         } else if (left > right) {
+//             left = right = 0;
+//         }
+//     }
+    
+//     return maxLen;
+// }
+// \`\`\`
+
+// Two passes handle different invalid cases. Time: O(n), Space: O(1)`,
+//     topicTags: ["strings", "stack", "two-pointers", "greedy", "parentheses"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiApple",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["swift"],
+//     languages: ["swift"],
+//     title: "Trapping Rain Water",
+//     question: `Given n non-negative integers representing an elevation map where width of each bar is 1, compute how much water can be trapped after raining.
+
+// Example:
+// height = [0,1,0,2,1,0,1,3,2,1,2,1]
+// Output: 6
+
+// Visualize the bars and calculate trapped water between them.`,
+//     answer: `\`\`\`swift
+// func trap(_ height: [Int]) -> Int {
+//     guard height.count > 2 else { return 0 }
+    
+//     var left = 0, right = height.count - 1
+//     var leftMax = 0, rightMax = 0
+//     var water = 0
+    
+//     while left < right {
+//         if height[left] < height[right] {
+//             if height[left] >= leftMax {
+//                 leftMax = height[left]
+//             } else {
+//                 water += leftMax - height[left]
+//             }
+//             left += 1
+//         } else {
+//             if height[right] >= rightMax {
+//                 rightMax = height[right]
+//             } else {
+//                 water += rightMax - height[right]
+//             }
+//             right -= 1
+//         }
+//     }
+    
+//     return water
+// }
+// \`\`\`
+
+// Two pointers approach. Time: O(n), Space: O(1)`,
+//     topicTags: ["arrays", "two-pointers", "greedy", "stack", "dynamic-programming"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiMicrosoft",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["csharp"],
+//     languages: ["csharp"],
+//     title: "Regular Expression Matching",
+//     question: `Implement regular expression matching with '.' and '*' where:
+// - '.' matches any single character
+// - '*' matches zero or more of the preceding element
+
+// Example:
+// isMatch("aa", "a") → false
+// isMatch("aa", "a*") → true
+// isMatch("ab", ".*") → true
+// isMatch("aab", "c*a*b") → true`,
+//     answer: `\`\`\`csharp
+// public bool IsMatch(string s, string p) {
+//     bool[,] dp = new bool[s.Length + 1, p.Length + 1];
+//     dp[0, 0] = true;
+    
+//     // Handle patterns like a*, a*b*, etc.
+//     for (int j = 1; j <= p.Length; j++) {
+//         if (p[j - 1] == '*') {
+//             dp[0, j] = dp[0, j - 2];
+//         }
+//     }
+    
+//     for (int i = 1; i <= s.Length; i++) {
+//         for (int j = 1; j <= p.Length; j++) {
+//             if (p[j - 1] == s[i - 1] || p[j - 1] == '.') {
+//                 dp[i, j] = dp[i - 1, j - 1];
+//             } else if (p[j - 1] == '*') {
+//                 // Zero occurrences
+//                 dp[i, j] = dp[i, j - 2];
+                
+//                 // One or more occurrences
+//                 if (p[j - 2] == s[i - 1] || p[j - 2] == '.') {
+//                     dp[i, j] = dp[i, j] || dp[i - 1, j];
+//                 }
+//             }
+//         }
+//     }
+    
+//     return dp[s.Length, p.Length];
+// }
+// \`\`\`
+
+// DP solution. Time: O(m*n), Space: O(m*n)`,
+//     topicTags: ["dynamic-programming", "string-matching", "recursion", "backtracking", "regex"]
+//   },
+//   {
+//     category: "data-structures",
+//     difficulty: "hard",
+//     companyLogo: "SiGoogle",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["python"],
+//     languages: ["python"],
+//     title: "LRU Cache Implementation",
+//     question: `Design and implement an LRU (Least Recently Used) cache with O(1) time complexity for both get and put operations.
+
+// Implement LRUCache class:
+// - LRUCache(int capacity)
+// - int get(int key)
+// - void put(int key, int value)
+
+// When cache reaches capacity, invalidate least recently used item before inserting new item.`,
+//     answer: `\`\`\`python
+// class Node:
+//     def __init__(self, key=0, val=0):
+//         self.key = key
+//         self.val = val
+//         self.prev = None
+//         self.next = None
+
+// class LRUCache:
+//     def __init__(self, capacity: int):
+//         self.capacity = capacity
+//         self.cache = {}
+//         self.head = Node()
+//         self.tail = Node()
+//         self.head.next = self.tail
+//         self.tail.prev = self.head
+    
+//     def get(self, key: int) -> int:
+//         if key not in self.cache:
+//             return -1
+//         node = self.cache[key]
+//         self._remove(node)
+//         self._add_to_head(node)
+//         return node.val
+    
+//     def put(self, key: int, value: int) -> None:
+//         if key in self.cache:
+//             self._remove(self.cache[key])
+        
+//         node = Node(key, value)
+//         self._add_to_head(node)
+//         self.cache[key] = node
+        
+//         if len(self.cache) > self.capacity:
+//             lru = self.tail.prev
+//             self._remove(lru)
+//             del self.cache[lru.key]
+    
+//     def _remove(self, node):
+//         node.prev.next = node.next
+//         node.next.prev = node.prev
+    
+//     def _add_to_head(self, node):
+//         node.next = self.head.next
+//         node.prev = self.head
+//         self.head.next.prev = node
+//         self.head.next = node
+// \`\`\`
+
+// HashMap + Doubly Linked List. O(1) operations.`,
+//     topicTags: ["hash-map", "linked-list", "cache", "design", "data-structures"]
+//   },
+//   {
+//     category: "system-design",
+//     difficulty: "hard",
+//     companyLogo: "SiNetflix",
+//     companySize: ["faang", "large"],
+//     primaryTechStack: ["java", "kafka"],
+//     languages: ["java"],
+//     messageQueues: ["kafka"],
+//     databases: ["cassandra", "redis"],
+//     title: "Design Rate Limiter",
+//     question: `Design a distributed rate limiter that limits the number of requests a user can make to an API. Requirements:
+
+// - Support different rate limits per user tier (free: 100/hour, premium: 1000/hour)
+// - Work across multiple API servers
+// - Return 429 when limit exceeded with retry-after header
+// - Minimize latency overhead
+// - Handle clock skew
+
+// Which algorithm would you use and why?`,
+//     answer: `Use **Token Bucket** with Redis:
+
+// \`\`\`java
+// public class RateLimiter {
+//     private RedisTemplate<String, String> redis;
+    
+//     public boolean allowRequest(String userId, String tier) {
+//         String key = "rate_limit:" + userId;
+//         long now = System.currentTimeMillis();
+        
+//         RateLimit limit = LIMITS.get(tier);
+        
+//         // Lua script for atomic operation
+//         String script = 
+//             "local tokens = tonumber(redis.call('get', KEYS[1])) or ARGV[1] " +
+//             "local lastRefill = tonumber(redis.call('get', KEYS[2])) or ARGV[3] " +
+//             "local now = tonumber(ARGV[3]) " +
+//             "local timePassed = now - lastRefill " +
+//             "local refill = math.floor(timePassed / ARGV[2]) " +
+//             "tokens = math.min(tokens + refill, ARGV[1]) " +
+//             "if tokens >= 1 then " +
+//             "  redis.call('set', KEYS[1], tokens - 1) " +
+//             "  redis.call('set', KEYS[2], now) " +
+//             "  return 1 " +
+//             "else return 0 end";
+        
+//         Long result = redis.execute(
+//             script,
+//             Arrays.asList(key, key + ":last"),
+//             limit.maxTokens,
+//             limit.refillRate,
+//             now
+//         );
+        
+//         return result == 1;
+//     }
+// }
+// \`\`\`
+
+// **Why Token Bucket?**
+// - Allows burst traffic
+// - Smooth rate limiting
+// - Easy to implement in distributed system with Redis
+// - Better UX than fixed window`,
+//     topicTags: ["rate-limiting", "distributed-systems", "redis", "system-design", "algorithms"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiAmazon",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["javascript"],
+//     languages: ["javascript"],
+//     title: "Word Ladder",
+//     question: `Given two words (beginWord and endWord) and a dictionary, find the length of shortest transformation sequence from beginWord to endWord, changing only one letter at a time. Each transformed word must exist in the dictionary.
+
+// Example:
+// beginWord = "hit"
+// endWord = "cog"
+// wordList = ["hot","dot","dog","lot","log","cog"]
+
+// Output: 5
+// Explanation: "hit" -> "hot" -> "dot" -> "dog" -> "cog"`,
+//     answer: `\`\`\`javascript
+// function ladderLength(beginWord, endWord, wordList) {
+//     const wordSet = new Set(wordList);
+//     if (!wordSet.has(endWord)) return 0;
+    
+//     const queue = [[beginWord, 1]];
+//     const visited = new Set([beginWord]);
+    
+//     while (queue.length > 0) {
+//         const [word, level] = queue.shift();
+        
+//         if (word === endWord) return level;
+        
+//         // Try all possible one-letter transformations
+//         for (let i = 0; i < word.length; i++) {
+//             for (let c = 97; c <= 122; c++) { // 'a' to 'z'
+//                 const newWord = word.slice(0, i) + 
+//                               String.fromCharCode(c) + 
+//                               word.slice(i + 1);
+                
+//                 if (wordSet.has(newWord) && !visited.has(newWord)) {
+//                     queue.push([newWord, level + 1]);
+//                     visited.add(newWord);
+//                 }
+//             }
+//         }
+//     }
+    
+//     return 0;
+// }
+// \`\`\`
+
+// BFS finds shortest path. Time: O(M² × N) where M = word length, N = words in list`,
+//     topicTags: ["bfs", "graph", "string-manipulation", "shortest-path", "backtracking"]
+//   },
+//   {
 //     category: "backend",
 //     difficulty: "hard",
 //     companyLogo: "SiStripe",
-//     companyName: "Stripe",
-//     topicTags: [
-//       "Rate Limiting",
-//       "Distributed Systems",
-//       "Redis",
-//       "API Design",
-//       "Algorithms",
-//       "System Architecture"
-//     ],
-//     languages: ["Python", "Go"],
-//     databases: ["Redis"],
-//     cloudProviders: ["AWS", "GCP"],
-//     frontendFrameworks: [],
-//     backendFrameworks: ["FastAPI", "Express"],
-//     learningResources: [
-//       {
-//         title: "Redis Rate Limiting",
-//         url: "https://redis.io/docs/manual/patterns/rate-limiter/",
-//         type: "documentation"
-//       },
-//       {
-//         title: "Token Bucket Algorithm",
-//         url: "https://en.wikipedia.org/wiki/Token_bucket",
-//         type: "article"
-//       }
-//     ]
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["go"],
+//     languages: ["go"],
+//     databases: ["postgresql"],
+//     title: "Implement Idempotent Payment API",
+//     question: `Design an API endpoint for processing payments that handles duplicate requests safely (idempotency). Requirements:
+
+// - Same request (identified by idempotency key) should return same result
+// - Handle concurrent duplicate requests
+// - Idempotency keys expire after 24 hours
+// - Return cached result for duplicates within 24h
+
+// Write the handler function with proper error handling and concurrency control.`,
+//     answer: `\`\`\`go
+// type PaymentRequest struct {
+//     IdempotencyKey string
+//     Amount         int64
+//     Currency       string
+//     CustomerID     string
+// }
+
+// type PaymentResult struct {
+//     ID        string
+//     Status    string
+//     CreatedAt time.Time
+// }
+
+// var (
+//     mu sync.Map // For in-flight requests
+// )
+
+// func ProcessPayment(req PaymentRequest) (*PaymentResult, error) {
+//     // Check if already processed
+//     cached, err := getFromCache(req.IdempotencyKey)
+//     if err == nil {
+//         return cached, nil
+//     }
+    
+//     // Acquire lock for this idempotency key
+//     lockKey := "lock:" + req.IdempotencyKey
+//     actual, loaded := mu.LoadOrStore(lockKey, &sync.Mutex{})
+//     lock := actual.(*sync.Mutex)
+    
+//     lock.Lock()
+//     defer lock.Unlock()
+//     defer mu.Delete(lockKey)
+    
+//     // Double-check after acquiring lock
+//     cached, err = getFromCache(req.IdempotencyKey)
+//     if err == nil {
+//         return cached, nil
+//     }
+    
+//     // Process payment
+//     tx, err := db.Begin()
+//     if err != nil {
+//         return nil, err
+//     }
+//     defer tx.Rollback()
+    
+//     // Store idempotency record first
+//     _, err = tx.Exec(
+//         "INSERT INTO idempotency_keys (key, request_hash, status) VALUES ($1, $2, 'processing')",
+//         req.IdempotencyKey, hashRequest(req),
+//     )
+//     if err != nil {
+//         // Already exists - another request won
+//         return getFromCache(req.IdempotencyKey)
+//     }
+    
+//     // Process actual payment
+//     result, err := chargePayment(req)
+//     if err != nil {
+//         tx.Exec("UPDATE idempotency_keys SET status='failed' WHERE key=$1", 
+//                 req.IdempotencyKey)
+//         return nil, err
+//     }
+    
+//     // Store result
+//     tx.Exec("UPDATE idempotency_keys SET status='completed', result=$1 WHERE key=$2",
+//             toJSON(result), req.IdempotencyKey)
+    
+//     tx.Commit()
+    
+//     // Cache for 24 hours
+//     cacheResult(req.IdempotencyKey, result, 24*time.Hour)
+    
+//     return result, nil
+// }
+// \`\`\`
+
+// Uses database + in-memory locks for safety`,
+//     topicTags: ["idempotency", "concurrency", "distributed-systems", "payments", "api-design"]
 //   },
 //   {
-//     question: "## CSS/Responsive Design: Create a Responsive Navigation Bar\n\nBuild a responsive navigation bar that:\n\n* Shows full menu on desktop\n* Collapses to hamburger menu on mobile\n* Smooth animations\n* Accessible (keyboard navigation, screen readers)\n* Sticky on scroll\n* No JavaScript (CSS only preferred, or minimal JS)\n\nProvide HTML, CSS, and explain your approach.",
-//     answer: "## Pure CSS Solution (Modern Approach)\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Responsive Navigation</title>\n    <style>\n        * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n        }\n\n        /* Navigation Container */\n        nav {\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n            position: sticky;\n            top: 0;\n            z-index: 1000;\n            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);\n        }\n\n        .nav-container {\n            max-width: 1200px;\n            margin: 0 auto;\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n            padding: 1rem 2rem;\n        }\n\n        /* Logo */\n        .logo {\n            font-size: 1.5rem;\n            font-weight: bold;\n            color: white;\n            text-decoration: none;\n        }\n\n        /* Desktop Menu */\n        .nav-menu {\n            display: flex;\n            gap: 2rem;\n            list-style: none;\n        }\n\n        .nav-menu a {\n            color: white;\n            text-decoration: none;\n            padding: 0.5rem 1rem;\n            border-radius: 4px;\n            transition: all 0.3s ease;\n            position: relative;\n        }\n\n        .nav-menu a::after {\n            content: '';\n            position: absolute;\n            bottom: 0;\n            left: 50%;\n            transform: translateX(-50%);\n            width: 0;\n            height: 2px;\n            background: white;\n            transition: width 0.3s ease;\n        }\n\n        .nav-menu a:hover::after,\n        .nav-menu a:focus::after {\n            width: 80%;\n        }\n\n        .nav-menu a:hover,\n        .nav-menu a:focus {\n            background: rgba(255, 255, 255, 0.1);\n            outline: none;\n        }\n\n        /* Hamburger Menu (Hidden Checkbox) */\n        #menu-toggle {\n            display: none;\n        }\n\n        .hamburger {\n            display: none;\n            flex-direction: column;\n            cursor: pointer;\n            gap: 4px;\n        }\n\n        .hamburger span {\n            width: 25px;\n            height: 3px;\n            background: white;\n            border-radius: 3px;\n            transition: all 0.3s ease;\n        }\n\n        /* Mobile Styles */\n        @media (max-width: 768px) {\n            .hamburger {\n                display: flex;\n            }\n\n            .nav-menu {\n                position: absolute;\n                top: 100%;\n                left: 0;\n                width: 100%;\n                flex-direction: column;\n                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n                padding: 1rem 0;\n                gap: 0;\n                max-height: 0;\n                overflow: hidden;\n                transition: max-height 0.3s ease;\n            }\n\n            .nav-menu li {\n                opacity: 0;\n                transform: translateY(-20px);\n                transition: all 0.3s ease;\n            }\n\n            .nav-menu a {\n                display: block;\n                padding: 1rem 2rem;\n                border-radius: 0;\n            }\n\n            .nav-menu a::after {\n                display: none;\n            }\n\n            /* Checked State */\n            #menu-toggle:checked ~ .nav-menu {\n                max-height: 400px;\n            }\n\n            #menu-toggle:checked ~ .nav-menu li {\n                opacity: 1;\n                transform: translateY(0);\n            }\n\n            /* Stagger animation for menu items */\n            #menu-toggle:checked ~ .nav-menu li:nth-child(1) {\n                transition-delay: 0.1s;\n            }\n            #menu-toggle:checked ~ .nav-menu li:nth-child(2) {\n                transition-delay: 0.2s;\n            }\n            #menu-toggle:checked ~ .nav-menu li:nth-child(3) {\n                transition-delay: 0.3s;\n            }\n            #menu-toggle:checked ~ .nav-menu li:nth-child(4) {\n                transition-delay: 0.4s;\n            }\n\n            /* Hamburger Animation */\n            #menu-toggle:checked ~ .hamburger span:nth-child(1) {\n                transform: rotate(45deg) translateY(8px);\n            }\n\n            #menu-toggle:checked ~ .hamburger span:nth-child(2) {\n                opacity: 0;\n            }\n\n            #menu-toggle:checked ~ .hamburger span:nth-child(3) {\n                transform: rotate(-45deg) translateY(-8px);\n            }\n        }\n\n        /* Focus styles for accessibility */\n        .hamburger:focus-within {\n            outline: 2px solid white;\n            outline-offset: 4px;\n        }\n\n        /* Active link */\n        .nav-menu a.active {\n            background: rgba(255, 255, 255, 0.2);\n        }\n\n        /* Content for demo */\n        .content {\n            padding: 4rem 2rem;\n            max-width: 1200px;\n            margin: 0 auto;\n        }\n\n        .content h1 {\n            margin-bottom: 1rem;\n            color: #333;\n        }\n\n        .content p {\n            line-height: 1.6;\n            color: #666;\n            margin-bottom: 1rem;\n        }\n    </style>\n</head>\n<body>\n    <nav>\n        <div class=\"nav-container\">\n            <a href=\"#\" class=\"logo\">MyBrand</a>\n            \n            <input type=\"checkbox\" id=\"menu-toggle\" aria-label=\"Toggle menu\">\n            <label for=\"menu-toggle\" class=\"hamburger\" tabindex=\"0\">\n                <span></span>\n                <span></span>\n                <span></span>\n            </label>\n            \n            <ul class=\"nav-menu\">\n                <li><a href=\"#home\" class=\"active\">Home</a></li>\n                <li><a href=\"#about\">About</a></li>\n                <li><a href=\"#services\">Services</a></li>\n                <li><a href=\"#contact\">Contact</a></li>\n            </ul>\n        </div>\n    </nav>\n\n    <div class=\"content\">\n        <h1>Responsive Navigation Demo</h1>\n        <p>This navigation bar is fully responsive and accessible. Try resizing your browser window to see the hamburger menu in action.</p>\n        <p>Scroll down to see the sticky navigation behavior.</p>\n        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>\n        <!-- Add more content to test sticky behavior -->\n    </div>\n</body>\n</html>\n```\n\n## Key Features Explained\n\n### 1. **Pure CSS Toggle**\nUsing a hidden checkbox and label to control menu state without JavaScript:\n```css\n#menu-toggle:checked ~ .nav-menu {\n    max-height: 400px;\n}\n```\n\n### 2. **Smooth Animations**\n* Max-height transition for smooth open/close\n* Staggered fade-in for menu items\n* Hamburger icon animation to X\n\n### 3. **Sticky Navigation**\n```css\nposition: sticky;\ntop: 0;\nz-index: 1000;\n```\n\n### 4. **Accessibility Features**\n* Semantic HTML (`<nav>`, `<ul>`, `<li>`)\n* ARIA labels on checkbox\n* Keyboard navigation support\n* Focus styles\n* Sufficient color contrast\n\n### 5. **Responsive Breakpoint**\nMobile menu activates at 768px:\n```css\n@media (max-width: 768px) { ... }\n```\n\n## Alternative: With Minimal JavaScript\n\nFor better browser support and enhanced features:\n\n```javascript\n// Optional: Close menu when clicking outside\ndocument.addEventListener('click', (e) => {\n    const nav = document.querySelector('nav');\n    const checkbox = document.getElementById('menu-toggle');\n    \n    if (!nav.contains(e.target) && checkbox.checked) {\n        checkbox.checked = false;\n    }\n});\n\n// Optional: Close menu when clicking a link\ndocument.querySelectorAll('.nav-menu a').forEach(link => {\n    link.addEventListener('click', () => {\n        document.getElementById('menu-toggle').checked = false;\n    });\n});\n\n// Optional: Handle active link on scroll\nconst sections = document.querySelectorAll('section[id]');\nconst navLinks = document.querySelectorAll('.nav-menu a');\n\nwindow.addEventListener('scroll', () => {\n    let current = '';\n    \n    sections.forEach(section => {\n        const sectionTop = section.offsetTop;\n        if (scrollY >= sectionTop - 60) {\n            current = section.getAttribute('id');\n        }\n    });\n    \n    navLinks.forEach(link => {\n        link.classList.remove('active');\n        if (link.getAttribute('href').slice(1) === current) {\n            link.classList.add('active');\n        }\n    });\n});\n```\n\n## Browser Support\n\n* ✅ Chrome/Edge (modern)\n* ✅ Firefox (modern)\n* ✅ Safari 12+\n* ⚠️ IE11 (needs flexbox prefixes)\n\n## Performance Considerations\n\n* Uses CSS transforms (GPU accelerated)\n* Minimal repaints/reflows\n* No JavaScript bundle required\n* Lazy-loads menu items on mobile",
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiMeta",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["python"],
+//     languages: ["python"],
+//     title: "Find Minimum Window Substring",
+//     question: `Given strings s and t, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If no such substring exists, return empty string.
+
+// Example:
+// s = "ADOBECODEBANC", t = "ABC"
+// Output: "BANC"
+
+// Must be O(m + n) time complexity.`,
+//     answer: `\`\`\`python
+// def minWindow(s: str, t: str) -> str:
+//     if not s or not t:
+//         return ""
+    
+//     target = Counter(t)
+//     required = len(target)
+//     formed = 0
+    
+//     left = 0
+//     window_counts = {}
+//     result = float('inf'), None, None  # length, left, right
+    
+//     for right in range(len(s)):
+//         char = s[right]
+//         window_counts[char] = window_counts.get(char, 0) + 1
+        
+//         if char in target and window_counts[char] == target[char]:
+//             formed += 1
+        
+//         # Contract window
+//         while left <= right and formed == required:
+//             if right - left + 1 < result[0]:
+//                 result = (right - left + 1, left, right)
+            
+//             char = s[left]
+//             window_counts[char] -= 1
+//             if char in target and window_counts[char] < target[char]:
+//                 formed -= 1
+            
+//             left += 1
+    
+//     return "" if result[0] == float('inf') else s[result[1]:result[2] + 1]
+// \`\`\`
+
+// Sliding window. Time: O(m + n), Space: O(m + n)`,
+//     topicTags: ["sliding-window", "hash-map", "two-pointers", "strings", "optimization"]
+//   },
+//   {
 //     category: "frontend",
-//     difficulty: "medium",
+//     difficulty: "hard",
+//     companyLogo: "SiAirbnb",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["javascript"],
+//     languages: ["javascript"],
+//     title: "Implement Deep Clone",
+//     question: `Write a function to deep clone a JavaScript object, handling:
+// - Nested objects and arrays
+// - Circular references
+// - Special types (Date, RegExp, Map, Set)
+// - Functions (preserve reference)
+// - Symbols as keys
+
+// Example:
+// const obj = { a: 1, b: { c: 2 }, d: [3, 4] };
+// obj.self = obj; // circular reference
+// const cloned = deepClone(obj);`,
+//     answer: `\`\`\`javascript
+// function deepClone(obj, hash = new WeakMap()) {
+//     // Handle primitives and null
+//     if (obj === null || typeof obj !== 'object') {
+//         return obj;
+//     }
+    
+//     // Handle circular references
+//     if (hash.has(obj)) {
+//         return hash.get(obj);
+//     }
+    
+//     // Handle Date
+//     if (obj instanceof Date) {
+//         return new Date(obj);
+//     }
+    
+//     // Handle RegExp
+//     if (obj instanceof RegExp) {
+//         return new RegExp(obj.source, obj.flags);
+//     }
+    
+//     // Handle Map
+//     if (obj instanceof Map) {
+//         const cloned = new Map();
+//         hash.set(obj, cloned);
+//         obj.forEach((value, key) => {
+//             cloned.set(deepClone(key, hash), deepClone(value, hash));
+//         });
+//         return cloned;
+//     }
+    
+//     // Handle Set
+//     if (obj instanceof Set) {
+//         const cloned = new Set();
+//         hash.set(obj, cloned);
+//         obj.forEach(value => {
+//             cloned.add(deepClone(value, hash));
+//         });
+//         return cloned;
+//     }
+    
+//     // Handle Array
+//     if (Array.isArray(obj)) {
+//         const cloned = [];
+//         hash.set(obj, cloned);
+//         obj.forEach((item, index) => {
+//             cloned[index] = deepClone(item, hash);
+//         });
+//         return cloned;
+//     }
+    
+//     // Handle Object
+//     const cloned = Object.create(Object.getPrototypeOf(obj));
+//     hash.set(obj, cloned);
+    
+//     // Clone symbols and regular keys
+//     Reflect.ownKeys(obj).forEach(key => {
+//         cloned[key] = deepClone(obj[key], hash);
+//     });
+    
+//     return cloned;
+// }
+// \`\`\`
+
+// WeakMap tracks visited objects for circular refs`,
+//     topicTags: ["javascript", "recursion", "data-structures", "object-manipulation", "algorithms"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiGoogle",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["java"],
+//     languages: ["java"],
+//     title: "Merge K Sorted Lists",
+//     question: `You are given an array of k linked-lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list.
+
+// Example:
+// Input: [[1,4,5],[1,3,4],[2,6]]
+// Output: [1,1,2,3,4,4,5,6]
+
+// Optimize for time complexity.`,
+//     answer: `\`\`\`java
+// public ListNode mergeKLists(ListNode[] lists) {
+//     if (lists == null || lists.length == 0) return null;
+    
+//     PriorityQueue<ListNode> heap = new PriorityQueue<>(
+//         (a, b) -> a.val - b.val
+//     );
+    
+//     // Add first node from each list
+//     for (ListNode node : lists) {
+//         if (node != null) {
+//             heap.offer(node);
+//         }
+//     }
+    
+//     ListNode dummy = new ListNode(0);
+//     ListNode current = dummy;
+    
+//     while (!heap.isEmpty()) {
+//         ListNode smallest = heap.poll();
+//         current.next = smallest;
+//         current = current.next;
+        
+//         if (smallest.next != null) {
+//             heap.offer(smallest.next);
+//         }
+//     }
+    
+//     return dummy.next;
+// }
+// \`\`\`
+
+// Min-heap approach. Time: O(N log k) where N = total nodes, k = lists
+// Space: O(k) for heap
+
+// Alternative: Divide and conquer merge pairs recursively - O(N log k) time, O(log k) space`,
+//     topicTags: ["heap", "linked-list", "merge-sort", "divide-and-conquer", "priority-queue"]
+//   },
+//   {
+//     category: "backend",
+//     difficulty: "hard",
+//     companyLogo: "SiUber",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["python", "redis"],
+//     languages: ["python"],
+//     databases: ["redis", "postgresql"],
+//     title: "Design Geospatial Index",
+//     question: `Implement a system to find nearby drivers within a radius. Requirements:
+
+// - Store driver locations (lat, lng)
+// - Query: find all drivers within X km of a point
+// - Handle 100k+ active drivers
+// - Sub-100ms query latency
+// - Update driver locations frequently (every 5 seconds)
+
+// Which data structure and algorithm would you use?`,
+//     answer: `Use **Redis GeoHash** with sorted sets:
+
+// \`\`\`python
+// import redis
+// from math import radians, cos, sin, asin, sqrt
+
+// class DriverLocationService:
+//     def __init__(self):
+//         self.redis = redis.Redis()
+//         self.key = "driver:locations"
+    
+//     def update_location(self, driver_id: str, lat: float, lng: float):
+//         """Update driver location - O(log N)"""
+//         self.redis.geoadd(self.key, lng, lat, driver_id)
+        
+//         # Set expiry for inactive cleanup
+//         self.redis.expire(f"driver:{driver_id}:active", 300)
+    
+//     def find_nearby(self, lat: float, lng: float, 
+//                    radius_km: float, limit: int = 50):
+//         """Find drivers within radius - O(N log N)"""
+//         # Redis GEORADIUS command
+//         results = self.redis.georadius(
+//             self.key,
+//             lng, lat,
+//             radius_km,
+//             unit='km',
+//             withdist=True,
+//             withcoord=True,
+//             count=limit,
+//             sort='ASC'
+//         )
+        
+//         return [{
+//             'driver_id': r[0].decode(),
+//             'distance': r[1],
+//             'location': {'lat': r[2][1], 'lng': r[2][0]}
+//         } for r in results]
+    
+//     def remove_driver(self, driver_id: str):
+//         """Remove inactive driver"""
+//         self.redis.zrem(self.key, driver_id)
+// \`\`\`
+
+// **Why GeoHash?**
+// - O(log N) insertion
+// - O(N + log M) range queries
+// - Redis native support
+// - Handles millions of points
+// - < 100ms queries
+
+// **Alternative:** QuadTree for in-memory, R-tree for spatial databases`,
+//     topicTags: ["geospatial", "redis", "data-structures", "indexing", "system-design"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiTesla",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["cpp"],
+//     languages: ["cpp"],
+//     title: "Longest Increasing Path in Matrix",
+//     question: `Given an m x n matrix, return the length of the longest increasing path. You can move in 4 directions (up, down, left, right).
+
+// Example:
+// matrix = [
+//   [9,9,4],
+//   [6,6,8],
+//   [2,1,1]
+// ]
+// Output: 4
+// Explanation: The longest path is [1,2,6,9]`,
+//     answer: `\`\`\`cpp
+// class Solution {
+// private:
+//     int dirs[4][2] = {{0,1}, {1,0}, {0,-1}, {-1,0}};
+    
+//     int dfs(vector<vector<int>>& matrix, vector<vector<int>>& memo, 
+//             int i, int j) {
+//         if (memo[i][j] != 0) return memo[i][j];
+        
+//         int maxLen = 1;
+//         for (auto& dir : dirs) {
+//             int x = i + dir[0], y = j + dir[1];
+            
+//             if (x >= 0 && x < matrix.size() && 
+//                 y >= 0 && y < matrix[0].size() && 
+//                 matrix[x][y] > matrix[i][j]) {
+//                 maxLen = max(maxLen, 1 + dfs(matrix, memo, x, y));
+//             }
+//         }
+        
+//         memo[i][j] = maxLen;
+//         return maxLen;
+//     }
+    
+// public:
+//     int longestIncreasingPath(vector<vector<int>>& matrix) {
+//         if (matrix.empty()) return 0;
+        
+//         int m = matrix.size(), n = matrix[0].size();
+//         vector<vector<int>> memo(m, vector<int>(n, 0));
+//         int result = 0;
+        
+//         for (int i = 0; i < m; i++) {
+//             for (int j = 0; j < n; j++) {
+//                 result = max(result, dfs(matrix, memo, i, j));
+//             }
+//         }
+        
+//         return result;
+//     }
+// };
+// \`\`\`
+
+// DFS + Memoization. Time: O(m*n), Space: O(m*n)`,
+//     topicTags: ["dfs", "memoization", "dynamic-programming", "matrix", "graph"]
+//   },
+//   {
+//     category: "system-design",
+//     difficulty: "hard",
+//     companyLogo: "SiTwitter",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["scala", "redis"],
+//     languages: ["scala"],
+//     databases: ["redis", "cassandra"],
+//     messageQueues: ["kafka"],
+//     title: "Design Twitter Feed",
+//     question: `Design a Twitter-like feed system. Requirements:
+
+// - Users can post tweets
+// - Users can follow other users
+// - Timeline shows tweets from followed users
+// - Must handle 100M users, 500M tweets/day
+// - Timeline loads in < 200ms
+// - Support both fan-out on write and read
+
+// What's your approach for storing and serving timelines?`,
+//     answer: `**Hybrid Approach:**
+
+// **For Regular Users (< 10k followers): Fan-out on Write**
+// \`\`\`scala
+// def postTweet(userId: String, tweetId: String) {
+//   // Store tweet
+//   cassandra.insert("tweets", tweetId, tweet)
+  
+//   // Get followers
+//   val followers = getFollowers(userId)
+  
+//   // Fan-out to each follower's timeline
+//   followers.foreach { followerId =>
+//     redis.zadd(s"timeline:$followerId", timestamp, tweetId)
+//     redis.zremrangebyrank(s"timeline:$followerId", 0, -801) // Keep 800
+//   }
+  
+//   // Publish to Kafka for async processing
+//   kafka.publish("tweet-posted", TweetEvent(userId, tweetId))
+// }
+// \`\`\`
+
+// **For Celebrities (> 10k followers): Fan-out on Read**
+// \`\`\`scala
+// def getTimeline(userId: String, page: Int) {
+//   val timeline = mutable.PriorityQueue[(Long, String)]()
+  
+//   // Get from pre-computed timeline (regular users)
+//   val cached = redis.zrevrange(s"timeline:$userId", 0, 99)
+//   timeline ++= cached
+  
+//   // Fetch from celebrities user follows
+//   val celebrities = getCelebrityFollowees(userId)
+//   celebrities.foreach { celeb =>
+//     val tweets = cassandra.query(
+//       "SELECT * FROM tweets WHERE user_id = ? ORDER BY time DESC LIMIT 50",
+//       celeb
+//     )
+//     timeline ++= tweets
+//   }
+  
+//   // Merge and sort
+//   timeline.take(50).sortBy(-_._1)
+// }
+// \`\`\`
+
+// **Key Design Decisions:**
+// - Redis sorted sets for timelines (O(log N) insert)
+// - Cassandra for tweet storage (write-optimized)
+// - Hybrid approach: < 10k followers → fan-out write, > 10k → fan-out read
+// - Cache celebrity tweets in Redis (hot data)
+// - Kafka for async processing`,
+//     topicTags: ["system-design", "scalability", "caching", "fan-out", "social-network"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiApple",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["swift"],
+//     languages: ["swift"],
+//     title: "Wildcard Pattern Matching",
+//     question: `Implement wildcard pattern matching with '?' and '*':
+// - '?' matches any single character
+// - '*' matches any sequence of characters (including empty)
+
+// Example:
+// isMatch("aa", "a") → false
+// isMatch("aa", "*") → true
+// isMatch("cb", "?a") → false
+// isMatch("adceb", "*a*b") → true`,
+//     answer: `\`\`\`swift
+// func isMatch(_ s: String, _ p: String) -> Bool {
+//     let s = Array(s), p = Array(p)
+//     var sIdx = 0, pIdx = 0
+//     var starIdx = -1, match = 0
+    
+//     while sIdx < s.count {
+//         // Current characters match or pattern has '?'
+//         if pIdx < p.count && (p[pIdx] == s[sIdx] || p[pIdx] == "?") {
+//             sIdx += 1
+//             pIdx += 1
+//         }
+//         // Pattern has '*'
+//         else if pIdx < p.count && p[pIdx] == "*" {
+//             starIdx = pIdx
+//             match = sIdx
+//             pIdx += 1
+//         }
+//         // No match, backtrack to last '*'
+//         else if starIdx != -1 {
+//             pIdx = starIdx + 1
+//             match += 1
+//             sIdx = match
+//         }
+//         // No match and no '*' to backtrack
+//         else {
+//             return false
+//         }
+//     }
+    
+//     // Check remaining pattern characters are all '*'
+//     while pIdx < p.count && p[pIdx] == "*" {
+//         pIdx += 1
+//     }
+    
+//     return pIdx == p.count
+// }
+// \`\`\`
+
+// Greedy with backtracking. Time: O(min(s,p)) average, O(s*p) worst
+// Space: O(1)`,
+//     topicTags: ["string-matching", "greedy", "backtracking", "pattern-matching", "algorithms"]
+//   },
+//   {
+//     category: "backend",
+//     difficulty: "hard",
+//     companyLogo: "SiShopify",
+//     companySize: ["large", "unicorn"],
+//     primaryTechStack: ["ruby", "rails"],
+//     languages: ["ruby"],
+//     backendFrameworks: ["rails"],
+//     databases: ["postgresql", "redis"],
+//     title: "Implement Distributed Lock",
+//     question: `Implement a distributed lock using Redis to prevent race conditions in a distributed system. Requirements:
+
+// - Lock acquisition with timeout
+// - Auto-release after expiry
+// - Handle network failures
+// - Prevent deadlocks
+// - Atomic operations
+
+// Write the acquire and release methods.`,
+//     answer: `\`\`\`ruby
+// class DistributedLock
+//   def initialize(redis, key, ttl: 30)
+//     @redis = redis
+//     @key = "lock:#{key}"
+//     @ttl = ttl
+//     @token = SecureRandom.uuid
+//   end
+  
+//   def acquire(timeout: 10)
+//     deadline = Time.now + timeout
+    
+//     loop do
+//       # Try to acquire lock with SET NX EX
+//       acquired = @redis.set(
+//         @key, 
+//         @token, 
+//         nx: true,    # Only set if not exists
+//         ex: @ttl     # Expire after TTL seconds
+//       )
+      
+//       return true if acquired
+      
+//       # Timeout exceeded
+//       return false if Time.now >= deadline
+      
+//       # Wait a bit before retry
+//       sleep(0.01 + rand(0.05))
+//     end
+//   end
+  
+//   def release
+//     # Lua script for atomic check-and-delete
+//     script = <<~LUA
+//       if redis.call("get", KEYS[1]) == ARGV[1] then
+//         return redis.call("del", KEYS[1])
+//       else
+//         return 0
+//       end
+//     LUA
+    
+//     @redis.eval(script, keys: [@key], argv: [@token]) == 1
+//   end
+  
+//   def extend(additional_ttl)
+//     # Extend lock if still owned
+//     script = <<~LUA
+//       if redis.call("get", KEYS[1]) == ARGV[1] then
+//         return redis.call("expire", KEYS[1], ARGV[2])
+//       else
+//         return 0
+//       end
+//     LUA
+    
+//     @redis.eval(script, keys: [@key], argv: [@token, @ttl + additional_ttl])
+//   end
+  
+//   def with_lock(timeout: 10)
+//     if acquire(timeout: timeout)
+//       begin
+//         yield
+//       ensure
+//         release
+//       end
+//     else
+//       raise LockTimeout, "Could not acquire lock within #{timeout}s"
+//     end
+//   end
+// end
+
+// # Usage
+// lock = DistributedLock.new($redis, "order:123")
+// lock.with_lock do
+//   # Critical section
+//   process_order(order)
+// end
+// \`\`\`
+
+// Uses Redis SET NX EX + Lua for atomicity. Token prevents accidental release.`,
+//     topicTags: ["distributed-systems", "concurrency", "redis", "locks", "race-conditions"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
+//     companyLogo: "SiMicrosoft",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["python"],
+//     languages: ["python"],
+//     title: "Edit Distance (Levenshtein)",
+//     question: `Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2. Operations allowed:
+// - Insert a character
+// - Delete a character
+// - Replace a character
+
+// Example:
+// word1 = "horse", word2 = "ros"
+// Output: 3
+// Explanation: horse -> rorse -> rose -> ros`,
+//     answer: `\`\`\`python
+// def minDistance(word1: str, word2: str) -> int:
+//     m, n = len(word1), len(word2)
+    
+//     # dp[i][j] = min operations to convert word1[0:i] to word2[0:j]
+//     dp = [[0] * (n + 1) for _ in range(m + 1)]
+    
+//     # Base cases
+//     for i in range(m + 1):
+//         dp[i][0] = i  # Delete all characters
+//     for j in range(n + 1):
+//         dp[0][j] = j  # Insert all characters
+    
+//     # Fill DP table
+//     for i in range(1, m + 1):
+//         for j in range(1, n + 1):
+//             if word1[i - 1] == word2[j - 1]:
+//                 dp[i][j] = dp[i - 1][j - 1]  # No operation needed
+//             else:
+//                 dp[i][j] = 1 + min(
+//                     dp[i - 1][j],      # Delete
+//                     dp[i][j - 1],      # Insert
+//                     dp[i - 1][j - 1]   # Replace
+//                 )
+    
+//     return dp[m][n]
+
+// # Space-optimized version (O(n) space)
+// def minDistanceOptimized(word1: str, word2: str) -> int:
+//     m, n = len(word1), len(word2)
+    
+//     # Only need current and previous row
+//     prev = list(range(n + 1))
+    
+//     for i in range(1, m + 1):
+//         curr = [i] + [0] * n
+//         for j in range(1, n + 1):
+//             if word1[i - 1] == word2[j - 1]:
+//                 curr[j] = prev[j - 1]
+//             else:
+//                 curr[j] = 1 + min(prev[j], curr[j - 1], prev[j - 1])
+//         prev = curr
+    
+//     return prev[n]
+// \`\`\`
+
+// Classic DP. Time: O(m*n), Space: O(n) optimized`,
+//     topicTags: ["dynamic-programming", "strings", "edit-distance", "optimization", "algorithms"]
+//   },
+//   {
+//     category: "frontend",
+//     difficulty: "hard",
+//     companyLogo: "SiGoogle",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["typescript", "react"],
+//     languages: ["typescript"],
+//     frontendFrameworks: ["react"],
+//     title: "Implement Virtual Scroll",
+//     question: `Implement a virtual scrolling component that renders only visible items from a large list (10,000+ items). Requirements:
+
+// - Render only visible items + buffer
+// - Smooth scrolling with no jank
+// - Dynamic item heights
+// - Handle rapid scrolling
+// - Memory efficient
+
+// Write the core logic with React hooks.`,
+//     answer: `\`\`\`typescript
+// import { useState, useEffect, useRef, useCallback } from 'react';
+
+// interface VirtualScrollProps {
+//   items: any[];
+//   itemHeight: number;
+//   containerHeight: number;
+//   renderItem: (item: any, index: number) => JSX.Element;
+//   overscan?: number;
+// }
+
+// function VirtualScroll({
+//   items,
+//   itemHeight,
+//   containerHeight,
+//   renderItem,
+//   overscan = 3
+// }: VirtualScrollProps) {
+//   const [scrollTop, setScrollTop] = useState(0);
+//   const containerRef = useRef<HTMLDivElement>(null);
+  
+//   // Calculate visible range
+//   const startIndex = Math.max(
+//     0,
+//     Math.floor(scrollTop / itemHeight) - overscan
+//   );
+//   const endIndex = Math.min(
+//     items.length,
+//     Math.ceil((scrollTop + containerHeight) / itemHeight) + overscan
+//   );
+  
+//   const visibleItems = items.slice(startIndex, endIndex);
+  
+//   // Total height for scrollbar
+//   const totalHeight = items.length * itemHeight;
+  
+//   // Offset for positioning
+//   const offsetY = startIndex * itemHeight;
+  
+//   // Scroll handler with RAF throttle
+//   const handleScroll = useCallback(() => {
+//     if (containerRef.current) {
+//       const scrollTop = containerRef.current.scrollTop;
+//       requestAnimationFrame(() => {
+//         setScrollTop(scrollTop);
+//       });
+//     }
+//   }, []);
+  
+//   useEffect(() => {
+//     const container = containerRef.current;
+//     if (!container) return;
+    
+//     container.addEventListener('scroll', handleScroll, { passive: true });
+//     return () => container.removeEventListener('scroll', handleScroll);
+//   }, [handleScroll]);
+  
+//   return (
+//     <div
+//       ref={containerRef}
+//       style={{
+//         height: containerHeight,
+//         overflow: 'auto',
+//         position: 'relative'
+//       }}
+//     >
+//       <div style={{ height: totalHeight, position: 'relative' }}>
+//         <div
+//           style={{
+//             transform: \`translateY(\${offsetY}px)\`,
+//             position: 'absolute',
+//             top: 0,
+//             left: 0,
+//             right: 0
+//           }}
+//         >
+//           {visibleItems.map((item, i) => (
+//             <div key={startIndex + i} style={{ height: itemHeight }}>
+//               {renderItem(item, startIndex + i)}
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+// \`\`\`
+
+// Only renders visible items. Handles 100k+ items smoothly.`,
+//     topicTags: ["react", "performance", "virtualization", "optimization", "frontend"]
+//   },
+//   {
+//     category: "algorithms",
+//     difficulty: "hard",
 //     companyLogo: "SiNetflix",
-//     companyName: "Netflix",
-//     topicTags: [
-//       "CSS",
-//       "Responsive Design",
-//       "Accessibility",
-//       "HTML",
-//       "Mobile First",
-//       "Animations"
-//     ],
-//     languages: ["CSS", "HTML", "JavaScript"],
-//     databases: [],
-//     cloudProviders: [],
-//     frontendFrameworks: [],
-//     backendFrameworks: [],
-//     learningResources: [
-//       {
-//         title: "CSS Tricks - Responsive Navigation",
-//         url: "https://css-tricks.com/responsive-navigation-bar/",
-//         type: "article"
-//       },
-//       {
-//         title: "MDN - Responsive Design",
-//         url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design",
-//         type: "documentation"
-//       }
-//     ]
+//     companySize: ["large", "faang"],
+//     primaryTechStack: ["java"],
+//     languages: ["java"],
+//     title: "Shortest Path with Obstacles",
+//     question: `Given an m x n grid where 0 = empty, 1 = obstacle, find the shortest path from top-left to bottom-right. You can eliminate at most k obstacles.
+
+// Example:
+// grid = [
+//   [0,0,0],
+//   [1,1,0],
+//   [0,0,0]
+// ], k = 1
+// Output: 6`,
+//     answer: `\`\`\`java
+// public int shortestPath(int[][] grid, int k) {
+//     int m = grid.length, n = grid[0].length;
+//     if (k >= m + n - 2) return m + n - 2; // Can eliminate all
+    
+//     // BFS with state (x, y, obstacles_remaining)
+//     Queue<int[]> queue = new LinkedList<>();
+//     Set<String> visited = new HashSet<>();
+    
+//     queue.offer(new int[]{0, 0, k, 0}); // x, y, k, steps
+//     visited.add("0,0," + k);
+    
+//     int[][] dirs = {{0,1}, {1,0}, {0,-1}, {-1,0}};
+    
+//     while (!queue.isEmpty()) {
+//         int[] curr = queue.poll();
+//         int x = curr[0], y = curr[1];
+//         int remaining = curr[2], steps = curr[3];
+        
+//         // Reached destination
+//         if (x == m - 1 && y == n - 1) {
+//             return steps;
+//         }
+        
+//         // Try all 4 directions
+//         for (int[] dir : dirs) {
+//             int nx = x + dir[0], ny = y + dir[1];
+            
+//             // Out of bounds
+//             if (nx < 0 || nx >= m || ny < 0 || ny >= n) continue;
+            
+//             int newRemaining = remaining - grid[nx][ny];
+            
+//             // Too many obstacles
+//             if (newRemaining < 0) continue;
+            
+//             String key = nx + "," + ny + "," + newRemaining;
+//             if (visited.contains(key)) continue;
+            
+//             visited.add(key);
+//             queue.offer(new int[]{nx, ny, newRemaining, steps + 1});
+//         }
+//     }
+    
+//     return -1; // No path found
+// }
+// \`\`\`
+
+// BFS with state tracking. Time: O(m*n*k), Space: O(m*n*k)`,
+//     topicTags: ["bfs", "graph", "shortest-path", "grid", "state-space-search"]
+//   },
+//   {
+//     category: "backend",
+//     difficulty: "hard",
+//     companyLogo: "SiAmazon",
+//     companySize: ["faang", "enterprise"],
+//     primaryTechStack: ["python", "dynamodb"],
+//     languages: ["python"],
+//     databases: ["dynamodb"],
+//     cloudProviders: ["aws"],
+//     title: "Design Inventory System",
+//     question: `Design an inventory management system that handles:
+
+// - Reserve items during checkout (soft lock)
+// - Release reserved items if order expires (15 min)
+// - Prevent overselling with concurrent requests
+// - Handle distributed servers
+
+// Use DynamoDB. Write the reserve and release functions with optimistic locking.`,
+//     answer: `\`\`\`python
+// import boto3
+// from datetime import datetime, timedelta
+// from decimal import Decimal
+
+// dynamodb = boto3.resource('dynamodb')
+// inventory_table = dynamodb.Table('inventory')
+// reservations_table = dynamodb.Table('reservations')
+
+// def reserve_inventory(product_id: str, quantity: int, 
+//                      order_id: str) -> bool:
+//     """Reserve inventory with optimistic locking"""
+//     try:
+//         # Get current inventory with version
+//         response = inventory_table.get_item(
+//             Key={'product_id': product_id}
+//         )
+        
+//         if 'Item' not in response:
+//             return False
+        
+//         item = response['Item']
+//         available = item['available_quantity']
+//         version = item['version']
+        
+//         # Check availability
+//         if available < quantity:
+//             return False
+        
+//         # Update with condition (optimistic lock)
+//         inventory_table.update_item(
+//             Key={'product_id': product_id},
+//             UpdateExpression="""
+//                 SET available_quantity = available_quantity - :qty,
+//                     reserved_quantity = reserved_quantity + :qty,
+//                     version = version + :inc
+//             """,
+//             ConditionExpression="""
+//                 version = :current_version AND
+//                 available_quantity >= :qty
+//             """,
+//             ExpressionAttributeValues={
+//                 ':qty': quantity,
+//                 ':current_version': version,
+//                 ':inc': 1
+//             }
+//         )
+        
+//         # Create reservation record
+//         expiry = datetime.utcnow() + timedelta(minutes=15)
+//         reservations_table.put_item(
+//             Item={
+//                 'reservation_id': f"{order_id}:{product_id}",
+//                 'order_id': order_id,
+//                 'product_id': product_id,
+//                 'quantity': quantity,
+//                 'expires_at': int(expiry.timestamp()),
+//                 'status': 'active'
+//             }
+//         )
+        
+//         return True
+        
+//     except dynamodb.meta.client.exceptions.ConditionalCheckFailedException:
+//         # Concurrent modification - retry or fail
+//         return False
+
+// def release_reservation(order_id: str, product_id: str):
+//     """Release reserved inventory"""
+//     reservation_id = f"{order_id}:{product_id}"
+    
+//     # Get reservation
+//     response = reservations_table.get_item(
+//         Key={'reservation_id': reservation_id}
+//     )
+    
+//     if 'Item' not in response:
+//         return
+    
+//     reservation = response['Item']
+//     quantity = reservation['quantity']
+    
+//     # Return to available inventory
+//     inventory_table.update_item(
+//         Key={'product_id': product_id},
+//         UpdateExpression="""
+//             SET available_quantity = available_quantity + :qty,
+//                 reserved_quantity = reserved_quantity - :qty,
+//                 version = version + :inc
+//         """,
+//         ExpressionAttributeValues={
+//             ':qty': quantity,
+//             ':inc': 1
+//         }
+//     )
+    
+//     # Mark reservation as released
+//     reservations_table.update_item(
+//         Key={'reservation_id': reservation_id},
+//         UpdateExpression="SET #status = :status",
+//         ExpressionAttributeNames={'#status': 'status'},
+//         ExpressionAttributeValues={':status': 'released'}
+//     )
+
+// # Background job to expire old reservations
+// def cleanup_expired_reservations():
+//     """Lambda function to release expired reservations"""
+//     now = int(datetime.utcnow().timestamp())
+    
+//     response = reservations_table.scan(
+//         FilterExpression="expires_at < :now AND #status = :active",
+//         ExpressionAttributeNames={'#status': 'status'},
+//         ExpressionAttributeValues={
+//             ':now': now,
+//             ':active': 'active'
+//         }
+//     )
+    
+//     for item in response['Items']:
+//         release_reservation(item['order_id'], item['product_id'])
+// \`\`\`
+
+// Optimistic locking prevents race conditions. TTL handles expiry.`,
+//     topicTags: ["distributed-systems", "concurrency", "dynamodb", "optimistic-locking", "inventory-management"]
 //   }
 // ];
+
 
 // async function seedQuestions() {
 //   console.info('🌱 Starting database seeding...\n');
@@ -289,7 +2573,7 @@
 //           updatedAt: new Date(),
 //         });
 
-//         console.info(`  ➕ Queued: ${question.companyName} - ${question.category}`);
+//         console.info(`  ➕ Queued: ${question.companyLogo} - ${question.category}`);
 //       });
 
 //       // Commit the batch

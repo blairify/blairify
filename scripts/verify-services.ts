@@ -82,7 +82,9 @@ async function verifyServices() {
 
     const analysisPrompt =
       PromptGenerator.generateAnalysisSystemPrompt(testConfig);
-    console.info(`   Analysis prompt length: ${analysisPrompt.length} chars ✅`);
+    console.info(
+      `   Analysis prompt length: ${analysisPrompt.length} chars ✅`,
+    );
 
     // Test ResponseValidator
     console.info("\n✅ Testing ResponseValidator...");

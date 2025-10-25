@@ -15,7 +15,10 @@ export type UserRole = "user" | "admin" | "superadmin";
  */
 export function isSuperAdmin(user: User | null): boolean {
   if (!user) return false;
-  return user.uid === "IO77D68k8EcS9mzAA5tYsepiI532";
+  return (
+    user.uid === "IO77D68k8EcS9mzAA5tYsepiI532" ||
+    user.uid === "pyRsZvjtiGchW5fIi4AgY4pzXgm2"
+  );
 }
 
 /**

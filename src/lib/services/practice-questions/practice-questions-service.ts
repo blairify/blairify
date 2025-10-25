@@ -162,6 +162,7 @@ export interface PracticeQuestion {
   searchEngines?: SearchEngine[];
   vectorDBs?: VectorDatabase[];
   iac?: IaC[];
+  title: string;
   question: string;
   answer: string;
   topicTags: string[];

@@ -7,7 +7,13 @@ import { toast } from "sonner";
 import useSWR from "swr";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
-import { ComprehensiveQuestionForm } from "@/components/forms/organisms/comprehensive-question-form";
+import {
+  CATEGORIES,
+  COMPANY_LOGOS,
+  COMPANY_SIZES,
+  ComprehensiveQuestionForm,
+  formatLabel,
+} from "@/components/forms/organisms/comprehensive-question-form";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,6 +37,7 @@ import {
 import { isSuperAdmin } from "@/lib/services/auth/auth-roles";
 import {
   type CompanyLogo,
+  type CompanySize,
   createPracticeQuestion,
   deletePracticeQuestion,
   getAllPracticeQuestions,
@@ -43,6 +50,106 @@ import { useAuth } from "@/providers/auth-provider";
 const fetcher = async () => {
   return await getAllPracticeQuestions();
 };
+
+// Simple markdown renderer with XSS protection
+function renderMarkdown(text: string | null | undefined): { __html: string } {
+  if (!text) return { __html: "" };
+
+  // Basic XSS protection - escape HTML
+  const escapeHtml = (unsafe: string): string => {
+    return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  };
+
+  // Process markdown
+  let html = escapeHtml(text)
+    // Headers
+    .replace(
+      /^### (.*$)/gim,
+      '</p><h3 class="text-lg font-bold mt-6 mb-2">$1</h3><p class="mt-2">',
+    )
+    .replace(
+      /^## (.*$)/gim,
+      '</p><h2 class="text-xl font-bold mt-6 mb-3">$1</h2><p class="mt-2">',
+    )
+    .replace(
+      /^# (.*$)/gim,
+      '</p><h1 class="text-2xl font-bold mt-6 mb-4">$1</h1><p class="mt-2">',
+    )
+
+    // Bold and Italic
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
+
+    // Code blocks
+    .replace(
+      /```([\s\S]*?)```/g,
+      '</p><pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded my-3 overflow-x-auto"><code class="text-sm font-mono">$1</code></pre><p class="mt-2">',
+    )
+
+    // Inline code
+    .replace(
+      /`(.*?)`/g,
+      '<code class="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">$1</code>',
+    )
+
+    // Links (with security attributes)
+    .replace(
+      /\[([^\]]+)\]\(([^\s)]+)(?:\s+"([^"]+)")?\)/g,
+      (_match, text, href, title) => {
+        const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
+        return `<a href="${escapeHtml(href)}" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer"${titleAttr}>${escapeHtml(text)}</a>`;
+      },
+    )
+
+    // Lists
+    .replace(/^\s*\* (.*$)/gm, '<li class="ml-6 list-disc">$1</li>')
+    .replace(/^\s*\d+\. (.*$)/gm, '<li class="ml-6 list-decimal">$1</li>')
+
+    // Blockquotes
+    .replace(
+      /^> (.*$)/gm,
+      '</p><blockquote class="border-l-4 border-gray-300 dark:border-gray-600 pl-4 my-2 text-gray-600 dark:text-gray-400">$1</blockquote><p>',
+    )
+
+    // Horizontal rule
+    .replace(
+      /^\*\*\*$/gm,
+      '<hr class="my-4 border-gray-200 dark:border-gray-700" />',
+    )
+
+    // Paragraphs and line breaks
+    .replace(/\n\n+/g, '</p><p class="mt-4">')
+    .replace(/\n/g, "<br />");
+
+  // Wrap in a paragraph if needed
+  if (
+    !html.startsWith("<h") &&
+    !html.startsWith("<p>") &&
+    !html.startsWith("<ul>") &&
+    !html.startsWith("<ol>") &&
+    !html.startsWith("<pre>")
+  ) {
+    html = `<p>${html}`;
+  }
+  if (
+    !html.endsWith("</p>") &&
+    !html.endsWith("</h1>") &&
+    !html.endsWith("</h2>") &&
+    !html.endsWith("</h3>") &&
+    !html.endsWith("</ul>") &&
+    !html.endsWith("</ol>") &&
+    !html.endsWith("</pre>")
+  ) {
+    html = `${html}</p>`;
+  }
+
+  return { __html: html };
+}
 
 // Helper function to get company name from logo
 const getCompanyNameFromLogo = (logo: CompanyLogo): string => {
@@ -120,10 +227,13 @@ export default function ManagePracticeLibraryPage() {
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [difficultyFilter, setDifficultyFilter] = useState<string>("all");
   const [companyFilter, setCompanyFilter] = useState<string>("all");
+  const [companySizeFilter, setCompanySizeFilter] = useState<string>("all");
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [editingQuestionId, setEditingQuestionId] = useState<string | null>(
     null,
   );
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
 
   // Check authorization
   useEffect(() => {
@@ -180,6 +290,12 @@ export default function ManagePracticeLibraryPage() {
       filtered = filtered.filter((q) => q.companyLogo === companyFilter);
     }
 
+    if (companySizeFilter !== "all") {
+      filtered = filtered.filter((q) =>
+        q.companySize?.includes(companySizeFilter as CompanySize),
+      );
+    }
+
     setFilteredQuestions(filtered);
   }, [
     stableQuestions,
@@ -187,7 +303,19 @@ export default function ManagePracticeLibraryPage() {
     categoryFilter,
     difficultyFilter,
     companyFilter,
+    companySizeFilter,
   ]);
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredQuestions.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedQuestions = filteredQuestions.slice(startIndex, endIndex);
+
+  // Reset to first page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, []);
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this question?")) return;
@@ -202,12 +330,9 @@ export default function ManagePracticeLibraryPage() {
     }
   };
 
-  const categories = Array.from(
-    new Set(stableQuestions.map((q) => q.category)),
-  );
-  const companies = Array.from(
-    new Set(stableQuestions.map((q) => q.companyLogo)),
-  );
+  // Using imported constants for consistent filtering
+  // const categories = Array.from(new Set(stableQuestions.map((q) => q.category)));
+  // const companies = Array.from(new Set(stableQuestions.map((q) => q.companyLogo)));
 
   if (loading || !isSuperAdmin(user)) {
     return (
@@ -235,7 +360,7 @@ export default function ManagePracticeLibraryPage() {
               <div>
                 <h1 className="text-3xl font-bold">Manage Practice Library</h1>
                 <p className="text-muted-foreground">
-                  Add, edit, and manage practice questions in Firestore
+                  Add, edit, and manage practice questions
                 </p>
               </div>
               <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
@@ -290,7 +415,9 @@ export default function ManagePracticeLibraryPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">{companies.length}</div>
+                  <div className="text-2xl font-bold">
+                    {COMPANY_LOGOS.length}
+                  </div>
                 </CardContent>
               </Card>
               <Card>
@@ -300,7 +427,7 @@ export default function ManagePracticeLibraryPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">{categories.length}</div>
+                  <div className="text-2xl font-bold">{CATEGORIES.length}</div>
                 </CardContent>
               </Card>
               <Card>
@@ -324,7 +451,7 @@ export default function ManagePracticeLibraryPage() {
                 <CardTitle>Filters</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="search">Search</Label>
                     <div className="relative">
@@ -349,7 +476,7 @@ export default function ManagePracticeLibraryPage() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="all">All Companies</SelectItem>
-                        {companies.map((logo) => (
+                        {COMPANY_LOGOS.map((logo) => (
                           <SelectItem key={logo} value={logo}>
                             {getCompanyNameFromLogo(logo)}
                           </SelectItem>
@@ -368,9 +495,9 @@ export default function ManagePracticeLibraryPage() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="all">All Categories</SelectItem>
-                        {categories.map((cat) => (
+                        {CATEGORIES.map((cat) => (
                           <SelectItem key={cat} value={cat}>
-                            {cat.replace("-", " ").toUpperCase()}
+                            {formatLabel(cat)}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -393,6 +520,25 @@ export default function ManagePracticeLibraryPage() {
                       </SelectContent>
                     </Select>
                   </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="companySize">Company Size</Label>
+                    <Select
+                      value={companySizeFilter}
+                      onValueChange={setCompanySizeFilter}
+                    >
+                      <SelectTrigger id="companySize">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All Sizes</SelectItem>
+                        {COMPANY_SIZES.map((size) => (
+                          <SelectItem key={size} value={size}>
+                            {formatLabel(size)}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <Button variant="outline" size="sm" onClick={() => mutate()}>
@@ -408,7 +554,7 @@ export default function ManagePracticeLibraryPage() {
             </Card>
 
             {/* Questions List */}
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {isLoading ? (
                 <Card>
                   <CardContent className="py-12 text-center">
@@ -434,7 +580,7 @@ export default function ManagePracticeLibraryPage() {
                   </CardContent>
                 </Card>
               ) : (
-                filteredQuestions.map((question) => (
+                paginatedQuestions.map((question) => (
                   <Card key={question.id}>
                     <CardContent className="pt-6">
                       <div className="flex items-start justify-between gap-4">
@@ -458,12 +604,24 @@ export default function ManagePracticeLibraryPage() {
                               {question.category.replace("-", " ")}
                             </Badge>
                           </div>
-                          <h3 className="font-semibold text-lg">
-                            {question.question}
-                          </h3>
-                          <p className="text-sm text-muted-foreground line-clamp-2">
-                            {question.answer}
-                          </p>
+                          <h3
+                            className="font-bold text-xl prose prose-sm dark:prose-invert max-w-none"
+                            dangerouslySetInnerHTML={renderMarkdown(
+                              question.title,
+                            )}
+                          />
+                          {/* <div
+                            className="font-medium text-base prose prose-sm dark:prose-invert max-w-none"
+                            dangerouslySetInnerHTML={renderMarkdown(
+                              question.question,
+                            )}
+                          />
+                          <div
+                            className="text-sm text-muted-foreground line-clamp-2 prose prose-sm dark:prose-invert max-w-none"
+                            dangerouslySetInnerHTML={renderMarkdown(
+                              question.answer,
+                            )}
+                          /> */}
                           <div className="flex gap-2 flex-wrap">
                             {question.topicTags.slice(0, 5).map((tag) => (
                               <Badge
@@ -576,6 +734,50 @@ export default function ManagePracticeLibraryPage() {
                 ))
               )}
             </div>
+
+            {/* Pagination */}
+            {filteredQuestions.length > itemsPerPage && (
+              <div className="flex items-center justify-between">
+                <div className="text-sm text-muted-foreground">
+                  Showing {startIndex + 1} to{" "}
+                  {Math.min(endIndex, filteredQuestions.length)} of{" "}
+                  {filteredQuestions.length} questions
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                    disabled={currentPage === 1}
+                  >
+                    Previous
+                  </Button>
+                  <div className="flex items-center space-x-1">
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                      (page) => (
+                        <Button
+                          key={page}
+                          variant={currentPage === page ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => setCurrentPage(page)}
+                          className="w-8 h-8 p-0"
+                        >
+                          {page}
+                        </Button>
+                      ),
+                    )}
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setCurrentPage(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                  >
+                    Next
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         </main>
       </div>

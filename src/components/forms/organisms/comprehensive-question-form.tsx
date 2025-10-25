@@ -1,9 +1,10 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { X } from "lucide-react";
+import { AlertCircle, X } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -60,11 +61,24 @@ import type {
 import { MarkdownTextarea } from "../molecules/markdown-editor";
 
 const formSchema = z.object({
-  category: z.string(),
-  difficulty: z.enum(["easy", "medium", "hard"]),
-  companyLogo: z.string(),
-  companySize: z.array(z.string()).optional(),
-  primaryTechStack: z.array(z.string()),
+  // Required fields
+  category: z.string().min(1, "Category is required"),
+  difficulty: z.enum(["easy", "medium", "hard"], {
+    message: "Difficulty is required",
+  }),
+  companyLogo: z.string().min(1, "Company is required"),
+  companySize: z
+    .array(z.string())
+    .min(1, "At least one company size is required"),
+  primaryTechStack: z
+    .array(z.string())
+    .min(1, "At least one primary tech stack is required"),
+  title: z.string().min(5, "Title must be at least 5 characters"),
+  question: z.string().min(10, "Question must be at least 10 characters"),
+  answer: z.string().min(20, "Answer must be at least 20 characters"),
+  topicTags: z.array(z.string()).min(5, "At least 5 topic tags are required"),
+
+  // Optional fields
   languages: z.array(z.string()).optional(),
   frontendFrameworks: z.array(z.string()).optional(),
   backendFrameworks: z.array(z.string()).optional(),
@@ -89,9 +103,6 @@ const formSchema = z.object({
   searchEngines: z.array(z.string()).optional(),
   vectorDBs: z.array(z.string()).optional(),
   iac: z.array(z.string()).optional(),
-  question: z.string().min(10),
-  answer: z.string().min(20),
-  topicTags: z.array(z.string()),
 });
 
 interface ComprehensiveQuestionFormProps {
@@ -99,7 +110,7 @@ interface ComprehensiveQuestionFormProps {
   onSubmit: (data: Omit<PracticeQuestion, "id">) => Promise<void>;
 }
 
-const CATEGORIES: QuestionCategory[] = [
+export const CATEGORIES: QuestionCategory[] = [
   "algorithms",
   "data-structures",
   "system-design",
@@ -124,7 +135,7 @@ const CATEGORIES: QuestionCategory[] = [
   "problem-solving",
 ];
 
-const COMPANY_LOGOS: CompanyLogo[] = [
+export const COMPANY_LOGOS: CompanyLogo[] = [
   "SiGoogle",
   "SiMeta",
   "SiAmazon",
@@ -170,7 +181,7 @@ const COMPANY_LOGOS: CompanyLogo[] = [
   "SiGitlab",
 ];
 
-const COMPANY_SIZES: CompanySize[] = [
+export const COMPANY_SIZES: CompanySize[] = [
   "startup",
   "small",
   "medium",
@@ -180,7 +191,7 @@ const COMPANY_SIZES: CompanySize[] = [
   "unicorn",
 ];
 
-const PROGRAMMING_LANGUAGES: ProgrammingLanguage[] = [
+export const PROGRAMMING_LANGUAGES: ProgrammingLanguage[] = [
   "javascript",
   "typescript",
   "python",
@@ -207,7 +218,7 @@ const PROGRAMMING_LANGUAGES: ProgrammingLanguage[] = [
   "powershell",
 ];
 
-const FRONTEND_FRAMEWORKS: FrontendFramework[] = [
+export const FRONTEND_FRAMEWORKS: FrontendFramework[] = [
   "vue",
   "angular",
   "svelte",
@@ -222,7 +233,7 @@ const FRONTEND_FRAMEWORKS: FrontendFramework[] = [
   "backbone",
 ];
 
-const BACKEND_FRAMEWORKS: BackendFramework[] = [
+export const BACKEND_FRAMEWORKS: BackendFramework[] = [
   "nodejs",
   "express",
   "nestjs",
@@ -252,7 +263,7 @@ const BACKEND_FRAMEWORKS: BackendFramework[] = [
   "vapor",
 ];
 
-const SQL_DATABASES: SQLDatabase[] = [
+export const SQL_DATABASES: SQLDatabase[] = [
   "postgresql",
   "mysql",
   "mariadb",
@@ -265,7 +276,7 @@ const SQL_DATABASES: SQLDatabase[] = [
   "azure-sql",
 ];
 
-const NOSQL_DATABASES: NoSQLDatabase[] = [
+export const NOSQL_DATABASES: NoSQLDatabase[] = [
   "mongodb",
   "dynamodb",
   "cassandra",
@@ -281,7 +292,7 @@ const NOSQL_DATABASES: NoSQLDatabase[] = [
   "fauna",
 ];
 
-const CLOUD_PROVIDERS: CloudProvider[] = [
+export const CLOUD_PROVIDERS: CloudProvider[] = [
   "aws",
   "gcp",
   "azure",
@@ -300,7 +311,7 @@ const CLOUD_PROVIDERS: CloudProvider[] = [
   "alibaba-cloud",
 ];
 
-const CONTAINER_TECH: ContainerTech[] = [
+export const CONTAINER_TECH: ContainerTech[] = [
   "docker",
   "podman",
   "containerd",
@@ -312,7 +323,7 @@ const CONTAINER_TECH: ContainerTech[] = [
   "docker-swarm",
 ];
 
-const CICD_TOOLS: CICD[] = [
+export const CICD_TOOLS: CICD[] = [
   "github-actions",
   "gitlab-ci",
   "jenkins",
@@ -328,7 +339,7 @@ const CICD_TOOLS: CICD[] = [
   "flux",
 ];
 
-const TESTING_FRAMEWORKS: TestingFramework[] = [
+export const TESTING_FRAMEWORKS: TestingFramework[] = [
   "jest",
   "vitest",
   "mocha",
@@ -356,7 +367,7 @@ const TESTING_FRAMEWORKS: TestingFramework[] = [
   "locust",
 ];
 
-const API_TYPES: APIArchitecture[] = [
+export const API_TYPES: APIArchitecture[] = [
   "rest",
   "graphql",
   "grpc",
@@ -371,7 +382,7 @@ const API_TYPES: APIArchitecture[] = [
   "trpc",
 ];
 
-const ORM_TOOLS: ORM[] = [
+export const ORM_TOOLS: ORM[] = [
   "prisma",
   "typeorm",
   "sequelize",
@@ -388,7 +399,7 @@ const ORM_TOOLS: ORM[] = [
   "diesel",
 ];
 
-const CSS_FRAMEWORKS: CSSFramework[] = [
+export const CSS_FRAMEWORKS: CSSFramework[] = [
   "tailwind",
   "bootstrap",
   "material-ui",
@@ -406,7 +417,7 @@ const CSS_FRAMEWORKS: CSSFramework[] = [
   "vanilla-extract",
 ];
 
-const STATE_MANAGEMENT: StateManagement[] = [
+export const STATE_MANAGEMENT: StateManagement[] = [
   "redux",
   "mobx",
   "zustand",
@@ -420,7 +431,7 @@ const STATE_MANAGEMENT: StateManagement[] = [
   "rxjs",
 ];
 
-const MOBILE_DEV: MobileDevelopment[] = [
+export const MOBILE_DEV: MobileDevelopment[] = [
   "react-native",
   "flutter",
   "swift",
@@ -434,7 +445,7 @@ const MOBILE_DEV: MobileDevelopment[] = [
   "nativescript",
 ];
 
-const MESSAGE_QUEUES: MessageQueue[] = [
+export const MESSAGE_QUEUES: MessageQueue[] = [
   "rabbitmq",
   "kafka",
   "redis-streams",
@@ -451,7 +462,7 @@ const MESSAGE_QUEUES: MessageQueue[] = [
   "bee-queue",
 ];
 
-const CACHING_TECH: CachingTech[] = [
+export const CACHING_TECH: CachingTech[] = [
   "redis",
   "memcached",
   "varnish",
@@ -461,7 +472,7 @@ const CACHING_TECH: CachingTech[] = [
   "hazelcast",
 ];
 
-const MONITORING_TOOLS: Monitoring[] = [
+export const MONITORING_TOOLS: Monitoring[] = [
   "datadog",
   "new-relic",
   "prometheus",
@@ -481,7 +492,7 @@ const MONITORING_TOOLS: Monitoring[] = [
   "opentelemetry",
 ];
 
-const SECURITY_TOOLS: SecurityTool[] = [
+export const SECURITY_TOOLS: SecurityTool[] = [
   "oauth",
   "jwt",
   "auth0",
@@ -499,7 +510,7 @@ const SECURITY_TOOLS: SecurityTool[] = [
   "clair",
 ];
 
-const ML_FRAMEWORKS: MLFramework[] = [
+export const ML_FRAMEWORKS: MLFramework[] = [
   "tensorflow",
   "pytorch",
   "scikit-learn",
@@ -520,7 +531,7 @@ const ML_FRAMEWORKS: MLFramework[] = [
   "catboost",
 ];
 
-const LLM_PROVIDERS: LLMProvider[] = [
+export const LLM_PROVIDERS: LLMProvider[] = [
   "openai",
   "anthropic",
   "google-ai",
@@ -532,7 +543,7 @@ const LLM_PROVIDERS: LLMProvider[] = [
   "ollama",
 ];
 
-const PROTOCOLS: Protocol[] = [
+export const PROTOCOLS: Protocol[] = [
   "http",
   "https",
   "http2",
@@ -550,7 +561,7 @@ const PROTOCOLS: Protocol[] = [
   "pop3",
 ];
 
-const WEB_SERVERS: WebServer[] = [
+export const WEB_SERVERS: WebServer[] = [
   "nginx",
   "apache",
   "caddy",
@@ -561,7 +572,7 @@ const WEB_SERVERS: WebServer[] = [
   "lighttpd",
 ];
 
-const SEARCH_ENGINES: SearchEngine[] = [
+export const SEARCH_ENGINES: SearchEngine[] = [
   "elasticsearch",
   "solr",
   "algolia",
@@ -570,7 +581,7 @@ const SEARCH_ENGINES: SearchEngine[] = [
   "opensearch",
 ];
 
-const VECTOR_DBS: VectorDatabase[] = [
+export const VECTOR_DBS: VectorDatabase[] = [
   "pinecone",
   "weaviate",
   "qdrant",
@@ -579,7 +590,7 @@ const VECTOR_DBS: VectorDatabase[] = [
   "pgvector",
 ];
 
-const IAC_TOOLS: IaC[] = [
+export const IAC_TOOLS: IaC[] = [
   "terraform",
   "pulumi",
   "ansible",
@@ -592,7 +603,7 @@ const IAC_TOOLS: IaC[] = [
   "crossplane",
 ];
 
-const formatLabel = (value: string) => {
+export const formatLabel = (value: string) => {
   return value
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -605,6 +616,8 @@ export function ComprehensiveQuestionForm({
 }: ComprehensiveQuestionFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [tagInput, setTagInput] = useState("");
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [validationErrors, setValidationErrors] = useState<string[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     // biome-ignore lint/suspicious/noExplicitAny: Zod version compatibility issue with react-hook-form
@@ -639,17 +652,79 @@ export function ComprehensiveQuestionForm({
       searchEngines: initialData?.searchEngines || [],
       vectorDBs: initialData?.vectorDBs || [],
       iac: initialData?.iac || [],
+      title: initialData?.title || "",
       question: initialData?.question || "",
       answer: initialData?.answer || "",
       topicTags: initialData?.topicTags || [],
     },
   });
 
+  // Watch form values for reactive validation
+  const watchedValues = form.watch();
+
+  // Check if all required fields are filled
+  const isFormValid =
+    watchedValues.category &&
+    watchedValues.difficulty &&
+    watchedValues.companyLogo &&
+    watchedValues.companySize &&
+    watchedValues.companySize.length > 0 &&
+    watchedValues.primaryTechStack &&
+    watchedValues.primaryTechStack.length > 0 &&
+    watchedValues.title &&
+    watchedValues.title.length >= 5 &&
+    watchedValues.question &&
+    watchedValues.question.length >= 10 &&
+    watchedValues.answer &&
+    watchedValues.answer.length >= 20 &&
+    watchedValues.topicTags &&
+    watchedValues.topicTags.length >= 5;
+
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
+    setSubmitError(null);
+    setValidationErrors([]);
+
     try {
+      // Validate required fields and provide specific error messages
+      const errors: string[] = [];
+
+      if (!values.category) errors.push("Category is required");
+      if (!values.difficulty) errors.push("Difficulty is required");
+      if (!values.companyLogo) errors.push("Company is required");
+      if (!values.companySize || values.companySize.length === 0)
+        errors.push("At least one company size is required");
+      if (!values.primaryTechStack || values.primaryTechStack.length === 0)
+        errors.push("At least one primary tech stack is required");
+      if (!values.title || values.title.length < 5)
+        errors.push("Title must be at least 5 characters long");
+      if (!values.question || values.question.length < 10)
+        errors.push("Question must be at least 10 characters long");
+      if (!values.answer || values.answer.length < 20)
+        errors.push("Answer must be at least 20 characters long");
+      if (!values.topicTags || values.topicTags.length < 5)
+        errors.push("At least 5 topic tags are required");
+
+      if (errors.length > 0) {
+        setValidationErrors(errors);
+        return;
+      }
+
       // biome-ignore lint/suspicious/noExplicitAny: Type mismatch between form schema and PracticeQuestion interface
       await onSubmit(values as any);
+
+      // Show success toast
+      toast.success(
+        initialData
+          ? "Question updated successfully!"
+          : "Question created successfully!",
+      );
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "An error occurred while submitting the form",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -678,11 +753,13 @@ export function ComprehensiveQuestionForm({
     label,
     options,
     description,
+    required = false,
   }: {
     name: keyof z.infer<typeof formSchema>;
     label: string;
     options: readonly string[];
     description?: string;
+    required?: boolean;
   }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const fieldValue = (form.watch(name) || []) as string[];
@@ -709,7 +786,10 @@ export function ComprehensiveQuestionForm({
         name={name}
         render={() => (
           <FormItem>
-            <FormLabel>{label}</FormLabel>
+            <FormLabel>
+              {label}
+              {required && <span className="text-red-500 ml-1">*</span>}
+            </FormLabel>
             {description && <FormDescription>{description}</FormDescription>}
             <FormControl>
               <div className="space-y-2">
@@ -768,6 +848,33 @@ export function ComprehensiveQuestionForm({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+        {/* Error Display */}
+        {(validationErrors.length > 0 || submitError) && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+            <div className="flex items-start">
+              <AlertCircle className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+              <div className="flex-1">
+                <h3 className="text-sm font-medium text-red-800 mb-2">
+                  Please fix the following errors:
+                </h3>
+                {validationErrors.length > 0 && (
+                  <ul className="text-sm text-red-700 space-y-1 mb-2">
+                    {validationErrors.map((error, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>{error}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {submitError && (
+                  <p className="text-sm text-red-700">{submitError}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Basic Info */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField
@@ -775,7 +882,9 @@ export function ComprehensiveQuestionForm({
             name="category"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Category</FormLabel>
+                <FormLabel>
+                  Category <span className="text-red-500">*</span>
+                </FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
@@ -803,7 +912,9 @@ export function ComprehensiveQuestionForm({
             name="difficulty"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Difficulty</FormLabel>
+                <FormLabel>
+                  Difficulty <span className="text-red-500">*</span>
+                </FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
@@ -830,7 +941,9 @@ export function ComprehensiveQuestionForm({
           name="companyLogo"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Company</FormLabel>
+              <FormLabel>
+                Company <span className="text-red-500">*</span>
+              </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
@@ -854,6 +967,7 @@ export function ComprehensiveQuestionForm({
           name="companySize"
           label="Company Size"
           options={COMPANY_SIZES}
+          required={true}
         />
 
         <MultiSelectField
@@ -865,6 +979,27 @@ export function ComprehensiveQuestionForm({
             ...BACKEND_FRAMEWORKS,
           ]}
           description="Main technologies for this question"
+          required={true}
+        />
+
+        {/* Title Field */}
+        <FormField
+          control={form.control}
+          name="title"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                Question Title <span className="text-red-500">*</span>
+              </FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  placeholder="Enter a descriptive title for the question..."
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
 
         {/* Question & Answer with Markdown Editor */}
@@ -873,7 +1008,9 @@ export function ComprehensiveQuestionForm({
           name="question"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Question</FormLabel>
+              <FormLabel>
+                Question <span className="text-red-500">*</span>
+              </FormLabel>
               <FormControl>
                 <MarkdownTextarea
                   value={field.value}
@@ -892,7 +1029,9 @@ export function ComprehensiveQuestionForm({
           name="answer"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Answer</FormLabel>
+              <FormLabel>
+                Answer <span className="text-red-500">*</span>
+              </FormLabel>
               <FormControl>
                 <MarkdownTextarea
                   value={field.value}
@@ -912,7 +1051,12 @@ export function ComprehensiveQuestionForm({
           name="topicTags"
           render={() => (
             <FormItem>
-              <FormLabel>Topic Tags</FormLabel>
+              <FormLabel>
+                Topic Tags <span className="text-red-500">*</span>{" "}
+                <span className="text-sm text-muted-foreground">
+                  (minimum 5)
+                </span>
+              </FormLabel>
               <FormControl>
                 <div className="space-y-2">
                   <div className="flex gap-2">
@@ -1073,7 +1217,11 @@ export function ComprehensiveQuestionForm({
           </div>
         </div>
 
-        <Button type="submit" disabled={isSubmitting} className="w-full">
+        <Button
+          type="submit"
+          disabled={isSubmitting || !isFormValid}
+          className="w-full"
+        >
           {isSubmitting
             ? "Saving..."
             : initialData
