@@ -1,4 +1,4 @@
-import Logo from "@/components/common/atoms/logo-blairify";
+import MainLogo from "@/components/common/atoms/logo-blairify";
 
 interface LoadingPageProps {
   message?: string;
@@ -10,7 +10,7 @@ export default function LoadingPage({
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
       <div className="text-center animate-pulse space-y-4">
-        <Logo />
+        <MainLogo />
         <p className="text-muted-foreground">{message}</p>
       </div>
     </div>
