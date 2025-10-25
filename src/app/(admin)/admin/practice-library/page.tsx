@@ -2,7 +2,7 @@
 
 import { Edit, Plus, RefreshCw, Search, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import useSWR from "swr";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
@@ -146,14 +146,11 @@ export default function ManagePracticeLibraryPage() {
     },
   });
 
-  const _loadQuestions = useCallback(() => {
-    mutate();
-  }, [mutate]);
+  // DO NOT ADD QUESTIONS TO THIS ARRAY DEPENDENCY MATI
 
-  // Stabilize questions array to prevent unnecessary re-renders
+  // biome-ignore lint/correctness/useExhaustiveDependencies: intentional stable dependency
   const stableQuestions = useMemo(() => questions, [JSON.stringify(questions)]);
 
-  // Filter questions
   useEffect(() => {
     let filtered = stableQuestions;
 
@@ -184,7 +181,13 @@ export default function ManagePracticeLibraryPage() {
     }
 
     setFilteredQuestions(filtered);
-  }, [stableQuestions, searchTerm, categoryFilter, difficultyFilter, companyFilter]);
+  }, [
+    stableQuestions,
+    searchTerm,
+    categoryFilter,
+    difficultyFilter,
+    companyFilter,
+  ]);
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this question?")) return;
@@ -199,8 +202,12 @@ export default function ManagePracticeLibraryPage() {
     }
   };
 
-  const categories = Array.from(new Set(stableQuestions.map((q) => q.category)));
-  const companies = Array.from(new Set(stableQuestions.map((q) => q.companyLogo)));
+  const categories = Array.from(
+    new Set(stableQuestions.map((q) => q.category)),
+  );
+  const companies = Array.from(
+    new Set(stableQuestions.map((q) => q.companyLogo)),
+  );
 
   if (loading || !isSuperAdmin(user)) {
     return (
@@ -271,7 +278,9 @@ export default function ManagePracticeLibraryPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">{stableQuestions.length}</div>
+                  <div className="text-2xl font-bold">
+                    {stableQuestions.length}
+                  </div>
                 </CardContent>
               </Card>
               <Card>
@@ -300,7 +309,10 @@ export default function ManagePracticeLibraryPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">
-                    {stableQuestions.filter((q) => q.difficulty === "medium").length}
+                    {
+                      stableQuestions.filter((q) => q.difficulty === "medium")
+                        .length
+                    }
                   </div>
                 </CardContent>
               </Card>
@@ -388,7 +400,8 @@ export default function ManagePracticeLibraryPage() {
                     Refresh
                   </Button>
                   <Badge variant="secondary">
-                    {filteredQuestions.length} of {stableQuestions.length} questions
+                    {filteredQuestions.length} of {stableQuestions.length}{" "}
+                    questions
                   </Badge>
                 </div>
               </CardContent>
