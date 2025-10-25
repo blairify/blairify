@@ -27,45 +27,45 @@ export const useIsMobile = (): UseIsMobileReturn => {
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  const checkIsMobile = useCallback(() => {
-    // Check using media query
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-
-    // Check using user agent (additional detection)
-    const userAgent = navigator.userAgent.toLowerCase();
-    const mobileKeywords = [
-      "android",
-      "webos",
-      "iphone",
-      "ipad",
-      "ipod",
-      "blackberry",
-      "windows phone",
-      "mobile",
-    ];
-
-    const isMobileUA = mobileKeywords.some((keyword) =>
-      userAgent.includes(keyword),
-    );
-
-    // Combine both checks - prioritize media query but consider user agent
-    const isMobileDevice =
-      mediaQuery.matches || (isMobileUA && window.innerWidth <= 768);
-
-    setIsMobile((prev) => {
-      if (prev !== isMobileDevice) {
-        setIsLoading(false);
-        return isMobileDevice;
-      }
-      setIsLoading(false);
-      return prev;
-    });
-  }, []);
-
-  // Debounced version to prevent rapid updates
-  const debouncedCheckIsMobile = useCallback(debounce(checkIsMobile, 100), []);
-
   useEffect(() => {
+    const checkIsMobile = () => {
+      // Check using media query
+      const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+      // Check using user agent (additional detection)
+      const userAgent = navigator.userAgent.toLowerCase();
+      const mobileKeywords = [
+        "android",
+        "webos",
+        "iphone",
+        "ipad",
+        "ipod",
+        "blackberry",
+        "windows phone",
+        "mobile",
+      ];
+
+      const isMobileUA = mobileKeywords.some((keyword) =>
+        userAgent.includes(keyword),
+      );
+
+      // Combine both checks - prioritize media query but consider user agent
+      const isMobileDevice =
+        mediaQuery.matches || (isMobileUA && window.innerWidth <= 768);
+
+      setIsMobile((prev) => {
+        if (prev !== isMobileDevice) {
+          setIsLoading(false);
+          return isMobileDevice;
+        }
+        setIsLoading(false);
+        return prev;
+      });
+    };
+
+    // Debounced version to prevent rapid updates
+    const debouncedCheckIsMobile = debounce(checkIsMobile, 100);
+
     // Initial check
     checkIsMobile();
 
@@ -91,7 +91,7 @@ export const useIsMobile = (): UseIsMobileReturn => {
       }
       window.removeEventListener("resize", debouncedCheckIsMobile);
     };
-  }, [checkIsMobile, debouncedCheckIsMobile]);
+  }, []); // Empty dependency array - effect runs once on mount
 
   return {
     isMobile,

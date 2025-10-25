@@ -6,6 +6,7 @@ import { SWRProvider } from "../providers/swr-provider";
 import { ThemeProvider } from "../providers/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
+import LoadingPage from "@/components/common/atoms/loading-page";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -109,7 +110,7 @@ export default function RootLayout({
   return (
     <html lang="en" title="Blairify" suppressHydrationWarning>
       <body className="font-sans antialiased min-h-screen bg-background text-foreground">
-        <Suspense fallback={null}>
+        <Suspense fallback={<LoadingPage />}>
           <ThemeProvider
             attribute="class"
             defaultTheme="light"

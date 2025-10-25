@@ -2,7 +2,7 @@
 
 import { Edit, Plus, RefreshCw, Search, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import useSWR from "swr";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
@@ -150,16 +150,12 @@ export default function ManagePracticeLibraryPage() {
     mutate();
   }, [mutate]);
 
-  // Update filtered questions when questions data changes
-  useEffect(() => {
-    if (questions) {
-      setFilteredQuestions(questions);
-    }
-  }, [questions]);
+  // Stabilize questions array to prevent unnecessary re-renders
+  const stableQuestions = useMemo(() => questions, [JSON.stringify(questions)]);
 
   // Filter questions
   useEffect(() => {
-    let filtered = questions;
+    let filtered = stableQuestions;
 
     if (searchTerm) {
       filtered = filtered.filter(
@@ -188,7 +184,7 @@ export default function ManagePracticeLibraryPage() {
     }
 
     setFilteredQuestions(filtered);
-  }, [questions, searchTerm, categoryFilter, difficultyFilter, companyFilter]);
+  }, [stableQuestions, searchTerm, categoryFilter, difficultyFilter, companyFilter]);
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this question?")) return;
@@ -203,8 +199,8 @@ export default function ManagePracticeLibraryPage() {
     }
   };
 
-  const categories = Array.from(new Set(questions.map((q) => q.category)));
-  const companies = Array.from(new Set(questions.map((q) => q.companyLogo)));
+  const categories = Array.from(new Set(stableQuestions.map((q) => q.category)));
+  const companies = Array.from(new Set(stableQuestions.map((q) => q.companyLogo)));
 
   if (loading || !isSuperAdmin(user)) {
     return (
@@ -275,7 +271,7 @@ export default function ManagePracticeLibraryPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">{questions.length}</div>
+                  <div className="text-2xl font-bold">{stableQuestions.length}</div>
                 </CardContent>
               </Card>
               <Card>
@@ -304,7 +300,7 @@ export default function ManagePracticeLibraryPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">
-                    {questions.filter((q) => q.difficulty === "medium").length}
+                    {stableQuestions.filter((q) => q.difficulty === "medium").length}
                   </div>
                 </CardContent>
               </Card>
@@ -392,7 +388,7 @@ export default function ManagePracticeLibraryPage() {
                     Refresh
                   </Button>
                   <Badge variant="secondary">
-                    {filteredQuestions.length} of {questions.length} questions
+                    {filteredQuestions.length} of {stableQuestions.length} questions
                   </Badge>
                 </div>
               </CardContent>

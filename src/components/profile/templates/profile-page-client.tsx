@@ -19,12 +19,8 @@ export function ProfilePageClient({ user }: ProfilePageClientProps) {
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
       />
-
-      {/* Main Content */}
       <div className="flex-1 lg:ml-0 flex flex-col overflow-hidden">
         <DashboardNavbar setSidebarOpen={setSidebarOpen} />
-
-        {/* Scrollable Content Area */}
         <ProfileContent user={user} />
       </div>
     </div>

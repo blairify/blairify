@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 };
 
 export default async function ProfilePage() {
-  // Server-side authentication check - will redirect if not authenticated
   const user = await requireAuth("/profile");
 
   return (
