@@ -181,6 +181,10 @@ function QuestionModal({
                 {question.difficulty.toUpperCase()}
               </span>
             </div>
+            <h2
+              className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 prose prose-sm dark:prose-invert max-w-none"
+              dangerouslySetInnerHTML={renderMarkdown(question.title)}
+            />
             <div
               className="prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300"
               dangerouslySetInnerHTML={renderMarkdown(question.question)}
@@ -270,6 +274,8 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
     useState<PracticeQuestion | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(12);
 
   // Fetch questions on mount
   useEffect(() => {
@@ -345,6 +351,17 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
 
     filterQuestions();
   }, [searchTerm, selectedCategory, selectedDifficulty, questions]);
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredQuestions.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedQuestions = filteredQuestions.slice(startIndex, endIndex);
+
+  // Reset to first page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, []);
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -473,12 +490,14 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
 
         {/* Results Count */}
         <div className="mb-4 text-gray-600 dark:text-gray-400">
-          Showing {filteredQuestions.length} of {questions.length} questions
+          Showing {startIndex + 1} to{" "}
+          {Math.min(endIndex, filteredQuestions.length)} of{" "}
+          {filteredQuestions.length} questions
         </div>
 
         {/* Questions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredQuestions.map((q) => {
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {paginatedQuestions.map((q) => {
             const CategoryIcon = getCategoryIcon(q.category);
             const CompanyIcon = getCompanyIcon(q.companyLogo);
 
@@ -512,6 +531,12 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                       {q.category.replace("-", " ")}
                     </span>
                   </div>
+
+                  {/* Question Title */}
+                  <h3
+                    className="font-semibold text-base text-gray-900 dark:text-gray-100 mb-2 line-clamp-2"
+                    dangerouslySetInnerHTML={renderMarkdown(q.title)}
+                  />
 
                   {/* Question Preview */}
                   <div
@@ -550,6 +575,50 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
             );
           })}
         </div>
+
+        {/* Pagination */}
+        {filteredQuestions.length > itemsPerPage && (
+          <div className="flex items-center justify-between mt-8">
+            <div className="text-sm text-gray-600 dark:text-gray-400">
+              Showing {startIndex + 1} to{" "}
+              {Math.min(endIndex, filteredQuestions.length)} of{" "}
+              {filteredQuestions.length} questions
+            </div>
+            <div className="flex items-center space-x-2">
+              <Button
+                onClick={() => setCurrentPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="px-3 py-1 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Previous
+              </Button>
+              <div className="flex items-center space-x-1">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page) => (
+                    <Button
+                      key={page}
+                      onClick={() => setCurrentPage(page)}
+                      className={`w-8 h-8 p-0 text-sm ${
+                        currentPage === page
+                          ? "bg-blue-600 text-white border-blue-600"
+                          : "bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      }`}
+                    >
+                      {page}
+                    </Button>
+                  ),
+                )}
+              </div>
+              <Button
+                onClick={() => setCurrentPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="px-3 py-1 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Next
+              </Button>
+            </div>
+          </div>
+        )}
 
         {/* Empty State */}
         {filteredQuestions.length === 0 && (

@@ -164,7 +164,7 @@ export default function DashboardSidebar({
                   Manage Library
                 </span>
               </Link>
-              <Link
+              {/* <Link
                 href="/admin/manage-users"
                 className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors w-full ${
                   isActive("/admin/manage-users")
@@ -178,7 +178,7 @@ export default function DashboardSidebar({
                 >
                   Manage Users
                 </span>
-              </Link>
+              </Link> */}
             </>
           )}
         </nav>
