@@ -37,3 +37,7 @@ next-env.d.ts
 
 # firebase
 serviceAccounts.json
+
+# documentation and thesis
+/docs
+/thesis

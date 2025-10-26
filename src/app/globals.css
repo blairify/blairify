@@ -276,3 +276,14 @@
     font-size: 16px; /* Prevents zoom on iOS */
   }
 }
+
+/* ==============================
+   Utility Classes
+   ============================== */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

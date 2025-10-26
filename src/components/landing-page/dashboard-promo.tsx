@@ -42,29 +42,28 @@ export function DashboardPromo() {
                 Performance Analytics
               </h2>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Get detailed insights into your interview performance with our
-                comprehensive analytics dashboard. Monitor your scores, identify
-                strengths, and focus on areas for improvement.
+                Get detailed insights into your performance. Monitor your
+                scores, identify strengths, and focus on areas for improvement.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
-                <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto mb-2" />
+                <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
                 <div className="text-xs sm:text-sm font-medium">Analytics</div>
               </div>
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
-                <Target className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto mb-2" />
+                <Target className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
                 <div className="text-xs sm:text-sm font-medium">Insights</div>
               </div>
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
-                <Award className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto mb-2" />
+                <Award className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
                 <div className="text-xs sm:text-sm font-medium">
                   Achievements
                 </div>
               </div>
             </div>
 
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full" />
                 <span className="text-sm text-muted-foreground">

@@ -153,27 +153,28 @@ export default function SessionDetailsPage() {
       />
       <div className="flex-1 flex flex-col overflow-hidden">
         <DashboardNavbar setSidebarOpen={setSidebarOpen} />
-        <main className="flex-1 overflow-auto">
-          <div className="container mx-auto px-6 py-8">
+        <main className="flex-1 overflow-auto bg-gradient-to-b from-background to-muted/20">
+          <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-6xl">
             {/* Header */}
-            <div className="mb-6">
+            <div className="mb-6 sm:mb-8">
               <Button
                 aria-label="Back to History"
                 onClick={() => router.push("/history")}
                 variant="ghost"
-                className="mb-4"
+                className="mb-4 sm:mb-6 hover:bg-primary/10"
+                size="sm"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to History
               </Button>
 
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                <div className="flex items-start sm:items-center gap-4">
+                  <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border-2 border-primary/20 shadow-sm flex-shrink-0">
                     {getInterviewIcon(session.config.interviewType)}
                   </div>
-                  <div>
-                    <h1 className="text-3xl font-bold">
+                  <div className="flex-1 min-w-0">
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">
                       {session.config.position
                         .split(" ")
                         .map(
@@ -184,17 +185,17 @@ export default function SessionDetailsPage() {
                         .join(" ")}{" "}
                       Interview
                     </h1>
-                    <div className="flex items-center space-x-4 text-muted-foreground mt-1">
-                      <span className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                      <span className="flex items-center gap-1.5">
+                        <Calendar className="h-4 w-4" />
                         {formatDate(session.createdAt)}
                       </span>
-                      <span className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
+                      <span className="flex items-center gap-1.5">
+                        <Clock className="h-4 w-4" />
                         {session.totalDuration} minutes
                       </span>
                       {session.config.specificCompany && (
-                        <Badge variant="secondary">
+                        <Badge variant="secondary" className="font-medium">
                           {session.config.specificCompany}
                         </Badge>
                       )}
@@ -202,24 +203,24 @@ export default function SessionDetailsPage() {
                   </div>
                 </div>
 
-                <div className="text-right">
+                <div className="text-center sm:text-right">
                   {session.scores?.overall ? (
                     <>
                       <div
-                        className={`text-4xl font-bold ${getScoreColor(session.scores.overall)}`}
+                        className={`text-5xl sm:text-6xl font-bold px-6 py-3 rounded-2xl shadow-lg ${getScoreColor(session.scores.overall)}`}
                       >
                         {session.scores.overall}%
                       </div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm font-semibold text-muted-foreground mt-2">
                         Overall Score
                       </div>
                     </>
                   ) : (
                     <>
-                      <div className="text-4xl font-bold text-muted-foreground">
+                      <div className="text-5xl sm:text-6xl font-bold text-muted-foreground px-6 py-3 rounded-2xl bg-muted/50">
                         N/A
                       </div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm font-semibold text-muted-foreground mt-2">
                         Analysis Pending
                       </div>
                     </>
@@ -230,15 +231,15 @@ export default function SessionDetailsPage() {
 
             {/* Score Breakdown - Only show if scores are available */}
             {session.scores && session.scores.overall > 0 && (
-              <Card className="mb-6">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <TrendingUp className="h-5 w-5" />
+              <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
+                <CardHeader className="pb-4">
+                  <CardTitle className="flex items-center gap-2 text-xl font-bold">
+                    <TrendingUp className="h-5 w-5 text-primary" />
                     Performance Breakdown
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {Object.entries(session.scores).map(([key, value]) => {
                       if (key === "overall" || !value) return null;
 
@@ -253,18 +254,21 @@ export default function SessionDetailsPage() {
                       };
 
                       return (
-                        <div key={key} className="space-y-2">
-                          <div className="flex justify-between">
-                            <span className="text-sm font-medium">
+                        <div
+                          key={key}
+                          className="space-y-3 p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30"
+                        >
+                          <div className="flex justify-between items-center">
+                            <span className="text-sm font-bold text-foreground">
                               {formatKey(key)}
                             </span>
                             <span
-                              className={`text-sm font-bold ${getScoreColor(value)}`}
+                              className={`text-lg font-bold px-2.5 py-0.5 rounded-lg ${getScoreColor(value)}`}
                             >
                               {value}%
                             </span>
                           </div>
-                          <Progress value={value} className="h-2" />
+                          <Progress value={value} className="h-2.5" />
                         </div>
                       );
                     })}
@@ -274,60 +278,67 @@ export default function SessionDetailsPage() {
             )}
 
             {/* Interview Configuration */}
-            <Card className="mb-6">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <User className="h-5 w-5" />
+            <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-2 text-xl font-bold">
+                  <User className="h-5 w-5 text-primary" />
                   Interview Configuration
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <div>
-                    <div className="text-sm text-muted-foreground">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                       Position
                     </div>
-                    <div className="font-medium capitalize">
+                    <div className="font-bold text-base capitalize text-foreground">
                       {session.config.position}
                     </div>
                   </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                       Seniority Level
                     </div>
-                    <div className="font-medium capitalize">
+                    <div className="font-bold text-base capitalize text-foreground">
                       {session.config.seniority}
                     </div>
                   </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                       Interview Type
                     </div>
-                    <div className="font-medium capitalize">
+                    <div className="font-bold text-base capitalize text-foreground">
                       {session.config.interviewType}
                     </div>
                   </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">Mode</div>
-                    <Badge variant="outline" className="capitalize">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                      Mode
+                    </div>
+                    <Badge
+                      variant="default"
+                      className="capitalize font-semibold"
+                    >
                       {session.config.interviewMode}
                     </Badge>
                   </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                       Duration
                     </div>
-                    <div className="font-medium">
+                    <div className="font-bold text-base text-foreground">
                       {session.config.duration} minutes
                     </div>
                   </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">Status</div>
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                      Status
+                    </div>
                     <Badge
                       variant={
                         session.status === "completed" ? "default" : "secondary"
                       }
-                      className="capitalize"
+                      className="capitalize font-semibold"
                     >
                       {session.status}
                     </Badge>
@@ -338,15 +349,15 @@ export default function SessionDetailsPage() {
 
             {/* Questions and Responses */}
             {session.questions && session.questions.length > 0 && (
-              <Card className="mb-6">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <MessageSquare className="h-5 w-5" />
+              <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
+                <CardHeader className="pb-4">
+                  <CardTitle className="flex items-center gap-2 text-xl font-bold">
+                    <MessageSquare className="h-5 w-5 text-primary" />
                     Questions & Responses ({session.questions.length})
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-6">
+                  <div className="space-y-6 sm:space-y-8">
                     {session.questions.map((question, index) => {
                       const response = session.responses?.find(
                         (r) => r.questionId === question.id,
@@ -355,47 +366,58 @@ export default function SessionDetailsPage() {
                       return (
                         <div
                           key={question.id}
-                          className="border rounded-lg p-4"
+                          className="border-2 border-border/50 rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-card to-card/50 shadow-md hover:shadow-lg transition-shadow"
                         >
-                          <div className="flex items-start justify-between mb-3">
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2 mb-2">
-                                <Badge variant="outline">
+                          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                            <div className="flex-1 min-w-0">
+                              <div className="flex flex-wrap items-center gap-2 mb-3">
+                                <Badge
+                                  variant="default"
+                                  className="font-semibold"
+                                >
                                   Question {index + 1}
                                 </Badge>
                                 <Badge
                                   variant="secondary"
-                                  className="capitalize"
+                                  className="capitalize font-medium"
                                 >
                                   {question.type}
                                 </Badge>
-                                <Badge variant="outline">
+                                <Badge
+                                  variant="outline"
+                                  className="font-medium"
+                                >
                                   Difficulty: {question.difficulty}/10
                                 </Badge>
                               </div>
-                              <h4 className="font-medium text-lg mb-2">
-                                {question.question}
-                              </h4>
+                              <div className="prose prose-sm sm:prose-base max-w-none dark:prose-invert mb-3">
+                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                  {question.question}
+                                </ReactMarkdown>
+                              </div>
                               {question.category && (
-                                <div className="text-sm text-muted-foreground">
-                                  Category: {question.category}
+                                <div className="text-sm text-muted-foreground font-medium">
+                                  Category:{" "}
+                                  <span className="text-foreground">
+                                    {question.category}
+                                  </span>
                                 </div>
                               )}
                             </div>
                             {response && (
-                              <div className="text-right">
+                              <div className="text-center sm:text-right flex-shrink-0">
                                 {response.score > 0 ? (
                                   <div
-                                    className={`text-xl font-bold ${getScoreColor(response.score)}`}
+                                    className={`text-3xl sm:text-4xl font-bold px-4 py-2 rounded-xl shadow-sm ${getScoreColor(response.score)}`}
                                   >
                                     {response.score}%
                                   </div>
                                 ) : (
-                                  <div className="text-xl font-bold text-muted-foreground">
+                                  <div className="text-3xl sm:text-4xl font-bold text-muted-foreground px-4 py-2 rounded-xl bg-muted/50">
                                     N/A
                                   </div>
                                 )}
-                                <div className="text-xs text-muted-foreground">
+                                <div className="text-xs text-muted-foreground mt-2 font-medium">
                                   {Math.round(response.duration / 60)}m{" "}
                                   {response.duration % 60}s
                                 </div>
@@ -405,37 +427,47 @@ export default function SessionDetailsPage() {
 
                           {response && (
                             <>
-                              <Separator className="my-3" />
-                              <div className="space-y-3">
+                              <Separator className="my-5" />
+                              <div className="space-y-5">
                                 <div>
-                                  <div className="text-sm font-medium mb-1">
+                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                    <User className="h-4 w-4 text-primary" />
                                     Your Response:
                                   </div>
-                                  <div className="bg-muted p-3 rounded text-sm">
-                                    {response.response ||
-                                      "No response recorded"}
+                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                    <div className="prose prose-sm max-w-none dark:prose-invert">
+                                      <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                      >
+                                        {response.response ||
+                                          "No response recorded"}
+                                      </ReactMarkdown>
+                                    </div>
                                   </div>
                                 </div>
 
                                 {response.feedback &&
                                   response.feedback !== "Analysis pending" && (
                                     <div>
-                                      <div className="text-sm font-medium mb-1">
+                                      <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                        <Brain className="h-4 w-4 text-primary" />
                                         AI Feedback:
                                       </div>
-                                      <div className="text-sm text-muted-foreground">
-                                        <ReactMarkdown
-                                          remarkPlugins={[remarkGfm]}
-                                        >
-                                          {response.feedback}
-                                        </ReactMarkdown>
+                                      <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-xl border border-primary/20">
+                                        <div className="prose prose-sm max-w-none dark:prose-invert">
+                                          <ReactMarkdown
+                                            remarkPlugins={[remarkGfm]}
+                                          >
+                                            {response.feedback}
+                                          </ReactMarkdown>
+                                        </div>
                                       </div>
                                     </div>
                                   )}
 
                                 {response.feedback === "Analysis pending" && (
-                                  <div>
-                                    <div className="text-sm font-medium mb-1 text-muted-foreground">
+                                  <div className="bg-muted/50 p-4 rounded-xl border border-border/50">
+                                    <div className="text-sm font-bold mb-2 text-muted-foreground">
                                       AI Analysis Pending
                                     </div>
                                     <div className="text-sm text-muted-foreground">
@@ -483,22 +515,26 @@ export default function SessionDetailsPage() {
                 {/* Strengths */}
                 {session.analysis.strengths &&
                   session.analysis.strengths.length > 0 && (
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2 text-green-600">
-                          <CheckCircle className="h-5 w-5" />
+                    <Card className="border-2 border-green-200 dark:border-green-800 shadow-lg bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950">
+                      <CardHeader className="pb-4">
+                        <CardTitle className="flex items-center gap-2 text-green-600 dark:text-green-400 text-xl font-bold">
+                          <CheckCircle className="h-6 w-6" />
                           Strengths
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <ul className="space-y-2">
+                        <ul className="space-y-3">
                           {session.analysis.strengths.map((strength) => (
                             <li
                               key={strength}
-                              className="flex items-start gap-2"
+                              className="flex items-start gap-3 p-3 rounded-lg bg-white/50 dark:bg-black/20"
                             >
-                              <Star className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                              <span className="text-sm">{strength}</span>
+                              <Star className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                              <div className="prose prose-sm max-w-none dark:prose-invert">
+                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                  {strength}
+                                </ReactMarkdown>
+                              </div>
                             </li>
                           ))}
                         </ul>
@@ -509,22 +545,26 @@ export default function SessionDetailsPage() {
                 {/* Areas for Improvement */}
                 {session.analysis.improvements &&
                   session.analysis.improvements.length > 0 && (
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2 text-orange-600">
-                          <Lightbulb className="h-5 w-5" />
+                    <Card className="border-2 border-orange-200 dark:border-orange-800 shadow-lg bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950 dark:to-amber-950">
+                      <CardHeader className="pb-4">
+                        <CardTitle className="flex items-center gap-2 text-orange-600 dark:text-orange-400 text-xl font-bold">
+                          <Lightbulb className="h-6 w-6" />
                           Areas for Improvement
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <ul className="space-y-2">
+                        <ul className="space-y-3">
                           {session.analysis.improvements.map((improvement) => (
                             <li
                               key={improvement}
-                              className="flex items-start gap-2"
+                              className="flex items-start gap-3 p-3 rounded-lg bg-white/50 dark:bg-black/20"
                             >
-                              <Target className="h-4 w-4 text-orange-500 mt-0.5 flex-shrink-0" />
-                              <span className="text-sm">{improvement}</span>
+                              <Target className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                              <div className="prose prose-sm max-w-none dark:prose-invert">
+                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                  {improvement}
+                                </ReactMarkdown>
+                              </div>
                             </li>
                           ))}
                         </ul>
@@ -591,11 +631,12 @@ export default function SessionDetailsPage() {
               )}
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
                 aria-label="Start New Interview"
                 onClick={() => router.push("/configure")}
-                className="w-full sm:w-auto"
+                size="lg"
+                className="w-full sm:w-auto h-12 px-8 font-semibold text-base shadow-lg"
               >
                 Start New Interview
               </Button>
@@ -603,7 +644,8 @@ export default function SessionDetailsPage() {
                 aria-label="Practice More Questions"
                 onClick={() => router.push("/practice")}
                 variant="outline"
-                className="w-full sm:w-auto"
+                size="lg"
+                className="w-full sm:w-auto h-12 px-8 font-semibold text-base"
               >
                 Practice More Questions
               </Button>
@@ -611,7 +653,8 @@ export default function SessionDetailsPage() {
                 aria-label="Export Results"
                 onClick={() => router.push("/export")}
                 variant="outline"
-                className="w-full sm:w-auto"
+                size="lg"
+                className="w-full sm:w-auto h-12 px-8 font-semibold text-base"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Export Results

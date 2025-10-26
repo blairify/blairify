@@ -170,7 +170,7 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
               </div>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
@@ -195,7 +195,7 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
               <Button
                 onClick={() => router.push("/practice")}
                 aria-label="Explore Practice Library"
-                className="group mt-6"
+                className="group mt-4"
               >
                 Explore Practice Library
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

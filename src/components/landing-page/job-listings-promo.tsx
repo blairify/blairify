@@ -114,7 +114,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
           </div>
 
           {/* Content Side - Right */}
-          <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-center text-center lg:text-left">
+          <div className="space-y-4 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-center text-center lg:text-left">
             <div className="space-y-4 sm:space-y-6">
               <h2
                 id="job-listings-heading"
@@ -124,13 +124,12 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
               </h2>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Browse current job openings and practice interview questions
-                specifically tailored to these positions. Get ready for the
-                exact roles you want to apply for. No stress, no pressure, no
-                payment, no excuses.
+                specifically tailored to these positions. No stress, no
+                pressure, no payment, no excuses.
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-2">
               <div className="flex items-center justify-center lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
