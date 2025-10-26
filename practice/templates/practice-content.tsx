@@ -146,7 +146,7 @@ function QuestionModal({
             </div>
             <div>
               <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-                {question.companyName}
+                {question.companyLogo?.replace("Si", "") || "Company"}
               </h2>
               <span className="text-sm text-gray-600 dark:text-gray-400 capitalize">
                 {question.category.replace("-", " ")}
@@ -328,9 +328,10 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
           const lower = searchTerm.toLowerCase();
           filtered = filtered.filter(
             (q) =>
+              (q.title || "").toLowerCase().includes(lower) ||
               q.question.toLowerCase().includes(lower) ||
               q.category.toLowerCase().includes(lower) ||
-              q.companyName.toLowerCase().includes(lower) ||
+              (q.companyLogo || "").toLowerCase().includes(lower) ||
               q.topicTags.some((tag) => tag.toLowerCase().includes(lower)),
           );
         }
@@ -514,7 +515,7 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                         <CompanyIcon className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                       </div>
                       <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-                        {q.companyName}
+                        {q.companyLogo?.replace("Si", "") || "Company"}
                       </span>
                     </div>
                     <span
