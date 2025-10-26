@@ -181,64 +181,90 @@ export function HistoryContent({ user }: HistoryContentProps) {
   }
 
   return (
-    <main className="flex-1 overflow-y-auto">
-      <div className="container mx-auto px-6 py-8 max-w-6xl space-y-6">
+    <main className="flex-1 overflow-y-auto bg-gradient-to-b from-background to-muted/20">
+      <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-7xl space-y-6 sm:space-y-8">
+        {/* Page Header */}
+        <div className="space-y-2">
+          <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
+            Interview History
+          </h1>
+          <p className="text-sm sm:text-base text-muted-foreground">
+            Track your progress and review past interview sessions
+          </p>
+        </div>
+
         {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600 dark:text-gray-400">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <Card className="border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-card to-card/50">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-sm font-semibold text-muted-foreground flex items-center gap-2">
+                <Trophy className="h-4 w-4 text-primary" />
                 Average Score
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.avgScore}%</div>
+              <div className="text-3xl sm:text-4xl font-bold text-primary">
+                {stats.avgScore}%
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Across all sessions
+              </p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600 dark:text-gray-400">
+          <Card className="border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-card to-card/50">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-sm font-semibold text-muted-foreground flex items-center gap-2">
+                <Target className="h-4 w-4 text-primary" />
                 Total Sessions
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.totalSessions}</div>
+              <div className="text-3xl sm:text-4xl font-bold text-foreground">
+                {stats.totalSessions}
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Completed interviews
+              </p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600 dark:text-gray-400">
+          <Card className="border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-card to-card/50">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-sm font-semibold text-muted-foreground flex items-center gap-2">
+                <Clock className="h-4 w-4 text-primary" />
                 Total Time
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
+              <div className="text-3xl sm:text-4xl font-bold text-foreground">
                 {Math.round(stats.totalTime / 60)}h
               </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Practice time invested
+              </p>
             </CardContent>
           </Card>
         </div>
 
         {/* Filters and Search */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Filter className="h-5 w-5" />
+        <Card className="border-2 border-border/50 shadow-md bg-card/80 backdrop-blur-sm">
+          <CardHeader className="pb-4">
+            <CardTitle className="flex items-center gap-2 text-lg font-bold">
+              <Filter className="h-5 w-5 text-primary" />
               Filter & Search
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <div className="flex-1">
                 <Input
                   placeholder="Search by position, company, or interview type..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full"
+                  className="w-full h-11 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20"
                 />
               </div>
               <Select value={filterType} onValueChange={setFilterType}>
-                <SelectTrigger className="w-full md:w-48">
+                <SelectTrigger className="w-full sm:w-48 h-11 border-border/50">
                   <SelectValue placeholder="Interview Type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -250,7 +276,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
                 </SelectContent>
               </Select>
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-full md:w-48">
+                <SelectTrigger className="w-full sm:w-48 h-11 border-border/50">
                   <SelectValue placeholder="Sort By" />
                 </SelectTrigger>
                 <SelectContent>
@@ -264,15 +290,17 @@ export function HistoryContent({ user }: HistoryContentProps) {
         </Card>
 
         {/* Sessions List */}
-        <div className="space-y-8">
+        <div className="space-y-4 sm:space-y-6">
           {filteredSessions.length === 0 ? (
-            <Card>
-              <CardContent className="text-center py-12">
-                <Trophy className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
+            <Card className="border-2 border-dashed border-border/50 bg-card/50">
+              <CardContent className="text-center py-16">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-muted mb-6">
+                  <Trophy className="h-10 w-10 text-muted-foreground" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">
                   No interviews found
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-muted-foreground mb-6 max-w-md mx-auto">
                   {sessions.length === 0
                     ? "Start your first interview to see your history here."
                     : "Try adjusting your search or filter criteria."}
@@ -280,108 +308,125 @@ export function HistoryContent({ user }: HistoryContentProps) {
                 <Button
                   onClick={() => router.push("/configure")}
                   aria-label="Start First Interview"
+                  size="lg"
+                  className="h-11 px-8 font-semibold"
                 >
                   Start First Interview
                 </Button>
               </CardContent>
             </Card>
           ) : (
-            filteredSessions.map((session) => (
-              <Card
-                key={session.sessionId}
-                className="hover:shadow-md transition-shadow"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
-                        {getInterviewIcon(session.config.interviewType)}
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-lg">
-                          {capitalizeTitle(session.config.position)} Interview
-                        </h3>
-                        <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400 mt-1">
-                          <span className="flex items-center">
-                            <Calendar className="h-4 w-4 mr-1" />
-                            {formatDate(session.createdAt)}
-                          </span>
-                          <span className="flex items-center">
-                            <Clock className="h-4 w-4 mr-1" />
-                            {session.totalDuration} min
-                          </span>
-                          {session.config.specificCompany && (
-                            <Badge variant="secondary">
-                              {session.config.specificCompany}
-                            </Badge>
-                          )}
+            <>
+              {filteredSessions.map((session) => (
+                <Card
+                  key={session.sessionId}
+                  className="border-2 border-border/50 hover:border-primary/50 hover:shadow-xl transition-all duration-200 bg-card/80 backdrop-blur-sm"
+                >
+                  <CardContent className="p-5 sm:p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                      <div className="flex items-start sm:items-center gap-4">
+                        <div className="p-3 sm:p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20 flex-shrink-0">
+                          {getInterviewIcon(session.config.interviewType)}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-bold text-lg sm:text-xl text-foreground mb-2">
+                            {capitalizeTitle(session.config.position)} Interview
+                          </h3>
+                          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-muted-foreground">
+                            <span className="flex items-center gap-1.5">
+                              <Calendar className="h-4 w-4" />
+                              {formatDate(session.createdAt)}
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                              <Clock className="h-4 w-4" />
+                              {session.totalDuration} min
+                            </span>
+                            {session.config.specificCompany && (
+                              <Badge
+                                variant="secondary"
+                                className="font-medium"
+                              >
+                                {session.config.specificCompany}
+                              </Badge>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <div className="text-right">
-                        <div
-                          className={`text-2xl font-bold px-3 py-1 rounded-lg ${getScoreColor(session.scores?.overall || 0)}`}
-                        >
-                          {session.scores?.overall || 0}%
+                      <div className="flex items-center justify-between sm:justify-end gap-4">
+                        <div className="text-center sm:text-right">
+                          <div
+                            className={`text-3xl sm:text-4xl font-bold px-4 py-2 rounded-xl shadow-sm ${getScoreColor(session.scores?.overall || 0)}`}
+                          >
+                            {session.scores?.overall || 0}%
+                          </div>
+                          <div className="text-xs text-muted-foreground mt-1.5 font-medium capitalize">
+                            {session.config.interviewType}
+                          </div>
                         </div>
-                        <div className="text-xs text-gray-500 mt-1 capitalize">
-                          {session.config.interviewType}
-                        </div>
-                      </div>
-                      <Button
-                        onClick={() =>
-                          router.push(`/history/${session.sessionId}`)
-                        }
-                        aria-label="View Details"
-                        variant="outline"
-                        size="sm"
-                      >
-                        <Eye className="h-4 w-4 mr-1" />
-                        View Details
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Quick Stats */}
-                  <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                      <div>
-                        <span className="text-gray-500">Difficulty:</span>
-                        <span className="ml-2 font-medium capitalize">
-                          {session.config.seniority}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="text-gray-500">Status:</span>
-                        <Badge
-                          variant={
-                            session.status === "completed"
-                              ? "default"
-                              : "secondary"
+                        <Button
+                          onClick={() =>
+                            router.push(`/history/${session.sessionId}`)
                           }
-                          className="ml-2"
+                          aria-label="View Details"
+                          variant="default"
+                          size="sm"
+                          className="h-10 px-4 font-medium"
                         >
-                          {session.status}
-                        </Badge>
-                      </div>
-                      <div>
-                        <span className="text-gray-500">Questions:</span>
-                        <span className="ml-2 font-medium">
-                          {session.questions?.length || 0}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="text-gray-500">Mode:</span>
-                        <span className="ml-2 font-medium capitalize">
-                          {session.config.interviewMode}
-                        </span>
+                          <Eye className="h-4 w-4 mr-2" />
+                          <span className="hidden sm:inline">View Details</span>
+                          <span className="sm:hidden">View</span>
+                        </Button>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))
+
+                    {/* Quick Stats */}
+                    <div className="mt-5 pt-5 border-t border-border/50">
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+                        <div>
+                          <span className="text-muted-foreground font-medium">
+                            Difficulty:
+                          </span>
+                          <span className="ml-2 font-bold capitalize text-foreground">
+                            {session.config.seniority}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground font-medium">
+                            Status:
+                          </span>
+                          <Badge
+                            variant={
+                              session.status === "completed"
+                                ? "default"
+                                : "secondary"
+                            }
+                            className="ml-2 font-medium"
+                          >
+                            {session.status}
+                          </Badge>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground font-medium">
+                            Questions:
+                          </span>
+                          <span className="ml-2 font-bold text-foreground">
+                            {session.questions?.length || 0}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground font-medium">
+                            Mode:
+                          </span>
+                          <span className="ml-2 font-bold capitalize text-foreground">
+                            {session.config.interviewMode}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </>
           )}
         </div>
       </div>

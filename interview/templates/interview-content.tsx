@@ -521,44 +521,48 @@ export function InterviewContent({ user }: InterviewContentProps) {
   if (!isInterviewStarted) {
     return (
       <main className="flex-1 overflow-y-auto">
-        <div className="container mx-auto px-6 py-8 max-w-4xl">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+        <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-4xl">
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
               Ready to Start Your Interview?
             </h1>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-sm sm:text-base text-muted-foreground">
               Your personalized interview session is configured and ready to
               begin.
             </p>
           </div>
 
           <Card className="mb-6">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Target className="h-5 w-5" />
+            <CardHeader className="pb-3 sm:pb-6">
+              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+                <Target className="h-4 w-4 sm:h-5 sm:w-5" />
                 Interview Configuration
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">
                     Position
                   </p>
-                  <p className="font-semibold">{config.position}</p>
+                  <p className="font-semibold text-sm sm:text-base">
+                    {config.position}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">
                     Seniority
                   </p>
-                  <p className="font-semibold capitalize">{config.seniority}</p>
+                  <p className="font-semibold text-sm sm:text-base capitalize">
+                    {config.seniority}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">
                     Interview Type
                   </p>
                   <Badge
-                    className={getInterviewTypeColor(config.interviewType)}
+                    className={`${getInterviewTypeColor(config.interviewType)} text-xs sm:text-sm`}
                   >
                     {getInterviewTypeIcon(config.interviewType)}
                     <span className="ml-1 capitalize">
@@ -567,10 +571,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
                   </Badge>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">
                     Duration
                   </p>
-                  <p className="font-semibold">
+                  <p className="font-semibold text-sm sm:text-base">
                     {config.interviewMode === "untimed"
                       ? "Untimed"
                       : `${config.duration} minutes`}
@@ -580,14 +584,14 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
               {/* Job-specific context indicator */}
               {config.contextType === "job-specific" && config.company && (
-                <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-lg">
+                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-primary/10 border border-primary/20 rounded-lg">
                   <div className="flex items-center gap-2 mb-2">
-                    <Building className="h-5 w-5 text-primary" />
-                    <h3 className="font-semibold text-primary">
+                    <Building className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+                    <h3 className="font-semibold text-sm sm:text-base text-primary">
                       Job-Specific Interview
                     </h3>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-3">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3">
                     This interview is tailored for the{" "}
                     <strong>{config.position}</strong> position at{" "}
                     <strong>{config.company}</strong>
@@ -609,7 +613,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
             <Button
               onClick={handleStartInterview}
               disabled={isLoading}
-              className="px-8 py-3 text-lg"
+              className="h-11 sm:h-12 px-6 sm:px-8 text-base sm:text-lg w-full sm:w-auto"
             >
               {isLoading ? (
                 <>
@@ -618,7 +622,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
                 </>
               ) : (
                 <>
-                  <Play className="h-5 w-5 mr-2" />
+                  <Play className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                   Start Interview
                 </>
               )}
@@ -630,191 +634,228 @@ export function InterviewContent({ user }: InterviewContentProps) {
   }
 
   return (
-    <main className="flex-1 flex flex-col overflow-hidden">
-      {/* Interview Header */}
-      <div className="border-b border-gray-200 dark:border-gray-700 p-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Badge className={getInterviewTypeColor(config.interviewType)}>
-              {getInterviewTypeIcon(config.interviewType)}
-              <span className="ml-1 capitalize">
-                {config.interviewType} Interview
-              </span>
-            </Badge>
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-              <Timer className="h-4 w-4" />
-              <span>{formatTime(timeRemaining)}</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handlePauseResume}
-              disabled={session.isComplete}
-            >
-              {session.isPaused ? (
-                <>
-                  <Play className="h-4 w-4 mr-1" />
-                  Resume
-                </>
-              ) : (
-                <>
-                  <Pause className="h-4 w-4 mr-1" />
-                  Pause
-                </>
-              )}
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleSkipQuestion}
-              disabled={isLoading || session.isComplete}
-            >
-              <SkipForward className="h-4 w-4 mr-1" />
-              Skip
-            </Button>
-            <Button
-              variant="destructive"
-              size="sm"
-              onClick={handleCompleteInterview}
-              disabled={session.isComplete}
-            >
-              <Square className="h-4 w-4 mr-1" />
-              End
-            </Button>
-          </div>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="mt-3">
-          <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 mb-1">
-            <span>Progress</span>
-            <span>
-              {session.currentQuestionCount} / {session.totalQuestions}{" "}
-              questions
-            </span>
-          </div>
-          <Progress
-            value={
-              (session.currentQuestionCount / session.totalQuestions) * 100
-            }
-            className="h-2"
-          />
-        </div>
-      </div>
-
-      {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {session.messages.map((message) => (
-          <div
-            key={message.id}
-            className={`flex gap-3 ${message.type === "user" ? "justify-end" : "justify-start"}`}
-          >
-            {message.type === "ai" && (
-              <Avatar className="h-8 w-8 flex-shrink-0">
-                <AvatarFallback className="bg-blue-100 dark:bg-blue-900">
-                  <Bot className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                </AvatarFallback>
-              </Avatar>
-            )}
-
-            <div
-              className={`max-w-[80%] rounded-lg p-3 ${
-                message.type === "user"
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-              }`}
-            >
-              <div className="prose prose-sm max-w-none dark:prose-invert">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {message.content}
-                </ReactMarkdown>
-              </div>
-              <div className="text-xs opacity-70 mt-2">
-                {message.timestamp.toLocaleTimeString()}
+    <main className="flex-1 flex flex-col h-full overflow-hidden bg-gradient-to-b from-background to-muted/20">
+      {/* Interview Header - Sticky */}
+      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-lg border-b border-border/50 shadow-sm">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4">
+          {/* Top Row: Badge, Timer, Actions */}
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+              <Badge
+                className={`${getInterviewTypeColor(config.interviewType)} text-xs sm:text-sm px-3 py-1.5 flex-shrink-0 font-medium`}
+              >
+                {getInterviewTypeIcon(config.interviewType)}
+                <span className="ml-1.5 capitalize hidden sm:inline">
+                  {config.interviewType}
+                </span>
+              </Badge>
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-muted/50 rounded-lg border border-border/50">
+                <Timer className="h-4 w-4 text-primary" />
+                <span className="font-mono font-bold text-sm sm:text-base text-foreground">
+                  {formatTime(timeRemaining)}
+                </span>
               </div>
             </div>
-
-            {message.type === "user" && (
-              <Avatar className="h-8 w-8 flex-shrink-0">
-                <AvatarFallback className="bg-gray-100 dark:bg-gray-800">
-                  <User className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                </AvatarFallback>
-              </Avatar>
-            )}
-          </div>
-        ))}
-
-        {isLoading && (
-          <div className="flex gap-3 justify-start">
-            <Avatar className="h-8 w-8 flex-shrink-0">
-              <AvatarFallback className="bg-blue-100 dark:bg-blue-900">
-                <Bot className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-              </AvatarFallback>
-            </Avatar>
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-3">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                <div
-                  className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                  style={{ animationDelay: "0.1s" }}
-                ></div>
-                <div
-                  className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                  style={{ animationDelay: "0.2s" }}
-                ></div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        <div ref={messagesEndRef} />
-      </div>
-
-      {/* Input Area */}
-      {!session.isComplete && (
-        <div className="border-t border-gray-200 dark:border-gray-700 p-4">
-          <div className="flex gap-2">
-            <div className="flex-1">
-              <Textarea
-                value={currentMessage}
-                onChange={(e) => setCurrentMessage(e.target.value)}
-                placeholder="Type your response..."
-                className="min-h-[60px] resize-none"
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && !e.shiftKey) {
-                    e.preventDefault();
-                    handleSendMessage();
-                  }
-                }}
-                disabled={session.isPaused || isLoading}
-              />
-            </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-2">
               <Button
-                onClick={
-                  isListening ? stopSpeechRecognition : startSpeechRecognition
-                }
                 variant="outline"
                 size="sm"
-                disabled={session.isPaused || isLoading}
+                onClick={handlePauseResume}
+                disabled={session.isComplete}
+                className="h-9 sm:h-10 px-3 sm:px-4 font-medium"
               >
-                {isListening ? (
-                  <MicOff className="h-4 w-4" />
+                {session.isPaused ? (
+                  <>
+                    <Play className="h-4 w-4" />
+                    <span className="ml-2 hidden sm:inline">Resume</span>
+                  </>
                 ) : (
-                  <Mic className="h-4 w-4" />
+                  <>
+                    <Pause className="h-4 w-4" />
+                    <span className="ml-2 hidden sm:inline">Pause</span>
+                  </>
                 )}
               </Button>
               <Button
-                onClick={handleSendMessage}
-                disabled={
-                  !currentMessage.trim() || session.isPaused || isLoading
-                }
+                variant="outline"
                 size="sm"
+                onClick={handleSkipQuestion}
+                disabled={isLoading || session.isComplete}
+                className="h-9 sm:h-10 px-3 sm:px-4 font-medium"
               >
-                <Send className="h-4 w-4" />
+                <SkipForward className="h-4 w-4" />
+                <span className="ml-2 hidden md:inline">Skip</span>
               </Button>
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={handleCompleteInterview}
+                disabled={session.isComplete}
+                className="h-9 sm:h-10 px-3 sm:px-4 font-medium"
+              >
+                <Square className="h-4 w-4" />
+                <span className="ml-2 hidden md:inline">End</span>
+              </Button>
+            </div>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs sm:text-sm">
+              <span className="font-semibold text-muted-foreground">
+                Question Progress
+              </span>
+              <span className="font-bold text-foreground bg-primary/10 px-2.5 py-0.5 rounded-full">
+                {session.currentQuestionCount} / {session.totalQuestions}
+              </span>
+            </div>
+            <Progress
+              value={
+                (session.currentQuestionCount / session.totalQuestions) * 100
+              }
+              className="h-2.5"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Messages Area - Scrollable */}
+      <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-6">
+        <div className="max-w-4xl mx-auto space-y-6">
+          {session.messages.map((message) => (
+            <div
+              key={message.id}
+              className={`flex gap-3 sm:gap-4 ${message.type === "user" ? "justify-end" : "justify-start"} animate-in fade-in slide-in-from-bottom-2 duration-300`}
+            >
+              {message.type === "ai" && (
+                <Avatar className="h-9 w-9 sm:h-10 sm:w-10 flex-shrink-0 ring-2 ring-primary/20">
+                  <AvatarFallback className="bg-gradient-to-br from-blue-500 to-blue-600">
+                    <Bot className="h-5 w-5 text-white" />
+                  </AvatarFallback>
+                </Avatar>
+              )}
+
+              <div
+                className={`max-w-[85%] sm:max-w-[70%] rounded-2xl shadow-sm border ${
+                  message.type === "user"
+                    ? "bg-gradient-to-br from-primary to-primary/90 text-primary-foreground border-primary/20"
+                    : "bg-card text-card-foreground border-border/50"
+                }`}
+              >
+                <div className="p-3 sm:p-4">
+                  <div
+                    className={`prose prose-sm sm:prose-base max-w-none ${
+                      message.type === "user"
+                        ? "prose-invert"
+                        : "dark:prose-invert"
+                    }`}
+                  >
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {message.content}
+                    </ReactMarkdown>
+                  </div>
+                </div>
+                <div
+                  className={`px-3 sm:px-4 pb-2 text-[10px] sm:text-xs font-medium ${
+                    message.type === "user"
+                      ? "text-primary-foreground/70"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {message.timestamp.toLocaleTimeString()}
+                </div>
+              </div>
+
+              {message.type === "user" && (
+                <Avatar className="h-9 w-9 sm:h-10 sm:w-10 flex-shrink-0 ring-2 ring-border">
+                  <AvatarFallback className="bg-gradient-to-br from-muted to-muted-foreground/20">
+                    <User className="h-5 w-5 text-muted-foreground" />
+                  </AvatarFallback>
+                </Avatar>
+              )}
+            </div>
+          ))}
+
+          {isLoading && (
+            <div className="flex gap-3 sm:gap-4 justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
+              <Avatar className="h-9 w-9 sm:h-10 sm:w-10 flex-shrink-0 ring-2 ring-primary/20">
+                <AvatarFallback className="bg-gradient-to-br from-blue-500 to-blue-600">
+                  <Bot className="h-5 w-5 text-white" />
+                </AvatarFallback>
+              </Avatar>
+              <div className="bg-card border border-border/50 rounded-2xl p-4 shadow-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+                  <div
+                    className="w-2 h-2 bg-primary rounded-full animate-bounce"
+                    style={{ animationDelay: "0.1s" }}
+                  ></div>
+                  <div
+                    className="w-2 h-2 bg-primary rounded-full animate-bounce"
+                    style={{ animationDelay: "0.2s" }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div ref={messagesEndRef} />
+        </div>
+      </div>
+
+      {/* Input Area - Sticky Footer */}
+      {!session.isComplete && (
+        <div className="sticky bottom-0 z-10 bg-background/95 backdrop-blur-lg border-t border-border/50 shadow-lg">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4">
+            <div className="flex gap-3">
+              <div className="flex-1">
+                <Textarea
+                  value={currentMessage}
+                  onChange={(e) => setCurrentMessage(e.target.value)}
+                  placeholder="Type your response... (Shift + Enter for new line)"
+                  className="min-h-[70px] sm:min-h-[80px] resize-none text-sm sm:text-base border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 rounded-xl"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                      e.preventDefault();
+                      handleSendMessage();
+                    }
+                  }}
+                  disabled={session.isPaused || isLoading}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Button
+                  onClick={
+                    isListening ? stopSpeechRecognition : startSpeechRecognition
+                  }
+                  variant="outline"
+                  size="sm"
+                  disabled={session.isPaused || isLoading}
+                  className={`h-11 w-11 sm:h-12 sm:w-12 p-0 rounded-xl ${
+                    isListening
+                      ? "bg-red-50 border-red-300 text-red-600 dark:bg-red-950 dark:border-red-800"
+                      : ""
+                  }`}
+                  title={isListening ? "Stop recording" : "Start voice input"}
+                >
+                  {isListening ? (
+                    <MicOff className="h-5 w-5" />
+                  ) : (
+                    <Mic className="h-5 w-5" />
+                  )}
+                </Button>
+                <Button
+                  onClick={handleSendMessage}
+                  disabled={
+                    !currentMessage.trim() || session.isPaused || isLoading
+                  }
+                  size="sm"
+                  className="h-11 w-11 sm:h-12 sm:w-12 p-0 rounded-xl bg-gradient-to-br from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-md"
+                  title="Send message (Enter)"
+                >
+                  <Send className="h-5 w-5" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -822,24 +863,33 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
       {/* Interview Complete */}
       {session.isComplete && (
-        <div className="border-t border-gray-200 dark:border-gray-700 p-4">
-          <Card>
-            <CardContent className="pt-6">
-              <div className="text-center">
-                <CheckCircle className="h-12 w-12 text-green-600 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">
-                  Interview Complete!
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Great job! Your interview responses are being analyzed.
-                </p>
-                <Button onClick={handleCompleteInterview}>
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  View Results
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="sticky bottom-0 z-10 bg-background/95 backdrop-blur-lg border-t border-border/50 shadow-lg">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6">
+            <Card className="border-2 border-green-200 dark:border-green-800 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950">
+              <CardContent className="pt-6 pb-6">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-100 dark:bg-green-900 mb-4">
+                    <CheckCircle className="h-10 w-10 sm:h-12 sm:w-12 text-green-600 dark:text-green-400" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2 text-foreground">
+                    Interview Complete!
+                  </h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-md mx-auto">
+                    Excellent work! Your interview responses are being analyzed
+                    to provide detailed feedback.
+                  </p>
+                  <Button
+                    onClick={handleCompleteInterview}
+                    size="lg"
+                    className="h-11 sm:h-12 px-8 text-base font-semibold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg"
+                  >
+                    View Results
+                    <ArrowRight className="h-5 w-5 ml-2" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       )}
     </main>
