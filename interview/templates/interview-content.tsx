@@ -260,11 +260,17 @@ export function InterviewContent({ user }: InterviewContentProps) {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to start interview");
-      }
-
       const data = await response.json();
+
+      if (!response.ok) {
+        console.error("❌ Failed to start interview:", {
+          status: response.status,
+          error: data.error,
+          details: data.details,
+          config,
+        });
+        throw new Error(data.error || "Failed to start interview");
+      }
 
       if (data.success) {
         const aiMessage: Message = {
@@ -288,6 +294,20 @@ export function InterviewContent({ user }: InterviewContentProps) {
       }
     } catch (error) {
       console.error("Error starting interview:", error);
+      // Show error to user
+      const errorMessage =
+        error instanceof Error ? error.message : "Failed to start interview";
+      setSession((prev) => ({
+        ...prev,
+        messages: [
+          {
+            id: Date.now().toString(),
+            type: "ai",
+            content: `I apologize, but there was an error starting the interview: ${errorMessage}. Please check your configuration and try again.`,
+            timestamp: new Date(),
+          },
+        ],
+      }));
     } finally {
       setIsLoading(false);
     }

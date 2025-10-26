@@ -135,6 +135,13 @@ export function ResultsContent({ user }: ResultsContentProps) {
 
         if (!response.ok) {
           const errorData = await response.json();
+          console.error("❌ Analysis API error response:", {
+            status: response.status,
+            error: errorData.error,
+            details: errorData.details,
+            config,
+            messageCount: session.messages.length,
+          });
           throw new Error(errorData.error || `HTTP ${response.status}`);
         }
 

@@ -316,117 +316,112 @@ export function HistoryContent({ user }: HistoryContentProps) {
               </CardContent>
             </Card>
           ) : (
-            <>
-              {filteredSessions.map((session) => (
-                <Card
-                  key={session.sessionId}
-                  className="border-2 border-border/50 hover:border-primary/50 hover:shadow-xl transition-all duration-200 bg-card/80 backdrop-blur-sm"
-                >
-                  <CardContent className="p-5 sm:p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                      <div className="flex items-start sm:items-center gap-4">
-                        <div className="p-3 sm:p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20 flex-shrink-0">
-                          {getInterviewIcon(session.config.interviewType)}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-lg sm:text-xl text-foreground mb-2">
-                            {capitalizeTitle(session.config.position)} Interview
-                          </h3>
-                          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-muted-foreground">
-                            <span className="flex items-center gap-1.5">
-                              <Calendar className="h-4 w-4" />
-                              {formatDate(session.createdAt)}
-                            </span>
-                            <span className="flex items-center gap-1.5">
-                              <Clock className="h-4 w-4" />
-                              {session.totalDuration} min
-                            </span>
-                            {session.config.specificCompany && (
-                              <Badge
-                                variant="secondary"
-                                className="font-medium"
-                              >
-                                {session.config.specificCompany}
-                              </Badge>
-                            )}
-                          </div>
+            filteredSessions.map((session) => (
+              <Card
+                key={session.sessionId}
+                className="border-2 border-border/50 hover:border-primary/50 hover:shadow-xl transition-all duration-200 bg-card/80 backdrop-blur-sm"
+              >
+                <CardContent className="p-5 sm:p-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div className="flex items-start sm:items-center gap-4">
+                      <div className="p-3 sm:p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20 flex-shrink-0">
+                        {getInterviewIcon(session.config.interviewType)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-bold text-lg sm:text-xl text-foreground mb-2">
+                          {capitalizeTitle(session.config.position)} Interview
+                        </h3>
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-muted-foreground">
+                          <span className="flex items-center gap-1.5">
+                            <Calendar className="h-4 w-4" />
+                            {formatDate(session.createdAt)}
+                          </span>
+                          <span className="flex items-center gap-1.5">
+                            <Clock className="h-4 w-4" />
+                            {session.totalDuration} min
+                          </span>
+                          {session.config.specificCompany && (
+                            <Badge variant="secondary" className="font-medium">
+                              {session.config.specificCompany}
+                            </Badge>
+                          )}
                         </div>
                       </div>
-                      <div className="flex items-center justify-between sm:justify-end gap-4">
-                        <div className="text-center sm:text-right">
-                          <div
-                            className={`text-3xl sm:text-4xl font-bold px-4 py-2 rounded-xl shadow-sm ${getScoreColor(session.scores?.overall || 0)}`}
-                          >
-                            {session.scores?.overall || 0}%
-                          </div>
-                          <div className="text-xs text-muted-foreground mt-1.5 font-medium capitalize">
-                            {session.config.interviewType}
-                          </div>
-                        </div>
-                        <Button
-                          onClick={() =>
-                            router.push(`/history/${session.sessionId}`)
-                          }
-                          aria-label="View Details"
-                          variant="default"
-                          size="sm"
-                          className="h-10 px-4 font-medium"
+                    </div>
+                    <div className="flex items-center justify-between sm:justify-end gap-4">
+                      <div className="text-center sm:text-right">
+                        <div
+                          className={`text-3xl sm:text-4xl font-bold px-4 py-2 rounded-xl shadow-sm ${getScoreColor(session.scores?.overall || 0)}`}
                         >
-                          <Eye className="h-4 w-4 mr-2" />
-                          <span className="hidden sm:inline">View Details</span>
-                          <span className="sm:hidden">View</span>
-                        </Button>
+                          {session.scores?.overall || 0}%
+                        </div>
+                        <div className="text-xs text-muted-foreground mt-1.5 font-medium capitalize">
+                          {session.config.interviewType}
+                        </div>
                       </div>
+                      <Button
+                        onClick={() =>
+                          router.push(`/history/${session.sessionId}`)
+                        }
+                        aria-label="View Details"
+                        variant="default"
+                        size="sm"
+                        className="h-10 px-4 font-medium"
+                      >
+                        <Eye className="h-4 w-4 mr-2" />
+                        <span className="hidden sm:inline">View Details</span>
+                        <span className="sm:hidden">View</span>
+                      </Button>
                     </div>
+                  </div>
 
-                    {/* Quick Stats */}
-                    <div className="mt-5 pt-5 border-t border-border/50">
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
-                        <div>
-                          <span className="text-muted-foreground font-medium">
-                            Difficulty:
-                          </span>
-                          <span className="ml-2 font-bold capitalize text-foreground">
-                            {session.config.seniority}
-                          </span>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground font-medium">
-                            Status:
-                          </span>
-                          <Badge
-                            variant={
-                              session.status === "completed"
-                                ? "default"
-                                : "secondary"
-                            }
-                            className="ml-2 font-medium"
-                          >
-                            {session.status}
-                          </Badge>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground font-medium">
-                            Questions:
-                          </span>
-                          <span className="ml-2 font-bold text-foreground">
-                            {session.questions?.length || 0}
-                          </span>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground font-medium">
-                            Mode:
-                          </span>
-                          <span className="ml-2 font-bold capitalize text-foreground">
-                            {session.config.interviewMode}
-                          </span>
-                        </div>
+                  {/* Quick Stats */}
+                  <div className="mt-5 pt-5 border-t border-border/50">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+                      <div>
+                        <span className="text-muted-foreground font-medium">
+                          Difficulty:
+                        </span>
+                        <span className="ml-2 font-bold capitalize text-foreground">
+                          {session.config.seniority}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground font-medium">
+                          Status:
+                        </span>
+                        <Badge
+                          variant={
+                            session.status === "completed"
+                              ? "default"
+                              : "secondary"
+                          }
+                          className="ml-2 font-medium"
+                        >
+                          {session.status}
+                        </Badge>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground font-medium">
+                          Questions:
+                        </span>
+                        <span className="ml-2 font-bold text-foreground">
+                          {session.questions?.length || 0}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground font-medium">
+                          Mode:
+                        </span>
+                        <span className="ml-2 font-bold capitalize text-foreground">
+                          {session.config.interviewMode}
+                        </span>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </>
+                  </div>
+                </CardContent>
+              </Card>
+            ))
           )}
         </div>
       </div>
