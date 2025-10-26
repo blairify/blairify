@@ -15,18 +15,12 @@ export function PracticePageClient({ user }: PracticePageClientProps) {
 
   return (
     <div className="flex h-screen">
-      {/* Sidebar */}
       <DashboardSidebar
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
       />
-
-      {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Navbar */}
         <DashboardNavbar setSidebarOpen={setSidebarOpen} />
-
-        {/* Page Content */}
         <PracticeContent user={user} />
       </div>
     </div>

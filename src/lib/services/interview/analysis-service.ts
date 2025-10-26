@@ -13,9 +13,6 @@ import { InterviewService } from "./interview-service";
 
 // biome-ignore lint/complexity/noStaticOnlyClass: Service class pattern for organizing related analysis functions
 export class AnalysisService {
-  /**
-   * Parse AI analysis response into structured feedback
-   */
   static parseAnalysis(
     analysis: string,
     responseAnalysis: ResponseAnalysis,
@@ -46,19 +43,16 @@ export class AnalysisService {
         sections.whyDecision = whyMatch[1].trim();
       }
 
-      // Extract strengths
       sections.strengths = AnalysisService.extractListItems(
         analysis,
         "Strengths",
       );
 
-      // Extract weaknesses/improvements
       sections.improvements = AnalysisService.extractListItems(
         analysis,
         "Critical Weaknesses|Areas for Growth",
       );
 
-      // Extract recommendations
       const recommendationsMatch = analysis.match(
         /##\s*RECOMMENDATIONS\s*([\s\S]*?)(?=##|$)/i,
       );
@@ -67,7 +61,6 @@ export class AnalysisService {
         sections.nextSteps = recommendationsMatch[1].trim();
       }
 
-      // Build detailed analysis
       sections.detailedAnalysis = AnalysisService.buildDetailedAnalysis(
         analysis,
         sections.whyDecision,

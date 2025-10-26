@@ -331,9 +331,10 @@ export async function searchPracticeQuestions(
   const lowerSearchTerm = searchTerm.toLowerCase();
   return questions.filter(
     (q) =>
+      (q.title || "").toLowerCase().includes(lowerSearchTerm) ||
       q.question.toLowerCase().includes(lowerSearchTerm) ||
       q.category.toLowerCase().includes(lowerSearchTerm) ||
-      q.companyName.toLowerCase().includes(lowerSearchTerm) ||
+      (q.companyLogo || "").toLowerCase().includes(lowerSearchTerm) ||
       q.topicTags.some((tag) => tag.toLowerCase().includes(lowerSearchTerm)),
   );
 }

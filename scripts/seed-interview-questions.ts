@@ -44,7 +44,7 @@
 // const db = getFirestore();
 
 // const sampleQuestions = [
-//   {
+//  {
 //     category: "algorithms",
 //     difficulty: "easy",
 //     companyLogo: "SiGoogle",
