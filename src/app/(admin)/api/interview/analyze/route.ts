@@ -47,10 +47,15 @@ export async function POST(
     const configValidation =
       InterviewService.validateInterviewConfig(interviewConfig);
     if (!configValidation.isValid) {
+      console.error("❌ Analysis configuration validation failed:", {
+        errors: configValidation.errors,
+        config: interviewConfig,
+      });
       return NextResponse.json(
         {
           success: false,
           error: `Invalid configuration: ${configValidation.errors.join(", ")}`,
+          details: configValidation.errors,
         },
         { status: 400 },
       );
@@ -111,10 +116,14 @@ export async function POST(
       rawAnalysis: analysisText,
     });
   } catch (error) {
-    console.error("Analysis API error:", error);
+    console.error("❌ Analysis API error:", error);
 
-    // Provide specific error messages
+    // Log detailed error information
     if (error instanceof Error) {
+      console.error("Error message:", error.message);
+      console.error("Error stack:", error.stack);
+
+      // Provide specific error messages
       if (error.message.includes("API key")) {
         return NextResponse.json(
           { success: false, error: "Invalid API key configuration" },
@@ -133,6 +142,7 @@ export async function POST(
       {
         success: false,
         error: "Failed to analyze interview responses. Please try again.",
+        details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 },
     );
@@ -203,6 +213,11 @@ Remember: Be honest and strict. A bad hire costs companies hundreds of thousands
 
 function getPassingThreshold(seniority: string) {
   const thresholds = {
+    entry: {
+      score: 55,
+      description:
+        "Entry-level candidates must demonstrate basic understanding of fundamental concepts and eagerness to learn.",
+    },
     junior: {
       score: 60,
       description:

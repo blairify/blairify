@@ -80,11 +80,15 @@ export class AIClient {
     userPrompt: string,
   ): Promise<AIResponse> {
     if (!this.client || !this.config.apiKey) {
+      console.error(
+        "❌ AI Service Error: MISTRAL_API_KEY is not configured. Please add it to your .env file.",
+      );
+      console.error("Get your API key from: https://console.mistral.ai/");
       return {
         content:
-          "I apologize, but I encountered a configuration error. Could you please try again?",
+          "I apologize, but the AI service is not configured. Please contact support.",
         success: false,
-        error: "AI service not configured",
+        error: "AI service not configured - Missing MISTRAL_API_KEY",
       };
     }
 
@@ -182,10 +186,14 @@ export class AIClient {
     analysisPrompt: string,
   ): Promise<AIResponse> {
     if (!this.client || !this.config.apiKey) {
+      console.error(
+        "❌ Analysis Service Error: MISTRAL_API_KEY is not configured. Please add it to your .env file.",
+      );
+      console.error("Get your API key from: https://console.mistral.ai/");
       return {
-        content: "Analysis service not available",
+        content: "Analysis service not available - Missing API configuration",
         success: false,
-        error: "AI service not configured",
+        error: "AI service not configured - Missing MISTRAL_API_KEY",
       };
     }
 

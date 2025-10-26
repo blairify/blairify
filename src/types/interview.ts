@@ -74,8 +74,15 @@ export interface ResponseAnalysis {
 }
 
 // Enums and Union Types
-export type SeniorityLevel = "junior" | "mid" | "senior";
-export type InterviewMode = "timed" | "untimed" | "bullet" | "whiteboard";
+export type SeniorityLevel = "entry" | "junior" | "mid" | "senior";
+export type InterviewMode =
+  | "regular"
+  | "practice"
+  | "flash"
+  | "timed"
+  | "untimed"
+  | "bullet"
+  | "whiteboard";
 export type InterviewType = "technical" | "bullet" | "coding" | "system-design";
 export type QuestionType =
   | "technical"

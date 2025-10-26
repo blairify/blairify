@@ -16,6 +16,11 @@ export const SENIORITY_EXPECTATIONS: Record<
   SeniorityLevel,
   SeniorityExpectations
 > = {
+  entry: {
+    score: 55,
+    description:
+      "Entry-level candidates must demonstrate basic understanding of fundamental concepts and eagerness to learn.",
+  },
   junior: {
     score: 60,
     description:
@@ -34,6 +39,13 @@ export const SENIORITY_EXPECTATIONS: Record<
 };
 
 export const SENIORITY_DETAILED_EXPECTATIONS: Record<SeniorityLevel, string> = {
+  entry: `
+- **Technical Knowledge**: Foundational understanding of programming concepts and basic syntax
+- **Problem Solving**: Can solve simple problems with clear instructions
+- **Communication**: Can articulate basic technical concepts and ask clarifying questions
+- **Learning**: Demonstrates strong willingness to learn and adapt
+- **Examples**: Focus on coursework, personal projects, bootcamp assignments, or internship work`,
+
   junior: `
 - **Technical Knowledge**: Basic understanding of core concepts and technologies
 - **Problem Solving**: Can solve straightforward problems with guidance

@@ -20,10 +20,15 @@ export async function POST(request: NextRequest) {
     const configValidation =
       InterviewService.validateInterviewConfig(interviewConfig);
     if (!configValidation.isValid) {
+      console.error("❌ Interview configuration validation failed:", {
+        errors: configValidation.errors,
+        config: interviewConfig,
+      });
       return NextResponse.json(
         {
           success: false,
           error: `Invalid configuration: ${configValidation.errors.join(", ")}`,
+          details: configValidation.errors,
         },
         { status: 400 },
       );

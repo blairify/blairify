@@ -289,7 +289,7 @@ ${SENIORITY_DETAILED_EXPECTATIONS[seniority]}`;
     mode: InterviewMode,
     seniority: SeniorityLevel,
   ): string {
-    const prompts = {
+    const prompts: Partial<Record<InterviewMode, string>> = {
       timed: `
 - Keep questions brief and focused for ${seniority} level
 - Expect concise but comprehensive answers
@@ -309,6 +309,21 @@ ${SENIORITY_DETAILED_EXPECTATIONS[seniority]}`;
 - Present challenges appropriate for ${seniority} level
 - Encourage step-by-step problem-solving
 - Ask about complexity matching their expected knowledge`,
+
+      regular: `
+- Conduct a standard interview appropriate for ${seniority} level
+- Balance depth and breadth of questions
+- Allow natural conversation flow`,
+
+      practice: `
+- Focus on skill development for ${seniority} level
+- Provide constructive feedback
+- Encourage learning through mistakes`,
+
+      flash: `
+- Ask rapid-fire questions for ${seniority} level
+- Expect quick, focused responses
+- Cover maximum topics in minimum time`,
     };
 
     return prompts[mode] || "";
@@ -468,7 +483,15 @@ Ask a new question that builds upon the conversation and covers different aspect
   }
 
   private static getPassingThreshold(seniority: SeniorityLevel) {
-    const thresholds = {
+    const thresholds: Record<
+      SeniorityLevel,
+      { score: number; description: string }
+    > = {
+      entry: {
+        score: 55,
+        description:
+          "Entry-level candidates must demonstrate basic understanding of fundamental concepts and eagerness to learn.",
+      },
       junior: {
         score: 60,
         description:

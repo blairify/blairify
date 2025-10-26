@@ -230,9 +230,11 @@ export class InterviewService {
 
     if (
       !config.seniority ||
-      !["junior", "mid", "senior"].includes(config.seniority)
+      !["entry", "junior", "mid", "senior"].includes(config.seniority)
     ) {
-      errors.push("Valid seniority level is required (junior, mid, senior)");
+      errors.push(
+        "Valid seniority level is required (entry, junior, mid, senior)",
+      );
     }
 
     if (
@@ -246,18 +248,26 @@ export class InterviewService {
 
     if (
       !config.interviewMode ||
-      !["timed", "untimed", "bullet", "whiteboard"].includes(
-        config.interviewMode,
-      )
+      ![
+        "regular",
+        "practice",
+        "flash",
+        "timed",
+        "untimed",
+        "bullet",
+        "whiteboard",
+      ].includes(config.interviewMode)
     ) {
       errors.push("Valid interview mode is required");
     }
 
     if (
-      config.interviewMode === "timed" &&
-      (!config.duration || Number.isNaN(Number(config.duration)))
+      (config.interviewMode === "timed" ||
+        config.interviewMode === "regular") &&
+      config.duration &&
+      Number.isNaN(Number(config.duration))
     ) {
-      errors.push("Duration is required for timed interviews");
+      errors.push("Duration must be a valid number for timed interviews");
     }
 
     return {
