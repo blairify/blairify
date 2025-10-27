@@ -6,6 +6,10 @@ import {
   Code,
   Eye,
   Filter,
+  Grid3x3,
+  LayoutGrid,
+  List,
+  Search,
   Target,
   Trophy,
 } from "lucide-react";
@@ -13,7 +17,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -22,6 +26,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import type { InterviewSession } from "@/types/firestore";
@@ -39,6 +51,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("date");
+  const [viewLayout, setViewLayout] = useState<"grid" | "list">("list");
   const router = useRouter();
 
   const loadSessions = useCallback(async () => {
@@ -55,16 +68,13 @@ export function HistoryContent({ user }: HistoryContentProps) {
     }
   }, [user?.uid]);
 
-  // Load interview sessions
   useEffect(() => {
     loadSessions();
   }, [loadSessions]);
 
-  // Filter and sort sessions
   useEffect(() => {
     let filtered = sessions;
 
-    // Apply search filter
     if (searchTerm) {
       filtered = filtered.filter(
         (session) =>
@@ -80,14 +90,12 @@ export function HistoryContent({ user }: HistoryContentProps) {
       );
     }
 
-    // Apply type filter
     if (filterType !== "all") {
       filtered = filtered.filter(
         (session) => session.config.interviewType === filterType,
       );
     }
 
-    // Apply sorting
     filtered.sort((a, b) => {
       switch (sortBy) {
         case "date":
@@ -181,249 +189,393 @@ export function HistoryContent({ user }: HistoryContentProps) {
   }
 
   return (
-    <main className="flex-1 overflow-y-auto bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-7xl space-y-6 sm:space-y-8">
-        {/* Page Header */}
-        <div className="space-y-2">
-          <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
-            Interview History
-          </h1>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            Track your progress and review past interview sessions
-          </p>
-        </div>
-
-        {/* Stats Overview */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-          <Card className="border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-card to-card/50">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-semibold text-muted-foreground flex items-center gap-2">
-                <Trophy className="h-4 w-4 text-primary" />
-                Average Score
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-3xl sm:text-4xl font-bold text-primary">
-                {stats.avgScore}%
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">
-                Across all sessions
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-card to-card/50">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-semibold text-muted-foreground flex items-center gap-2">
-                <Target className="h-4 w-4 text-primary" />
-                Total Sessions
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-3xl sm:text-4xl font-bold text-foreground">
-                {stats.totalSessions}
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">
-                Completed interviews
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-card to-card/50">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-semibold text-muted-foreground flex items-center gap-2">
-                <Clock className="h-4 w-4 text-primary" />
-                Total Time
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-3xl sm:text-4xl font-bold text-foreground">
-                {Math.round(stats.totalTime / 60)}h
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">
-                Practice time invested
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Filters and Search */}
-        <Card className="border-2 border-border/50 shadow-md bg-card/80 backdrop-blur-sm">
-          <CardHeader className="pb-4">
-            <CardTitle className="flex items-center gap-2 text-lg font-bold">
-              <Filter className="h-5 w-5 text-primary" />
-              Filter & Search
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <div className="flex-1">
-                <Input
-                  placeholder="Search by position, company, or interview type..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full h-11 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20"
-                />
-              </div>
-              <Select value={filterType} onValueChange={setFilterType}>
-                <SelectTrigger className="w-full sm:w-48 h-11 border-border/50">
-                  <SelectValue placeholder="Interview Type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Types</SelectItem>
-                  <SelectItem value="technical">Technical</SelectItem>
-                  <SelectItem value="bullet">Bullet</SelectItem>
-                  <SelectItem value="system-design">System Design</SelectItem>
-                  <SelectItem value="coding">Coding</SelectItem>
-                </SelectContent>
-              </Select>
-              <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-full sm:w-48 h-11 border-border/50">
-                  <SelectValue placeholder="Sort By" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="date">Date</SelectItem>
-                  <SelectItem value="score">Score</SelectItem>
-                  <SelectItem value="duration">Duration</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Sessions List */}
-        <div className="space-y-4 sm:space-y-6">
-          {filteredSessions.length === 0 ? (
-            <Card className="border-2 border-dashed border-border/50 bg-card/50">
-              <CardContent className="text-center py-16">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-muted mb-6">
-                  <Trophy className="h-10 w-10 text-muted-foreground" />
+    <main className="flex-1 overflow-y-auto bg-background">
+      <div className="border-b bg-gradient-to-br from-muted/30 via-muted/20 to-background">
+        <div className="container mx-auto px-6 py-6">
+          {/* Compact Stats Bar */}
+          <div className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-lg mb-6">
+            <div className="flex flex-wrap items-center justify-between gap-6">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg border border-primary/20">
+                  <Trophy className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  No interviews found
-                </h3>
-                <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                  {sessions.length === 0
-                    ? "Start your first interview to see your history here."
-                    : "Try adjusting your search or filter criteria."}
-                </p>
-                <Button
-                  onClick={() => router.push("/configure")}
-                  aria-label="Start First Interview"
-                  size="lg"
-                  className="h-11 px-8 font-semibold"
-                >
-                  Start First Interview
-                </Button>
-              </CardContent>
-            </Card>
-          ) : (
-            filteredSessions.map((session) => (
-              <Card
-                key={session.sessionId}
-                className="border-2 border-border/50 hover:border-primary/50 hover:shadow-xl transition-all duration-200 bg-card/80 backdrop-blur-sm"
-              >
-                <CardContent className="p-5 sm:p-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div className="flex items-start sm:items-center gap-4">
-                      <div className="p-3 sm:p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20 flex-shrink-0">
-                        {getInterviewIcon(session.config.interviewType)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-bold text-lg sm:text-xl text-foreground mb-2">
-                          {capitalizeTitle(session.config.position)} Interview
-                        </h3>
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-muted-foreground">
-                          <span className="flex items-center gap-1.5">
-                            <Calendar className="h-4 w-4" />
-                            {formatDate(session.createdAt)}
-                          </span>
-                          <span className="flex items-center gap-1.5">
-                            <Clock className="h-4 w-4" />
-                            {session.totalDuration} min
-                          </span>
-                          {session.config.specificCompany && (
-                            <Badge variant="secondary" className="font-medium">
-                              {session.config.specificCompany}
-                            </Badge>
-                          )}
+                <div>
+                  <div className="text-3xl font-bold text-primary">
+                    {stats.avgScore}%
+                  </div>
+                  <p className="text-sm text-muted-foreground">Average Score</p>
+                </div>
+              </div>
+
+              <div className="h-12 w-px bg-border/50 hidden sm:block" />
+
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-gradient-to-br from-blue-500/20 to-blue-500/10 rounded-lg border border-blue-500/20">
+                  <Target className="h-6 w-6 text-blue-500" />
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-foreground">
+                    {stats.totalSessions}
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Total Sessions
+                  </p>
+                </div>
+              </div>
+
+              <div className="h-12 w-px bg-border/50 hidden sm:block" />
+
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-gradient-to-br from-purple-500/20 to-purple-500/10 rounded-lg border border-purple-500/20">
+                  <Clock className="h-6 w-6 text-purple-500" />
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-foreground">
+                    {Math.round(stats.totalTime / 60)}h
+                  </div>
+                  <p className="text-sm text-muted-foreground">Practice Time</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-lg">
+            <div className="space-y-4">
+              {/* Search and Filters Row */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <div className="relative flex-1 group">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <Input
+                    placeholder="Search by position, company, or interview type..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-10 h-11 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all"
+                  />
+                </div>
+
+                <div className="flex gap-3">
+                  <div className="relative group">
+                    <Filter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
+                    <Select value={filterType} onValueChange={setFilterType}>
+                      <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
+                        <SelectValue placeholder="Interview Type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All Types</SelectItem>
+                        <SelectItem value="technical">Technical</SelectItem>
+                        <SelectItem value="bullet">Bullet</SelectItem>
+                        <SelectItem value="system-design">
+                          System Design
+                        </SelectItem>
+                        <SelectItem value="coding">Coding</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="relative group">
+                    <Grid3x3 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
+                    <Select value={sortBy} onValueChange={setSortBy}>
+                      <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
+                        <SelectValue placeholder="Sort By" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="date">Date</SelectItem>
+                        <SelectItem value="score">Score</SelectItem>
+                        <SelectItem value="duration">Duration</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </div>
+
+              {/* Results Summary and View Toggle */}
+              <div className="flex items-center justify-between">
+                <div className="text-sm text-muted-foreground">
+                  {filteredSessions.length > 10 && (
+                    <>
+                      Showing{" "}
+                      <span className="font-semibold text-foreground">
+                        {filteredSessions.length}
+                      </span>{" "}
+                      of{" "}
+                      <span className="font-semibold text-foreground">
+                        {sessions.length}
+                      </span>{" "}
+                      sessions
+                    </>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-muted-foreground">View:</span>
+                  <div className="flex items-center gap-1 bg-muted/50 border border-border/50 rounded-lg p-1">
+                    <Button
+                      variant={viewLayout === "grid" ? "secondary" : "ghost"}
+                      size="sm"
+                      onClick={() => setViewLayout("grid")}
+                      className="h-8 px-3 hover:bg-secondary/80 transition-colors"
+                    >
+                      <LayoutGrid className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant={viewLayout === "list" ? "secondary" : "ghost"}
+                      size="sm"
+                      onClick={() => setViewLayout("list")}
+                      className="h-8 px-3 hover:bg-secondary/80 transition-colors"
+                    >
+                      <List className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 py-6">
+        {viewLayout === "list" ? (
+          <div className="border border-border/50 rounded-xl overflow-hidden shadow-lg bg-card">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-muted/50 hover:bg-muted/50">
+                  <TableHead className="font-semibold pl-8">Position</TableHead>
+                  <TableHead className="font-semibold">Type</TableHead>
+                  <TableHead className="font-semibold">Company</TableHead>
+                  <TableHead className="font-semibold">Date</TableHead>
+                  <TableHead className="font-semibold">Duration</TableHead>
+                  <TableHead className="font-semibold">Score</TableHead>
+                  <TableHead className="text-right font-semibold pr-9">
+                    Action
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filteredSessions.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={7} className="text-center py-16">
+                      <div className="flex flex-col items-center gap-4">
+                        <div className="p-4 bg-muted/50 rounded-full">
+                          <Trophy className="h-12 w-12 text-muted-foreground/50" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-foreground mb-2">
+                            No interviews found
+                          </h3>
+                          <p className="text-muted-foreground mb-4">
+                            {sessions.length === 0
+                              ? "Start your first interview to see your history here."
+                              : "Try adjusting your search or filter criteria."}
+                          </p>
+                          <Button
+                            onClick={() => router.push("/configure")}
+                            size="lg"
+                            className="shadow-lg hover:shadow-xl transition-shadow"
+                          >
+                            Start First Interview
+                          </Button>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex items-center justify-between sm:justify-end gap-4">
-                      <div className="text-center sm:text-right">
+                    </TableCell>
+                  </TableRow>
+                ) : (
+                  filteredSessions.map((session) => (
+                    <TableRow
+                      key={session.sessionId}
+                      className="cursor-pointer hover:bg-muted/30 transition-colors"
+                      onClick={() =>
+                        router.push(`/history/${session.sessionId}`)
+                      }
+                    >
+                      <TableCell>
+                        <div className="font-semibold text-foreground pl-6">
+                          {capitalizeTitle(session.config.position)}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-2">
+                          <div className="p-1.5 bg-primary/10 rounded border border-primary/20">
+                            {getInterviewIcon(session.config.interviewType)}
+                          </div>
+                          <span className="capitalize text-sm">
+                            {session.config.interviewType}
+                          </span>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        {session.config.specificCompany ? (
+                          <Badge variant="secondary" className="font-medium">
+                            {session.config.specificCompany}
+                          </Badge>
+                        ) : (
+                          <span className="text-muted-foreground text-sm">
+                            -
+                          </span>
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-1.5 text-sm">
+                          <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
+                          {formatDate(session.createdAt)}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-1.5 text-sm">
+                          <Clock className="h-3.5 w-3.5 text-muted-foreground" />
+                          {session.totalDuration} min
+                        </div>
+                      </TableCell>
+                      <TableCell>
                         <div
-                          className={`text-3xl sm:text-4xl font-bold px-4 py-2 rounded-xl shadow-sm ${getScoreColor(session.scores?.overall || 0)}`}
+                          className={`inline-flex items-center justify-center px-3 py-1.5 rounded-lg font-bold text-sm shadow-sm ${getScoreColor(session.scores?.overall || 0)}`}
                         >
                           {session.scores?.overall || 0}%
                         </div>
-                        <div className="text-xs text-muted-foreground mt-1.5 font-medium capitalize">
-                          {session.config.interviewType}
-                        </div>
-                      </div>
-                      <Button
-                        onClick={() =>
-                          router.push(`/history/${session.sessionId}`)
-                        }
-                        aria-label="View Details"
-                        variant="default"
-                        size="sm"
-                        className="h-10 px-4 font-medium"
-                      >
-                        <Eye className="h-4 w-4 mr-2" />
-                        <span className="hidden sm:inline">View Details</span>
-                        <span className="sm:hidden">View</span>
-                      </Button>
-                    </div>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <Button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            router.push(`/history/${session.sessionId}`);
+                          }}
+                          variant="default"
+                          size="sm"
+                          className="h-9 shadow-sm hover:shadow-md transition-shadow"
+                        >
+                          <Eye className="h-3.5 w-3.5 mr-1.5" />
+                          View
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                )}
+              </TableBody>
+            </Table>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {filteredSessions.length === 0 ? (
+              <Card className="border-2 border-dashed border-border/50 bg-card/50 col-span-full shadow-lg">
+                <CardContent className="text-center py-16">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-muted/50 mb-6">
+                    <Trophy className="h-10 w-10 text-muted-foreground" />
                   </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">
+                    No interviews found
+                  </h3>
+                  <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                    {sessions.length === 0
+                      ? "Start your first interview to see your history here."
+                      : "Try adjusting your search or filter criteria."}
+                  </p>
+                  <Button
+                    onClick={() => router.push("/configure")}
+                    aria-label="Start First Interview"
+                    size="lg"
+                    className="h-11 px-8 font-semibold shadow-lg hover:shadow-xl transition-shadow"
+                  >
+                    Start First Interview
+                  </Button>
+                </CardContent>
+              </Card>
+            ) : (
+              filteredSessions.map((session) => (
+                <Card
+                  key={session.sessionId}
+                  className="group border border-border/50 bg-gradient-to-br from-card to-card/50 hover:border-primary/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
+                  onClick={() => router.push(`/history/${session.sessionId}`)}
+                >
+                  <CardContent className="p-5">
+                    {/* Header with Icon and Score */}
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="p-2.5 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg border border-primary/20 group-hover:scale-110 transition-transform">
+                        {getInterviewIcon(session.config.interviewType)}
+                      </div>
+                      <div
+                        className={`text-2xl font-bold px-3.5 py-1.5 rounded-lg shadow-sm ${getScoreColor(session.scores?.overall || 0)}`}
+                      >
+                        {session.scores?.overall || 0}%
+                      </div>
+                    </div>
 
-                  {/* Quick Stats */}
-                  <div className="mt-5 pt-5 border-t border-border/50">
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
-                      <div>
-                        <span className="text-muted-foreground font-medium">
-                          Difficulty:
+                    {/* Title */}
+                    <h3 className="font-bold text-lg text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                      {capitalizeTitle(session.config.position)}
+                    </h3>
+
+                    {/* Type Badge */}
+                    <Badge
+                      variant="secondary"
+                      className="mb-3 text-xs capitalize font-medium"
+                    >
+                      {session.config.interviewType}
+                    </Badge>
+
+                    {/* Metadata */}
+                    <div className="space-y-2 text-sm text-muted-foreground mb-3">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-3.5 w-3.5" />
+                        <span className="text-xs">
+                          {formatDate(session.createdAt)}
                         </span>
-                        <span className="ml-2 font-bold capitalize text-foreground">
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-3.5 w-3.5" />
+                        <span className="text-xs">
+                          {session.totalDuration} min
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Company Badge */}
+                    {session.config.specificCompany && (
+                      <Badge
+                        variant="outline"
+                        className="mb-3 text-xs font-medium"
+                      >
+                        {session.config.specificCompany}
+                      </Badge>
+                    )}
+
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-2 gap-3 pt-3 border-t border-border/50 text-xs mb-3">
+                      <div className="bg-muted/30 rounded-lg p-2">
+                        <span className="text-muted-foreground block mb-0.5">
+                          Level
+                        </span>
+                        <span className="font-semibold capitalize text-foreground">
                           {session.config.seniority}
                         </span>
                       </div>
-                      <div>
-                        <span className="text-muted-foreground font-medium">
-                          Status:
+                      <div className="bg-muted/30 rounded-lg p-2">
+                        <span className="text-muted-foreground block mb-0.5">
+                          Questions
                         </span>
-                        <Badge
-                          variant={
-                            session.status === "completed"
-                              ? "default"
-                              : "secondary"
-                          }
-                          className="ml-2 font-medium"
-                        >
-                          {session.status}
-                        </Badge>
-                      </div>
-                      <div>
-                        <span className="text-muted-foreground font-medium">
-                          Questions:
-                        </span>
-                        <span className="ml-2 font-bold text-foreground">
+                        <span className="font-semibold text-foreground">
                           {session.questions?.length || 0}
                         </span>
                       </div>
-                      <div>
-                        <span className="text-muted-foreground font-medium">
-                          Mode:
-                        </span>
-                        <span className="ml-2 font-bold capitalize text-foreground">
-                          {session.config.interviewMode}
-                        </span>
-                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))
-          )}
-        </div>
+
+                    {/* View Button */}
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push(`/history/${session.sessionId}`);
+                      }}
+                      variant="outline"
+                      size="sm"
+                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all shadow-sm"
+                    >
+                      <Eye className="h-3.5 w-3.5 mr-1.5" />
+                      View Details
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))
+            )}
+          </div>
+        )}
       </div>
     </main>
   );

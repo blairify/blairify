@@ -8,7 +8,6 @@ import {
   Building,
   ChartLine,
   CheckCircle,
-  ChevronRight,
   ClipboardList,
   Cloud,
   CloudCog,
@@ -955,8 +954,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
     <main className="flex-1 flex flex-col h-full overflow-hidden">
       <div className="flex-1 flex flex-col h-full max-w-6xl mx-auto w-full">
         {/* Progress Indicator - Sticky Header */}
-        <div className="sticky top-0 z-10 bg-background border-b border-border/50 px-4 sm:px-6 py-4">
-          {/* Step Navigation Breadcrumb */}
+        {/* <div className="sticky top-0 z-10 bg-background border-b border-border/50 px-4 sm:px-6 py-4">
           <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide">
             {STEPS.map((step, index) => {
               const StepIcon = step.icon as React.ComponentType<{
@@ -996,7 +994,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
               );
             })}
           </div>
-        </div>
+        </div> */}
 
         {/* Main Configuration Content - Scrollable */}
         <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6">
