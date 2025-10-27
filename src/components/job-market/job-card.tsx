@@ -8,6 +8,7 @@ import {
   Clock,
   DollarSign,
   ExternalLink,
+  Home,
   MapPin,
 } from "lucide-react";
 import Image from "next/image";
@@ -68,9 +69,15 @@ interface JobCardProps {
   job: Job;
   onViewDetails?: (job: Job) => void;
   onPrepare?: (job: Job) => void;
+  layout?: "grid" | "list" | "compact";
 }
 
-export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
+export function JobCard({
+  job,
+  onViewDetails,
+  onPrepare,
+  layout = "grid",
+}: JobCardProps) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const getTimeAgo = () => {
@@ -122,54 +129,161 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
   return (
     <>
       <Card
-        className="hover:shadow-lg transition-shadow duration-300 cursor-pointer group h-full flex flex-col"
+        className={`hover:shadow-lg transition-shadow duration-300 cursor-pointer group h-full ${
+          layout === "list" ? "flex flex-row" : "flex flex-col"
+        }`}
         onClick={handleCardClick}
       >
-        <CardHeader>
-          <div className="flex items-start justify-between min-w-0">
+        <CardHeader
+          className={`${
+            layout === "list"
+              ? "py-4 pr-4 pl-4"
+              : layout === "compact"
+                ? "pb-2"
+                : ""
+          }`}
+        >
+          <div className="flex items-start gap-3 min-w-0">
+            {/* Company Logo */}
+            {job.companyLogo && job.companyLogo !== "nan" ? (
+              <div
+                className={`flex-shrink-0 ${
+                  layout === "compact"
+                    ? "h-8 w-8"
+                    : layout === "list"
+                      ? "h-12 w-12"
+                      : "h-10 w-10"
+                } relative rounded-md overflow-hidden bg-muted flex items-center justify-center`}
+              >
+                <Image
+                  src={job.companyLogo}
+                  alt={`${job.company} logo`}
+                  fill
+                  className="object-contain p-1"
+                  sizes={
+                    layout === "compact"
+                      ? "32px"
+                      : layout === "list"
+                        ? "48px"
+                        : "40px"
+                  }
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+              </div>
+            ) : (
+              <div
+                className={`flex-shrink-0 ${
+                  layout === "compact"
+                    ? "h-8 w-8"
+                    : layout === "list"
+                      ? "h-12 w-12"
+                      : "h-10 w-10"
+                } rounded-md bg-primary/10 flex items-center justify-center`}
+              >
+                <Building2
+                  className={`text-primary ${
+                    layout === "compact" ? "h-4 w-4" : "h-5 w-5"
+                  }`}
+                />
+              </div>
+            )}
+
+            {/* Title and Company */}
             <div className="flex-1 min-w-0">
-              <CardTitle className="text-xl group-hover:text-primary transition-colors line-clamp-2 break-words">
+              <CardTitle
+                className={`group-hover:text-primary transition-colors break-words ${
+                  layout === "compact"
+                    ? "text-base font-semibold line-clamp-2"
+                    : "text-xl line-clamp-2"
+                }`}
+              >
                 {job.title}
               </CardTitle>
-              <CardDescription className="flex items-center gap-2 mt-2 text-sm text-muted-foreground line-clamp-1 break-words min-w-0">
-                <Building2 className="h-4 w-4 flex-shrink-0" />
+              <CardDescription
+                className={`flex items-center gap-2 text-sm text-muted-foreground line-clamp-1 break-words min-w-0 ${
+                  layout === "compact" ? "mt-1" : "mt-2"
+                }`}
+              >
                 <span className="font-medium">{job.company}</span>
               </CardDescription>
             </div>
-            {job.remote && (
-              <Badge variant="secondary" className="ml-2 flex-shrink-0">
-                Remote
-              </Badge>
-            )}
           </div>
         </CardHeader>
 
-        <CardContent className="flex-1 flex flex-col">
-          <div className="space-y-4 flex-1">
-            {/* Location, Type, Salary */}
-            <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+        <CardContent
+          className={`flex-1 flex flex-col ${
+            layout === "list" ? "py-4 pr-4" : layout === "compact" ? "pt-2" : ""
+          }`}
+        >
+          <div
+            className={`flex-1 ${layout === "compact" ? "space-y-2" : "space-y-4"}`}
+          >
+            <div
+              className={`flex flex-wrap text-sm text-muted-foreground ${
+                layout === "compact" ? "gap-2" : "gap-4"
+              }`}
+            >
               {job.location && (
                 <div className="flex items-center gap-1">
-                  <MapPin className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
-                  <span className="truncate">{job.location}</span>
+                  <MapPin
+                    className={`flex-shrink-0 text-muted-foreground ${
+                      layout === "compact" ? "h-3 w-3" : "h-4 w-4"
+                    }`}
+                  />
+                  <span
+                    className={`truncate ${layout === "compact" ? "text-xs" : ""}`}
+                  >
+                    {job.location}
+                  </span>
                 </div>
               )}
-              {job.type && (
-                <div className="flex items-center gap-1">
-                  <Briefcase className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
-                  <span>{job.type}</span>
-                </div>
-              )}
+              <div className="flex items-center gap-1">
+                {job.remote ? (
+                  <>
+                    <Home
+                      className={`flex-shrink-0 text-green-600 dark:text-green-400 ${
+                        layout === "compact" ? "h-3 w-3" : "h-4 w-4"
+                      }`}
+                    />
+                    <span
+                      className={`text-green-600 dark:text-green-400 font-medium ${layout === "compact" ? "text-xs" : ""}`}
+                    >
+                      Remote
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <Building2
+                      className={`flex-shrink-0 text-blue-600 dark:text-blue-400 ${
+                        layout === "compact" ? "h-3 w-3" : "h-4 w-4"
+                      }`}
+                    />
+                    <span
+                      className={`text-blue-600 dark:text-blue-400 font-medium ${layout === "compact" ? "text-xs" : ""}`}
+                    >
+                      On-site
+                    </span>
+                  </>
+                )}
+              </div>
               {formatSalary() && (
                 <div className="flex items-center gap-1">
-                  <DollarSign className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
-                  <span>{formatSalary()}</span>
+                  <DollarSign
+                    className={`flex-shrink-0 text-muted-foreground ${
+                      layout === "compact" ? "h-3 w-3" : "h-4 w-4"
+                    }`}
+                  />
+                  <span className={layout === "compact" ? "text-xs" : ""}>
+                    {formatSalary()}
+                  </span>
                 </div>
               )}
             </div>
 
             {/* Job Description Preview */}
-            {job.description && (
+            {job.description && layout !== "compact" && (
               <div className="text-sm text-foreground/90 line-clamp-3">
                 {(() => {
                   const parsed = parseJobDescription(job.description || "");
@@ -223,48 +337,110 @@ export function JobCard({ job, onViewDetails, onPrepare }: JobCardProps) {
             )}
 
             {/* Tags & Level */}
-            <div className="flex flex-wrap gap-2">
-              {job.level && <Badge variant="outline">{job.level}</Badge>}
-              {job.category && <Badge variant="outline">{job.category}</Badge>}
-              {job.tags?.slice(0, 3).map((tag) => (
-                <Badge key={tag} variant="secondary">
+            <div
+              className={`flex flex-wrap ${
+                layout === "compact" ? "gap-1" : "gap-2"
+              }`}
+            >
+              {job.level && job.level !== "none" && (
+                <Badge
+                  variant="outline"
+                  className={layout === "compact" ? "text-xs px-1.5 py-0" : ""}
+                >
+                  {job.level}
+                </Badge>
+              )}
+              {job.category && job.category !== "none" && (
+                <Badge
+                  variant="outline"
+                  className={layout === "compact" ? "text-xs px-1.5 py-0" : ""}
+                >
+                  {job.category}
+                </Badge>
+              )}
+              {job.tags?.slice(0, layout === "compact" ? 2 : 3).map((tag) => (
+                <Badge
+                  key={tag}
+                  variant="secondary"
+                  className={layout === "compact" ? "text-xs px-1.5 py-0" : ""}
+                >
                   {tag}
                 </Badge>
               ))}
               {job.skills
                 ?.split(",")
-                .slice(0, 3)
+                .slice(0, layout === "compact" ? 2 : 3)
                 .map((skill) => (
-                  <Badge key={skill.trim()} variant="outline">
+                  <Badge
+                    key={skill.trim()}
+                    variant="outline"
+                    className={
+                      layout === "compact" ? "text-xs px-1.5 py-0" : ""
+                    }
+                  >
                     {skill.trim()}
                   </Badge>
                 ))}
             </div>
 
             {/* Posted Date */}
-            <div className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Clock className="h-3 w-3 flex-shrink-0" />
-              <span>Posted {getTimeAgo()}</span>
-            </div>
+            {layout !== "compact" && (
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Clock className="h-3 w-3 flex-shrink-0" />
+                <span>Posted {getTimeAgo()}</span>
+              </div>
+            )}
 
             {/* Action Buttons */}
-            <div className="mt-5 flex gap-3">
+            <div
+              className={`flex gap-2 ${
+                layout === "compact" ? "mt-2" : "mt-5"
+              } ${
+                layout === "list"
+                  ? "flex-row justify-end"
+                  : "flex-col sm:flex-row"
+              }`}
+            >
               <Button
                 variant="outline"
-                size="sm"
-                className="flex-1 hover:bg-primary/10 hover:border-primary"
+                size={layout === "compact" ? "sm" : "sm"}
+                className={`hover:bg-primary/10 hover:border-primary relative overflow-hidden group/btn ${
+                  layout === "compact"
+                    ? "h-8 text-xs flex-1"
+                    : layout === "list"
+                      ? "h-9 px-4"
+                      : "flex-1"
+                }`}
                 onClick={handlePrepare}
               >
-                <Brain className="h-4 w-4 mr-2" />
-                Interview Prep
+                {/* Glow animation */}
+                <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+                <Brain
+                  className={`relative z-10 ${
+                    layout === "compact" ? "h-3 w-3 mr-1" : "h-4 w-4 mr-2"
+                  }`}
+                />
+                <span className="relative z-10">
+                  {layout === "compact" ? "AI Interview" : "Interview with AI"}
+                </span>
               </Button>
               <Button
-                size="sm"
-                className="flex-1"
+                size={layout === "compact" ? "sm" : "sm"}
+                className={`${
+                  layout === "compact"
+                    ? "h-8 text-xs flex-1"
+                    : layout === "list"
+                      ? "h-9 px-4"
+                      : "flex-1"
+                }`}
                 onClick={(e) => handleApply(e, job.jobUrlDirect || job.jobUrl)}
                 disabled={!job.jobUrl && !job.jobUrlDirect}
               >
-                <ExternalLink className="h-4 w-4 mr-2" />
+                <ExternalLink
+                  className={`${
+                    layout === "compact" ? "h-3 w-3 mr-1" : "h-4 w-4 mr-2"
+                  }`}
+                />
                 Apply
               </Button>
             </div>

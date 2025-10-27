@@ -7,20 +7,40 @@ import {
   Cloud,
   Code,
   Database,
-  ExternalLink,
+  Grid3x3,
+  LayoutGrid,
+  List,
   Loader2,
   Search,
-  X,
 } from "lucide-react";
+import type React from "react";
 import { useEffect, useState } from "react";
 import * as SimpleIcons from "react-icons/si";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import type { UserData } from "@/lib/services/auth/auth";
 import {
   getAllPracticeQuestions,
   type PracticeQuestion,
   searchPracticeQuestions,
 } from "@/lib/services/practice-questions/practice-questions-service";
+import { QuestionModal } from "../modals/question-modal";
 
 // Simple markdown renderer with XSS protection
 function renderMarkdown(text: string | null | undefined): { __html: string } {
@@ -70,7 +90,7 @@ function renderMarkdown(text: string | null | undefined): { __html: string } {
 
     // Links (with security attributes)
     .replace(
-      /\[([^\]]+)\]\(([^\s)]+)(?:\s+"([^"]+)")?\)/g,
+      /\[([^\]]+)\]$$([^\s)]+)(?:\s+"([^"]+)")?$$/g,
       (text: string, href: string, title?: string) => {
         const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
         return `<a href="${escapeHtml(href)}" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer"${titleAttr}>${escapeHtml(text)}</a>`;
@@ -122,142 +142,6 @@ function renderMarkdown(text: string | null | undefined): { __html: string } {
   return { __html: html };
 }
 
-// Modal Component
-function QuestionModal({
-  question,
-  onClose,
-}: {
-  question: PracticeQuestion;
-  onClose: () => void;
-}) {
-  const CompanyIcon =
-    (
-      SimpleIcons as Record<string, React.ComponentType<{ className?: string }>>
-    )[question.companyLogo] || SimpleIcons.SiApple;
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col border border-gray-200 dark:border-gray-700">
-        {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
-              <CompanyIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-            </div>
-            <div>
-              <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-                {question.companyLogo?.replace("Si", "") || "Company"}
-              </h2>
-              <span className="text-sm text-gray-600 dark:text-gray-400 capitalize">
-                {question.category.replace("-", " ")}
-              </span>
-            </div>
-          </div>
-          <Button
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-          >
-            <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-          </Button>
-        </div>
-
-        {/* Content */}
-        <div className="flex-1 overflow-y-auto p-6">
-          {/* Question */}
-          <div className="mb-6">
-            <div className="flex items-center gap-2 mb-3">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                Question
-              </h3>
-              <span
-                className={`px-2 py-1 text-xs font-medium rounded-full ${
-                  question.difficulty === "easy"
-                    ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
-                    : question.difficulty === "medium"
-                      ? "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400"
-                      : "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400"
-                }`}
-              >
-                {question.difficulty.toUpperCase()}
-              </span>
-            </div>
-            <h2
-              className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 prose prose-sm dark:prose-invert max-w-none"
-              dangerouslySetInnerHTML={renderMarkdown(question.title)}
-            />
-            <div
-              className="prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300"
-              dangerouslySetInnerHTML={renderMarkdown(question.question)}
-            />
-          </div>
-
-          {/* Tags */}
-          {question.topicTags && question.topicTags.length > 0 && (
-            <div className="mb-6">
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                Tags
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {question.topicTags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Answer */}
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">
-              Answer
-            </h3>
-            <div
-              className="prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300"
-              dangerouslySetInnerHTML={renderMarkdown(question.answer)}
-            />
-          </div>
-
-          {/* Learning Resources */}
-          {question.learningResources &&
-            question.learningResources.length > 0 && (
-              <div>
-                <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
-                  <BookOpen className="w-4 h-4" />
-                  Learning Resources
-                </h4>
-                <div className="space-y-2">
-                  {question.learningResources.map((resource) => (
-                    <a
-                      key={resource.url}
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-sm transition-all group"
-                    >
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                          {resource.title}
-                        </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 capitalize">
-                          {resource.type}
-                        </p>
-                      </div>
-                      <ExternalLink className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 interface PracticeContentProps {
   user: UserData;
 }
@@ -275,7 +159,10 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(12);
+  const [itemsPerPage, setItemsPerPage] = useState(12);
+  const [viewLayout, setViewLayout] = useState<"grid" | "compact" | "list">(
+    "grid",
+  );
 
   // Fetch questions on mount
   useEffect(() => {
@@ -398,7 +285,7 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
 
   if (loading) {
     return (
-      <main className="flex-1 flex items-center justify-center">
+      <main className="flex-1 flex items-center justify-center bg-background">
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-blue-600 dark:text-blue-400 animate-spin mx-auto mb-4" />
           <p className="text-gray-600 dark:text-gray-400">
@@ -411,7 +298,7 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
 
   if (error) {
     return (
-      <main className="flex-1 flex items-center justify-center">
+      <main className="flex-1 flex items-center justify-center bg-background">
         <div className="text-center max-w-md">
           <div className="size-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
             <AlertCircle className="size-8 text-red-600 dark:text-red-400" />
@@ -432,210 +319,383 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
   }
 
   return (
-    <main className="flex-1 overflow-y-auto">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            Practice Questions
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400">
-            Master your interview skills with real company questions
-          </p>
-        </div>
-
-        {/* Search and Filters */}
-        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <main className="flex-1 overflow-y-auto bg-background">
+      <section className="border-b bg-gradient-to-b from-muted/50 to-background/50 backdrop-blur-sm">
+        <div className="container mx-auto px-6 py-6">
+          {/* Search and Filters */}
+          <div className="space-y-5">
+            {/* Primary Search Bar */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
-              <input
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
                 type="text"
                 placeholder="Search questions, tags, companies..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
+                className="h-12 pl-10 bg-background/80 backdrop-blur-sm border-border/60 shadow-sm focus:shadow-md transition-shadow"
               />
             </div>
 
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent text-gray-900 dark:text-gray-100"
-            >
-              <option value="all">All Categories</option>
-              <option value="algorithms">Algorithms</option>
-              <option value="data-structures">Data Structures</option>
-              <option value="system-design">System Design</option>
-              <option value="behavioral">Behavioral</option>
-              <option value="frontend">Frontend</option>
-              <option value="backend">Backend</option>
-              <option value="database">Database</option>
-              <option value="devops">DevOps</option>
-              <option value="security">Security</option>
-              <option value="testing">Testing</option>
-            </select>
+            {/* Quick Filters */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <Select
+                  onValueChange={setSelectedCategory}
+                  value={selectedCategory}
+                >
+                  <SelectTrigger className="w-[180px] h-10 bg-background/80 backdrop-blur-sm border-border/60 shadow-sm hover:shadow-md hover:border-primary/40 transition-all">
+                    <SelectValue placeholder="Category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Categories</SelectItem>
+                    <SelectItem value="algorithms">Algorithms</SelectItem>
+                    <SelectItem value="data-structures">
+                      Data Structures
+                    </SelectItem>
+                    <SelectItem value="system-design">System Design</SelectItem>
+                    <SelectItem value="behavioral">Behavioral</SelectItem>
+                    <SelectItem value="frontend">Frontend</SelectItem>
+                    <SelectItem value="backend">Backend</SelectItem>
+                    <SelectItem value="database">Database</SelectItem>
+                    <SelectItem value="devops">DevOps</SelectItem>
+                    <SelectItem value="security">Security</SelectItem>
+                    <SelectItem value="testing">Testing</SelectItem>
+                  </SelectContent>
+                </Select>
 
-            <select
-              value={selectedDifficulty}
-              onChange={(e) => setSelectedDifficulty(e.target.value)}
-              className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent text-gray-900 dark:text-gray-100"
-            >
-              <option value="all">All Difficulties</option>
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
-            </select>
+                <Select
+                  onValueChange={setSelectedDifficulty}
+                  value={selectedDifficulty}
+                >
+                  <SelectTrigger className="w-[160px] h-10 bg-background/80 backdrop-blur-sm border-border/60 shadow-sm hover:shadow-md hover:border-primary/40 transition-all">
+                    <SelectValue placeholder="Difficulty" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Difficulties</SelectItem>
+                    <SelectItem value="easy">Easy</SelectItem>
+                    <SelectItem value="medium">Medium</SelectItem>
+                    <SelectItem value="hard">Hard</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="flex-1 min-w-[20px]" />
+
+              {(searchTerm ||
+                selectedCategory !== "all" ||
+                selectedDifficulty !== "all") && (
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    setSearchTerm("");
+                    setSelectedCategory("all");
+                    setSelectedDifficulty("all");
+                  }}
+                  className="h-10 text-destructive hover:text-destructive hover:bg-destructive/10 transition-all"
+                >
+                  Clear All
+                </Button>
+              )}
+            </div>
+          </div>
+
+          {/* Results Summary */}
+          <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 bg-card/50 backdrop-blur-sm rounded-xl border border-border/60 shadow-sm">
+            <div className="flex items-center gap-2">
+              <h2 className="text-lg font-semibold">Practice Questions</h2>
+              <Badge variant="secondary">
+                {filteredQuestions.length} questions
+              </Badge>
+            </div>
+
+            <div className="flex items-center gap-4 flex-wrap">
+              {/* Items per page selector */}
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">Show:</span>
+                <Select
+                  onValueChange={(val) => setItemsPerPage(Number(val))}
+                  value={itemsPerPage.toString()}
+                >
+                  <SelectTrigger className="w-[80px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="12">12</SelectItem>
+                    <SelectItem value="24">24</SelectItem>
+                    <SelectItem value="48">48</SelectItem>
+                    <SelectItem value="96">96</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Layout view options */}
+              <div className="flex items-center gap-1 border rounded-md p-1">
+                <Button
+                  variant={viewLayout === "grid" ? "secondary" : "ghost"}
+                  size="sm"
+                  onClick={() => setViewLayout("grid")}
+                  className="h-8 px-2"
+                >
+                  <LayoutGrid className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant={viewLayout === "compact" ? "secondary" : "ghost"}
+                  size="sm"
+                  onClick={() => setViewLayout("compact")}
+                  className="h-8 px-2"
+                >
+                  <Grid3x3 className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant={viewLayout === "list" ? "secondary" : "ghost"}
+                  size="sm"
+                  onClick={() => setViewLayout("list")}
+                  className="h-8 px-2"
+                >
+                  <List className="h-4 w-4" />
+                </Button>
+              </div>
+
+              {loading && (
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span>Loading...</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Results Count */}
-        <div className="mb-4 text-gray-600 dark:text-gray-400">
-          Showing {startIndex + 1} to{" "}
-          {Math.min(endIndex, filteredQuestions.length)} of{" "}
-          {filteredQuestions.length} questions
-        </div>
-
-        {/* Questions Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {paginatedQuestions.map((q) => {
-            const CategoryIcon = getCategoryIcon(q.category);
-            const CompanyIcon = getCompanyIcon(q.companyLogo);
-
-            return (
-              <div
-                key={q.id}
-                className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md dark:hover:shadow-lg transition-all"
-              >
-                <div className="p-5">
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <div className="p-1.5 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
-                        <CompanyIcon className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+      {/* Questions Content */}
+      <section className="container mx-auto px-6 py-8">
+        {/* Questions Grid/Table */}
+        {viewLayout === "list" ? (
+          <div className="mb-8 border rounded-lg overflow-hidden">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Question</TableHead>
+                  <TableHead>Company</TableHead>
+                  <TableHead>Category</TableHead>
+                  <TableHead>Difficulty</TableHead>
+                  <TableHead>Tags</TableHead>
+                  <TableHead className="text-right">Action</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {paginatedQuestions.map((q) => (
+                  <TableRow
+                    key={q.id}
+                    className="cursor-pointer hover:bg-muted/50"
+                  >
+                    <TableCell>
+                      <div className="max-w-md">
+                        <h3
+                          className="font-semibold text-sm line-clamp-2 text-foreground"
+                          dangerouslySetInnerHTML={renderMarkdown(q.title)}
+                        />
                       </div>
-                      <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="outline" className="text-xs">
                         {q.companyLogo?.replace("Si", "") || "Company"}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="outline" className="text-xs capitalize">
+                        {q.category.replace("-", " ")}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <span
+                        className={`px-2 py-1 text-xs font-medium rounded-full border ${getDifficultyColor(q.difficulty)}`}
+                      >
+                        {q.difficulty}
+                      </span>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex gap-1 flex-wrap max-w-xs">
+                        {q.topicTags?.slice(0, 3).map((tag) => (
+                          <Badge
+                            key={tag}
+                            variant="outline"
+                            className="text-xs"
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                        {q.topicTags && q.topicTags.length > 3 && (
+                          <Badge variant="outline" className="text-xs">
+                            +{q.topicTags.length - 3}
+                          </Badge>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <Button
+                        onClick={() => setSelectedQuestion(q)}
+                        size="sm"
+                        className="h-8"
+                      >
+                        View
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        ) : (
+          <div
+            className={`grid gap-6 mb-8 ${
+              viewLayout === "grid"
+                ? "grid-cols-1 lg:grid-cols-2"
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            }`}
+          >
+            {paginatedQuestions.map((q) => {
+              const CategoryIcon = getCategoryIcon(q.category);
+              const CompanyIcon = getCompanyIcon(q.companyLogo);
+
+              return (
+                <div
+                  key={q.id}
+                  className="bg-card rounded-xl shadow-sm border border-border overflow-hidden hover:shadow-md hover:border-primary/40 transition-all"
+                >
+                  <div className="p-5">
+                    {/* Header */}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <div className="p-1.5 bg-primary/10 rounded-lg">
+                          <CompanyIcon className="w-4 h-4 text-primary" />
+                        </div>
+                        <span className="text-sm font-semibold text-foreground">
+                          {q.companyLogo?.replace("Si", "") || "Company"}
+                        </span>
+                      </div>
+                      <span
+                        className={`px-2 py-1 text-xs font-medium rounded-full border ${getDifficultyColor(q.difficulty)}`}
+                      >
+                        {q.difficulty}
                       </span>
                     </div>
-                    <span
-                      className={`px-2 py-1 text-xs font-medium rounded-full border ${getDifficultyColor(q.difficulty)}`}
-                    >
-                      {q.difficulty}
-                    </span>
-                  </div>
 
-                  {/* Category */}
-                  <div className="flex items-center gap-1.5 mb-3">
-                    <CategoryIcon className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" />
-                    <span className="text-xs text-gray-600 dark:text-gray-400 capitalize">
-                      {q.category.replace("-", " ")}
-                    </span>
-                  </div>
-
-                  {/* Question Title */}
-                  <h3
-                    className="font-semibold text-base text-gray-900 dark:text-gray-100 mb-2 line-clamp-2"
-                    dangerouslySetInnerHTML={renderMarkdown(q.title)}
-                  />
-
-                  {/* Question Preview */}
-                  <div
-                    className="text-sm text-gray-800 dark:text-gray-300 mb-4 line-clamp-3"
-                    dangerouslySetInnerHTML={renderMarkdown(q.question)}
-                  />
-
-                  {/* Tags */}
-                  {q.topicTags && q.topicTags.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {q.topicTags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                      {q.topicTags.length > 3 && (
-                        <span className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded">
-                          +{q.topicTags.length - 3}
-                        </span>
-                      )}
+                    {/* Category */}
+                    <div className="flex items-center gap-1.5 mb-3">
+                      <CategoryIcon className="w-3.5 h-3.5 text-muted-foreground" />
+                      <span className="text-xs text-muted-foreground capitalize">
+                        {q.category.replace("-", " ")}
+                      </span>
                     </div>
-                  )}
 
-                  {/* See More Button */}
-                  <Button
-                    onClick={() => setSelectedQuestion(q)}
-                    className="w-full py-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white text-sm font-medium rounded-lg transition-colors"
-                  >
-                    See More
-                  </Button>
+                    {/* Question Title */}
+                    <h3
+                      className="font-semibold text-base text-foreground mb-2 line-clamp-2"
+                      dangerouslySetInnerHTML={renderMarkdown(q.title)}
+                    />
+
+                    {/* Question Preview */}
+                    <div
+                      className="text-sm text-muted-foreground mb-4 line-clamp-3"
+                      dangerouslySetInnerHTML={renderMarkdown(q.question)}
+                    />
+
+                    {/* Tags */}
+                    {q.topicTags && q.topicTags.length > 0 && (
+                      <div className="flex flex-wrap gap-1 mb-4">
+                        {q.topicTags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-0.5 bg-muted text-muted-foreground text-xs rounded"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {q.topicTags.length > 3 && (
+                          <span className="px-2 py-0.5 bg-muted text-muted-foreground text-xs rounded">
+                            +{q.topicTags.length - 3}
+                          </span>
+                        )}
+                      </div>
+                    )}
+
+                    {/* See More Button */}
+                    <Button
+                      onClick={() => setSelectedQuestion(q)}
+                      className="w-full"
+                    >
+                      See More
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
 
         {/* Pagination */}
         {filteredQuestions.length > itemsPerPage && (
-          <div className="flex items-center justify-between mt-8">
-            <div className="text-sm text-gray-600 dark:text-gray-400">
-              Showing {startIndex + 1} to{" "}
-              {Math.min(endIndex, filteredQuestions.length)} of{" "}
-              {filteredQuestions.length} questions
+          <div className="flex items-center justify-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setCurrentPage(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </Button>
+
+            <div className="flex items-center gap-2">
+              {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                let pageNum: number;
+                if (totalPages <= 5) pageNum = i + 1;
+                else if (currentPage <= 3) pageNum = i + 1;
+                else if (currentPage >= totalPages - 2)
+                  pageNum = totalPages - 4 + i;
+                else pageNum = currentPage - 2 + i;
+
+                return (
+                  <Button
+                    key={`page-${pageNum}`}
+                    variant={currentPage === pageNum ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setCurrentPage(pageNum)}
+                  >
+                    {pageNum}
+                  </Button>
+                );
+              })}
             </div>
-            <div className="flex items-center space-x-2">
-              <Button
-                onClick={() => setCurrentPage(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="px-3 py-1 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Previous
-              </Button>
-              <div className="flex items-center space-x-1">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                  (page) => (
-                    <Button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`w-8 h-8 p-0 text-sm ${
-                        currentPage === page
-                          ? "bg-blue-600 text-white border-blue-600"
-                          : "bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      {page}
-                    </Button>
-                  ),
-                )}
-              </div>
-              <Button
-                onClick={() => setCurrentPage(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="px-3 py-1 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Next
-              </Button>
-            </div>
+
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setCurrentPage(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </Button>
           </div>
         )}
 
         {/* Empty State */}
         {filteredQuestions.length === 0 && (
           <div className="text-center py-12">
-            <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Search className="w-8 h-8 text-gray-400 dark:text-gray-500" />
+            <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+              <Search className="w-8 h-8 text-muted-foreground" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+            <h3 className="text-lg font-semibold text-foreground mb-2">
               No questions found
             </h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Try adjusting your search or filters
             </p>
           </div>
         )}
-      </div>
+      </section>
 
       {/* Modal */}
       {selectedQuestion && (

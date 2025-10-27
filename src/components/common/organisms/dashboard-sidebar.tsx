@@ -1,12 +1,17 @@
 "use client";
 
 import {
+  Award,
   BookOpen,
   Briefcase,
   History,
   Home,
+  Map as MapIcon,
+  Newspaper,
   Plus,
   Settings,
+  Users,
+  Wallet,
   X,
 } from "lucide-react";
 import Link from "next/link";
@@ -63,7 +68,7 @@ export default function DashboardSidebar({
         <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
           <Link
             href="/dashboard"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors w-full ${
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
               isActive("/dashboard")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -79,7 +84,7 @@ export default function DashboardSidebar({
 
           <Link
             href="/configure"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors w-full ${
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
               isActive("/configure")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -95,7 +100,7 @@ export default function DashboardSidebar({
 
           <Link
             href="/history"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors w-full ${
+            className={`flex items-center space-x-3 px-3 py-2  rounded-md transition-colors w-full ${
               isActive("/history")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -111,7 +116,7 @@ export default function DashboardSidebar({
 
           <Link
             href="/practice"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors w-full ${
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
               isActive("/practice")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -127,7 +132,7 @@ export default function DashboardSidebar({
 
           <Link
             href="/jobs"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors w-full ${
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
               isActive("/jobs")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -141,6 +146,73 @@ export default function DashboardSidebar({
             </span>
           </Link>
 
+          {/* Coming Soon Section */}
+          <div className="pt-4 pb-2 px-3">
+            <p className="text-xs font-semibold text-sidebar-foreground/60 uppercase tracking-wider">
+              Coming Soon
+            </p>
+          </div>
+
+          <button
+            type="button"
+            disabled
+            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
+          >
+            <Award className="h-5 w-5 flex-shrink-0" />
+            <span className="truncate text-sm">Achievements</span>
+            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+              Soon
+            </span>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
+          >
+            <MapIcon className="h-5 w-5 flex-shrink-0" />
+            <span className="truncate text-sm">Roadmap</span>
+            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+              Soon
+            </span>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
+          >
+            <Newspaper className="h-5 w-5 flex-shrink-0" />
+            <span className="truncate text-sm">Tech News</span>
+            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+              Soon
+            </span>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
+          >
+            <Wallet className="h-5 w-5 flex-shrink-0" />
+            <span className="truncate text-sm">Blairify Wallet</span>
+            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+              Soon
+            </span>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
+          >
+            <Users className="h-5 w-5 flex-shrink-0" />
+            <span className="truncate text-sm">Community</span>
+            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+              Soon
+            </span>
+          </button>
+
           {/* Superadmin Only Links */}
           {showAdminLinks && (
             <>
@@ -151,7 +223,7 @@ export default function DashboardSidebar({
               </div>
               <Link
                 href="/admin/practice-library"
-                className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors w-full ${
+                className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
                   isActive("/admin/practice-library")
                     ? "bg-sidebar-primary text-sidebar-primary-foreground"
                     : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -166,7 +238,7 @@ export default function DashboardSidebar({
               </Link>
               {/* <Link
                 href="/admin/manage-users"
-                className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors w-full ${
+                className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
                   isActive("/admin/manage-users")
                     ? "bg-sidebar-primary text-sidebar-primary-foreground"
                     : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"

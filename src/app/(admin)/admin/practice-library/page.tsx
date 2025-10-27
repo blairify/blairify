@@ -1,6 +1,15 @@
 "use client";
 
-import { Edit, Plus, RefreshCw, Search, Trash2 } from "lucide-react";
+import {
+  Edit,
+  Grid3x3,
+  LayoutGrid,
+  List,
+  Plus,
+  RefreshCw,
+  Search,
+  Trash2,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -34,6 +43,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { isSuperAdmin } from "@/lib/services/auth/auth-roles";
 import {
   type CompanyLogo,
@@ -233,7 +250,10 @@ export default function ManagePracticeLibraryPage() {
     null,
   );
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage, setItemsPerPage] = useState(12);
+  const [viewLayout, setViewLayout] = useState<"grid" | "compact" | "list">(
+    "grid",
+  );
 
   // Check authorization
   useEffect(() => {
@@ -354,241 +374,320 @@ export default function ManagePracticeLibraryPage() {
         <DashboardNavbar setSidebarOpen={setSidebarOpen} />
 
         <main className="flex-1 overflow-y-auto">
-          <div className="container mx-auto px-4 py-8 space-y-6">
-            {/* Header */}
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-3xl font-bold">Manage Practice Library</h1>
-                <p className="text-muted-foreground">
-                  Add, edit, and manage practice questions
-                </p>
+          {/* Filters Bar */}
+          <div className="border-b bg-muted/30">
+            <div className="container mx-auto px-6 py-4">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-sm text-muted-foreground">
+                  Speed run mock dla chłopaków
+                </div>
+                <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
+                  <DialogTrigger asChild>
+                    <Button size="sm">
+                      <Plus className="h-4 w-4 mr-2" />
+                      Add Question
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle>Add New Question</DialogTitle>
+                      <DialogDescription>
+                        Create a new practice question for the library
+                      </DialogDescription>
+                    </DialogHeader>
+                    <ComprehensiveQuestionForm
+                      onSubmit={async (data) => {
+                        try {
+                          await createPracticeQuestion(data);
+                          toast.success("Question created successfully");
+                          setShowAddDialog(false);
+                          mutate(); // Revalidate SWR cache
+                        } catch (error) {
+                          console.error("Error creating question:", error);
+                          toast.error("Failed to create question");
+                        }
+                      }}
+                    />
+                  </DialogContent>
+                </Dialog>
               </div>
-              <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
-                <DialogTrigger asChild>
-                  <Button>
-                    <Plus className="h-4 w-4 mr-2" />
-                    Add Question
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
-                  <DialogHeader>
-                    <DialogTitle>Add New Question</DialogTitle>
-                    <DialogDescription>
-                      Create a new practice question for the library
-                    </DialogDescription>
-                  </DialogHeader>
-                  <ComprehensiveQuestionForm
-                    onSubmit={async (data) => {
-                      try {
-                        await createPracticeQuestion(data);
-                        toast.success("Question created successfully");
-                        setShowAddDialog(false);
-                        mutate(); // Revalidate SWR cache
-                      } catch (error) {
-                        console.error("Error creating question:", error);
-                        toast.error("Failed to create question");
-                      }
-                    }}
-                  />
-                </DialogContent>
-              </Dialog>
-            </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium">
-                    Total Questions
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">
-                    {stableQuestions.length}
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium">
-                    Companies
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">
-                    {COMPANY_LOGOS.length}
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium">
-                    Categories
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">{CATEGORIES.length}</div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium">Medium</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">
-                    {
-                      stableQuestions.filter((q) => q.difficulty === "medium")
-                        .length
-                    }
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Filters */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Filters</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="search">Search</Label>
-                    <div className="relative">
-                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="search"
-                        placeholder="Search questions..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="pl-9"
-                      />
+              {/* Stats */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
+                <Card>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-sm font-medium">
+                      Total Questions
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">
+                      {stableQuestions.length}
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="company">Company</Label>
-                    <Select
-                      value={companyFilter}
-                      onValueChange={setCompanyFilter}
-                    >
-                      <SelectTrigger id="company">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Companies</SelectItem>
-                        {COMPANY_LOGOS.map((logo) => (
-                          <SelectItem key={logo} value={logo}>
-                            {getCompanyNameFromLogo(logo)}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="category">Category</Label>
-                    <Select
-                      value={categoryFilter}
-                      onValueChange={setCategoryFilter}
-                    >
-                      <SelectTrigger id="category">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Categories</SelectItem>
-                        {CATEGORIES.map((cat) => (
-                          <SelectItem key={cat} value={cat}>
-                            {formatLabel(cat)}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="difficulty">Difficulty</Label>
-                    <Select
-                      value={difficultyFilter}
-                      onValueChange={setDifficultyFilter}
-                    >
-                      <SelectTrigger id="difficulty">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Difficulties</SelectItem>
-                        <SelectItem value="easy">Easy</SelectItem>
-                        <SelectItem value="medium">Medium</SelectItem>
-                        <SelectItem value="hard">Hard</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="companySize">Company Size</Label>
-                    <Select
-                      value={companySizeFilter}
-                      onValueChange={setCompanySizeFilter}
-                    >
-                      <SelectTrigger id="companySize">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Sizes</SelectItem>
-                        {COMPANY_SIZES.map((size) => (
-                          <SelectItem key={size} value={size}>
-                            {formatLabel(size)}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Button variant="outline" size="sm" onClick={() => mutate()}>
-                    <RefreshCw className="h-4 w-4 mr-2" />
-                    Refresh
-                  </Button>
-                  <Badge variant="secondary">
-                    {filteredQuestions.length} of {stableQuestions.length}{" "}
-                    questions
-                  </Badge>
-                </div>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-sm font-medium">
+                      Companies
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">
+                      {COMPANY_LOGOS.length}
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-sm font-medium">
+                      Categories
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">
+                      {CATEGORIES.length}
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-sm font-medium">
+                      Medium
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">
+                      {
+                        stableQuestions.filter((q) => q.difficulty === "medium")
+                          .length
+                      }
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
 
+              {/* Filters */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 mb-4">
+                <div className="space-y-2">
+                  <Label htmlFor="search">Search</Label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      id="search"
+                      placeholder="Search questions..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-9"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="company">Company</Label>
+                  <Select
+                    value={companyFilter}
+                    onValueChange={setCompanyFilter}
+                  >
+                    <SelectTrigger id="company">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Companies</SelectItem>
+                      {COMPANY_LOGOS.map((logo) => (
+                        <SelectItem key={logo} value={logo}>
+                          {getCompanyNameFromLogo(logo)}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="category">Category</Label>
+                  <Select
+                    value={categoryFilter}
+                    onValueChange={setCategoryFilter}
+                  >
+                    <SelectTrigger id="category">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Categories</SelectItem>
+                      {CATEGORIES.map((cat) => (
+                        <SelectItem key={cat} value={cat}>
+                          {formatLabel(cat)}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="difficulty">Difficulty</Label>
+                  <Select
+                    value={difficultyFilter}
+                    onValueChange={setDifficultyFilter}
+                  >
+                    <SelectTrigger id="difficulty">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Difficulties</SelectItem>
+                      <SelectItem value="easy">Easy</SelectItem>
+                      <SelectItem value="medium">Medium</SelectItem>
+                      <SelectItem value="hard">Hard</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="companySize">Company Size</Label>
+                  <Select
+                    value={companySizeFilter}
+                    onValueChange={setCompanySizeFilter}
+                  >
+                    <SelectTrigger id="companySize">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Sizes</SelectItem>
+                      {COMPANY_SIZES.map((size) => (
+                        <SelectItem key={size} value={size}>
+                          {formatLabel(size)}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 flex-wrap">
+                {/* Items per page selector */}
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-muted-foreground">Show:</span>
+                  <Select
+                    onValueChange={(val) => setItemsPerPage(Number(val))}
+                    value={itemsPerPage.toString()}
+                  >
+                    <SelectTrigger className="w-[80px]">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="12">12</SelectItem>
+                      <SelectItem value="24">24</SelectItem>
+                      <SelectItem value="48">48</SelectItem>
+                      <SelectItem value="96">96</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Layout view options */}
+                <div className="flex items-center gap-1 border rounded-md p-1">
+                  <Button
+                    variant={viewLayout === "grid" ? "secondary" : "ghost"}
+                    size="sm"
+                    onClick={() => setViewLayout("grid")}
+                    className="h-8 px-2"
+                  >
+                    <LayoutGrid className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    variant={viewLayout === "compact" ? "secondary" : "ghost"}
+                    size="sm"
+                    onClick={() => setViewLayout("compact")}
+                    className="h-8 px-2"
+                  >
+                    <Grid3x3 className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    variant={viewLayout === "list" ? "secondary" : "ghost"}
+                    size="sm"
+                    onClick={() => setViewLayout("list")}
+                    className="h-8 px-2"
+                  >
+                    <List className="h-4 w-4" />
+                  </Button>
+                </div>
+
+                <Button variant="outline" size="sm" onClick={() => mutate()}>
+                  <RefreshCw className="h-4 w-4 mr-2" />
+                  Refresh
+                </Button>
+                <Badge variant="secondary">
+                  {filteredQuestions.length} of {stableQuestions.length}{" "}
+                  questions
+                </Badge>
+              </div>
+            </div>
+          </div>
+
+          {/* Questions Content */}
+          <div className="container mx-auto px-6 py-6">
             {/* Questions List */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {isLoading ? (
-                <Card>
-                  <CardContent className="py-12 text-center">
-                    <RefreshCw className="h-8 w-8 animate-spin mx-auto text-primary" />
-                    <p className="mt-4 text-muted-foreground">
-                      Loading questions...
-                    </p>
-                  </CardContent>
-                </Card>
-              ) : error ? (
-                <Card>
-                  <CardContent className="py-12 text-center">
-                    <p className="text-destructive mb-4">
-                      Failed to load questions. Please try again.
-                    </p>
-                    <Button onClick={() => mutate()}>Retry</Button>
-                  </CardContent>
-                </Card>
-              ) : filteredQuestions.length === 0 ? (
-                <Card>
-                  <CardContent className="py-12 text-center">
-                    <p className="text-muted-foreground">No questions found</p>
-                  </CardContent>
-                </Card>
-              ) : (
-                paginatedQuestions.map((question) => (
-                  <Card key={question.id}>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1 space-y-2">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <Badge variant="outline" className="font-semibold">
+            {viewLayout === "list" ? (
+              <div className="border rounded-lg overflow-hidden">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Question</TableHead>
+                      <TableHead>Company</TableHead>
+                      <TableHead>Category</TableHead>
+                      <TableHead>Difficulty</TableHead>
+                      <TableHead>Tags</TableHead>
+                      <TableHead className="text-right">Actions</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {isLoading ? (
+                      <TableRow>
+                        <TableCell colSpan={6} className="text-center py-12">
+                          <RefreshCw className="h-8 w-8 animate-spin mx-auto text-primary" />
+                          <p className="mt-4 text-muted-foreground">
+                            Loading questions...
+                          </p>
+                        </TableCell>
+                      </TableRow>
+                    ) : error ? (
+                      <TableRow>
+                        <TableCell colSpan={6} className="text-center py-12">
+                          <p className="text-destructive mb-4">
+                            Failed to load questions. Please try again.
+                          </p>
+                          <Button onClick={() => mutate()}>Retry</Button>
+                        </TableCell>
+                      </TableRow>
+                    ) : paginatedQuestions.length === 0 ? (
+                      <TableRow>
+                        <TableCell colSpan={6} className="text-center py-12">
+                          <p className="text-muted-foreground">
+                            No questions found
+                          </p>
+                        </TableCell>
+                      </TableRow>
+                    ) : (
+                      paginatedQuestions.map((question) => (
+                        <TableRow
+                          key={question.id}
+                          className="cursor-pointer hover:bg-muted/50"
+                        >
+                          <TableCell>
+                            <div className="max-w-md">
+                              <h3
+                                className="font-semibold text-sm line-clamp-2 mb-1"
+                                dangerouslySetInnerHTML={renderMarkdown(
+                                  question.title,
+                                )}
+                              />
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className="text-xs">
                               {getCompanyNameFromLogo(question.companyLogo)}
                             </Badge>
+                          </TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className="text-xs">
+                              {question.category.replace("-", " ")}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
                             <Badge
                               variant={
                                 question.difficulty === "easy"
@@ -597,147 +696,313 @@ export default function ManagePracticeLibraryPage() {
                                     ? "secondary"
                                     : "destructive"
                               }
+                              className="text-xs"
                             >
                               {question.difficulty.toUpperCase()}
                             </Badge>
-                            <Badge variant="outline">
-                              {question.category.replace("-", " ")}
-                            </Badge>
-                          </div>
-                          <h3
-                            className="font-bold text-xl prose prose-sm dark:prose-invert max-w-none"
-                            dangerouslySetInnerHTML={renderMarkdown(
-                              question.title,
-                            )}
-                          />
-                          {/* <div
-                            className="font-medium text-base prose prose-sm dark:prose-invert max-w-none"
-                            dangerouslySetInnerHTML={renderMarkdown(
-                              question.question,
-                            )}
-                          />
-                          <div
-                            className="text-sm text-muted-foreground line-clamp-2 prose prose-sm dark:prose-invert max-w-none"
-                            dangerouslySetInnerHTML={renderMarkdown(
-                              question.answer,
-                            )}
-                          /> */}
-                          <div className="flex gap-2 flex-wrap">
-                            {question.topicTags.slice(0, 5).map((tag) => (
-                              <Badge
-                                key={tag}
-                                variant="outline"
-                                className="text-xs"
-                              >
-                                {tag}
-                              </Badge>
-                            ))}
-                            {question.topicTags.length > 5 && (
-                              <Badge variant="outline" className="text-xs">
-                                +{question.topicTags.length - 5} more
-                              </Badge>
-                            )}
-                          </div>
-                          {/* Tech Stack Preview */}
-                          {(question.languages ||
-                            question.databases ||
-                            question.cloudProviders) && (
-                            <div className="flex gap-2 flex-wrap text-xs text-muted-foreground">
-                              {question.languages &&
-                                question.languages.length > 0 && (
-                                  <span>
-                                    💻{" "}
-                                    {question.languages.slice(0, 3).join(", ")}
-                                  </span>
-                                )}
-                              {question.databases &&
-                                question.databases.length > 0 && (
-                                  <span>
-                                    🗄️{" "}
-                                    {question.databases.slice(0, 2).join(", ")}
-                                  </span>
-                                )}
-                              {question.cloudProviders &&
-                                question.cloudProviders.length > 0 && (
-                                  <span>
-                                    ☁️ {question.cloudProviders.join(", ")}
-                                  </span>
-                                )}
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex gap-1 flex-wrap max-w-xs">
+                              {question.topicTags.slice(0, 3).map((tag) => (
+                                <Badge
+                                  key={tag}
+                                  variant="outline"
+                                  className="text-xs"
+                                >
+                                  {tag}
+                                </Badge>
+                              ))}
+                              {question.topicTags.length > 3 && (
+                                <Badge variant="outline" className="text-xs">
+                                  +{question.topicTags.length - 3}
+                                </Badge>
+                              )}
                             </div>
-                          )}
-                        </div>
-                        <div className="flex gap-2">
-                          <Dialog
-                            open={editingQuestionId === question.id}
-                            onOpenChange={(open) => {
-                              if (!open) {
-                                setEditingQuestionId(null);
-                              }
-                            }}
-                          >
-                            <DialogTrigger asChild>
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                onClick={() =>
-                                  setEditingQuestionId(question.id || null)
-                                }
-                              >
-                                <Edit className="h-4 w-4" />
-                              </Button>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
-                              <DialogHeader>
-                                <DialogTitle>Edit Question</DialogTitle>
-                                <DialogDescription>
-                                  Update the practice question details
-                                </DialogDescription>
-                              </DialogHeader>
-                              <ComprehensiveQuestionForm
-                                initialData={question}
-                                onSubmit={async (data) => {
-                                  if (!question.id) return;
-                                  try {
-                                    await updatePracticeQuestion(
-                                      question.id,
-                                      data,
-                                    );
-                                    toast.success(
-                                      "Question updated successfully",
-                                    );
+                          </TableCell>
+                          <TableCell className="text-right">
+                            <div className="flex items-center justify-end gap-2">
+                              <Dialog
+                                open={editingQuestionId === question.id}
+                                onOpenChange={(open) => {
+                                  if (!open) {
                                     setEditingQuestionId(null);
-                                    mutate(); // Revalidate SWR cache
-                                  } catch (error) {
-                                    console.error(
-                                      "Error updating question:",
-                                      error,
-                                    );
-                                    toast.error("Failed to update question");
                                   }
                                 }}
-                              />
-                            </DialogContent>
-                          </Dialog>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() =>
-                              question.id && handleDelete(question.id)
-                            }
-                          >
-                            <Trash2 className="h-4 w-4 text-destructive" />
-                          </Button>
-                        </div>
-                      </div>
+                              >
+                                <DialogTrigger asChild>
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setEditingQuestionId(question.id || null);
+                                    }}
+                                    className="h-8"
+                                  >
+                                    <Edit className="h-3 w-3" />
+                                  </Button>
+                                </DialogTrigger>
+                                <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+                                  <DialogHeader>
+                                    <DialogTitle>Edit Question</DialogTitle>
+                                    <DialogDescription>
+                                      Update the practice question details
+                                    </DialogDescription>
+                                  </DialogHeader>
+                                  <ComprehensiveQuestionForm
+                                    initialData={question}
+                                    onSubmit={async (data) => {
+                                      if (!question.id) return;
+                                      try {
+                                        await updatePracticeQuestion(
+                                          question.id,
+                                          data,
+                                        );
+                                        toast.success(
+                                          "Question updated successfully",
+                                        );
+                                        setEditingQuestionId(null);
+                                        mutate();
+                                      } catch (error) {
+                                        console.error(
+                                          "Error updating question:",
+                                          error,
+                                        );
+                                        toast.error(
+                                          "Failed to update question",
+                                        );
+                                      }
+                                    }}
+                                  />
+                                </DialogContent>
+                              </Dialog>
+                              <Button
+                                variant="destructive"
+                                size="sm"
+                                onClick={async (e) => {
+                                  e.stopPropagation();
+                                  if (!question.id) return;
+                                  if (
+                                    confirm(
+                                      "Are you sure you want to delete this question?",
+                                    )
+                                  ) {
+                                    try {
+                                      await deletePracticeQuestion(question.id);
+                                      toast.success(
+                                        "Question deleted successfully",
+                                      );
+                                      mutate();
+                                    } catch (error) {
+                                      console.error(
+                                        "Error deleting question:",
+                                        error,
+                                      );
+                                      toast.error("Failed to delete question");
+                                    }
+                                  }
+                                }}
+                                className="h-8"
+                              >
+                                <Trash2 className="h-3 w-3" />
+                              </Button>
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      ))
+                    )}
+                  </TableBody>
+                </Table>
+              </div>
+            ) : (
+              <div
+                className={`grid gap-6 ${
+                  viewLayout === "grid"
+                    ? "grid-cols-1 lg:grid-cols-2"
+                    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                }`}
+              >
+                {isLoading ? (
+                  <Card>
+                    <CardContent className="py-12 text-center">
+                      <RefreshCw className="h-8 w-8 animate-spin mx-auto text-primary" />
+                      <p className="mt-4 text-muted-foreground">
+                        Loading questions...
+                      </p>
                     </CardContent>
                   </Card>
-                ))
-              )}
-            </div>
+                ) : error ? (
+                  <Card>
+                    <CardContent className="py-12 text-center">
+                      <p className="text-destructive mb-4">
+                        Failed to load questions. Please try again.
+                      </p>
+                      <Button onClick={() => mutate()}>Retry</Button>
+                    </CardContent>
+                  </Card>
+                ) : paginatedQuestions.length === 0 ? (
+                  <Card>
+                    <CardContent className="py-12 text-center">
+                      <p className="text-muted-foreground">
+                        No questions found
+                      </p>
+                    </CardContent>
+                  </Card>
+                ) : (
+                  paginatedQuestions.map((question) => (
+                    <Card key={question.id}>
+                      <CardContent className="pt-6">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1 space-y-2">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <Badge
+                                variant="outline"
+                                className="font-semibold"
+                              >
+                                {getCompanyNameFromLogo(question.companyLogo)}
+                              </Badge>
+                              <Badge
+                                variant={
+                                  question.difficulty === "easy"
+                                    ? "default"
+                                    : question.difficulty === "medium"
+                                      ? "secondary"
+                                      : "destructive"
+                                }
+                              >
+                                {question.difficulty.toUpperCase()}
+                              </Badge>
+                              <Badge variant="outline">
+                                {question.category.replace("-", " ")}
+                              </Badge>
+                            </div>
+                            <h3
+                              className="font-bold text-xl prose prose-sm dark:prose-invert max-w-none"
+                              dangerouslySetInnerHTML={renderMarkdown(
+                                question.title,
+                              )}
+                            />
+                            <div className="flex gap-2 flex-wrap">
+                              {question.topicTags.slice(0, 5).map((tag) => (
+                                <Badge
+                                  key={tag}
+                                  variant="outline"
+                                  className="text-xs"
+                                >
+                                  {tag}
+                                </Badge>
+                              ))}
+                              {question.topicTags.length > 5 && (
+                                <Badge variant="outline" className="text-xs">
+                                  +{question.topicTags.length - 5} more
+                                </Badge>
+                              )}
+                            </div>
+                            {/* Tech Stack Preview */}
+                            {(question.languages ||
+                              question.databases ||
+                              question.cloudProviders) && (
+                              <div className="flex gap-2 flex-wrap text-xs text-muted-foreground">
+                                {question.languages &&
+                                  question.languages.length > 0 && (
+                                    <span>
+                                      💻{" "}
+                                      {question.languages
+                                        .slice(0, 3)
+                                        .join(", ")}
+                                    </span>
+                                  )}
+                                {question.databases &&
+                                  question.databases.length > 0 && (
+                                    <span>
+                                      🗄️{" "}
+                                      {question.databases
+                                        .slice(0, 2)
+                                        .join(", ")}
+                                    </span>
+                                  )}
+                                {question.cloudProviders &&
+                                  question.cloudProviders.length > 0 && (
+                                    <span>
+                                      ☁️ {question.cloudProviders.join(", ")}
+                                    </span>
+                                  )}
+                              </div>
+                            )}
+                          </div>
+                          <div className="flex gap-2">
+                            <Dialog
+                              open={editingQuestionId === question.id}
+                              onOpenChange={(open) => {
+                                if (!open) {
+                                  setEditingQuestionId(null);
+                                }
+                              }}
+                            >
+                              <DialogTrigger asChild>
+                                <Button
+                                  variant="outline"
+                                  size="sm"
+                                  onClick={() =>
+                                    setEditingQuestionId(question.id || null)
+                                  }
+                                >
+                                  <Edit className="h-4 w-4" />
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+                                <DialogHeader>
+                                  <DialogTitle>Edit Question</DialogTitle>
+                                  <DialogDescription>
+                                    Update the practice question details
+                                  </DialogDescription>
+                                </DialogHeader>
+                                <ComprehensiveQuestionForm
+                                  initialData={question}
+                                  onSubmit={async (data) => {
+                                    if (!question.id) return;
+                                    try {
+                                      await updatePracticeQuestion(
+                                        question.id,
+                                        data,
+                                      );
+                                      toast.success(
+                                        "Question updated successfully",
+                                      );
+                                      setEditingQuestionId(null);
+                                      mutate();
+                                    } catch (error) {
+                                      console.error(
+                                        "Error updating question:",
+                                        error,
+                                      );
+                                      toast.error("Failed to update question");
+                                    }
+                                  }}
+                                />
+                              </DialogContent>
+                            </Dialog>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() =>
+                                question.id && handleDelete(question.id)
+                              }
+                            >
+                              <Trash2 className="h-4 w-4 text-destructive" />
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))
+                )}
+              </div>
+            )}
 
             {/* Pagination */}
             {filteredQuestions.length > itemsPerPage && (
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mt-6">
                 <div className="text-sm text-muted-foreground">
                   Showing {startIndex + 1} to{" "}
                   {Math.min(endIndex, filteredQuestions.length)} of{" "}

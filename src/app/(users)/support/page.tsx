@@ -188,7 +188,7 @@ export default function SupportPage() {
 
               {/* FAQ Section */}
               <Card className="border-2">
-                <CardHeader className="border-b bg-gradient-to-r from-primary/5 to-transparent">
+                <CardHeader className="border-b">
                   <div className="flex items-center gap-3">
                     <Sparkles className="h-5 w-5 text-primary" />
                     <CardTitle className="text-xl sm:text-2xl">

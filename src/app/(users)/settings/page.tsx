@@ -177,7 +177,7 @@ export default function SettingsPage() {
             <div className="space-y-6 sm:space-y-8">
               {/* Cookie Settings */}
               <Card className="border-2">
-                <CardHeader className="border-b bg-gradient-to-r from-primary/5 to-transparent">
+                <CardHeader className="border-b ">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-primary/10 rounded-lg">
                       <Cookie className="h-5 w-5 text-primary" />
