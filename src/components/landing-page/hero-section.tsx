@@ -63,7 +63,7 @@ export default function HeroSection() {
                     }}
                     aria-label="View your progress dashboard"
                   >
-                    See your progress{" "}
+                    Start your journey{" "}
                     <TrendingUp className="w-4 h-4 ml-2" aria-hidden="true" />
                   </Button>
                   <Button

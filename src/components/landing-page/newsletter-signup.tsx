@@ -4,25 +4,49 @@ import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import React from "react";
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!email) return;
 
-    setIsLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitted(true);
-    setIsLoading(false);
-    setEmail("");
+    if (!email) return alert("Please enter an email address.");
+
+    setLoading(true);
+    setSuccess(false);
+
+    try {
+      await fetch(
+        "https://assets.mailerlite.com/jsonp/1884485/forms/169514911678859248/subscribe",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            "fields[email]": email,
+            "ml-submit": "1",
+            anticsrf: "true",
+          }),
+        }
+      );
+
+      setSuccess(true);
+      setEmail("");
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (err) {
+      console.error("Subscription failed:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  if (isSubmitted) {
+  if (success) {
     return (
       <section className="py-16 bg-primary/5">
         <div className="container mx-auto px-6">
@@ -104,7 +128,7 @@ export function NewsletterSignup() {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="flex-1 h-10 sm:h-12 text-sm sm:text-base"
-              disabled={isLoading}
+              disabled={loading}
               aria-describedby="email-description"
               aria-invalid={false}
             />
@@ -117,10 +141,10 @@ export function NewsletterSignup() {
             */}
             <Button
               type="submit"
-              disabled={isLoading || !email}
+              disabled={loading || !email}
               className="group whitespace-nowrap w-full sm:w-auto h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6"
             >
-              {isLoading ? (
+              {loading ? (
                 <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
               ) : (
                 <>
