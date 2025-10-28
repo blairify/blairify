@@ -93,7 +93,7 @@ export default function Footer() {
         */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-[color:var(--border)] text-xs sm:text-sm">
           <p className="text-center sm:text-left">
-            © {currentYear} Mateusz Jakubowski. All rights reserved.
+            © {currentYear} Blairify. All rights reserved.
           </p>
           <p className="text-center sm:text-right">
             <span className="block sm:inline">Data Protection: </span>
@@ -101,7 +101,7 @@ export default function Footer() {
               href="mailto:blairiy.team@gmail.com"
               className="underline hover:text-[color:var(--foreground)] transition-colors py-1 px-1 -mx-1 touch-manipulation"
             >
-              blairiy.team@gmail.com
+              blairify.team@gmail.com
             </Link>
           </p>
         </div>
