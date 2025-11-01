@@ -50,17 +50,52 @@ export function DashboardTabs({
 }: DashboardTabsProps) {
   return (
     <Tabs defaultValue="activity" className="space-y-6">
-      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
-        <TabsTrigger value="overview" className="text-xs md:text-sm">
+      <TabsList className="flex w-full overflow-x-auto no-scrollbar gap-2">
+        <TabsTrigger
+          value="overview"
+          className="text-xs md:text-sm flex-shrink-0 px-3 py-2 rounded-md transition-colors
+               data-[state=active]:bg-sidebar-primary
+               data-[state=active]:text-sidebar-primary-foreground
+               data-[state=active]:font-medium
+               dark:data-[state=active]:bg-sidebar-primary/80
+               dark:data-[state=active]:text-sidebar-primary-foreground"
+        >
           Overview
         </TabsTrigger>
-        <TabsTrigger value="performance" className="text-xs md:text-sm">
+
+        <TabsTrigger
+          value="performance"
+          className="text-xs md:text-sm flex-shrink-0 px-3 py-2 rounded-md transition-colors
+               data-[state=active]:bg-sidebar-primary
+               data-[state=active]:text-sidebar-primary-foreground
+               data-[state=active]:font-medium
+               dark:data-[state=active]:bg-sidebar-primary/80
+               dark:data-[state=active]:text-sidebar-primary-foreground"
+        >
           Performance
         </TabsTrigger>
-        <TabsTrigger value="skills" className="text-xs md:text-sm">
+
+        <TabsTrigger
+          value="skills"
+          className="text-xs md:text-sm flex-shrink-0 px-3 py-2 rounded-md transition-colors
+               data-[state=active]:bg-sidebar-primary
+               data-[state=active]:text-sidebar-primary-foreground
+               data-[state=active]:font-medium
+               dark:data-[state=active]:bg-sidebar-primary/80
+               dark:data-[state=active]:text-sidebar-primary-foreground"
+        >
           Skills
         </TabsTrigger>
-        <TabsTrigger value="activity" className="text-xs md:text-sm">
+
+        <TabsTrigger
+          value="activity"
+          className="text-xs md:text-sm flex-shrink-0 px-3 py-2 rounded-md transition-colors
+               data-[state=active]:bg-sidebar-primary
+               data-[state=active]:text-sidebar-primary-foreground
+               data-[state=active]:font-medium
+               dark:data-[state=active]:bg-sidebar-primary/80
+               dark:data-[state=active]:text-sidebar-primary-foreground"
+        >
           Activity
         </TabsTrigger>
       </TabsList>
