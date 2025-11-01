@@ -76,17 +76,15 @@ export default function DashboardNavbar({
         <div className="px-4 h-16 flex items-center justify-between w-full">
           {/* Left side: Mobile menu + Avatar + User info */}
           <div className="flex items-center space-x-4">
-            {isMobile && (
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => setSidebarOpen(true)}
-                className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                data-testid="mobile-menu-button"
-              >
-                <Menu className="size-4" />
-              </Button>
-            )}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setSidebarOpen(true)}
+              className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors lg:hidden"
+              data-testid="mobile-menu-button"
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
 
             <div className="flex items-center space-x-3">
               <Tooltip>
@@ -112,8 +110,8 @@ export default function DashboardNavbar({
                           <AvatarFallback className="bg-primary/10 text-primary">
                             {getInitials(
                               userData?.displayName ||
-                                user?.displayName ||
-                                null,
+                              user?.displayName ||
+                              null,
                             )}
                           </AvatarFallback>
                         </Avatar>
