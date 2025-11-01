@@ -101,7 +101,7 @@ export function DashboardPromo() {
             - Touch-friendly chart interactions
             - Proper visual hierarchy for small screens
           */}
-          <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-center order-first lg:order-last">
+          <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-center order-last">
             {/* Weekly Activity Chart - Mobile Enhanced */}
             <Card className="border-border bg-card">
               <CardHeader>

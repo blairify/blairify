@@ -79,19 +79,16 @@ export default function FeaturesGrid() {
             to your learning goals.
           </p>
         </div>
-        <li
-          className="grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-8 sm:mt-12"
-          aria-label="Platform features"
-        >
+
+        {/* Grid Container */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 auto-rows-min mt-8 sm:mt-12">
           {features.map((f, index) => {
             const Icon = f.icon;
             return (
               <div
                 key={f.title}
                 className="group p-4 sm:p-6 rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)] shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[color:var(--primary)] text-white mb-3 sm:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
                   <Icon size={20} className="sm:w-6 sm:h-6" />
@@ -106,8 +103,9 @@ export default function FeaturesGrid() {
               </div>
             );
           })}
-        </li>
+        </div>
       </div>
     </section>
   );
 }
+
