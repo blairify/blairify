@@ -31,14 +31,10 @@ export default function HeroSection() {
               role="img"
               aria-label="Blairify logo - AI-powered interview preparation platform"
             >
-              <MainLogo />
+              <MainLogo size="lg" />
             </div>
           </div>
           <div className="flex flex-col justify-center space-y-4 sm:space-y-6 text-center lg:text-left order-2 lg:order-1 animate-in slide-in-from-left-8 duration-1000 delay-200">
-            <p className="inline-flex items-center gap-2 sm:gap-3 bg-[color:var(--accent)]/20 text-[color:var(--accent-foreground)] px-2 sm:px-3 py-1 rounded-md text-xs sm:text-sm w-max mx-auto lg:mx-0">
-              <span className="font-medium">AI-powered</span>
-              <span className="text-xs opacity-80">Interview Prep</span>
-            </p>
             <h1
               id="hero-heading"
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"

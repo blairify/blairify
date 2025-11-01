@@ -37,7 +37,9 @@ export default function Footer() {
                     className="hover:text-[color:var(--foreground)] transition-colors flex items-center gap-2 py-2 lg:py-0 touch-manipulation"
                   >
                     <Icon className="w-3 h-3 sm:w-4 sm:h-4 lg:w-3 lg:h-3 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm lg:text-xs">{link.label}</span>
+                    <span className="text-xs sm:text-sm lg:text-xs">
+                      {link.label}
+                    </span>
                   </Link>
                 );
               })}

@@ -110,8 +110,8 @@ export default function DashboardNavbar({
                           <AvatarFallback className="bg-primary/10 text-primary">
                             {getInitials(
                               userData?.displayName ||
-                              user?.displayName ||
-                              null,
+                                user?.displayName ||
+                                null,
                             )}
                           </AvatarFallback>
                         </Avatar>
