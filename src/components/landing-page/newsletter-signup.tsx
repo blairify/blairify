@@ -1,10 +1,9 @@
 "use client";
 
 import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import React from "react";
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");
@@ -33,7 +32,7 @@ export function NewsletterSignup() {
             "ml-submit": "1",
             anticsrf: "true",
           }),
-        }
+        },
       );
 
       setSuccess(true);

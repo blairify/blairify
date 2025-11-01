@@ -114,7 +114,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
           </div>
 
           {/* Content Side - Right */}
-          <div className="space-y-4 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-center text-center lg:text-left">
+          <div className="space-y-4 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-left lg:text-left">
             <div className="space-y-4 sm:space-y-6">
               <h2
                 id="job-listings-heading"
@@ -130,26 +130,26 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center justify-center lg:justify-start gap-3">
+              <div className="flex items-center justify-left lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   Real job postings from top companies
                 </span>
               </div>
-              <div className="flex items-center justify-center lg:justify-start gap-3">
+              <div className="flex items-center justify-left lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   Position-specific interview preparation
                 </span>
               </div>
 
-              <div className="flex items-center justify-center lg:justify-start gap-3">
+              <div className="flex items-center justify-left lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   A stressless way to pepare for your next interview
                 </span>
               </div>
-              <div className="flex items-center justify-center lg:justify-start gap-3">
+              <div className="flex items-center justify-left lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   First ever AI-powered job interview preparation tool
@@ -157,7 +157,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-left lg:justify-start">
               <Button
                 onClick={() => router.push("/jobs")}
                 aria-label="Browse All Jobs"

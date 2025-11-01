@@ -159,7 +159,7 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
                     <CardTitle className="text-sm font-semibold line-clamp-2 group-hover:text-primary transition-colors leading-tight min-h-[2.5rem]">
                       {truncateQuestion(
                         question.question.replace(/[#*]/g, "").trim(),
-                        200
+                        200,
                       )}
                     </CardTitle>
                   </CardHeader>
@@ -200,7 +200,6 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
             })}
           </div>
         </div>
-
       </div>
     </section>
   );

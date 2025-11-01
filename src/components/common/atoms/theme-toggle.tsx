@@ -1,5 +1,5 @@
 "use client";
-import { Monitor, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/tooltip";
 
 export function ThemeToggle() {
-  const { theme, setTheme, systemTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // Avoid hydration mismatch
@@ -20,31 +20,18 @@ export function ThemeToggle() {
   }, []);
 
   const cycleTheme = () => {
-    // Cycle: system -> light -> dark -> system
-    if (theme === "system") {
-      setTheme("light");
-    } else if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("system");
-    }
+    // Toggle between light and dark
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   const getTooltipText = () => {
     if (!mounted) return "Toggle Theme";
-    if (theme === "system") {
-      return `System (${systemTheme === "dark" ? "Dark" : "Light"})`;
-    }
     return theme === "dark" ? "Dark Mode" : "Light Mode";
   };
 
   const getIcon = () => {
     if (!mounted) {
       return <Sun className="size-[1.2rem]" />;
-    }
-
-    if (theme === "system") {
-      return <Monitor className="size-[1.2rem]" />;
     }
 
     return theme === "dark" ? (
