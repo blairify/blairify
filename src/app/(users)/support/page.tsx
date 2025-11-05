@@ -7,7 +7,6 @@ import {
   HelpCircle,
   Mail,
   MessageSquare,
-  Sparkles,
 } from "lucide-react";
 import { useState } from "react";
 import LoadingPage from "@/components/common/atoms/loading-page";
@@ -76,7 +75,7 @@ const faqData = [
     id: "company-specific",
     question: "Can I practice for specific companies?",
     answer:
-      "Absolutely! Our practice library includes questions tagged with specific companies where they were asked. Use the company filter to focus on your target companies.",
+      "Our practice library includes questions tagged with specific companies where they were asked. Use the company filter to focus on your target companies.",
   },
   {
     id: "difficulty-levels",
@@ -115,70 +114,78 @@ export default function SupportPage() {
       />
       <div className="flex-1 flex flex-col overflow-hidden">
         <DashboardNavbar setSidebarOpen={setSidebarOpen} />
-        <main className="flex-1 overflow-auto bg-gradient-to-br from-background via-background to-primary/5">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-5xl">
-            {/* Page Header */}
-            <div className="mb-8 sm:mb-12">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-primary/10 rounded-xl">
-                  <HelpCircle className="h-8 w-8 text-primary" />
+        <main className="flex-1 overflow-auto bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16 max-w-6xl">
+            <div className="mb-10 sm:mb-14 border-b pb-8">
+              <div className="flex items-start gap-4 mb-3">
+                <div className="p-2.5 bg-muted rounded-lg">
+                  <HelpCircle className="h-7 w-7 text-foreground" />
                 </div>
                 <div>
-                  <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                  <h1 className="text-3xl sm:text-4xl font-semibold text-foreground tracking-tight">
                     Help & Support
                   </h1>
-                  <p className="text-muted-foreground mt-1">
-                    Find answers to common questions and get help
+                  <p className="text-muted-foreground mt-2 text-base">
+                    Find answers to common questions and get assistance
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-6 sm:space-y-8">
-              {/* Quick Help Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <Card className="border-2 hover:border-primary/50 transition-all hover:shadow-lg">
+            <div className="space-y-10 sm:space-y-12">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <Card className="hover:shadow-md transition-shadow">
                   <CardContent className="p-6">
-                    <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="p-3 bg-blue-500/10 rounded-full">
-                        <BookOpen className="h-6 w-6 text-blue-500" />
+                    <div className="flex flex-col space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-muted rounded-md">
+                          <BookOpen className="h-5 w-5 text-foreground" />
+                        </div>
+                        <h3 className="font-semibold text-base">
+                          Documentation
+                        </h3>
                       </div>
-                      <h3 className="font-semibold">Documentation</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Browse our comprehensive guides
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Browse our comprehensive guides and tutorials
                       </p>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="border-2 hover:border-primary/50 transition-all hover:shadow-lg">
+                <Card className="hover:shadow-md transition-shadow">
                   <CardContent className="p-6">
-                    <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="p-3 bg-green-500/10 rounded-full">
-                        <MessageSquare className="h-6 w-6 text-green-500" />
+                    <div className="flex flex-col space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-muted rounded-md">
+                          <MessageSquare className="h-5 w-5 text-foreground" />
+                        </div>
+                        <h3 className="font-semibold text-base">Live Chat</h3>
                       </div>
-                      <h3 className="font-semibold">Live Chat</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Chat with our support team
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Chat with our support team in real-time
                       </p>
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="secondary" className="text-xs w-fit">
                         Coming Soon
                       </Badge>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="border-2 hover:border-primary/50 transition-all hover:shadow-lg">
+                <Card className="hover:shadow-md transition-shadow">
                   <CardContent className="p-6">
-                    <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="p-3 bg-purple-500/10 rounded-full">
-                        <Mail className="h-6 w-6 text-purple-500" />
+                    <div className="flex flex-col space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-muted rounded-md">
+                          <Mail className="h-5 w-5 text-foreground" />
+                        </div>
+                        <h3 className="font-semibold text-base">
+                          Email Support
+                        </h3>
                       </div>
-                      <h3 className="font-semibold">Email Support</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Get help via email
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Get help via email within 24 hours
                       </p>
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="secondary" className="text-xs w-fit">
                         Coming Soon
                       </Badge>
                     </div>
@@ -186,91 +193,81 @@ export default function SupportPage() {
                 </Card>
               </div>
 
-              {/* FAQ Section */}
-              <Card className="border-2">
-                <CardHeader className="border-b">
-                  <div className="flex items-center gap-3">
-                    <Sparkles className="h-5 w-5 text-primary" />
-                    <CardTitle className="text-xl sm:text-2xl">
-                      Frequently Asked Questions
-                    </CardTitle>
-                  </div>
+              <Card>
+                <CardHeader className="border-b bg-muted/30">
+                  <CardTitle className="text-xl sm:text-2xl font-semibold">
+                    Frequently Asked Questions
+                  </CardTitle>
                   <p className="text-sm text-muted-foreground mt-2">
                     Quick answers to common questions about using Blairify
                   </p>
                 </CardHeader>
-                <CardContent className="p-4 sm:p-6">
-                  <div className="space-y-3">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="space-y-4">
                     {faqData.map((faq, index) => (
                       <Collapsible
                         key={faq.id}
                         open={openItems.includes(faq.id)}
                         onOpenChange={() => toggleItem(faq.id)}
                       >
-                        <Card className="border-2 hover:border-primary/30 transition-all">
+                        <div className="border rounded-lg overflow-hidden">
                           <CollapsibleTrigger asChild>
                             <Button
                               variant="ghost"
-                              className="flex w-full justify-between p-4 sm:p-5 text-left hover:bg-primary/5 min-h-[60px] items-start rounded-lg"
+                              className="flex w-full justify-between p-5 text-left hover:bg-muted/50 items-center rounded-none h-auto"
                             >
-                              <div className="flex items-start gap-3 flex-1">
-                                <Badge
-                                  variant="outline"
-                                  className="mt-0.5 flex-shrink-0"
-                                >
-                                  {index + 1}
-                                </Badge>
-                                <span className="font-semibold text-sm sm:text-base pr-3 text-left leading-relaxed">
+                              <div className="flex items-center gap-4 flex-1">
+                                <span className="text-xs font-medium text-muted-foreground min-w-[2rem]">
+                                  {String(index + 1).padStart(2, "0")}
+                                </span>
+                                <span className="font-medium text-sm sm:text-base pr-3 text-foreground leading-relaxed">
                                   {faq.question}
                                 </span>
                               </div>
                               {openItems.includes(faq.id) ? (
-                                <ChevronUp className="h-5 w-5 flex-shrink-0 mt-1 text-primary" />
+                                <ChevronUp className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
                               ) : (
-                                <ChevronDown className="h-5 w-5 flex-shrink-0 mt-1 text-muted-foreground" />
+                                <ChevronDown className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
                               )}
                             </Button>
                           </CollapsibleTrigger>
                           <CollapsibleContent>
-                            <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-0">
-                              <div className="pl-0 sm:pl-11 bg-muted/30 rounded-lg p-4 border-l-4 border-primary/50">
-                                <p className="text-sm text-foreground leading-relaxed">
+                            <div className="px-5 pb-5 pt-2 bg-muted/20 border-t">
+                              <div className="pl-0 sm:pl-10">
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                   {faq.answer}
                                 </p>
                               </div>
                             </div>
                           </CollapsibleContent>
-                        </Card>
+                        </div>
                       </Collapsible>
                     ))}
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Contact Section */}
-              <Card className="border-2 bg-gradient-to-br from-primary/5 to-primary/10">
-                <CardContent className="p-6 sm:p-8">
-                  <div className="text-center space-y-4">
-                    <div className="inline-flex p-4 bg-background rounded-full shadow-lg">
-                      <MessageSquare className="h-8 w-8 text-primary" />
+              <Card className="bg-muted/30">
+                <CardContent className="p-8 sm:p-10">
+                  <div className="text-center space-y-5 max-w-2xl mx-auto">
+                    <div className="inline-flex p-3 bg-background rounded-lg border">
+                      <MessageSquare className="h-7 w-7 text-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">
-                        Still need help?
+                      <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-foreground">
+                        Need Additional Assistance?
                       </h3>
-                      <p className="text-muted-foreground mb-6">
-                        Can't find what you're looking for? Our support team is
-                        here to help.
+                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                        If you can't find the answer you're looking for, our
+                        support team is ready to help you.
                       </p>
-                      <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                        <Button size="lg" disabled className="gap-2">
-                          <Mail className="h-4 w-4" />
-                          Contact Support
-                          <Badge variant="secondary" className="ml-2">
-                            Coming Soon
-                          </Badge>
-                        </Button>
-                      </div>
+                      <Button size="lg" disabled className="gap-2">
+                        <Mail className="h-4 w-4" />
+                        Contact Support Team
+                        <Badge variant="secondary" className="ml-2 text-xs">
+                          Coming Soon
+                        </Badge>
+                      </Button>
                     </div>
                   </div>
                 </CardContent>

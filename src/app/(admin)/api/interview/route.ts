@@ -4,6 +4,7 @@
  */
 
 import { type NextRequest, NextResponse } from "next/server";
+import { getInterviewerForRole } from "@/lib/config/interviewers";
 import { aiClient } from "@/lib/services/ai/ai-client";
 import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
 import { ResponseValidator } from "@/lib/services/ai/response-validator";
@@ -64,8 +65,14 @@ export async function POST(
       });
     }
 
+    // Select interviewer based on role
+    const interviewer = getInterviewerForRole(interviewConfig.position);
+
     // Generate prompts
-    const systemPrompt = PromptGenerator.generateSystemPrompt(interviewConfig);
+    const systemPrompt = PromptGenerator.generateSystemPrompt(
+      interviewConfig,
+      interviewer,
+    );
     const userPrompt = PromptGenerator.generateUserPrompt(
       message,
       conversationHistory || [],
@@ -78,6 +85,7 @@ export async function POST(
     const aiResponse = await aiClient.generateInterviewResponse(
       systemPrompt,
       userPrompt,
+      interviewConfig.interviewType,
     );
 
     let finalMessage = aiResponse.content;

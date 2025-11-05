@@ -12,6 +12,28 @@ export interface AIClientConfig {
   model?: string;
   temperature?: number;
   maxTokens?: number;
+  interviewModel?: string;
+  analysisModel?: string;
+  codingModel?: string;
+}
+
+export enum MistralModel {
+  // Lightweight models for interviews
+  MINISTRAL_8B = "ministral-8b-latest",
+  MISTRAL_SMALL = "mistral-small-latest",
+
+  // Powerful models for analysis
+  MISTRAL_MEDIUM = "mistral-medium-latest",
+  MISTRAL_LARGE = "mistral-large-latest",
+
+  // Specialized coding model
+  CODESTRAL = "codestral-latest",
+}
+
+export enum UseCase {
+  INTERVIEW = "interview",
+  ANALYSIS = "analysis",
+  CODING = "coding",
 }
 
 export interface AIResponse {
@@ -27,9 +49,22 @@ export class AIClient {
   constructor(config: AIClientConfig = {}) {
     this.config = {
       apiKey: config.apiKey || process.env.MISTRAL_API_KEY,
-      model: config.model || "mistral-large-latest",
+      model: config.model || MistralModel.MISTRAL_SMALL, // Default fallback
       temperature: config.temperature ?? 0.7,
       maxTokens: config.maxTokens ?? 800,
+      // Specialized models for different use cases (with env var overrides)
+      interviewModel:
+        config.interviewModel ||
+        process.env.MISTRAL_INTERVIEW_MODEL ||
+        MistralModel.MINISTRAL_8B,
+      analysisModel:
+        config.analysisModel ||
+        process.env.MISTRAL_ANALYSIS_MODEL ||
+        MistralModel.MISTRAL_MEDIUM,
+      codingModel:
+        config.codingModel ||
+        process.env.MISTRAL_CODING_MODEL ||
+        MistralModel.CODESTRAL,
       ...config,
     };
 
@@ -37,6 +72,29 @@ export class AIClient {
       this.client = new Mistral({
         apiKey: this.config.apiKey,
       });
+    }
+  }
+
+  /**
+   * Get the appropriate model for the given use case
+   */
+  private getModelForUseCase(useCase: UseCase, interviewType?: string): string {
+    switch (useCase) {
+      case UseCase.INTERVIEW:
+        // Use coding model for coding interviews, otherwise use lightweight model
+        if (interviewType === "coding") {
+          return this.config.codingModel || MistralModel.CODESTRAL;
+        }
+        return this.config.interviewModel || MistralModel.MINISTRAL_8B;
+
+      case UseCase.ANALYSIS:
+        return this.config.analysisModel || MistralModel.MISTRAL_MEDIUM;
+
+      case UseCase.CODING:
+        return this.config.codingModel || MistralModel.CODESTRAL;
+
+      default:
+        return this.config.model || MistralModel.MISTRAL_SMALL;
     }
   }
 
@@ -78,6 +136,7 @@ export class AIClient {
   async generateInterviewResponse(
     systemPrompt: string,
     userPrompt: string,
+    interviewType?: string,
   ): Promise<AIResponse> {
     if (!this.client || !this.config.apiKey) {
       console.error(
@@ -93,12 +152,20 @@ export class AIClient {
     }
 
     try {
+      const selectedModel = this.getModelForUseCase(
+        UseCase.INTERVIEW,
+        interviewType,
+      );
+      console.log(
+        `🤖 Using model for interview: ${selectedModel} (type: ${interviewType || "general"})`,
+      );
+
       const chatResponse = await this.retryWithBackoff(() => {
-        if (!this.client || !this.config.model) {
+        if (!this.client) {
           throw new Error("AI client not properly configured");
         }
         return this.client.chat.complete({
-          model: this.config.model,
+          model: selectedModel,
           messages: [
             {
               role: "system",
@@ -198,12 +265,15 @@ export class AIClient {
     }
 
     try {
+      const selectedModel = this.getModelForUseCase(UseCase.ANALYSIS);
+      console.log(`🔍 Using model for analysis: ${selectedModel}`);
+
       const chatResponse = await this.retryWithBackoff(() => {
-        if (!this.client || !this.config.model) {
+        if (!this.client) {
           throw new Error("AI client not properly configured");
         }
         return this.client.chat.complete({
-          model: this.config.model,
+          model: selectedModel,
           messages: [
             {
               role: "system",

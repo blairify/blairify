@@ -50,7 +50,7 @@ export class AnalysisService {
 
       sections.improvements = AnalysisService.extractListItems(
         analysis,
-        "Critical Weaknesses|Areas for Growth",
+        "Critical Weaknesses|Areas for Growth|Required Improvements|If Failed - Required Improvements",
       );
 
       const recommendationsMatch = analysis.match(
@@ -78,18 +78,22 @@ export class AnalysisService {
         scoreNumber = maxAllowedScore;
       }
 
-      // Validate pass/fail consistency
+      // Validate pass/fail consistency and fix contradictions
       const passingThreshold = SENIORITY_EXPECTATIONS[config.seniority];
+      const shouldPass = scoreNumber >= passingThreshold.score;
+      const originalDecision = sections.decision;
+
+      // Always use score-based decision to avoid contradictions
+      sections.decision = shouldPass ? "PASS" : "FAIL";
+
+      // Log if there was a contradiction in the AI analysis
       if (
-        scoreNumber < passingThreshold.score &&
-        sections.decision === "PASS"
+        originalDecision !== "UNKNOWN" &&
+        originalDecision !== sections.decision
       ) {
-        sections.decision = "FAIL";
-      } else if (
-        scoreNumber >= passingThreshold.score &&
-        sections.decision === "FAIL"
-      ) {
-        sections.decision = "PASS";
+        console.warn(
+          `Fixed contradictory analysis: AI said ${originalDecision} but score ${scoreNumber} should be ${sections.decision}`,
+        );
       }
 
       // Ensure we have fallback content
@@ -99,8 +103,15 @@ export class AnalysisService {
         );
       }
       if (sections.improvements.length === 0) {
+        // Generate specific improvements based on the config and analysis
+        const position = config.position || "technical";
+        const seniority = config.seniority || "mid";
+
         sections.improvements.push(
-          "Fundamental knowledge gaps across all areas",
+          `Study fundamental ${position} concepts and best practices`,
+          `Practice coding problems appropriate for ${seniority}-level positions`,
+          "Improve technical communication and explanation skills",
+          "Gain more hands-on experience with real-world projects",
         );
       }
 
@@ -110,8 +121,7 @@ export class AnalysisService {
         scoreColor: AnalysisService.getScoreColor(scoreNumber),
         passed: sections.decision === "PASS",
         passingThreshold: passingThreshold.score,
-        decision:
-          sections.decision === "UNKNOWN" ? undefined : sections.decision,
+        decision: sections.decision,
       };
     } catch (error) {
       console.error("Error parsing analysis:", error);
@@ -192,26 +202,54 @@ export class AnalysisService {
     sectionPattern: string,
   ): string[] {
     const items: string[] = [];
-    const regex = new RegExp(
-      `\\*\\*(${sectionPattern}):\\*\\*\\s*([\\s\\S]*?)(?=\\*\\*Critical Weaknesses:|\\*\\*Areas for Growth:|\\*\\*|\\n##|$)`,
-      "gi",
+
+    // Try multiple regex patterns to capture different formats
+    const patterns = [
+      // Pattern 1: **Section:** followed by content
+      new RegExp(
+        `\\*\\*(${sectionPattern}):\\*\\*\\s*([\\s\\S]*?)(?=\\*\\*|\\n##|$)`,
+        "gi",
+      ),
+      // Pattern 2: ### Section followed by content
+      new RegExp(
+        `###\\s*(${sectionPattern}):?\\s*([\\s\\S]*?)(?=###|\\n##|$)`,
+        "gi",
+      ),
+      // Pattern 3: ## Section followed by content
+      new RegExp(`##\\s*(${sectionPattern}):?\\s*([\\s\\S]*?)(?=##|$)`, "gi"),
+    ];
+
+    patterns.forEach((regex) => {
+      const matches = analysis.matchAll(regex);
+      for (const match of matches) {
+        const sectionContent = match[2];
+
+        // Extract numbered list items (1., 2., 3.)
+        const numberedItems = sectionContent
+          .split("\n")
+          .filter((line) => line.trim().match(/^\d+\.\s+/))
+          .map((line) => line.replace(/^\d+\.\s+/, "").trim())
+          .filter((line) => line.length > 0);
+
+        // Extract bullet point items (-, •, *)
+        const bulletItems = sectionContent
+          .split("\n")
+          .filter((line) => line.trim().match(/^[-•*]\s+/))
+          .map((line) => line.replace(/^[-•*]\s+/, "").trim())
+          .filter((line) => line.length > 0);
+
+        items.push(...numberedItems, ...bulletItems);
+      }
+    });
+
+    // Remove duplicates and filter out empty/invalid items
+    return [...new Set(items)].filter(
+      (item) =>
+        item.length > 0 &&
+        !item.toLowerCase().includes("none demonstrated") &&
+        !item.toLowerCase().includes("no significant") &&
+        item.length > 10, // Ensure meaningful content
     );
-
-    const matches = analysis.matchAll(regex);
-    for (const match of matches) {
-      const sectionItems = match[2]
-        .split("\n")
-        .filter((line) => line.trim().match(/^[-•*]\s+/))
-        .map((line) => line.replace(/^[-•*]\s+/, "").trim())
-        .filter(
-          (line) =>
-            line.length > 0 &&
-            !line.toLowerCase().includes("none demonstrated"),
-        );
-      items.push(...sectionItems);
-    }
-
-    return items;
   }
 
   private static buildDetailedAnalysis(

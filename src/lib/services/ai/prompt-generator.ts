@@ -7,6 +7,7 @@ import {
   COMPANY_PROMPTS,
   SENIORITY_DETAILED_EXPECTATIONS,
 } from "@/lib/config/interview-config";
+import type { InterviewerProfile } from "@/lib/config/interviewers";
 import type {
   InterviewConfig,
   InterviewMode,
@@ -14,13 +15,33 @@ import type {
   Message,
   SeniorityLevel,
 } from "@/types/interview";
+import { ResponseValidator } from "./response-validator";
 
 // biome-ignore lint/complexity/noStaticOnlyClass: Utility class pattern for organizing related prompt generation functions
 export class PromptGenerator {
   /**
+   * Helper constants for question selection
+   */
+  private static readonly difficultyMap: Record<string, string> = {
+    entry: "entry-level (basic concepts, fundamental understanding)",
+    junior: "junior (practical experience, core knowledge)",
+    mid: "mid-level (architectural decisions, complex scenarios)",
+    senior: "senior (leadership, optimization, advanced patterns)",
+  };
+
+  private static readonly categoryDescription: Record<string, string> = {
+    technical: "technical skills and implementation",
+    "system-design": "system architecture and design principles",
+    coding: "programming and coding challenges",
+    bullet: "behavioral and soft skills",
+  };
+  /**
    * Generate system prompt for the AI interviewer
    */
-  static generateSystemPrompt(config: InterviewConfig): string {
+  static generateSystemPrompt(
+    config: InterviewConfig,
+    interviewer?: InterviewerProfile,
+  ): string {
     const {
       position,
       seniority,
@@ -43,6 +64,7 @@ export class PromptGenerator {
       seniority,
       interviewType,
       interviewMode,
+      interviewer,
     );
 
     const modeSpecificPrompt = PromptGenerator.getModeSpecificPrompt(
@@ -107,7 +129,7 @@ export class PromptGenerator {
       return PromptGenerator.generateFollowUpPrompt(userMessage);
     }
 
-    const isUnknownResponse = PromptGenerator.isUnknownResponse(userMessage);
+    const isUnknownResponse = ResponseValidator.isUnknownResponse(userMessage);
 
     if (isUnknownResponse) {
       return PromptGenerator.generateUnknownResponsePrompt(
@@ -139,9 +161,9 @@ export class PromptGenerator {
 **YOU MUST BE BRUTALLY HONEST. If a candidate doesn't know something, score it as 0. No pity points.**
 
 ### Score Distribution (Total: 100 points):
-1. **Technical Competency (30 points)**: Actual correct technical knowledge demonstrated
+1. **Technical Competency (45 points)**: Actual correct technical knowledge demonstrated
 2. **Problem Solving (25 points)**: Ability to break down and solve problems systematically  
-3. **Communication (25 points)**: Clarity, structure, and effectiveness of explanations
+3. **Communication (10 points)**: Clarity, structure, and effectiveness of explanations
 4. **Professional Readiness (20 points)**: Real-world experience and practical application
 
 ### Scoring Guidelines by Response Quality:
@@ -186,7 +208,7 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 
 [2-3 sentence executive summary explaining the decision]
 
-## TECHNICAL COMPETENCY ([SCORE]/30)
+## TECHNICAL COMPETENCY ([SCORE]/45)
 **Strengths:**
 - [Specific strength with example, or "None demonstrated" if applicable]
 
@@ -200,7 +222,7 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 **Critical Weaknesses:**
 - [Specific gaps with examples from the interview]
 
-## COMMUNICATION ([SCORE]/25)
+## COMMUNICATION ([SCORE]/10)
 **Strengths:**
 - [Specific strength with example, or "None demonstrated" if applicable]
 
@@ -261,8 +283,20 @@ Keep questions broad and approachable - focus on letting them experience the int
     seniority: SeniorityLevel,
     interviewType: InterviewType,
     interviewMode: InterviewMode,
+    interviewer?: InterviewerProfile,
   ): string {
-    return `You are Sarah, an expert technical interviewer with 10+ years of experience conducting interviews at top tech companies. You're conducting a ${interviewType} interview for a ${seniority}-level ${position} position.
+    const interviewerName = interviewer?.name || "Sarah";
+    const interviewerExperience =
+      interviewer?.experience ||
+      "10+ years of experience conducting interviews at top tech companies";
+
+    return `You are ${interviewerName}, an expert technical interviewer with ${interviewerExperience}. You're conducting a ${interviewType} interview for a ${seniority}-level ${position} position.
+
+**CRITICAL FORMATTING RULES:**
+1. NEVER start your response with "${interviewerName}:" or any name prefix
+2. NEVER wrap your entire response in quotes
+3. Write naturally as if speaking directly to the candidate
+4. You may use quotes within your response for emphasis or examples, but don't quote your entire message
 
 ## CORE PRINCIPLES:
 1. **Progressive Questioning**: Start with fundamentals, build complexity based on responses
@@ -273,13 +307,19 @@ Keep questions broad and approachable - focus on letting them experience the int
 
 ## INTERVIEW BEHAVIOR:
 - **Question Quality**: Each question should assess specific competencies relevant to ${seniority}-level ${position}
+- **Question Variety**: Vary question types - mix scenario-based, conceptual, practical, comparison, and problem-solving questions
+- **Topic Diversity**: Cover different areas - technical skills, architecture, debugging, optimization, best practices, team collaboration
 - **Response Length**: Keep questions concise (1-3 sentences), detailed enough to be clear
 - **Professional Tone**: Maintain friendly professionalism, encourage elaboration when appropriate
-- **Interview Mode**: Adapt to ${interviewMode} - ${interviewMode === "timed" ? "move efficiently, expect concise answers" : "allow exploration, encourage detailed explanations"}
+- **Interview Mode**: Adapt to ${interviewMode} mode - follow the specific guidelines for this mode
+- **NO REPETITION**: Never ask similar questions or revisit the same topics/concepts
 
-## EXAMPLE INTERACTIONS:
-**Good Question**: "Can you walk me through how you'd optimize a React component that's causing performance issues in a large application?"
-**Good Follow-up**: "That's a solid approach with React.memo. What would you do if the performance issue persisted even after memoization?"
+## EXAMPLE QUESTION VARIETY:
+**Scenario-Based**: "You notice your application's API response time has increased by 300%. Walk me through your debugging process."
+**Conceptual**: "Explain the difference between server-side rendering and client-side rendering. When would you choose each?"
+**Practical**: "How would you implement authentication in a React application? What security considerations would you keep in mind?"
+**Problem-Solving**: "A user reports that the app crashes when they upload large files. How would you investigate and fix this?"
+**Best Practices**: "What's your approach to code reviews? How do you balance thoroughness with team velocity?"
 
 ## ASSESSMENT CRITERIA FOR ${seniority.toUpperCase()} LEVEL:
 ${SENIORITY_DETAILED_EXPECTATIONS[seniority]}`;
@@ -290,40 +330,60 @@ ${SENIORITY_DETAILED_EXPECTATIONS[seniority]}`;
     seniority: SeniorityLevel,
   ): string {
     const prompts: Partial<Record<InterviewMode, string>> = {
-      timed: `
-- Keep questions brief and focused for ${seniority} level
-- Expect concise but comprehensive answers
-- Move efficiently through topics`,
-
-      untimed: `
-- Allow for exploration appropriate to ${seniority} level
-- Encourage explanations matching their experience level
-- Ask follow-up questions suited to their knowledge`,
-
-      bullet: `
-- Ask only 3 focused, concise questions
-- Keep responses brief and to the point
-- Cover essential ${seniority} level topics efficiently`,
-
-      whiteboard: `
-- Present challenges appropriate for ${seniority} level
-- Encourage step-by-step problem-solving
-- Ask about complexity matching their expected knowledge`,
-
       regular: `
+## REGULAR MODE (8 Questions)
 - Conduct a standard interview appropriate for ${seniority} level
 - Balance depth and breadth of questions
-- Allow natural conversation flow`,
+- Allow natural conversation flow
+- Standard interview pace and difficulty`,
 
       practice: `
+## PRACTICE MODE (5 Questions - Untimed)
 - Focus on skill development for ${seniority} level
-- Provide constructive feedback
-- Encourage learning through mistakes`,
+- NOT timed - candidates can take time to think or check resources
+- Learning-focused with less pressure
+- Provide constructive, encouraging feedback
+- Help candidates learn through mistakes
+- Create a supportive, educational environment`,
 
       flash: `
-- Ask rapid-fire questions for ${seniority} level
-- Expect quick, focused responses
-- Cover maximum topics in minimum time`,
+## FLASH INTERVIEW (EXACTLY 3 Questions Only)
+- This is a RAPID ASSESSMENT with only 3 questions total
+- Ask focused, concise questions that quickly evaluate core competencies
+- Move through questions efficiently - no follow-ups or deep dives
+- Cover the most important aspects of the role in 3 questions
+- End the interview after exactly 3 questions - do not continue
+- Keep questions brief and direct for quick evaluation
+- Focus on essential skills and experience indicators`,
+
+      play: `
+## PLAY MODE (Unlimited Questions)
+- Interactive, gamified experience
+- Present ABCD multiple choice questions
+- Make it engaging and fun like a quiz game
+- Include programming history, flash cards, puzzles
+- Continue as long as the user wants - no automatic end
+- User controls when to stop
+- Keep energy high and interactive`,
+
+      competitive: `
+## COMPETITIVE INTERVIEW (10 Questions)
+- For most wanted/competitive positions
+- HARDEST difficulty level for ${seniority}
+- Rigorous, demanding assessment
+- High standards and expectations
+- Challenge the candidate with complex scenarios
+- Expect exceptional depth and breadth of knowledge`,
+
+      teacher: `
+## TEACHER MODE (Unlimited Questions - Not Scored)
+- Purely educational, no scoring or pressure
+- Continue as long as the user wants - no automatic end
+- User controls when to stop
+- Focus on teaching and explaining concepts
+- Be patient, thorough, and encouraging
+- Prepare to explain your answers when "Show Answer" is clicked
+- Create a safe learning environment`,
     };
 
     return prompts[mode] || "";
@@ -360,15 +420,28 @@ ${SENIORITY_DETAILED_EXPECTATIONS[seniority]}`;
 
   private static getCompanyPrompt(company: string): string {
     const prompt = COMPANY_PROMPTS[company.toLowerCase()];
-    return prompt ? `\n\nCompany Context for ${company}: ${prompt}` : "";
+    return prompt
+      ? `\n\nInterview Context: You are conducting an interview for ${company}. ${prompt} 
+
+**IMPORTANT RECRUITING CONTEXT:**
+- You are representing ${company} as a potential employer
+- You can discuss ${company}'s culture, values, and what makes it a great place to work
+- Feel free to highlight ${company}'s technical challenges and exciting projects
+- You may mention career growth opportunities and learning potential at ${company}
+- If the candidate performs well, you can express genuine interest in their potential fit
+- Naturally incorporate this company's interview style and technical focus into your questions
+- Only mention the company name when it adds value to the conversation or question context`
+      : "";
   }
 
   private static getSystemPromptGuidelines(seniority: SeniorityLevel): string {
     return `\n\nImportant Guidelines:
 - Keep responses conversational and brief (2-3 sentences max)
-- Provide context for your questions
+- Provide context for your questions naturally
 - If answering a follow-up, reference the candidate's previous response
 - End with ONE clear, specific question
+- Avoid formulaic openings like "At [Company]" or "For this [Company] interview"
+- Start questions directly and naturally, focusing on the technical content
 - Adjust difficulty for ${seniority} level: 
   * Junior: Focus on fundamentals and basic concepts
   * Mid: Include some intermediate concepts and practical scenarios
@@ -398,10 +471,10 @@ This should be the final demo question. Ask something fun and encouraging that w
 
   private static generateFirstQuestionPrompt(config: InterviewConfig): string {
     if (config.contextType === "job-specific" && config.company) {
-      return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Please introduce yourself as Sarah, the interviewer, and ask the first question that's specifically tailored to this job opportunity and the requirements mentioned in the job context.`;
+      return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Please introduce yourself by stating your name and briefly mentioning your background, then ask the first question that's specifically tailored to this job opportunity and the requirements mentioned in the job context. Remember: Do NOT prefix your response with your name or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm [Your Name], and I've been...")`;
     }
 
-    return `This is the start of a ${config.interviewType} interview. Please introduce yourself as Sarah, the interviewer, and ask the first question appropriate for a ${config.seniority}-level ${config.position} position.`;
+    return `This is the start of a ${config.interviewType} interview. Please introduce yourself by stating your name and briefly mentioning your background, then ask the first question appropriate for a ${config.seniority}-level ${config.position} position. Remember: Do NOT prefix your response with your name or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm [Your Name], and I've been...")`;
   }
 
   /**
@@ -456,30 +529,114 @@ This is question ${questionCount + 1} of the interview.`;
     questionCount: number,
   ): string {
     const recentContext = conversationHistory
-      .slice(-4)
+      .slice(-6) // Look at more history to avoid repeats
       .map(
         (msg) =>
           `${msg.type === "ai" ? "Interviewer" : "Candidate"}: ${msg.content}`,
       )
       .join("\n");
 
+    // Extract topics that have already been covered
+    const coveredTopics =
+      PromptGenerator.extractCoveredTopics(conversationHistory);
+
     return `The candidate's previous response was: "${userMessage}"
 
-This is question ${questionCount + 1} of the interview. Please ask the next ${config.interviewType} question appropriate for a ${config.seniority}-level ${config.position} position. 
+This is question ${questionCount + 1} of the interview. Please ask the next ${config.interviewType} question appropriate for a ${config.seniority}-level ${config.position} position.
 
-Recent conversation context:
+⚠️ CRITICAL - AVOID REPETITION:
+Topics/concepts already covered: ${coveredTopics.length > 0 ? coveredTopics.join(", ") : "none yet"}
+
+DO NOT ask about these topics again. Instead, explore NEW areas such as:
+- Different technical concepts or tools
+- Alternative problem-solving scenarios
+- Different aspects of the development lifecycle
+- Various architectural patterns or design principles
+- Different performance or optimization challenges
+- Security, testing, or deployment topics not yet covered
+- Team collaboration, code review, or best practices
+- Real-world debugging or troubleshooting scenarios
+
+Recent conversation:
 ${recentContext}
 
-Ask a new question that builds upon the conversation and covers different aspects of the role.`;
+Your next question MUST be completely different from previous questions. Vary the question type (scenario-based, conceptual, practical, comparison, problem-solving). Make it specific and relevant to ${config.position} role.`;
   }
 
-  private static isUnknownResponse(message: string): boolean {
-    return (
-      message.toLowerCase().includes("don't know") ||
-      message.toLowerCase().includes("not sure") ||
-      message.toLowerCase().includes("idk") ||
-      message === "[Question skipped]"
-    );
+  private static extractCoveredTopics(
+    conversationHistory: Message[],
+  ): string[] {
+    const topics = new Set<string>();
+
+    // Analyze AI messages (questions) to extract topics
+    conversationHistory
+      .filter((msg) => msg.type === "ai")
+      .forEach((msg) => {
+        const content = msg.content.toLowerCase();
+
+        // Extract common technical topics from questions
+        const topicPatterns = [
+          // Languages
+          /\b(javascript|typescript|python|java|c\+\+|c#|go|rust|php|ruby|swift|kotlin|html|css)\b/g,
+          // Frameworks & Libraries
+          /\b(react|vue|angular|express|django|flask|spring|laravel|rails|next\.?js|nuxt|jquery|bootstrap|tailwind)\b/g,
+          // Databases
+          /\b(mongodb|postgresql|mysql|redis|cassandra|elasticsearch|dynamodb|sql|nosql)\b/g,
+          // Cloud/DevOps
+          /\b(aws|azure|gcp|docker|kubernetes|terraform|jenkins|github actions|ci\/cd|deployment)\b/g,
+          // Concepts & Patterns
+          /\b(algorithms?|data structures?|system design|concurrency|async|promises?|callbacks?|closures?|prototypes?|inheritance|polymorphism)\b/g,
+          // Web Technologies
+          /\b(dom|api|rest|restful|graphql|http|https|websockets?|jwt|oauth|cors|ajax)\b/g,
+          // Architecture & Design
+          /\b(microservices|serverless|monolith|scalability|performance|optimization|security|testing|debugging|refactoring)\b/g,
+          // Specific Question Types
+          /\b(optimize|debug|design|implement|explain|difference|compare|handle|manage|build|create)\b/g,
+          // Problem Areas
+          /\b(memory leak|performance issue|bug|error handling|state management|caching|authentication|authorization)\b/g,
+        ];
+
+        topicPatterns.forEach((pattern) => {
+          const matches = content.match(pattern);
+          if (matches) {
+            matches.forEach((match) => {
+              topics.add(match);
+            });
+          }
+        });
+
+        // Extract question topics from common question starters
+        const questionStarters = [
+          "experience with",
+          "how would you",
+          "explain",
+          "difference between",
+          "what is",
+          "how does",
+          "when would you",
+          "can you walk me through",
+          "tell me about",
+          "have you worked with",
+          "what's your approach to",
+        ];
+
+        questionStarters.forEach((starter) => {
+          if (content.includes(starter)) {
+            // Extract the topic that follows the starter
+            const startIndex = content.indexOf(starter) + starter.length;
+            const remainingText = content.substring(
+              startIndex,
+              startIndex + 50,
+            );
+            const words = remainingText.split(/\s+/).slice(0, 3).join(" ");
+            if (words.length > 3) {
+              topics.add(words.trim());
+            }
+          }
+        });
+      });
+
+    return Array.from(topics);
   }
 
   private static getPassingThreshold(seniority: SeniorityLevel) {
@@ -510,5 +667,63 @@ Ask a new question that builds upon the conversation and covers different aspect
     };
 
     return thresholds[seniority] || thresholds.mid;
+  }
+
+  /**
+   * Fetch actual questions from database to ask in interview
+   * Returns a formatted string with questions to ask
+   */
+  static async getDatabaseQuestionsPrompt(
+    config: InterviewConfig,
+    questionCount: number,
+  ): Promise<{ prompt: string; questionIds: string[] }> {
+    try {
+      const { getRelevantQuestionsForInterview, formatQuestionForPrompt } =
+        await import("../interview/interview-question-selector");
+
+      const questions = await getRelevantQuestionsForInterview(
+        config,
+        questionCount,
+      );
+
+      if (questions.length === 0) {
+        return { prompt: "", questionIds: [] };
+      }
+
+      const questionIds = questions.map((q) => q.id || "").filter(Boolean);
+      const questionsText = questions
+        .map((q, i) => `${i + 1}. ${formatQuestionForPrompt(q)}`)
+        .join("\n\n");
+
+      const prompt = `\n\n## INTERVIEW QUESTIONS FROM PRACTICE LIBRARY:
+You MUST ask these ${questions.length} questions from our curated practice library. Ask them in order, one at a time.
+
+QUESTION SELECTION CRITERIA:
+- **Difficulty**: ${config.seniority}-level (${PromptGenerator.difficultyMap[config.seniority]})
+- **Category**: ${config.interviewType} interview (${PromptGenerator.categoryDescription[config.interviewType]})
+- **Tech Stack**: ${config.technologies.length > 0 ? config.technologies.join(", ") : "General"}
+
+${questionsText}
+
+IMPORTANT GUIDELINES:
+- Ask questions in the order provided
+- Rephrase questions naturally for conversation flow
+- Each question should be comprehensive but concise
+- After candidate answers, provide feedback based on expected answer direction
+- Ask follow-up questions for clarification when needed
+- Evaluate answers against the provided expected answer guidelines
+- Focus on practical application and problem-solving approach
+
+QUESTION FORMATTING:
+- Start with context/scenario when appropriate
+- Ask specific, targeted questions
+- Include relevant technical details
+- Make questions appropriate for ${config.seniority}-level experience`;
+
+      return { prompt, questionIds };
+    } catch (error) {
+      console.error("Failed to fetch database questions:", error);
+      return { prompt: "", questionIds: [] };
+    }
   }
 }

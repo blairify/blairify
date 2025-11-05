@@ -19,7 +19,7 @@ const testConfig: InterviewConfig = {
   technologies: ["React", "TypeScript"],
   companyProfile: "tech",
   specificCompany: "",
-  interviewMode: "timed",
+  interviewMode: "regular",
   interviewType: "technical",
   duration: "30",
   isDemoMode: false,

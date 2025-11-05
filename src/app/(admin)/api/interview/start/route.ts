@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { getInterviewerForRole } from "@/lib/config/interviewers";
 import { aiClient } from "@/lib/services/ai/ai-client";
 import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
 import { InterviewService } from "@/lib/services/interview/interview-service";
@@ -34,8 +35,35 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate initial interview prompt
-    const systemPrompt = PromptGenerator.generateSystemPrompt(interviewConfig);
+    // Select interviewer based on role
+    const interviewer = getInterviewerForRole(interviewConfig.position);
+
+    // Get actual questions from database based on interview mode
+    const { getQuestionCountForMode } = await import(
+      "@/lib/utils/interview-helpers"
+    );
+    const totalQuestions = getQuestionCountForMode(
+      interviewConfig.interviewMode,
+      interviewConfig.isDemoMode,
+    );
+
+    // Fetch questions from practice library
+    const { prompt: questionsPrompt, questionIds } =
+      await PromptGenerator.getDatabaseQuestionsPrompt(
+        interviewConfig,
+        totalQuestions,
+      );
+
+    console.log("📚 Loaded questions from database:", {
+      totalQuestions,
+      loadedQuestions: questionIds.length,
+      interviewMode: interviewConfig.interviewMode,
+    });
+
+    // Generate system prompt with actual questions
+    const systemPrompt =
+      PromptGenerator.generateSystemPrompt(interviewConfig, interviewer) +
+      questionsPrompt;
     const userPrompt = PromptGenerator.generateUserPrompt(
       "", // No initial message
       [], // No conversation history
@@ -48,6 +76,7 @@ export async function POST(request: NextRequest) {
     const aiResponse = await aiClient.generateInterviewResponse(
       systemPrompt,
       userPrompt,
+      interviewConfig.interviewType,
     );
 
     let finalMessage = aiResponse.content;
@@ -69,6 +98,11 @@ export async function POST(request: NextRequest) {
       message: finalMessage,
       questionType,
       validated: aiResponse.success,
+      interviewer: {
+        id: interviewer.id,
+        name: interviewer.name,
+        avatarConfig: interviewer.avatarConfig,
+      },
     });
   } catch (error) {
     console.error("Interview start API error:", error);

@@ -1,34 +1,9 @@
 "use client";
 
-import {
-  ArrowLeft,
-  ArrowRight,
-  BarChart3,
-  Book,
-  Building,
-  ChartLine,
-  CheckCircle,
-  ClipboardList,
-  Cloud,
-  CloudCog,
-  Code,
-  Database,
-  Gamepad2,
-  Layers,
-  Link2,
-  Pen,
-  Server,
-  Shield,
-  Smartphone,
-  Target,
-  Timer,
-  Users,
-  Zap,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Code } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FaGoogle, FaMicrosoft } from "react-icons/fa";
-import { SiAmazon, SiApple, SiMeta, SiNetflix } from "react-icons/si";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -43,6 +18,15 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
+import {
+  COMPANY_PROFILES,
+  CONFIGURE_SPECIFIC_COMPANIES,
+  CONFIGURE_STEPS,
+  INTERVIEW_MODES,
+  POSITIONS,
+  SENIORITY_LEVELS,
+  TECHNOLOGY_GROUPS,
+} from "@/constants/configure";
 import type { UserData } from "@/lib/services/auth/auth";
 
 interface ConfigureContentProps {
@@ -60,39 +44,7 @@ interface InterviewConfig {
   duration: string;
 }
 
-interface ConfigStep {
-  id: string;
-  title: string;
-  description: string;
-  icon: React.ElementType;
-}
-
-const STEPS: ConfigStep[] = [
-  {
-    id: "position",
-    title: "Position",
-    description: "Select your target role",
-    icon: Code,
-  },
-  {
-    id: "experience",
-    title: "Skills",
-    description: "Choose your level and tech stack",
-    icon: Target,
-  },
-  {
-    id: "company",
-    title: "Company",
-    description: "Pick your target",
-    icon: Building,
-  },
-  {
-    id: "mode",
-    title: "Mode",
-    description: "Configure preferences",
-    icon: Timer,
-  },
-];
+// Use imported constants
 
 export function ConfigureContent({ user: _ }: ConfigureContentProps) {
   const router = useRouter();
@@ -109,354 +61,9 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
     duration: "30",
   });
 
-  const seniorityLevels = [
-    {
-      value: "entry",
-      label: "Entry Level",
-      description: "0-2 years experience",
-      color: "bg-chart-1",
-    },
-    {
-      value: "junior",
-      label: "Junior",
-      description: "0-2 years experience",
-      color: "bg-chart-2",
-    },
-    {
-      value: "mid",
-      label: "Mid-level",
-      description: "2-5 years experience",
-      color: "bg-chart-3",
-    },
-    {
-      value: "senior",
-      label: "Senior",
-      description: "5+ years experience",
-      color: "bg-chart-4",
-    },
-  ];
+  // Use imported constants
 
-  const companyProfiles = [
-    {
-      value: "generic",
-      label: "Generic Tech Company",
-      description: "Standard technical questions",
-      icon: Building,
-    },
-    {
-      value: "faang",
-      label: "FAANG-style",
-      description: "Algorithm-heavy, system design focus",
-      icon: Target,
-    },
-    {
-      value: "startup",
-      label: "Startup Environment",
-      description: "Practical, fast-paced questions",
-      icon: Zap,
-    },
-  ];
-
-  const positions = [
-    {
-      value: "frontend",
-      label: "Frontend Developer",
-      icon: Code,
-    },
-    {
-      value: "backend",
-      label: "Backend Developer",
-      icon: Server,
-    },
-    {
-      value: "fullstack",
-      label: "Full Stack Developer",
-      icon: Layers,
-    },
-    {
-      value: "devops",
-      label: "DevOps Engineer",
-      icon: Cloud,
-    },
-    {
-      value: "mobile",
-      label: "Mobile Developer",
-      icon: Smartphone,
-    },
-    {
-      value: "data",
-      label: "Data Engineer",
-      icon: Database,
-    },
-    {
-      value: "data-scientist",
-      label: "Data Scientist",
-      icon: ChartLine,
-    },
-    {
-      value: "data-analyst",
-      label: "Data Analyst",
-      icon: BarChart3,
-    },
-    {
-      value: "cloud-engineer",
-      label: "Cloud Engineer",
-      icon: CloudCog,
-    },
-    {
-      value: "cybersecurity",
-      label: "Cybersecurity Engineer",
-      icon: Shield,
-    },
-    {
-      value: "blockchain",
-      label: "Blockchain Developer",
-      icon: Link2,
-    },
-    {
-      value: "product-manager",
-      label: "Product Manager",
-      icon: ClipboardList,
-    },
-  ];
-
-  const specificCompanies = [
-    {
-      value: "google",
-      label: "Google",
-      description: "Algorithm focus, system design",
-      icon: FaGoogle,
-      color: "text-blue-500",
-    },
-    {
-      value: "meta",
-      label: "Meta",
-      description: "Product thinking, scalability",
-      icon: SiMeta,
-      color: "text-blue-600",
-    },
-    {
-      value: "apple",
-      label: "Apple",
-      description: "Design patterns, performance",
-      icon: SiApple,
-      color: "text-muted-foreground",
-    },
-    {
-      value: "amazon",
-      label: "Amazon",
-      description: "Leadership principles, scale",
-      icon: SiAmazon,
-      color: "text-orange-500",
-    },
-    {
-      value: "netflix",
-      label: "Netflix",
-      description: "High performance, culture fit",
-      icon: SiNetflix,
-      color: "text-red-600",
-    },
-    {
-      value: "microsoft",
-      label: "Microsoft",
-      description: "Collaboration, technical depth",
-      icon: FaMicrosoft,
-      color: "text-blue-500",
-    },
-  ];
-
-  const technologyGroups = {
-    "Programming Languages": [
-      "Javascript",
-      "Typescript",
-      "Python",
-      "Java",
-      "C#",
-      "Go",
-      "Rust",
-      "PHP",
-      "Ruby",
-      "Kotlin",
-      "Scala",
-      "Swift",
-      "Dart",
-      "C",
-      "C++",
-    ],
-    "Frontend Frameworks": [
-      "React",
-      "Vue",
-      "Angular",
-      "Svelte",
-      "Next",
-      "Nuxt",
-      "Remix",
-      "Gatsby",
-      "Astro",
-      "Preact",
-      "Solid",
-      "Qwik",
-    ],
-    "Backend Frameworks": [
-      "Node.js",
-      "Express",
-      "NestJS",
-      "Fastify",
-      "Django",
-      "Flask",
-      "FastAPI",
-      "Spring Boot",
-      "Dotnet",
-      "Rails",
-      "Laravel",
-      "Gin",
-      "Actix",
-    ],
-    "Mobile Development": [
-      "React Native",
-      "Flutter",
-      "Swift",
-      "Kotlin",
-      "Ionic",
-      "Xamarin",
-      "Cordova",
-      "Capacitor",
-    ],
-    Databases: [
-      "PostgreSQL",
-      "MySQL",
-      "MongoDB",
-      "Redis",
-      "SQLite",
-      "DynamoDB",
-      "Elasticsearch",
-      "Cassandra",
-      "Firebase Firestore",
-      "Neo4j",
-    ],
-    "Cloud Platforms": [
-      "AWS",
-      "GCP",
-      "Azure",
-      "Vercel",
-      "Netlify",
-      "Heroku",
-      "DigitalOcean",
-      "Cloudflare",
-      "Railway",
-      "Render",
-    ],
-    "DevOps & Tools": [
-      "Docker",
-      "Kubernetes",
-      "Terraform",
-      "Ansible",
-      "Jenkins",
-      "Github Actions",
-      "Gitlab CI",
-      "Prometheus",
-      "Grafana",
-      "Nginx",
-      "Caddy",
-    ],
-    Testing: [
-      "Jest",
-      "Cypress",
-      "Playwright",
-      "Selenium",
-      "Pytest",
-      "JUnit",
-      "Testing Library",
-      "Vitest",
-      "Postman",
-    ],
-    "State Management": [
-      "Redux",
-      "Mobx",
-      "Zustand",
-      "Jotai",
-      "Recoil",
-      "Vuex",
-      "Pinia",
-      "NgRx",
-    ],
-    "CSS & Styling": [
-      "Tailwind",
-      "Bootstrap",
-      "Sass",
-      "Styled Components",
-      "Emotion",
-      "Material UI",
-      "Chakra UI",
-      "Ant Design",
-    ],
-  };
-
-  const interviewModes = [
-    {
-      value: "regular",
-      label: "Regular",
-      description: "Realistic time pressure",
-      icon: Timer,
-    },
-    {
-      value: "practice",
-      label: "Practice Mode",
-      description: "Take your time to think",
-      icon: Book,
-    },
-    {
-      value: "flash",
-      label: "Flash Interview",
-      description: "Quick 3-question session",
-      icon: Zap,
-    },
-    {
-      value: "play",
-      label: "Play Mode",
-      description: "Coming soon...",
-      icon: Gamepad2,
-    },
-    {
-      value: "competitive",
-      label: "Competitive Interview",
-      description: "Coming soon...",
-      icon: Users,
-    },
-    {
-      value: "teacher",
-      label: "Teacher Mode",
-      description: "Coming soon...",
-      icon: Pen,
-    },
-  ];
-
-  const _interviewTypes = [
-    {
-      value: "technical",
-      label: "Technical Interview",
-      description: "Coding and system design",
-      icon: Code,
-    },
-    {
-      value: "bullet",
-      label: "Bullet Interview",
-      description: "Quick 3-question session",
-      icon: Target,
-    },
-    {
-      value: "system-design",
-      label: "System Design",
-      description: "Architecture and scalability",
-      icon: Building,
-    },
-    {
-      value: "mixed",
-      label: "Mixed Interview",
-      description: "Combination of all types",
-      icon: Users,
-    },
-  ];
+  // All constants now imported from @/constants/configure
 
   const handleStartInterview = () => {
     if (
@@ -507,7 +114,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
   };
 
   const handleNext = () => {
-    if (canGoNext() && currentStep < STEPS.length - 1) {
+    if (canGoNext() && currentStep < CONFIGURE_STEPS.length - 1) {
       setCurrentStep(currentStep + 1);
     }
   };
@@ -521,7 +128,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
   function renderPositionStep() {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-1">
-        {positions.map((position) => {
+        {POSITIONS.map((position) => {
           const Icon = position.icon;
           return (
             <Card
@@ -570,7 +177,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
             }
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
           >
-            {seniorityLevels.map((level) => (
+            {SENIORITY_LEVELS.map((level) => (
               <div key={level.value} className="h-full">
                 <RadioGroupItem
                   value={level.value}
@@ -625,7 +232,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
           <div className="space-y-6 animate-in slide-in-from-top-4 fade-in duration-300">
             <div className="bg-card border border-border rounded-xl p-5 shadow-sm">
               <div className="max-h-96 overflow-y-auto space-y-6 pr-2">
-                {Object.entries(technologyGroups).map(
+                {Object.entries(TECHNOLOGY_GROUPS).map(
                   ([groupName, groupTechs]) => (
                     <div key={groupName} className="space-y-4">
                       <div className="flex items-center justify-between sticky top-0 bg-card/95 backdrop-blur-sm py-3 border-b border-border/50">
@@ -777,7 +384,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
         <div>
           <h4 className="font-semibold mb-3">Company Type</h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {companyProfiles.map((profile) => {
+            {COMPANY_PROFILES.map((profile) => {
               const Icon = profile.icon;
               return (
                 <Card
@@ -817,8 +424,10 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
         <div>
           <h4 className="font-semibold mb-3">Or Choose Specific Company</h4>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {specificCompanies.map((company) => {
-              const CompanyIcon = company.icon;
+            {CONFIGURE_SPECIFIC_COMPANIES.map((company) => {
+              const isImageIcon = typeof company.icon === "string";
+              const CompanyIcon = isImageIcon ? null : company.icon;
+
               return (
                 <Card
                   key={company.value}
@@ -836,8 +445,20 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
                   }
                 >
                   <CardContent className="p-4 text-center h-full flex flex-col justify-center min-h-[120px]">
-                    <div className="flex flex-col items-center gap-3 flex-1 justify-center">
-                      <CompanyIcon className={`h-8 w-8 ${company.color}`} />
+                    <div className="flex flex-col items-center justify-between gap-3 flex-1 ">
+                      {isImageIcon ? (
+                        <Image
+                          width={48}
+                          height={48}
+                          src={company.icon as string}
+                          alt={`${company.label} logo`}
+                          className="h-12 w-12 object-contain"
+                        />
+                      ) : (
+                        CompanyIcon && (
+                          <CompanyIcon className={`h-8 w-8 ${company.color}`} />
+                        )
+                      )}
                       <div>
                         <h3 className="font-semibold text-sm">
                           {company.label}
@@ -861,7 +482,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
     return (
       <div className="space-y-6">
         <div className="grid md:grid-cols-2 gap-4">
-          {interviewModes.map((mode) => {
+          {INTERVIEW_MODES.map((mode) => {
             const Icon = mode.icon;
             const isComingSoon = mode.description.includes("Coming soon");
             return (
@@ -956,7 +577,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
         {/* Progress Indicator - Sticky Header */}
         {/* <div className="sticky top-0 z-10 bg-background border-b border-border/50 px-4 sm:px-6 py-4">
           <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide">
-            {STEPS.map((step, index) => {
+            {CONFIGURE_STEPS.map((step, index) => {
               const StepIcon = step.icon as React.ComponentType<{
                 className?: string;
               }>;
@@ -987,7 +608,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
                       {step.title}
                     </span>
                   </button>
-                  {index < STEPS.length - 1 && (
+                  {index < CONFIGURE_STEPS.length - 1 && (
                     <ChevronRight className="h-4 w-4 text-muted-foreground mx-1 sm:mx-2 flex-shrink-0" />
                   )}
                 </div>
@@ -1003,16 +624,16 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-2">
                 {(() => {
-                  const StepIcon = STEPS[currentStep]
+                  const StepIcon = CONFIGURE_STEPS[currentStep]
                     .icon as React.ComponentType<{ className?: string }>;
                   return <StepIcon className="h-6 w-6 text-primary" />;
                 })()}
                 <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                  {STEPS[currentStep].title}
+                  {CONFIGURE_STEPS[currentStep].title}
                 </h2>
               </div>
               <p className="text-muted-foreground text-sm sm:text-base">
-                {STEPS[currentStep].description}
+                {CONFIGURE_STEPS[currentStep].description}
               </p>
             </div>
 
@@ -1042,11 +663,11 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
 
             <div className="flex items-center gap-2">
               <span className="text-xs sm:text-sm text-muted-foreground">
-                {currentStep + 1} / {STEPS.length}
+                {currentStep + 1} / {CONFIGURE_STEPS.length}
               </span>
             </div>
 
-            {currentStep === STEPS.length - 1 ? (
+            {currentStep === CONFIGURE_STEPS.length - 1 ? (
               <Button
                 onClick={handleStartInterview}
                 disabled={!isConfigComplete}

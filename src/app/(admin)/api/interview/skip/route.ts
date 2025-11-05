@@ -1,12 +1,19 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { getInterviewerForRole } from "@/lib/config/interviewers";
 import { aiClient } from "@/lib/services/ai/ai-client";
 import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
 import { InterviewService } from "@/lib/services/interview/interview-service";
+import { getQuestionCountForMode } from "@/lib/utils/interview-helpers";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { conversationHistory, interviewConfig, questionCount } = body;
+    const {
+      conversationHistory,
+      interviewConfig,
+      questionCount,
+      totalQuestions,
+    } = body;
 
     // Validate required fields
     if (!interviewConfig) {
@@ -29,8 +36,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Select interviewer based on role
+    const interviewer = getInterviewerForRole(interviewConfig.position);
+
     // Generate next question after skipping
-    const systemPrompt = PromptGenerator.generateSystemPrompt(interviewConfig);
+    const systemPrompt = PromptGenerator.generateSystemPrompt(
+      interviewConfig,
+      interviewer,
+    );
     const userPrompt = PromptGenerator.generateUserPrompt(
       "I'd like to skip this question and move to the next one.",
       conversationHistory || [],
@@ -43,6 +56,7 @@ export async function POST(request: NextRequest) {
     const aiResponse = await aiClient.generateInterviewResponse(
       systemPrompt,
       userPrompt,
+      interviewConfig.interviewType,
     );
 
     let finalMessage = aiResponse.content;
@@ -59,11 +73,22 @@ export async function POST(request: NextRequest) {
       (questionCount || 0) + 1,
     );
 
+    // Check if interview should complete based on question count
+    const nextQuestionCount = (questionCount || 0) + 1;
+    const maxQuestions =
+      totalQuestions ||
+      getQuestionCountForMode(
+        interviewConfig.interviewMode,
+        interviewConfig.isDemoMode,
+      );
+    const shouldComplete = nextQuestionCount >= maxQuestions;
+
     return NextResponse.json({
       success: true,
       message: finalMessage,
       questionType,
       validated: aiResponse.success,
+      isComplete: shouldComplete,
     });
   } catch (error) {
     console.error("Interview skip API error:", error);

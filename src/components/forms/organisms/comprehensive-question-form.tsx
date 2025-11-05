@@ -179,6 +179,12 @@ export const COMPANY_LOGOS: CompanyLogo[] = [
   "SiCoinbase",
   "SiGithub",
   "SiGitlab",
+  "SiDatabricks",
+  "SiOptiver",
+  "SiQualcomm",
+  "SiNetguru",
+  "SiHexagon",
+  "SiDassaultsystemes",
 ];
 
 export const COMPANY_SIZES: CompanySize[] = [

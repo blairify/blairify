@@ -175,6 +175,13 @@ service cloud.firestore {
       allow write: if false; // Only backend can write via Admin SDK
     }
 
+    // ===== BUG REPORTS =====
+    match /bug_reports/{reportId} {
+      allow create: if true; // Anyone can submit a bug report (even anonymous users)
+      allow read: if isSignedIn() && isAdmin(); // Only admins can read bug reports
+      allow update, delete: if isSignedIn() && isAdmin(); // Only admins can modify/delete
+    }
+
     // ===== DEFAULT DENY =====
     match /{document=**} {
       allow read, write: if false;

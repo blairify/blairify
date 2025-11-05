@@ -229,6 +229,18 @@ const getCompanyNameFromLogo = (logo: CompanyLogo): string => {
     // Data & Analytics
     SiDatadog: "Datadog",
     SiSnowflake: "Snowflake",
+    SiDatabricks: "Databricks",
+
+    // Financial & Trading
+    SiOptiver: "Optiver",
+
+    // Hardware & Semiconductors
+    SiQualcomm: "Qualcomm",
+
+    // International Tech Companies
+    SiNetguru: "Netguru",
+    SiHexagon: "Hexagon AB",
+    SiDassaultsystemes: "Dassault Systèmes",
   };
   return logoToName[logo] || logo;
 };

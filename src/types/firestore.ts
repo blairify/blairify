@@ -181,7 +181,13 @@ export interface InterviewConfig {
   seniority: string;
   companyProfile?: string;
   specificCompany?: string;
-  interviewMode: "timed" | "untimed";
+  interviewMode:
+    | "regular"
+    | "practice"
+    | "flash"
+    | "play"
+    | "competitive"
+    | "teacher";
   interviewType: InterviewType;
   duration: number; // minutes
   difficulty?: "easy" | "medium" | "hard";

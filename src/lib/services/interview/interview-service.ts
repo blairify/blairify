@@ -112,10 +112,10 @@ export class InterviewService {
       followUpScore += 1;
     }
     if (
-      config.interviewMode === "bullet" &&
+      config.interviewMode === "flash" &&
       characteristics.responseLength > 150
     ) {
-      followUpScore -= 1; // Keep it concise
+      followUpScore -= 1; // Keep it concise in flash mode
     }
 
     // Seniority level adjustments
@@ -252,22 +252,20 @@ export class InterviewService {
         "regular",
         "practice",
         "flash",
-        "timed",
-        "untimed",
-        "bullet",
-        "whiteboard",
+        "play",
+        "competitive",
+        "teacher",
       ].includes(config.interviewMode)
     ) {
       errors.push("Valid interview mode is required");
     }
 
     if (
-      (config.interviewMode === "timed" ||
-        config.interviewMode === "regular") &&
+      config.interviewMode === "regular" &&
       config.duration &&
       Number.isNaN(Number(config.duration))
     ) {
-      errors.push("Duration must be a valid number for timed interviews");
+      errors.push("Duration must be a valid number");
     }
 
     return {

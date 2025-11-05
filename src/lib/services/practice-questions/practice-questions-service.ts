@@ -128,7 +128,13 @@ export type CompanyLogo =
   | "SiSquare"
   | "SiCoinbase"
   | "SiGithub"
-  | "SiGitlab";
+  | "SiGitlab"
+  | "SiDatabricks"
+  | "SiOptiver"
+  | "SiQualcomm"
+  | "SiNetguru"
+  | "SiHexagon"
+  | "SiDassaultsystemes";
 
 export interface PracticeQuestion {
   id: string;

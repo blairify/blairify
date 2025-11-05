@@ -40,107 +40,8 @@ import {
   type PracticeQuestion,
   searchPracticeQuestions,
 } from "@/lib/services/practice-questions/practice-questions-service";
+import { parseSimpleMarkdown } from "@/lib/utils/markdown-parser";
 import { QuestionModal } from "../modals/question-modal";
-
-// Simple markdown renderer with XSS protection
-function renderMarkdown(text: string | null | undefined): { __html: string } {
-  if (!text) return { __html: "" };
-
-  // Basic XSS protection - escape HTML
-  const escapeHtml = (unsafe: string): string => {
-    return unsafe
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  };
-
-  // Process markdown
-  let html = escapeHtml(text)
-    // Headers
-    .replace(
-      /^### (.*$)/gim,
-      '</p><h3 class="text-lg font-bold mt-6 mb-2">$1</h3><p class="mt-2">',
-    )
-    .replace(
-      /^## (.*$)/gim,
-      '</p><h2 class="text-xl font-bold mt-6 mb-3">$1</h2><p class="mt-2">',
-    )
-    .replace(
-      /^# (.*$)/gim,
-      '</p><h1 class="text-2xl font-bold mt-6 mb-4">$1</h1><p class="mt-2">',
-    )
-
-    // Bold and Italic
-    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
-
-    // Code blocks
-    .replace(
-      /```([\s\S]*?)```/g,
-      '</p><pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded my-3 overflow-x-auto"><code class="text-sm font-mono">$1</code></pre><p class="mt-2">',
-    )
-
-    // Inline code
-    .replace(
-      /`(.*?)`/g,
-      '<code class="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">$1</code>',
-    )
-
-    // Links (with security attributes)
-    .replace(
-      /\[([^\]]+)\]$$([^\s)]+)(?:\s+"([^"]+)")?$$/g,
-      (text: string, href: string, title?: string) => {
-        const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
-        return `<a href="${escapeHtml(href)}" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer"${titleAttr}>${escapeHtml(text)}</a>`;
-      },
-    )
-
-    // Lists
-    .replace(/^\s*\* (.*$)/gm, '<li class="ml-6 list-disc">$1</li>')
-    .replace(/^\s*\d+\. (.*$)/gm, '<li class="ml-6 list-decimal">$1</li>')
-
-    // Blockquotes
-    .replace(
-      /^> (.*$)/gm,
-      '</p><blockquote class="border-l-4 border-gray-300 dark:border-gray-600 pl-4 my-2 text-gray-600 dark:text-gray-400">$1</blockquote><p>',
-    )
-
-    // Horizontal rule
-    .replace(
-      /^\*\*\*$/gm,
-      '<hr class="my-4 border-gray-200 dark:border-gray-700" />',
-    )
-
-    // Paragraphs and line breaks
-    .replace(/\n\n+/g, '</p><p class="mt-4">')
-    .replace(/\n/g, "<br />");
-
-  // Wrap in a paragraph if needed
-  if (
-    !html.startsWith("<h") &&
-    !html.startsWith("<p>") &&
-    !html.startsWith("<ul>") &&
-    !html.startsWith("<ol>") &&
-    !html.startsWith("<pre>")
-  ) {
-    html = `<p>${html}`;
-  }
-  if (
-    !html.endsWith("</p>") &&
-    !html.endsWith("</h1>") &&
-    !html.endsWith("</h2>") &&
-    !html.endsWith("</h3>") &&
-    !html.endsWith("</ul>") &&
-    !html.endsWith("</ol>") &&
-    !html.endsWith("</pre>")
-  ) {
-    html = `${html}</p>`;
-  }
-
-  return { __html: html };
-}
 
 interface PracticeContentProps {
   user: UserData;
@@ -494,8 +395,8 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                     <TableCell>
                       <div className="max-w-md">
                         <h3
-                          className="font-semibold text-sm line-clamp-2 text-foreground"
-                          dangerouslySetInnerHTML={renderMarkdown(q.title)}
+                          className="font-semibold text-sm line-clamp-2 text-foreground prose prose-sm dark:prose-invert max-w-none"
+                          dangerouslySetInnerHTML={parseSimpleMarkdown(q.title)}
                         />
                       </div>
                     </TableCell>
@@ -593,14 +494,14 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
 
                     {/* Question Title */}
                     <h3
-                      className="font-semibold text-base text-foreground mb-2 line-clamp-2"
-                      dangerouslySetInnerHTML={renderMarkdown(q.title)}
+                      className="font-semibold text-base text-foreground mb-2 line-clamp-2 prose prose-sm dark:prose-invert max-w-none"
+                      dangerouslySetInnerHTML={parseSimpleMarkdown(q.title)}
                     />
 
                     {/* Question Preview */}
                     <div
-                      className="text-sm text-muted-foreground mb-4 line-clamp-3"
-                      dangerouslySetInnerHTML={renderMarkdown(q.question)}
+                      className="text-sm text-muted-foreground mb-4 line-clamp-3 prose prose-sm dark:prose-invert max-w-none"
+                      dangerouslySetInnerHTML={parseSimpleMarkdown(q.question)}
                     />
 
                     {/* Tags */}

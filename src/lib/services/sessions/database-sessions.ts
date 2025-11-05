@@ -249,7 +249,13 @@ export async function saveInterviewResults(
       config: {
         position: config.position,
         seniority: config.seniority,
-        interviewMode: config.interviewMode as "timed" | "untimed",
+        interviewMode: config.interviewMode as
+          | "regular"
+          | "practice"
+          | "flash"
+          | "play"
+          | "competitive"
+          | "teacher",
         interviewType: config.interviewType as InterviewType,
         duration: config.duration,
         ...(config.specificCompany && {

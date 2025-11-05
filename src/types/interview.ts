@@ -43,6 +43,7 @@ export interface InterviewSession {
   isDemoMode: boolean;
   hasPersonalizedIntro: boolean;
   endedEarly?: boolean;
+  interviewerId?: string; // Store interviewer ID for consistency
 }
 
 export interface InterviewResults {
@@ -76,13 +77,12 @@ export interface ResponseAnalysis {
 // Enums and Union Types
 export type SeniorityLevel = "entry" | "junior" | "mid" | "senior";
 export type InterviewMode =
-  | "regular"
-  | "practice"
-  | "flash"
-  | "timed"
-  | "untimed"
-  | "bullet"
-  | "whiteboard";
+  | "regular" // 8 questions, standard pace
+  | "practice" // 5 questions, untimed, learning-focused
+  | "flash" // 3 questions, quick assessment
+  | "play" // Unlimited, ABCD multiple choice, gamified
+  | "competitive" // 10 questions, hardest difficulty
+  | "teacher"; // Unlimited, has "Show Answer" button, not scored
 export type InterviewType = "technical" | "bullet" | "coding" | "system-design";
 export type QuestionType =
   | "technical"

@@ -70,17 +70,88 @@ export const SENIORITY_DETAILED_EXPECTATIONS: Record<SeniorityLevel, string> = {
 
 // Company-Specific Prompts
 export const COMPANY_PROMPTS: CompanyPrompts = {
+  // 🏆 Top-tier, ultra-competitive & high-paying
   google:
     "Focus on scalability, algorithmic thinking, and large-scale system design. Emphasize data structures and algorithms.",
-  meta: "Emphasize user engagement, real-time systems, and social platform challenges. Focus on frontend and backend integration.",
+  openai:
+    "Focus on AI research, large language models, and API design. Emphasize machine learning and NLP.",
   apple:
     "Focus on user experience, attention to detail, and elegant solutions. Emphasize clean code and design patterns.",
+  meta: "Emphasize user engagement, real-time systems, and social platform challenges. Focus on frontend and backend integration.",
   amazon:
     "Incorporate leadership principles, customer obsession, and large-scale distributed systems.",
-  netflix:
-    "Focus on microservices, streaming technologies, and high-availability systems.",
   microsoft:
     "Emphasize collaboration, enterprise solutions, and cloud technologies.",
+  nvidia:
+    "Emphasize GPU computing, CUDA programming, and AI hardware optimization. Focus on parallel processing.",
+  stripe:
+    "Focus on API design, payment processing, and developer experience. Emphasize reliability and financial compliance.",
+  tesla:
+    "Focus on embedded software, autonomous systems, and real-time control. Emphasize safety-critical systems.",
+  netflix:
+    "Focus on microservices, streaming technologies, and high-availability systems.",
+
+  // 💎 High-paying, prestigious tech & data companies
+  anthropic:
+    "Emphasize AI safety, responsible AI development, and large language model research.",
+  palantir:
+    "Focus on data analytics, government systems, and large-scale data processing. Emphasize security and privacy.",
+  databricks:
+    "Focus on big data processing, machine learning pipelines, and data engineering. Emphasize Spark and analytics.",
+  snowflake:
+    "Emphasize cloud data warehousing, data sharing, and analytics. Focus on SQL optimization and data architecture.",
+  cloudflare:
+    "Emphasize edge computing, CDN technologies, and web security. Focus on performance and distributed systems.",
+  figma:
+    "Focus on collaborative design, real-time synchronization, and design systems. Emphasize frontend and UX.",
+  github:
+    "Focus on developer collaboration, version control, and CI/CD. Emphasize Git workflows and developer experience.",
+
+  // 💰 Well-known, solid compensation & impact
+  uber: "Focus on real-time systems, geolocation, and optimization algorithms. Emphasize scalability and logistics.",
+  airbnb:
+    "Emphasize marketplace trust systems, booking platforms, and user experience. Focus on two-sided markets.",
+  spotify:
+    "Focus on audio streaming, recommendation systems, and music technology. Emphasize personalization and big data.",
+  atlassian:
+    "Focus on team collaboration, project management, and developer tools. Emphasize Jira and Confluence ecosystems.",
+  elastic:
+    "Emphasize search technologies, observability, and distributed systems. Focus on Elasticsearch and logging.",
+  shopify:
+    "Focus on e-commerce platforms, merchant services, and scalable commerce solutions. Emphasize API design.",
+  deepl:
+    "Focus on AI translation, natural language processing, and machine learning. Emphasize linguistic accuracy.",
+  klarna:
+    "Emphasize buy-now-pay-later systems, risk assessment, and consumer fintech. Focus on payment processing.",
+  revolut:
+    "Emphasize fintech innovation, banking as a service, and regulatory compliance. Focus on scalable financial systems.",
+  plandek:
+    "Focus on software development analytics, engineering metrics, and data-driven insights for development teams.",
+  gamingrealms:
+    "Focus on gaming systems, real-time multiplayer architecture, and scalable game backend development.",
+  blik: "Emphasize payment gateway systems, financial transaction processing, and secure payment infrastructure.",
+  wise: "Focus on international money transfers, currency exchange, and cost-effective financial solutions.",
+
+  // ⚙️ Stable, mid-sized, respected companies
+  twilio:
+    "Emphasize communications APIs, messaging systems, and telephony. Focus on real-time communications.",
+  zapier:
+    "Focus on workflow automation, API integrations, and no-code solutions. Emphasize system integrations.",
+  canva:
+    "Emphasize design SaaS, frontend engineering, and user-friendly interfaces. Focus on creative tools.",
+  notion:
+    "Focus on knowledge management, collaborative editing, and productivity tools. Emphasize real-time collaboration.",
+  sap: "Focus on enterprise software, ERP systems, and business applications. Emphasize large-scale enterprise solutions.",
+  dassault:
+    "Emphasize 3D design software, PLM systems, and engineering simulations. Focus on CAD and manufacturing.",
+  qualcomm:
+    "Emphasize mobile chipsets, wireless technologies, and embedded systems. Focus on IoT and 5G.",
+  nokia:
+    "Focus on telecommunications, 5G networks, and embedded systems. Emphasize network infrastructure.",
+  softteco:
+    "Focus on software development consulting, custom solutions, and client-focused engineering. Emphasize full-stack development.",
+  allegro:
+    "Emphasize marketplace optimization, e-commerce systems, and large-scale transaction processing.",
 };
 
 // Question Type Mappings
