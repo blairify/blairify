@@ -6,83 +6,7 @@ import * as SimpleIcons from "react-icons/si";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { PracticeQuestion } from "@/lib/services/practice-questions/practice-questions-service";
-
-// Simple markdown renderer with XSS protection
-function renderMarkdown(text: string | null | undefined): { __html: string } {
-  if (!text) return { __html: "" };
-
-  const escapeHtml = (unsafe: string): string => {
-    return unsafe
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  };
-
-  let html = escapeHtml(text)
-    .replace(
-      /^### (.*$)/gim,
-      '</p><h3 class="text-lg font-bold mt-6 mb-2">$1</h3><p class="mt-2">',
-    )
-    .replace(
-      /^## (.*$)/gim,
-      '</p><h2 class="text-xl font-bold mt-6 mb-3">$1</h2><p class="mt-2">',
-    )
-    .replace(
-      /^# (.*$)/gim,
-      '</p><h1 class="text-2xl font-bold mt-6 mb-4">$1</h1><p class="mt-2">',
-    )
-    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
-    .replace(
-      /```([\s\S]*?)```/g,
-      '</p><pre class="bg-muted p-4 rounded-lg my-3 overflow-x-auto"><code class="text-sm font-mono">$1</code></pre><p class="mt-2">',
-    )
-    .replace(
-      /`(.*?)`/g,
-      '<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">$1</code>',
-    )
-    .replace(
-      /\[([^\]]+)\]$$([^\s)]+)(?:\s+"([^"]+)")?$$/g,
-      (text: string, href: string, title?: string) => {
-        const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
-        return `<a href="${escapeHtml(href)}" class="text-primary hover:underline" target="_blank" rel="noopener noreferrer"${titleAttr}>${escapeHtml(text)}</a>`;
-      },
-    )
-    .replace(/^\s*\* (.*$)/gm, '<li class="ml-6 list-disc">$1</li>')
-    .replace(/^\s*\d+\. (.*$)/gm, '<li class="ml-6 list-decimal">$1</li>')
-    .replace(
-      /^> (.*$)/gm,
-      '</p><blockquote class="border-l-4 border-border pl-4 my-2 text-muted-foreground">$1</blockquote><p>',
-    )
-    .replace(/^\*\*\*$/gm, '<hr class="my-4 border-border" />')
-    .replace(/\n\n+/g, '</p><p class="mt-4">')
-    .replace(/\n/g, "<br />");
-
-  if (
-    !html.startsWith("<h") &&
-    !html.startsWith("<p>") &&
-    !html.startsWith("<ul>") &&
-    !html.startsWith("<ol>") &&
-    !html.startsWith("<pre>")
-  ) {
-    html = `<p>${html}`;
-  }
-  if (
-    !html.endsWith("</p>") &&
-    !html.endsWith("</h1>") &&
-    !html.endsWith("</h2>") &&
-    !html.endsWith("</h3>") &&
-    !html.endsWith("</ul>") &&
-    !html.endsWith("</ol>") &&
-    !html.endsWith("</pre>")
-  ) {
-    html = `${html}</p>`;
-  }
-
-  return { __html: html };
-}
+import { parseFullMarkdown } from "@/lib/utils/markdown-parser";
 
 interface QuestionModalProps {
   question: PracticeQuestion;
@@ -151,11 +75,11 @@ export function QuestionModal({ question, onClose }: QuestionModalProps) {
             </div>
             <h2
               className="text-xl font-bold text-foreground mb-4 prose prose-sm dark:prose-invert max-w-none"
-              dangerouslySetInnerHTML={renderMarkdown(question.title)}
+              dangerouslySetInnerHTML={parseFullMarkdown(question.title)}
             />
             <div
               className="prose prose-sm dark:prose-invert max-w-none text-foreground/90"
-              dangerouslySetInnerHTML={renderMarkdown(question.question)}
+              dangerouslySetInnerHTML={parseFullMarkdown(question.question)}
             />
           </div>
 
@@ -217,7 +141,7 @@ export function QuestionModal({ question, onClose }: QuestionModalProps) {
             </h3>
             <div
               className="prose prose-sm dark:prose-invert max-w-none text-foreground/90"
-              dangerouslySetInnerHTML={renderMarkdown(question.answer)}
+              dangerouslySetInnerHTML={parseFullMarkdown(question.answer)}
             />
           </div>
 

@@ -2,18 +2,20 @@
 
 import {
   AlertTriangle,
+  Award,
+  BarChart3,
   BookOpen,
   CheckCircle,
+  FileText,
   Lightbulb,
   MessageSquare,
   RotateCcw,
   Target,
   TrendingUp,
+  XCircle,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -24,6 +26,7 @@ import {
 } from "@/components/ui/card";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
+import { parseFullMarkdown } from "@/lib/utils/markdown-parser";
 
 interface InterviewResults {
   score: number;
@@ -41,14 +44,12 @@ interface InterviewResults {
 }
 
 const calmingMessages = [
-  "Just a moment...",
-  "We are analyzing your interview data...",
-  "Might take just a second more...",
-  "Reviewing your responses...",
-  "Preparing detailed feedback...",
-  "Almost there...",
-  "Generating personalized insights...",
-  "Finalizing your analysis...",
+  "Analyzing interview responses...",
+  "Evaluating technical competencies...",
+  "Assessing communication patterns...",
+  "Reviewing problem-solving approaches...",
+  "Generating comprehensive feedback...",
+  "Finalizing performance insights...",
 ];
 
 interface ResultsContentProps {
@@ -61,6 +62,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
   const [results, setResults] = useState<InterviewResults | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (!isAnalyzing) return;
@@ -69,9 +71,25 @@ export function ResultsContent({ user }: ResultsContentProps) {
       setCurrentMessageIndex(
         (prevIndex) => (prevIndex + 1) % calmingMessages.length,
       );
-    }, 2000);
+    }, 2500);
 
     return () => clearInterval(messageInterval);
+  }, [isAnalyzing]);
+
+  // Progress simulation effect
+  useEffect(() => {
+    if (!isAnalyzing) return;
+
+    const progressInterval = setInterval(() => {
+      setProgress((prevProgress) => {
+        // Simulate realistic progress - slower at start, faster in middle, slower at end
+        const increment = prevProgress < 20 ? 2 : prevProgress < 80 ? 3 : 1;
+        const newProgress = Math.min(prevProgress + increment, 95);
+        return newProgress;
+      });
+    }, 800);
+
+    return () => clearInterval(progressInterval);
   }, [isAnalyzing]);
 
   useEffect(() => {
@@ -105,7 +123,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => {
           controller.abort();
-        }, 30000);
+        }, 90000);
 
         let response: Response;
         try {
@@ -148,6 +166,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
         const data = await response.json();
 
         if (data.success) {
+          setProgress(100); // Complete progress when analysis is done
           setResults(data.feedback);
 
           if (user?.uid) {
@@ -168,7 +187,6 @@ export function ResultsContent({ user }: ResultsContentProps) {
       } catch (error) {
         console.error("Analysis error:", error);
 
-        // Retry logic for timeouts and rate limits
         const shouldRetry =
           retryCount < 2 &&
           error instanceof Error &&
@@ -218,68 +236,61 @@ export function ResultsContent({ user }: ResultsContentProps) {
     loadAnalysis();
   }, [user?.uid]);
 
-  const getScoreColor = (score: number) => {
-    if (score >= 90) return "text-green-600";
-    if (score >= 80) return "text-green-500";
-    if (score >= 70) return "text-yellow-500";
-    if (score >= 60) return "text-orange-500";
-    return "text-red-500";
-  };
-
-  const getScoreBgColor = (score: number) => {
-    if (score >= 90)
-      return "bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800";
-    if (score >= 80)
-      return "bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800";
-    if (score >= 70)
-      return "bg-yellow-50 border-yellow-200 dark:bg-yellow-900/20 dark:border-yellow-800";
-    if (score >= 60)
-      return "bg-orange-50 border-orange-200 dark:bg-orange-900/20 dark:border-orange-800";
-    return "bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800";
-  };
-
   const getScoreLabel = (score: number, passed?: boolean) => {
-    if (passed === false) return "Failed Interview";
-    if (passed === true && score >= 90) return "Outstanding - Passed";
-    if (passed === true && score >= 80) return "Excellent - Passed";
-    if (passed === true && score >= 70) return "Good - Passed";
-    if (passed === true) return "Passed";
+    if (passed === true) {
+      if (score >= 90) return "Outstanding Performance";
+      if (score >= 80) return "Excellent Performance";
+      if (score >= 70) return "Strong Performance";
+      return "Satisfactory Performance";
+    }
+    if (passed === false) {
+      if (score >= 60) return "Below Required Standard";
+      if (score >= 40) return "Significant Development Required";
+      return "Insufficient Competency Demonstrated";
+    }
     if (score >= 90) return "Outstanding";
     if (score >= 80) return "Excellent";
     if (score >= 70) return "Good";
     if (score >= 60) return "Fair";
-    if (score >= 50) return "Needs Improvement";
-    return "Below Expectations";
-  };
-
-  const getDecisionColor = (passed?: boolean) => {
-    if (passed === true) return "text-green-600 dark:text-green-400";
-    if (passed === false) return "text-red-600 dark:text-red-400";
-    return "text-gray-600 dark:text-gray-400";
-  };
-
-  const getDecisionBg = (passed?: boolean) => {
-    if (passed === true)
-      return "bg-green-100 dark:bg-green-900/30 border-green-300 dark:border-green-700";
-    if (passed === false)
-      return "bg-red-100 dark:bg-red-900/30 border-red-300 dark:border-red-700";
-    return "bg-gray-100 dark:bg-gray-900/30 border-gray-300 dark:border-gray-700";
+    if (score >= 50) return "Developing";
+    return "Needs Improvement";
   };
 
   if (isAnalyzing) {
     return (
-      <main className="flex-1 overflow-auto flex items-center justify-center p-4">
-        <Card className="w-full max-w-md text-center">
-          <CardContent className="pt-6">
-            <div className="flex justify-center mb-4">
-              <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-950">
+        <Card className="w-full max-w-lg border shadow-sm">
+          <CardContent className="pt-16 pb-16">
+            <div className="flex justify-center mb-8">
+              <div className="w-12 h-12 border-2 border-gray-300 dark:border-gray-700 border-t-gray-900 dark:border-t-gray-100 rounded-full animate-spin"></div>
             </div>
-            <h3 className="text-lg sm:text-xl font-semibold mb-2">
-              Analyzing Your Interview
+            <h3 className="text-xl font-semibold mb-4 text-center text-gray-900 dark:text-gray-100">
+              Analyzing Interview Performance
             </h3>
-            <p className="text-muted-foreground min-h-[1.5rem] transition-opacity duration-300 text-sm sm:text-base px-2">
+            <p className="text-gray-600 dark:text-gray-400 text-center min-h-[1.5rem] mb-6">
               {calmingMessages[currentMessageIndex]}
             </p>
+
+            {/* Progress Bar */}
+            <div className="w-full max-w-md mx-auto">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm text-gray-500 dark:text-gray-400">
+                  Progress
+                </span>
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  {progress}%
+                </span>
+              </div>
+              <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2">
+                <div
+                  className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full transition-all duration-500 ease-out"
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
+              <div className="text-xs text-gray-400 dark:text-gray-500 text-center mt-2">
+                This may take 30-90 seconds
+              </div>
+            </div>
           </CardContent>
         </Card>
       </main>
@@ -288,33 +299,29 @@ export function ResultsContent({ user }: ResultsContentProps) {
 
   if (error) {
     return (
-      <main className="flex-1 overflow-auto flex items-center justify-center p-4">
-        <Card className="w-full max-w-md text-center">
-          <CardContent className="pt-6">
-            <AlertTriangle className="h-12 w-12 text-red-500 mx-auto mb-4" />
-            <h3 className="text-lg sm:text-xl font-semibold mb-2">
+      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-950">
+        <Card className="w-full max-w-lg border border-red-200 dark:border-red-900 shadow-sm">
+          <CardContent className="pt-12 pb-12">
+            <div className="flex justify-center mb-6">
+              <AlertTriangle className="h-12 w-12 text-red-600 dark:text-red-400" />
+            </div>
+            <h3 className="text-xl font-semibold mb-3 text-center text-gray-900 dark:text-gray-100">
               Analysis Failed
             </h3>
-            <p className="text-muted-foreground mb-4 text-sm sm:text-base px-2">
+            <p className="text-gray-600 dark:text-gray-400 text-center mb-8 leading-relaxed">
               {error}
             </p>
-            <div className="flex flex-col sm:flex-row gap-2 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
-                onClick={() => {
-                  setError(null);
-                  setIsAnalyzing(true);
-                  // Trigger retry by re-running the effect
-                  window.location.reload();
-                }}
-                className="w-full sm:w-auto"
+                onClick={() => window.location.reload()}
+                variant="default"
               >
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Try Again
+                Retry Analysis
               </Button>
               <Button
                 variant="outline"
                 onClick={() => router.push("/dashboard")}
-                className="w-full sm:w-auto"
               >
                 Return to Dashboard
               </Button>
@@ -327,12 +334,15 @@ export function ResultsContent({ user }: ResultsContentProps) {
 
   if (!results) {
     return (
-      <main className="flex-1 overflow-auto flex items-center justify-center p-4">
-        <Card className="w-full max-w-md text-center">
-          <CardContent className="pt-6">
-            <h3 className="text-lg font-semibold mb-2">No Results Found</h3>
-            <p className="text-muted-foreground mb-4">
-              Please complete an interview to see your results.
+      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-950">
+        <Card className="w-full max-w-lg border shadow-sm">
+          <CardContent className="pt-12 pb-12 text-center">
+            <FileText className="h-12 w-12 text-gray-400 mx-auto mb-6" />
+            <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
+              No Results Available
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-8">
+              Complete an interview to receive detailed performance feedback.
             </p>
             <Button onClick={() => router.push("/configure")}>
               Start New Interview
@@ -344,284 +354,321 @@ export function ResultsContent({ user }: ResultsContentProps) {
   }
 
   return (
-    <main className="flex-1 overflow-auto">
-      <div className="max-w-6xl mx-auto p-3 sm:p-4 lg:p-6 space-y-4 sm:space-y-6">
+    <main className="flex-1 overflow-auto bg-gray-50 dark:bg-gray-950">
+      <div className="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+        {/* Header Section */}
+        <div className="border-b border-gray-200 dark:border-gray-800 pb-6 mb-2">
+          <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+            Interview Performance Report
+          </h1>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Comprehensive evaluation and performance analysis
+          </p>
+        </div>
+
         {/* Pass/Fail Decision Banner */}
         {results.passed !== undefined && (
-          <Card className={`${getDecisionBg(results.passed)} border-2`}>
-            <CardContent className="py-6">
-              <div className="text-center">
-                <div
-                  className={`text-4xl sm:text-5xl font-bold mb-2 ${getDecisionColor(results.passed)}`}
-                >
-                  {results.passed ? "✓ PASSED" : "✗ FAILED"}
+          <Card
+            className={`border-2 ${results.passed ? "border-emerald-600 dark:border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20" : "border-red-600 dark:border-red-500 bg-red-50 dark:bg-red-950/20"}`}
+          >
+            <CardContent className="py-8">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  {results.passed ? (
+                    <CheckCircle className="h-10 w-10 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                  ) : (
+                    <XCircle className="h-10 w-10 text-red-600 dark:text-red-400 flex-shrink-0" />
+                  )}
+                  <div>
+                    <div
+                      className={`text-2xl sm:text-3xl font-bold mb-1 ${results.passed ? "text-emerald-900 dark:text-emerald-100" : "text-red-900 dark:text-red-100"}`}
+                    >
+                      {results.passed
+                        ? "Candidate Passed"
+                        : "Candidate Did Not Pass"}
+                    </div>
+                    <p
+                      className={`text-sm ${results.passed ? "text-emerald-700 dark:text-emerald-300" : "text-red-700 dark:text-red-300"}`}
+                    >
+                      {results.passed
+                        ? "Met all required competency standards for this position."
+                        : `Did not meet the ${results.passingThreshold || 70}-point threshold requirement.`}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-base sm:text-lg font-semibold text-gray-700 dark:text-gray-300">
-                  {results.passed
-                    ? "Congratulations! You met the requirements for this position."
-                    : `Interview Result: Below passing threshold of ${results.passingThreshold || 70} points`}
-                </p>
+                <div className="text-right">
+                  <div
+                    className={`text-4xl font-bold ${results.passed ? "text-emerald-900 dark:text-emerald-100" : "text-red-900 dark:text-red-100"}`}
+                  >
+                    {results.score}
+                  </div>
+                  <div
+                    className={`text-sm ${results.passed ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}
+                  >
+                    / 100
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
         )}
 
-        {/* Overall Score */}
-        <Card className={`${getScoreBgColor(results.score)} border-2`}>
-          <CardHeader className="text-center">
-            <div className="flex justify-center mb-4">
-              <div className="relative w-28 h-28 sm:w-32 sm:h-32">
-                {/* Background circle */}
+        {/* Overall Score Card */}
+        <Card className="border shadow-sm">
+          <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+            <CardTitle className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+              Overall Assessment
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="pt-6">
+            <div className="flex items-start gap-6 mb-6">
+              <div className="relative w-24 h-24 flex-shrink-0">
                 <svg
                   className="w-full h-full transform -rotate-90"
-                  role="img"
-                  aria-label="Score progress"
+                  viewBox="0 0 100 100"
+                  aria-labelledby="score-chart-title"
                 >
-                  <title>Interview Score Progress</title>
+                  <title id="score-chart-title">
+                    Interview Score: {results.score} out of 100
+                  </title>
                   <circle
-                    cx="50%"
-                    cy="50%"
-                    r="45%"
+                    cx="50"
+                    cy="50"
+                    r="45"
                     stroke="currentColor"
                     strokeWidth="8"
                     fill="none"
-                    className="text-gray-200 dark:text-gray-700"
+                    className="text-gray-200 dark:text-gray-800"
                   />
-                  {/* Progress circle */}
                   <circle
-                    cx="50%"
-                    cy="50%"
-                    r="45%"
+                    cx="50"
+                    cy="50"
+                    r="45"
                     stroke="currentColor"
                     strokeWidth="8"
                     fill="none"
                     strokeDasharray={`${2 * Math.PI * 45}`}
                     strokeDashoffset={`${2 * Math.PI * 45 * (1 - results.score / 100)}`}
-                    className={getScoreColor(results.score)}
+                    className="text-gray-900 dark:text-gray-100"
                     strokeLinecap="round"
                   />
                 </svg>
-                {/* Score text */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span
-                    className={`text-2xl sm:text-3xl font-bold ${getScoreColor(results.score)}`}
-                  >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">
                     {results.score}
-                  </span>
-                  <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
-                    / 100
                   </span>
                 </div>
               </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
+                  {getScoreLabel(results.score, results.passed)}
+                </h3>
+                <div
+                  className="prose prose-sm prose-gray dark:prose-invert max-w-none"
+                  dangerouslySetInnerHTML={parseFullMarkdown(
+                    results.overallScore,
+                  )}
+                />
+              </div>
             </div>
-            <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
-              {getScoreLabel(results.score, results.passed)}
-            </CardTitle>
             {results.passingThreshold && (
-              <p className="text-xs sm:text-sm text-muted-foreground mb-2">
-                Passing Threshold: {results.passingThreshold} points
-              </p>
+              <div className="text-xs text-gray-500 dark:text-gray-500 pt-4 border-t border-gray-200 dark:border-gray-800">
+                Passing threshold for this position: {results.passingThreshold}{" "}
+                points
+              </div>
             )}
-            <CardDescription className="text-sm sm:text-base md:text-lg prose prose-sm sm:prose-base prose-gray dark:prose-invert max-w-none px-2 sm:px-0">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {results.overallScore}
-              </ReactMarkdown>
-            </CardDescription>
-          </CardHeader>
+          </CardContent>
         </Card>
 
-        {/* Strengths and Areas for Improvement */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-          <Card className="border-green-200 bg-green-50 dark:bg-green-900/20 dark:border-green-800">
-            <CardHeader>
-              <CardTitle className="flex items-center text-green-700 dark:text-green-300 text-base sm:text-lg">
-                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-                Key Strengths
+        {/* Strengths and Improvements Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <Card className="border shadow-sm">
+            <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+              <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
+                <Award className="h-4 w-4 mr-2" />
+                Demonstrated Strengths
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-6">
               {results.strengths.length > 0 ? (
-                <ul className="space-y-2">
-                  {results.strengths.map((strength) => (
+                <ul className="space-y-3">
+                  {results.strengths.map((strength, index) => (
                     <li
-                      key={`strength-${strength}`}
-                      className="flex items-start"
+                      key={`strength-${index}`}
+                      className="flex items-start text-sm"
                     >
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-sm sm:text-base text-green-800 dark:text-green-200">
+                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-gray-900 dark:bg-gray-100 mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="text-gray-700 dark:text-gray-300">
                         {strength}
                       </span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-sm sm:text-base text-green-700 dark:text-green-300 italic">
-                  No significant strengths demonstrated in this interview.
+                <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                  No notable strengths identified in this assessment.
                 </p>
               )}
             </CardContent>
           </Card>
 
-          <Card className="border-orange-200 bg-orange-50 dark:bg-orange-900/20 dark:border-orange-800">
-            <CardHeader>
-              <CardTitle className="flex items-center text-orange-700 dark:text-orange-300 text-base sm:text-lg">
-                <Target className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+          <Card className="border shadow-sm">
+            <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+              <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
+                <Target className="h-4 w-4 mr-2" />
                 {results.passed === false
-                  ? "Critical Weaknesses"
-                  : "Areas for Improvement"}
+                  ? "Critical Gaps"
+                  : "Development Areas"}
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-6">
               {results.improvements.length > 0 ? (
-                <ul className="space-y-2">
-                  {results.improvements.map((improvement) => (
+                <ul className="space-y-3">
+                  {results.improvements.map((improvement, index) => (
                     <li
-                      key={`improvement-${improvement}`}
-                      className="flex items-start"
+                      key={`improvement-${index}`}
+                      className="flex items-start text-sm"
                     >
-                      <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-sm sm:text-base text-orange-800 dark:text-orange-200">
+                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-gray-900 dark:bg-gray-100 mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="text-gray-700 dark:text-gray-300">
                         {improvement}
                       </span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-sm sm:text-base text-orange-700 dark:text-orange-300 italic">
-                  Continue building on your strong foundation.
+                <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                  Continue to build upon existing competencies.
                 </p>
               )}
             </CardContent>
           </Card>
         </div>
 
-        {/* Why This Decision - Show if available */}
+        {/* Why Decision */}
         {results.whyDecision && (
-          <Card
-            className={results.passed ? "border-blue-200" : "border-red-200"}
-          >
-            <CardHeader>
-              <CardTitle className="flex items-center text-base sm:text-lg">
-                <AlertTriangle className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-                {results.passed ? "Why You Passed" : "Why You Failed"}
+          <Card className="border shadow-sm">
+            <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+              <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
+                <MessageSquare className="h-4 w-4 mr-2" />
+                Assessment Summary
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="prose prose-sm sm:prose-base dark:prose-invert max-w-none">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {results.whyDecision}
-                </ReactMarkdown>
-              </div>
+            <CardContent className="pt-6">
+              <div
+                className="prose prose-sm prose-gray dark:prose-invert max-w-none"
+                dangerouslySetInnerHTML={parseFullMarkdown(results.whyDecision)}
+              />
             </CardContent>
           </Card>
         )}
 
         {/* Detailed Analysis */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center text-base sm:text-lg">
-              <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-              Detailed Analysis
+        <Card className="border shadow-sm">
+          <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+            <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
+              <BarChart3 className="h-4 w-4 mr-2" />
+              Detailed Performance Analysis
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="prose prose-sm sm:prose-base dark:prose-invert max-w-none">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {results.detailedAnalysis}
-              </ReactMarkdown>
-            </div>
+          <CardContent className="pt-6">
+            <div
+              className="prose prose-sm prose-gray dark:prose-invert max-w-none"
+              dangerouslySetInnerHTML={parseFullMarkdown(
+                results.detailedAnalysis,
+              )}
+            />
           </CardContent>
         </Card>
 
         {/* Recommendations */}
-        <Card
-          className={
-            results.passed === false
-              ? "border-red-200 bg-red-50 dark:bg-red-900/10"
-              : ""
-          }
-        >
-          <CardHeader>
-            <CardTitle className="flex items-center text-base sm:text-lg">
-              <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+        <Card className="border shadow-sm">
+          <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+            <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
+              <Lightbulb className="h-4 w-4 mr-2" />
               {results.passed === false
                 ? "Required Improvements"
-                : "Recommendations"}
+                : "Development Recommendations"}
             </CardTitle>
             {results.passed === false && (
-              <CardDescription className="text-red-600 dark:text-red-400 font-semibold text-sm sm:text-base">
-                These improvements are critical before attempting another
-                interview at this level.
+              <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                Address these areas before reapplying for this position level.
               </CardDescription>
             )}
           </CardHeader>
-          <CardContent>
-            <div className="prose prose-sm sm:prose-base dark:prose-invert max-w-none">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {results.recommendations}
-              </ReactMarkdown>
-            </div>
+          <CardContent className="pt-6">
+            <div
+              className="prose prose-sm prose-gray dark:prose-invert max-w-none"
+              dangerouslySetInnerHTML={parseFullMarkdown(
+                results.recommendations,
+              )}
+            />
           </CardContent>
         </Card>
 
         {/* Next Steps */}
         {results.nextSteps && results.nextSteps !== results.recommendations && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center text-base sm:text-lg">
-                <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+          <Card className="border shadow-sm">
+            <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+              <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
+                <TrendingUp className="h-4 w-4 mr-2" />
                 Next Steps
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="prose prose-sm sm:prose-base dark:prose-invert max-w-none">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {results.nextSteps}
-                </ReactMarkdown>
+            <CardContent className="pt-6">
+              <div
+                className="prose prose-sm prose-gray dark:prose-invert max-w-none"
+                dangerouslySetInnerHTML={parseFullMarkdown(results.nextSteps)}
+              />
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Important Notice */}
+        {results.passed === false && (
+          <Card className="border-l-4 border-l-gray-900 dark:border-l-gray-100 bg-gray-100 dark:bg-gray-900 border-t border-r border-b border-gray-200 dark:border-gray-800">
+            <CardContent className="py-6">
+              <div className="flex items-start gap-4">
+                <AlertTriangle className="h-5 w-5 text-gray-900 dark:text-gray-100 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    Recommended Waiting Period
+                  </h4>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    A 3-6 month development period is recommended to address
+                    identified competency gaps before reapplying for a position
+                    at this level.
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
         )}
 
         {/* Action Buttons */}
-        <div className="space-y-4 pb-6">
-          {results.passed === false && (
-            <Card className="bg-yellow-50 dark:bg-yellow-900/20 border-yellow-300 dark:border-yellow-700 border-2">
-              <CardContent className="py-4">
-                <p className="text-center text-sm sm:text-base text-yellow-800 dark:text-yellow-200 font-semibold">
-                  ⚠️ We recommend waiting at least 3-6 months and completing the
-                  suggested improvements before attempting another interview at
-                  this level.
-                </p>
-              </CardContent>
-            </Card>
-          )}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center pb-8 pt-4">
+          <Button
+            onClick={() => router.push("/configure")}
+            variant={results.passed ? "default" : "outline"}
+          >
+            <RotateCcw className="h-4 w-4 mr-2" />
+            {results.passed ? "New Interview" : "Start Over"}
+          </Button>
+          <Button variant="outline" onClick={() => router.push("/dashboard")}>
+            <Target className="h-4 w-4 mr-2" />
+            Dashboard
+          </Button>
+          <Button variant="outline" onClick={() => router.push("/practice")}>
+            <BookOpen className="h-4 w-4 mr-2" />
+            Practice Mode
+          </Button>
+        </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center">
-            <Button
-              onClick={() => router.push("/configure")}
-              className={`${results.passed ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-600 hover:bg-gray-700"} text-sm sm:text-base`}
-            >
-              <RotateCcw className="h-4 w-4 mr-2" />
-              {results.passed ? "Try Another Interview" : "Start Over"}
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => router.push("/dashboard")}
-              className="text-sm sm:text-base"
-            >
-              <Target className="h-4 w-4 mr-2" />
-              Return to Dashboard
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => router.push("/practice")}
-              className="text-sm sm:text-base"
-            >
-              <BookOpen className="h-4 w-4 mr-2" />
-              Practice More
-            </Button>
-          </div>
+        {/* Footer */}
+        <div className="text-center pt-6 pb-4 border-t border-gray-200 dark:border-gray-800">
+          <p className="text-xs text-gray-500 dark:text-gray-500">
+            Confidential Report • For Professional Development Purposes Only
+          </p>
         </div>
       </div>
     </main>

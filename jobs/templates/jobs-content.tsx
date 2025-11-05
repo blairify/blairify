@@ -2,6 +2,7 @@
 
 import {
   Brain,
+  Building,
   Building2,
   ChevronLeft,
   ChevronRight,
@@ -9,6 +10,7 @@ import {
   Grid3x3,
   Home,
   LayoutGrid,
+  Lightbulb,
   List,
   Loader2,
   MapPin,
@@ -21,7 +23,8 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import useSWR from "swr";
-import { type Job, JobCard } from "@/components/job-market/job-card";
+import { JobCard } from "@/components/job-market/job-card";
+import { InterviewPreparationModal } from "@/components/jobs/organisms/interview-preparation-modal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -40,6 +43,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  COMPANY_SIZES,
+  CURRENCIES,
+  DATE_POSTED_OPTIONS,
+  JOB_FUNCTIONS,
+  JOB_LEVELS,
+  SPECIFIC_COMPANIES,
+} from "@/constants/jobs";
+import type { Job } from "@/lib/validators";
 
 interface JobsResponse {
   results: Job[];
@@ -70,48 +82,24 @@ export function JobsContent() {
   const [companySize, setCompanySize] = useState("size-all");
   const [jobFunction, setJobFunction] = useState("func-all");
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  const [specificCompany, setSpecificCompany] = useState("company-all");
 
-  // Job Functions
-  const jobFunctions = [
-    "Engineering",
-    "Design",
-    "Product",
-    "Marketing",
-    "Sales",
-    "Operations",
-    "Finance",
-    "Human Resources",
-    "Customer Service",
-    "Education",
-    "Healthcare",
-    "Other",
-  ];
+  // Interview modal state
+  const [isInterviewModalOpen, setIsInterviewModalOpen] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 
-  const companySizes = [
-    { value: "1-50", label: "Small (1-50)" },
-    { value: "51-500", label: "Medium (51-500)" },
-    { value: "501-1000", label: "Large (501-1000)" },
-    { value: "1001+", label: "Enterprise (1001+)" },
-  ];
+  // Random sorting state
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
 
-  const datePostedOptions = [
-    { value: "1", label: "Last 24 hours" },
-    { value: "7", label: "Last 7 days" },
-    { value: "30", label: "Last 30 days" },
-    { value: "90", label: "Last 3 months" },
-  ];
-
-  const experienceLevels = [
-    "Internship",
-    "Entry Level",
-    "Associate",
-    "Mid-Senior Level",
-    "Director",
-    "Executive",
-    "Not Applicable",
-  ];
-
-  const currencies = ["USD", "EUR", "GBP", "CAD", "AUD", "INR", "JPY", "CNY"];
+  // Function to randomly shuffle array
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
 
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(12);
@@ -142,6 +130,8 @@ export function JobsContent() {
       params.append("company_size", companySize.replace("size-", ""));
     if (jobFunction !== "func-all")
       params.append("job_function", jobFunction.replace("func-", ""));
+    if (specificCompany !== "company-all")
+      params.append("company", specificCompany.replace("company-", ""));
 
     return params.toString();
   };
@@ -164,10 +154,38 @@ export function JobsContent() {
     mutate();
   };
 
-  // Reset to page 1 when filters change
+  // Reset to page 1 when filters change and mark as no longer first load
   useEffect(() => {
     setCurrentPage(1);
-  }, []);
+    // If any filter changes, it's no longer the first load
+    if (
+      searchQuery ||
+      location ||
+      jobType !== "type-all" ||
+      jobLevel !== "level-all" ||
+      remoteOnly ||
+      minSalary ||
+      maxSalary ||
+      datePosted !== "date-all" ||
+      companySize !== "size-all" ||
+      jobFunction !== "func-all" ||
+      specificCompany !== "company-all"
+    ) {
+      setIsFirstLoad(false);
+    }
+  }, [
+    searchQuery,
+    location,
+    jobType,
+    jobLevel,
+    remoteOnly,
+    minSalary,
+    maxSalary,
+    datePosted,
+    companySize,
+    jobFunction,
+    specificCompany,
+  ]);
 
   const clearFilters = () => {
     setSearchQuery("");
@@ -181,38 +199,53 @@ export function JobsContent() {
     setDatePosted("date-all");
     setCompanySize("size-all");
     setJobFunction("func-all");
+    setSpecificCompany("company-all");
     setCurrentPage(1);
+    setIsFirstLoad(true); // Reset to first load state for new random sorting
   };
 
   const handlePrepareJob = (job: Job) => {
+    setSelectedJob(job);
+    setIsInterviewModalOpen(true);
+  };
+
+  const handleConfirmInterview = () => {
+    if (!selectedJob) return;
+
     try {
       // Create URL parameters with job context
       const interviewParams = new URLSearchParams({
         // Basic configuration based on job
-        position: job.title,
-        seniority: job.level || "mid",
+        position: selectedJob.title,
+        seniority: selectedJob.level || "mid",
         interviewType: "technical",
-        interviewMode: "untimed",
+        interviewMode: "practice",
         duration: "30",
-        jobId: job.id,
-        company: job.company,
-        jobDescription: job.description || "",
-        jobRequirements: job.tags?.join(", ") || "",
-        jobLocation: job.location || "",
-        jobType: job.type || "",
+        jobId: selectedJob.id,
+        company: selectedJob.company,
+        jobDescription: selectedJob.description || "",
+        jobRequirements: selectedJob.tags?.join(", ") || "",
+        jobLocation: selectedJob.location || "",
+        jobType: selectedJob.type || "",
         contextType: "job-specific",
       });
 
       // Navigate to interview with job context
       router.push(`/interview?${interviewParams.toString()}`);
 
-      toast.success(`Starting interview prep for ${job.title}`, {
-        description: `Tailored questions based on ${job.company}'s requirements`,
-      });
+      toast.success("Starting AI interview...");
     } catch (error) {
-      console.error("Error preparing job interview:", error);
-      toast.error("Failed to start interview preparation");
+      console.error("Error starting interview:", error);
+      toast.error("Failed to start interview");
+    } finally {
+      setIsInterviewModalOpen(false);
+      setSelectedJob(null);
     }
+  };
+
+  const handleCloseModal = () => {
+    setIsInterviewModalOpen(false);
+    setSelectedJob(null);
   };
 
   const handleViewDetails = (job: Job) => {
@@ -246,6 +279,13 @@ export function JobsContent() {
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     className="h-12 pl-10 bg-background/80 backdrop-blur-sm border-border/60 shadow-sm focus:shadow-md transition-shadow"
+                  />
+                  <Image
+                    src="/assets/location.png"
+                    alt="Location"
+                    width={24}
+                    height={24}
+                    className="absolute right-3 top-1/2 -translate-y-1/2"
                   />
                 </div>
               </div>
@@ -281,7 +321,7 @@ export function JobsContent() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="level-all">All Levels</SelectItem>
-                    {experienceLevels.map((lvl) => (
+                    {JOB_LEVELS.map((lvl) => (
                       <SelectItem key={`level-${lvl}`} value={`level-${lvl}`}>
                         {lvl}
                       </SelectItem>
@@ -317,7 +357,8 @@ export function JobsContent() {
                     maxSalary ||
                     datePosted !== "date-all" ||
                     companySize !== "size-all" ||
-                    jobFunction !== "func-all") && (
+                    jobFunction !== "func-all" ||
+                    specificCompany !== "company-all") && (
                     <Badge
                       variant="secondary"
                       className="ml-2 h-5 w-5 p-0 flex items-center justify-center rounded-full"
@@ -329,6 +370,7 @@ export function JobsContent() {
                           datePosted !== "date-all",
                           companySize !== "size-all",
                           jobFunction !== "func-all",
+                          specificCompany !== "company-all",
                         ].filter(Boolean).length
                       }
                     </Badge>
@@ -344,7 +386,8 @@ export function JobsContent() {
                   maxSalary ||
                   datePosted !== "date-all" ||
                   companySize !== "size-all" ||
-                  jobFunction !== "func-all") && (
+                  jobFunction !== "func-all" ||
+                  specificCompany !== "company-all") && (
                   <Button
                     type="button"
                     variant="ghost"
@@ -380,7 +423,7 @@ export function JobsContent() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="func-all">All Functions</SelectItem>
-                        {jobFunctions.map((func) => (
+                        {JOB_FUNCTIONS.map((func) => (
                           <SelectItem
                             key={`func-${func}`}
                             value={`func-${func}`}
@@ -404,7 +447,7 @@ export function JobsContent() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="size-all">Any Size</SelectItem>
-                        {companySizes.map((size) => (
+                        {COMPANY_SIZES.map((size) => (
                           <SelectItem
                             key={`size-${size.value}`}
                             value={`size-${size.value}`}
@@ -441,7 +484,7 @@ export function JobsContent() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="date-all">Any Time</SelectItem>
-                        {datePostedOptions.map((opt) => (
+                        {DATE_POSTED_OPTIONS.map((opt) => (
                           <SelectItem
                             key={`date-${opt.value}`}
                             value={`date-${opt.value}`}
@@ -477,7 +520,7 @@ export function JobsContent() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        {currencies.map((curr) => (
+                        {CURRENCIES.map((curr) => (
                           <SelectItem key={`curr-${curr}`} value={curr}>
                             {curr}
                           </SelectItem>
@@ -485,6 +528,99 @@ export function JobsContent() {
                       </SelectContent>
                     </Select>
                   </div>
+                </div>
+
+                {/* Specific Company Filter */}
+                <div className="space-y-4 pt-4 border-t border-border/30">
+                  <div className="text-xs font-semibold text-foreground/80 flex items-center gap-1.5">
+                    <Building className="h-3.5 w-3.5 text-primary" />
+                    Filter by Specific Company
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                    {SPECIFIC_COMPANIES.slice(0, 12).map((company) => {
+                      const CompanyIcon = company.icon;
+                      const isSelected =
+                        specificCompany === `company-${company.value}`;
+                      return (
+                        <button
+                          key={company.value}
+                          type="button"
+                          onClick={() => {
+                            setSpecificCompany(
+                              isSelected
+                                ? "company-all"
+                                : `company-${company.value}`,
+                            );
+                          }}
+                          className={`flex flex-col items-center gap-2 p-3 rounded-lg border-2 transition-all hover:scale-105 ${
+                            isSelected
+                              ? "border-primary bg-primary/10 shadow-md"
+                              : "border-border hover:border-primary/50 hover:bg-accent/50"
+                          }`}
+                        >
+                          <CompanyIcon className={`h-6 w-6 ${company.color}`} />
+                          <span className="text-xs font-medium text-center leading-tight">
+                            {company.label}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {SPECIFIC_COMPANIES.length > 12 && (
+                    <details className="group">
+                      <summary className="cursor-pointer text-xs text-primary hover:text-primary/80 font-medium flex items-center gap-1">
+                        <span>
+                          Show {SPECIFIC_COMPANIES.length - 12} more companies
+                        </span>
+                        <svg
+                          className="h-3 w-3 transition-transform group-open:rotate-180"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <title>Expand companies list</title>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </summary>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-3">
+                        {SPECIFIC_COMPANIES.slice(12).map((company) => {
+                          const CompanyIcon = company.icon;
+                          const isSelected =
+                            specificCompany === `company-${company.value}`;
+                          return (
+                            <button
+                              key={company.value}
+                              type="button"
+                              onClick={() => {
+                                setSpecificCompany(
+                                  isSelected
+                                    ? "company-all"
+                                    : `company-${company.value}`,
+                                );
+                              }}
+                              className={`flex flex-col items-center gap-2 p-3 rounded-lg border-2 transition-all hover:scale-105 ${
+                                isSelected
+                                  ? "border-primary bg-primary/10 shadow-md"
+                                  : "border-border hover:border-primary/50 hover:bg-accent/50"
+                              }`}
+                            >
+                              <CompanyIcon
+                                className={`h-6 w-6 ${company.color}`}
+                              />
+                              <span className="text-xs font-medium text-center leading-tight">
+                                {company.label}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </details>
+                  )}
                 </div>
 
                 {/* Salary Range */}
@@ -547,7 +683,11 @@ export function JobsContent() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-2">
             <h2 className="text-2xl font-semibold">Available Jobs</h2>
-            {data && <Badge variant="secondary">{data.total} positions</Badge>}
+            {data && (
+              <Badge variant="secondary">
+                {data.total.toLocaleString("fr-FR")} positions
+              </Badge>
+            )}
           </div>
 
           <div className="flex items-center gap-4 flex-wrap">
@@ -681,7 +821,10 @@ export function JobsContent() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {data.results.map((job) => (
+                    {(isFirstLoad
+                      ? shuffleArray(data.results)
+                      : data.results
+                    ).map((job) => (
                       <TableRow
                         key={`job-${job.id}`}
                         className="cursor-pointer hover:bg-muted/50"
@@ -765,10 +908,11 @@ export function JobsContent() {
                                 e.stopPropagation();
                                 handlePrepareJob(job);
                               }}
-                              className="h-8 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                              className={`hover:bg-primary/10 hover:border-primary hover:text-blue-800 relative overflow-hidden group/btn `}
                             >
-                              <Brain className="h-3 w-3 mr-1" />
-                              <span>Interview with AI</span>
+                              <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+                              <Lightbulb className="h-3 w-3 mr-1" />
+                              Interview with AI
                             </Button>
                             <Button
                               size="sm"
@@ -802,15 +946,17 @@ export function JobsContent() {
                     : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 }`}
               >
-                {data.results.map((job) => (
-                  <JobCard
-                    key={`job-${job.id}`}
-                    job={job}
-                    onViewDetails={handleViewDetails}
-                    onPrepare={handlePrepareJob}
-                    layout={viewLayout}
-                  />
-                ))}
+                {(isFirstLoad ? shuffleArray(data.results) : data.results).map(
+                  (job) => (
+                    <JobCard
+                      key={`job-${job.id}`}
+                      job={job}
+                      onViewDetails={handleViewDetails}
+                      onPrepare={handlePrepareJob}
+                      layout={viewLayout}
+                    />
+                  ),
+                )}
               </div>
             )}
 
@@ -871,6 +1017,16 @@ export function JobsContent() {
           </>
         ) : null}
       </section>
+
+      {/* Interview Preparation Modal */}
+      {selectedJob && (
+        <InterviewPreparationModal
+          isOpen={isInterviewModalOpen}
+          onClose={handleCloseModal}
+          onConfirm={handleConfirmInterview}
+          job={selectedJob}
+        />
+      )}
     </main>
   );
 }

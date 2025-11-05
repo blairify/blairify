@@ -2,13 +2,12 @@
 
 import {
   Bookmark,
-  Brain,
   Briefcase,
   Building2,
   Clock,
-  DollarSign,
   ExternalLink,
   Home,
+  Lightbulb,
   MapPin,
 } from "lucide-react";
 import Image from "next/image";
@@ -29,41 +28,12 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  useJobValidation,
+  useValidatedJobData,
+} from "@/hooks/use-job-validation";
 import { parseJobDescription } from "@/lib/parse-job-descrpition";
-
-export interface Job {
-  id: string;
-  title: string;
-  company: string;
-  location?: string | null;
-  description?: string | null;
-  type?: string | null;
-  level?: string | null;
-  remote: boolean;
-  salary?: string | null;
-  minAmount?: string | null;
-  maxAmount?: string | null;
-  currency?: string;
-  interval?: string;
-  url?: string | null;
-  jobUrl?: string;
-  jobUrlDirect?: string;
-  category?: string | null;
-  tags?: string[];
-  skills?: string;
-  postedAt: string | Date;
-  companyLogo?: string | null;
-  companyDescription?: string | null;
-  jobFunction?: string | null;
-  experienceRange?: string | null;
-  companyRating?: number | null;
-  companyRevenue?: string | null;
-  companyNumEmployees?: string | null;
-  companyIndustry?: string | null;
-  companyAddresses?: string | null;
-  createdAt?: string | Date | null;
-  updatedAt?: string | Date | null;
-}
+import type { Job } from "@/lib/validators";
 
 interface JobCardProps {
   job: Job;
@@ -80,35 +50,14 @@ export function JobCard({
 }: JobCardProps) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const getTimeAgo = () => {
-    // Prefer datePosted, fallback to createdAt, then updatedAt
-    const dateStr = job.postedAt || job.createdAt || job.updatedAt;
-    if (!dateStr) return "Unknown";
+  // Use validation hooks for clean separation of concerns
+  const validation = useJobValidation(job);
+  const { safeData } = useValidatedJobData(job);
 
-    const postedDate = new Date(dateStr);
-    if (Number.isNaN(postedDate.getTime())) return "Unknown";
-
-    const diffDays = Math.floor(
-      (Date.now() - postedDate.getTime()) / (1000 * 60 * 60 * 24),
-    );
-
-    if (diffDays === 0) return "Today";
-    if (diffDays === 1) return "Yesterday";
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
-    return `${Math.floor(diffDays / 30)} months ago`;
-  };
-
-  const formatSalary = () => {
-    if (!job.minAmount && !job.maxAmount) return job.salary || null;
-    const min = job.minAmount ? Number(job.minAmount) : null;
-    const max = job.maxAmount ? Number(job.maxAmount) : null;
-    if (min && max)
-      return `$${(min / 1000).toFixed(0)}k – $${(max / 1000).toFixed(0)} / ${job.interval || "year"}`;
-    if (min) return `$${(min / 1000).toFixed(0)}k / ${job.interval || "year"}`;
-    if (max) return `$${(max / 1000).toFixed(0)}k / ${job.interval || "year"}`;
+  // Early return if job is not valid for display
+  if (!validation.isValid) {
     return null;
-  };
+  }
 
   const handleCardClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -145,7 +94,7 @@ export function JobCard({
         >
           <div className="flex items-start gap-3 min-w-0">
             {/* Company Logo */}
-            {job.companyLogo && job.companyLogo !== "nan" ? (
+            {safeData.companyLogo ? (
               <div
                 className={`flex-shrink-0 ${
                   layout === "compact"
@@ -156,7 +105,7 @@ export function JobCard({
                 } relative rounded-md overflow-hidden bg-muted flex items-center justify-center`}
               >
                 <Image
-                  src={job.companyLogo}
+                  src={safeData.companyLogo}
                   alt={`${job.company} logo`}
                   fill
                   className="object-contain p-1"
@@ -221,11 +170,11 @@ export function JobCard({
             className={`flex-1 ${layout === "compact" ? "space-y-2" : "space-y-4"}`}
           >
             <div
-              className={`flex flex-wrap text-sm text-muted-foreground ${
+              className={`flex flex-wrap justify-between text-sm text-muted-foreground ${
                 layout === "compact" ? "gap-2" : "gap-4"
               }`}
             >
-              {job.location && (
+              {safeData.location && (
                 <div className="flex items-center gap-1">
                   <MapPin
                     className={`flex-shrink-0 text-muted-foreground ${
@@ -235,7 +184,7 @@ export function JobCard({
                   <span
                     className={`truncate ${layout === "compact" ? "text-xs" : ""}`}
                   >
-                    {job.location}
+                    {safeData.location}
                   </span>
                 </div>
               )}
@@ -268,18 +217,6 @@ export function JobCard({
                   </>
                 )}
               </div>
-              {formatSalary() && (
-                <div className="flex items-center gap-1">
-                  <DollarSign
-                    className={`flex-shrink-0 text-muted-foreground ${
-                      layout === "compact" ? "h-3 w-3" : "h-4 w-4"
-                    }`}
-                  />
-                  <span className={layout === "compact" ? "text-xs" : ""}>
-                    {formatSalary()}
-                  </span>
-                </div>
-              )}
             </div>
 
             {/* Job Description Preview */}
@@ -342,43 +279,46 @@ export function JobCard({
                 layout === "compact" ? "gap-1" : "gap-2"
               }`}
             >
-              {job.level && job.level !== "none" && (
+              {safeData.level && (
                 <Badge
                   variant="outline"
                   className={layout === "compact" ? "text-xs px-1.5 py-0" : ""}
                 >
-                  {job.level}
+                  {safeData.level}
                 </Badge>
               )}
-              {job.category && job.category !== "none" && (
+              {safeData.category && (
                 <Badge
                   variant="outline"
                   className={layout === "compact" ? "text-xs px-1.5 py-0" : ""}
                 >
-                  {job.category}
+                  {safeData.category}
                 </Badge>
               )}
-              {job.tags?.slice(0, layout === "compact" ? 2 : 3).map((tag) => (
-                <Badge
-                  key={tag}
-                  variant="secondary"
-                  className={layout === "compact" ? "text-xs px-1.5 py-0" : ""}
-                >
-                  {tag}
-                </Badge>
-              ))}
-              {job.skills
-                ?.split(",")
+              {safeData.tags
+                .slice(0, layout === "compact" ? 2 : 3)
+                .map((tag) => (
+                  <Badge
+                    key={tag}
+                    variant="secondary"
+                    className={
+                      layout === "compact" ? "text-xs px-1.5 py-0" : ""
+                    }
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              {safeData.skills
                 .slice(0, layout === "compact" ? 2 : 3)
                 .map((skill) => (
                   <Badge
-                    key={skill.trim()}
+                    key={skill}
                     variant="outline"
                     className={
                       layout === "compact" ? "text-xs px-1.5 py-0" : ""
                     }
                   >
-                    {skill.trim()}
+                    {skill}
                   </Badge>
                 ))}
             </div>
@@ -387,7 +327,7 @@ export function JobCard({
             {layout !== "compact" && (
               <div className="flex items-center gap-1 text-xs text-muted-foreground">
                 <Clock className="h-3 w-3 flex-shrink-0" />
-                <span>Posted {getTimeAgo()}</span>
+                <span>Posted {safeData.formattedDate}</span>
               </div>
             )}
 
@@ -404,7 +344,7 @@ export function JobCard({
               <Button
                 variant="outline"
                 size={layout === "compact" ? "sm" : "sm"}
-                className={`hover:bg-primary/10 hover:border-primary relative overflow-hidden group/btn ${
+                className={`hover:bg-primary/10 hover:border-primary hover:text-blue-800 relative overflow-hidden group/btn ${
                   layout === "compact"
                     ? "h-8 text-xs flex-1"
                     : layout === "list"
@@ -415,7 +355,7 @@ export function JobCard({
               >
                 {/* Glow animation */}
                 <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                <Brain
+                <Lightbulb
                   className={`relative z-10 ${
                     layout === "compact" ? "h-3 w-3 mr-1" : "h-4 w-4 mr-2"
                   }`}
@@ -450,23 +390,27 @@ export function JobCard({
 
       {/* Full Job Details Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl md:max-w-4xl lg:max-w-5xl w-full mx-4 max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <div className="flex items-start justify-between">
-              <div>
-                <DialogTitle className="text-2xl">{job.title}</DialogTitle>
-                <DialogDescription className="text-lg">
-                  {job.company} • {job.location || "Remote"}
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <DialogTitle className="text-xl md:text-2xl font-bold leading-tight">
+                  {job.title}
+                </DialogTitle>
+                <DialogDescription className="text-base md:text-lg mt-1">
+                  {job.company} • {safeData.location || "Remote"}
                 </DialogDescription>
               </div>
-              {job.companyLogo && job.companyLogo !== "nan" && (
-                <Image
-                  src={job.companyLogo}
-                  alt={`${job.company} logo`}
-                  width={48}
-                  height={48}
-                  className="h-12 w-12 object-contain"
-                />
+              {safeData.companyLogo && (
+                <div className="flex-shrink-0">
+                  <Image
+                    src={safeData.companyLogo}
+                    alt={`${job.company} logo`}
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 object-contain rounded-md"
+                  />
+                </div>
               )}
             </div>
           </DialogHeader>
@@ -474,24 +418,19 @@ export function JobCard({
           <div className="space-y-6 py-4">
             {/* Job Metadata */}
             <div className="flex flex-wrap gap-4 text-sm">
-              {job.type && (
+              {safeData.type && (
                 <div className="flex items-center gap-2">
                   <Briefcase className="h-4 w-4 text-muted-foreground" />
-                  <span>{job.type}</span>
+                  <span>{safeData.type}</span>
                 </div>
               )}
-              {job.level && (
+              {safeData.level && (
                 <div className="flex items-center gap-2">
                   <span className="font-medium">Level:</span>
-                  <span>{job.level}</span>
+                  <span>{safeData.level}</span>
                 </div>
               )}
-              {formatSalary() && (
-                <div className="flex items-center gap-2">
-                  <DollarSign className="h-4 w-4 text-muted-foreground" />
-                  <span>{formatSalary()}</span>
-                </div>
-              )}
+
               {job.remote && (
                 <Badge variant="outline" className="flex items-center gap-1">
                   <MapPin className="h-3 w-3" />
@@ -528,10 +467,10 @@ export function JobCard({
                   );
                 };
                 return (
-                  <div className="text-[15px] leading-relaxed text-foreground/90 space-y-5">
+                  <div className="text-sm md:text-base leading-relaxed text-foreground/90 space-y-4">
                     {parsed.sections.map((section, i) => (
                       <div key={`section-${section.title}-${i}`}>
-                        <h4 className="text-sm font-semibold text-foreground mb-2 border-b border-border pb-1 uppercase">
+                        <h4 className="text-sm font-semibold text-foreground mb-2 border-b border-border pb-1 uppercase tracking-wide">
                           {section.title}
                         </h4>
                         {(() => {
@@ -584,90 +523,99 @@ export function JobCard({
             )}
 
             {/* Company Info */}
-            {job.companyDescription && (
-              <div className="space-y-2">
-                <h3 className="font-semibold">About {job.company}</h3>
-                <p className="text-muted-foreground">
-                  {job.companyDescription}
-                </p>
-              </div>
-            )}
+            {job.companyDescription?.trim() &&
+              job.companyDescription.toLowerCase() !== "none" && (
+                <div className="space-y-2 p-4 bg-muted/30 rounded-lg">
+                  <h3 className="font-semibold">About {job.company}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {job.companyDescription}
+                  </p>
+                </div>
+              )}
 
             {/* Additional Job Details */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {job.jobFunction && (
-                <div>
-                  <h4 className="font-medium">Job Function</h4>
-                  <p className="text-muted-foreground">{job.jobFunction}</p>
-                </div>
-              )}
-              {job.experienceRange && (
-                <div>
-                  <h4 className="font-medium">Experience</h4>
-                  <p className="text-muted-foreground">{job.experienceRange}</p>
-                </div>
-              )}
-              {job.companyRating !== null &&
-                job.companyRating !== undefined && (
-                  <div>
-                    <h4 className="font-medium">Company Rating</h4>
-                    <p className="text-muted-foreground">
-                      {job.companyRating.toFixed(1)}/5.0
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {job.jobFunction?.trim() &&
+                job.jobFunction.toLowerCase() !== "none" && (
+                  <div className="p-3 bg-muted/20 rounded-lg">
+                    <h4 className="font-medium text-sm">Job Function</h4>
+                    <p className="text-muted-foreground text-sm">
+                      {job.jobFunction}
                     </p>
                   </div>
                 )}
-              {job.companyRevenue && (
-                <div>
-                  <h4 className="font-medium">Revenue</h4>
-                  <p className="text-muted-foreground">{job.companyRevenue}</p>
-                </div>
-              )}
-              {job.companyNumEmployees && (
-                <div>
-                  <h4 className="font-medium">Employees</h4>
-                  <p className="text-muted-foreground">
-                    {job.companyNumEmployees}
+              {job.experienceRange?.trim() &&
+                job.experienceRange.toLowerCase() !== "none" && (
+                  <div className="p-3 bg-muted/20 rounded-lg">
+                    <h4 className="font-medium text-sm">Experience</h4>
+                    <p className="text-muted-foreground text-sm">
+                      {job.experienceRange}
+                    </p>
+                  </div>
+                )}
+              {safeData.companyRating && (
+                <div className="p-3 bg-muted/20 rounded-lg">
+                  <h4 className="font-medium text-sm">Company Rating</h4>
+                  <p className="text-muted-foreground text-sm">
+                    {safeData.companyRating.toFixed(1)}/5.0
                   </p>
                 </div>
               )}
-              {job.companyIndustry && (
-                <div>
-                  <h4 className="font-medium">Industry</h4>
-                  <p className="text-muted-foreground">{job.companyIndustry}</p>
-                </div>
-              )}
-              {job.companyAddresses && (
-                <div>
-                  <h4 className="font-medium">Address</h4>
-                  <p className="text-muted-foreground">
-                    {job.companyAddresses}
-                  </p>
-                </div>
-              )}
+              {job.companyRevenue?.trim() &&
+                job.companyRevenue.toLowerCase() !== "none" && (
+                  <div className="p-3 bg-muted/20 rounded-lg">
+                    <h4 className="font-medium text-sm">Revenue</h4>
+                    <p className="text-muted-foreground text-sm">
+                      {job.companyRevenue}
+                    </p>
+                  </div>
+                )}
+              {job.companyNumEmployees?.trim() &&
+                job.companyNumEmployees.toLowerCase() !== "none" && (
+                  <div className="p-3 bg-muted/20 rounded-lg">
+                    <h4 className="font-medium text-sm">Employees</h4>
+                    <p className="text-muted-foreground text-sm">
+                      {job.companyNumEmployees}
+                    </p>
+                  </div>
+                )}
+              {job.companyIndustry?.trim() &&
+                job.companyIndustry.toLowerCase() !== "none" && (
+                  <div className="p-3 bg-muted/20 rounded-lg">
+                    <h4 className="font-medium text-sm">Industry</h4>
+                    <p className="text-muted-foreground text-sm">
+                      {job.companyIndustry}
+                    </p>
+                  </div>
+                )}
             </div>
 
             {/* Tags / Skills */}
-            {job.tags?.length || job.skills ? (
-              <div className="space-y-2">
+            {(safeData.tags.length > 0 || safeData.skills.length > 0) && (
+              <div className="space-y-3">
                 <h4 className="font-medium">Skills & Technologies</h4>
                 <div className="flex flex-wrap gap-2">
-                  {job.tags?.map((tag) => (
-                    <Badge key={tag} variant="outline">
+                  {safeData.tags.map((tag) => (
+                    <Badge key={tag} variant="outline" className="text-xs">
                       {tag}
                     </Badge>
                   ))}
-                  {job.skills?.split(",").map((skill) => (
-                    <Badge key={skill.trim()} variant="outline">
-                      {skill.trim()}
+                  {safeData.skills.map((skill) => (
+                    <Badge key={skill} variant="outline" className="text-xs">
+                      {skill}
                     </Badge>
                   ))}
                 </div>
               </div>
-            ) : null}
+            )}
 
             {/* Dialog Actions */}
-            <div className="flex justify-end gap-3 pt-4 border-t">
-              <Button variant="outline" onClick={() => onPrepare?.(job)}>
+            <div className="flex flex-col sm:flex-row justify-end gap-3 pt-4 border-t">
+              <Button
+                variant="outline"
+                onClick={() => onPrepare?.(job)}
+                className="flex-1 sm:flex-none"
+              >
                 <Bookmark className="h-4 w-4 mr-2" />
                 Prepare for Interview
               </Button>
@@ -676,6 +624,7 @@ export function JobCard({
                   handleApply(e, job.url || job.jobUrlDirect || job.jobUrl)
                 }
                 disabled={!job.url && !job.jobUrlDirect && !job.jobUrl}
+                className="flex-1 sm:flex-none"
               >
                 <ExternalLink className="h-4 w-4 mr-2" />
                 Apply Now

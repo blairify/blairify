@@ -81,7 +81,9 @@ export default function MainLogo({
     const canvas = document.createElement("canvas");
     canvas.width = 2048;
     canvas.height = 2048;
-    const ctx = canvas.getContext("2d")!;
+    const ctx = canvas.getContext("2d");
+
+    if (!ctx) return;
 
     // Multi-layer gradient for smooth depth
     const gradient1 = ctx.createRadialGradient(1024, 1024, 0, 1024, 1024, 1024);
@@ -125,7 +127,10 @@ export default function MainLogo({
     const normalCanvas = document.createElement("canvas");
     normalCanvas.width = 1024;
     normalCanvas.height = 1024;
-    const normalCtx = normalCanvas.getContext("2d")!;
+    const normalCtx = normalCanvas.getContext("2d");
+
+    if (!normalCtx) return;
+
     const normalData = normalCtx.createImageData(
       normalCanvas.width,
       normalCanvas.height,
