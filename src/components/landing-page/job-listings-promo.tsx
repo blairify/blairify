@@ -2,10 +2,10 @@
 
 import {
   ArrowRight,
-  Briefcase,
   Building2,
   Clock,
   ExternalLink,
+  Lightbulb,
   MapPin,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -92,11 +92,14 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                   <div className="flex flex-row gap-2 pt-2">
                     <Button
                       size="sm"
-                      className="w-2/3 group text-xs"
+                      variant="outline"
+                      className="w-2/3 text-xs hover:bg-primary/10 hover:border-primary hover:text-blue-800 relative overflow-hidden group/btn"
                       onClick={() => router.push("/configure")}
                     >
-                      <Briefcase className="h-3 w-3 mr-1" />
-                      Interview with AI
+                      {/* Glow animation */}
+                      <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+                      <Lightbulb className="h-3 w-3 mr-1 relative z-10" />
+                      <span className="relative z-10">Interview with AI</span>
                     </Button>
                     <Button
                       size="sm"
@@ -169,11 +172,12 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
               <Button
                 variant="outline"
                 aria-label="Start Practice Interview"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto hover:bg-primary/10 hover:border-primary hover:text-blue-800 relative overflow-hidden group/btn"
                 onClick={() => router.push("/configure")}
               >
-                <Briefcase className="h-4 w-4 mr-2" />
-                Start Practice Interview
+                <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+                <Lightbulb className="h-4 w-4 mr-2 relative z-10" />
+                <span className="relative z-10">Start Practice Interview</span>
               </Button>
             </div>
           </div>

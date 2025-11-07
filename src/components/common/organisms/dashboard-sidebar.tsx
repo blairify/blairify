@@ -68,10 +68,11 @@ export default function DashboardSidebar({
         <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
           <Link
             href="/dashboard"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${isActive("/dashboard")
-              ? "bg-sidebar-primary text-sidebar-primary-foreground"
-              : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              }`}
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+              isActive("/dashboard")
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            }`}
           >
             <Home className="h-5 w-5 flex-shrink-0" />
             <span
@@ -83,10 +84,11 @@ export default function DashboardSidebar({
 
           <Link
             href="/configure"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${isActive("/configure")
-              ? "bg-sidebar-primary text-sidebar-primary-foreground"
-              : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              }`}
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+              isActive("/configure")
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            }`}
           >
             <Plus className="h-5 w-5 flex-shrink-0" />
             <span
@@ -98,10 +100,11 @@ export default function DashboardSidebar({
 
           <Link
             href="/history"
-            className={`flex items-center space-x-3 px-3 py-2  rounded-md transition-colors w-full ${isActive("/history")
-              ? "bg-sidebar-primary text-sidebar-primary-foreground"
-              : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              }`}
+            className={`flex items-center space-x-3 px-3 py-2  rounded-md transition-colors w-full ${
+              isActive("/history")
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            }`}
           >
             <History className="h-5 w-5 flex-shrink-0" />
             <span
@@ -113,10 +116,11 @@ export default function DashboardSidebar({
 
           <Link
             href="/practice"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${isActive("/practice")
-              ? "bg-sidebar-primary text-sidebar-primary-foreground"
-              : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              }`}
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+              isActive("/practice")
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            }`}
           >
             <BookOpen className="h-5 w-5 flex-shrink-0" />
             <span
@@ -128,10 +132,11 @@ export default function DashboardSidebar({
 
           <Link
             href="/jobs"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${isActive("/jobs")
-              ? "bg-sidebar-primary text-sidebar-primary-foreground"
-              : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              }`}
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+              isActive("/jobs")
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            }`}
           >
             <Briefcase className="h-5 w-5 flex-shrink-0" />
             <span
@@ -155,7 +160,6 @@ export default function DashboardSidebar({
             <Award className="h-5 w-5 flex-shrink-0" />
             <span className="truncate text-sm">Achievements</span>
           </a>
-
 
           <button
             type="button"
@@ -215,10 +219,11 @@ export default function DashboardSidebar({
               </div>
               <Link
                 href="/admin/practice-library"
-                className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${isActive("/admin/practice-library")
-                  ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                  : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                  }`}
+                className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+                  isActive("/admin/practice-library")
+                    ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                    : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                }`}
               >
                 <Settings className="h-5 w-5 flex-shrink-0" />
                 <span

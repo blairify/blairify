@@ -115,8 +115,10 @@ export async function getPerformanceData(
   return sessions
     .filter(hasValidScores)
     .map((s) => ({
-      date: s.completedAt!.toDate().toISOString().split("T")[0],
-      score: s.scores!.overall,
+      date:
+        s.completedAt?.toDate().toISOString().split("T")[0] ??
+        new Date().toISOString().split("T")[0],
+      score: s.scores?.overall ?? 0,
       sessionType: s.config.interviewType,
     }))
     .reverse(); // Oldest first
