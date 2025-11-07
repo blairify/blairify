@@ -13,7 +13,7 @@ export interface MainLogoProps {
 
 const sizeConfig: Record<LogoSize, { camera: number; scale: number }> = {
   sm: { camera: 12, scale: 0.8 },
-  md: { camera: 10, scale: 1 },
+  md: { camera: 10, scale: 1.1 },
   lg: { camera: 9, scale: 1.3 },
   xl: { camera: 8, scale: 1.6 },
 };
@@ -296,8 +296,8 @@ export default function MainLogo({
       animationId = requestAnimationFrame(animate);
       if (animated) {
         const elapsedTime = clock.getElapsedTime();
-        logoGroup.rotation.y = elapsedTime * 0.05;
-        logoGroup.rotation.x = Math.sin(elapsedTime * 0.3) * 0.05;
+        logoGroup.rotation.y = Math.sin(elapsedTime * 0.5) * 0.3;
+        logoGroup.rotation.x = Math.sin(elapsedTime * 0.3) * 0.08;
         logoGroup.rotation.z = Math.cos(elapsedTime * 0.2) * 0.05;
       }
       renderer.render(scene, camera);
