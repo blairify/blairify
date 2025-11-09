@@ -137,7 +137,7 @@ export function JobsContent() {
   };
 
   const { data, error, isLoading, mutate } = useSWR<JobsResponse>(
-    `/api/jobs/neon?${buildQueryParams()}`,
+    `/api/jobs?${buildQueryParams()}`,
     fetcher,
     {
       revalidateOnFocus: false,
@@ -279,13 +279,6 @@ export function JobsContent() {
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     className="h-12 pl-10 bg-background/80 backdrop-blur-sm border-border/60 shadow-sm focus:shadow-md transition-shadow"
-                  />
-                  <Image
-                    src="/assets/location.png"
-                    alt="Location"
-                    width={24}
-                    height={24}
-                    className="absolute right-3 top-1/2 -translate-y-1/2"
                   />
                 </div>
               </div>

@@ -35,12 +35,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import type { UserData } from "@/lib/services/auth/auth";
-import {
-  getAllPracticeQuestions,
-  type PracticeQuestion,
-  searchPracticeQuestions,
-} from "@/lib/services/practice-questions/practice-questions-service";
+import { queryQuestions } from "@/lib/services/questions/question-repository";
 import { parseSimpleMarkdown } from "@/lib/utils/markdown-parser";
+import type { Question } from "@/types/practice-question";
 import { QuestionModal } from "../modals/question-modal";
 
 interface PracticeContentProps {
@@ -48,15 +45,14 @@ interface PracticeContentProps {
 }
 
 export function PracticeContent({ user: _user }: PracticeContentProps) {
-  const [questions, setQuestions] = useState<PracticeQuestion[]>([]);
-  const [filteredQuestions, setFilteredQuestions] = useState<
-    PracticeQuestion[]
-  >([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [filteredQuestions, setFilteredQuestions] = useState<Question[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedDifficulty, setSelectedDifficulty] = useState("all");
-  const [selectedQuestion, setSelectedQuestion] =
-    useState<PracticeQuestion | null>(null);
+  const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(
+    null,
+  );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -71,7 +67,10 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
       try {
         setLoading(true);
         setError(null);
-        const data = await getAllPracticeQuestions();
+        const { questions: data } = await queryQuestions({
+          filters: { status: "published" },
+          limit: 1000,
+        });
         setQuestions(data);
         setFilteredQuestions(data);
       } catch (err) {
@@ -89,56 +88,33 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
 
   // Filter questions
   useEffect(() => {
-    const filterQuestions = async () => {
-      try {
-        let filtered = questions;
+    let filtered = questions;
 
-        if (searchTerm) {
-          filtered = await searchPracticeQuestions(searchTerm);
-        }
+    // Search filter
+    if (searchTerm) {
+      const lower = searchTerm.toLowerCase();
+      filtered = filtered.filter(
+        (q) =>
+          q.title.toLowerCase().includes(lower) ||
+          q.prompt.toLowerCase().includes(lower) ||
+          q.topic.toLowerCase().includes(lower) ||
+          q.tags.some((tag: string) => tag.toLowerCase().includes(lower)) ||
+          q.companies?.some((c) => c.name.toLowerCase().includes(lower)),
+      );
+    }
 
-        if (selectedCategory !== "all") {
-          filtered = filtered.filter((q) => q.category === selectedCategory);
-        }
+    // Topic filter (replacing category)
+    if (selectedCategory !== "all") {
+      filtered = filtered.filter((q) => q.topic === selectedCategory);
+    }
 
-        if (selectedDifficulty !== "all") {
-          filtered = filtered.filter(
-            (q) => q.difficulty === selectedDifficulty,
-          );
-        }
+    // Difficulty filter
+    if (selectedDifficulty !== "all") {
+      filtered = filtered.filter((q) => q.difficulty === selectedDifficulty);
+    }
 
-        setFilteredQuestions(filtered);
-      } catch (err) {
-        console.error("Error filtering questions:", err);
-        let filtered = questions;
-
-        if (searchTerm) {
-          const lower = searchTerm.toLowerCase();
-          filtered = filtered.filter(
-            (q) =>
-              (q.title || "").toLowerCase().includes(lower) ||
-              q.question.toLowerCase().includes(lower) ||
-              q.category.toLowerCase().includes(lower) ||
-              (q.companyLogo || "").toLowerCase().includes(lower) ||
-              q.topicTags.some((tag) => tag.toLowerCase().includes(lower)),
-          );
-        }
-
-        if (selectedCategory !== "all") {
-          filtered = filtered.filter((q) => q.category === selectedCategory);
-        }
-
-        if (selectedDifficulty !== "all") {
-          filtered = filtered.filter(
-            (q) => q.difficulty === selectedDifficulty,
-          );
-        }
-
-        setFilteredQuestions(filtered);
-      }
-    };
-
-    filterQuestions();
+    setFilteredQuestions(filtered);
+    setCurrentPage(1); // Reset to first page when filters change
   }, [searchTerm, selectedCategory, selectedDifficulty, questions]);
 
   // Pagination logic
@@ -165,23 +141,24 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
     }
   };
 
-  const getCategoryIcon = (category: string) => {
+  const getCategoryIcon = (topic: string) => {
     const icons: Record<string, React.ComponentType<{ className?: string }>> = {
-      "system-design": Building2,
-      algorithms: Code,
-      frontend: Code,
-      backend: Database,
-      database: Database,
-      cloud: Cloud,
+      "System Design": Building2,
+      "Algorithms & Data Structures": Code,
+      Frontend: Code,
+      Backend: Database,
+      Database: Database,
+      Cloud: Cloud,
     };
-    return icons[category] || BookOpen;
+    return icons[topic] || BookOpen;
   };
 
-  const getCompanyIcon = (logoName: string) => {
+  const getCompanyIcon = (logoName: string | undefined) => {
+    if (!logoName) return Building2;
     const Icon = (
       SimpleIcons as Record<string, React.ComponentType<{ className?: string }>>
     )[logoName];
-    return Icon || SimpleIcons.SiApple;
+    return Icon || Building2;
   };
 
   if (loading) {
@@ -402,12 +379,12 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                     </TableCell>
                     <TableCell>
                       <Badge variant="outline" className="text-xs">
-                        {q.companyLogo?.replace("Si", "") || "Company"}
+                        {q.companies?.[0]?.name || "Company"}
                       </Badge>
                     </TableCell>
                     <TableCell>
                       <Badge variant="outline" className="text-xs capitalize">
-                        {q.category.replace("-", " ")}
+                        {q.topic}
                       </Badge>
                     </TableCell>
                     <TableCell>
@@ -419,7 +396,7 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                     </TableCell>
                     <TableCell>
                       <div className="flex gap-1 flex-wrap max-w-xs">
-                        {q.topicTags?.slice(0, 3).map((tag) => (
+                        {q.tags?.slice(0, 3).map((tag: string) => (
                           <Badge
                             key={tag}
                             variant="outline"
@@ -428,9 +405,9 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                             {tag}
                           </Badge>
                         ))}
-                        {q.topicTags && q.topicTags.length > 3 && (
+                        {q.tags && q.tags.length > 3 && (
                           <Badge variant="outline" className="text-xs">
-                            +{q.topicTags.length - 3}
+                            +{q.tags.length - 3}
                           </Badge>
                         )}
                       </div>
@@ -458,8 +435,8 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
             }`}
           >
             {paginatedQuestions.map((q) => {
-              const CategoryIcon = getCategoryIcon(q.category);
-              const CompanyIcon = getCompanyIcon(q.companyLogo);
+              const CategoryIcon = getCategoryIcon(q.topic);
+              const CompanyIcon = getCompanyIcon(q.companies?.[0]?.logo);
 
               return (
                 <div
@@ -474,7 +451,7 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                           <CompanyIcon className="w-4 h-4 text-primary" />
                         </div>
                         <span className="text-sm font-semibold text-foreground">
-                          {q.companyLogo?.replace("Si", "") || "Company"}
+                          {q.companies?.[0]?.name || "Company"}
                         </span>
                       </div>
                       <span
@@ -484,11 +461,11 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                       </span>
                     </div>
 
-                    {/* Category */}
+                    {/* Topic */}
                     <div className="flex items-center gap-1.5 mb-3">
                       <CategoryIcon className="w-3.5 h-3.5 text-muted-foreground" />
-                      <span className="text-xs text-muted-foreground capitalize">
-                        {q.category.replace("-", " ")}
+                      <span className="text-xs text-muted-foreground">
+                        {q.topic}
                       </span>
                     </div>
 
@@ -501,13 +478,13 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                     {/* Question Preview */}
                     <div
                       className="text-sm text-muted-foreground mb-4 line-clamp-3 prose prose-sm dark:prose-invert max-w-none"
-                      dangerouslySetInnerHTML={parseSimpleMarkdown(q.question)}
+                      dangerouslySetInnerHTML={parseSimpleMarkdown(q.prompt)}
                     />
 
                     {/* Tags */}
-                    {q.topicTags && q.topicTags.length > 0 && (
+                    {q.tags && q.tags.length > 0 && (
                       <div className="flex flex-wrap gap-1 mb-4">
-                        {q.topicTags.slice(0, 3).map((tag) => (
+                        {q.tags.slice(0, 3).map((tag: string) => (
                           <span
                             key={tag}
                             className="px-2 py-0.5 bg-muted text-muted-foreground text-xs rounded"
@@ -515,9 +492,9 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                             {tag}
                           </span>
                         ))}
-                        {q.topicTags.length > 3 && (
+                        {q.tags.length > 3 && (
                           <span className="px-2 py-0.5 bg-muted text-muted-foreground text-xs rounded">
-                            +{q.topicTags.length - 3}
+                            +{q.tags.length - 3}
                           </span>
                         )}
                       </div>

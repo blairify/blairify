@@ -1,23 +1,29 @@
 "use client";
 
-import { BookOpen, ExternalLink, X } from "lucide-react";
+import { Building2, X } from "lucide-react";
 import type React from "react";
 import * as SimpleIcons from "react-icons/si";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import type { PracticeQuestion } from "@/lib/services/practice-questions/practice-questions-service";
 import { parseFullMarkdown } from "@/lib/utils/markdown-parser";
+import type { Question } from "@/types/practice-question";
 
 interface QuestionModalProps {
-  question: PracticeQuestion;
+  question: Question;
   onClose: () => void;
 }
 
 export function QuestionModal({ question, onClose }: QuestionModalProps) {
-  const CompanyIcon =
-    (
-      SimpleIcons as Record<string, React.ComponentType<{ className?: string }>>
-    )[question.companyLogo] || SimpleIcons.SiApple;
+  const companyLogo = question.companies?.[0]?.logo;
+  const CompanyIcon = companyLogo
+    ? (
+        SimpleIcons as Record<
+          string,
+          React.ComponentType<{ className?: string }>
+        >
+      )[companyLogo]
+    : Building2;
+  const FallbackIcon = CompanyIcon || Building2;
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -38,14 +44,14 @@ export function QuestionModal({ question, onClose }: QuestionModalProps) {
         <div className="flex items-center justify-between p-6 border-b border-border bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5">
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-primary/10 rounded-xl ring-2 ring-primary/20">
-              <CompanyIcon className="w-6 h-6 text-primary" />
+              <FallbackIcon className="w-6 h-6 text-primary" />
             </div>
             <div>
               <h2 className="text-xl font-bold text-foreground">
-                {question.companyLogo?.replace("Si", "") || "Company"}
+                {question.companies?.[0]?.name || "Company"}
               </h2>
-              <span className="text-sm text-muted-foreground capitalize">
-                {question.category.replace("-", " ")}
+              <span className="text-sm text-muted-foreground">
+                {question.topic}
               </span>
             </div>
           </div>
@@ -73,48 +79,24 @@ export function QuestionModal({ question, onClose }: QuestionModalProps) {
                 {question.difficulty.toUpperCase()}
               </Badge>
             </div>
-            <h2
-              className="text-xl font-bold text-foreground mb-4 prose prose-sm dark:prose-invert max-w-none"
-              dangerouslySetInnerHTML={parseFullMarkdown(question.title)}
-            />
             <div
-              className="prose prose-sm dark:prose-invert max-w-none text-foreground/90"
-              dangerouslySetInnerHTML={parseFullMarkdown(question.question)}
+              className="text-base text-foreground prose prose-sm dark:prose-invert max-w-none"
+              dangerouslySetInnerHTML={parseFullMarkdown(question.prompt)}
             />
           </div>
 
           {/* Tags */}
-          {question.topicTags && question.topicTags.length > 0 && (
-            <div className="p-4 bg-muted/50 rounded-xl border border-border/50">
-              <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                <svg
-                  className="w-4 h-4 text-primary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-label="Related Topics"
+          {question.tags && question.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
+              {question.tags.map((tag: string) => (
+                <Badge
+                  key={tag}
+                  variant="secondary"
+                  className="px-3 py-1 text-xs font-medium"
                 >
-                  <title>Related Topics</title>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
-                  />
-                </svg>
-                Related Topics
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {question.topicTags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant="secondary"
-                    className="px-3 py-1 text-xs font-medium"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
+                  {tag}
+                </Badge>
+              ))}
             </div>
           )}
 
@@ -141,41 +123,14 @@ export function QuestionModal({ question, onClose }: QuestionModalProps) {
             </h3>
             <div
               className="prose prose-sm dark:prose-invert max-w-none text-foreground/90"
-              dangerouslySetInnerHTML={parseFullMarkdown(question.answer)}
+              dangerouslySetInnerHTML={parseFullMarkdown(
+                question.description ||
+                  "Answer will be revealed after submission.",
+              )}
             />
           </div>
 
-          {/* Learning Resources */}
-          {question.learningResources &&
-            question.learningResources.length > 0 && (
-              <div>
-                <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-primary" />
-                  Learning Resources
-                </h4>
-                <div className="space-y-2">
-                  {question.learningResources.map((resource) => (
-                    <a
-                      key={resource.url}
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between p-4 bg-card border border-border rounded-xl hover:border-primary/40 hover:shadow-md transition-all group"
-                    >
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                          {resource.title}
-                        </p>
-                        <p className="text-xs text-muted-foreground capitalize mt-1">
-                          {resource.type}
-                        </p>
-                      </div>
-                      <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
+          {/* Learning Resources section removed - not in current schema */}
         </div>
       </div>
     </div>

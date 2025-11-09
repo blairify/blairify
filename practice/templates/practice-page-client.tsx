@@ -3,7 +3,7 @@
 import { useState } from "react";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
-import { PracticeContent } from "@/components/practice/templates/practice-content";
+import { PracticeFlashcardsGrid } from "@/components/practice/templates/practice-flashcards-grid";
 import type { UserData } from "@/lib/services/auth/auth";
 
 interface PracticePageClientProps {
@@ -21,7 +21,9 @@ export function PracticePageClient({ user }: PracticePageClientProps) {
       />
       <div className="flex-1 flex flex-col overflow-hidden">
         <DashboardNavbar setSidebarOpen={setSidebarOpen} />
-        <PracticeContent user={user} />
+        <div className="flex-1 overflow-y-auto">
+          <PracticeFlashcardsGrid user={user} />
+        </div>
       </div>
     </div>
   );
