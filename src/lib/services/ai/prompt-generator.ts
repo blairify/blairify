@@ -112,6 +112,7 @@ export class PromptGenerator {
     config: InterviewConfig,
     questionCount: number,
     isFollowUp: boolean,
+    interviewer?: InterviewerProfile,
   ): string {
     if (config.isDemoMode) {
       return PromptGenerator.generateDemoUserPrompt(
@@ -122,7 +123,7 @@ export class PromptGenerator {
     }
 
     if (conversationHistory.length === 0) {
-      return PromptGenerator.generateFirstQuestionPrompt(config);
+      return PromptGenerator.generateFirstQuestionPrompt(config, interviewer);
     }
 
     if (isFollowUp) {
@@ -469,12 +470,17 @@ Ask a casual follow-up question that keeps the conversation flowing. This is sti
 This should be the final demo question. Ask something fun and encouraging that wraps up the demo nicely, like asking about their career goals or what they found interesting about the demo. Then let them know the demo is wrapping up.`;
   }
 
-  private static generateFirstQuestionPrompt(config: InterviewConfig): string {
+  private static generateFirstQuestionPrompt(
+    config: InterviewConfig,
+    interviewer?: InterviewerProfile,
+  ): string {
+    const interviewerName = interviewer?.name || "the interviewer";
+
     if (config.contextType === "job-specific" && config.company) {
-      return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Please introduce yourself by stating your name and briefly mentioning your background, then ask the first question that's specifically tailored to this job opportunity and the requirements mentioned in the job context. Remember: Do NOT prefix your response with your name or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm [Your Name], and I've been...")`;
+      return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question that's specifically tailored to this job opportunity and the requirements mentioned in the job context. Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
     }
 
-    return `This is the start of a ${config.interviewType} interview. Please introduce yourself by stating your name and briefly mentioning your background, then ask the first question appropriate for a ${config.seniority}-level ${config.position} position. Remember: Do NOT prefix your response with your name or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm [Your Name], and I've been...")`;
+    return `This is the start of a ${config.interviewType} interview. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question appropriate for a ${config.seniority}-level ${config.position} position. Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
   }
 
   /**
@@ -670,6 +676,75 @@ Your next question MUST be completely different from previous questions. Vary th
   }
 
   /**
+   * Generate fallback prompt when no practice library questions are available
+   * AI will create appropriate questions based on interview configuration
+   */
+  private static generateFallbackQuestionsPrompt(
+    config: InterviewConfig,
+    questionCount: number,
+  ): { prompt: string; questionIds: string[] } {
+    const prompt = `\n\n## 📝 INTERVIEW QUESTION GENERATION GUIDELINES:
+
+Since no practice library questions are available for this specific configuration, you will need to generate ${questionCount} appropriate interview questions.
+
+**Interview Configuration**:
+- **Position**: ${config.position}
+- **Seniority Level**: ${config.seniority} (${PromptGenerator.difficultyMap[config.seniority]})
+- **Interview Type**: ${config.interviewType} (${PromptGenerator.categoryDescription[config.interviewType]})
+- **Tech Stack**: ${config.technologies.length > 0 ? config.technologies.join(", ") : "General"}
+- **Total Questions**: ${questionCount}
+
+🎯 **QUESTION GENERATION REQUIREMENTS**:
+
+1. **Difficulty Alignment**: 
+   - Questions must match ${config.seniority}-level expectations
+   - ${PromptGenerator.difficultyMap[config.seniority]}
+
+2. **Interview Type Focus**:
+   - ${config.interviewType} interview style
+   - ${PromptGenerator.categoryDescription[config.interviewType]}
+
+3. **Technology Relevance**:
+   ${
+     config.technologies.length > 0
+       ? `- Focus on: ${config.technologies.join(", ")}\n   - Questions should test practical knowledge of these technologies`
+       : "- Use general technical questions appropriate for the position"
+   }
+
+4. **Question Structure**:
+   - Start with easier warm-up questions
+   - Progress to more challenging topics
+   - Include both theoretical and practical aspects
+   - Ask one question at a time
+   - Wait for candidate's answer before proceeding
+
+5. **Quality Standards**:
+   - Questions should be clear and specific
+   - Avoid ambiguous or trick questions
+   - Focus on real-world scenarios when possible
+   - Provide constructive feedback after each answer
+   - Ask follow-up questions to assess depth of knowledge
+
+6. **Interview Flow**:
+   - Maintain conversational tone
+   - Build rapport with the candidate
+   - Adapt difficulty based on candidate's responses
+   - Provide encouragement and guidance
+   - Keep questions relevant to ${config.position} role
+
+✅ **ALLOWED ACTIONS**:
+- Generate questions appropriate for the configuration
+- Adapt question difficulty based on candidate performance
+- Ask clarifying follow-up questions
+- Provide detailed feedback and explanations
+- Adjust interview pace based on candidate's comfort level
+
+Remember: Create a professional, supportive interview experience that accurately assesses the candidate's skills for a ${config.seniority}-level ${config.position} position.`;
+
+    return { prompt, questionIds: [] };
+  }
+
+  /**
    * Fetch actual questions from database to ask in interview
    * Returns a formatted string with questions to ask
    */
@@ -686,8 +761,22 @@ Your next question MUST be completely different from previous questions. Vary th
         questionCount,
       );
 
+      // If no questions available from practice library, use AI-generated fallback
       if (questions.length === 0) {
-        return { prompt: "", questionIds: [] };
+        console.log(
+          "⚠️ No practice library questions available, using AI-generated questions",
+        );
+        return PromptGenerator.generateFallbackQuestionsPrompt(
+          config,
+          questionCount,
+        );
+      }
+
+      // If insufficient questions, supplement with AI-generated ones
+      if (questions.length < questionCount) {
+        console.log(
+          `⚠️ Only ${questions.length}/${questionCount} questions available from practice library, will supplement with AI-generated questions`,
+        );
       }
 
       const questionIds = questions.map((q) => q.id || "").filter(Boolean);
@@ -695,30 +784,89 @@ Your next question MUST be completely different from previous questions. Vary th
         .map((q, i) => `${i + 1}. ${formatQuestionForPrompt(q)}`)
         .join("\n\n");
 
-      const prompt = `\n\n## INTERVIEW QUESTIONS FROM PRACTICE LIBRARY:
-You MUST ask these ${questions.length} questions from our curated practice library. Ask them in order, one at a time.
+      // Determine if we need to supplement with AI-generated questions
+      const needsSupplementation = questions.length < questionCount;
+      const remainingQuestions = questionCount - questions.length;
 
-QUESTION SELECTION CRITERIA:
+      const prompt = needsSupplementation
+        ? `\n\n## 📚 HYBRID INTERVIEW QUESTIONS (Practice Library + AI-Generated):
+
+**Available Practice Library Questions**: ${questions.length}
+**Additional Questions Needed**: ${remainingQuestions}
+**Total Questions for Interview**: ${questionCount}
+
+**Selection Criteria**:
 - **Difficulty**: ${config.seniority}-level (${PromptGenerator.difficultyMap[config.seniority]})
 - **Category**: ${config.interviewType} interview (${PromptGenerator.categoryDescription[config.interviewType]})
 - **Tech Stack**: ${config.technologies.length > 0 ? config.technologies.join(", ") : "General"}
 
+---
+📋 **PRACTICE LIBRARY QUESTIONS** (Ask these first):
 ${questionsText}
+---
 
-IMPORTANT GUIDELINES:
-- Ask questions in the order provided
-- Rephrase questions naturally for conversation flow
-- Each question should be comprehensive but concise
-- After candidate answers, provide feedback based on expected answer direction
-- Ask follow-up questions for clarification when needed
-- Evaluate answers against the provided expected answer guidelines
-- Focus on practical application and problem-solving approach
+🎯 **INTERVIEW INSTRUCTIONS**:
 
-QUESTION FORMATTING:
-- Start with context/scenario when appropriate
-- Ask specific, targeted questions
-- Include relevant technical details
-- Make questions appropriate for ${config.seniority}-level experience`;
+**Phase 1 - Practice Library Questions (Questions 1-${questions.length})**:
+1. **START HERE** - Ask the ${questions.length} questions from the practice library above
+2. **Ask sequentially** - Go through them in order
+3. **Rephrase naturally** - Make questions conversational while keeping core content
+4. **Evaluate carefully** - Use the provided expected answers as guidelines
+
+**Phase 2 - AI-Generated Questions (Questions ${questions.length + 1}-${questionCount})**:
+After completing all practice library questions, generate ${remainingQuestions} additional questions that:
+- Match the ${config.seniority}-level difficulty
+- Focus on ${config.interviewType} interview topics
+- Test ${config.technologies.length > 0 ? config.technologies.join(", ") : "general technical"} knowledge
+- Maintain consistent difficulty and style with the practice library questions
+- Fill any gaps in coverage from the practice library questions
+
+✅ **ALLOWED ACTIONS**:
+- Use all practice library questions first
+- Generate additional questions only after practice library questions are exhausted
+- Rephrase questions naturally
+- Ask follow-up clarifications
+- Provide constructive feedback
+- Adapt difficulty based on candidate performance
+
+Remember: Prioritize practice library questions, then supplement with AI-generated questions to reach ${questionCount} total questions.`
+        : `\n\n## ⚠️ MANDATORY INTERVIEW QUESTIONS FROM PRACTICE LIBRARY:
+
+🔒 **STRICT REQUIREMENT**: You MUST ONLY ask questions from the list below. DO NOT create, generate, or improvise any questions outside of this list.
+
+**Total Questions to Ask**: ${questions.length}
+**Selection Criteria**:
+- **Difficulty**: ${config.seniority}-level (${PromptGenerator.difficultyMap[config.seniority]})
+- **Category**: ${config.interviewType} interview (${PromptGenerator.categoryDescription[config.interviewType]})
+- **Tech Stack**: ${config.technologies.length > 0 ? config.technologies.join(", ") : "General"}
+
+---
+📋 **YOUR QUESTION BANK** (Use ONLY these questions):
+${questionsText}
+---
+
+🎯 **CRITICAL INSTRUCTIONS**:
+1. **ONLY USE THE QUESTIONS ABOVE** - Do not create new questions or deviate from this list
+2. **Ask questions sequentially** - Start with Question 1, then 2, then 3, etc.
+3. **Rephrase naturally** - Make questions conversational while keeping the core content
+4. **One question at a time** - Wait for candidate's answer before moving to next question
+5. **Use expected answers** - Evaluate responses against the provided answer guidelines
+6. **Provide feedback** - Give constructive feedback after each answer
+7. **Ask follow-ups** - Clarify or dig deeper based on candidate's response, but return to the next question from the list
+
+🚫 **FORBIDDEN ACTIONS**:
+- Creating questions not in the list above
+- Skipping questions from the list
+- Asking random technical questions
+- Generating improvised questions
+
+✅ **ALLOWED FLEXIBILITY**:
+- Rephrasing questions for natural conversation
+- Asking follow-up clarifications on candidate's answers
+- Providing feedback and guidance
+- Adjusting tone based on candidate's level
+
+Remember: Your job is to guide the candidate through THESE SPECIFIC QUESTIONS from our practice library, not to create new ones.`;
 
       return { prompt, questionIds };
     } catch (error) {

@@ -626,7 +626,6 @@ export function ComprehensiveQuestionForm({
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
-    // biome-ignore lint/suspicious/noExplicitAny: Zod version compatibility issue with react-hook-form
     resolver: zodResolver(formSchema as any),
     defaultValues: {
       category: initialData?.category || "",
@@ -716,7 +715,6 @@ export function ComprehensiveQuestionForm({
         return;
       }
 
-      // biome-ignore lint/suspicious/noExplicitAny: Type mismatch between form schema and PracticeQuestion interface
       await onSubmit(values as any);
 
       // Show success toast

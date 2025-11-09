@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
+import { BugReportButton } from "@/components/common/bug-report-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -147,6 +148,19 @@ export default function DashboardNavbar({
           {/* Right side: Action buttons */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
+
+            {/* Bug Report */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div>
+                  <BugReportButton variant="navbar" />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Report Bug</p>
+              </TooltipContent>
+            </Tooltip>
+
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button

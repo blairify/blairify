@@ -94,6 +94,13 @@ service cloud.firestore {
       }
     }
 
+    // ===== NEW PRACTICE QUESTIONS COLLECTION (Public Read for Published, Admin Write) =====
+    match /practice_questions/{questionId} {
+      // Allow unauthenticated read for published questions (for API routes)
+      allow read: if resource.data.status == 'published' || isSignedIn();
+      allow create, update, delete: if isSignedIn() && isAdmin();
+    }
+
     // ===== PRACTICE COLLECTIONS =====
     match /practice-collections/{collectionId} {
       allow read: if isSignedIn();

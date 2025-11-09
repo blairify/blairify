@@ -1,4 +1,50 @@
 import "@testing-library/jest-dom/jest-globals";
+import { TextDecoder, TextEncoder } from "node:util";
+
+// Polyfill for Next.js Request/Response
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+
+// Mock Request and Response for Next.js API routes
+if (!global.Request) {
+  global.Request = class Request {
+    constructor(input, init) {
+      this.url = typeof input === "string" ? input : input.url;
+      this.method = init?.method || "GET";
+      this.headers = new Map(Object.entries(init?.headers || {}));
+      this.body = init?.body;
+    }
+  };
+}
+
+if (!global.Response) {
+  global.Response = class Response {
+    constructor(body, init) {
+      this.body = body;
+      this.status = init?.status || 200;
+      this.statusText = init?.statusText || "";
+      this.headers = new Map(Object.entries(init?.headers || {}));
+    }
+
+    json() {
+      return Promise.resolve(JSON.parse(this.body));
+    }
+
+    text() {
+      return Promise.resolve(this.body);
+    }
+
+    static json(data, init) {
+      return new Response(JSON.stringify(data), {
+        ...init,
+        headers: {
+          "Content-Type": "application/json",
+          ...(init?.headers || {}),
+        },
+      });
+    }
+  };
+}
 
 // Mock Firebase
 jest.mock("firebase/app", () => ({

@@ -79,6 +79,7 @@ export async function POST(
       interviewConfig,
       questionCount || 0,
       isFollowUp,
+      interviewer,
     );
 
     // Get AI response

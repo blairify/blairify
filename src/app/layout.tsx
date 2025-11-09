@@ -1,6 +1,5 @@
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type ReactNode, Suspense } from "react";
-import { BugReportButton } from "../components/common/bug-report-button";
 import { CookieBanner } from "../components/landing-page/cookie-banner";
 import { Toaster } from "../components/ui/sonner";
 import { AuthProvider } from "../providers/auth-provider";
@@ -123,7 +122,6 @@ export default function RootLayout({
               <AuthProvider>
                 <div className="flex flex-col min-h-screen">{children}</div>
                 <CookieBanner />
-                <BugReportButton />
                 <Toaster />
               </AuthProvider>
             </SWRProvider>

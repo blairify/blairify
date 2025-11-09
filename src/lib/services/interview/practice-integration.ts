@@ -1,0 +1,381 @@
+/**
+ * Practice Library Integration for AI Interview System
+ * Connects practice questions with interview functionality
+ */
+
+import type {
+  InterviewConfig,
+  QuestionType as InterviewQuestionType,
+  InterviewType,
+  SeniorityLevel,
+} from "@/types/interview";
+import type {
+  DifficultyLevel,
+  QuestionType as PracticeQuestionType,
+  Question,
+} from "@/types/practice-question";
+import { evaluateAnswer } from "../evaluation/evaluation-service";
+import {
+  getQuestionById,
+  queryQuestions,
+} from "../questions/question-repository";
+
+// ============================================================================
+// Type Mappings
+// ============================================================================
+
+/**
+ * Map interview seniority to practice difficulty
+ */
+export function mapSeniorityToDifficulty(
+  seniority: SeniorityLevel,
+): DifficultyLevel {
+  const mapping: Record<SeniorityLevel, DifficultyLevel> = {
+    entry: "entry",
+    junior: "junior",
+    mid: "middle",
+    senior: "senior",
+  };
+  return mapping[seniority];
+}
+
+/**
+ * Map interview type to practice question filters
+ */
+export function getTopicForInterviewType(
+  interviewType: InterviewType,
+): string[] {
+  const mapping: Record<InterviewType, string[]> = {
+    technical: [
+      "Frontend Development",
+      "Backend Development",
+      "Algorithms & Data Structures",
+    ],
+    coding: ["Algorithms & Data Structures"],
+    "system-design": ["System Design", "Backend Development"],
+    bullet: [
+      "Frontend Development",
+      "Backend Development",
+      "General Programming",
+    ],
+  };
+  return mapping[interviewType] || [];
+}
+
+// ============================================================================
+// Question Selection for Interviews
+// ============================================================================
+
+export interface InterviewQuestionSelectionOptions {
+  config: InterviewConfig;
+  count: number;
+  excludeIds?: string[];
+  preferCompany?: string;
+}
+
+/**
+ * Select questions for an interview session based on config
+ */
+export async function selectQuestionsForInterview(
+  options: InterviewQuestionSelectionOptions,
+): Promise<Question[]> {
+  const { config, count, excludeIds = [], preferCompany } = options;
+
+  const difficulty = mapSeniorityToDifficulty(config.seniority);
+  const topics = getTopicForInterviewType(config.interviewType);
+
+  // Build query filters
+  const filters: any = {
+    difficulty,
+    status: "published" as const,
+  };
+
+  // Add interview type filter
+  if (config.interviewType) {
+    filters.interviewTypes = config.interviewType;
+  }
+
+  // Query questions
+  const { questions } = await queryQuestions({
+    filters,
+    limit: count * 3, // Get more than needed for filtering
+  });
+
+  // Filter and prioritize
+  let filtered = questions.filter((q) => !excludeIds.includes(q.id));
+
+  // Prioritize by company if specified
+  if (preferCompany) {
+    filtered.sort((a, b) => {
+      const aHasCompany = a.companies?.some((c) => c.name === preferCompany)
+        ? 1
+        : 0;
+      const bHasCompany = b.companies?.some((c) => c.name === preferCompany)
+        ? 1
+        : 0;
+      return bHasCompany - aHasCompany;
+    });
+  }
+
+  // Prioritize by topic match
+  filtered.sort((a, b) => {
+    const aTopicMatch = topics.includes(a.topic) ? 1 : 0;
+    const bTopicMatch = topics.includes(b.topic) ? 1 : 0;
+    return bTopicMatch - aTopicMatch;
+  });
+
+  // Filter by tech stack if specified
+  if (config.technologies && config.technologies.length > 0) {
+    const techSet = new Set(config.technologies.map((t) => t.toLowerCase()));
+    filtered = filtered.filter((q) =>
+      q.primaryTechStack?.some((tech) => techSet.has(tech.toLowerCase())),
+    );
+  }
+
+  // Return requested count
+  return filtered.slice(0, count);
+}
+
+// ============================================================================
+// Answer Evaluation Integration
+// ============================================================================
+
+export interface InterviewAnswerEvaluation {
+  score: number; // 0-1
+  passed: boolean;
+  reasoning: string;
+  strengths: string[];
+  weaknesses: string[];
+  suggestions: string[];
+  detailedFeedback?: string;
+}
+
+/**
+ * Evaluate an interview answer using the practice library evaluation system
+ */
+export async function evaluateInterviewAnswer(
+  questionId: string,
+  userAnswer: string,
+  config: InterviewConfig,
+): Promise<InterviewAnswerEvaluation> {
+  // Get the question
+  const question = await getQuestionById(questionId);
+
+  if (!question) {
+    throw new Error(`Question ${questionId} not found`);
+  }
+
+  // Build user answer object based on question type
+  const answer: any = {
+    questionId,
+    userId: "interview-user", // Will be replaced with actual user ID
+    sessionId: "interview-session",
+    attemptNumber: 1,
+    submittedAt: new Date().toISOString(),
+    timeSpentSeconds: 0,
+  };
+
+  // Add type-specific answer data
+  if (question.type === "open") {
+    answer.questionType = "open";
+    answer.text = userAnswer;
+  } else if (question.type === "code") {
+    answer.questionType = "code";
+    answer.code = userAnswer;
+    answer.language = (question as any).language || "javascript";
+  } else if (question.type === "mcq") {
+    // Parse MCQ answer (assuming format like "a,b,c")
+    answer.questionType = "mcq";
+    answer.selectedOptionIds = userAnswer.split(",").map((s) => s.trim());
+  }
+
+  // Evaluate using practice library system
+  const evaluation = await evaluateAnswer(question, answer, {
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+
+  // Map to interview evaluation format
+  const difficulty = mapSeniorityToDifficulty(config.seniority);
+  const passingThreshold = getPassingThreshold(difficulty);
+
+  return {
+    score: evaluation.score,
+    passed: evaluation.score >= passingThreshold,
+    reasoning: evaluation.reasoning,
+    strengths: evaluation.strengths,
+    weaknesses: evaluation.weaknesses,
+    suggestions: evaluation.suggestions,
+    detailedFeedback: evaluation.breakdown
+      ? JSON.stringify(evaluation.breakdown)
+      : undefined,
+  };
+}
+
+/**
+ * Get passing threshold based on difficulty
+ */
+function getPassingThreshold(difficulty: DifficultyLevel): number {
+  const thresholds: Record<DifficultyLevel, number> = {
+    entry: 0.6,
+    junior: 0.65,
+    middle: 0.7,
+    senior: 0.75,
+  };
+  return thresholds[difficulty];
+}
+
+// ============================================================================
+// Batch Evaluation for Interview Sessions
+// ============================================================================
+
+export interface InterviewSessionEvaluation {
+  overallScore: number;
+  passed: boolean;
+  questionEvaluations: Array<{
+    questionId: string;
+    questionTitle: string;
+    score: number;
+    passed: boolean;
+    reasoning: string;
+  }>;
+  strengths: string[];
+  improvements: string[];
+  recommendations: string[];
+}
+
+/**
+ * Evaluate an entire interview session
+ */
+export async function evaluateInterviewSession(
+  questionAnswerPairs: Array<{ questionId: string; userAnswer: string }>,
+  config: InterviewConfig,
+): Promise<InterviewSessionEvaluation> {
+  const evaluations = [];
+
+  // Evaluate each answer
+  for (const pair of questionAnswerPairs) {
+    try {
+      const evaluation = await evaluateInterviewAnswer(
+        pair.questionId,
+        pair.userAnswer,
+        config,
+      );
+
+      const question = await getQuestionById(pair.questionId);
+
+      evaluations.push({
+        questionId: pair.questionId,
+        questionTitle: question?.title || "Unknown Question",
+        score: evaluation.score,
+        passed: evaluation.passed,
+        reasoning: evaluation.reasoning,
+        strengths: evaluation.strengths,
+        weaknesses: evaluation.weaknesses,
+        suggestions: evaluation.suggestions,
+      });
+    } catch (error) {
+      console.error(`Error evaluating question ${pair.questionId}:`, error);
+    }
+  }
+
+  // Calculate overall score
+  const overallScore =
+    evaluations.reduce((sum, e) => sum + e.score, 0) / evaluations.length;
+  const difficulty = mapSeniorityToDifficulty(config.seniority);
+  const passed = overallScore >= getPassingThreshold(difficulty);
+
+  // Aggregate strengths and improvements
+  const allStrengths = evaluations.flatMap((e) => e.strengths);
+  const allWeaknesses = evaluations.flatMap((e) => e.weaknesses);
+  const allSuggestions = evaluations.flatMap((e) => e.suggestions);
+
+  // Deduplicate and prioritize
+  const strengths = [...new Set(allStrengths)].slice(0, 5);
+  const improvements = [...new Set(allWeaknesses)].slice(0, 5);
+  const recommendations = [...new Set(allSuggestions)].slice(0, 5);
+
+  return {
+    overallScore,
+    passed,
+    questionEvaluations: evaluations,
+    strengths,
+    improvements,
+    recommendations,
+  };
+}
+
+// ============================================================================
+// Question Formatting for Interview Display
+// ============================================================================
+
+/**
+ * Format a practice question for interview display
+ */
+export function formatQuestionForInterview(question: Question): {
+  id: string;
+  title: string;
+  prompt: string;
+  type: InterviewQuestionType;
+  difficulty: string;
+  estimatedTime: number;
+  companies?: string[];
+  techStack?: string[];
+} {
+  return {
+    id: question.id,
+    title: question.title,
+    prompt: question.prompt,
+    type: mapPracticeTypeToInterviewType(question.type),
+    difficulty: question.difficulty,
+    estimatedTime: question.estimatedTimeMinutes,
+    companies: question.companies?.map((c) => c.name),
+    techStack: question.primaryTechStack,
+  };
+}
+
+/**
+ * Map practice question type to interview question type
+ */
+function mapPracticeTypeToInterviewType(
+  type: PracticeQuestionType,
+): InterviewQuestionType {
+  const mapping: Record<PracticeQuestionType, InterviewQuestionType> = {
+    open: "technical",
+    code: "coding",
+    mcq: "quick-assessment",
+    matching: "conceptual",
+    truefalse: "quick-assessment",
+  };
+  return mapping[type] || "technical";
+}
+
+// ============================================================================
+// Statistics and Analytics
+// ============================================================================
+
+/**
+ * Get question statistics for a user
+ */
+export async function getUserQuestionStats(_userId: string): Promise<{
+  totalAttempts: number;
+  averageScore: number;
+  byDifficulty: Record<
+    DifficultyLevel,
+    { attempts: number; averageScore: number }
+  >;
+  byTopic: Record<string, { attempts: number; averageScore: number }>;
+}> {
+  // This would query user_answers and evaluation_results collections
+  // Placeholder implementation
+  return {
+    totalAttempts: 0,
+    averageScore: 0,
+    byDifficulty: {
+      entry: { attempts: 0, averageScore: 0 },
+      junior: { attempts: 0, averageScore: 0 },
+      middle: { attempts: 0, averageScore: 0 },
+      senior: { attempts: 0, averageScore: 0 },
+    },
+    byTopic: {},
+  };
+}

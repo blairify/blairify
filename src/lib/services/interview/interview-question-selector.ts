@@ -8,10 +8,40 @@ import type {
   InterviewType,
   SeniorityLevel,
 } from "@/components/interview/types";
-import {
-  getAllPracticeQuestions,
-  type PracticeQuestion,
-} from "../practice-questions/practice-questions-service";
+import type { Question } from "@/types/practice-question";
+
+/**
+ * Recently used questions cache to prevent immediate repetition
+ * Stores question IDs with timestamp, auto-expires after 30 minutes
+ */
+const recentlyUsedQuestions = new Map<string, number>();
+const CACHE_EXPIRY_MS = 30 * 60 * 1000; // 30 minutes
+
+/**
+ * Add question to recently used cache
+ */
+function markQuestionAsUsed(questionId: string): void {
+  recentlyUsedQuestions.set(questionId, Date.now());
+
+  // Clean up expired entries
+  const now = Date.now();
+  for (const [id, timestamp] of recentlyUsedQuestions.entries()) {
+    if (now - timestamp > CACHE_EXPIRY_MS) {
+      recentlyUsedQuestions.delete(id);
+    }
+  }
+}
+
+/**
+ * Check if question was recently used
+ */
+function wasRecentlyUsed(questionId: string): boolean {
+  const timestamp = recentlyUsedQuestions.get(questionId);
+  if (!timestamp) return false;
+
+  const age = Date.now() - timestamp;
+  return age < CACHE_EXPIRY_MS;
+}
 
 /**
  * Get questions relevant to the interview configuration
@@ -19,21 +49,42 @@ import {
 export async function getRelevantQuestionsForInterview(
   config: InterviewConfig,
   count: number = 10,
-): Promise<PracticeQuestion[]> {
+): Promise<Question[]> {
   try {
-    const allQuestions = await getAllPracticeQuestions();
+    // Fetch questions from API endpoint instead of direct Firestore access
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+    const response = await fetch(
+      `${baseUrl}/api/practice/questions?limit=1000&status=published`,
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch questions: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+
+    if (!result.success) {
+      throw new Error(result.message || "Failed to load questions");
+    }
+
+    const allQuestions = result.questions as Question[];
 
     // Filter questions based on interview config
-    const relevantQuestions = allQuestions.filter((q) => {
+    const relevantQuestions = allQuestions.filter((q: Question) => {
+      // Skip recently used questions to prevent immediate repetition
+      if (wasRecentlyUsed(q.id || "")) {
+        return false;
+      }
+
       // Match difficulty to seniority
       const difficultyMatch = matchDifficultyToSeniority(
         q.difficulty,
         config.seniority,
       );
 
-      // Match category to interview type
+      // Match topic to interview type
       const categoryMatch = matchCategoryToInterviewType(
-        q.category,
+        q.topic,
         config.interviewType,
       );
 
@@ -45,8 +96,32 @@ export async function getRelevantQuestionsForInterview(
       return difficultyMatch && categoryMatch && techStackMatch;
     });
 
-    // Shuffle and return requested count
-    return shuffleArray(relevantQuestions).slice(0, count);
+    // Shuffle with timestamp-based seed for better randomization
+    const shuffled = shuffleArrayWithSeed(relevantQuestions, Date.now());
+    const selected = shuffled.slice(0, count);
+
+    // Mark selected questions as recently used
+    selected.forEach((q) => {
+      if (q.id) {
+        markQuestionAsUsed(q.id);
+      }
+    });
+
+    // Log shuffling info for debugging
+    console.log(`🔀 Question Selection Summary:`, {
+      totalAvailable: relevantQuestions.length,
+      requested: count,
+      selected: selected.length,
+      selectedTitles: selected.map((q) => q.title).slice(0, 3), // Show first 3 titles
+      recentlyUsedCount: recentlyUsedQuestions.size,
+      config: {
+        seniority: config.seniority,
+        interviewType: config.interviewType,
+        technologies: config.technologies,
+      },
+    });
+
+    return selected;
   } catch (error) {
     console.error("Failed to fetch questions for interview:", error);
     return [];
@@ -59,23 +134,39 @@ export async function getRelevantQuestionsForInterview(
 export async function getRandomQuestionForInterview(
   config: InterviewConfig,
   usedQuestionIds: string[] = [],
-): Promise<PracticeQuestion | null> {
+): Promise<Question | null> {
   try {
-    const allQuestions = await getAllPracticeQuestions();
+    // Fetch questions from API endpoint instead of direct Firestore access
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+    const response = await fetch(
+      `${baseUrl}/api/practice/questions?limit=1000&status=published`,
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch questions: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+
+    if (!result.success) {
+      throw new Error(result.message || "Failed to load questions");
+    }
+
+    const allQuestions = result.questions as Question[];
 
     // Filter out already used questions
     const availableQuestions = allQuestions.filter(
-      (q) => !usedQuestionIds.includes(q.id || ""),
+      (q: Question) => !usedQuestionIds.includes(q.id || ""),
     );
 
     // Filter by relevance
-    const relevantQuestions = availableQuestions.filter((q) => {
+    const relevantQuestions = availableQuestions.filter((q: Question) => {
       const difficultyMatch = matchDifficultyToSeniority(
         q.difficulty,
         config.seniority,
       );
       const categoryMatch = matchCategoryToInterviewType(
-        q.category,
+        q.topic,
         config.interviewType,
       );
       const techStackMatch =
@@ -102,16 +193,18 @@ export async function getRandomQuestionForInterview(
  * Match question difficulty to candidate seniority
  */
 function matchDifficultyToSeniority(
-  difficulty: "easy" | "medium" | "hard",
+  difficulty: "entry" | "junior" | "middle" | "senior",
   seniority: SeniorityLevel,
 ): boolean {
-  const difficultyMap: Record<SeniorityLevel, ("easy" | "medium" | "hard")[]> =
-    {
-      entry: ["easy"],
-      junior: ["easy", "medium"],
-      mid: ["medium"],
-      senior: ["medium", "hard"],
-    };
+  const difficultyMap: Record<
+    SeniorityLevel,
+    ("entry" | "junior" | "middle" | "senior")[]
+  > = {
+    entry: ["entry"],
+    junior: ["entry", "junior"],
+    mid: ["junior", "middle"],
+    senior: ["middle", "senior"],
+  };
 
   return difficultyMap[seniority]?.includes(difficulty) || false;
 }
@@ -173,16 +266,10 @@ function matchCategoryToInterviewType(
 /**
  * Match question tech stack to interview requirements
  */
-function matchTechStack(
-  question: PracticeQuestion,
-  technologies: string[],
-): boolean {
-  const questionTech = [
-    ...(question.primaryTechStack || []),
-    ...(question.languages || []),
-    ...(question.frontendFrameworks || []),
-    ...(question.backendFrameworks || []),
-  ].map((t) => t.toLowerCase());
+function matchTechStack(question: Question, technologies: string[]): boolean {
+  const questionTech = [...(question.primaryTechStack || [])].map((t) =>
+    t.toLowerCase(),
+  );
 
   const requiredTech = technologies.map((t) => t.toLowerCase());
 
@@ -193,41 +280,44 @@ function matchTechStack(
 }
 
 /**
- * Shuffle array using Fisher-Yates algorithm
+ * Shuffle array with timestamp-based seeding for better randomization
+ * Uses a simple seeded random number generator
  */
-function shuffleArray<T>(array: T[]): T[] {
+function shuffleArrayWithSeed<T>(array: T[], seed: number): T[] {
   const shuffled = [...array];
+
+  // Simple seeded random number generator (LCG algorithm)
+  let currentSeed = seed;
+  const seededRandom = () => {
+    currentSeed = (currentSeed * 9301 + 49297) % 233280;
+    return currentSeed / 233280;
+  };
+
+  // Fisher-Yates shuffle with seeded random
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(seededRandom() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
+
   return shuffled;
 }
 
 /**
  * Format question for AI prompt - enhanced for comprehensive yet concise format
  */
-export function formatQuestionForPrompt(question: PracticeQuestion): string {
+export function formatQuestionForPrompt(question: Question): string {
   // Format tech stack
-  const techStack = [
-    ...(question.primaryTechStack || []),
-    ...(question.languages || []),
-    ...(question.frontendFrameworks || []),
-    ...(question.backendFrameworks || []),
-  ].join(", ");
+  const techStack = [...(question.primaryTechStack || [])].join(", ");
 
   // Format company info
-  const company =
-    question.companyLogo?.replace("Si", "") ||
-    question.companyLogo ||
-    "Unknown";
+  const company = question.companies?.[0]?.name || "General";
 
   // Enhanced format: more comprehensive but AI-readable
   return `**${question.title}** (${question.difficulty})
-Category: ${question.category}
+Topic: ${question.topic}
 Tech: ${techStack || "General"}
 Company: ${company}
-Question: ${question.question}
-Expected Answer: ${question.answer.substring(0, 200)}${question.answer.length > 200 ? "..." : ""}
-Tags: ${question.topicTags.join(", ")}`;
+Question: ${question.prompt}
+Expected Answer: ${question.description?.substring(0, 200) || "Evaluate based on technical accuracy and depth"}${(question.description?.length || 0) > 200 ? "..." : ""}
+Tags: ${question.tags.join(", ")}`;
 }

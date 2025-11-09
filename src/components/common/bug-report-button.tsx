@@ -38,7 +38,13 @@ interface BugReportData {
   createdAt: FieldValue;
 }
 
-export function BugReportButton() {
+interface BugReportButtonProps {
+  variant?: "floating" | "navbar";
+}
+
+export function BugReportButton({
+  variant = "floating",
+}: BugReportButtonProps) {
   const [open, setOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const { user, userData } = useAuth();
@@ -115,14 +121,25 @@ export function BugReportButton() {
   return (
     <Popover open={open} onOpenChange={handleOpenChange}>
       <PopoverTrigger asChild>
-        <Button
-          size="lg"
-          className="fixed bottom-6 right-6 rounded-lg max-h-10 shadow-lg hover:shadow-2xl transition-all z-50 h-12 px-5 bg-gray-900 hover:to-red-600 text-white border-0 group"
-          variant="outline"
-        >
-          <Bug className="h-4 w-4 mr-2 group-hover:rotate-12 transition-transform" />
-          <span className="font-medium">Report Bug</span>
-        </Button>
+        {variant === "floating" ? (
+          <Button
+            size="lg"
+            className="fixed bottom-6 right-6 rounded-lg max-h-10 shadow-lg hover:shadow-2xl transition-all z-50 h-12 px-5 bg-gray-900 hover:to-red-600 text-white border-0 group"
+            variant="outline"
+          >
+            <Bug className="h-4 w-4 mr-2 group-hover:rotate-12 transition-transform" />
+            <span className="font-medium">Report Bug</span>
+          </Button>
+        ) : (
+          <Button
+            aria-label="Report Bug"
+            variant="outline"
+            size="icon"
+            className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+          >
+            <Bug className="h-4 w-4" />
+          </Button>
+        )}
       </PopoverTrigger>
       <PopoverContent
         className="w-96 p-0"

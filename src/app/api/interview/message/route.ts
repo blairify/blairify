@@ -302,6 +302,7 @@ export async function POST(request: NextRequest) {
       interviewConfig,
       questionCount || 0,
       isFollowUp,
+      interviewer,
     );
 
     // Get AI response
