@@ -9,10 +9,10 @@ import {
 } from "@/lib/config/interviewers";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
-import { useInterviewConfig } from "../hooks/use-interview-config";
-import { useInterviewSession } from "../hooks/use-interview-session";
-import { useInterviewTimer } from "../hooks/use-interview-timer";
-import { useSpeechRecognition } from "../hooks/use-speech-recognition";
+import { useInterviewConfig } from "../../../hooks/use-interview-config";
+import { useInterviewSession } from "../../../hooks/use-interview-session";
+import { useInterviewTimer } from "../../../hooks/use-interview-timer";
+import { useSpeechRecognition } from "../../../hooks/use-speech-recognition";
 import { MessageInput } from "../molecules/message-input";
 import { InterviewCompleteCard } from "../organisms/interview-complete-card";
 import { InterviewConfigScreen } from "../organisms/interview-config-screen";

@@ -2,7 +2,6 @@
 
 import { ArrowRight, Brain } from "lucide-react";
 import { useState } from "react";
-import { useInterviewDetails } from "@/components/jobs/hooks/use-interview-details";
 import { AIInterviewerCard } from "@/components/jobs/molecules/ai-interviewer-card";
 import { CompanyPreparationCard } from "@/components/jobs/molecules/company-preparation-card";
 import { InterviewExpectations } from "@/components/jobs/molecules/interview-expectations";
@@ -16,6 +15,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useInterviewDetails } from "@/hooks/use-interview-details";
 import type { Job } from "@/lib/validators";
 
 interface InterviewPreparationModalProps {

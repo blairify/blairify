@@ -4,10 +4,10 @@ import { ArrowRight, Gift, Share2, TrendingUp } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/providers/auth-provider";
-import RotatingText from "../RotatingText";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
+import RotatingText from "../../ui/rotating-text";
 
-const MainLogo = dynamic(() => import("../common/atoms/main-logo"), {
+const MainLogo = dynamic(() => import("../../common/atoms/main-logo"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full bg-transparent flex items-center justify-center">

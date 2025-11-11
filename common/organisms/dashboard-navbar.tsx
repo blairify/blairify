@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
-import { RankBadge } from "@/components/ranks/rank-badge";
-import { XPProgressBarCompact } from "@/components/ranks/xp-progress-bar";
+import { RankBadge } from "@/components/ranks/organisms/rank-badge";
+import { XPProgressBarCompact } from "@/components/ranks/organisms/xp-progress-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,7 +18,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useAchievements } from "@/hooks/use-achievements";
-import useIsMobile from "@/hooks/useIsMobile";
+import useIsMobile from "@/hooks/use-is-mobile";
 import { DatabaseService } from "@/lib/database";
 import { useAuth } from "@/providers/auth-provider";
 

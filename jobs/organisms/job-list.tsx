@@ -9,7 +9,7 @@ import {
   FiList,
   FiMapPin,
 } from "react-icons/fi";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 interface Job {
   id: number;
