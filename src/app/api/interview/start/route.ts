@@ -2,14 +2,16 @@ import { type NextRequest, NextResponse } from "next/server";
 import { getInterviewerForRole } from "@/lib/config/interviewers";
 import { aiClient } from "@/lib/services/ai/ai-client";
 import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
-import { InterviewService } from "@/lib/services/interview/interview-service";
+import {
+  determineQuestionType,
+  validateInterviewConfig,
+} from "@/lib/services/interview/interview-service";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { interviewConfig } = body;
 
-    // Validate required fields
     if (!interviewConfig) {
       return NextResponse.json(
         { success: false, error: "Interview configuration is required" },
@@ -17,9 +19,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate interview configuration
-    const configValidation =
-      InterviewService.validateInterviewConfig(interviewConfig);
+    const configValidation = validateInterviewConfig(interviewConfig);
     if (!configValidation.isValid) {
       console.error("❌ Interview configuration validation failed:", {
         errors: configValidation.errors,
@@ -35,10 +35,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Select interviewer based on role
     const interviewer = getInterviewerForRole(interviewConfig.position);
 
-    // Get actual questions from database based on interview mode
     const { getQuestionCountForMode } = await import(
       "@/lib/utils/interview-helpers"
     );
@@ -47,7 +45,6 @@ export async function POST(request: NextRequest) {
       interviewConfig.isDemoMode,
     );
 
-    // Fetch questions from practice library
     const { prompt: questionsPrompt, questionIds } =
       await PromptGenerator.getDatabaseQuestionsPrompt(
         interviewConfig,
@@ -60,7 +57,6 @@ export async function POST(request: NextRequest) {
       interviewMode: interviewConfig.interviewMode,
     });
 
-    // Generate system prompt with actual questions
     const systemPrompt =
       PromptGenerator.generateSystemPrompt(interviewConfig, interviewer) +
       questionsPrompt;
@@ -89,7 +85,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Determine question type
-    const questionType = InterviewService.determineQuestionType(
+    const questionType = determineQuestionType(
       interviewConfig.interviewType,
       0,
     );

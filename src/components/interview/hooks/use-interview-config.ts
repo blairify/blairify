@@ -41,14 +41,6 @@ export function useInterviewConfig() {
     const interviewType = (params.get("interviewType") ||
       "technical") as InterviewConfig["interviewType"];
 
-    console.log("📋 Config loaded from URL:", {
-      interviewMode,
-      seniority,
-      interviewType,
-      position: params.get("position"),
-      isDemoMode: params.get("demo") === "true",
-    });
-
     setConfig({
       position: params.get("position") || "Frontend Engineer",
       seniority,

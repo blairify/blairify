@@ -5,10 +5,14 @@
 
 import {
   AIClient,
-  AnalysisService,
-  InterviewService,
   PromptGenerator,
   ResponseValidator,
+  analyzeResponseQuality,
+  calculateTotalQuestions,
+  determineQuestionType,
+  generateMockAnalysis,
+  parseAnalysis,
+  validateInterviewConfig,
 } from "../src/lib/services";
 import type { InterviewConfig, Message } from "../src/types/interview";
 
@@ -49,19 +53,18 @@ async function verifyServices() {
   try {
     // Test InterviewService
     console.info("✅ Testing InterviewService...");
-    const validation = InterviewService.validateInterviewConfig(testConfig);
+    const validation = validateInterviewConfig(testConfig);
     console.info(
       `   Config validation: ${validation.isValid ? "✅ PASS" : "❌ FAIL"}`,
     );
 
-    const totalQuestions = InterviewService.calculateTotalQuestions(testConfig);
+    const totalQuestions = calculateTotalQuestions(testConfig);
     console.info(`   Total questions: ${totalQuestions} ✅`);
 
-    const questionType = InterviewService.determineQuestionType("technical", 0);
+    const questionType = determineQuestionType("technical", 0);
     console.info(`   Question type: ${questionType} ✅`);
 
-    const responseAnalysis =
-      InterviewService.analyzeResponseQuality(testConversation);
+    const responseAnalysis = analyzeResponseQuality(testConversation);
     console.info(
       `   Response analysis: ${responseAnalysis.substantiveResponses} substantive responses ✅`,
     );
@@ -115,13 +118,10 @@ async function verifyServices() {
 
     // Test AnalysisService
     console.info("\n✅ Testing AnalysisService...");
-    const mockAnalysis = AnalysisService.generateMockAnalysis(
-      testConfig,
-      responseAnalysis,
-    );
+    const mockAnalysis = generateMockAnalysis(testConfig, responseAnalysis);
     console.info(`   Mock analysis length: ${mockAnalysis.length} chars ✅`);
 
-    const parsedAnalysis = AnalysisService.parseAnalysis(
+    const parsedAnalysis = parseAnalysis(
       mockAnalysis,
       responseAnalysis,
       testConfig,

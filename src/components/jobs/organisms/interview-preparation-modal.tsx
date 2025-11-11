@@ -36,7 +36,6 @@ export function InterviewPreparationModal({
 
   const handleStartInterview = async () => {
     setIsStarting(true);
-    // Small delay for better UX
     await new Promise((resolve) => setTimeout(resolve, 500));
     onConfirm();
   };

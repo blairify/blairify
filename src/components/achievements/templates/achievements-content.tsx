@@ -4,7 +4,7 @@ import { Clock, Star, Target, Trophy } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { useAchievements } from "@/hooks/useAchievements";
+import { useAchievements } from "@/hooks/use-achievements";
 import { ACHIEVEMENTS } from "@/lib/achievements";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";

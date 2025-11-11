@@ -40,4 +40,5 @@ serviceAccounts.json
 
 # documentation and thesis
 /docs
-/thesis
+/thesis 
+# Temporarily commented out for thesis editing

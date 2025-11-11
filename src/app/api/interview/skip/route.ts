@@ -2,7 +2,10 @@ import { type NextRequest, NextResponse } from "next/server";
 import { getInterviewerForRole } from "@/lib/config/interviewers";
 import { aiClient } from "@/lib/services/ai/ai-client";
 import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
-import { InterviewService } from "@/lib/services/interview/interview-service";
+import {
+  determineQuestionType,
+  validateInterviewConfig,
+} from "@/lib/services/interview/interview-service";
 import { getQuestionCountForMode } from "@/lib/utils/interview-helpers";
 
 export async function POST(request: NextRequest) {
@@ -24,8 +27,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate interview configuration
-    const configValidation =
-      InterviewService.validateInterviewConfig(interviewConfig);
+    const configValidation = validateInterviewConfig(interviewConfig);
     if (!configValidation.isValid) {
       return NextResponse.json(
         {
@@ -69,7 +71,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Determine question type
-    const questionType = InterviewService.determineQuestionType(
+    const questionType = determineQuestionType(
       interviewConfig.interviewType,
       (questionCount || 0) + 1,
     );

@@ -28,14 +28,6 @@ export const useJobValidation = (job: Job): JobValidationResult => {
 };
 
 /**
- * Hook for checking if a job should be displayed (has minimum required data)
- */
-export const useJobDisplayEligibility = (job: Job): boolean => {
-  const validation = useJobValidation(job);
-  return validation.isValid;
-};
-
-/**
  * Hook for getting validated job data with fallbacks
  */
 export const useValidatedJobData = (job: Job) => {

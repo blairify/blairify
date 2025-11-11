@@ -27,6 +27,6 @@ export { AIClient, aiClient } from "./ai/ai-client";
 // AI Services
 export { PromptGenerator } from "./ai/prompt-generator";
 export { ResponseValidator } from "./ai/response-validator";
-export { AnalysisService } from "./interview/analysis-service";
 // Interview Services
-export { InterviewService } from "./interview/interview-service";
+export * from "./interview/analysis-service";
+export * from "./interview/interview-service";

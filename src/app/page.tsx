@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BugReportButton } from "@/components/common/bug-report-button";
+import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import Footer from "@/components/common/organisms/footer";
 import { DashboardPromo } from "@/components/landing-page/dashboard-promo";
 import FeaturesGrid from "@/components/landing-page/features-grid";

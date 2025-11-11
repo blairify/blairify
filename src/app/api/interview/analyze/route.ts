@@ -6,8 +6,11 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { aiClient } from "@/lib/services/ai/ai-client";
 import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
-import { AnalysisService } from "@/lib/services/interview/analysis-service";
-import { InterviewService } from "@/lib/services/interview/interview-service";
+import { parseAnalysis } from "@/lib/services/interview/analysis-service";
+import {
+  analyzeResponseQuality,
+  validateInterviewConfig,
+} from "@/lib/services/interview/interview-service";
 import type {
   AnalyzeApiRequest,
   AnalyzeApiResponse,
@@ -44,8 +47,7 @@ export async function POST(
     }
 
     // Validate interview configuration
-    const configValidation =
-      InterviewService.validateInterviewConfig(interviewConfig);
+    const configValidation = validateInterviewConfig(interviewConfig);
     if (!configValidation.isValid) {
       console.error("❌ Analysis configuration validation failed:", {
         errors: configValidation.errors,
@@ -62,8 +64,7 @@ export async function POST(
     }
 
     // Analyze response quality
-    const responseAnalysis =
-      InterviewService.analyzeResponseQuality(conversationHistory);
+    const responseAnalysis = analyzeResponseQuality(conversationHistory);
 
     // Generate analysis prompts
     const systemPrompt =
@@ -104,7 +105,7 @@ export async function POST(
     }
 
     // Parse analysis into structured feedback
-    const feedback = AnalysisService.parseAnalysis(
+    const feedback = parseAnalysis(
       analysisText,
       responseAnalysis,
       interviewConfig,

@@ -5,7 +5,7 @@
 
 import { Mistral } from "@mistralai/mistralai";
 import type { InterviewConfig, ResponseAnalysis } from "@/types/interview";
-import { AnalysisService } from "../interview/analysis-service";
+import { generateMockAnalysis } from "../interview/analysis-service";
 
 export interface AIClientConfig {
   apiKey?: string;
@@ -387,7 +387,7 @@ export class AIClient {
     config: InterviewConfig,
     responseAnalysis: ResponseAnalysis,
   ): string {
-    return AnalysisService.generateMockAnalysis(config, responseAnalysis);
+    return generateMockAnalysis(config, responseAnalysis);
   }
 }
 

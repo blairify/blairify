@@ -105,7 +105,6 @@ export type QuestionType =
   | "trade-offs"
   | "components";
 
-// API Request/Response Types
 export interface InterviewApiRequest {
   message: string;
   conversationHistory: Message[];
@@ -121,6 +120,7 @@ export interface InterviewApiResponse {
   questionType?: QuestionType;
   validated?: boolean;
   shouldFollowUp?: boolean;
+  isFollowUp?: boolean;
   error?: string;
 }
 
