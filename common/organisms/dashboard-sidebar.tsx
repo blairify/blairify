@@ -153,13 +153,21 @@ export default function DashboardSidebar({
             </p>
           </div>
 
-          <a
+          <Link
             href="/achievements"
-            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground hover:bg-sidebar-accent/10 transition"
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+              isActive("/achievements")
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            }`}
           >
             <Award className="h-5 w-5 flex-shrink-0" />
-            <span className="truncate text-sm">Achievements</span>
-          </a>
+            <span
+              className={`truncate ${isActive("/achievements") ? "font-medium" : ""}`}
+            >
+              Achievements
+            </span>
+          </Link>
 
           <button
             type="button"

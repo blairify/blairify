@@ -3,9 +3,12 @@
 import { HelpCircle, LogOut, Menu, Settings } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
+import { RankBadge } from "@/components/ranks/rank-badge";
+import { XPProgressBarCompact } from "@/components/ranks/xp-progress-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +17,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useAchievements } from "@/hooks/use-achievements";
 import useIsMobile from "@/hooks/useIsMobile";
+import { DatabaseService } from "@/lib/database";
 import { useAuth } from "@/providers/auth-provider";
 
 interface DashboardNavbarProps {
@@ -27,6 +32,45 @@ export default function DashboardNavbar({
   const router = useRouter();
   const { user, userData, signOut } = useAuth();
   const { isMobile, isLoading } = useIsMobile();
+  const [stats, setStats] = useState({
+    avgScore: 0,
+    totalSessions: 0,
+    totalTime: 0,
+  });
+
+  // Load user stats for rank calculation
+  useEffect(() => {
+    async function loadUserStats() {
+      if (!user?.uid) return;
+      try {
+        const sessions = await DatabaseService.getUserSessions(user.uid, 100);
+        if (!sessions.length) return;
+
+        const avgScore =
+          sessions.reduce(
+            (sum, session) => sum + (session.scores?.overall || 0),
+            0,
+          ) / sessions.length;
+        const totalSessions = sessions.length;
+        const totalTime = sessions.reduce(
+          (sum, session) => sum + (session.totalDuration || 0),
+          0,
+        );
+
+        setStats({
+          avgScore: Math.round(avgScore),
+          totalSessions,
+          totalTime,
+        });
+      } catch (error) {
+        console.error("Error loading stats:", error);
+      }
+    }
+
+    loadUserStats();
+  }, [user?.uid]);
+
+  const { rank, progressToNextRank, totalXP } = useAchievements(stats);
 
   const getInitials = (name: string | null) => {
     if (!name) return "U";
@@ -125,23 +169,26 @@ export default function DashboardNavbar({
                 </TooltipContent>
               </Tooltip>
 
-              {/* User info - email and role */}
+              {/* User info - name, rank, and XP */}
               {!isMobile && (
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium text-foreground">
-                    {userData?.displayName || user?.displayName || "User"}
-                  </span>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <span>{user?.email || userData?.email}</span>
-                    {userData?.role && (
-                      <>
-                        <span>•</span>
-                        <span className="capitalize">{userData.role}</span>
-                      </>
-                    )}
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium text-foreground">
+                      {userData?.displayName || user?.displayName || "User"}
+                    </span>
+                    <RankBadge rank={rank} size="xs" showGlow={false} />
                   </div>
+                  <XPProgressBarCompact
+                    currentXP={totalXP}
+                    rank={rank}
+                    progress={progressToNextRank}
+                    className="max-w-[200px]"
+                  />
                 </div>
               )}
+
+              {/* Mobile: Just show rank badge */}
+              {isMobile && <RankBadge rank={rank} size="xs" showGlow={false} />}
             </div>
           </div>
 

@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/card";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
+import { addUserXP } from "@/lib/services/users/user-xp";
 import { parseFullMarkdown } from "@/lib/utils/markdown-parser";
 
 interface InterviewResults {
@@ -189,6 +190,15 @@ export function ResultsContent({ user }: ResultsContentProps) {
                 config,
                 data.feedback,
               );
+
+              // Update XP, levels, badges
+              const xpResult = await addUserXP(
+                user.uid,
+                data.feedback.score, // AI score
+                data.feedback.totalDuration || 0,
+              );
+
+              console.log("XP Update:", xpResult);
             } catch (dbError) {
               console.error("Error saving to database:", dbError);
             }
