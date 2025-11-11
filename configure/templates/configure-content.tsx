@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, CheckCircle, Code } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -11,7 +11,6 @@ import {
   isConfigComplete as checkIsConfigComplete,
 } from "@/components/configure/utils/configure-helpers";
 import type { InterviewConfig } from "@/components/configure/utils/types";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -24,7 +23,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
 import {
   COMPANY_PROFILES,
   CONFIGURE_SPECIFIC_COMPANIES,
@@ -32,13 +30,11 @@ import {
   INTERVIEW_MODES,
   POSITIONS,
   SENIORITY_LEVELS,
-  TECHNOLOGY_GROUPS,
 } from "@/constants/configure";
 
 export function ConfigureContent() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
-  const [showAdvancedSkills, setShowAdvancedSkills] = useState(false);
   const [config, setConfig] = useState<InterviewConfig>({
     position: "",
     seniority: "",
@@ -51,16 +47,15 @@ export function ConfigureContent() {
   });
 
   const handleStartInterview = () => {
-    if (canStartInterview(config, showAdvancedSkills)) {
+    if (canStartInterview(config)) {
       const urlParams = buildInterviewUrlParams(config);
       router.push(`/interview?${urlParams.toString()}`);
     }
   };
 
-  const isConfigComplete = checkIsConfigComplete(config, showAdvancedSkills);
+  const isConfigComplete = checkIsConfigComplete(config);
 
-  const canGoNext = () =>
-    checkCanGoNext(currentStep, config, showAdvancedSkills);
+  const canGoNext = () => checkCanGoNext(currentStep, config);
 
   const handleNext = () => {
     if (canGoNext() && currentStep < CONFIGURE_STEPS.length - 1) {
@@ -155,174 +150,6 @@ export function ConfigureContent() {
             ))}
           </RadioGroup>
         </div>
-
-        <Separator className="my-8" />
-
-        {/* Advanced Skills Toggle */}
-        <div className="flex items-center justify-between p-5 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl border border-primary/20">
-          <div className="space-y-1.5">
-            <h3 className="text-base font-bold flex items-center gap-2">
-              <Code className="size-5 text-primary" />
-              Advanced Skills Selection
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Specify your tech stack for more targeted interview questions
-            </p>
-          </div>
-          <Switch
-            checked={showAdvancedSkills}
-            onCheckedChange={setShowAdvancedSkills}
-            className="data-[state=checked]:bg-primary"
-          />
-        </div>
-
-        {/* Technologies & Skills Selection - Only show when toggle is on */}
-        {showAdvancedSkills && (
-          <div className="space-y-6 animate-in slide-in-from-top-4 fade-in duration-300">
-            <div className="bg-card border border-border rounded-xl p-5 shadow-sm">
-              <div className="max-h-96 overflow-y-auto space-y-6 pr-2">
-                {Object.entries(TECHNOLOGY_GROUPS).map(
-                  ([groupName, groupTechs]) => (
-                    <div key={groupName} className="space-y-4">
-                      <div className="flex items-center justify-between sticky top-0 bg-card/95 backdrop-blur-sm py-3 border-b border-border/50">
-                        <h4 className="text-base font-bold text-foreground flex items-center gap-2">
-                          <div className="w-1 h-6 bg-primary rounded-full" />
-                          {groupName}
-                          <Badge
-                            variant="secondary"
-                            className="text-xs px-2.5 py-0.5 font-semibold"
-                          >
-                            {
-                              groupTechs.filter((tech) =>
-                                config.technologies.includes(tech),
-                              ).length
-                            }
-                            /{groupTechs.length}
-                          </Badge>
-                        </h4>
-                        <div className="flex gap-2">
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="h-8 px-3 text-xs font-medium hover:bg-primary/10 hover:text-primary"
-                            onClick={() => {
-                              const newTechs = groupTechs.filter(
-                                (tech) => !config.technologies.includes(tech),
-                              );
-                              setConfig((prev) => ({
-                                ...prev,
-                                technologies: [
-                                  ...prev.technologies,
-                                  ...newTechs,
-                                ],
-                              }));
-                            }}
-                          >
-                            Select All
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="h-8 px-3 text-xs font-medium hover:bg-destructive/10 hover:text-destructive"
-                            onClick={() => {
-                              setConfig((prev) => ({
-                                ...prev,
-                                technologies: prev.technologies.filter(
-                                  (tech) => !groupTechs.includes(tech),
-                                ),
-                              }));
-                            }}
-                          >
-                            Clear
-                          </Button>
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-                        {groupTechs.map((tech) => (
-                          <Button
-                            key={tech}
-                            variant={
-                              config.technologies.includes(tech)
-                                ? "default"
-                                : "outline"
-                            }
-                            size="sm"
-                            className={`h-10 text-xs font-medium justify-center transition-all ${
-                              config.technologies.includes(tech)
-                                ? "shadow-sm"
-                                : "hover:border-primary/50"
-                            }`}
-                            onClick={() => {
-                              setConfig((prev) => ({
-                                ...prev,
-                                technologies: prev.technologies.includes(tech)
-                                  ? prev.technologies.filter((t) => t !== tech)
-                                  : [...prev.technologies, tech],
-                              }));
-                            }}
-                          >
-                            {tech}
-                          </Button>
-                        ))}
-                      </div>
-                    </div>
-                  ),
-                )}
-              </div>
-            </div>
-
-            {config.technologies.length > 0 && (
-              <div className="bg-gradient-to-r from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl p-5 shadow-sm">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <p className="text-base font-bold text-foreground">
-                      Selected Technologies
-                    </p>
-                    <Badge variant="default" className="font-bold">
-                      {config.technologies.length}
-                    </Badge>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="h-8 px-3 text-xs font-medium hover:bg-destructive/10 hover:text-destructive"
-                    onClick={() =>
-                      setConfig((prev) => ({ ...prev, technologies: [] }))
-                    }
-                  >
-                    Clear All
-                  </Button>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {config.technologies.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="secondary"
-                      className="text-xs px-3 py-1.5 font-medium flex items-center gap-2 hover:bg-secondary/80 transition-colors"
-                    >
-                      {tech}
-                      <button
-                        className="hover:text-destructive transition-colors"
-                        type="button"
-                        onClick={() => {
-                          setConfig((prev) => ({
-                            ...prev,
-                            technologies: prev.technologies.filter(
-                              (t) => t !== tech,
-                            ),
-                          }));
-                        }}
-                      >
-                        ×
-                      </button>
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        )}
       </div>
     );
   }
@@ -525,7 +352,6 @@ export function ConfigureContent() {
       <div className="flex-1 flex flex-col h-full max-w-6xl mx-auto w-full">
         <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6">
           <div className="max-w-5xl mx-auto">
-            {/* Step Title */}
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-2">
                 {(() => {
@@ -552,7 +378,6 @@ export function ConfigureContent() {
           </div>
         </div>
 
-        {/* Navigation Controls - Sticky Footer */}
         <div className="sticky bottom-0 z-10 bg-background border-t border-border/50 px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between gap-3 max-w-5xl mx-auto">
             <Button
