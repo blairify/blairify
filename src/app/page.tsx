@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import Footer from "@/components/common/organisms/footer";
-import { DashboardPromo } from "@/components/landing-page/dashboard-promo";
-import FeaturesGrid from "@/components/landing-page/features-grid";
-import HeroSection from "@/components/landing-page/hero-section";
-import { JobListingsPromo } from "@/components/landing-page/job-listings-promo";
-import Navbar from "@/components/landing-page/landing-page-navbar";
-import { NewsletterSignup } from "@/components/landing-page/newsletter-signup";
-import { PracticeLibraryPromo } from "@/components/landing-page/practice-library-promo";
+import { DashboardPromo } from "@/components/landing-page/organisms/dashboard-promo";
+import FeaturesGrid from "@/components/landing-page/organisms/features-grid";
+import HeroSection from "@/components/landing-page/organisms/hero-section";
+import { JobListingsPromo } from "@/components/landing-page/organisms/job-listings-promo";
+import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
+import { NewsletterSignup } from "@/components/landing-page/organisms/newsletter-signup";
+import { PracticeLibraryPromo } from "@/components/landing-page/organisms/practice-library-promo";
 import {
   getFeaturedJobs,
   getFeaturedPracticeQuestions,

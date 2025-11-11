@@ -1,5 +1,5 @@
 import Footer from "@/components/common/organisms/footer";
-import Navbar from "@/components/landing-page/landing-page-navbar";
+import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
 export default function DataProcessingAgreementPage() {
   return (

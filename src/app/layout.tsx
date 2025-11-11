@@ -1,6 +1,6 @@
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type ReactNode, Suspense } from "react";
-import { CookieBanner } from "../components/landing-page/cookie-banner";
+import { CookieBanner } from "../components/landing-page/organisms/cookie-banner";
 import { Toaster } from "../components/ui/sonner";
 import { AuthProvider } from "../providers/auth-provider";
 import { SWRProvider } from "../providers/swr-provider";

@@ -13,8 +13,8 @@ import {
   Zap,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { RankBadge } from "@/components/ranks/rank-badge";
-import { XPProgressBar } from "@/components/ranks/xp-progress-bar";
+import { RankBadge } from "@/components/ranks/organisms/rank-badge";
+import { XPProgressBar } from "@/components/ranks/organisms/xp-progress-bar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";

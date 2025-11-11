@@ -15,7 +15,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useAuth } from "@/providers/auth-provider";
-import { AvatarIconDisplay } from "../common/atoms/avatar-icon-selector";
+import { AvatarIconDisplay } from "../../common/atoms/avatar-icon-selector";
 
 interface NavbarProps {
   scrollThreshold?: number;

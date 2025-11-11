@@ -4,7 +4,11 @@ import {
   getInterviewerForRole,
 } from "@/lib/config/interviewers";
 import { getQuestionCountForMode } from "@/lib/utils/interview-helpers";
-import type { InterviewConfig, InterviewSession, Message } from "../types";
+import type {
+  InterviewConfig,
+  InterviewSession,
+  Message,
+} from "../components/interview/types";
 
 export function useInterviewSession(config: InterviewConfig) {
   const [session, setSession] = useState<InterviewSession>(() => {

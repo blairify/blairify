@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Footer from "@/components/common/organisms/footer";
-import Navbar from "@/components/landing-page/landing-page-navbar";
+import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
 export const metadata: Metadata = {
   title: "Cookie Policy | Blairify - How We Use Cookies",

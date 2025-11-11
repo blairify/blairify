@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { InterviewConfig } from "../types";
+import type { InterviewConfig } from "../components/interview/types";
 
 export function useInterviewTimer(
   config: InterviewConfig,

@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import type { InterviewConfig, InterviewMode, SeniorityLevel } from "../types";
+import type {
+  InterviewConfig,
+  InterviewMode,
+  SeniorityLevel,
+} from "../components/interview/types";
 
 export function useInterviewConfig() {
   const [config, setConfig] = useState<InterviewConfig>({

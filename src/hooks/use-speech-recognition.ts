@@ -1,5 +1,8 @@
 import { useState } from "react";
-import type { SpeechRecognition, SpeechRecognitionEvent } from "../types";
+import type {
+  SpeechRecognition,
+  SpeechRecognitionEvent,
+} from "../components/interview/types";
 
 export function useSpeechRecognition(onTranscript: (text: string) => void) {
   const [isListening, setIsListening] = useState(false);

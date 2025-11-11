@@ -23,7 +23,7 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import useSWR from "swr";
-import { JobCard } from "@/components/job-market/job-card";
+import { JobCard } from "@/components/jobs/molecules/job-card";
 import { InterviewPreparationModal } from "@/components/jobs/organisms/interview-preparation-modal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
