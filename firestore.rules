@@ -19,12 +19,33 @@ service cloud.firestore {
     function isAdmin() {
       return isSuperAdmin() || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
     }
+    
+    // Validate achievement/XP updates to prevent cheating
+    function validateAchievementUpdate(newData, oldData) {
+      // Allow if admin
+      return isAdmin() ||
+        // Or validate that XP/level/badges can only increase, not decrease
+        ((!newData.diff(oldData).affectedKeys().hasAny(['experiencePoints']) || 
+          newData.experiencePoints >= oldData.get('experiencePoints', 0)) &&
+         (!newData.diff(oldData).affectedKeys().hasAny(['level']) || 
+          newData.level >= oldData.get('level', 1)) &&
+         (!newData.diff(oldData).affectedKeys().hasAny(['badgesUnlocked']) || 
+          (newData.badgesUnlocked is list && 
+           newData.badgesUnlocked.size() >= oldData.get('badgesUnlocked', []).size())));
+    }
 
     // ===== USERS COLLECTION =====
     match /users/{userId} {
       allow read: if isSignedIn() && (isOwner(userId) || isAdmin());
-      allow write: if isSignedIn() && isOwner(userId);
       allow create: if isSignedIn();
+      
+      // Allow users to update their own profile with validation
+      allow update: if isSignedIn() && isOwner(userId) && 
+        // Validate achievement/XP fields if they're being updated
+        (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['badgesUnlocked', 'experiencePoints', 'level']) ||
+          (validateAchievementUpdate(request.resource.data, resource.data)));
+      
+      allow delete: if isSignedIn() && isOwner(userId);
       
       // User preferences subcollection
       match /preferences/{document=**} {
@@ -61,9 +82,22 @@ service cloud.firestore {
         allow read, write: if isSignedIn() && isOwner(userId);
       }
       
-      // User achievements subcollection
+      // User achievements subcollection (detailed achievement tracking)
       match /achievements/{achievementId} {
-        allow read, write: if isSignedIn() && isOwner(userId);
+        allow read: if isSignedIn() && isOwner(userId);
+        allow create: if isSignedIn() && isOwner(userId);
+        // Only allow updates that don't decrease progress
+        allow update: if isSignedIn() && isOwner(userId) &&
+          (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['progress']) ||
+            request.resource.data.progress >= resource.data.progress);
+        allow delete: if isSignedIn() && (isOwner(userId) || isAdmin());
+      }
+      
+      // User badges subcollection (for detailed badge metadata)
+      match /badges/{badgeId} {
+        allow read: if isSignedIn() && isOwner(userId);
+        allow create: if isSignedIn() && isOwner(userId);
+        allow update, delete: if isSignedIn() && (isOwner(userId) || isAdmin());
       }
     }
 
@@ -154,10 +188,27 @@ service cloud.firestore {
         (resource.data.uid == request.auth.uid || isAdmin());
     }
 
-    // ===== ACHIEVEMENTS =====
-    match /achievements/{achievementId} {
+    // ===== GLOBAL ACHIEVEMENTS DEFINITIONS (Read-only for users, Admin write) =====
+    match /achievement-definitions/{achievementId} {
       allow read: if isSignedIn();
       allow create, update, delete: if isSignedIn() && isAdmin();
+    }
+    
+    // ===== GLOBAL BADGE DEFINITIONS (Read-only for users, Admin write) =====
+    match /badge-definitions/{badgeId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isSignedIn() && isAdmin();
+    }
+    
+    // ===== USER ACHIEVEMENT PROGRESS (User-specific tracking) =====
+    match /user-achievements/{userId}/{achievementId} {
+      allow read: if isSignedIn() && (isOwner(userId) || isAdmin());
+      allow create: if isSignedIn() && isOwner(userId);
+      allow update: if isSignedIn() && isOwner(userId) &&
+        // Validate progress can only increase
+        (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['progress']) ||
+          request.resource.data.progress >= resource.data.get('progress', 0));
+      allow delete: if isSignedIn() && isAdmin();
     }
     
     // ===== BACKWARD COMPATIBILITY =====

@@ -22,6 +22,14 @@ export interface UserProfile {
   experience?: string;
   howDidYouHear?: string;
 
+  // Gamification
+  experiencePoints?: number;
+  level?: number;
+  title?: string;
+  badgesUnlocked?: string[];
+  totalInterviews?: number;
+  averageScore?: number;
+
   // Preferences
   preferences: UserPreferences;
 

@@ -3,6 +3,7 @@
  * Aggregates and processes interview session data for dashboard display
  */
 
+import { getUserProfile } from "@/lib/services/users/database-users";
 import type { InterviewSession, SessionScores } from "@/types/firestore";
 import { getUserSessions } from "../sessions/database-sessions";
 
@@ -14,6 +15,7 @@ export interface DashboardStats {
   totalTime: number; // Total time in minutes for stats display
   improvementRate: number;
   streakDays: number; // Current streak of consecutive days
+  totalXP: number;
 }
 
 export interface PerformanceDataPoint {
@@ -56,8 +58,7 @@ export interface RecentSession {
 export async function getDashboardStats(
   userId: string,
 ): Promise<DashboardStats> {
-  const sessions = await getUserSessions(userId, 100); // Get last 100 sessions
-
+  const sessions = await getUserSessions(userId, 100); // your existing sessions logic
   const completedSessions = sessions.filter((s) => s.status === "completed");
   const sessionsWithScores = completedSessions.filter((s) => s.scores?.overall);
 
@@ -72,27 +73,28 @@ export async function getDashboardStats(
 
   const totalPracticeTime = sessions.reduce((sum, s) => {
     const duration = s.totalDuration || 0;
-    // Validate duration is a reasonable number (max 8 hours per session)
     if (typeof duration === "number" && duration > 0 && duration <= 480) {
       return sum + duration;
     }
     return sum;
   }, 0);
 
-  // Calculate improvement rate (compare first 10 vs last 10 sessions)
   const improvementRate = calculateImprovementRate(sessionsWithScores);
-
-  // Calculate current streak
   const streakDays = calculateStreak(sessions);
+
+  // ✅ Fetch the user's experience points directly
+  const userDoc = await getUserProfile(userId);
+  const totalXP = userDoc?.experiencePoints || 0;
 
   return {
     totalSessions: sessions.length,
     completedSessions: completedSessions.length,
     averageScore,
     totalPracticeTime,
-    totalTime: totalPracticeTime, // Same as totalPracticeTime for now
+    totalTime: totalPracticeTime,
     improvementRate,
     streakDays,
+    totalXP, // use DB value directly
   };
 }
 

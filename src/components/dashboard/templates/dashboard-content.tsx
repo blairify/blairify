@@ -226,7 +226,8 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
   return (
     <div className="space-y-6">
       {/* Stats Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        {/* Total Interviews */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -242,6 +243,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           </CardContent>
         </Card>
 
+        {/* Average Score */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -275,6 +277,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           </CardContent>
         </Card>
 
+        {/* Total Practice Time */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -292,6 +295,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           </CardContent>
         </Card>
 
+        {/* Current Streak */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -302,6 +306,22 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           <CardContent>
             <div className="text-2xl font-bold">{stats.streakDays} days</div>
             <p className="text-xs text-muted-foreground mt-1">Keep it going!</p>
+          </CardContent>
+        </Card>
+
+        {/* Total XP */}
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Total XP
+            </CardTitle>
+            <Award className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{stats.totalXP}</div>
+            <p className="text-xs text-muted-foreground mt-1">
+              Earned from all activities
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -670,7 +690,9 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
                   </div>
                   <div className="text-right">
                     <div
-                      className={`text-2xl font-bold ${getScoreColor(session.score)}`}
+                      className={`text-2xl font-bold ${getScoreColor(
+                        session.score,
+                      )}`}
                     >
                       {session.score}%
                     </div>
