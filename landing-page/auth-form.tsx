@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 import { Separator } from "@/components/ui/separator";
-import { useGuestGuard } from "@/hooks/useAuthGuard";
+import { useGuestGuard } from "@/hooks/use-auth-guard";
 import {
   checkEmailExists,
   registerWithEmailAndPassword,

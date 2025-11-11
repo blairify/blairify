@@ -113,8 +113,20 @@ export function ResultsContent({ user }: ResultsContentProps) {
         const session = JSON.parse(interviewData);
         const config = JSON.parse(interviewConfig);
 
+        console.log("📊 Session data loaded:", {
+          hasMessages: !!session.messages,
+          messageCount: session.messages?.length || 0,
+          sessionKeys: Object.keys(session),
+          isComplete: session.isComplete,
+        });
+
         if (!session.messages || session.messages.length === 0) {
-          console.error("No messages in session data:", session);
+          console.error("No messages in session data:", {
+            session,
+            sessionKeys: Object.keys(session),
+            messagesType: typeof session.messages,
+            messagesValue: session.messages,
+          });
           setError("No interview responses found to analyze.");
           setIsAnalyzing(false);
           return;

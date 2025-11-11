@@ -26,10 +26,8 @@ export function InterviewMessagesArea({
 
   return (
     <div className="flex-1 flex flex-col overflow-hidden">
-      {/* Messages Container */}
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4">
-          {/* Welcome Message */}
           {isEmpty && (
             <div className="text-center py-12 animate-in fade-in duration-1000">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full mb-4">
@@ -45,7 +43,6 @@ export function InterviewMessagesArea({
             </div>
           )}
 
-          {/* Messages */}
           <div className="space-y-4">
             {messages.map((message, index) => (
               <MessageBubble
@@ -63,7 +60,6 @@ export function InterviewMessagesArea({
             )}
           </div>
 
-          {/* Scroll anchor */}
           <div ref={messagesEndRef} className="h-4" />
         </div>
       </div>

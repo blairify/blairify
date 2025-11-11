@@ -4,6 +4,13 @@ import { ArrowLeft, ArrowRight, CheckCircle, Code } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import {
+  buildInterviewUrlParams,
+  canStartInterview,
+  canGoNext as checkCanGoNext,
+  isConfigComplete as checkIsConfigComplete,
+} from "@/components/configure/utils/configure-helpers";
+import type { InterviewConfig } from "@/components/configure/utils/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -27,26 +34,8 @@ import {
   SENIORITY_LEVELS,
   TECHNOLOGY_GROUPS,
 } from "@/constants/configure";
-import type { UserData } from "@/lib/services/auth/auth";
 
-interface ConfigureContentProps {
-  user: UserData;
-}
-
-interface InterviewConfig {
-  position: string;
-  seniority: string;
-  technologies: string[];
-  companyProfile: string;
-  specificCompany: string;
-  interviewMode: string;
-  interviewType: string;
-  duration: string;
-}
-
-// Use imported constants
-
-export function ConfigureContent({ user: _ }: ConfigureContentProps) {
+export function ConfigureContent() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
   const [showAdvancedSkills, setShowAdvancedSkills] = useState(false);
@@ -61,57 +50,17 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
     duration: "30",
   });
 
-  // Use imported constants
-
-  // All constants now imported from @/constants/configure
-
   const handleStartInterview = () => {
-    if (
-      config.position &&
-      config.seniority &&
-      (!showAdvancedSkills || config.technologies.length > 0) &&
-      (config.companyProfile || config.specificCompany) &&
-      config.interviewMode &&
-      config.interviewType
-    ) {
-      const urlParams = new URLSearchParams();
-      Object.entries(config).forEach(([key, value]) => {
-        if (value) {
-          if (key === "technologies" && Array.isArray(value)) {
-            urlParams.append(key, JSON.stringify(value));
-          } else {
-            urlParams.append(key, value as string);
-          }
-        }
-      });
+    if (canStartInterview(config, showAdvancedSkills)) {
+      const urlParams = buildInterviewUrlParams(config);
       router.push(`/interview?${urlParams.toString()}`);
     }
   };
 
-  const isConfigComplete =
-    config.position &&
-    config.seniority &&
-    (!showAdvancedSkills || config.technologies.length > 0) &&
-    (config.companyProfile || config.specificCompany) &&
-    config.interviewMode;
+  const isConfigComplete = checkIsConfigComplete(config, showAdvancedSkills);
 
-  const canGoNext = () => {
-    switch (currentStep) {
-      case 0:
-        return config.position !== "";
-      case 1:
-        return (
-          config.seniority !== "" &&
-          (!showAdvancedSkills || config.technologies.length > 0)
-        );
-      case 2:
-        return config.companyProfile !== "" || config.specificCompany !== "";
-      case 3:
-        return config.interviewMode !== "";
-      default:
-        return false;
-    }
-  };
+  const canGoNext = () =>
+    checkCanGoNext(currentStep, config, showAdvancedSkills);
 
   const handleNext = () => {
     if (canGoNext() && currentStep < CONFIGURE_STEPS.length - 1) {
@@ -194,7 +143,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <div
-                      className={`w-4 h-4 rounded-full ${level.color} ring-2 ring-offset-2 ring-offset-background ${config.seniority === level.value ? "ring-primary" : "ring-transparent"}`}
+                      className={`size-4 rounded-full ${level.color} ring-2 ring-offset-2 ring-offset-background ${config.seniority === level.value ? "ring-primary" : "ring-transparent"}`}
                     />
                     <span className="font-bold text-base">{level.label}</span>
                   </div>
@@ -213,7 +162,7 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
         <div className="flex items-center justify-between p-5 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl border border-primary/20">
           <div className="space-y-1.5">
             <h3 className="text-base font-bold flex items-center gap-2">
-              <Code className="h-5 w-5 text-primary" />
+              <Code className="size-5 text-primary" />
               Advanced Skills Selection
             </h3>
             <p className="text-sm text-muted-foreground">
@@ -574,50 +523,6 @@ export function ConfigureContent({ user: _ }: ConfigureContentProps) {
   return (
     <main className="flex-1 flex flex-col h-full overflow-hidden">
       <div className="flex-1 flex flex-col h-full max-w-6xl mx-auto w-full">
-        {/* Progress Indicator - Sticky Header */}
-        {/* <div className="sticky top-0 z-10 bg-background border-b border-border/50 px-4 sm:px-6 py-4">
-          <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide">
-            {CONFIGURE_STEPS.map((step, index) => {
-              const StepIcon = step.icon as React.ComponentType<{
-                className?: string;
-              }>;
-              const isActive = index === currentStep;
-              const isCompleted = index < currentStep;
-
-              return (
-                <div key={step.id} className="flex items-center flex-shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      // Allow navigation to completed steps
-                      if (isCompleted) {
-                        setCurrentStep(index);
-                      }
-                    }}
-                    disabled={!isCompleted && !isActive}
-                    className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
-                      isActive
-                        ? "bg-primary text-primary-foreground shadow-md scale-105"
-                        : isCompleted
-                          ? "bg-primary/20 text-primary hover:bg-primary/30 cursor-pointer"
-                          : "bg-muted text-muted-foreground"
-                    }`}
-                  >
-                    <StepIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-                    <span className="text-xs sm:text-sm font-semibold hidden sm:inline">
-                      {step.title}
-                    </span>
-                  </button>
-                  {index < CONFIGURE_STEPS.length - 1 && (
-                    <ChevronRight className="h-4 w-4 text-muted-foreground mx-1 sm:mx-2 flex-shrink-0" />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div> */}
-
-        {/* Main Configuration Content - Scrollable */}
         <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6">
           <div className="max-w-5xl mx-auto">
             {/* Step Title */}

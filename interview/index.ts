@@ -1,14 +1,3 @@
-/**
- * Interview Components - Modular Export
- *
- * This file provides a clean export structure for all interview components.
- * Components are organized by atomic design principles:
- * - Atoms: Basic building blocks
- * - Molecules: Simple combinations of atoms
- * - Organisms: Complex UI components
- * - Templates: Page-level components
- */
-
 // Atoms
 export { InterviewBadge } from "./atoms/interview-badge";
 export { TimerDisplay } from "./atoms/timer-display";

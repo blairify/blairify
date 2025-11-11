@@ -4,8 +4,8 @@ import { HelpCircle, LogOut, Menu, Settings } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
+import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
-import { BugReportButton } from "@/components/common/bug-report-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {

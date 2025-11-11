@@ -2,7 +2,7 @@
 
 import { Timestamp } from "firebase/firestore";
 import { useCallback, useEffect, useState } from "react";
-import { TokenCounter } from "@/components/dev/token-counter";
+import { TokenCounter } from "@/components/interview/atoms/token-counter";
 import {
   getInterviewerById,
   getInterviewerForRole,
@@ -32,8 +32,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
   const [databaseSessionId, setDatabaseSessionId] = useState<string | null>(
     null,
   );
-
-  // Track behavior warnings
   const [warningCount, setWarningCount] = useState(0);
 
   const {
@@ -45,27 +43,13 @@ export function InterviewContent({ user }: InterviewContentProps) {
     completeInterview,
   } = useInterviewSession(config);
 
-  // Get interviewer from session to maintain consistency
   const interviewer = session.interviewerId
     ? getInterviewerById(session.interviewerId) ||
       getInterviewerForRole(config.position)
     : getInterviewerForRole(config.position);
 
-  // Debug logging for interviewer consistency
-  console.log("🎭 Interviewer selection:", {
-    sessionInterviewerId: session.interviewerId,
-    selectedInterviewer: interviewer?.name,
-    interviewerId: interviewer?.id,
-    position: config.position,
-    avatarSex: interviewer?.avatarConfig?.sex,
-    avatarHairStyle: interviewer?.avatarConfig?.hairStyle,
-    avatarShirtColor: interviewer?.avatarConfig?.shirtColor,
-  });
-
   const handleCompleteInterview = () => {
     completeInterview();
-
-    // Store session data for results page
     const sessionData = {
       ...session,
       messages: session.messages,
@@ -78,8 +62,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
     localStorage.setItem("interviewSession", JSON.stringify(sessionData));
     localStorage.setItem("interviewConfig", JSON.stringify(config));
-
-    // Navigate to results
     window.location.href = "/results";
   };
 
@@ -92,20 +74,12 @@ export function InterviewContent({ user }: InterviewContentProps) {
     handleCompleteInterview,
   );
 
-  // Speech recognition
   const { isListening, startSpeechRecognition, stopSpeechRecognition } =
     useSpeechRecognition((text: string) => {
       setCurrentMessage(text);
     });
 
   const handleStartInterview = useCallback(async () => {
-    console.log("🚀 Starting interview with config:", {
-      interviewMode: config.interviewMode,
-      isDemoMode: config.isDemoMode,
-      sessionTotalQuestions: session.totalQuestions,
-      position: config.position,
-    });
-
     setIsInterviewStarted(true);
     setIsLoading(true);
 
@@ -152,7 +126,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
           hasPersonalizedIntro: true,
         });
 
-        // Create database session to save conversation history
         if (user?.uid && !databaseSessionId) {
           try {
             const sessionData = {
@@ -194,7 +167,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
               sessionData,
             );
             setDatabaseSessionId(sessionId);
-            console.log("📝 Created database session:", sessionId);
           } catch (dbError) {
             console.error("Error creating database session:", dbError);
           }
@@ -213,16 +185,8 @@ export function InterviewContent({ user }: InterviewContentProps) {
     } finally {
       setIsLoading(false);
     }
-  }, [
-    config,
-    session.totalQuestions,
-    user?.uid,
-    addMessage,
-    updateSession,
-    databaseSessionId,
-  ]);
+  }, [config, user?.uid, addMessage, updateSession, databaseSessionId]);
 
-  // Update database session with new messages
   const updateDatabaseSession = useCallback(
     async (newMessages: Message[]) => {
       if (user?.uid && databaseSessionId && newMessages.length > 0) {
@@ -236,8 +200,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
             status: session.isComplete ? "completed" : "in-progress",
             ...(session.isComplete && { completedAt: Timestamp.now() }),
           });
-
-          console.log("📝 Updated database session with new messages");
         } catch (dbError) {
           console.error("Error updating database session:", dbError);
         }
@@ -246,15 +208,12 @@ export function InterviewContent({ user }: InterviewContentProps) {
     [user?.uid, databaseSessionId, session.startTime, session.isComplete],
   );
 
-  // Auto-start interview when config is ready (eliminates config screen entirely)
   useEffect(() => {
     if (mounted && !isInterviewStarted && !isLoading) {
-      console.log("🚀 Auto-starting interview");
       handleStartInterview();
     }
   }, [mounted, isInterviewStarted, isLoading, handleStartInterview]);
 
-  // Update database session when messages change
   useEffect(() => {
     if (session.messages.length > 0 && databaseSessionId) {
       updateDatabaseSession(session.messages);
@@ -263,13 +222,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
   const handleSendMessage = async () => {
     if (!currentMessage.trim() || isLoading) return;
-
-    console.log("📤 Sending answer:", {
-      currentQuestionCount: session.currentQuestionCount,
-      totalQuestions: session.totalQuestions,
-      interviewMode: config.interviewMode,
-      messagePreview: currentMessage.substring(0, 50),
-    });
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -320,20 +272,11 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
         addMessage(aiMessage);
 
-        // Update warning count if provided
         if (data.warningCount !== undefined) {
           setWarningCount(data.warningCount);
         }
 
         if (data.isComplete) {
-          console.log("🎯 Client: Interview completion triggered", {
-            currentQuestionCount: session.currentQuestionCount,
-            totalQuestions: session.totalQuestions,
-            interviewMode: config.interviewMode,
-            data,
-          });
-
-          // Handle profanity termination with score 0
           if (data.terminatedForProfanity) {
             completeInterview();
 
@@ -356,7 +299,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
             return;
           }
 
-          // Handle behavior termination with score 0
           if (data.terminatedForBehavior) {
             completeInterview();
 
@@ -444,7 +386,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
     }
   };
 
-  // Loading state
   if (!mounted) {
     return (
       <main className="flex-1 flex items-center justify-center">
@@ -456,7 +397,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
     );
   }
 
-  // Configuration screen
   if (!isInterviewStarted) {
     return (
       <InterviewConfigScreen
@@ -467,7 +407,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
     );
   }
 
-  // Main interview screen
   return (
     <main className="flex-1 flex flex-col h-full overflow-hidden bg-gradient-to-b from-background to-muted/20">
       <InterviewHeader
