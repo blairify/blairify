@@ -65,15 +65,14 @@ export async function POST(request: NextRequest) {
     const systemPrompt =
       generateSystemPrompt(interviewConfig, interviewer) + questionsPrompt;
     const userPrompt = generateUserPrompt(
-      "", // No initial message
-      [], // No conversation history
+      "",
+      [],
       interviewConfig,
-      0, // First question
-      false, // Not a follow-up
-      interviewer, // Pass interviewer for name consistency
+      0,
+      false,
+      interviewer,
     );
 
-    // Get AI response for the first question
     const aiResponse = await generateInterviewResponse(
       aiClient,
       systemPrompt,
@@ -83,13 +82,11 @@ export async function POST(request: NextRequest) {
 
     let finalMessage = aiResponse.content;
 
-    // If AI failed, use fallback
     if (!aiResponse.success) {
       console.warn(`AI response failed: ${aiResponse.error}`);
       finalMessage = getFallbackResponse(interviewConfig, false);
     }
 
-    // Determine question type
     const questionType = determineQuestionType(
       interviewConfig.interviewType,
       0,

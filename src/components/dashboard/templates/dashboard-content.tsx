@@ -593,12 +593,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
                       variant="secondary"
                       className="bg-blue-100 text-blue-800"
                     >
-                      Cloud Engineers
-                    </Badge>
-                    <Badge
-                      variant="secondary"
-                      className="bg-blue-100 text-blue-800"
-                    >
                       Fullstack Developers
                     </Badge>
                     <Badge

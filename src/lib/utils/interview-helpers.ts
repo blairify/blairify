@@ -26,7 +26,7 @@ export function getQuestionCountForMode(
       return 10;
     case "play":
     case "teacher":
-      return 999; // Unlimited - user controls when to end
+      return 20;
     default:
       return 8;
   }

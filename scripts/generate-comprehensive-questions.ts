@@ -301,16 +301,6 @@ const positions = [
     ],
   },
   {
-    value: "data-analyst",
-    label: "Data Analyst",
-    skills: ["sql", "python", "tableau", "statistics", "business-intelligence"],
-  },
-  {
-    value: "cloud-engineer",
-    label: "Cloud Engineer",
-    skills: ["aws", "azure", "gcp", "terraform", "networking"],
-  },
-  {
     value: "cybersecurity",
     label: "Cybersecurity Engineer",
     skills: [
@@ -320,11 +310,7 @@ const positions = [
       "incident-response",
     ],
   },
-  {
-    value: "blockchain",
-    label: "Blockchain Developer",
-    skills: ["solidity", "ethereum", "smart-contracts", "cryptography"],
-  },
+
   {
     value: "product-manager",
     label: "Product Manager",
@@ -689,10 +675,7 @@ function getRelevantCategories(position: string): string[] {
     mobile: ["algorithms", "mobile", "system-design"],
     data: ["algorithms", "data", "system-design"],
     "data-scientist": ["algorithms", "data", "system-design"],
-    "data-analyst": ["algorithms", "data"],
-    "cloud-engineer": ["algorithms", "devops", "system-design"],
     cybersecurity: ["algorithms", "backend", "system-design"],
-    blockchain: ["algorithms", "backend", "system-design"],
     "product-manager": ["system-design"],
   };
 

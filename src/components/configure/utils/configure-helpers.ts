@@ -3,14 +3,10 @@ import type { InterviewConfig } from "./types";
 /**
  * Validates if the interview configuration is complete
  */
-export function isConfigComplete(
-  config: InterviewConfig,
-  showAdvancedSkills: boolean,
-): boolean {
+export function isConfigComplete(config: InterviewConfig): boolean {
   return !!(
     config.position &&
     config.seniority &&
-    (!showAdvancedSkills || config.technologies.length > 0) &&
     (config.companyProfile || config.specificCompany) &&
     config.interviewMode
   );
@@ -22,16 +18,12 @@ export function isConfigComplete(
 export function canGoNext(
   currentStep: number,
   config: InterviewConfig,
-  showAdvancedSkills: boolean,
 ): boolean {
   switch (currentStep) {
     case 0:
       return config.position !== "";
     case 1:
-      return (
-        config.seniority !== "" &&
-        (!showAdvancedSkills || config.technologies.length > 0)
-      );
+      return config.seniority !== "";
     case 2:
       return config.companyProfile !== "" || config.specificCompany !== "";
     case 3:
@@ -65,14 +57,10 @@ export function buildInterviewUrlParams(
 /**
  * Validates if the configuration is ready to start an interview
  */
-export function canStartInterview(
-  config: InterviewConfig,
-  showAdvancedSkills: boolean,
-): boolean {
+export function canStartInterview(config: InterviewConfig): boolean {
   return !!(
     config.position &&
     config.seniority &&
-    (!showAdvancedSkills || config.technologies.length > 0) &&
     (config.companyProfile || config.specificCompany) &&
     config.interviewMode &&
     config.interviewType

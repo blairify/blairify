@@ -3,18 +3,15 @@
  */
 
 import {
-  BarChart3,
   Book,
   Building,
   ChartLine,
   ClipboardList,
   Cloud,
-  CloudCog,
   Code,
   Database,
   Gamepad2,
   Layers,
-  Link2,
   Pen,
   Rocket,
   Server,
@@ -183,24 +180,9 @@ export const POSITIONS = [
     icon: ChartLine,
   },
   {
-    value: "data-analyst",
-    label: "Data Analyst",
-    icon: BarChart3,
-  },
-  {
-    value: "cloud-engineer",
-    label: "Cloud Engineer",
-    icon: CloudCog,
-  },
-  {
     value: "cybersecurity",
     label: "Cybersecurity Engineer",
     icon: Shield,
-  },
-  {
-    value: "blockchain",
-    label: "Blockchain Developer",
-    icon: Link2,
   },
   {
     value: "product-manager",
