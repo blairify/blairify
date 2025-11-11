@@ -274,7 +274,7 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm font-medium text-muted-foreground">
-                  Total XP
+                  Experience Points
                 </span>
                 <Star className="h-5 w-5 text-yellow-500" />
               </div>

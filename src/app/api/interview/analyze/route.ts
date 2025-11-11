@@ -4,8 +4,13 @@
  */
 
 import { type NextRequest, NextResponse } from "next/server";
-import { aiClient } from "@/lib/services/ai/ai-client";
-import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
+import {
+  aiClient,
+  generateAnalysis,
+  generateMockAnalysisResponse,
+  isAvailable,
+} from "@/lib/services/ai/ai-client";
+import { generateAnalysisSystemPrompt } from "@/lib/services/ai/prompt-generator";
 import { parseAnalysis } from "@/lib/services/interview/analysis-service";
 import {
   analyzeResponseQuality,
@@ -67,8 +72,7 @@ export async function POST(
     const responseAnalysis = analyzeResponseQuality(conversationHistory);
 
     // Generate analysis prompts
-    const systemPrompt =
-      PromptGenerator.generateAnalysisSystemPrompt(interviewConfig);
+    const systemPrompt = generateAnalysisSystemPrompt(interviewConfig);
     const analysisPrompt = generateAnalysisPrompt(
       conversationHistory,
       interviewConfig,
@@ -78,8 +82,9 @@ export async function POST(
     let analysisText: string;
 
     // Try to get AI analysis
-    if (aiClient.isAvailable()) {
-      const aiResponse = await aiClient.generateAnalysis(
+    if (isAvailable(aiClient)) {
+      const aiResponse = await generateAnalysis(
+        aiClient,
         systemPrompt,
         analysisPrompt,
       );
@@ -91,14 +96,14 @@ export async function POST(
           "AI analysis failed, falling back to mock:",
           aiResponse.error,
         );
-        analysisText = aiClient.generateMockAnalysis(
+        analysisText = generateMockAnalysisResponse(
           interviewConfig,
           responseAnalysis,
         );
       }
     } else {
       console.warn("AI service not available, using mock analysis");
-      analysisText = aiClient.generateMockAnalysis(
+      analysisText = generateMockAnalysisResponse(
         interviewConfig,
         responseAnalysis,
       );

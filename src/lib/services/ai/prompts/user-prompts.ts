@@ -5,7 +5,7 @@
 
 import type { InterviewerProfile } from "@/lib/config/interviewers";
 import type { InterviewConfig, Message } from "@/types/interview";
-import { ResponseValidator } from "../response-validator";
+import { isUnknownResponse } from "../response-validator";
 import { extractCoveredTopics } from "./utils";
 
 /**
@@ -142,7 +142,7 @@ export function generateUserPrompt(
     return generateFollowUpPrompt(userMessage);
   }
 
-  const isUnknown = ResponseValidator.isUnknownResponse(userMessage);
+  const isUnknown = isUnknownResponse(userMessage);
 
   if (isUnknown) {
     return generateUnknownResponsePrompt(userMessage, config, questionCount);

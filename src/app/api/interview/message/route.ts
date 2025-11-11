@@ -1,8 +1,15 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { getInterviewerForRole } from "@/lib/config/interviewers";
-import { aiClient } from "@/lib/services/ai/ai-client";
-import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
-import { ResponseValidator } from "@/lib/services/ai/response-validator";
+import {
+  aiClient,
+  generateInterviewResponse,
+  getFallbackResponse,
+} from "@/lib/services/ai/ai-client";
+import {
+  generateSystemPrompt,
+  generateUserPrompt,
+} from "@/lib/services/ai/prompt-generator";
+import { validateAIResponse } from "@/lib/services/ai/response-validator";
 import {
   determineQuestionType,
   validateInterviewConfig,
@@ -294,11 +301,8 @@ export async function POST(request: NextRequest) {
     const interviewer = getInterviewerForRole(interviewConfig.position);
 
     // Generate prompts
-    const systemPrompt = PromptGenerator.generateSystemPrompt(
-      interviewConfig,
-      interviewer,
-    );
-    const userPrompt = PromptGenerator.generateUserPrompt(
+    const systemPrompt = generateSystemPrompt(interviewConfig, interviewer);
+    const userPrompt = generateUserPrompt(
       processedMessage,
       conversationHistory || [],
       interviewConfig,
@@ -308,21 +312,20 @@ export async function POST(request: NextRequest) {
     );
 
     // Get AI response
-    const aiResponse = await aiClient.generateInterviewResponse(
+    const aiResponse = await generateInterviewResponse(
+      aiClient,
       systemPrompt,
       userPrompt,
       interviewConfig.interviewType,
     );
 
-    let finalMessage = aiResponse.content;
-
-    // If AI failed, use fallback
-    if (!aiResponse.success) {
-      console.warn(`AI response failed: ${aiResponse.error}`);
-      finalMessage = aiClient.getFallbackResponse(interviewConfig, isFollowUp);
+    let finalMessage: string;
+    if (!aiResponse.success || !aiResponse.content) {
+      console.warn("AI response failed, using fallback");
+      finalMessage = getFallbackResponse(interviewConfig, isFollowUp);
     } else {
       // Validate AI response
-      const validation = ResponseValidator.validateAIResponse(
+      const validation = validateAIResponse(
         aiResponse.content,
         interviewConfig,
         isFollowUp,
@@ -330,12 +333,11 @@ export async function POST(request: NextRequest) {
 
       if (!validation.isValid) {
         console.warn(`AI response validation failed: ${validation.reason}`);
-        finalMessage = aiClient.getFallbackResponse(
-          interviewConfig,
-          isFollowUp,
-        );
+        finalMessage = getFallbackResponse(interviewConfig, isFollowUp);
       } else if (validation.sanitized) {
         finalMessage = validation.sanitized;
+      } else {
+        finalMessage = aiResponse.content;
       }
     }
 

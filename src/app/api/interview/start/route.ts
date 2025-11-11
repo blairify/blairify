@@ -1,7 +1,15 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { getInterviewerForRole } from "@/lib/config/interviewers";
-import { aiClient } from "@/lib/services/ai/ai-client";
-import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
+import {
+  aiClient,
+  generateInterviewResponse,
+  getFallbackResponse,
+} from "@/lib/services/ai/ai-client";
+import {
+  generateSystemPrompt,
+  generateUserPrompt,
+  getDatabaseQuestionsPrompt,
+} from "@/lib/services/ai/prompt-generator";
 import {
   determineQuestionType,
   validateInterviewConfig,
@@ -46,10 +54,7 @@ export async function POST(request: NextRequest) {
     );
 
     const { prompt: questionsPrompt, questionIds } =
-      await PromptGenerator.getDatabaseQuestionsPrompt(
-        interviewConfig,
-        totalQuestions,
-      );
+      await getDatabaseQuestionsPrompt(interviewConfig, totalQuestions);
 
     console.log("📚 Loaded questions from database:", {
       totalQuestions,
@@ -58,9 +63,8 @@ export async function POST(request: NextRequest) {
     });
 
     const systemPrompt =
-      PromptGenerator.generateSystemPrompt(interviewConfig, interviewer) +
-      questionsPrompt;
-    const userPrompt = PromptGenerator.generateUserPrompt(
+      generateSystemPrompt(interviewConfig, interviewer) + questionsPrompt;
+    const userPrompt = generateUserPrompt(
       "", // No initial message
       [], // No conversation history
       interviewConfig,
@@ -70,7 +74,8 @@ export async function POST(request: NextRequest) {
     );
 
     // Get AI response for the first question
-    const aiResponse = await aiClient.generateInterviewResponse(
+    const aiResponse = await generateInterviewResponse(
+      aiClient,
       systemPrompt,
       userPrompt,
       interviewConfig.interviewType,
@@ -81,7 +86,7 @@ export async function POST(request: NextRequest) {
     // If AI failed, use fallback
     if (!aiResponse.success) {
       console.warn(`AI response failed: ${aiResponse.error}`);
-      finalMessage = aiClient.getFallbackResponse(interviewConfig, false);
+      finalMessage = getFallbackResponse(interviewConfig, false);
     }
 
     // Determine question type

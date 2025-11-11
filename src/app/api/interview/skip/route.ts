@@ -1,7 +1,14 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { getInterviewerForRole } from "@/lib/config/interviewers";
-import { aiClient } from "@/lib/services/ai/ai-client";
-import { PromptGenerator } from "@/lib/services/ai/prompt-generator";
+import {
+  aiClient,
+  generateInterviewResponse,
+  getFallbackResponse,
+} from "@/lib/services/ai/ai-client";
+import {
+  generateSystemPrompt,
+  generateUserPrompt,
+} from "@/lib/services/ai/prompt-generator";
 import {
   determineQuestionType,
   validateInterviewConfig,
@@ -42,11 +49,8 @@ export async function POST(request: NextRequest) {
     const interviewer = getInterviewerForRole(interviewConfig.position);
 
     // Generate next question after skipping
-    const systemPrompt = PromptGenerator.generateSystemPrompt(
-      interviewConfig,
-      interviewer,
-    );
-    const userPrompt = PromptGenerator.generateUserPrompt(
+    const systemPrompt = generateSystemPrompt(interviewConfig, interviewer);
+    const userPrompt = generateUserPrompt(
       "I do not know the answer. I'd like to skip this question and move to the next one.",
       conversationHistory || [],
       interviewConfig,
@@ -56,7 +60,8 @@ export async function POST(request: NextRequest) {
     );
 
     // Get AI response for the next question
-    const aiResponse = await aiClient.generateInterviewResponse(
+    const aiResponse = await generateInterviewResponse(
+      aiClient,
       systemPrompt,
       userPrompt,
       interviewConfig.interviewType,
@@ -67,7 +72,7 @@ export async function POST(request: NextRequest) {
     // If AI failed, use fallback
     if (!aiResponse.success) {
       console.warn(`AI response failed: ${aiResponse.error}`);
-      finalMessage = aiClient.getFallbackResponse(interviewConfig, false);
+      finalMessage = getFallbackResponse(interviewConfig, false);
     }
 
     // Determine question type

@@ -8,7 +8,11 @@ import {
   QUESTION_TYPE_MAPPINGS,
   SCORING_THRESHOLDS,
 } from "@/lib/config/interview-config";
-import { ResponseValidator } from "@/lib/services/ai/response-validator";
+import {
+  analyzeResponseCharacteristics,
+  isUnknownResponse,
+  validateUserResponse,
+} from "@/lib/services/ai/response-validator";
 import type {
   InterviewConfig,
   InterviewType,
@@ -64,13 +68,12 @@ export function shouldGenerateFollowUp(
   }
 
   // Don't follow up on "I don't know" or skip responses
-  if (ResponseValidator.isUnknownResponse(userResponse)) {
+  if (isUnknownResponse(userResponse)) {
     return false;
   }
 
   // Analyze response characteristics
-  const characteristics =
-    ResponseValidator.analyzeResponseCharacteristics(userResponse);
+  const characteristics = analyzeResponseCharacteristics(userResponse);
 
   // Score factors that indicate a good candidate for follow-up
   let followUpScore = 0;
@@ -162,7 +165,7 @@ export function analyzeResponseQuality(
     }
 
     // Validate response characteristics
-    const validation = ResponseValidator.validateUserResponse(content);
+    const validation = validateUserResponse(content);
 
     if (validation.isNoAnswer) {
       noAnswerResponses++;

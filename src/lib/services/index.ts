@@ -23,10 +23,28 @@ export type {
 // Configuration
 export * from "../config/interview-config";
 export type { AIClientConfig, AIResponse } from "./ai/ai-client";
-export { AIClient, aiClient } from "./ai/ai-client";
+export {
+  aiClient,
+  createAIClient,
+  generateAnalysis,
+  generateInterviewResponse,
+  generateMockAnalysisResponse,
+  getFallbackResponse,
+  isAvailable,
+} from "./ai/ai-client";
 // AI Services
-export { PromptGenerator } from "./ai/prompt-generator";
-export { ResponseValidator } from "./ai/response-validator";
+export {
+  generateAnalysisSystemPrompt,
+  generateSystemPrompt,
+  generateUserPrompt,
+  getDatabaseQuestionsPrompt,
+} from "./ai/prompt-generator";
+export {
+  analyzeResponseCharacteristics,
+  isUnknownResponse,
+  validateAIResponse,
+  validateUserResponse,
+} from "./ai/response-validator";
 // Interview Services
 export * from "./interview/analysis-service";
 export * from "./interview/interview-service";

@@ -4,9 +4,15 @@
  */
 
 import {
-  AIClient,
-  PromptGenerator,
-  ResponseValidator,
+  aiClient,
+  createAIClient,
+  generateSystemPrompt,
+  generateUserPrompt,
+  generateAnalysisSystemPrompt,
+  validateAIResponse,
+  validateUserResponse,
+  isAvailable,
+  getFallbackResponse,
   analyzeResponseQuality,
   calculateTotalQuestions,
   determineQuestionType,
@@ -71,10 +77,10 @@ async function verifyServices() {
 
     // Test PromptGenerator
     console.info("\n✅ Testing PromptGenerator...");
-    const systemPrompt = PromptGenerator.generateSystemPrompt(testConfig);
+    const systemPrompt = generateSystemPrompt(testConfig);
     console.info(`   System prompt length: ${systemPrompt.length} chars ✅`);
 
-    const userPrompt = PromptGenerator.generateUserPrompt(
+    const userPrompt = generateUserPrompt(
       "test",
       [],
       testConfig,
@@ -83,15 +89,14 @@ async function verifyServices() {
     );
     console.info(`   User prompt length: ${userPrompt.length} chars ✅`);
 
-    const analysisPrompt =
-      PromptGenerator.generateAnalysisSystemPrompt(testConfig);
+    const analysisPrompt = generateAnalysisSystemPrompt(testConfig);
     console.info(
       `   Analysis prompt length: ${analysisPrompt.length} chars ✅`,
     );
 
     // Test ResponseValidator
     console.info("\n✅ Testing ResponseValidator...");
-    const goodResponse = ResponseValidator.validateAIResponse(
+    const goodResponse = validateAIResponse(
       "That's a great question! Can you tell me more?",
       testConfig,
       false,
@@ -100,7 +105,7 @@ async function verifyServices() {
       `   Good response validation: ${goodResponse.isValid ? "✅ PASS" : "❌ FAIL"}`,
     );
 
-    const badResponse = ResponseValidator.validateAIResponse(
+    const badResponse = validateAIResponse(
       "",
       testConfig,
       false,
@@ -109,7 +114,7 @@ async function verifyServices() {
       `   Bad response validation: ${!badResponse.isValid ? "✅ PASS" : "❌ FAIL"}`,
     );
 
-    const userValidation = ResponseValidator.validateUserResponse(
+    const userValidation = validateUserResponse(
       "This is a good answer",
     );
     console.info(
@@ -133,12 +138,12 @@ async function verifyServices() {
 
     // Test AIClient
     console.info("\n✅ Testing AIClient...");
-    const aiClient = new AIClient();
+    const aiClientInstance = createAIClient();
     console.info(
-      `   AI Client available: ${aiClient.isAvailable() ? "✅ YES" : "⚠️ NO (expected without API key)"}`,
+      `   AI Client available: ${isAvailable(aiClientInstance) ? "✅ YES" : "⚠️ NO (expected without API key)"}`,
     );
 
-    const fallback = aiClient.getFallbackResponse(testConfig, false);
+    const fallback = getFallbackResponse(testConfig, false);
     console.info(`   Fallback response length: ${fallback.length} chars ✅`);
 
     console.info("\n🎉 All services verified successfully!");
