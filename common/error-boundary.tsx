@@ -16,7 +16,7 @@ interface State {
   error?: Error;
 }
 
-export class ErrorBoundary extends Component<Props, State> {
+class ErrorBoundaryInner extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { hasError: false };
@@ -46,7 +46,8 @@ export class ErrorBoundary extends Component<Props, State> {
         return this.props.fallback;
       }
 
-      // Default error UI
+      const errorMessage = this.state.error?.message;
+
       return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
           <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 text-center">
@@ -58,10 +59,16 @@ export class ErrorBoundary extends Component<Props, State> {
               Something went wrong
             </h1>
 
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-3">
               We encountered an unexpected error. Please try refreshing the page
               or contact support if the problem persists.
             </p>
+
+            {errorMessage && (
+              <p className="text-xs text-gray-500 mb-4 break-words">
+                <span className="font-semibold">Error:</span> {errorMessage}
+              </p>
+            )}
 
             {process.env.NODE_ENV === "development" && this.state.error && (
               <details className="mb-4 text-left">
@@ -100,6 +107,10 @@ export class ErrorBoundary extends Component<Props, State> {
 
     return this.props.children;
   }
+}
+
+export function ErrorBoundary(props: Props) {
+  return <ErrorBoundaryInner {...props} />;
 }
 
 // HOC wrapper for easier usage

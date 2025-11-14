@@ -1,5 +1,4 @@
 export {
-  buildInterviewUrlParams,
   canGoNext,
   canStartInterview,
   isConfigComplete,
