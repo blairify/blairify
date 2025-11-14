@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import Footer from "@/components/common/organisms/footer";
 import { DashboardPromo } from "@/components/landing-page/organisms/dashboard-promo";
 import FeaturesGrid from "@/components/landing-page/organisms/features-grid";
@@ -207,7 +206,6 @@ export default async function HomePage() {
         </div>
       </div>
       <Footer />
-      <BugReportButton variant="floating" />
     </>
   );
 }

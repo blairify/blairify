@@ -28,9 +28,27 @@ export function determineQuestionType(
   interviewType: InterviewType,
   questionCount: number,
 ): QuestionType {
-  const typeArray =
-    QUESTION_TYPE_MAPPINGS[interviewType] || QUESTION_TYPE_MAPPINGS.technical;
-  return typeArray[questionCount % typeArray.length];
+  switch (interviewType) {
+    case "technical": {
+      const typeArray = QUESTION_TYPE_MAPPINGS.technical;
+      return typeArray[questionCount % typeArray.length];
+    }
+    case "bullet": {
+      const typeArray = QUESTION_TYPE_MAPPINGS.bullet;
+      return typeArray[questionCount % typeArray.length];
+    }
+    case "coding": {
+      const typeArray = QUESTION_TYPE_MAPPINGS.coding;
+      return typeArray[questionCount % typeArray.length];
+    }
+    case "system-design": {
+      const typeArray = QUESTION_TYPE_MAPPINGS["system-design"];
+      return typeArray[questionCount % typeArray.length];
+    }
+  }
+
+  const _never: never = interviewType;
+  throw new Error(`Unhandled interview type: ${_never}`);
 }
 
 /**
@@ -41,10 +59,19 @@ export function calculateTotalQuestions(config: InterviewConfig): number {
     return DEFAULT_INTERVIEW_CONFIG.totalQuestions.demo;
   }
 
-  return (
-    DEFAULT_INTERVIEW_CONFIG.totalQuestions[config.interviewType] ||
-    DEFAULT_INTERVIEW_CONFIG.totalQuestions.technical
-  );
+  switch (config.interviewType) {
+    case "technical":
+      return DEFAULT_INTERVIEW_CONFIG.totalQuestions.technical;
+    case "bullet":
+      return DEFAULT_INTERVIEW_CONFIG.totalQuestions.bullet;
+    case "coding":
+      return DEFAULT_INTERVIEW_CONFIG.totalQuestions.coding;
+    case "system-design":
+      return DEFAULT_INTERVIEW_CONFIG.totalQuestions["system-design"];
+  }
+
+  const _never: never = config.interviewType;
+  throw new Error(`Unhandled interview type for totalQuestions: ${_never}`);
 }
 
 /**

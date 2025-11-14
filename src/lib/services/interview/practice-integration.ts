@@ -13,6 +13,7 @@ import type {
   DifficultyLevel,
   QuestionType as PracticeQuestionType,
   Question,
+  QuestionFilters,
 } from "@/types/practice-question";
 import { evaluateAnswer } from "../evaluation/evaluation-service";
 import {
@@ -45,21 +46,29 @@ export function mapSeniorityToDifficulty(
 export function getTopicForInterviewType(
   interviewType: InterviewType,
 ): string[] {
-  const mapping: Record<InterviewType, string[]> = {
-    technical: [
-      "Frontend Development",
-      "Backend Development",
-      "Algorithms & Data Structures",
-    ],
-    coding: ["Algorithms & Data Structures"],
-    "system-design": ["System Design", "Backend Development"],
-    bullet: [
-      "Frontend Development",
-      "Backend Development",
-      "General Programming",
-    ],
-  };
-  return mapping[interviewType] || [];
+  switch (interviewType) {
+    case "technical":
+      return [
+        "Frontend Development",
+        "Backend Development",
+        "Algorithms & Data Structures",
+      ];
+    case "coding":
+      return ["Algorithms & Data Structures"];
+    case "system-design":
+      return ["System Design", "Backend Development"];
+    case "bullet":
+      return [
+        "Frontend Development",
+        "Backend Development",
+        "General Programming",
+      ];
+  }
+
+  const _never: never = interviewType;
+  throw new Error(
+    `Unhandled interview type in getTopicForInterviewType: ${_never}`,
+  );
 }
 
 // ============================================================================
@@ -85,15 +94,10 @@ export async function selectQuestionsForInterview(
   const topics = getTopicForInterviewType(config.interviewType);
 
   // Build query filters
-  const filters: any = {
+  const filters: QuestionFilters = {
     difficulty,
-    status: "published" as const,
+    status: "published",
   };
-
-  // Add interview type filter
-  if (config.interviewType) {
-    filters.interviewTypes = config.interviewType;
-  }
 
   // Query questions
   const { questions } = await queryQuestions({
@@ -339,14 +343,21 @@ export function formatQuestionForInterview(question: Question): {
 function mapPracticeTypeToInterviewType(
   type: PracticeQuestionType,
 ): InterviewQuestionType {
-  const mapping: Record<PracticeQuestionType, InterviewQuestionType> = {
-    open: "technical",
-    code: "coding",
-    mcq: "quick-assessment",
-    matching: "conceptual",
-    truefalse: "quick-assessment",
-  };
-  return mapping[type] || "technical";
+  switch (type) {
+    case "open":
+      return "technical";
+    case "code":
+      return "coding";
+    case "mcq":
+      return "quick-assessment";
+    case "matching":
+      return "conceptual";
+    case "truefalse":
+      return "quick-assessment";
+  }
+
+  const _never: never = type;
+  throw new Error(`Unhandled practice question type: ${_never}`);
 }
 
 // ============================================================================

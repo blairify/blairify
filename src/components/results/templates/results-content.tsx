@@ -173,13 +173,14 @@ export function ResultsContent({ user }: ResultsContentProps) {
   const [error, setError] = useState<string | null>(null);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [analysisMessages] = useState(() => getAnalysisMessages());
+  const [analysisMessages, setAnalysisMessages] = useState<string[]>([]);
   const [outcomeMessage, setOutcomeMessage] = useState<string>("");
   const [currentDate, setCurrentDate] = useState<string>("");
 
-  // Set current date on client side only to avoid hydration mismatch
+  // Set current date and analysis messages on client side only to avoid hydration mismatch
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString());
+    setAnalysisMessages(getAnalysisMessages());
   }, []);
 
   useEffect(() => {

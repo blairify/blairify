@@ -1,19 +1,17 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { getInterviewerForRole } from "@/lib/config/interviewers";
+import {
+  determineQuestionType,
+  generateSystemPrompt,
+  generateUserPrompt,
+  getDatabaseQuestionsPrompt,
+  getInterviewerForRole,
+  validateInterviewConfig,
+} from "@/lib/interview";
 import {
   aiClient,
   generateInterviewResponse,
   getFallbackResponse,
 } from "@/lib/services/ai/ai-client";
-import {
-  generateSystemPrompt,
-  generateUserPrompt,
-  getDatabaseQuestionsPrompt,
-} from "@/lib/services/ai/prompt-generator";
-import {
-  determineQuestionType,
-  validateInterviewConfig,
-} from "@/lib/services/interview/interview-service";
 
 export async function POST(request: NextRequest) {
   try {
@@ -45,9 +43,7 @@ export async function POST(request: NextRequest) {
 
     const interviewer = getInterviewerForRole(interviewConfig.position);
 
-    const { getQuestionCountForMode } = await import(
-      "@/lib/utils/interview-helpers"
-    );
+    const { getQuestionCountForMode } = await import("@/lib/interview");
     const totalQuestions = getQuestionCountForMode(
       interviewConfig.interviewMode,
       interviewConfig.isDemoMode,

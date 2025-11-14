@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
-import type {
-  InterviewConfig,
-  InterviewMode,
-  SeniorityLevel,
-} from "../components/interview/types";
+import { parseInterviewConfigFromSearchParams } from "@/lib/interview";
+import type { InterviewConfig } from "../components/interview/types";
 
 export function useInterviewConfig() {
   const [config, setConfig] = useState<InterviewConfig>({
     position: "Frontend Engineer",
-    seniority: "mid" as SeniorityLevel,
+    seniority: "mid",
     technologies: [],
     companyProfile: "faang",
     specificCompany: "",
-    interviewMode: "regular" as InterviewMode, // Fixed: was "timed" (old mode)
+    interviewMode: "regular",
     interviewType: "technical",
     duration: "30",
     isDemoMode: false,
@@ -29,40 +26,8 @@ export function useInterviewConfig() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const technologiesParam = params.get("technologies");
-    let technologies: string[] = [];
-    if (technologiesParam) {
-      try {
-        technologies = JSON.parse(technologiesParam);
-      } catch {
-        technologies = [];
-      }
-    }
-
-    const interviewMode = (params.get("interviewMode") ||
-      "regular") as InterviewMode;
-    const seniority = (params.get("seniority") || "mid") as SeniorityLevel;
-    const interviewType = (params.get("interviewType") ||
-      "technical") as InterviewConfig["interviewType"];
-
-    setConfig({
-      position: params.get("position") || "Frontend Engineer",
-      seniority,
-      technologies,
-      companyProfile: params.get("companyProfile") || "",
-      specificCompany: params.get("specificCompany") || "",
-      interviewMode,
-      interviewType,
-      duration: params.get("duration") || "30",
-      isDemoMode: params.get("demo") === "true",
-      contextType: params.get("contextType") || "",
-      jobId: params.get("jobId") || "",
-      company: params.get("company") || "",
-      jobDescription: params.get("jobDescription") || "",
-      jobRequirements: params.get("jobRequirements") || "",
-      jobLocation: params.get("jobLocation") || "",
-      jobType: params.get("jobType") || "",
-    });
+    const parsedConfig = parseInterviewConfigFromSearchParams(params);
+    setConfig(parsedConfig);
     setMounted(true);
   }, []);
 

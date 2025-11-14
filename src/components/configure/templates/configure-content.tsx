@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
-  buildInterviewUrlParams,
   canStartInterview,
   canGoNext as checkCanGoNext,
   isConfigComplete as checkIsConfigComplete,
@@ -31,6 +30,13 @@ import {
   POSITIONS,
   SENIORITY_LEVELS,
 } from "@/constants/configure";
+import {
+  buildSearchParamsFromInterviewConfig,
+  type InterviewConfig as DomainInterviewConfig,
+  type InterviewMode,
+  type InterviewType,
+  type SeniorityLevel,
+} from "@/lib/interview";
 
 export function ConfigureContent() {
   const router = useRouter();
@@ -47,10 +53,30 @@ export function ConfigureContent() {
   });
 
   const handleStartInterview = () => {
-    if (canStartInterview(config)) {
-      const urlParams = buildInterviewUrlParams(config);
-      router.push(`/interview?${urlParams.toString()}`);
-    }
+    if (!canStartInterview(config)) return;
+
+    const domainConfig: DomainInterviewConfig = {
+      position: config.position || "Frontend Engineer",
+      seniority: (config.seniority || "mid") as SeniorityLevel,
+      technologies: config.technologies || [],
+      companyProfile: config.companyProfile || "",
+      specificCompany: config.specificCompany || undefined,
+      interviewMode: (config.interviewMode || "regular") as InterviewMode,
+      interviewType: (config.interviewType || "technical") as InterviewType,
+      duration: config.duration || "30",
+      isDemoMode: false,
+      // No job-specific context in configure flow
+      contextType: undefined,
+      jobId: undefined,
+      company: undefined,
+      jobDescription: undefined,
+      jobRequirements: undefined,
+      jobLocation: undefined,
+      jobType: undefined,
+    };
+
+    const urlParams = buildSearchParamsFromInterviewConfig(domainConfig);
+    router.push(`/interview?${urlParams.toString()}`);
   };
 
   const isConfigComplete = checkIsConfigComplete(config);

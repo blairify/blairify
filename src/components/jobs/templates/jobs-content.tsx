@@ -51,6 +51,13 @@ import {
   JOB_LEVELS,
   SPECIFIC_COMPANIES,
 } from "@/constants/jobs";
+import {
+  buildSearchParamsFromInterviewConfig,
+  type InterviewConfig as DomainInterviewConfig,
+  type InterviewMode,
+  type InterviewType,
+  type SeniorityLevel,
+} from "@/lib/interview";
 import type { Job } from "@/lib/validators";
 
 interface JobsResponse {
@@ -213,26 +220,33 @@ export function JobsContent() {
     if (!selectedJob) return;
 
     try {
-      // Create URL parameters with job context
-      const interviewParams = new URLSearchParams({
-        // Basic configuration based on job
-        position: selectedJob.title,
-        seniority: selectedJob.level || "mid",
-        interviewType: "technical",
-        interviewMode: "practice",
+      const seniority: SeniorityLevel = (selectedJob.level?.toLowerCase() ||
+        "mid") as SeniorityLevel;
+      const interviewMode: InterviewMode = "practice";
+      const interviewType: InterviewType = "technical";
+
+      const domainConfig: DomainInterviewConfig = {
+        position: selectedJob.title || "Software Engineer",
+        seniority,
+        technologies: [],
+        companyProfile: "",
+        specificCompany: undefined,
+        interviewMode,
+        interviewType,
         duration: "30",
+        isDemoMode: false,
+        contextType: "job-specific",
         jobId: selectedJob.id,
         company: selectedJob.company,
         jobDescription: selectedJob.description || "",
         jobRequirements: selectedJob.tags?.join(", ") || "",
         jobLocation: selectedJob.location || "",
         jobType: selectedJob.type || "",
-        contextType: "job-specific",
-      });
+      };
 
-      // Navigate to interview with job context
+      const interviewParams =
+        buildSearchParamsFromInterviewConfig(domainConfig);
       router.push(`/interview?${interviewParams.toString()}`);
-
       toast.success("Starting AI interview...");
     } catch (error) {
       console.error("Error starting interview:", error);

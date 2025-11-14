@@ -25,11 +25,13 @@ export function getQuestionCountForMode(
     case "competitive":
       return 10;
     case "play":
+      return 20;
     case "teacher":
       return 20;
-    default:
-      return 8;
   }
+
+  const _never: never = mode;
+  throw new Error(`Unhandled interview mode: ${_never}`);
 }
 
 /**

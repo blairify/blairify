@@ -34,27 +34,6 @@ export function canGoNext(
 }
 
 /**
- * Builds URL parameters from interview configuration
- */
-export function buildInterviewUrlParams(
-  config: InterviewConfig,
-): URLSearchParams {
-  const urlParams = new URLSearchParams();
-
-  Object.entries(config).forEach(([key, value]) => {
-    if (value) {
-      if (key === "technologies" && Array.isArray(value)) {
-        urlParams.append(key, JSON.stringify(value));
-      } else {
-        urlParams.append(key, value as string);
-      }
-    }
-  });
-
-  return urlParams;
-}
-
-/**
  * Validates if the configuration is ready to start an interview
  */
 export function canStartInterview(config: InterviewConfig): boolean {

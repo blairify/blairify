@@ -8,7 +8,7 @@ import type {
   InterviewType,
   SeniorityLevel,
 } from "@/components/interview/types";
-import type { Question } from "@/types/practice-question";
+import type { DifficultyLevel, Question } from "@/types/practice-question";
 
 /**
  * Recently used questions cache to prevent immediate repetition
@@ -193,13 +193,10 @@ export async function getRandomQuestionForInterview(
  * Match question difficulty to candidate seniority
  */
 function matchDifficultyToSeniority(
-  difficulty: "entry" | "junior" | "middle" | "senior",
+  difficulty: DifficultyLevel,
   seniority: SeniorityLevel,
 ): boolean {
-  const difficultyMap: Record<
-    SeniorityLevel,
-    ("entry" | "junior" | "middle" | "senior")[]
-  > = {
+  const difficultyMap: Record<SeniorityLevel, DifficultyLevel[]> = {
     entry: ["entry"],
     junior: ["entry", "junior"],
     mid: ["junior", "middle"],
@@ -260,7 +257,7 @@ function matchCategoryToInterviewType(
     ],
   };
 
-  return categoryMap[interviewType]?.includes(category) || true;
+  return categoryMap[interviewType].includes(category);
 }
 
 /**
@@ -313,11 +310,14 @@ export function formatQuestionForPrompt(question: Question): string {
   const company = question.companies?.[0]?.name || "General";
 
   // Enhanced format: more comprehensive but AI-readable
-  return `**${question.title}** (${question.difficulty})
-Topic: ${question.topic}
-Tech: ${techStack || "General"}
-Company: ${company}
-Question: ${question.prompt}
-Expected Answer: ${question.description?.substring(0, 200) || "Evaluate based on technical accuracy and depth"}${(question.description?.length || 0) > 200 ? "..." : ""}
-Tags: ${question.tags.join(", ")}`;
+  return `**${question.title}** (${question.difficulty})\nTopic: ${
+    question.topic
+  }\nTech: ${techStack || "General"}\nCompany: ${
+    company
+  }\nQuestion: ${question.prompt}\nExpected Answer: ${
+    question.description?.substring(0, 200) ||
+    "Evaluate based on technical accuracy and depth"
+  }${(question.description?.length || 0) > 200 ? "..." : ""}\nTags: ${question.tags.join(
+    ", ",
+  )}`;
 }

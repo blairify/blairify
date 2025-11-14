@@ -1,19 +1,17 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { getInterviewerForRole } from "@/lib/config/interviewers";
+import {
+  determineQuestionType,
+  generateSystemPrompt,
+  generateUserPrompt,
+  getInterviewerForRole,
+  getQuestionCountForMode,
+  validateInterviewConfig,
+} from "@/lib/interview";
 import {
   aiClient,
   generateInterviewResponse,
   getFallbackResponse,
 } from "@/lib/services/ai/ai-client";
-import {
-  generateSystemPrompt,
-  generateUserPrompt,
-} from "@/lib/services/ai/prompt-generator";
-import {
-  determineQuestionType,
-  validateInterviewConfig,
-} from "@/lib/services/interview/interview-service";
-import { getQuestionCountForMode } from "@/lib/utils/interview-helpers";
 
 export async function POST(request: NextRequest) {
   try {
