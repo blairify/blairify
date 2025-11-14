@@ -275,7 +275,7 @@ function generateBaseSystemPrompt(
   interviewMode: InterviewMode,
   interviewer?: InterviewerProfile,
 ): string {
-  const interviewerName = interviewer?.name || "Sarah";
+  const interviewerName = interviewer?.name || "TEST1";
   const interviewerExperience =
     interviewer?.experience ||
     "10+ years of experience conducting interviews at top tech companies";
@@ -481,7 +481,7 @@ function generateFirstQuestionPrompt(
   config: InterviewConfig,
   interviewer?: InterviewerProfile,
 ): string {
-  const interviewerName = interviewer?.name || "the interviewer";
+  const interviewerName = interviewer?.name || "TEST2";
 
   if (config.contextType === "job-specific" && config.company) {
     return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question that's specifically tailored to this job opportunity and the requirements mentioned in the job context. Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;

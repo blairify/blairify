@@ -11,115 +11,93 @@ import type {
 } from "@/types/interview";
 import { calculateMaxScore } from "./interview-service";
 
+// ============================================================================
+// CONSTANTS
+// ============================================================================
+
+const SCORE_BOUNDARIES = {
+  EXCELLENT: 90,
+  GOOD: 80,
+  SATISFACTORY: 70,
+  NEEDS_IMPROVEMENT: 60,
+} as const;
+
+const PERFORMANCE_LEVELS = {
+  EXCEEDS: { threshold: 80, label: "Exceeds Expectations" },
+  MEETS: { threshold: 70, label: "Meets Expectations" },
+  BELOW: { threshold: 50, label: "Below Expectations" },
+  FAR_BELOW: { threshold: 0, label: "Far Below Expectations" },
+} as const;
+
+const CATEGORY_WEIGHTS = {
+  technical: 30,
+  problemSolving: 25,
+  communication: 25,
+  professional: 20,
+} as const;
+
+const ANALYSIS_CATEGORIES = [
+  "TECHNICAL COMPETENCY",
+  "PROBLEM SOLVING",
+  "COMMUNICATION",
+  "PROFESSIONAL READINESS",
+] as const;
+
+const RESPONSE_RATE_THRESHOLDS = {
+  CRITICAL: 30,
+  LOW: 50,
+} as const;
+
+const IMPROVEMENT_TIMEFRAMES = {
+  CRITICAL: "6+ months",
+  MODERATE: "3-6 months",
+} as const;
+
+const MIN_ITEM_LENGTH = 10; // Minimum characters for meaningful list items
+
+// ============================================================================
+// TYPES
+// ============================================================================
+
+type AnalysisSections = {
+  decision: "PASS" | "FAIL" | "UNKNOWN";
+  overallScore: string;
+  strengths: string[];
+  improvements: string[];
+  detailedAnalysis: string;
+  recommendations: string;
+  nextSteps: string;
+  whyDecision: string;
+};
+
+// ============================================================================
+// PUBLIC API
+// ============================================================================
+
 /**
  * Parse interview analysis from AI response
+ * Extracts structured data and validates consistency
  */
 export function parseAnalysis(
   analysis: string,
   responseAnalysis: ResponseAnalysis,
   config: InterviewConfig,
 ): InterviewResults {
-  const sections = initializeAnalysisSections();
-
   try {
-    // Extract decision
-    const decisionMatch = analysis.match(/\*\*DECISION:\s*(PASS|FAIL)\*\*/i);
-    if (decisionMatch) {
-      sections.decision = decisionMatch[1].toUpperCase() as "PASS" | "FAIL";
-    }
-
-    // Extract overall score section
-    const scoreMatch = analysis.match(
-      /##\s*INTERVIEW RESULT\s*([\s\S]*?)(?=##|$)/i,
+    const sections = extractAnalysisSections(analysis);
+    const score = validateAndCapScore(
+      extractScore(sections.overallScore),
+      responseAnalysis,
     );
-    if (scoreMatch) {
-      sections.overallScore = scoreMatch[1].trim();
-    }
+    const decision = determineDecision(score, config, sections.decision);
+    const fallbackContent = generateFallbackContent(sections, config);
 
-    // Extract why decision section
-    const whyMatch = analysis.match(
-      /##\s*WHY THIS DECISION\s*([\s\S]*?)(?=##|$)/i,
-    );
-    if (whyMatch) {
-      sections.whyDecision = whyMatch[1].trim();
-    }
-
-    sections.strengths = extractListItems(analysis, "Strengths");
-
-    sections.improvements = extractListItems(
-      analysis,
-      "Critical Weaknesses|Areas for Growth|Required Improvements|If Failed - Required Improvements",
-    );
-
-    const recommendationsMatch = analysis.match(
-      /##\s*RECOMMENDATIONS\s*([\s\S]*?)(?=##|$)/i,
-    );
-    if (recommendationsMatch) {
-      sections.recommendations = recommendationsMatch[1].trim();
-      sections.nextSteps = recommendationsMatch[1].trim();
-    }
-
-    sections.detailedAnalysis = buildDetailedAnalysis(
-      analysis,
-      sections.whyDecision,
-    );
-
-    // Extract and validate score
-    let scoreNumber = extractScore(sections.overallScore);
-    const maxAllowedScore = calculateMaxScore(responseAnalysis);
-
-    if (scoreNumber > maxAllowedScore) {
-      console.warn(
-        `Score ${scoreNumber} exceeds maximum ${maxAllowedScore} for response quality, capping`,
-      );
-      scoreNumber = maxAllowedScore;
-    }
-
-    // Validate pass/fail consistency and fix contradictions
-    const passingThreshold = SENIORITY_EXPECTATIONS[config.seniority];
-    const shouldPass = scoreNumber >= passingThreshold.score;
-    const originalDecision = sections.decision;
-
-    // Always use score-based decision to avoid contradictions
-    sections.decision = shouldPass ? "PASS" : "FAIL";
-
-    // Log if there was a contradiction in the AI analysis
-    if (
-      originalDecision !== "UNKNOWN" &&
-      originalDecision !== sections.decision
-    ) {
-      console.warn(
-        `Fixed contradictory analysis: AI said ${originalDecision} but score ${scoreNumber} should be ${sections.decision}`,
-      );
-    }
-
-    // Ensure we have fallback content
-    if (sections.strengths.length === 0) {
-      sections.strengths.push(
-        "No significant strengths demonstrated in this interview",
-      );
-    }
-    if (sections.improvements.length === 0) {
-      // Generate specific improvements based on the config and analysis
-      const position = config.position || "technical";
-      const seniority = config.seniority || "mid";
-
-      sections.improvements.push(
-        `Study fundamental ${position} concepts and best practices`,
-        `Practice coding problems appropriate for ${seniority}-level positions`,
-        "Improve technical communication and explanation skills",
-        "Gain more hands-on experience with real-world projects",
-      );
-    }
-
-    return {
-      ...sections,
-      score: scoreNumber,
-      scoreColor: getScoreColor(scoreNumber),
-      passed: sections.decision === "PASS",
-      passingThreshold: passingThreshold.score,
-      decision: sections.decision,
-    };
+    return buildInterviewResults({
+      sections: { ...sections, ...fallbackContent },
+      score,
+      decision,
+      config,
+    });
   } catch (error) {
     console.error("Error parsing analysis:", error);
     return createErrorAnalysis(analysis, config);
@@ -140,7 +118,6 @@ export function generateMockAnalysis(
     Math.round(responseAnalysis.qualityScore * 0.9),
   );
   const score = Math.max(0, baseScore);
-
   const passed = score >= passingThreshold.score;
   const decision = passed ? "PASS" : "FAIL";
 
@@ -180,101 +157,178 @@ export function generateMockAnalysis(
   });
 }
 
-// Helper functions
-function initializeAnalysisSections() {
+// ============================================================================
+// SECTION EXTRACTION
+// ============================================================================
+
+/**
+ * Extract all sections from the analysis text
+ */
+function extractAnalysisSections(analysis: string): AnalysisSections {
+  const decision = extractDecision(analysis);
+  const overallScore = extractSection(analysis, "INTERVIEW RESULT");
+  const whyDecision = extractSection(analysis, "WHY THIS DECISION");
+  const recommendations = extractSection(analysis, "RECOMMENDATIONS");
+
   return {
-    decision: "UNKNOWN" as "PASS" | "FAIL" | "UNKNOWN",
-    overallScore: "",
-    strengths: [] as string[],
-    improvements: [] as string[],
-    detailedAnalysis: "",
-    recommendations: "",
-    nextSteps: "",
-    whyDecision: "",
+    decision,
+    overallScore,
+    whyDecision,
+    strengths: extractListItems(analysis, "Strengths"),
+    improvements: extractListItems(
+      analysis,
+      "Critical Weaknesses|Areas for Growth|Required Improvements|If Failed - Required Improvements",
+    ),
+    detailedAnalysis: buildDetailedAnalysis(analysis, whyDecision),
+    recommendations,
+    nextSteps: recommendations, // nextSteps mirrors recommendations
   };
 }
 
-function extractListItems(analysis: string, sectionPattern: string): string[] {
-  const items: string[] = [];
+/**
+ * Extract decision (PASS/FAIL) from analysis
+ */
+function extractDecision(analysis: string): "PASS" | "FAIL" | "UNKNOWN" {
+  const match = analysis.match(/\*\*DECISION:\s*(PASS|FAIL)\*\*/i);
+  return match ? (match[1].toUpperCase() as "PASS" | "FAIL") : "UNKNOWN";
+}
 
-  // Try multiple regex patterns to capture different formats
-  const patterns = [
-    // Pattern 1: **Section:** followed by content
+/**
+ * Extract a section by header name
+ */
+function extractSection(analysis: string, sectionName: string): string {
+  const regex = new RegExp(`##\\s*${sectionName}\\s*([\\s\\S]*?)(?=##|$)`, "i");
+  const match = analysis.match(regex);
+  return match ? match[1].trim() : "";
+}
+
+/**
+ * Extract list items from a section (supports multiple formats)
+ */
+function extractListItems(analysis: string, sectionPattern: string): string[] {
+  const patterns = createSectionPatterns(sectionPattern);
+  const allItems: string[] = [];
+
+  for (const pattern of patterns) {
+    const matches = analysis.matchAll(pattern);
+    for (const match of matches) {
+      const sectionContent = match[2];
+      const items = parseListItemsFromContent(sectionContent);
+      allItems.push(...items);
+    }
+  }
+
+  return deduplicateAndFilterItems(allItems);
+}
+
+/**
+ * Create regex patterns for different section formats
+ */
+function createSectionPatterns(sectionPattern: string): RegExp[] {
+  return [
+    // **Section:** format
     new RegExp(
       `\\*\\*(${sectionPattern}):\\*\\*\\s*([\\s\\S]*?)(?=\\*\\*|\\n##|$)`,
       "gi",
     ),
-    // Pattern 2: ### Section followed by content
+    // ### Section format
     new RegExp(
       `###\\s*(${sectionPattern}):?\\s*([\\s\\S]*?)(?=###|\\n##|$)`,
       "gi",
     ),
-    // Pattern 3: ## Section followed by content
+    // ## Section format
     new RegExp(`##\\s*(${sectionPattern}):?\\s*([\\s\\S]*?)(?=##|$)`, "gi"),
   ];
-
-  patterns.forEach((regex) => {
-    const matches = analysis.matchAll(regex);
-    for (const match of matches) {
-      const sectionContent = match[2];
-
-      // Extract numbered list items (1., 2., 3.)
-      const numberedItems = sectionContent
-        .split("\n")
-        .filter((line) => line.trim().match(/^\d+\.\s+/))
-        .map((line) => line.replace(/^\d+\.\s+/, "").trim())
-        .filter((line) => line.length > 0);
-
-      // Extract bullet point items (-, •, *)
-      const bulletItems = sectionContent
-        .split("\n")
-        .filter((line) => line.trim().match(/^[-•*]\s+/))
-        .map((line) => line.replace(/^[-•*]\s+/, "").trim())
-        .filter((line) => line.length > 0);
-
-      items.push(...numberedItems, ...bulletItems);
-    }
-  });
-
-  // Remove duplicates and filter out empty/invalid items
-  return [...new Set(items)].filter(
-    (item) =>
-      item.length > 0 &&
-      !item.toLowerCase().includes("none demonstrated") &&
-      !item.toLowerCase().includes("no significant") &&
-      item.length > 10, // Ensure meaningful content
-  );
 }
 
+/**
+ * Parse list items from section content (numbered and bulleted)
+ */
+function parseListItemsFromContent(content: string): string[] {
+  const lines = content.split("\n");
+  const numberedItems = extractNumberedItems(lines);
+  const bulletItems = extractBulletItems(lines);
+  return [...numberedItems, ...bulletItems];
+}
+
+/**
+ * Extract numbered list items (1., 2., 3.)
+ */
+function extractNumberedItems(lines: string[]): string[] {
+  return lines
+    .filter((line) => /^\d+\.\s+/.test(line.trim()))
+    .map((line) => line.replace(/^\d+\.\s+/, "").trim())
+    .filter((line) => line.length > 0);
+}
+
+/**
+ * Extract bullet point items (-, •, *)
+ */
+function extractBulletItems(lines: string[]): string[] {
+  return lines
+    .filter((line) => /^[-•*]\s+/.test(line.trim()))
+    .map((line) => line.replace(/^[-•*]\s+/, "").trim())
+    .filter((line) => line.length > 0);
+}
+
+/**
+ * Remove duplicates and filter invalid items
+ */
+function deduplicateAndFilterItems(items: string[]): string[] {
+  const uniqueItems = [...new Set(items)];
+  return uniqueItems.filter(isValidListItem);
+}
+
+/**
+ * Check if a list item is valid and meaningful
+ */
+function isValidListItem(item: string): boolean {
+  if (item.length < MIN_ITEM_LENGTH) return false;
+
+  const invalidPhrases = ["none demonstrated", "no significant"];
+
+  const lowerItem = item.toLowerCase();
+  return !invalidPhrases.some((phrase) => lowerItem.includes(phrase));
+}
+
+/**
+ * Build detailed analysis from category sections
+ */
 function buildDetailedAnalysis(analysis: string, whyDecision: string): string {
-  const categories = [
-    "TECHNICAL COMPETENCY",
-    "PROBLEM SOLVING",
-    "COMMUNICATION",
-    "PROFESSIONAL READINESS",
-  ];
-
-  const detailedParts: string[] = [];
-
-  categories.forEach((category) => {
-    const categoryMatch = analysis.match(
-      new RegExp(
-        `##\\s*${category}\\s*\\([^)]+\\)\\s*([\\s\\S]*?)(?=##|$)`,
-        "i",
-      ),
-    );
-    if (categoryMatch) {
-      detailedParts.push(`**${category}**\n${categoryMatch[1].trim()}`);
-    }
-  });
+  const categoryParts = ANALYSIS_CATEGORIES.map((category) => {
+    const content = extractCategoryContent(analysis, category);
+    return content ? `**${category}**\n${content}` : null;
+  }).filter((part): part is string => part !== null);
 
   if (whyDecision) {
-    detailedParts.unshift(`**WHY THIS DECISION**\n${whyDecision}`);
+    categoryParts.unshift(`**WHY THIS DECISION**\n${whyDecision}`);
   }
 
-  return detailedParts.join("\n\n");
+  return categoryParts.join("\n\n");
 }
 
+/**
+ * Extract content for a specific category
+ */
+function extractCategoryContent(
+  analysis: string,
+  category: string,
+): string | null {
+  const regex = new RegExp(
+    `##\\s*${category}\\s*\\([^)]+\\)\\s*([\\s\\S]*?)(?=##|$)`,
+    "i",
+  );
+  const match = analysis.match(regex);
+  return match ? match[1].trim() : null;
+}
+
+// ============================================================================
+// SCORE EXTRACTION & VALIDATION
+// ============================================================================
+
+/**
+ * Extract numeric score from text (supports multiple formats)
+ */
 function extractScore(scoreText: string): number {
   const patterns = [
     /Score:\s*(\d+)\s*\/\s*100/i,
@@ -286,9 +340,9 @@ function extractScore(scoreText: string): number {
   for (const pattern of patterns) {
     const match = scoreText.match(pattern);
     if (match) {
-      const num = parseInt(match[1], 10);
-      if (num >= 0 && num <= 100) {
-        return num;
+      const score = parseInt(match[1], 10);
+      if (isValidScore(score)) {
+        return score;
       }
     }
   }
@@ -296,14 +350,138 @@ function extractScore(scoreText: string): number {
   return 0;
 }
 
+/**
+ * Check if score is within valid range
+ */
+function isValidScore(score: number): boolean {
+  return !Number.isNaN(score) && score >= 0 && score <= 100;
+}
+
+/**
+ * Validate score against response quality and cap if needed
+ */
+function validateAndCapScore(
+  score: number,
+  responseAnalysis: ResponseAnalysis,
+): number {
+  const maxAllowedScore = calculateMaxScore(responseAnalysis);
+
+  if (score > maxAllowedScore) {
+    console.warn(
+      `Score ${score} exceeds maximum ${maxAllowedScore} for response quality, capping`,
+    );
+    return maxAllowedScore;
+  }
+
+  return score;
+}
+
+/**
+ * Determine final decision based on score and threshold
+ * Always uses score-based logic to avoid contradictions
+ */
+function determineDecision(
+  score: number,
+  config: InterviewConfig,
+  aiDecision: "PASS" | "FAIL" | "UNKNOWN",
+): "PASS" | "FAIL" {
+  const passingThreshold = SENIORITY_EXPECTATIONS[config.seniority];
+  const shouldPass = score >= passingThreshold.score;
+  const finalDecision = shouldPass ? "PASS" : "FAIL";
+
+  // Log contradictions for debugging
+  if (aiDecision !== "UNKNOWN" && aiDecision !== finalDecision) {
+    console.warn(
+      `Fixed contradictory analysis: AI said ${aiDecision} but score ${score} should be ${finalDecision}`,
+    );
+  }
+
+  return finalDecision;
+}
+
+/**
+ * Get color class based on score
+ */
 function getScoreColor(score: number): string {
-  if (score >= 90) return "text-green-600";
-  if (score >= 80) return "text-green-500";
-  if (score >= 70) return "text-yellow-500";
-  if (score >= 60) return "text-orange-500";
+  if (score >= SCORE_BOUNDARIES.EXCELLENT) return "text-green-600";
+  if (score >= SCORE_BOUNDARIES.GOOD) return "text-green-500";
+  if (score >= SCORE_BOUNDARIES.SATISFACTORY) return "text-yellow-500";
+  if (score >= SCORE_BOUNDARIES.NEEDS_IMPROVEMENT) return "text-orange-500";
   return "text-red-500";
 }
 
+// ============================================================================
+// FALLBACK & ERROR HANDLING
+// ============================================================================
+
+/**
+ * Generate fallback content when sections are empty
+ */
+function generateFallbackContent(
+  sections: AnalysisSections,
+  config: InterviewConfig,
+): Partial<AnalysisSections> {
+  const fallback: Partial<AnalysisSections> = {};
+
+  if (sections.strengths.length === 0) {
+    fallback.strengths = [
+      "No significant strengths demonstrated in this interview",
+    ];
+  }
+
+  if (sections.improvements.length === 0) {
+    fallback.improvements = generateDefaultImprovements(config);
+  }
+
+  return fallback;
+}
+
+/**
+ * Generate default improvement suggestions
+ */
+function generateDefaultImprovements(config: InterviewConfig): string[] {
+  const position = config.position || "technical";
+  const seniority = config.seniority || "mid";
+
+  return [
+    `Study fundamental ${position} concepts and best practices`,
+    `Practice coding problems appropriate for ${seniority}-level positions`,
+    "Improve technical communication and explanation skills",
+    "Gain more hands-on experience with real-world projects",
+  ];
+}
+
+/**
+ * Build final InterviewResults object
+ */
+function buildInterviewResults(params: {
+  sections: AnalysisSections;
+  score: number;
+  decision: "PASS" | "FAIL";
+  config: InterviewConfig;
+}): InterviewResults {
+  const { sections, score, decision, config } = params;
+  const passingThreshold = SENIORITY_EXPECTATIONS[config.seniority];
+
+  return {
+    decision,
+    overallScore: sections.overallScore,
+    strengths: sections.strengths,
+    improvements: sections.improvements,
+    detailedAnalysis: sections.detailedAnalysis,
+    recommendations: sections.recommendations,
+    nextSteps: sections.nextSteps,
+    whyDecision: sections.whyDecision,
+    score,
+    scoreColor: getScoreColor(score),
+    passed: decision === "PASS",
+    passingThreshold: passingThreshold.score,
+  };
+}
+
+/**
+ * Create error analysis when parsing fails
+ */
 function createErrorAnalysis(
   analysis: string,
   config: InterviewConfig,
@@ -326,38 +504,66 @@ function createErrorAnalysis(
   };
 }
 
+// ============================================================================
+// MOCK ANALYSIS GENERATION
+// ============================================================================
+
+/**
+ * Calculate category scores based on total score and weights
+ */
 function calculateCategoryScores(totalScore: number) {
+  const scoreRatio = totalScore / 100;
+
   return {
-    technical: Math.round((totalScore / 100) * 30),
-    problemSolving: Math.round((totalScore / 100) * 25),
-    communication: Math.round((totalScore / 100) * 25),
-    professional: Math.round((totalScore / 100) * 20),
+    technical: Math.round(scoreRatio * CATEGORY_WEIGHTS.technical),
+    problemSolving: Math.round(scoreRatio * CATEGORY_WEIGHTS.problemSolving),
+    communication: Math.round(scoreRatio * CATEGORY_WEIGHTS.communication),
+    professional: Math.round(scoreRatio * CATEGORY_WEIGHTS.professional),
   };
 }
 
+/**
+ * Get performance level label based on score
+ */
 function getPerformanceLevel(score: number): string {
-  if (score >= 80) return "Exceeds Expectations";
-  if (score >= 70) return "Meets Expectations";
-  if (score >= 50) return "Below Expectations";
-  return "Far Below Expectations";
+  if (score >= PERFORMANCE_LEVELS.EXCEEDS.threshold) {
+    return PERFORMANCE_LEVELS.EXCEEDS.label;
+  }
+  if (score >= PERFORMANCE_LEVELS.MEETS.threshold) {
+    return PERFORMANCE_LEVELS.MEETS.label;
+  }
+  if (score >= PERFORMANCE_LEVELS.BELOW.threshold) {
+    return PERFORMANCE_LEVELS.BELOW.label;
+  }
+  return PERFORMANCE_LEVELS.FAR_BELOW.label;
 }
 
+/**
+ * Generate executive summary based on response quality
+ */
 function generateExecutiveSummary(
   responseAnalysis: ResponseAnalysis,
   config: InterviewConfig,
   passed: boolean,
   passingThreshold: { score: number; description: string },
 ): string {
-  if (responseAnalysis.substantiveResponses === 0) {
+  const {
+    substantiveResponses,
+    totalQuestions,
+    effectiveResponseRate,
+    noAnswerResponses,
+  } = responseAnalysis;
+
+  if (substantiveResponses === 0) {
     return "The candidate failed to provide any substantive responses during the interview. Every answer was either 'I don't know', skipped, or gibberish. This demonstrates a complete lack of preparation and knowledge required for this role.";
   }
 
-  if (responseAnalysis.effectiveResponseRate < 30) {
-    return `The candidate struggled severely, with only ${responseAnalysis.substantiveResponses} out of ${responseAnalysis.totalQuestions} questions receiving real answers. This indicates fundamental knowledge gaps that make them unsuitable for this ${config.seniority}-level position.`;
+  if (effectiveResponseRate < RESPONSE_RATE_THRESHOLDS.CRITICAL) {
+    return `The candidate struggled severely, with only ${substantiveResponses} out of ${totalQuestions} questions receiving real answers. This indicates fundamental knowledge gaps that make them unsuitable for this ${config.seniority}-level position.`;
   }
 
-  if (responseAnalysis.effectiveResponseRate < 50) {
-    return `The candidate showed limited knowledge, failing to adequately answer over half the interview questions. While they demonstrated some basic understanding, the numerous "I don't know" responses (${responseAnalysis.noAnswerResponses}) indicate they are not ready for this role.`;
+  if (effectiveResponseRate < RESPONSE_RATE_THRESHOLDS.LOW) {
+    return `The candidate showed limited knowledge, failing to adequately answer over half the interview questions. While they demonstrated some basic understanding, the numerous "I don't know" responses (${noAnswerResponses}) indicate they are not ready for this role.`;
   }
 
   if (passed) {
@@ -367,6 +573,9 @@ function generateExecutiveSummary(
   return `The candidate showed some knowledge but fell short of the ${passingThreshold.score}-point threshold required for ${config.seniority}-level positions. Key technical gaps and inconsistent responses prevented a passing score.`;
 }
 
+/**
+ * Generate why decision explanation
+ */
 function generateWhyDecision(
   responseAnalysis: ResponseAnalysis,
   config: InterviewConfig,
@@ -374,14 +583,18 @@ function generateWhyDecision(
   passed: boolean,
   passingThreshold: { score: number; description: string },
 ): string {
+  const {
+    substantiveResponses,
+    totalQuestions,
+    noAnswerResponses,
+    skippedQuestions,
+  } = responseAnalysis;
+
   if (!passed) {
     let decision = `The candidate FAILED this interview with a score of ${score}/${passingThreshold.score}. `;
 
-    if (
-      responseAnalysis.substantiveResponses <
-      responseAnalysis.totalQuestions / 2
-    ) {
-      decision += `They were unable to answer ${responseAnalysis.noAnswerResponses + responseAnalysis.skippedQuestions} questions out of ${responseAnalysis.totalQuestions} total questions, saying "I don't know" or skipping them entirely. `;
+    if (substantiveResponses < totalQuestions / 2) {
+      decision += `They were unable to answer ${noAnswerResponses + skippedQuestions} questions out of ${totalQuestions} total questions, saying "I don't know" or skipping them entirely. `;
     }
 
     decision += `For a ${config.seniority}-level ${config.position} role, we expect candidates to demonstrate strong foundational knowledge and the ability to work through problems even when unsure. This candidate showed neither, failing to meet the minimum bar for hiring.`;
@@ -389,16 +602,29 @@ function generateWhyDecision(
     return decision;
   }
 
-  return `The candidate PASSED this interview with a score of ${score}/${passingThreshold.score}. They provided substantive answers to ${responseAnalysis.substantiveResponses} out of ${responseAnalysis.totalQuestions} questions, demonstrating adequate knowledge of core ${config.position} concepts. While not perfect, they showed sufficient competency to perform at a ${config.seniority} level with appropriate onboarding and support.`;
+  return `The candidate PASSED this interview with a score of ${score}/${passingThreshold.score}. They provided substantive answers to ${substantiveResponses} out of ${totalQuestions} questions, demonstrating adequate knowledge of core ${config.position} concepts. While not perfect, they showed sufficient competency to perform at a ${config.seniority} level with appropriate onboarding and support.`;
 }
 
+/**
+ * Generate recommendations based on pass/fail status
+ */
 function generateRecommendations(
   passed: boolean,
   config: InterviewConfig,
   responseAnalysis: ResponseAnalysis,
 ): string {
   if (passed) {
-    return `### Next Steps Before Starting:
+    return generatePassingRecommendations(config);
+  }
+
+  return generateFailingRecommendations(config, responseAnalysis);
+}
+
+/**
+ * Generate recommendations for passing candidates
+ */
+function generatePassingRecommendations(config: InterviewConfig): string {
+  return `### Next Steps Before Starting:
 1. **Strengthen Weak Areas** (2-4 weeks): Review the topics where you struggled during the interview
 2. **Practical Application** (Ongoing): Build small projects to reinforce theoretical knowledge
 3. **Communication Practice** (1-2 weeks): Practice explaining technical concepts clearly and concisely
@@ -413,14 +639,30 @@ function generateRecommendations(
 - Even when unsure, explain your thinking process rather than saying "I don't know"
 - Use the STAR method (Situation, Task, Action, Result) for behavioral questions
 - Ask clarifying questions before answering to show analytical thinking`;
-  }
+}
 
+/**
+ * Generate recommendations for failing candidates
+ */
+function generateFailingRecommendations(
+  config: InterviewConfig,
+  responseAnalysis: ResponseAnalysis,
+): string {
+  const { effectiveResponseRate, substantiveResponses } = responseAnalysis;
   const timeframe =
-    responseAnalysis.effectiveResponseRate < 30 ? "6+ months" : "3-6 months";
+    effectiveResponseRate < RESPONSE_RATE_THRESHOLDS.CRITICAL
+      ? IMPROVEMENT_TIMEFRAMES.CRITICAL
+      : IMPROVEMENT_TIMEFRAMES.MODERATE;
+
   const startingPoint =
-    responseAnalysis.substantiveResponses === 0
+    substantiveResponses === 0
       ? "You need to learn the basics from scratch. Start with introductory courses."
       : `Focus on core ${config.position} concepts you couldn't answer`;
+
+  const honestAssessment =
+    effectiveResponseRate < RESPONSE_RATE_THRESHOLDS.CRITICAL
+      ? `You are not ready for ${config.seniority}-level interviews. Consider applying for internships or junior positions first to gain foundational experience.`
+      : `You have some knowledge but significant gaps remain. Focus on systematic learning and practical application before attempting another interview at this level.`;
 
   return `### Critical Improvements Required Before Re-interviewing:
 1. **Master Fundamentals** (${timeframe}): ${startingPoint}
@@ -442,13 +684,12 @@ function generateRecommendations(
 - **Wait at least ${timeframe} before reapplying** - use this time to build real skills
 
 ### Honest Assessment:
-${
-  responseAnalysis.effectiveResponseRate < 30
-    ? `You are not ready for ${config.seniority}-level interviews. Consider applying for internships or junior positions first to gain foundational experience.`
-    : `You have some knowledge but significant gaps remain. Focus on systematic learning and practical application before attempting another interview at this level.`
-}`;
+${honestAssessment}`;
 }
 
+/**
+ * Format mock analysis into structured markdown
+ */
 function formatMockAnalysis(data: {
   decision: string;
   score: number;
@@ -476,7 +717,12 @@ function formatMockAnalysis(data: {
     categoryScores,
     whyDecision,
     recommendations,
+    passed,
+    config,
   } = data;
+
+  const strengthsOrNone = (threshold: number, text: string) =>
+    categoryScores.technical > threshold ? text : "- None demonstrated";
 
   return `## INTERVIEW RESULT
 **DECISION: ${decision}**
@@ -485,15 +731,15 @@ Performance Level: ${performanceLevel}
 
 ${executiveSummary}
 
-## TECHNICAL COMPETENCY (${categoryScores.technical}/30)
+## TECHNICAL COMPETENCY (${categoryScores.technical}/${CATEGORY_WEIGHTS.technical})
 **Strengths:**
-${categoryScores.technical > 15 ? "- Attempted to engage with technical questions when knowledgeable" : "- None demonstrated"}
+${strengthsOrNone(15, "- Attempted to engage with technical questions when knowledgeable")}
 
 **Critical Weaknesses:**
 - Significant gaps in fundamental knowledge
 - Unable to explain core concepts in depth
 
-## PROBLEM SOLVING (${categoryScores.problemSolving}/25)
+## PROBLEM SOLVING (${categoryScores.problemSolving}/${CATEGORY_WEIGHTS.problemSolving})
 **Strengths:**
 ${categoryScores.problemSolving > 12 ? "- Attempted systematic approaches when comfortable with topics" : "- None demonstrated"}
 
@@ -501,7 +747,7 @@ ${categoryScores.problemSolving > 12 ? "- Attempted systematic approaches when c
 - Unable to work through problems when faced with unknowns
 - Gave up quickly instead of attempting logical reasoning
 
-## COMMUNICATION (${categoryScores.communication}/25)
+## COMMUNICATION (${categoryScores.communication}/${CATEGORY_WEIGHTS.communication})
 **Strengths:**
 ${categoryScores.communication > 12 ? "- Communicated clearly on familiar topics\n- Honest about knowledge gaps" : "- None demonstrated"}
 
@@ -509,13 +755,13 @@ ${categoryScores.communication > 12 ? "- Communicated clearly on familiar topics
 - Could not articulate technical concepts effectively
 - Failed to elaborate or provide examples
 
-## PROFESSIONAL READINESS (${categoryScores.professional}/20)
+## PROFESSIONAL READINESS (${categoryScores.professional}/${CATEGORY_WEIGHTS.professional})
 **Strengths:**
 ${categoryScores.professional > 10 ? "- Showed up and participated in the interview process" : "- None demonstrated"}
 
 **Critical Weaknesses:**
 - Knowledge gaps suggest insufficient experience
-- Not ready for ${data.config.seniority}-level responsibilities
+- Not ready for ${config.seniority}-level responsibilities
 
 ## WHY THIS DECISION
 ${whyDecision}
@@ -525,5 +771,5 @@ ${recommendations}
 
 ---
 
-**Note**: This analysis reflects the actual performance demonstrated during the interview. ${!data.passed ? "A failing score means you did not meet the minimum threshold required for this position." : "While you passed, continue improving in the areas identified above."}`;
+**Note**: This analysis reflects the actual performance demonstrated during the interview. ${!passed ? "A failing score means you did not meet the minimum threshold required for this position." : "While you passed, continue improving in the areas identified above."}`;
 }

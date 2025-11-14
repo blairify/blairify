@@ -47,7 +47,7 @@ export function generateBaseSystemPrompt(
   interviewMode: InterviewMode,
   interviewer?: InterviewerProfile,
 ): string {
-  const interviewerName = interviewer?.name || "Sarah";
+  const interviewerName = interviewer?.name || "TEST3";
   const interviewerExperience =
     interviewer?.experience ||
     "10+ years of experience conducting interviews at top tech companies";

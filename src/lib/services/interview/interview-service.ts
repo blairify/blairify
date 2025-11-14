@@ -56,78 +56,62 @@ export function shouldGenerateFollowUp(
   config: InterviewConfig,
   questionCount: number,
 ): boolean {
-  // Don't follow up on empty or very short responses
-  if (!userResponse || userResponse.trim().length < 10) {
-    return false;
-  }
+  if (!userResponse || userResponse.trim().length < 10) return false;
 
-  // Don't follow up if we're near the end of the interview
   const totalQuestions = calculateTotalQuestions(config);
-  if (questionCount >= totalQuestions) {
-    return false;
-  }
+  if (questionCount >= totalQuestions) return false;
 
-  // Don't follow up on "I don't know" or skip responses
-  if (isUnknownResponse(userResponse)) {
-    return false;
-  }
+  if (isUnknownResponse(userResponse)) return false;
 
-  // Analyze response characteristics
   const characteristics = analyzeResponseCharacteristics(userResponse);
 
-  // Score factors that indicate a good candidate for follow-up
   let followUpScore = 0;
 
-  // Length indicators
+  // Response length scoring
   if (
     characteristics.responseLength >= 100 &&
     characteristics.responseLength <= 500
   ) {
-    followUpScore += 2; // Sweet spot
+    followUpScore += 2;
   } else if (characteristics.responseLength > 500) {
-    followUpScore += 1; // Detailed but may need clarification
+    followUpScore += 1;
   } else if (characteristics.responseLength < 50) {
-    followUpScore -= 1; // Too brief
+    followUpScore -= 1;
   }
 
   // Add quality indicators
   followUpScore += characteristics.qualityIndicators;
 
-  // Context-based scoring
+  // Limit consecutive follow-ups
   const recentFollowUps = conversationHistory
     .slice(-4)
     .filter((msg) => msg.type === "ai" && msg.isFollowUp).length;
 
   if (recentFollowUps >= SCORING_THRESHOLDS.maxConsecutiveFollowUps) {
-    followUpScore -= 2; // Avoid too many consecutive follow-ups
+    followUpScore -= 2;
   }
 
-  // Interview type specific adjustments
-  if (config.interviewType === "coding" && characteristics.hasCodeExample) {
+  // Interview type adjustments
+  if (config.interviewType === "coding" && characteristics.hasCodeExample)
     followUpScore += 1;
-  }
   if (
     config.interviewType === "system-design" &&
     characteristics.responseLength > 200
-  ) {
+  )
     followUpScore += 1;
-  }
-  if (
-    config.interviewMode === "flash" &&
-    characteristics.responseLength > 150
-  ) {
-    followUpScore -= 1; // Keep it concise in flash mode
-  }
+  if (config.interviewMode === "flash" && characteristics.responseLength > 150)
+    followUpScore -= 1;
 
-  // Seniority level adjustments
-  if (config.seniority === "senior" && characteristics.responseLength < 100) {
-    followUpScore += 1; // Expect more detail
-  }
-  if (config.seniority === "junior" && characteristics.responseLength > 300) {
-    followUpScore += 1; // Good elaboration
-  }
+  // Seniority adjustments
+  if (config.seniority === "senior" && characteristics.responseLength < 100)
+    followUpScore += 1;
+  if (config.seniority === "junior" && characteristics.responseLength > 300)
+    followUpScore += 1;
 
-  // Return true if score is above threshold
+  // Slight randomness for more human-like curiosity
+  const randomBoost = Math.random() > 0.8 ? 1 : 0;
+  followUpScore += randomBoost;
+
   return followUpScore >= SCORING_THRESHOLDS.followUpScoreThreshold;
 }
 
@@ -271,25 +255,6 @@ export function validateInterviewConfig(config: Partial<InterviewConfig>): {
   return {
     isValid: errors.length === 0,
     errors,
-  };
-}
-
-/**
- * Create a new message object
- */
-export function createMessage(
-  type: "ai" | "user",
-  content: string,
-  questionType?: QuestionType,
-  isFollowUp?: boolean,
-): Message {
-  return {
-    id: `${type}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-    type,
-    content,
-    timestamp: new Date(),
-    questionType,
-    isFollowUp,
   };
 }
 
