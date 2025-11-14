@@ -44,14 +44,123 @@ interface InterviewResults {
   whyDecision?: string;
 }
 
-const calmingMessages = [
-  "Analyzing interview responses...",
-  "Evaluating technical competencies...",
-  "Assessing communication patterns...",
-  "Reviewing problem-solving approaches...",
-  "Generating comprehensive feedback...",
-  "Finalizing performance insights...",
-];
+// ============================================================================
+// DYNAMIC ANALYSIS MESSAGES
+// ============================================================================
+
+const getAnalysisMessages = () => {
+  const messageVariants = [
+    [
+      "Reviewing your technical responses...",
+      "Evaluating problem-solving approaches...",
+      "Analyzing communication effectiveness...",
+      "Assessing professional readiness...",
+      "Calculating performance metrics...",
+      "Compiling comprehensive feedback...",
+    ],
+    [
+      "Processing interview transcript...",
+      "Examining technical depth and accuracy...",
+      "Evaluating analytical reasoning...",
+      "Reviewing response quality patterns...",
+      "Generating detailed insights...",
+      "Finalizing performance report...",
+    ],
+    [
+      "Analyzing your interview performance...",
+      "Assessing technical competency levels...",
+      "Reviewing problem-solving strategies...",
+      "Evaluating communication clarity...",
+      "Identifying strengths and gaps...",
+      "Preparing personalized feedback...",
+    ],
+  ];
+
+  // Randomly select a variant set for variety
+  return messageVariants[Math.floor(Math.random() * messageVariants.length)];
+};
+
+// ============================================================================
+// OUTCOME MESSAGE GENERATORS
+// ============================================================================
+
+const getOutcomeMessage = (score: number, passed: boolean): string => {
+  if (passed) {
+    if (score >= 90) {
+      const messages = [
+        "Exceptional performance across all competency areas.",
+        "Outstanding demonstration of technical expertise and problem-solving.",
+        "Impressive depth of knowledge and professional communication.",
+        "Excellent interview showcasing strong technical fundamentals.",
+      ];
+      return messages[Math.floor(Math.random() * messages.length)];
+    }
+    if (score >= 80) {
+      const messages = [
+        "Strong performance with solid technical foundation.",
+        "Good demonstration of core competencies and practical knowledge.",
+        "Competent showing with clear understanding of key concepts.",
+        "Solid interview performance meeting role requirements.",
+      ];
+      return messages[Math.floor(Math.random() * messages.length)];
+    }
+    const messages = [
+      "Satisfactory performance meeting minimum requirements.",
+      "Adequate demonstration of foundational competencies.",
+      "Acceptable performance with room for continued growth.",
+      "Met the passing threshold with baseline knowledge demonstrated.",
+    ];
+    return messages[Math.floor(Math.random() * messages.length)];
+  }
+
+  // Failed outcomes - direct but growth-focused
+  if (score >= 60) {
+    const messages = [
+      "Close to passing - focus on strengthening key technical areas.",
+      "Near the threshold - targeted preparation will bridge remaining gaps.",
+      "Some competencies demonstrated - additional study needed in core areas.",
+      "Approaching requirements - focused development will improve candidacy.",
+    ];
+    return messages[Math.floor(Math.random() * messages.length)];
+  }
+  if (score >= 40) {
+    const messages = [
+      "Significant knowledge gaps identified - systematic learning required.",
+      "Foundational skills need development before reapplying at this level.",
+      "Multiple competency areas require focused improvement.",
+      "Substantial preparation needed to meet position requirements.",
+    ];
+    return messages[Math.floor(Math.random() * messages.length)];
+  }
+  const messages = [
+    "Critical gaps in required competencies - extensive preparation recommended.",
+    "Fundamental knowledge building needed before pursuing this level.",
+    "Insufficient demonstration of core skills - consider foundational training.",
+    "Significant development required across all competency areas.",
+  ];
+  return messages[Math.floor(Math.random() * messages.length)];
+};
+
+const getPerformanceLabel = (score: number, passed?: boolean): string => {
+  if (passed === true) {
+    if (score >= 90) return "Outstanding Performance";
+    if (score >= 80) return "Strong Performance";
+    if (score >= 70) return "Solid Performance";
+    return "Acceptable Performance";
+  }
+  if (passed === false) {
+    if (score >= 60) return "Below Threshold";
+    if (score >= 40) return "Significant Gaps";
+    return "Insufficient Competency";
+  }
+  // Neutral labels when pass/fail not determined
+  if (score >= 90) return "Exceptional";
+  if (score >= 80) return "Strong";
+  if (score >= 70) return "Good";
+  if (score >= 60) return "Fair";
+  if (score >= 50) return "Developing";
+  return "Needs Improvement";
+};
 
 interface ResultsContentProps {
   user: UserData;
@@ -64,18 +173,26 @@ export function ResultsContent({ user }: ResultsContentProps) {
   const [error, setError] = useState<string | null>(null);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [analysisMessages] = useState(() => getAnalysisMessages());
+  const [outcomeMessage, setOutcomeMessage] = useState<string>("");
+  const [currentDate, setCurrentDate] = useState<string>("");
+
+  // Set current date on client side only to avoid hydration mismatch
+  useEffect(() => {
+    setCurrentDate(new Date().toLocaleDateString());
+  }, []);
 
   useEffect(() => {
     if (!isAnalyzing) return;
 
     const messageInterval = setInterval(() => {
       setCurrentMessageIndex(
-        (prevIndex) => (prevIndex + 1) % calmingMessages.length,
+        (prevIndex) => (prevIndex + 1) % analysisMessages.length,
       );
     }, 2500);
 
     return () => clearInterval(messageInterval);
-  }, [isAnalyzing]);
+  }, [isAnalyzing, analysisMessages.length]);
 
   // Progress simulation effect
   useEffect(() => {
@@ -179,8 +296,14 @@ export function ResultsContent({ user }: ResultsContentProps) {
         const data = await response.json();
 
         if (data.success) {
-          setProgress(100); // Complete progress when analysis is done
+          setProgress(100);
           setResults(data.feedback);
+          setOutcomeMessage(
+            getOutcomeMessage(
+              data.feedback.score,
+              data.feedback.passed || false,
+            ),
+          );
 
           if (user?.uid) {
             try {
@@ -258,59 +381,52 @@ export function ResultsContent({ user }: ResultsContentProps) {
     loadAnalysis();
   }, [user?.uid]);
 
-  const getScoreLabel = (score: number, passed?: boolean) => {
-    if (passed === true) {
-      if (score >= 90) return "Outstanding Performance";
-      if (score >= 80) return "Excellent Performance";
-      if (score >= 70) return "Strong Performance";
-      return "Satisfactory Performance";
-    }
-    if (passed === false) {
-      if (score >= 60) return "Below Required Standard";
-      if (score >= 40) return "Significant Development Required";
-      return "Insufficient Competency Demonstrated";
-    }
-    if (score >= 90) return "Outstanding";
-    if (score >= 80) return "Excellent";
-    if (score >= 70) return "Good";
-    if (score >= 60) return "Fair";
-    if (score >= 50) return "Developing";
-    return "Needs Improvement";
-  };
+  // ============================================================================
+  // RENDER: LOADING STATE
+  // ============================================================================
 
   if (isAnalyzing) {
     return (
-      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-950">
-        <Card className="w-full max-w-lg border shadow-sm">
+      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
+        <Card className="w-full max-w-lg border shadow-lg animate-in fade-in duration-500">
           <CardContent className="pt-16 pb-16">
             <div className="flex justify-center mb-8">
-              <div className="w-12 h-12 border-2 border-gray-300 dark:border-gray-700 border-t-gray-900 dark:border-t-gray-100 rounded-full animate-spin"></div>
+              <div className="relative">
+                <div className="w-16 h-16 border-4 border-gray-200 dark:border-gray-700 border-t-blue-600 dark:border-t-blue-400 rounded-full animate-spin"></div>
+                <div
+                  className="absolute inset-0 w-16 h-16 border-4 border-transparent border-t-indigo-400 dark:border-t-indigo-500 rounded-full animate-spin"
+                  style={{
+                    animationDuration: "1.5s",
+                    animationDirection: "reverse",
+                  }}
+                ></div>
+              </div>
             </div>
-            <h3 className="text-xl font-semibold mb-4 text-center text-gray-900 dark:text-gray-100">
-              Analyzing Interview Performance
+            <h3 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-gray-100 animate-in fade-in slide-in-from-top-2 duration-700">
+              Analyzing Your Performance
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-center min-h-[1.5rem] mb-6">
-              {calmingMessages[currentMessageIndex]}
+            <p className="text-base text-gray-600 dark:text-gray-400 text-center min-h-[3rem] mb-8 leading-relaxed px-4 animate-in fade-in duration-500">
+              {analysisMessages[currentMessageIndex]}
             </p>
 
             {/* Progress Bar */}
-            <div className="w-full max-w-md mx-auto">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                  Progress
+            <div className="w-full max-w-md mx-auto space-y-3">
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                  Analysis Progress
                 </span>
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">
                   {progress}%
                 </span>
               </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2">
+              <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-3 overflow-hidden shadow-inner">
                 <div
-                  className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full transition-all duration-500 ease-out"
+                  className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 h-full rounded-full transition-all duration-700 ease-out"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
-              <div className="text-xs text-gray-400 dark:text-gray-500 text-center mt-2">
-                This may take 30-90 seconds
+              <div className="text-xs text-gray-500 dark:text-gray-500 text-center">
+                Usually takes 30-90 seconds
               </div>
             </div>
           </CardContent>
@@ -319,24 +435,31 @@ export function ResultsContent({ user }: ResultsContentProps) {
     );
   }
 
+  // ============================================================================
+  // RENDER: ERROR STATE
+  // ============================================================================
+
   if (error) {
     return (
-      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-950">
-        <Card className="w-full max-w-lg border border-red-200 dark:border-red-900 shadow-sm">
+      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
+        <Card className="w-full max-w-lg border-2 border-red-200 dark:border-red-900 shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-500">
           <CardContent className="pt-12 pb-12">
             <div className="flex justify-center mb-6">
-              <AlertTriangle className="h-12 w-12 text-red-600 dark:text-red-400" />
+              <div className="w-16 h-16 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+                <AlertTriangle className="h-8 w-8 text-red-600 dark:text-red-400" />
+              </div>
             </div>
-            <h3 className="text-xl font-semibold mb-3 text-center text-gray-900 dark:text-gray-100">
-              Analysis Failed
+            <h3 className="text-xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
+              Analysis Unavailable
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-center mb-8 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-center mb-8 leading-relaxed px-4">
               {error}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 onClick={() => window.location.reload()}
                 variant="default"
+                className="hover:scale-105 transition-transform"
               >
                 <RotateCcw className="h-4 w-4 mr-2" />
                 Retry Analysis
@@ -344,6 +467,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
               <Button
                 variant="outline"
                 onClick={() => router.push("/dashboard")}
+                className="hover:scale-105 transition-transform"
               >
                 Return to Dashboard
               </Button>
@@ -354,19 +478,29 @@ export function ResultsContent({ user }: ResultsContentProps) {
     );
   }
 
+  // ============================================================================
+  // RENDER: NO RESULTS STATE
+  // ============================================================================
+
   if (!results) {
     return (
-      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-950">
-        <Card className="w-full max-w-lg border shadow-sm">
+      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
+        <Card className="w-full max-w-lg border shadow-lg animate-in fade-in duration-500">
           <CardContent className="pt-12 pb-12 text-center">
-            <FileText className="h-12 w-12 text-gray-400 mx-auto mb-6" />
-            <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
+            <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-6">
+              <FileText className="h-8 w-8 text-gray-400" />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
               No Results Available
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-8">
-              Complete an interview to receive detailed performance feedback.
+            <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed px-4">
+              Complete an interview to receive detailed performance feedback and
+              insights.
             </p>
-            <Button onClick={() => router.push("/configure")}>
+            <Button
+              onClick={() => router.push("/configure")}
+              className="hover:scale-105 transition-transform"
+            >
               Start New Interview
             </Button>
           </CardContent>
@@ -375,59 +509,89 @@ export function ResultsContent({ user }: ResultsContentProps) {
     );
   }
 
+  // ============================================================================
+  // RENDER: RESULTS DISPLAY
+  // ============================================================================
+
   return (
-    <main className="flex-1 overflow-auto bg-gray-50 dark:bg-gray-950">
-      <div className="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
-        {/* Header Section */}
-        <div className="border-b border-gray-200 dark:border-gray-800 pb-6 mb-2">
-          <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+    <main className="flex-1 overflow-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
+      <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
+        {/* ============================================================================ */}
+        {/* HEADER SECTION */}
+        {/* ============================================================================ */}
+        <header className="text-center border-b border-gray-200 dark:border-gray-800 pb-8 mb-2 animate-in fade-in slide-in-from-top-2 duration-700">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">
             Interview Performance Report
           </h1>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            Comprehensive evaluation and performance analysis
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Comprehensive evaluation and personalized insights for your
+            professional development
           </p>
-        </div>
+        </header>
 
-        {/* Pass/Fail Decision Banner */}
+        {/* ============================================================================ */}
+        {/* OUTCOME DECISION BANNER */}
+        {/* ============================================================================ */}
         {results.passed !== undefined && (
           <Card
-            className={`border-2 ${results.passed ? "border-emerald-600 dark:border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20" : "border-red-600 dark:border-red-500 bg-red-50 dark:bg-red-950/20"}`}
+            className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
+              results.passed
+                ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
+                : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
+            }`}
           >
             <CardContent className="py-8">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  {results.passed ? (
-                    <CheckCircle className="h-10 w-10 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
-                  ) : (
-                    <XCircle className="h-10 w-10 text-red-600 dark:text-red-400 flex-shrink-0" />
-                  )}
-                  <div>
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div className="flex items-center gap-6">
+                  <div
+                    className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${
+                      results.passed
+                        ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
+                        : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                    }`}
+                  >
+                    {results.passed ? (
+                      <CheckCircle className="h-8 w-8" />
+                    ) : (
+                      <XCircle className="h-8 w-8" />
+                    )}
+                  </div>
+                  <div className="text-center sm:text-left">
                     <div
-                      className={`text-2xl sm:text-3xl font-bold mb-1 ${results.passed ? "text-emerald-900 dark:text-emerald-100" : "text-red-900 dark:text-red-100"}`}
+                      className={`text-3xl font-bold mb-3 ${
+                        results.passed
+                          ? "text-emerald-900 dark:text-emerald-100"
+                          : "text-red-900 dark:text-red-100"
+                      }`}
                     >
-                      {results.passed
-                        ? "Candidate Passed"
-                        : "Candidate Did Not Pass"}
+                      {results.passed ? "Interview Passed" : "Not Passed"}
                     </div>
                     <p
-                      className={`text-sm ${results.passed ? "text-emerald-700 dark:text-emerald-300" : "text-red-700 dark:text-red-300"}`}
+                      className={`text-lg leading-relaxed mb-2 ${
+                        results.passed
+                          ? "text-emerald-700 dark:text-emerald-300"
+                          : "text-red-700 dark:text-red-300"
+                      }`}
                     >
-                      {results.passed
-                        ? "Met all required competency standards for this position."
-                        : `Did not meet the ${results.passingThreshold || 70}-point threshold requirement.`}
+                      {outcomeMessage}
                     </p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div
-                    className={`text-4xl font-bold ${results.passed ? "text-emerald-900 dark:text-emerald-100" : "text-red-900 dark:text-red-100"}`}
-                  >
-                    {results.score}
-                  </div>
-                  <div
-                    className={`text-sm ${results.passed ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}
-                  >
-                    / 100
+                    <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                      <span>Final Score:</span>
+                      <span
+                        className={`font-bold text-xl ${
+                          results.passed
+                            ? "text-emerald-600 dark:text-emerald-400"
+                            : "text-red-600 dark:text-red-400"
+                        }`}
+                      >
+                        {results.score}/100
+                      </span>
+                      {results.passingThreshold && (
+                        <span className="text-gray-500">
+                          (threshold: {results.passingThreshold})
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -435,16 +599,19 @@ export function ResultsContent({ user }: ResultsContentProps) {
           </Card>
         )}
 
-        {/* Overall Score Card */}
-        <Card className="border shadow-sm">
+        {/* ============================================================================ */}
+        {/* OVERALL ASSESSMENT */}
+        {/* ============================================================================ */}
+        <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-            <CardTitle className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-              Overall Assessment
+            <CardTitle className="flex items-center gap-3 text-xl font-semibold text-gray-900 dark:text-gray-100">
+              <BarChart3 className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+              Overall Performance Assessment
             </CardTitle>
           </CardHeader>
           <CardContent className="pt-6">
-            <div className="flex items-start gap-6 mb-6">
-              <div className="relative w-24 h-24 flex-shrink-0">
+            <div className="flex items-start gap-8 mb-6">
+              <div className="relative w-28 h-28 flex-shrink-0">
                 <svg
                   className="w-full h-full transform -rotate-90"
                   viewBox="0 0 100 100"
@@ -471,22 +638,28 @@ export function ResultsContent({ user }: ResultsContentProps) {
                     fill="none"
                     strokeDasharray={`${2 * Math.PI * 45}`}
                     strokeDashoffset={`${2 * Math.PI * 45 * (1 - results.score / 100)}`}
-                    className="text-gray-900 dark:text-gray-100"
+                    className={
+                      results.passed
+                        ? "text-emerald-600 dark:text-emerald-400"
+                        : "text-red-600 dark:text-red-400"
+                    }
                     strokeLinecap="round"
                   />
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                  <span
+                    className={`text-3xl font-bold ${results.passed ? "text-emerald-900 dark:text-emerald-100" : "text-red-900 dark:text-red-100"}`}
+                  >
                     {results.score}
                   </span>
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
-                  {getScoreLabel(results.score, results.passed)}
+                <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                  {getPerformanceLabel(results.score, results.passed)}
                 </h3>
                 <div
-                  className="prose prose-sm prose-gray dark:prose-invert max-w-none"
+                  className="prose prose-base prose-gray dark:prose-invert max-w-none leading-relaxed"
                   dangerouslySetInnerHTML={parseFullMarkdown(
                     results.overallScore,
                   )}
@@ -494,7 +667,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
               </div>
             </div>
             {results.passingThreshold && (
-              <div className="text-xs text-gray-500 dark:text-gray-500 pt-4 border-t border-gray-200 dark:border-gray-800">
+              <div className="text-sm text-gray-600 dark:text-gray-400 pt-4 border-t border-gray-200 dark:border-gray-800">
                 Passing threshold for this position: {results.passingThreshold}{" "}
                 points
               </div>
@@ -502,125 +675,159 @@ export function ResultsContent({ user }: ResultsContentProps) {
           </CardContent>
         </Card>
 
-        {/* Strengths and Improvements Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card className="border shadow-sm">
+        {/* ============================================================================ */}
+        {/* STRENGTHS & IMPROVEMENTS GRID */}
+        {/* ============================================================================ */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-left-4 duration-700">
             <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-              <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
-                <Award className="h-4 w-4 mr-2" />
-                Demonstrated Strengths
+              <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                <Award className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                Key Strengths Demonstrated
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
               {results.strengths.length > 0 ? (
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {results.strengths.map((strength, index) => (
                     <li
                       key={`strength-${index}`}
-                      className="flex items-start text-sm"
+                      className="flex items-start gap-3 group animate-in fade-in slide-in-from-left-2 duration-500"
+                      style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-gray-900 dark:bg-gray-100 mt-2 mr-3 flex-shrink-0"></span>
-                      <span className="text-gray-700 dark:text-gray-300">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
+                        <CheckCircle className="w-3 h-3" />
+                      </div>
+                      <span className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                         {strength}
                       </span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-sm text-gray-500 dark:text-gray-500 italic">
-                  No notable strengths identified in this assessment.
-                </p>
+                <div className="text-center py-8">
+                  <Award className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+                  <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                    Building foundational skills - keep developing your
+                    technical expertise!
+                  </p>
+                </div>
               )}
             </CardContent>
           </Card>
 
-          <Card className="border shadow-sm">
+          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-right-4 duration-700">
             <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-              <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
-                <Target className="h-4 w-4 mr-2" />
+              <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                <Target className="h-5 w-5 text-amber-600 dark:text-amber-400" />
                 {results.passed === false
-                  ? "Critical Gaps"
-                  : "Development Areas"}
+                  ? "Critical Development Areas"
+                  : "Growth Opportunities"}
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
               {results.improvements.length > 0 ? (
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {results.improvements.map((improvement, index) => (
                     <li
                       key={`improvement-${index}`}
-                      className="flex items-start text-sm"
+                      className="flex items-start gap-3 group animate-in fade-in slide-in-from-right-2 duration-500"
+                      style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-gray-900 dark:bg-gray-100 mt-2 mr-3 flex-shrink-0"></span>
-                      <span className="text-gray-700 dark:text-gray-300">
+                      <div
+                        className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${
+                          results.passed === false
+                            ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                            : "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300"
+                        }`}
+                      >
+                        <TrendingUp className="w-3 h-3" />
+                      </div>
+                      <span className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                         {improvement}
                       </span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-sm text-gray-500 dark:text-gray-500 italic">
-                  Continue to build upon existing competencies.
-                </p>
+                <div className="text-center py-8">
+                  <Target className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+                  <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                    Excellent foundation - continue building advanced
+                    competencies!
+                  </p>
+                </div>
               )}
             </CardContent>
           </Card>
         </div>
 
-        {/* Why Decision */}
+        {/* ============================================================================ */}
+        {/* DETAILED PERFORMANCE ANALYSIS */}
+        {/* ============================================================================ */}
         {results.whyDecision && (
-          <Card className="border shadow-sm">
+          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-              <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
-                <MessageSquare className="h-4 w-4 mr-2" />
-                Assessment Summary
+              <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                <MessageSquare className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                Detailed Performance Analysis
               </CardTitle>
+              <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                {results.passed === false
+                  ? "Key factors in the evaluation decision"
+                  : "Understanding your performance evaluation"}
+              </CardDescription>
             </CardHeader>
+
             <CardContent className="pt-6">
               <div
-                className="prose prose-sm prose-gray dark:prose-invert max-w-none"
-                dangerouslySetInnerHTML={parseFullMarkdown(results.whyDecision)}
+                className="prose prose-base prose-gray dark:prose-invert max-w-none leading-relaxed"
+                dangerouslySetInnerHTML={parseFullMarkdown(
+                  results.detailedAnalysis,
+                )}
               />
             </CardContent>
           </Card>
         )}
 
-        {/* Detailed Analysis */}
-        <Card className="border shadow-sm">
-          <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-            <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
-              <BarChart3 className="h-4 w-4 mr-2" />
-              Detailed Performance Analysis
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div
-              className="prose prose-sm prose-gray dark:prose-invert max-w-none"
-              dangerouslySetInnerHTML={parseFullMarkdown(
-                results.detailedAnalysis,
-              )}
-            />
-          </CardContent>
-        </Card>
-
-        {/* Recommendations */}
-        <Card className="border shadow-sm">
-          <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-            <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
-              <Lightbulb className="h-4 w-4 mr-2" />
+        {/* ============================================================================ */}
+        {/* RECOMMENDATIONS / DEVELOPMENT PLAN */}
+        {/* ============================================================================ */}
+        <Card
+          className={`border shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700 ${
+            results.passed === false
+              ? "border-red-200 dark:border-red-800"
+              : "border-emerald-200 dark:border-emerald-800"
+          }`}
+        >
+          <CardHeader
+            className={`border-b pb-4 ${
+              results.passed === false
+                ? "bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/20 dark:to-orange-950/20 border-red-200/50 dark:border-red-700/50"
+                : "bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/20 dark:to-green-950/20 border-emerald-200/50 dark:border-emerald-700/50"
+            }`}
+          >
+            <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+              <Lightbulb
+                className={`h-5 w-5 ${
+                  results.passed === false
+                    ? "text-red-600 dark:text-red-400"
+                    : "text-emerald-600 dark:text-emerald-400"
+                }`}
+              />
               {results.passed === false
-                ? "Required Improvements"
-                : "Development Recommendations"}
+                ? "Development Roadmap"
+                : "Growth Recommendations"}
             </CardTitle>
-            {results.passed === false && (
-              <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                Address these areas before reapplying for this position level.
-              </CardDescription>
-            )}
+            <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+              {results.passed === false
+                ? "Your personalized plan for technical growth"
+                : "Strategies to elevate your expertise"}
+            </CardDescription>
           </CardHeader>
           <CardContent className="pt-6">
             <div
-              className="prose prose-sm prose-gray dark:prose-invert max-w-none"
+              className="prose prose-base prose-gray dark:prose-invert max-w-none leading-relaxed"
               dangerouslySetInnerHTML={parseFullMarkdown(
                 results.recommendations,
               )}
@@ -628,38 +835,48 @@ export function ResultsContent({ user }: ResultsContentProps) {
           </CardContent>
         </Card>
 
-        {/* Next Steps */}
+        {/* ============================================================================ */}
+        {/* NEXT STEPS */}
+        {/* ============================================================================ */}
         {results.nextSteps && results.nextSteps !== results.recommendations && (
-          <Card className="border shadow-sm">
+          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-              <CardTitle className="flex items-center text-base font-semibold text-gray-900 dark:text-gray-100">
-                <TrendingUp className="h-4 w-4 mr-2" />
-                Next Steps
+              <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                <TrendingUp className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+                Next Steps & Action Plan
               </CardTitle>
+              <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                Concrete actions to implement your development plan
+              </CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
               <div
-                className="prose prose-sm prose-gray dark:prose-invert max-w-none"
+                className="prose prose-base prose-gray dark:prose-invert max-w-none leading-relaxed"
                 dangerouslySetInnerHTML={parseFullMarkdown(results.nextSteps)}
               />
             </CardContent>
           </Card>
         )}
 
-        {/* Important Notice */}
+        {/* ============================================================================ */}
+        {/* DEVELOPMENT NOTICE */}
+        {/* ============================================================================ */}
         {results.passed === false && (
-          <Card className="border-l-4 border-l-gray-900 dark:border-l-gray-100 bg-gray-100 dark:bg-gray-900 border-t border-r border-b border-gray-200 dark:border-gray-800">
+          <Card className="border-l-4 border-l-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 border border-red-200 dark:border-red-800 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <CardContent className="py-6">
               <div className="flex items-start gap-4">
-                <AlertTriangle className="h-5 w-5 text-gray-900 dark:text-gray-100 flex-shrink-0 mt-0.5" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300 flex items-center justify-center">
+                  <BookOpen className="h-5 w-5" />
+                </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                    Recommended Waiting Period
+                    Recommended Development Timeline
                   </h4>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    A 3-6 month development period is recommended to address
-                    identified competency gaps before reapplying for a position
-                    at this level.
+                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                    A 3-6 month focused development period is recommended to
+                    address identified competency gaps. Use this time to
+                    strengthen your technical foundation and communication
+                    skills before reapplying for positions at this level.
                   </p>
                 </div>
               </div>
@@ -667,31 +884,45 @@ export function ResultsContent({ user }: ResultsContentProps) {
           </Card>
         )}
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center pb-8 pt-4">
+        {/* ============================================================================ */}
+        {/* ACTION BUTTONS */}
+        {/* ============================================================================ */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center py-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <Button
             onClick={() => router.push("/configure")}
             variant={results.passed ? "default" : "outline"}
+            className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
           >
             <RotateCcw className="h-4 w-4 mr-2" />
-            {results.passed ? "New Interview" : "Start Over"}
+            {results.passed ? "Take Another Interview" : "Try Again"}
           </Button>
-          <Button variant="outline" onClick={() => router.push("/dashboard")}>
+          <Button
+            variant="outline"
+            onClick={() => router.push("/dashboard")}
+            className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
+          >
             <Target className="h-4 w-4 mr-2" />
-            Dashboard
+            View Dashboard
           </Button>
-          <Button variant="outline" onClick={() => router.push("/practice")}>
+          <Button
+            variant="outline"
+            onClick={() => router.push("/practice")}
+            className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
+          >
             <BookOpen className="h-4 w-4 mr-2" />
             Practice Mode
           </Button>
         </div>
 
-        {/* Footer */}
-        <div className="text-center pt-6 pb-4 border-t border-gray-200 dark:border-gray-800">
+        {/* ============================================================================ */}
+        {/* FOOTER */}
+        {/* ============================================================================ */}
+        <footer className="text-center pt-8 pb-4 border-t border-gray-200 dark:border-gray-800">
           <p className="text-xs text-gray-500 dark:text-gray-500">
-            Confidential Report • For Professional Development Purposes Only
+            Confidential Assessment • Generated for Professional Development
+            {currentDate && ` • ${currentDate}`}
           </p>
-        </div>
+        </footer>
       </div>
     </main>
   );
