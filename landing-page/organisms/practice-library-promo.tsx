@@ -61,7 +61,6 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
     <section className="max-w-7xl mx-auto py-12 sm:py-16 lg:py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-stretch auto-rows-min">
-          {/* Content Side - Right (first on mobile, right on desktop) */}
           <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 text-center lg:text-left order-first lg:order-last">
             <div className="space-y-3 sm:space-y-4">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
@@ -128,7 +127,6 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
             </div>
           </div>
 
-          {/* Cards Side - Left (after text on mobile, left on desktop) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-in slide-in-from-left-8 duration-1000 delay-200 order-last lg:order-first">
             {questions.slice(0, 4).map((question, index) => {
               const IconComponent = getCategoryIcon(question.category);

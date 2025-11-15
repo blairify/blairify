@@ -50,7 +50,6 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                   role="listitem"
                   aria-label={`Job: ${job.title} at ${job.company}`}
                 >
-                  {/* Job Header */}
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <h4 className="font-medium text-sm group-hover:text-primary transition-colors line-clamp-1">
@@ -88,7 +87,6 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                     </div>
                   </div>
 
-                  {/* Action Buttons */}
                   <div className="flex flex-row gap-2 pt-2">
                     <Button
                       size="sm"
@@ -96,7 +94,6 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                       className="w-2/3 text-xs hover:bg-primary/10 hover:border-primary hover:text-blue-800 relative overflow-hidden group/btn"
                       onClick={() => router.push("/configure")}
                     >
-                      {/* Glow animation */}
                       <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
                       <Lightbulb className="h-3 w-3 mr-1 relative z-10" />
                       <span className="relative z-10">Interview with AI</span>
@@ -116,7 +113,6 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
             </ul>
           </div>
 
-          {/* Content Side - Right */}
           <div className="space-y-4 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-left lg:text-left">
             <div className="space-y-4 sm:space-y-6">
               <h2

@@ -1,8 +1,3 @@
-/**
- * Shared types for interview components
- * Re-export main types and add component-specific types
- */
-
 export type {
   InterviewConfig,
   InterviewMode,
@@ -13,7 +8,6 @@ export type {
   SeniorityLevel,
 } from "@/types/interview";
 
-// Type definitions for Speech Recognition API
 export interface SpeechRecognitionEvent {
   resultIndex: number;
   results: {

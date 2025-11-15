@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
 
 interface DashboardLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
@@ -17,12 +17,8 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
       />
-
-      {/* Main Content */}
       <div className="flex-1 lg:ml-0 flex flex-col overflow-hidden">
         <DashboardNavbar setSidebarOpen={setSidebarOpen} />
-
-        {/* Scrollable Content Area */}
         <main className="flex-1 overflow-y-auto">
           <div className="container mx-auto px-6 py-8 max-w-7xl">
             {children}

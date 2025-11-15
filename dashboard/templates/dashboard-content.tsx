@@ -84,7 +84,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
   const [timeRange, setTimeRange] = useState("all");
   const [showTeamAlert, setShowTeamAlert] = useState(true);
 
-  // Chart configuration
   const chartConfig = {
     score: {
       label: "Score",
@@ -92,7 +91,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
     },
   } satisfies ChartConfig;
 
-  // Filter performance data based on time range
   const filteredPerformanceData = performanceData.filter((item) => {
     if (timeRange === "all") return true;
 
@@ -135,12 +133,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
     return "text-orange-600";
   };
 
-  const _getTrendColor = (trend: number) => {
-    if (trend > 0) return "text-emerald-600";
-    if (trend < 0) return "text-red-600";
-    return "text-muted-foreground";
-  };
-
   const formatKebabCase = (str: string) => {
     return str
       .split("-")
@@ -151,7 +143,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
   if (!hasData) {
     return (
       <div className="space-y-6">
-        {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
@@ -196,7 +187,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           ))}
         </div>
 
-        {/* Empty State */}
         <Card>
           <CardContent className="flex flex-col items-center justify-center py-16">
             <div className="rounded-full bg-muted p-6 mb-4">
@@ -225,9 +215,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
 
   return (
     <div className="space-y-6">
-      {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-        {/* Total Interviews */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -243,7 +231,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           </CardContent>
         </Card>
 
-        {/* Average Score */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -277,7 +264,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           </CardContent>
         </Card>
 
-        {/* Total Practice Time */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -295,7 +281,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           </CardContent>
         </Card>
 
-        {/* Current Streak */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -309,7 +294,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           </CardContent>
         </Card>
 
-        {/* Total XP */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -326,9 +310,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
         </Card>
       </div>
 
-      {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Score Progression Chart */}
         <Card className="lg:col-span-2">
           <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
             <div className="grid flex-1 gap-1">
@@ -439,7 +421,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           </CardContent>
         </Card>
 
-        {/* Weekly Activity */}
         <Card>
           <CardHeader>
             <CardTitle>Weekly Activity</CardTitle>
@@ -482,7 +463,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
         </Card>
       </div>
 
-      {/* Recommended Jobs */}
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
@@ -510,7 +490,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
                   href={`/jobs?id=${job.id}`}
                   className="block p-4 rounded-lg border hover:bg-muted/50 transition-colors group"
                 >
-                  {/* Company Logo */}
                   {job.logoUrl && (
                     <div className="mb-3 flex items-center justify-center h-12 w-12 rounded-lg bg-muted/50 overflow-hidden">
                       <Image
@@ -557,7 +536,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
         </CardContent>
       </Card>
 
-      {/* Connect with Blairify Team */}
       {showTeamAlert && (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 relative">
           <div className="flex items-start justify-between">
@@ -642,7 +620,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
         </div>
       )}
 
-      {/* Recent Sessions */}
       <Card>
         <CardHeader>
           <CardTitle>Recent Interview Sessions</CardTitle>

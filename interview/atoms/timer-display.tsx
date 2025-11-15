@@ -14,8 +14,8 @@ export function TimerDisplay({ seconds }: TimerDisplayProps) {
 
   return (
     <div className="flex items-center gap-2 px-3 py-1.5 bg-muted/50 rounded-lg border border-border/50">
-      <Timer className="h-4 w-4 text-primary" />
-      <span className="font-mono font-bold text-sm sm:text-base text-foreground">
+      <Timer className="size-4 text-primary" />
+      <span className="font-mono min-w-12 font-bold text-sm sm:text-base text-foreground">
         {formatTime(seconds)}
       </span>
     </div>

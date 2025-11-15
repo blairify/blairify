@@ -32,7 +32,7 @@ export function InterviewConfigScreen({
         <Card className="mb-6">
           <CardHeader className="pb-3 sm:pb-6">
             <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-              <Target className="h-4 w-4 sm:h-5 sm:w-5" />
+              <Target className="size-4 sm:h-5 sm:w-5" />
               Interview Configuration
             </CardTitle>
           </CardHeader>
@@ -74,12 +74,10 @@ export function InterviewConfigScreen({
                 </Badge>
               </div>
             </div>
-
-            {/* Job-specific context indicator */}
             {config.contextType === "job-specific" && config.company && (
               <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-primary/10 border border-primary/20 rounded-lg">
                 <div className="flex items-center gap-2 mb-2">
-                  <Building className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+                  <Building className="size-4 sm:h-5 sm:w-5 text-primary" />
                   <h3 className="font-semibold text-sm sm:text-base text-primary">
                     Job-Specific Interview
                   </h3>
@@ -115,7 +113,7 @@ export function InterviewConfigScreen({
               </>
             ) : (
               <>
-                <Play className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
+                <Play className="size-4 sm:h-5 sm:w-5 mr-2" />
                 Start Interview
               </>
             )}

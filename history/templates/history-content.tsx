@@ -192,7 +192,6 @@ export function HistoryContent({ user }: HistoryContentProps) {
     <main className="flex-1 overflow-y-auto bg-background">
       <div className="border-b bg-gradient-to-br from-muted/30 via-muted/20 to-background">
         <div className="container mx-auto px-6 py-6">
-          {/* Compact Stats Bar */}
           <div className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-lg mb-6">
             <div className="flex flex-wrap items-center justify-between gap-6">
               <div className="flex items-center gap-4">
@@ -241,7 +240,6 @@ export function HistoryContent({ user }: HistoryContentProps) {
 
           <div className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-lg">
             <div className="space-y-4">
-              {/* Search and Filters Row */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <div className="relative flex-1 group">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -288,7 +286,6 @@ export function HistoryContent({ user }: HistoryContentProps) {
                 </div>
               </div>
 
-              {/* Results Summary and View Toggle */}
               <div className="flex items-center justify-between">
                 <div className="text-sm text-muted-foreground">
                   {filteredSessions.length > 10 && (

@@ -8,23 +8,15 @@ interface TokenCounterProps {
   messages: Array<{ content: string; type: "ai" | "user" }>;
 }
 
-/**
- * Token Counter Component - Only visible in development mode
- * Displays approximate token usage in the bottom-right corner
- */
 export function TokenCounter({ messages }: TokenCounterProps) {
   const [tokenCount, setTokenCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Only show in development mode
   useEffect(() => {
     setIsVisible(process.env.NODE_ENV === "development");
   }, []);
 
-  // Calculate approximate token count
   useEffect(() => {
-    // Rough estimation: 1 token ≈ 4 characters for English text
-    // This is a simplified calculation - actual tokenization is more complex
     const totalCharacters = messages.reduce((sum, msg) => {
       return sum + msg.content.length;
     }, 0);
