@@ -70,29 +70,11 @@ export function NewsletterSignup() {
       className="py-12 sm:py-16 lg:py-20 bg-primary/5"
       aria-labelledby="newsletter-heading"
     >
-      {/* 
-        RESPONSIVE CONTAINER:
-        - Responsive padding adapts to screen size
-        - Container provides consistent max-width
-        - Centered layout with proper spacing
-      */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
-          {/* 
-            RESPONSIVE ICON:
-            - Size adapts: w-12 h-12 → w-16 h-16
-            - Consistent spacing and visual hierarchy
-          */}
           <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/10 text-primary mx-auto mb-4 sm:mb-6">
             <Mail className="w-6 h-6 sm:w-8 sm:h-8" />
           </div>
-
-          {/* 
-            RESPONSIVE TYPOGRAPHY:
-            - Heading scales: text-xl → text-2xl → text-3xl
-            - Description adapts: text-sm → text-base → text-lg
-            - Responsive spacing between elements
-          */}
           <h2
             id="newsletter-heading"
             className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4"
@@ -104,14 +86,6 @@ export function NewsletterSignup() {
             insights, tips, and be the first to know about exciting updates to
             our platform.
           </p>
-
-          {/* 
-            RESPONSIVE FORM LAYOUT:
-            - Mobile: Stacked layout (flex-col)
-            - Tablet+: Side-by-side (sm:flex-row)
-            - Input takes available space (flex-1)
-            - Button maintains fixed width on desktop
-          */}
           <form
             onSubmit={handleSubmit}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-lg mx-auto"
@@ -131,13 +105,6 @@ export function NewsletterSignup() {
               aria-describedby="email-description"
               aria-invalid={false}
             />
-
-            {/* 
-              RESPONSIVE BUTTON:
-              - Full width on mobile (w-full)
-              - Auto width on desktop (sm:w-auto)
-              - Touch-friendly sizing
-            */}
             <Button
               type="submit"
               disabled={loading || !email}
@@ -154,11 +121,6 @@ export function NewsletterSignup() {
             </Button>
           </form>
 
-          {/* 
-            RESPONSIVE DISCLAIMER:
-            - Smaller text on mobile for space efficiency
-            - Proper spacing and readability
-          */}
           <p
             id="email-description"
             className="text-xs sm:text-sm text-muted-foreground mt-3 sm:mt-4 px-4 sm:px-0"

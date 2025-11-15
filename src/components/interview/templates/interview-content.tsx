@@ -1,7 +1,7 @@
 "use client";
 
 import { Timestamp } from "firebase/firestore";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TokenCounter } from "@/components/interview/atoms/token-counter";
 import {
   getInterviewerById,
@@ -33,6 +33,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
     null,
   );
   const [warningCount, setWarningCount] = useState(0);
+  const interviewCompletedRef = useRef(false);
 
   const {
     session,
@@ -48,7 +49,12 @@ export function InterviewContent({ user }: InterviewContentProps) {
       getInterviewerForRole(config.position)
     : getInterviewerForRole(config.position);
 
-  const handleCompleteInterview = () => {
+  const markInterviewComplete = () => {
+    if (session.isComplete || interviewCompletedRef.current) {
+      return;
+    }
+
+    interviewCompletedRef.current = true;
     completeInterview();
     const sessionData = {
       ...session,
@@ -62,6 +68,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
     localStorage.setItem("interviewSession", JSON.stringify(sessionData));
     localStorage.setItem("interviewConfig", JSON.stringify(config));
+  };
+
+  const handleViewResults = () => {
+    markInterviewComplete();
     window.location.href = "/results";
   };
 
@@ -71,7 +81,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
     isInterviewStarted,
     session.isPaused,
     session.isComplete,
-    handleCompleteInterview,
+    markInterviewComplete,
   );
 
   const { isListening, startSpeechRecognition, stopSpeechRecognition } =
@@ -79,7 +89,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
       setCurrentMessage(text);
     });
 
-  const handleStartInterview = useCallback(async () => {
+  const handleStartInterview = async () => {
     setIsInterviewStarted(true);
     setIsLoading(true);
 
@@ -185,43 +195,59 @@ export function InterviewContent({ user }: InterviewContentProps) {
     } finally {
       setIsLoading(false);
     }
-  }, [config, user?.uid, addMessage, updateSession, databaseSessionId]);
-
-  const updateDatabaseSession = useCallback(
-    async (newMessages: Message[]) => {
-      if (user?.uid && databaseSessionId && newMessages.length > 0) {
-        try {
-          const currentDuration = Math.round(
-            (Date.now() - session.startTime.getTime()) / 1000 / 60,
-          );
-
-          await DatabaseService.updateSession(user.uid, databaseSessionId, {
-            totalDuration: currentDuration,
-            status: session.isComplete ? "completed" : "in-progress",
-            ...(session.isComplete && { completedAt: Timestamp.now() }),
-          });
-        } catch (dbError) {
-          console.error("Error updating database session:", dbError);
-        }
-      }
-    },
-    [user?.uid, databaseSessionId, session.startTime, session.isComplete],
-  );
+  };
 
   useEffect(() => {
     if (mounted && !isInterviewStarted && !isLoading) {
-      handleStartInterview();
+      void handleStartInterview();
     }
-  }, [mounted, isInterviewStarted, isLoading, handleStartInterview]);
+  }, [
+    mounted,
+    isInterviewStarted,
+    isLoading,
+    // biome-ignore lint/correctness/useExhaustiveDependencies: handleStartInterview does not need memoization in React 19
+    handleStartInterview,
+  ]);
 
   useEffect(() => {
-    if (session.messages.length > 0 && databaseSessionId) {
-      updateDatabaseSession(session.messages);
+    if (!user?.uid || !databaseSessionId || session.messages.length === 0) {
+      return;
     }
-  }, [session.messages, updateDatabaseSession, databaseSessionId]);
+
+    const syncSession = async () => {
+      try {
+        const currentDuration = Math.round(
+          (Date.now() - session.startTime.getTime()) / 1000 / 60,
+        );
+
+        await DatabaseService.updateSession(user.uid, databaseSessionId, {
+          totalDuration: currentDuration,
+          status: session.isComplete ? "completed" : "in-progress",
+          ...(session.isComplete && { completedAt: Timestamp.now() }),
+        });
+      } catch (dbError) {
+        console.error("Error updating database session:", dbError);
+      }
+    };
+
+    void syncSession();
+  }, [
+    user?.uid,
+    databaseSessionId,
+    session.messages,
+    session.startTime,
+    session.isComplete,
+  ]);
 
   const handleSendMessage = async () => {
-    if (!currentMessage.trim() || isLoading) return;
+    if (
+      !currentMessage.trim() ||
+      isLoading ||
+      session.isComplete ||
+      interviewCompletedRef.current
+    ) {
+      return;
+    }
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -261,6 +287,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
       const data = await response.json();
 
       if (data.success) {
+        if (interviewCompletedRef.current) {
+          return;
+        }
+
         const aiMessage: Message = {
           id: (Date.now() + 1).toString(),
           type: "ai",
@@ -278,6 +308,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
         if (data.isComplete) {
           if (data.terminatedForProfanity) {
+            interviewCompletedRef.current = true;
             completeInterview();
 
             const terminationData = {
@@ -300,6 +331,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
           }
 
           if (data.terminatedForBehavior) {
+            interviewCompletedRef.current = true;
             completeInterview();
 
             const terminationData = {
@@ -321,7 +353,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
             return;
           }
 
-          handleCompleteInterview();
+          markInterviewComplete();
         }
 
         if (!data.isFollowUp) {
@@ -336,8 +368,12 @@ export function InterviewContent({ user }: InterviewContentProps) {
   };
 
   const handleSkipQuestion = async () => {
+    if (session.isComplete || interviewCompletedRef.current) {
+      return;
+    }
+
     if (session.currentQuestionCount >= session.totalQuestions) {
-      handleCompleteInterview();
+      markInterviewComplete();
       return;
     }
 
@@ -364,6 +400,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
       const data = await response.json();
 
       if (data.success) {
+        if (interviewCompletedRef.current) {
+          return;
+        }
+
         const aiMessage: Message = {
           id: Date.now().toString(),
           type: "ai",
@@ -376,7 +416,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
         incrementQuestionCount();
 
         if (data.isComplete) {
-          handleCompleteInterview();
+          markInterviewComplete();
         }
       }
     } catch (error) {
@@ -419,7 +459,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
         isLoading={isLoading}
         onPauseResume={togglePause}
         onSkip={handleSkipQuestion}
-        onEnd={handleCompleteInterview}
+        onEnd={markInterviewComplete}
       />
 
       <InterviewMessagesArea
@@ -446,7 +486,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
       )}
 
       {session.isComplete && (
-        <InterviewCompleteCard onViewResults={handleCompleteInterview} />
+        <InterviewCompleteCard onViewResults={handleViewResults} />
       )}
 
       <TokenCounter messages={session.messages} />

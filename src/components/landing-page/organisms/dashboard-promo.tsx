@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/card";
 
 export function DashboardPromo() {
-  // Mock weekly activity data for chart
   const weeklyActivityData = [
     { day: "Mon", sessions: 3, height: 60 },
     { day: "Tue", sessions: 1, height: 20 },
@@ -94,15 +93,7 @@ export function DashboardPromo() {
               </Button>
             </div>
           </div>
-
-          {/* 
-            DASHBOARD PREVIEW - MOBILE OPTIMIZED:
-            - Responsive spacing and sizing
-            - Touch-friendly chart interactions
-            - Proper visual hierarchy for small screens
-          */}
           <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-center order-last">
-            {/* Weekly Activity Chart - Mobile Enhanced */}
             <Card className="border-border bg-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">

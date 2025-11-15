@@ -1,8 +1,3 @@
-/**
- * Interview Analysis Service
- * Handles parsing and processing of interview analysis results
- */
-
 import { SENIORITY_EXPECTATIONS } from "@/lib/config/interview-config";
 import type {
   InterviewConfig,
@@ -10,10 +5,6 @@ import type {
   ResponseAnalysis,
 } from "@/types/interview";
 import { calculateMaxScore } from "./interview-service";
-
-// ============================================================================
-// CONSTANTS
-// ============================================================================
 
 const SCORE_BOUNDARIES = {
   EXCELLENT: 90,
@@ -53,11 +44,7 @@ const IMPROVEMENT_TIMEFRAMES = {
   MODERATE: "3-6 months",
 } as const;
 
-const MIN_ITEM_LENGTH = 10; // Minimum characters for meaningful list items
-
-// ============================================================================
-// TYPES
-// ============================================================================
+const MIN_ITEM_LENGTH = 10;
 
 type AnalysisSections = {
   decision: "PASS" | "FAIL" | "UNKNOWN";
@@ -70,14 +57,6 @@ type AnalysisSections = {
   whyDecision: string;
 };
 
-// ============================================================================
-// PUBLIC API
-// ============================================================================
-
-/**
- * Parse interview analysis from AI response
- * Extracts structured data and validates consistency
- */
 export function parseAnalysis(
   analysis: string,
   responseAnalysis: ResponseAnalysis,
@@ -104,9 +83,6 @@ export function parseAnalysis(
   }
 }
 
-/**
- * Generate mock analysis when AI service is unavailable
- */
 export function generateMockAnalysis(
   config: InterviewConfig,
   responseAnalysis: ResponseAnalysis,
@@ -157,13 +133,6 @@ export function generateMockAnalysis(
   });
 }
 
-// ============================================================================
-// SECTION EXTRACTION
-// ============================================================================
-
-/**
- * Extract all sections from the analysis text
- */
 function extractAnalysisSections(analysis: string): AnalysisSections {
   const decision = extractDecision(analysis);
   const overallScore = extractSection(analysis, "INTERVIEW RESULT");
@@ -181,30 +150,21 @@ function extractAnalysisSections(analysis: string): AnalysisSections {
     ),
     detailedAnalysis: buildDetailedAnalysis(analysis, whyDecision),
     recommendations,
-    nextSteps: recommendations, // nextSteps mirrors recommendations
+    nextSteps: recommendations,
   };
 }
 
-/**
- * Extract decision (PASS/FAIL) from analysis
- */
 function extractDecision(analysis: string): "PASS" | "FAIL" | "UNKNOWN" {
   const match = analysis.match(/\*\*DECISION:\s*(PASS|FAIL)\*\*/i);
   return match ? (match[1].toUpperCase() as "PASS" | "FAIL") : "UNKNOWN";
 }
 
-/**
- * Extract a section by header name
- */
 function extractSection(analysis: string, sectionName: string): string {
   const regex = new RegExp(`##\\s*${sectionName}\\s*([\\s\\S]*?)(?=##|$)`, "i");
   const match = analysis.match(regex);
   return match ? match[1].trim() : "";
 }
 
-/**
- * Extract list items from a section (supports multiple formats)
- */
 function extractListItems(analysis: string, sectionPattern: string): string[] {
   const patterns = createSectionPatterns(sectionPattern);
   const allItems: string[] = [];
@@ -221,29 +181,20 @@ function extractListItems(analysis: string, sectionPattern: string): string[] {
   return deduplicateAndFilterItems(allItems);
 }
 
-/**
- * Create regex patterns for different section formats
- */
 function createSectionPatterns(sectionPattern: string): RegExp[] {
   return [
-    // **Section:** format
     new RegExp(
       `\\*\\*(${sectionPattern}):\\*\\*\\s*([\\s\\S]*?)(?=\\*\\*|\\n##|$)`,
       "gi",
     ),
-    // ### Section format
     new RegExp(
       `###\\s*(${sectionPattern}):?\\s*([\\s\\S]*?)(?=###|\\n##|$)`,
       "gi",
     ),
-    // ## Section format
     new RegExp(`##\\s*(${sectionPattern}):?\\s*([\\s\\S]*?)(?=##|$)`, "gi"),
   ];
 }
 
-/**
- * Parse list items from section content (numbered and bulleted)
- */
 function parseListItemsFromContent(content: string): string[] {
   const lines = content.split("\n");
   const numberedItems = extractNumberedItems(lines);
@@ -251,9 +202,6 @@ function parseListItemsFromContent(content: string): string[] {
   return [...numberedItems, ...bulletItems];
 }
 
-/**
- * Extract numbered list items (1., 2., 3.)
- */
 function extractNumberedItems(lines: string[]): string[] {
   return lines
     .filter((line) => /^\d+\.\s+/.test(line.trim()))
@@ -261,9 +209,6 @@ function extractNumberedItems(lines: string[]): string[] {
     .filter((line) => line.length > 0);
 }
 
-/**
- * Extract bullet point items (-, •, *)
- */
 function extractBulletItems(lines: string[]): string[] {
   return lines
     .filter((line) => /^[-•*]\s+/.test(line.trim()))
@@ -271,17 +216,11 @@ function extractBulletItems(lines: string[]): string[] {
     .filter((line) => line.length > 0);
 }
 
-/**
- * Remove duplicates and filter invalid items
- */
 function deduplicateAndFilterItems(items: string[]): string[] {
   const uniqueItems = [...new Set(items)];
   return uniqueItems.filter(isValidListItem);
 }
 
-/**
- * Check if a list item is valid and meaningful
- */
 function isValidListItem(item: string): boolean {
   if (item.length < MIN_ITEM_LENGTH) return false;
 
@@ -291,9 +230,6 @@ function isValidListItem(item: string): boolean {
   return !invalidPhrases.some((phrase) => lowerItem.includes(phrase));
 }
 
-/**
- * Build detailed analysis from category sections
- */
 function buildDetailedAnalysis(analysis: string, whyDecision: string): string {
   const categoryParts = ANALYSIS_CATEGORIES.map((category) => {
     const content = extractCategoryContent(analysis, category);
@@ -307,9 +243,6 @@ function buildDetailedAnalysis(analysis: string, whyDecision: string): string {
   return categoryParts.join("\n\n");
 }
 
-/**
- * Extract content for a specific category
- */
 function extractCategoryContent(
   analysis: string,
   category: string,
@@ -322,13 +255,6 @@ function extractCategoryContent(
   return match ? match[1].trim() : null;
 }
 
-// ============================================================================
-// SCORE EXTRACTION & VALIDATION
-// ============================================================================
-
-/**
- * Extract numeric score from text (supports multiple formats)
- */
 function extractScore(scoreText: string): number {
   const patterns = [
     /Score:\s*(\d+)\s*\/\s*100/i,
@@ -350,16 +276,10 @@ function extractScore(scoreText: string): number {
   return 0;
 }
 
-/**
- * Check if score is within valid range
- */
 function isValidScore(score: number): boolean {
   return !Number.isNaN(score) && score >= 0 && score <= 100;
 }
 
-/**
- * Validate score against response quality and cap if needed
- */
 function validateAndCapScore(
   score: number,
   responseAnalysis: ResponseAnalysis,
@@ -376,10 +296,6 @@ function validateAndCapScore(
   return score;
 }
 
-/**
- * Determine final decision based on score and threshold
- * Always uses score-based logic to avoid contradictions
- */
 function determineDecision(
   score: number,
   config: InterviewConfig,
@@ -389,7 +305,6 @@ function determineDecision(
   const shouldPass = score >= passingThreshold.score;
   const finalDecision = shouldPass ? "PASS" : "FAIL";
 
-  // Log contradictions for debugging
   if (aiDecision !== "UNKNOWN" && aiDecision !== finalDecision) {
     console.warn(
       `Fixed contradictory analysis: AI said ${aiDecision} but score ${score} should be ${finalDecision}`,
@@ -399,9 +314,6 @@ function determineDecision(
   return finalDecision;
 }
 
-/**
- * Get color class based on score
- */
 function getScoreColor(score: number): string {
   if (score >= SCORE_BOUNDARIES.EXCELLENT) return "text-green-600";
   if (score >= SCORE_BOUNDARIES.GOOD) return "text-green-500";
@@ -410,13 +322,6 @@ function getScoreColor(score: number): string {
   return "text-red-500";
 }
 
-// ============================================================================
-// FALLBACK & ERROR HANDLING
-// ============================================================================
-
-/**
- * Generate fallback content when sections are empty
- */
 function generateFallbackContent(
   sections: AnalysisSections,
   config: InterviewConfig,
@@ -436,9 +341,6 @@ function generateFallbackContent(
   return fallback;
 }
 
-/**
- * Generate default improvement suggestions
- */
 function generateDefaultImprovements(config: InterviewConfig): string[] {
   const position = config.position || "technical";
   const seniority = config.seniority || "mid";
@@ -451,9 +353,6 @@ function generateDefaultImprovements(config: InterviewConfig): string[] {
   ];
 }
 
-/**
- * Build final InterviewResults object
- */
 function buildInterviewResults(params: {
   sections: AnalysisSections;
   score: number;
@@ -479,9 +378,6 @@ function buildInterviewResults(params: {
   };
 }
 
-/**
- * Create error analysis when parsing fails
- */
 function createErrorAnalysis(
   analysis: string,
   config: InterviewConfig,
@@ -504,13 +400,6 @@ function createErrorAnalysis(
   };
 }
 
-// ============================================================================
-// MOCK ANALYSIS GENERATION
-// ============================================================================
-
-/**
- * Calculate category scores based on total score and weights
- */
 function calculateCategoryScores(totalScore: number) {
   const scoreRatio = totalScore / 100;
 
@@ -522,9 +411,6 @@ function calculateCategoryScores(totalScore: number) {
   };
 }
 
-/**
- * Get performance level label based on score
- */
 function getPerformanceLevel(score: number): string {
   if (score >= PERFORMANCE_LEVELS.EXCEEDS.threshold) {
     return PERFORMANCE_LEVELS.EXCEEDS.label;
@@ -538,9 +424,6 @@ function getPerformanceLevel(score: number): string {
   return PERFORMANCE_LEVELS.FAR_BELOW.label;
 }
 
-/**
- * Generate executive summary based on response quality
- */
 function generateExecutiveSummary(
   responseAnalysis: ResponseAnalysis,
   config: InterviewConfig,
@@ -573,9 +456,6 @@ function generateExecutiveSummary(
   return `The candidate showed some knowledge but fell short of the ${passingThreshold.score}-point threshold required for ${config.seniority}-level positions. Key technical gaps and inconsistent responses prevented a passing score.`;
 }
 
-/**
- * Generate why decision explanation
- */
 function generateWhyDecision(
   responseAnalysis: ResponseAnalysis,
   config: InterviewConfig,
@@ -605,9 +485,6 @@ function generateWhyDecision(
   return `The candidate PASSED this interview with a score of ${score}/${passingThreshold.score}. They provided substantive answers to ${substantiveResponses} out of ${totalQuestions} questions, demonstrating adequate knowledge of core ${config.position} concepts. While not perfect, they showed sufficient competency to perform at a ${config.seniority} level with appropriate onboarding and support.`;
 }
 
-/**
- * Generate recommendations based on pass/fail status
- */
 function generateRecommendations(
   passed: boolean,
   config: InterviewConfig,
@@ -620,9 +497,6 @@ function generateRecommendations(
   return generateFailingRecommendations(config, responseAnalysis);
 }
 
-/**
- * Generate recommendations for passing candidates
- */
 function generatePassingRecommendations(config: InterviewConfig): string {
   return `### Next Steps Before Starting:
 1. **Strengthen Weak Areas** (2-4 weeks): Review the topics where you struggled during the interview
@@ -641,9 +515,6 @@ function generatePassingRecommendations(config: InterviewConfig): string {
 - Ask clarifying questions before answering to show analytical thinking`;
 }
 
-/**
- * Generate recommendations for failing candidates
- */
 function generateFailingRecommendations(
   config: InterviewConfig,
   responseAnalysis: ResponseAnalysis,
@@ -687,9 +558,6 @@ function generateFailingRecommendations(
 ${honestAssessment}`;
 }
 
-/**
- * Format mock analysis into structured markdown
- */
 function formatMockAnalysis(data: {
   decision: string;
   score: number;

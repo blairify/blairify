@@ -117,7 +117,7 @@ export default function DashboardNavbar({
 
   return (
     <TooltipProvider>
-      <nav className="border-b border-border lg:bg-card/50 backdrop-blur-sm">
+      <nav className="relative z-40 border-b border-border lg:bg-card/50 backdrop-blur-sm">
         <div className="px-4 h-16 flex items-center justify-between w-full">
           {/* Left side: Mobile menu + Avatar + User info */}
           <div className="flex items-center space-x-4">

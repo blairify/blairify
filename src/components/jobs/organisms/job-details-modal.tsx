@@ -28,9 +28,7 @@ interface JobDescriptionParserProps {
 }
 
 function JobDescriptionParser({ description }: JobDescriptionParserProps) {
-  // Parse the description and format it nicely
   const parseDescription = (text: string): React.ReactNode[] => {
-    // Handle different section markers
     const sectionPatterns = [
       /\*\*([^*]+)\*\*/g, // **SECTION**
       /## ([^\n]+)/g, // ## SECTION
@@ -41,7 +39,6 @@ function JobDescriptionParser({ description }: JobDescriptionParserProps) {
     let sections: Array<{ header: string; content: string }> = [];
     const _remainingText = text;
 
-    // Try to extract sections using different patterns
     for (const pattern of sectionPatterns) {
       const matches = [...text.matchAll(pattern)];
       if (matches.length > 0) {
@@ -66,7 +63,6 @@ function JobDescriptionParser({ description }: JobDescriptionParserProps) {
       }
     }
 
-    // If no sections found, format as paragraphs
     if (sections.length === 0) {
       return text
         .split("\n\n")
@@ -89,7 +85,6 @@ function JobDescriptionParser({ description }: JobDescriptionParserProps) {
         ));
     }
 
-    // Render sections
     return sections.map((section) => (
       <div key={`section-${section.header}`} className="mb-6">
         <h4 className="font-semibold text-base mb-3 text-primary">
@@ -272,7 +267,6 @@ export default function JobDetailsModal({
 
           <Separator />
 
-          {/* Skills */}
           {job.skills && job.skills.length > 0 && (
             <div className="space-y-3">
               <h3 className="text-lg font-semibold">Required Skills</h3>
@@ -286,7 +280,6 @@ export default function JobDetailsModal({
             </div>
           )}
 
-          {/* Job Description */}
           {job.description && (
             <div className="space-y-3">
               <h3 className="text-lg font-semibold">Job Description</h3>
@@ -296,7 +289,6 @@ export default function JobDetailsModal({
             </div>
           )}
 
-          {/* Company Info */}
           {(job.company_url || job.company_description) && (
             <>
               <Separator />
@@ -322,7 +314,6 @@ export default function JobDetailsModal({
             </>
           )}
 
-          {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3 pt-4">
             <Button asChild className="flex-1">
               <a
@@ -347,7 +338,6 @@ export default function JobDetailsModal({
             </Button>
           </div>
 
-          {/* Metadata */}
           <div className="text-xs text-muted-foreground pt-4 border-t space-y-1">
             <p>Job ID: {job.id}</p>
             <p>

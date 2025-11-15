@@ -49,7 +49,6 @@ export default function JobList({
   const [companyFilter, setCompanyFilter] = useState("");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
-  // Fetch jobs from cache
   const fetchAllJobs = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -59,11 +58,6 @@ export default function JobList({
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-
-      // Show warning if cache needs refresh
-      if (data.cache_needs_refresh) {
-        // Job cache is stale. Consider triggering a refresh.
-      }
 
       setAllJobs(data.results || []);
     } catch (err: unknown) {
@@ -124,7 +118,6 @@ export default function JobList({
   return (
     <section className="py-6">
       <div className="max-w-7xl mx-auto px-6 md:px-12 border border-border rounded-xl bg-card pb-6">
-        {/* View Mode Toggle */}
         <div className="pt-6 px-6">
           <div className="flex justify-end mb-4">
             <div className="flex items-center gap-2 bg-background rounded-lg p-1 border">

@@ -1,23 +1,14 @@
-/**
- * AI Response Validation Service
- * Handles validation and sanitization of AI responses
- */
-
 import {
   SCORING_THRESHOLDS,
   VALIDATION_PATTERNS,
 } from "@/lib/config/interview-config";
 import type { InterviewConfig, ValidationResult } from "@/types/interview";
 
-/**
- * Validate AI response for appropriateness and quality
- */
 export function validateAIResponse(
   response: string,
   config: InterviewConfig,
   isFollowUp: boolean,
 ): ValidationResult {
-  // Basic validation checks
   if (!response || response.trim().length === 0) {
     return { isValid: false, reason: "Empty response" };
   }
@@ -26,7 +17,6 @@ export function validateAIResponse(
     return { isValid: false, reason: "Response too short" };
   }
 
-  // Truncate overly long responses
   if (response.length > SCORING_THRESHOLDS.maxResponseLength) {
     return {
       isValid: true,
@@ -34,13 +24,11 @@ export function validateAIResponse(
     };
   }
 
-  // Check for inappropriate AI safety responses
   const inappropriateCheck = checkInappropriateContent(response);
   if (!inappropriateCheck.isValid) {
     return inappropriateCheck;
   }
 
-  // Interview context validation
   if (!config.isDemoMode) {
     const contextCheck = validateInterviewContext(response, isFollowUp);
     if (!contextCheck.isValid) {
@@ -48,13 +36,11 @@ export function validateAIResponse(
     }
   }
 
-  // Technical content validation
   const technicalCheck = validateTechnicalContent(response, config);
   if (!technicalCheck.isValid) {
     return technicalCheck;
   }
 
-  // Format validation
   const formatCheck = validateFormat(response);
   if (formatCheck.sanitized) {
     return formatCheck;
@@ -63,9 +49,6 @@ export function validateAIResponse(
   return { isValid: true };
 }
 
-/**
- * Validate user response quality for analysis
- */
 export function validateUserResponse(response: string): {
   isNoAnswer: boolean;
   isGibberish: boolean;
@@ -92,9 +75,6 @@ export function validateUserResponse(response: string): {
   };
 }
 
-/**
- * Check if response indicates lack of knowledge
- */
 export function isUnknownResponse(message: string): boolean {
   const lowerMessage = message.toLowerCase();
   return (
@@ -106,9 +86,6 @@ export function isUnknownResponse(message: string): boolean {
   );
 }
 
-/**
- * Analyze response characteristics for follow-up decision
- */
 export function analyzeResponseCharacteristics(response: string): {
   hasCodeExample: boolean;
   hasExplanation: boolean;
@@ -141,9 +118,6 @@ export function analyzeResponseCharacteristics(response: string): {
   };
 }
 
-/**
- * Check for inappropriate content
- */
 function checkInappropriateContent(response: string): ValidationResult {
   for (const pattern of VALIDATION_PATTERNS.inappropriate) {
     if (pattern.test(response)) {
@@ -156,14 +130,10 @@ function checkInappropriateContent(response: string): ValidationResult {
   return { isValid: true };
 }
 
-/**
- * Validate interview context
- */
 function validateInterviewContext(
   response: string,
   isFollowUp: boolean,
 ): ValidationResult {
-  // Should contain a question for main questions
   if (!isFollowUp && !response.includes("?")) {
     return {
       isValid: false,
@@ -171,7 +141,6 @@ function validateInterviewContext(
     };
   }
 
-  // Check for interviewer persona consistency
   const hasInterviewerContext =
     /let's|can you|what|how|why|tell me|describe|explain/i.test(response);
   if (!hasInterviewerContext && !isFollowUp) {
@@ -184,9 +153,6 @@ function validateInterviewContext(
   return { isValid: true };
 }
 
-/**
- * Validate technical content
- */
 function validateTechnicalContent(
   response: string,
   config: InterviewConfig,
@@ -205,9 +171,6 @@ function validateTechnicalContent(
   return { isValid: true };
 }
 
-/**
- * Validate response format
- */
 function validateFormat(response: string): ValidationResult {
   const sentences = response.split(/[.!?]+/).filter((s) => s.trim().length > 0);
 
@@ -221,9 +184,6 @@ function validateFormat(response: string): ValidationResult {
   return { isValid: true };
 }
 
-/**
- * Check if content matches any of the given patterns
- */
 function matchesPatterns(content: string, patterns: RegExp[]): boolean {
   return patterns.some((pattern) => pattern.test(content));
 }

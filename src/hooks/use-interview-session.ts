@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getInterviewerForCompanyAndRole,
   getInterviewerForRole,
@@ -86,31 +86,31 @@ export function useInterviewSession(config: InterviewConfig) {
     }
   }, [config.position, config.specificCompany, session.interviewerId]);
 
-  const addMessage = useCallback((message: Message) => {
+  const addMessage = (message: Message) => {
     setSession((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
     }));
-  }, []);
+  };
 
-  const updateSession = useCallback((updates: Partial<InterviewSession>) => {
+  const updateSession = (updates: Partial<InterviewSession>) => {
     setSession((prev) => ({ ...prev, ...updates }));
-  }, []);
+  };
 
-  const incrementQuestionCount = useCallback(() => {
+  const incrementQuestionCount = () => {
     setSession((prev) => ({
       ...prev,
       currentQuestionCount: prev.currentQuestionCount + 1,
     }));
-  }, []);
+  };
 
-  const togglePause = useCallback(() => {
+  const togglePause = () => {
     setSession((prev) => ({ ...prev, isPaused: !prev.isPaused }));
-  }, []);
+  };
 
-  const completeInterview = useCallback(() => {
+  const completeInterview = () => {
     setSession((prev) => ({ ...prev, isComplete: true }));
-  }, []);
+  };
 
   return {
     session,

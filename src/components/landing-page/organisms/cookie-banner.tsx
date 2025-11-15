@@ -1,8 +1,3 @@
-/**
- * Cookie Consent Banner Component
- * GDPR-compliant cookie consent banner with database persistence
- */
-
 "use client";
 
 import { Timestamp } from "firebase/firestore";
@@ -13,7 +8,6 @@ import { Card } from "@/components/ui/card";
 import { DatabaseService } from "@/lib/database";
 import { useAuth } from "@/providers/auth-provider";
 
-// Global types for gtag
 declare global {
   function gtag(
     command: string,
@@ -150,10 +144,8 @@ export const CookieBanner = () => {
         version: COOKIE_CONSENT_VERSION,
       };
 
-      // Save to localStorage immediately
       localStorage.setItem(COOKIE_NAME, JSON.stringify(consent));
 
-      // Save to database if user is logged in
       if (user?.uid) {
         const dbConsent = {
           hasConsented: consentGiven,
@@ -164,7 +156,6 @@ export const CookieBanner = () => {
 
         await DatabaseService.updateUserProfile(user.uid, {
           cookieConsent: dbConsent,
-          // Save GDPR data for compliance reporting and easier access
           gdprData: {
             cookieConsentGiven: consentGiven,
             cookieConsentDate: Timestamp.fromDate(new Date()),

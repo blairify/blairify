@@ -1,13 +1,12 @@
-/**
- * AI Prompt Generation Service
- * Handles all prompt generation logic for the interview system
- */
-
 import {
   COMPANY_PROMPTS,
   SENIORITY_DETAILED_EXPECTATIONS,
 } from "@/lib/config/interview-config";
 import type { InterviewerProfile } from "@/lib/config/interviewers";
+import {
+  getQuestionCountForMode,
+  isUnlimitedMode,
+} from "@/lib/utils/interview-helpers";
 import type {
   InterviewConfig,
   InterviewMode,
@@ -15,11 +14,12 @@ import type {
   Message,
   SeniorityLevel,
 } from "@/types/interview";
+import {
+  questionStarterPhrases,
+  topicPatterns,
+} from "../interview/message-moderation";
 import { isUnknownResponse } from "./response-validator";
 
-/**
- * Helper constants for question selection
- */
 const difficultyMap: Record<string, string> = {
   entry: "entry-level (basic concepts, fundamental understanding)",
   junior: "junior (practical experience, core knowledge)",
@@ -33,9 +33,6 @@ const categoryDescription: Record<string, string> = {
   coding: "programming and coding challenges",
   bullet: "behavioral and soft skills",
 };
-/**
- * Generate system prompt for the AI interviewer
- */
 export function generateSystemPrompt(
   config: InterviewConfig,
   interviewer?: InterviewerProfile,
@@ -71,7 +68,6 @@ export function generateSystemPrompt(
     ? getCompanyPrompt(specificCompany)
     : "";
 
-  // Add job-specific context if available
   const jobContextPrompt =
     contextType === "job-specific"
       ? getJobSpecificPrompt(company, jobDescription, jobRequirements)
@@ -91,9 +87,6 @@ export function generateSystemPrompt(
     .join("\n\n");
 }
 
-/**
- * Generate user prompt for specific interview context
- */
 export function generateUserPrompt(
   userMessage: string,
   conversationHistory: Message[],
@@ -118,6 +111,17 @@ export function generateUserPrompt(
     return generateFollowUpPrompt(userMessage);
   }
 
+  const totalQuestions = isUnlimitedMode(config.interviewMode)
+    ? null
+    : getQuestionCountForMode(config.interviewMode, config.isDemoMode);
+
+  const isLastQuestion =
+    !isFollowUp && totalQuestions !== null && questionCount >= totalQuestions;
+
+  if (isLastQuestion) {
+    return generateClosingPrompt(userMessage, conversationHistory, config);
+  }
+
   const isUnknown = isUnknownResponse(userMessage);
 
   if (isUnknown) {
@@ -132,9 +136,6 @@ export function generateUserPrompt(
   );
 }
 
-/**
- * Generate analysis system prompt
- */
 export function generateAnalysisSystemPrompt(config: InterviewConfig): string {
   const { position, seniority, interviewType } = config;
   const passingThreshold = getPassingThreshold(seniority);
@@ -248,9 +249,6 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 5. BE HARSH. This is a real interview. The candidate's score affects hiring decisions.`;
 }
 
-/**
- * Generate demo system prompt
- */
 function generateDemoSystemPrompt(): string {
   return `You are Alex, a friendly AI demo guide showing users how the Blairify interview system works. Your role is to:
 
@@ -265,9 +263,6 @@ function generateDemoSystemPrompt(): string {
 Keep questions broad and approachable - focus on letting them experience the interface rather than testing their knowledge. Think of yourself as a helpful guide rather than an interviewer.`;
 }
 
-/**
- * Generate base system prompt
- */
 function generateBaseSystemPrompt(
   position: string,
   seniority: SeniorityLevel,
@@ -315,9 +310,6 @@ function generateBaseSystemPrompt(
 ${SENIORITY_DETAILED_EXPECTATIONS[seniority]}`;
 }
 
-/**
- * Get mode-specific prompt
- */
 function getModeSpecificPrompt(
   mode: InterviewMode,
   seniority: SeniorityLevel,
@@ -382,9 +374,6 @@ function getModeSpecificPrompt(
   return prompts[mode] || "";
 }
 
-/**
- * Get type-specific prompt
- */
 function getTypeSpecificPrompt(
   type: InterviewType,
   seniority: SeniorityLevel,
@@ -414,9 +403,6 @@ function getTypeSpecificPrompt(
   return prompts[type] || "";
 }
 
-/**
- * Get company-specific prompt
- */
 function getCompanyPrompt(company: string): string {
   const prompt = COMPANY_PROMPTS[company.toLowerCase()];
   return prompt
@@ -433,9 +419,6 @@ function getCompanyPrompt(company: string): string {
     : "";
 }
 
-/**
- * Get system prompt guidelines
- */
 function getSystemPromptGuidelines(seniority: SeniorityLevel): string {
   return `\n\nImportant Guidelines:
 - Keep responses conversational and brief (2-3 sentences max)
@@ -451,9 +434,6 @@ function getSystemPromptGuidelines(seniority: SeniorityLevel): string {
 - Avoid overly complex or theoretical questions for junior/mid levels`;
 }
 
-/**
- * Generate demo user prompt
- */
 function generateDemoUserPrompt(
   userMessage: string,
   conversationHistory: Message[],
@@ -474,9 +454,6 @@ Ask a casual follow-up question that keeps the conversation flowing. This is sti
 This should be the final demo question. Ask something fun and encouraging that wraps up the demo nicely, like asking about their career goals or what they found interesting about the demo. Then let them know the demo is wrapping up.`;
 }
 
-/**
- * Generate first question prompt
- */
 function generateFirstQuestionPrompt(
   config: InterviewConfig,
   interviewer?: InterviewerProfile,
@@ -490,9 +467,6 @@ function generateFirstQuestionPrompt(
   return `This is the start of a ${config.interviewType} interview. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question appropriate for a ${config.seniority}-level ${config.position} position. Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
 }
 
-/**
- * Generate job-specific context prompt
- */
 function getJobSpecificPrompt(
   company?: string,
   jobDescription?: string,
@@ -515,18 +489,12 @@ function getJobSpecificPrompt(
   return prompt;
 }
 
-/**
- * Generate follow-up prompt
- */
 function generateFollowUpPrompt(userMessage: string): string {
   return `The candidate just responded: "${userMessage}"
 
 Based on their response, ask a thoughtful follow-up question that digs deeper into their understanding or asks them to elaborate on a specific aspect. Keep it related to the current topic.`;
 }
 
-/**
- * Generate unknown response prompt
- */
 function generateUnknownResponsePrompt(
   userMessage: string,
   config: InterviewConfig,
@@ -541,9 +509,31 @@ Be encouraging and supportive - it's normal not to know everything. Consider ask
 This is question ${questionCount + 1} of the interview.`;
 }
 
-/**
- * Generate next question prompt
- */
+function generateClosingPrompt(
+  userMessage: string,
+  conversationHistory: Message[],
+  config: InterviewConfig,
+): string {
+  const recentContext = conversationHistory
+    .slice(-6)
+    .map(
+      (msg) =>
+        `${msg.type === "ai" ? "Interviewer" : "Candidate"}: ${msg.content}`,
+    )
+    .join("\n");
+
+  return `The candidate's final response was: "${userMessage}"
+
+You have now asked all planned questions for this ${config.interviewType} interview for a ${config.seniority}-level ${config.position} position.
+
+Do not ask any new technical or follow-up questions.
+
+Briefly thank the candidate for their time, optionally reference one or two high-level themes from the interview, and clearly state that this concludes the interview. Let them know their performance will now be analyzed and results will be prepared.
+
+Recent conversation context:
+${recentContext}`;
+}
+
 function generateNextQuestionPrompt(
   userMessage: string,
   conversationHistory: Message[],
@@ -551,14 +541,13 @@ function generateNextQuestionPrompt(
   questionCount: number,
 ): string {
   const recentContext = conversationHistory
-    .slice(-6) // Look at more history to avoid repeats
+    .slice(-6)
     .map(
       (msg) =>
         `${msg.type === "ai" ? "Interviewer" : "Candidate"}: ${msg.content}`,
     )
     .join("\n");
 
-  // Extract topics that have already been covered
   const coveredTopics = extractCoveredTopics(conversationHistory);
 
   return `The candidate's previous response was: "${userMessage}"
@@ -584,39 +573,13 @@ ${recentContext}
 Your next question MUST be completely different from previous questions. Vary the question type (scenario-based, conceptual, practical, comparison, problem-solving). Make it specific and relevant to ${config.position} role.`;
 }
 
-/**
- * Extract covered topics from conversation history
- */
 function extractCoveredTopics(conversationHistory: Message[]): string[] {
   const topics = new Set<string>();
 
-  // Analyze AI messages (questions) to extract topics
   conversationHistory
     .filter((msg) => msg.type === "ai")
     .forEach((msg) => {
       const content = msg.content.toLowerCase();
-
-      // Extract common technical topics from questions
-      const topicPatterns = [
-        // Languages
-        /\b(javascript|typescript|python|java|c\+\+|c#|go|rust|php|ruby|swift|kotlin|html|css)\b/g,
-        // Frameworks & Libraries
-        /\b(react|vue|angular|express|django|flask|spring|laravel|rails|next\.?js|nuxt|jquery|bootstrap|tailwind)\b/g,
-        // Databases
-        /\b(mongodb|postgresql|mysql|redis|cassandra|elasticsearch|dynamodb|sql|nosql)\b/g,
-        // Cloud/DevOps
-        /\b(aws|azure|gcp|docker|kubernetes|terraform|jenkins|github actions|ci\/cd|deployment)\b/g,
-        // Concepts & Patterns
-        /\b(algorithms?|data structures?|system design|concurrency|async|promises?|callbacks?|closures?|prototypes?|inheritance|polymorphism)\b/g,
-        // Web Technologies
-        /\b(dom|api|rest|restful|graphql|http|https|websockets?|jwt|oauth|cors|ajax)\b/g,
-        // Architecture & Design
-        /\b(microservices|serverless|monolith|scalability|performance|optimization|security|testing|debugging|refactoring)\b/g,
-        // Specific Question Types
-        /\b(optimize|debug|design|implement|explain|difference|compare|handle|manage|build|create)\b/g,
-        // Problem Areas
-        /\b(memory leak|performance issue|bug|error handling|state management|caching|authentication|authorization)\b/g,
-      ];
 
       topicPatterns.forEach((pattern) => {
         const matches = content.match(pattern);
@@ -627,24 +590,8 @@ function extractCoveredTopics(conversationHistory: Message[]): string[] {
         }
       });
 
-      // Extract question topics from common question starters
-      const questionStarters = [
-        "experience with",
-        "how would you",
-        "explain",
-        "difference between",
-        "what is",
-        "how does",
-        "when would you",
-        "can you walk me through",
-        "tell me about",
-        "have you worked with",
-        "what's your approach to",
-      ];
-
-      questionStarters.forEach((starter) => {
+      questionStarterPhrases.forEach((starter) => {
         if (content.includes(starter)) {
-          // Extract the topic that follows the starter
           const startIndex = content.indexOf(starter) + starter.length;
           const remainingText = content.substring(startIndex, startIndex + 50);
           const words = remainingText.split(/\s+/).slice(0, 3).join(" ");
@@ -658,9 +605,6 @@ function extractCoveredTopics(conversationHistory: Message[]): string[] {
   return Array.from(topics);
 }
 
-/**
- * Get passing threshold for seniority level
- */
 function getPassingThreshold(seniority: SeniorityLevel) {
   const thresholds: Record<
     SeniorityLevel,
@@ -691,10 +635,6 @@ function getPassingThreshold(seniority: SeniorityLevel) {
   return thresholds[seniority] || thresholds.mid;
 }
 
-/**
- * Generate fallback prompt when no practice library questions are available
- * AI will create appropriate questions based on interview configuration
- */
 function generateFallbackQuestionsPrompt(
   config: InterviewConfig,
   questionCount: number,
@@ -760,10 +700,6 @@ Remember: Create a professional, supportive interview experience that accurately
   return { prompt, questionIds: [] };
 }
 
-/**
- * Fetch actual questions from database to ask in interview
- * Returns a formatted string with questions to ask
- */
 export async function getDatabaseQuestionsPrompt(
   config: InterviewConfig,
   questionCount: number,
@@ -777,7 +713,6 @@ export async function getDatabaseQuestionsPrompt(
       questionCount,
     );
 
-    // If no questions available from practice library, use AI-generated fallback
     if (questions.length === 0) {
       console.log(
         "⚠️ No practice library questions available, using AI-generated questions",
@@ -785,7 +720,6 @@ export async function getDatabaseQuestionsPrompt(
       return generateFallbackQuestionsPrompt(config, questionCount);
     }
 
-    // If insufficient questions, supplement with AI-generated ones
     if (questions.length < questionCount) {
       console.log(
         `⚠️ Only ${questions.length}/${questionCount} questions available from practice library, will supplement with AI-generated questions`,
@@ -797,7 +731,6 @@ export async function getDatabaseQuestionsPrompt(
       .map((q, i) => `${i + 1}. ${formatQuestionForPrompt(q)}`)
       .join("\n\n");
 
-    // Determine if we need to supplement with AI-generated questions
     const needsSupplementation = questions.length < questionCount;
     const remainingQuestions = questionCount - questions.length;
 

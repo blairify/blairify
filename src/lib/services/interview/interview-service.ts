@@ -1,8 +1,3 @@
-/**
- * Interview Service Layer
- * Core business logic for interview management
- */
-
 import {
   DEFAULT_INTERVIEW_CONFIG,
   QUESTION_TYPE_MAPPINGS,
@@ -21,9 +16,6 @@ import type {
   ResponseAnalysis,
 } from "@/types/interview";
 
-/**
- * Determine the appropriate question type based on interview type and count
- */
 export function determineQuestionType(
   interviewType: InterviewType,
   questionCount: number,
@@ -51,9 +43,6 @@ export function determineQuestionType(
   throw new Error(`Unhandled interview type: ${_never}`);
 }
 
-/**
- * Calculate total questions for interview configuration
- */
 export function calculateTotalQuestions(config: InterviewConfig): number {
   if (config.isDemoMode) {
     return DEFAULT_INTERVIEW_CONFIG.totalQuestions.demo;
@@ -74,9 +63,6 @@ export function calculateTotalQuestions(config: InterviewConfig): number {
   throw new Error(`Unhandled interview type for totalQuestions: ${_never}`);
 }
 
-/**
- * Determine if a follow-up question should be generated
- */
 export function shouldGenerateFollowUp(
   userResponse: string,
   conversationHistory: Message[],
@@ -94,7 +80,6 @@ export function shouldGenerateFollowUp(
 
   let followUpScore = 0;
 
-  // Response length scoring
   if (
     characteristics.responseLength >= 100 &&
     characteristics.responseLength <= 500
@@ -106,10 +91,8 @@ export function shouldGenerateFollowUp(
     followUpScore -= 1;
   }
 
-  // Add quality indicators
   followUpScore += characteristics.qualityIndicators;
 
-  // Limit consecutive follow-ups
   const recentFollowUps = conversationHistory
     .slice(-4)
     .filter((msg) => msg.type === "ai" && msg.isFollowUp).length;
@@ -118,7 +101,6 @@ export function shouldGenerateFollowUp(
     followUpScore -= 2;
   }
 
-  // Interview type adjustments
   if (config.interviewType === "coding" && characteristics.hasCodeExample)
     followUpScore += 1;
   if (
@@ -129,22 +111,17 @@ export function shouldGenerateFollowUp(
   if (config.interviewMode === "flash" && characteristics.responseLength > 150)
     followUpScore -= 1;
 
-  // Seniority adjustments
   if (config.seniority === "senior" && characteristics.responseLength < 100)
     followUpScore += 1;
   if (config.seniority === "junior" && characteristics.responseLength > 300)
     followUpScore += 1;
 
-  // Slight randomness for more human-like curiosity
   const randomBoost = Math.random() > 0.8 ? 1 : 0;
   followUpScore += randomBoost;
 
   return followUpScore >= SCORING_THRESHOLDS.followUpScoreThreshold;
 }
 
-/**
- * Analyze conversation history for response quality
- */
 export function analyzeResponseQuality(
   conversationHistory: Message[],
 ): ResponseAnalysis {
@@ -166,7 +143,6 @@ export function analyzeResponseQuality(
     const content = response.content.trim();
     totalLength += content.length;
 
-    // Check for skipped questions
     if (
       content === "[Question skipped]" ||
       content.toLowerCase() === "[question skipped]"
@@ -175,7 +151,6 @@ export function analyzeResponseQuality(
       return;
     }
 
-    // Validate response characteristics
     const validation = validateUserResponse(content);
 
     if (validation.isNoAnswer) {
@@ -226,9 +201,6 @@ export function analyzeResponseQuality(
   };
 }
 
-/**
- * Validate interview configuration
- */
 export function validateInterviewConfig(config: Partial<InterviewConfig>): {
   isValid: boolean;
   errors: string[];
@@ -285,9 +257,6 @@ export function validateInterviewConfig(config: Partial<InterviewConfig>): {
   };
 }
 
-/**
- * Calculate maximum allowed score based on response quality
- */
 export function calculateMaxScore(responseAnalysis: ResponseAnalysis): number {
   const { substantiveResponses, totalQuestions, qualityScore } =
     responseAnalysis;
@@ -303,9 +272,6 @@ export function calculateMaxScore(responseAnalysis: ResponseAnalysis): number {
   return Math.min(100, Math.round(qualityScore * 1.2));
 }
 
-/**
- * Check if interview should be completed
- */
 export function shouldCompleteInterview(
   currentQuestionCount: number,
   totalQuestions: number,
@@ -313,9 +279,6 @@ export function shouldCompleteInterview(
   return currentQuestionCount >= totalQuestions;
 }
 
-/**
- * Generate completion message
- */
 export function generateCompletionMessage(isDemoMode: boolean): string {
   if (isDemoMode) {
     return "Great job exploring the demo! You've seen how our AI interview system works - it's conversational, supportive, and designed to help you showcase your best self. When you're ready for a full interview, just head back to the configure page. Thanks for trying out!";

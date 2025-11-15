@@ -74,13 +74,6 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
 
   return (
     <>
-      {/* 
-        MOBILE-FIRST NAVIGATION BAR:
-        - Fixed positioning with proper z-index stacking
-        - Backdrop blur for modern glass effect
-        - Touch-friendly 44px minimum height
-        - Responsive padding and spacing
-      */}
       <nav
         id="navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
