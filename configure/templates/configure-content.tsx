@@ -132,20 +132,12 @@ export function ConfigureContent() {
     return (
       <div className="space-y-8">
         <div>
-          <div className="mb-6">
-            <h3 className="text-xl font-bold mb-2">
-              Select Your Experience Level
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Choose the level that best matches your professional experience
-            </p>
-          </div>
           <RadioGroup
             value={config.seniority}
             onValueChange={(value) =>
               setConfig((prev) => ({ ...prev, seniority: value }))
             }
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
             {SENIORITY_LEVELS.map((level) => (
               <div key={level.value} className="h-full">
@@ -156,7 +148,7 @@ export function ConfigureContent() {
                 />
                 <Label
                   htmlFor={level.value}
-                  className={`flex flex-col p-5 rounded-xl border-2 cursor-pointer transition-all h-full min-h-[130px] shadow-sm hover:shadow-md ${
+                  className={`flex flex-col p-5 rounded-xl border-2 cursor-pointer transition-all h-full min-h-[130px] justify-center shadow-sm hover:shadow-md ${
                     config.seniority === level.value
                       ? "border-primary bg-primary/5 shadow-md scale-105"
                       : "border-border hover:border-primary/50 hover:bg-accent/50"
