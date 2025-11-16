@@ -205,14 +205,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "OpenAI",
     description: "Applied AI research & developer APIs",
     icon: SiOpenai,
-    color: "text-gray-800",
-  },
-  {
-    value: "apple",
-    label: "Apple",
-    description: "Hardware-software integration",
-    icon: SiApple,
-    color: "text-gray-800",
+    color: "text-white",
   },
   {
     value: "meta",
@@ -222,11 +215,18 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     color: "text-blue-600",
   },
   {
+    value: "apple",
+    label: "Apple",
+    description: "Hardware-software integration",
+    icon: SiApple,
+    color: "text-gray-200",
+  },
+  {
     value: "amazon",
     label: "Amazon",
     description: "Scalability, leadership principles",
     icon: SiAmazon,
-    color: "text-orange-600",
+    color: "text-orange-500",
   },
   {
     value: "microsoft",
@@ -257,15 +257,6 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     color: "text-red-600",
   },
   {
-    value: "netflix",
-    label: "Netflix",
-    description: "Streaming services platform",
-    icon: SiNetflix,
-    color: "text-red-600",
-  },
-
-  // 💎 High-paying, prestigious tech & data companies
-  {
     value: "anthropic",
     label: "Anthropic",
     description: "AI safety & LLM research",
@@ -273,11 +264,18 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     color: "text-orange-600",
   },
   {
+    value: "netflix",
+    label: "Netflix",
+    description: "Streaming services platform",
+    icon: SiNetflix,
+    color: "text-red-600",
+  },
+  {
     value: "palantir",
     label: "Palantir",
     description: "Data analytics for enterprises ",
     icon: SiPalantir,
-    color: "text-gray-700",
+    color: "text-white",
   },
   {
     value: "databricks",
@@ -312,7 +310,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "GitHub",
     description: "Developer collaboration & AI",
     icon: SiGithub,
-    color: "text-gray-800",
+    color: "text-white",
   },
 
   // 💰 Well-known, solid compensation & impact
@@ -321,7 +319,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "Uber",
     description: "Ride-hailing platform & logistics",
     icon: SiUber,
-    color: "text-gray-800",
+    color: "text-white",
   },
   {
     value: "airbnb",
@@ -436,7 +434,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "Notion",
     description: "Productivity & knowledge base",
     icon: SiNotion,
-    color: "text-gray-800",
+    color: "text-white",
   },
   {
     value: "sap",
