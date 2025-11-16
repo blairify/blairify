@@ -12,6 +12,7 @@ import {
   generateInterviewResponse,
   getFallbackResponse,
 } from "@/lib/services/ai/ai-client";
+import type { Message } from "@/types/interview";
 
 export async function POST(request: NextRequest) {
   try {
@@ -71,6 +72,29 @@ export async function POST(request: NextRequest) {
     if (!aiResponse.success) {
       console.warn(`AI response failed: ${aiResponse.error}`);
       finalMessage = getFallbackResponse(interviewConfig, false);
+    }
+
+    if (
+      !interviewConfig.isDemoMode &&
+      conversationHistory &&
+      Array.isArray(conversationHistory)
+    ) {
+      const history = conversationHistory as Message[];
+      const normalizedNew = finalMessage.trim().toLowerCase();
+      const previousAiMessages = history
+        .filter((msg) => msg.type === "ai" && typeof msg.content === "string")
+        .map((msg) => msg.content.trim().toLowerCase());
+
+      const isExactRepeat = previousAiMessages.some(
+        (content) => content === normalizedNew,
+      );
+
+      if (isExactRepeat) {
+        console.warn(
+          "🔁 Detected repeated AI question on skip. Using fallback question instead to avoid repetition.",
+        );
+        finalMessage = getFallbackResponse(interviewConfig, false);
+      }
     }
 
     // Determine question type

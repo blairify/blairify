@@ -92,12 +92,24 @@ export function generateNextQuestionPrompt(
 
   const coveredTopics = extractCoveredTopics(conversationHistory);
 
+  const previousAiQuestions = conversationHistory
+    .filter((msg) => msg.type === "ai")
+    .map((msg) => msg.content)
+    .slice(-2);
+
+  const previousQuestionsText =
+    previousAiQuestions.length > 0
+      ? previousAiQuestions.map((q, index) => `${index + 1}. "${q}"`).join("\n")
+      : "none yet";
+
   return `The candidate's previous response was: "${userMessage}"
 
 This is question ${questionCount + 1} of the interview. Please ask the next ${config.interviewType} question appropriate for a ${config.seniority}-level ${config.position} position.
 
 ⚠️ CRITICAL - AVOID REPETITION:
 Topics/concepts already covered: ${coveredTopics.length > 0 ? coveredTopics.join(", ") : "none yet"}
+Previously asked questions (never repeat these or trivial rephrasings):
+${previousQuestionsText}
 
 DO NOT ask about these topics again. Instead, explore NEW areas such as:
 - Different technical concepts or tools
