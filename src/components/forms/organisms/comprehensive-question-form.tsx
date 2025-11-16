@@ -105,6 +105,8 @@ const formSchema = z.object({
   iac: z.array(z.string()).optional(),
 });
 
+type FormValues = z.infer<typeof formSchema>;
+
 interface ComprehensiveQuestionFormProps {
   initialData?: Partial<PracticeQuestion>;
   onSubmit: (data: Omit<PracticeQuestion, "id">) => Promise<void>;
@@ -616,6 +618,11 @@ export const formatLabel = (value: string) => {
     .join(" ");
 };
 
+const getCompanyNameFromLogo = (logo: CompanyLogo): string => {
+  const base = logo.replace(/^Si/, "");
+  return formatLabel(base);
+};
+
 export function ComprehensiveQuestionForm({
   initialData,
   onSubmit,
@@ -625,8 +632,8 @@ export function ComprehensiveQuestionForm({
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema as any),
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       category: initialData?.category || "",
       difficulty: initialData?.difficulty || "medium",
@@ -685,7 +692,7 @@ export function ComprehensiveQuestionForm({
     watchedValues.topicTags &&
     watchedValues.topicTags.length >= 5;
 
-  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+  const handleSubmit = async (values: FormValues) => {
     setIsSubmitting(true);
     setSubmitError(null);
     setValidationErrors([]);
@@ -715,7 +722,57 @@ export function ComprehensiveQuestionForm({
         return;
       }
 
-      await onSubmit(values as any);
+      const payload: Omit<PracticeQuestion, "id"> = {
+        category: values.category as QuestionCategory,
+        difficulty: values.difficulty,
+        companyLogo: values.companyLogo as CompanyLogo,
+        companyName:
+          initialData?.companyName ??
+          getCompanyNameFromLogo(values.companyLogo as CompanyLogo),
+        companySize: values.companySize as CompanySize[],
+        primaryTechStack:
+          values.primaryTechStack as PracticeQuestion["primaryTechStack"],
+        languages: values.languages as PracticeQuestion["languages"],
+        frontendFrameworks:
+          values.frontendFrameworks as PracticeQuestion["frontendFrameworks"],
+        backendFrameworks:
+          values.backendFrameworks as PracticeQuestion["backendFrameworks"],
+        databases: values.databases as PracticeQuestion["databases"],
+        cloudProviders:
+          values.cloudProviders as PracticeQuestion["cloudProviders"],
+        containers: values.containers as PracticeQuestion["containers"],
+        cicd: values.cicd as PracticeQuestion["cicd"],
+        testing: values.testing as PracticeQuestion["testing"],
+        apiTypes: values.apiTypes as PracticeQuestion["apiTypes"],
+        orms: values.orms as PracticeQuestion["orms"],
+        cssFrameworks:
+          values.cssFrameworks as PracticeQuestion["cssFrameworks"],
+        stateManagement:
+          values.stateManagement as PracticeQuestion["stateManagement"],
+        mobile: values.mobile as PracticeQuestion["mobile"],
+        messageQueues:
+          values.messageQueues as PracticeQuestion["messageQueues"],
+        caching: values.caching as PracticeQuestion["caching"],
+        monitoring: values.monitoring as PracticeQuestion["monitoring"],
+        security: values.security as PracticeQuestion["security"],
+        mlFrameworks: values.mlFrameworks as PracticeQuestion["mlFrameworks"],
+        llmProviders: values.llmProviders as PracticeQuestion["llmProviders"],
+        protocol: values.protocol as PracticeQuestion["protocol"],
+        webServers: values.webServers as PracticeQuestion["webServers"],
+        searchEngines:
+          values.searchEngines as PracticeQuestion["searchEngines"],
+        vectorDBs: values.vectorDBs as PracticeQuestion["vectorDBs"],
+        iac: values.iac as PracticeQuestion["iac"],
+        title: values.title,
+        question: values.question,
+        answer: values.answer,
+        topicTags: values.topicTags,
+        relatedQuestions: initialData?.relatedQuestions,
+        learningResources: initialData?.learningResources,
+        lastUpdatedAt: initialData?.lastUpdatedAt,
+      };
+
+      await onSubmit(payload);
 
       // Show success toast
       toast.success(

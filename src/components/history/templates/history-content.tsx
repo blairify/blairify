@@ -36,11 +36,15 @@ import {
 } from "@/components/ui/table";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
-import type { InterviewSession } from "@/types/firestore";
+import type { InterviewSession, InterviewType } from "@/types/firestore";
 
 interface HistoryContentProps {
   user: UserData;
 }
+
+type HistoryFilterType = "all" | InterviewType;
+
+type HistorySortBy = "date" | "score" | "duration";
 
 export function HistoryContent({ user }: HistoryContentProps) {
   const [sessions, setSessions] = useState<InterviewSession[]>([]);
@@ -49,8 +53,8 @@ export function HistoryContent({ user }: HistoryContentProps) {
   );
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterType, setFilterType] = useState<string>("all");
-  const [sortBy, setSortBy] = useState<string>("date");
+  const [filterType, setFilterType] = useState<HistoryFilterType>("all");
+  const [sortBy, setSortBy] = useState<HistorySortBy>("date");
   const [viewLayout, setViewLayout] = useState<"grid" | "list">("list");
   const router = useRouter();
 
@@ -73,7 +77,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
   }, [loadSessions]);
 
   useEffect(() => {
-    let filtered = sessions;
+    let filtered = [...sessions];
 
     if (searchTerm) {
       filtered = filtered.filter(
@@ -96,7 +100,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
       );
     }
 
-    filtered.sort((a, b) => {
+    const sorted = filtered.sort((a, b) => {
       switch (sortBy) {
         case "date":
           return (
@@ -107,12 +111,13 @@ export function HistoryContent({ user }: HistoryContentProps) {
           return (b.scores?.overall || 0) - (a.scores?.overall || 0);
         case "duration":
           return b.totalDuration - a.totalDuration;
-        default:
-          return 0;
       }
+
+      const _never: never = sortBy;
+      throw new Error(`Unhandled sortBy: ${_never}`);
     });
 
-    setFilteredSessions(filtered);
+    setFilteredSessions(sorted);
   }, [sessions, searchTerm, filterType, sortBy]);
 
   const getScoreColor = (score: number) => {
@@ -125,17 +130,22 @@ export function HistoryContent({ user }: HistoryContentProps) {
     return "text-red-500 bg-red-50 dark:bg-red-900/10";
   };
 
-  const getInterviewIcon = (type: string) => {
+  const getInterviewIcon = (type: InterviewType) => {
     switch (type) {
       case "technical":
+      case "coding":
         return <Code className="h-4 w-4" />;
       case "bullet":
-        return <Target className="h-4 w-4" />;
       case "system-design":
         return <Target className="h-4 w-4" />;
-      default:
+      case "mixed":
+      case "case-study":
+      case "culture-fit":
         return <Trophy className="h-4 w-4" />;
     }
+
+    const _never: never = type;
+    throw new Error(`Unhandled interview type: ${_never}`);
   };
 
   const formatDate = (timestamp: { toDate: () => Date }) => {
@@ -254,7 +264,12 @@ export function HistoryContent({ user }: HistoryContentProps) {
                 <div className="flex gap-3">
                   <div className="relative group">
                     <Filter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
-                    <Select value={filterType} onValueChange={setFilterType}>
+                    <Select
+                      value={filterType}
+                      onValueChange={(value) =>
+                        setFilterType(value as HistoryFilterType)
+                      }
+                    >
                       <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
                         <SelectValue placeholder="Interview Type" />
                       </SelectTrigger>
@@ -272,7 +287,12 @@ export function HistoryContent({ user }: HistoryContentProps) {
 
                   <div className="relative group">
                     <Grid3x3 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
-                    <Select value={sortBy} onValueChange={setSortBy}>
+                    <Select
+                      value={sortBy}
+                      onValueChange={(value) =>
+                        setSortBy(value as HistorySortBy)
+                      }
+                    >
                       <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
                         <SelectValue placeholder="Sort By" />
                       </SelectTrigger>
