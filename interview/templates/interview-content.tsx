@@ -18,10 +18,28 @@ import { InterviewCompleteCard } from "../organisms/interview-complete-card";
 import { InterviewConfigScreen } from "../organisms/interview-config-screen";
 import { InterviewHeader } from "../organisms/interview-header";
 import { InterviewMessagesArea } from "../organisms/interview-messages-area";
-import type { Message } from "../types";
+import type { Message, QuestionType } from "../types";
 
 interface InterviewContentProps {
   user: UserData;
+}
+
+interface StartInterviewResponse {
+  success: boolean;
+  message: string;
+  error?: string;
+  details?: unknown;
+}
+
+interface ChatInterviewResponse {
+  success: boolean;
+  message: string;
+  questionType?: QuestionType;
+  isFollowUp?: boolean;
+  warningCount?: number;
+  isComplete?: boolean;
+  terminatedForProfanity?: boolean;
+  terminatedForBehavior?: boolean;
 }
 
 export function InterviewContent({ user }: InterviewContentProps) {
@@ -105,7 +123,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
         }),
       });
 
-      const data = await response.json();
+      const data: StartInterviewResponse = await response.json();
 
       if (!response.ok) {
         console.error("❌ Failed to start interview:", {
@@ -277,14 +295,16 @@ export function InterviewContent({ user }: InterviewContentProps) {
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
+        const errorData = (await response.json().catch(() => ({}))) as {
+          error?: string;
+        };
         const errorMessage =
           errorData.error || `Failed to send message (${response.status})`;
         console.error("API Error:", errorMessage, errorData);
         throw new Error(errorMessage);
       }
 
-      const data = await response.json();
+      const data: ChatInterviewResponse = await response.json();
 
       if (data.success) {
         if (interviewCompletedRef.current) {
@@ -430,7 +450,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
     return (
       <main className="flex-1 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4" />
+          <div className="size-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4" />
           <p className="text-muted-foreground">Loading interview...</p>
         </div>
       </main>
