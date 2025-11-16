@@ -55,12 +55,17 @@ export function ConfigureContent() {
   const handleStartInterview = () => {
     if (!canStartInterview(config)) return;
 
+    const selectedCompanyMeta = CONFIGURE_SPECIFIC_COMPANIES.find(
+      (company) => company.value === config.specificCompany,
+    );
+
     const domainConfig: DomainInterviewConfig = {
       position: config.position || "Frontend Engineer",
       seniority: (config.seniority || "mid") as SeniorityLevel,
       technologies: config.technologies || [],
       companyProfile: config.companyProfile || "",
       specificCompany: config.specificCompany || undefined,
+      company: selectedCompanyMeta?.label || undefined,
       interviewMode: (config.interviewMode || "regular") as InterviewMode,
       interviewType: (config.interviewType || "technical") as InterviewType,
       duration: config.duration || "30",
@@ -68,7 +73,6 @@ export function ConfigureContent() {
       // No job-specific context in configure flow
       contextType: undefined,
       jobId: undefined,
-      company: undefined,
       jobDescription: undefined,
       jobRequirements: undefined,
       jobLocation: undefined,

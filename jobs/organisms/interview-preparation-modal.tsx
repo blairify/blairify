@@ -50,7 +50,7 @@ export function InterviewPreparationModal({
       <DialogContent className="max-w-2xl md:max-w-3xl lg:max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
         <DialogHeader className="text-center space-y-4 pb-2">
           <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center">
-            <Brain className="h-8 w-8 text-primary-foreground" />
+            <Brain className="size-8 text-primary-foreground" />
           </div>
           <DialogTitle className="text-2xl font-bold">
             AI Interview Preparation
@@ -93,13 +93,13 @@ export function InterviewPreparationModal({
           >
             {isStarting ? (
               <>
-                <div className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin mr-2" />
+                <div className="size-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin mr-2" />
                 Starting Interview...
               </>
             ) : (
               <>
                 Start AI Interview
-                <ArrowRight className="h-4 w-4 ml-2" />
+                <ArrowRight className="size-4 ml-2" />
               </>
             )}
           </Button>
