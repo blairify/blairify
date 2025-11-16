@@ -21,7 +21,7 @@ import type { Job } from "@/lib/validators";
 interface InterviewPreparationModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onConfirm: () => void;
+  onConfirm: () => void | Promise<void>;
   job: Job;
 }
 
@@ -35,9 +35,14 @@ export function InterviewPreparationModal({
   const { duration, questionCount, interviewType } = useInterviewDetails(job);
 
   const handleStartInterview = async () => {
+    if (isStarting) return;
     setIsStarting(true);
-    await new Promise((resolve) => setTimeout(resolve, 500));
-    onConfirm();
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      await onConfirm();
+    } finally {
+      setIsStarting(false);
+    }
   };
 
   return (
@@ -59,30 +64,19 @@ export function InterviewPreparationModal({
         </DialogHeader>
 
         <div className="space-y-6 py-4">
-          {/* Interview Overview Cards */}
           <InterviewOverviewCards
             duration={duration}
             questionCount={questionCount}
             interviewType={interviewType}
           />
-
-          {/* AI Interviewer Info */}
           <AIInterviewerCard jobCompany={job.company} jobTitle={job.title} />
-
-          {/* Company-Specific Preparation */}
           <CompanyPreparationCard
             jobCompany={job.company}
             jobTitle={job.title}
           />
-
-          {/* What to Expect */}
           <InterviewExpectations />
-
-          {/* Job Context */}
           <JobContextCard job={job} />
         </div>
-
-        {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-border">
           <Button
             variant="outline"
