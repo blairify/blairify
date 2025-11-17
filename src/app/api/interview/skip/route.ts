@@ -12,6 +12,7 @@ import {
   generateInterviewResponse,
   getFallbackResponse,
 } from "@/lib/services/ai/ai-client";
+import { validateAIResponse } from "@/lib/services/ai/response-validator";
 import type { Message } from "@/types/interview";
 
 export async function POST(request: NextRequest) {
@@ -66,12 +67,28 @@ export async function POST(request: NextRequest) {
       interviewConfig.interviewType,
     );
 
-    let finalMessage = aiResponse.content;
+    let finalMessage: string;
 
-    // If AI failed, use fallback
-    if (!aiResponse.success) {
-      console.warn(`AI response failed: ${aiResponse.error}`);
+    if (!aiResponse.success || !aiResponse.content) {
+      console.warn("AI response failed on skip, using fallback");
       finalMessage = getFallbackResponse(interviewConfig, false);
+    } else {
+      const validation = validateAIResponse(
+        aiResponse.content,
+        interviewConfig,
+        false,
+      );
+
+      if (!validation.isValid) {
+        console.warn(
+          `AI response validation failed on skip: ${validation.reason}`,
+        );
+        finalMessage = getFallbackResponse(interviewConfig, false);
+      } else if (validation.sanitized) {
+        finalMessage = validation.sanitized;
+      } else {
+        finalMessage = aiResponse.content;
+      }
     }
 
     if (
@@ -103,15 +120,13 @@ export async function POST(request: NextRequest) {
       (questionCount || 0) + 1,
     );
 
-    // Check if interview should complete based on question count
-    const nextQuestionCount = (questionCount || 0) + 1;
     const maxQuestions =
       totalQuestions ||
       getQuestionCountForMode(
         interviewConfig.interviewMode,
         interviewConfig.isDemoMode,
       );
-    const shouldComplete = nextQuestionCount >= maxQuestions;
+    const shouldComplete = (questionCount || 0) >= maxQuestions;
 
     return NextResponse.json({
       success: true,

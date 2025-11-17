@@ -393,7 +393,118 @@ export function InterviewContent({ user }: InterviewContentProps) {
     }
 
     if (session.currentQuestionCount >= session.totalQuestions) {
-      markInterviewComplete();
+      setIsLoading(true);
+
+      try {
+        const response = await fetch("/api/interview/message", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            message:
+              "I would like to skip this question and end the interview here.",
+            conversationHistory: session.messages,
+            interviewConfig: config,
+            questionCount: session.currentQuestionCount,
+            totalQuestions: session.totalQuestions,
+            warningCount,
+          }),
+        });
+
+        if (!response.ok) {
+          const errorData = (await response.json().catch(() => ({}))) as {
+            error?: string;
+          };
+          const errorMessage =
+            errorData.error ||
+            `Failed to skip final question (${response.status})`;
+          console.error("API Error (final skip):", errorMessage, errorData);
+          throw new Error(errorMessage);
+        }
+
+        const data: ChatInterviewResponse = await response.json();
+
+        if (data.success) {
+          if (interviewCompletedRef.current) {
+            return;
+          }
+
+          const aiMessage: Message = {
+            id: (Date.now() + 1).toString(),
+            type: "ai",
+            content: data.message,
+            timestamp: new Date(),
+            questionType: data.questionType,
+            isFollowUp: data.isFollowUp,
+          };
+
+          addMessage(aiMessage);
+
+          if (data.warningCount !== undefined) {
+            setWarningCount(data.warningCount);
+          }
+
+          if (data.isComplete) {
+            if (data.terminatedForProfanity) {
+              interviewCompletedRef.current = true;
+              completeInterview();
+
+              const terminationData = {
+                messages: session.messages,
+                config,
+                interviewer,
+                isComplete: true,
+                terminatedForProfanity: true,
+                finalScore: 0,
+              };
+
+              localStorage.setItem(
+                "interviewSession",
+                JSON.stringify(terminationData),
+              );
+              localStorage.setItem("interviewConfig", JSON.stringify(config));
+
+              window.location.href = "/results";
+              return;
+            }
+
+            if (data.terminatedForBehavior) {
+              interviewCompletedRef.current = true;
+              completeInterview();
+
+              const terminationData = {
+                messages: session.messages,
+                config,
+                interviewer,
+                isComplete: true,
+                terminatedForBehavior: true,
+                finalScore: 0,
+              };
+
+              localStorage.setItem(
+                "interviewSession",
+                JSON.stringify(terminationData),
+              );
+              localStorage.setItem("interviewConfig", JSON.stringify(config));
+
+              window.location.href = "/results";
+              return;
+            }
+
+            markInterviewComplete();
+          }
+
+          if (!data.isFollowUp) {
+            incrementQuestionCount();
+          }
+        }
+      } catch (error) {
+        console.error("Error skipping final question:", error);
+      } finally {
+        setIsLoading(false);
+      }
+
       return;
     }
 
