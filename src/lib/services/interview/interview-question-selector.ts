@@ -309,15 +309,10 @@ export function formatQuestionForPrompt(question: Question): string {
   // Format company info
   const company = question.companies?.[0]?.name || "General";
 
-  // Enhanced format: more comprehensive but AI-readable
+  // Enhanced format: more comprehensive but AI-readable, without exposing reference answers
   return `**${question.title}** (${question.difficulty})\nTopic: ${
     question.topic
   }\nTech: ${techStack || "General"}\nCompany: ${
     company
-  }\nQuestion: ${question.prompt}\nExpected Answer: ${
-    question.description?.substring(0, 200) ||
-    "Evaluate based on technical accuracy and depth"
-  }${(question.description?.length || 0) > 200 ? "..." : ""}\nTags: ${question.tags.join(
-    ", ",
-  )}`;
+  }\nQuestion: ${question.prompt}\nTags: ${question.tags.join(", ")}`;
 }
