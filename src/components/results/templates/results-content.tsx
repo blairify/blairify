@@ -535,21 +535,19 @@ export function ResultsContent({ user }: ResultsContentProps) {
         {/* ============================================================================ */}
         {results.passed !== undefined && (
           <Card
-            className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
-              results.passed
+            className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${results.passed
                 ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
                 : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
-            }`}
+              }`}
           >
             <CardContent className="py-8">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-6">
                   <div
-                    className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${
-                      results.passed
+                    className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${results.passed
                         ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
                         : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                    }`}
+                      }`}
                   >
                     {results.passed ? (
                       <CheckCircle className="h-8 w-8" />
@@ -559,31 +557,28 @@ export function ResultsContent({ user }: ResultsContentProps) {
                   </div>
                   <div className="text-center sm:text-left">
                     <div
-                      className={`text-3xl font-bold mb-3 ${
-                        results.passed
+                      className={`text-3xl font-bold mb-3 ${results.passed
                           ? "text-emerald-900 dark:text-emerald-100"
                           : "text-red-900 dark:text-red-100"
-                      }`}
+                        }`}
                     >
                       {results.passed ? "Interview Passed" : "Not Passed"}
                     </div>
                     <p
-                      className={`text-lg leading-relaxed mb-2 ${
-                        results.passed
+                      className={`text-lg leading-relaxed mb-2 ${results.passed
                           ? "text-emerald-700 dark:text-emerald-300"
                           : "text-red-700 dark:text-red-300"
-                      }`}
+                        }`}
                     >
                       {outcomeMessage}
                     </p>
                     <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-600 dark:text-gray-400">
                       <span>Final Score:</span>
                       <span
-                        className={`font-bold text-xl ${
-                          results.passed
+                        className={`font-bold text-xl ${results.passed
                             ? "text-emerald-600 dark:text-emerald-400"
                             : "text-red-600 dark:text-red-400"
-                        }`}
+                          }`}
                       >
                         {results.score}/100
                       </span>
@@ -736,11 +731,10 @@ export function ResultsContent({ user }: ResultsContentProps) {
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <div
-                        className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${
-                          results.passed === false
+                        className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${results.passed === false
                             ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
                             : "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300"
-                        }`}
+                          }`}
                       >
                         <TrendingUp className="w-3 h-3" />
                       </div>
@@ -787,100 +781,6 @@ export function ResultsContent({ user }: ResultsContentProps) {
                   results.detailedAnalysis,
                 )}
               />
-            </CardContent>
-          </Card>
-        )}
-
-        {/* ============================================================================ */}
-        {/* RECOMMENDATIONS / DEVELOPMENT PLAN */}
-        {/* ============================================================================ */}
-        <Card
-          className={`border shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700 ${
-            results.passed === false
-              ? "border-red-200 dark:border-red-800"
-              : "border-emerald-200 dark:border-emerald-800"
-          }`}
-        >
-          <CardHeader
-            className={`border-b pb-4 ${
-              results.passed === false
-                ? "bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/20 dark:to-orange-950/20 border-red-200/50 dark:border-red-700/50"
-                : "bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/20 dark:to-green-950/20 border-emerald-200/50 dark:border-emerald-700/50"
-            }`}
-          >
-            <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-              <Lightbulb
-                className={`h-5 w-5 ${
-                  results.passed === false
-                    ? "text-red-600 dark:text-red-400"
-                    : "text-emerald-600 dark:text-emerald-400"
-                }`}
-              />
-              {results.passed === false
-                ? "Development Roadmap"
-                : "Growth Recommendations"}
-            </CardTitle>
-            <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-              {results.passed === false
-                ? "Your personalized plan for technical growth"
-                : "Strategies to elevate your expertise"}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div
-              className="prose prose-base prose-gray dark:prose-invert max-w-none leading-relaxed"
-              dangerouslySetInnerHTML={parseFullMarkdown(
-                results.recommendations,
-              )}
-            />
-          </CardContent>
-        </Card>
-
-        {/* ============================================================================ */}
-        {/* NEXT STEPS */}
-        {/* ============================================================================ */}
-        {results.nextSteps && results.nextSteps !== results.recommendations && (
-          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-              <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                <TrendingUp className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
-                Next Steps & Action Plan
-              </CardTitle>
-              <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                Concrete actions to implement your development plan
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <div
-                className="prose prose-base prose-gray dark:prose-invert max-w-none leading-relaxed"
-                dangerouslySetInnerHTML={parseFullMarkdown(results.nextSteps)}
-              />
-            </CardContent>
-          </Card>
-        )}
-
-        {/* ============================================================================ */}
-        {/* DEVELOPMENT NOTICE */}
-        {/* ============================================================================ */}
-        {results.passed === false && (
-          <Card className="border-l-4 border-l-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 border border-red-200 dark:border-red-800 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <CardContent className="py-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300 flex items-center justify-center">
-                  <BookOpen className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                    Recommended Development Timeline
-                  </h4>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                    A 3-6 month focused development period is recommended to
-                    address identified competency gaps. Use this time to
-                    strengthen your technical foundation and communication
-                    skills before reapplying for positions at this level.
-                  </p>
-                </div>
-              </div>
             </CardContent>
           </Card>
         )}
