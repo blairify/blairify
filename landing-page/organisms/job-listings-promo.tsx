@@ -29,7 +29,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
   const featuredJobs = jobs.slice(0, 4);
   return (
     <section
-      className=" max-w-7xl mx-auto py-12 sm:py-16 lg:py-20 bg-muted/30 overflow-hidden"
+      className="max-w-7xl mx-auto py-12 sm:py-16 lg:py-20 overflow-hidden"
       aria-labelledby="job-listings-heading"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
