@@ -5,6 +5,7 @@ import {
   generateUserPrompt,
   getInterviewerForRole,
   getQuestionCountForMode,
+  shouldGenerateFollowUp,
   validateInterviewConfig,
 } from "@/lib/interview";
 import {
@@ -162,15 +163,31 @@ export async function POST(request: NextRequest) {
         interviewConfig.isDemoMode,
       );
 
-    const shouldComplete = !isFollowUp && (questionCount || 0) >= maxQuestions;
+    const currentQuestionCount = questionCount || 0;
+
+    const autoFollowUp =
+      !isFollowUp &&
+      !interviewConfig.isDemoMode &&
+      Array.isArray(conversationHistory) &&
+      shouldGenerateFollowUp(
+        processedMessage,
+        conversationHistory as Message[],
+        interviewConfig,
+        currentQuestionCount,
+      );
+
+    const effectiveIsFollowUp = isFollowUp || autoFollowUp;
+
+    const shouldComplete =
+      !effectiveIsFollowUp && currentQuestionCount >= maxQuestions;
 
     const systemPrompt = generateSystemPrompt(interviewConfig, interviewer);
     const userPrompt = generateUserPrompt(
       processedMessage,
       conversationHistory || [],
       interviewConfig,
-      questionCount || 0,
-      isFollowUp,
+      currentQuestionCount,
+      effectiveIsFollowUp,
       interviewer,
     );
 
@@ -192,7 +209,7 @@ export async function POST(request: NextRequest) {
       const validation = validateAIResponse(
         aiResponse.content,
         interviewConfig,
-        isFollowUp || shouldComplete,
+        effectiveIsFollowUp || shouldComplete,
       );
 
       if (!validation.isValid) {
@@ -208,7 +225,7 @@ export async function POST(request: NextRequest) {
 
     if (
       !usedFallback &&
-      !isFollowUp &&
+      !effectiveIsFollowUp &&
       !interviewConfig.isDemoMode &&
       conversationHistory &&
       Array.isArray(conversationHistory)
@@ -252,7 +269,7 @@ export async function POST(request: NextRequest) {
       message: finalMessage,
       questionType,
       validated: aiResponse.success,
-      isFollowUp,
+      isFollowUp: effectiveIsFollowUp,
       isComplete: shouldComplete,
     });
   } catch (error) {
