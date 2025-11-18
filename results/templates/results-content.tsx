@@ -7,7 +7,6 @@ import {
   BookOpen,
   CheckCircle,
   FileText,
-  Lightbulb,
   MessageSquare,
   RotateCcw,
   Target,
@@ -535,19 +534,21 @@ export function ResultsContent({ user }: ResultsContentProps) {
         {/* ============================================================================ */}
         {results.passed !== undefined && (
           <Card
-            className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${results.passed
+            className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
+              results.passed
                 ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
                 : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
-              }`}
+            }`}
           >
             <CardContent className="py-8">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-6">
                   <div
-                    className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${results.passed
+                    className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${
+                      results.passed
                         ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
                         : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                      }`}
+                    }`}
                   >
                     {results.passed ? (
                       <CheckCircle className="h-8 w-8" />
@@ -557,28 +558,31 @@ export function ResultsContent({ user }: ResultsContentProps) {
                   </div>
                   <div className="text-center sm:text-left">
                     <div
-                      className={`text-3xl font-bold mb-3 ${results.passed
+                      className={`text-3xl font-bold mb-3 ${
+                        results.passed
                           ? "text-emerald-900 dark:text-emerald-100"
                           : "text-red-900 dark:text-red-100"
-                        }`}
+                      }`}
                     >
                       {results.passed ? "Interview Passed" : "Not Passed"}
                     </div>
                     <p
-                      className={`text-lg leading-relaxed mb-2 ${results.passed
+                      className={`text-lg leading-relaxed mb-2 ${
+                        results.passed
                           ? "text-emerald-700 dark:text-emerald-300"
                           : "text-red-700 dark:text-red-300"
-                        }`}
+                      }`}
                     >
                       {outcomeMessage}
                     </p>
                     <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-600 dark:text-gray-400">
                       <span>Final Score:</span>
                       <span
-                        className={`font-bold text-xl ${results.passed
+                        className={`font-bold text-xl ${
+                          results.passed
                             ? "text-emerald-600 dark:text-emerald-400"
                             : "text-red-600 dark:text-red-400"
-                          }`}
+                        }`}
                       >
                         {results.score}/100
                       </span>
@@ -731,10 +735,11 @@ export function ResultsContent({ user }: ResultsContentProps) {
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <div
-                        className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${results.passed === false
+                        className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${
+                          results.passed === false
                             ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
                             : "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300"
-                          }`}
+                        }`}
                       >
                         <TrendingUp className="w-3 h-3" />
                       </div>
