@@ -712,10 +712,11 @@ Since no practice library questions are available for this specific configuratio
    - ${categoryDescription[config.interviewType]}
 
 3. **Technology Relevance**:
-   ${config.technologies.length > 0
-      ? `- Focus on: ${config.technologies.join(", ")}\n   - Questions should test practical knowledge of these technologies`
-      : "- Use general technical questions appropriate for the position"
-    }
+   ${
+     config.technologies.length > 0
+       ? `- Focus on: ${config.technologies.join(", ")}\n   - Questions should test practical knowledge of these technologies`
+       : "- Use general technical questions appropriate for the position"
+   }
 
 4. **Question Structure**:
    - Start with easier warm-up questions

@@ -308,6 +308,14 @@
   transform: rotateY(180deg);
 }
 
+.recharts-cartesian-axis-tick text {
+  fill: var(--muted-foreground);
+}
+
+.dark .recharts-cartesian-axis-tick text {
+  fill: var(--foreground);
+}
+
 /* ==============================
    Achievement Animations
    ============================== */

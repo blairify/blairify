@@ -63,12 +63,16 @@ export function PerformanceChart({ data }: PerformanceChartProps) {
         ) : (
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={data}>
-              <CartesianGrid
-                strokeDasharray="3 3"
-                stroke="hsl(var(--border))"
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+              <XAxis
+                dataKey="date"
+                stroke="var(--foreground)"
+                tick={{ fill: "var(--foreground)" }}
               />
-              <XAxis dataKey="date" stroke="hsl(var(--muted-foreground))" />
-              <YAxis stroke="hsl(var(--muted-foreground))" />
+              <YAxis
+                stroke="var(--foreground)"
+                tick={{ fill: "var(--foreground)" }}
+              />
               <Tooltip
                 contentStyle={{
                   backgroundColor: "hsl(var(--card))",

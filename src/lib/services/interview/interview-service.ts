@@ -189,7 +189,7 @@ export function analyzeResponseQuality(
     Math.min(
       100,
       (substantiveResponses / Math.max(totalQuestions, 1)) * 100 -
-      (poorResponses / Math.max(totalQuestions, 1)) * 50,
+        (poorResponses / Math.max(totalQuestions, 1)) * 50,
     ),
   );
 

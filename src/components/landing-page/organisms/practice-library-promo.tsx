@@ -9,6 +9,7 @@ import {
   Users,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,6 +17,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 interface PracticeQuestion {
   id: string;
   question: string;
+  answer: string;
   category: string;
   difficulty: "easy" | "medium" | "hard";
   companyName: string;
@@ -46,7 +48,7 @@ const difficultyColors = {
 export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
   const router = useRouter();
 
-  const truncateQuestion = (question: string, maxLength: number = 200) => {
+  const truncateQuestion = (question: string, maxLength: number = 110) => {
     if (question.length <= maxLength) return question;
     return `${question.substring(0, maxLength)}...`;
   };
@@ -55,6 +57,12 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
     const IconComponent =
       categoryIcons[category as keyof typeof categoryIcons] || BookOpen;
     return IconComponent;
+  };
+
+  const [flippedId, setFlippedId] = useState<string | null>(null);
+
+  const toggleFlip = (id: string) => {
+    setFlippedId((current) => (current === id ? null : id));
   };
 
   return (
@@ -73,7 +81,7 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
                 <div className="text-2xl font-bold text-primary mb-1">500+</div>
                 <div className="text-sm text-muted-foreground">
@@ -95,19 +103,19 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center justify-center gap-3">
+              <div className="flex items-center justify-center lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   System Design, Algorithms, Frontend & more
                 </span>
               </div>
-              <div className="flex items-center justify-center gap-3">
+              <div className="flex items-center justify-center lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   Detailed solutions with explanations
                 </span>
               </div>
-              <div className="flex items-center justify-center gap-3">
+              <div className="flex items-center justify-center lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   Difficulty levels from easy to expert
@@ -115,14 +123,14 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
               </div>
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center lg:justify-start">
               <Button
                 onClick={() => router.push("/practice")}
                 aria-label="Explore Practice Library"
-                className="group mt-4"
+                className="group w-full sm:w-auto h-12 sm:h-10 text-base sm:text-sm font-medium px-6 sm:px-4 mt-4"
               >
                 Explore Practice Library
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
           </div>
@@ -130,70 +138,116 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-in slide-in-from-left-8 duration-1000 delay-200 order-last lg:order-first">
             {questions.slice(0, 4).map((question, index) => {
               const IconComponent = getCategoryIcon(question.category);
+              const isFlipped = flippedId === question.id;
               return (
-                <Card
+                <div
                   key={question.id}
-                  className={`transition-all justify-between gap-2 duration-300 hover:scale-[1.02] group hover:border-primary/50 h-full flex flex-col ${index >= 2 ? "hidden sm:flex" : ""}`}
-                  style={{ animationDelay: `${400 + index * 150}ms` }}
+                  className={`h-full [perspective:1000px] ${index >= 2 ? "hidden sm:block" : ""}`}
                 >
-                  <CardHeader className="pb-3 flex-shrink-0">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <IconComponent className="h-4 w-4 text-primary" />
-                        <Badge
-                          variant="outline"
-                          className="text-xs capitalize px-2 py-1"
-                        >
-                          {question.category.replace("-", " ")}
-                        </Badge>
-                      </div>
-                      <Badge
-                        variant="secondary"
-                        className={`text-xs px-2 py-1 ${difficultyColors[question.difficulty]}`}
-                      >
-                        {question.difficulty}
-                      </Badge>
-                    </div>
-                    <CardTitle className="text-sm font-semibold line-clamp-2 group-hover:text-primary transition-colors leading-tight min-h-[2.5rem]">
-                      {truncateQuestion(
-                        question.question.replace(/[#*]/g, "").trim(),
-                        200,
-                      )}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0 flex flex-col justify-end">
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2">
-                        <div className="w-5 h-5 bg-muted rounded flex items-center justify-center flex-shrink-0">
-                          <Building2 className="h-3 w-3 text-muted-foreground" />
+                  <Card
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => toggleFlip(question.id)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        toggleFlip(question.id);
+                      }
+                    }}
+                    className="relative h-full cursor-pointer transition-transform duration-500 group hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    style={{
+                      animationDelay: `${400 + index * 150}ms`,
+                      transformStyle: "preserve-3d",
+                      transform: isFlipped
+                        ? "rotateY(180deg)"
+                        : "rotateY(0deg)",
+                    }}
+                  >
+                    <div
+                      className="absolute inset-0 flex flex-col"
+                      style={{ backfaceVisibility: "hidden" }}
+                    >
+                      <CardHeader className="pt-3 pb-3 flex-shrink-0">
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-2">
+                            <IconComponent className="size-4 text-primary" />
+                            <Badge
+                              variant="outline"
+                              className="text-xs capitalize px-2 py-1"
+                            >
+                              {question.category.replace("-", " ")}
+                            </Badge>
+                          </div>
+                          <Badge
+                            variant="secondary"
+                            className={`text-xs px-2 py-1 ${difficultyColors[question.difficulty]}`}
+                          >
+                            {question.difficulty}
+                          </Badge>
                         </div>
-                        <span className="text-sm font-medium truncate">
-                          {question.companyName}
-                        </span>
-                      </div>
+                        <CardTitle className="text-sm font-semibold group-hover:text-primary transition-colors leading-tight">
+                          {truncateQuestion(
+                            question.question.replace(/[#*]/g, "").trim(),
+                          )}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-0 flex flex-col justify-between">
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-2">
+                            <div className="w-5 h-5 bg-muted rounded flex items-center justify-center flex-shrink-0">
+                              <Building2 className="size-3 text-muted-foreground" />
+                            </div>
+                            <span className="text-sm font-medium truncate">
+                              {question.companyName}
+                            </span>
+                          </div>
+                        </div>
 
-                      <div className="flex gap-1">
-                        {question.topicTags.slice(0, 2).map((tag) => (
-                          <Badge
-                            key={tag}
-                            variant="secondary"
-                            className="text-xs px-2 py-1"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                        {question.topicTags.length > 2 && (
-                          <Badge
-                            variant="secondary"
-                            className="text-xs px-2 py-1"
-                          >
-                            +{question.topicTags.length - 2}
-                          </Badge>
-                        )}
-                      </div>
+                        <div className="mt-3 pt-3 border-t border-border/60 text-[11px] text-muted-foreground/80 opacity-0 group-hover:opacity-100 transition-opacity">
+                          Included in the Practice Library with full solutions
+                          and AI feedback.
+                        </div>
+                      </CardContent>
                     </div>
-                  </CardContent>
-                </Card>
+
+                    <div
+                      className="absolute inset-0 flex flex-col"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                      }}
+                    >
+                      <CardHeader className="pt-3 pb-3 flex-shrink-0">
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-2">
+                            <IconComponent className="size-4 text-primary" />
+                            <Badge
+                              variant="outline"
+                              className="text-xs capitalize px-2 py-1"
+                            >
+                              Answer
+                            </Badge>
+                          </div>
+                          <Badge
+                            variant="secondary"
+                            className={`text-xs px-2 py-1 ${difficultyColors[question.difficulty]}`}
+                          >
+                            {question.difficulty}
+                          </Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="pt-0 flex flex-col justify-between">
+                        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                          {question.answer}
+                        </p>
+                        <div className="mt-3 text-[11px] text-muted-foreground/80">
+                          Each question in the Practice Library includes
+                          detailed, step-by-step solutions.
+                        </div>
+                      </CardContent>
+                    </div>
+                  </Card>
+                </div>
               );
             })}
           </div>

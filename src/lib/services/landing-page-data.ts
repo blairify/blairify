@@ -35,6 +35,7 @@ export interface JobListing {
 export interface PracticeQuestion {
   id: string;
   question: string;
+  answer: string;
   category: string;
   difficulty: "easy" | "medium" | "hard";
   companyName: string;
@@ -305,6 +306,8 @@ function getMockPracticeQuestions(limit: number): PracticeQuestion[] {
       id: "1",
       question:
         "Design a scalable chat application that can handle millions of users",
+      answer:
+        "Describe a microservices architecture with WebSocket gateways, message queues, sharding and replication. Explain how you handle presence, fan-out, durability and backpressure.",
       category: "system-design",
       difficulty: "hard",
       companyName: "Meta",
@@ -320,6 +323,8 @@ function getMockPracticeQuestions(limit: number): PracticeQuestion[] {
       id: "2",
       question:
         "Implement a function that finds two numbers in an array that sum to a target",
+      answer:
+        "Use a hash map from value to index. For each number, compute target - num and check the map. If found, return the pair; otherwise store num in the map. Runs in O(n).",
       category: "algorithms",
       difficulty: "easy",
       companyName: "Google",
@@ -329,6 +334,8 @@ function getMockPracticeQuestions(limit: number): PracticeQuestion[] {
     {
       id: "3",
       question: "Build a responsive autocomplete search component in React",
+      answer:
+        "Maintain controlled input state, debounce user typing, call a search API, and render a keyboard-accessible listbox. Handle loading, empty state and highlight the active option.",
       category: "frontend",
       difficulty: "medium",
       companyName: "Airbnb",
@@ -339,6 +346,8 @@ function getMockPracticeQuestions(limit: number): PracticeQuestion[] {
       id: "4",
       question:
         "Tell me about a time when you had to work with a difficult team member",
+      answer:
+        "Use the STAR method: describe the situation, your task, specific actions to address the conflict (listening, expectations, boundaries) and the positive outcome or learning.",
       category: "behavioral",
       difficulty: "medium",
       companyName: "Apple",
@@ -353,6 +362,8 @@ function getMockPracticeQuestions(limit: number): PracticeQuestion[] {
     {
       id: "5",
       question: "Design a database schema for an e-commerce platform",
+      answer:
+        "Identify core entities (users, products, orders, order_items, payments), define relationships and indexes for common queries. Consider normalization, inventory consistency and audit fields.",
       category: "database",
       difficulty: "medium",
       companyName: "Amazon",
@@ -362,6 +373,8 @@ function getMockPracticeQuestions(limit: number): PracticeQuestion[] {
     {
       id: "6",
       question: "Implement a rate limiting system for an API",
+      answer:
+        "Explain token bucket or leaky bucket using Redis. Track requests per key, enforce limits per window, return 429 when exceeded and discuss correctness in distributed deployments.",
       category: "backend",
       difficulty: "hard",
       companyName: "Stripe",
