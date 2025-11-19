@@ -354,6 +354,8 @@ function mapPracticeTypeToInterviewType(
       return "conceptual";
     case "truefalse":
       return "quick-assessment";
+    case "system-design":
+      return "system-design";
   }
 
   const _never: never = type;

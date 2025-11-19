@@ -7,9 +7,23 @@
 // Question Types
 // ============================================================================
 
-export type QuestionType = "mcq" | "open" | "matching" | "code" | "truefalse";
+export type QuestionType =
+  | "mcq"
+  | "open"
+  | "matching"
+  | "code"
+  | "truefalse"
+  | "system-design";
 export type DifficultyLevel = "entry" | "junior" | "middle" | "senior";
 export type QuestionStatus = "draft" | "published" | "archived";
+export type CompanyType = "faang" | "startup" | "enterprise";
+export type QuestionInterviewMode =
+  | "regular"
+  | "practice"
+  | "flash"
+  | "play"
+  | "competitive"
+  | "teacher";
 
 // ============================================================================
 // Base Question Interface
@@ -20,6 +34,8 @@ export interface BaseQuestion {
   type: QuestionType;
   difficulty: DifficultyLevel;
   status: QuestionStatus;
+  isDemoMode: boolean;
+  companyType: CompanyType;
 
   // Content
   title: string;
@@ -31,18 +47,20 @@ export interface BaseQuestion {
   subtopics: string[];
   tags: string[];
   estimatedTimeMinutes: number;
+  aiEvaluationHint?: string;
 
   // Company/Position Context (supports multiple companies)
   companies?: Array<{
     name: string;
     logo: string; // Icon name (e.g., "SiGoogle", "SiMeta")
     size?: string[]; // e.g., ["faang"], ["startup"], ["enterprise"]
+    description: string;
   }>;
   positions?: string[]; // e.g., ["Frontend Engineer", "Full Stack Developer"]
   primaryTechStack?: string[]; // e.g., ["react", "typescript", "nodejs"]
 
   // Interview Integration
-  interviewTypes?: Array<"technical" | "bullet" | "coding" | "system-design">;
+  interviewTypes?: QuestionInterviewMode[];
   seniorityLevels?: Array<"entry" | "junior" | "mid" | "senior">;
 
   // Timestamps
@@ -65,6 +83,7 @@ export interface MCQOption {
 export interface MCQQuestion extends BaseQuestion {
   type: "mcq";
   options: MCQOption[];
+  multiChoiceAnswers?: string[];
   allowMultipleAnswers: boolean;
   shuffleOptions: boolean;
 }
