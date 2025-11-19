@@ -41,7 +41,7 @@ export function ActivityTab({ weeklyActivityData }: ActivityTabProps) {
             Your practice sessions throughout the week
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="text-muted-foreground">
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={weeklyActivityData}>
               <defs>
@@ -71,16 +71,18 @@ export function ActivityTab({ weeklyActivityData }: ActivityTabProps) {
               />
               <XAxis
                 dataKey="day"
-                stroke="hsl(var(--muted-foreground))"
+                stroke="currentColor"
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
+                tick={{ fill: "currentColor" }}
               />
               <YAxis
-                stroke="hsl(var(--muted-foreground))"
+                stroke="currentColor"
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
+                tick={{ fill: "currentColor" }}
               />
               <Tooltip
                 contentStyle={{

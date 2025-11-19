@@ -104,7 +104,7 @@ export function DashboardPromo() {
                   Your practice sessions throughout the week
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="text-muted-foreground">
                 <ResponsiveContainer width="100%" height={300}>
                   <AreaChart data={weeklyActivityData}>
                     <defs>
@@ -129,21 +129,23 @@ export function DashboardPromo() {
                     </defs>
                     <CartesianGrid
                       strokeDasharray="3 3"
-                      stroke="hsl(var(--border))"
+                      stroke="var(--border)"
                       opacity={0.3}
                     />
                     <XAxis
                       dataKey="day"
-                      stroke="hsl(var(--muted-foreground))"
+                      stroke="var(--foreground)"
                       fontSize={12}
                       tickLine={false}
                       axisLine={false}
+                      tick={{ fill: "var(--foreground)" }}
                     />
                     <YAxis
-                      stroke="hsl(var(--muted-foreground))"
+                      stroke="var(--foreground)"
                       fontSize={12}
                       tickLine={false}
                       axisLine={false}
+                      tick={{ fill: "var(--foreground)" }}
                     />
 
                     <Area
