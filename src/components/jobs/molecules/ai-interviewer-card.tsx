@@ -22,11 +22,11 @@ export function AIInterviewerCard({
             Your AI Interviewer
           </h3>
           <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            Meet Alex, your specialized AI interviewer trained in{" "}
+            Meet your specialized AI interviewer trained in{" "}
             <span className="font-medium text-foreground">{jobCompany}</span>{" "}
             interview practices and{" "}
             <span className="font-medium text-foreground">{jobTitle}</span> role
-            requirements. Alex will adapt questions based on your responses and
+            requirements. They will adapt questions based on your responses and
             provide real-time feedback.
           </p>
         </div>

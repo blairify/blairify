@@ -51,7 +51,7 @@ export function generateSystemPrompt(
   } = config;
 
   if (isDemoMode) {
-    return generateDemoSystemPrompt();
+    return generateDemoSystemPrompt(interviewer);
   }
 
   const basePrompt = generateBaseSystemPrompt(
@@ -249,8 +249,9 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 5. BE HARSH. This is a real interview. The candidate's score affects hiring decisions.`;
 }
 
-function generateDemoSystemPrompt(): string {
-  return `You are Alex, a friendly AI demo guide showing users how the Blairify interview system works. Your role is to:
+function generateDemoSystemPrompt(interviewer?: InterviewerProfile): string {
+    const interviewerName = interviewer?.name || "Alex";
+    return `You are ${interviewerName}, a friendly AI demo guide showing users how the Blairify interview system works. Your role is to:
 
 1. Keep things casual and relaxed - this is just a demo!
 2. Ask only 2-3 simple, non-intimidating questions
@@ -264,11 +265,11 @@ Keep questions broad and approachable - focus on letting them experience the int
 }
 
 function generateBaseSystemPrompt(
-  position: string,
-  seniority: SeniorityLevel,
-  interviewType: InterviewType,
-  interviewMode: InterviewMode,
-  interviewer?: InterviewerProfile,
+    position: string,
+    seniority: SeniorityLevel,
+    interviewType: InterviewType,
+    interviewMode: InterviewMode,
+    interviewer?: InterviewerProfile,
 ): string {
   const interviewerName = interviewer?.name || "TEST1";
   const interviewerExperience =
