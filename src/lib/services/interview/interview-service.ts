@@ -116,8 +116,14 @@ export function shouldGenerateFollowUp(
   if (config.seniority === "junior" && characteristics.responseLength > 300)
     followUpScore += 1;
 
-  const randomBoost = Math.random() > 0.8 ? 1 : 0;
-  followUpScore += randomBoost;
+  if (
+    config.interviewMode === "regular" ||
+    config.interviewMode === "practice"
+  ) {
+    followUpScore += 1;
+  } else if (config.interviewMode === "flash") {
+    followUpScore -= 1;
+  }
 
   return followUpScore >= SCORING_THRESHOLDS.followUpScoreThreshold;
 }
@@ -183,7 +189,7 @@ export function analyzeResponseQuality(
     Math.min(
       100,
       (substantiveResponses / Math.max(totalQuestions, 1)) * 100 -
-        (poorResponses / Math.max(totalQuestions, 1)) * 50,
+      (poorResponses / Math.max(totalQuestions, 1)) * 50,
     ),
   );
 

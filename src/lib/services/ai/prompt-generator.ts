@@ -108,7 +108,7 @@ export function generateUserPrompt(
   }
 
   if (isFollowUp) {
-    return generateFollowUpPrompt(userMessage);
+    return generateFollowUpPrompt(userMessage, conversationHistory, config);
   }
 
   const totalQuestions = isUnlimitedMode(config.interviewMode)
@@ -250,8 +250,8 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 }
 
 function generateDemoSystemPrompt(interviewer?: InterviewerProfile): string {
-    const interviewerName = interviewer?.name || "Alex";
-    return `You are ${interviewerName}, a friendly AI demo guide showing users how the Blairify interview system works. Your role is to:
+  const interviewerName = interviewer?.name || "Alex";
+  return `You are ${interviewerName}, a friendly AI demo guide showing users how the Blairify interview system works. Your role is to:
 
 1. Keep things casual and relaxed - this is just a demo!
 2. Ask only 2-3 simple, non-intimidating questions
@@ -265,11 +265,11 @@ Keep questions broad and approachable - focus on letting them experience the int
 }
 
 function generateBaseSystemPrompt(
-    position: string,
-    seniority: SeniorityLevel,
-    interviewType: InterviewType,
-    interviewMode: InterviewMode,
-    interviewer?: InterviewerProfile,
+  position: string,
+  seniority: SeniorityLevel,
+  interviewType: InterviewType,
+  interviewMode: InterviewMode,
+  interviewer?: InterviewerProfile,
 ): string {
   const interviewerName = interviewer?.name || "TEST1";
   const interviewerExperience =
@@ -494,10 +494,56 @@ function getJobSpecificPrompt(
   return prompt;
 }
 
-function generateFollowUpPrompt(userMessage: string): string {
-  return `The candidate just responded: "${userMessage}"
+function generateFollowUpPrompt(
+  userMessage: string,
+  conversationHistory: Message[],
+  config: InterviewConfig,
+): string {
+  const lastMainQuestion = [...conversationHistory]
+    .reverse()
+    .find((msg) => msg.type === "ai" && !msg.isFollowUp);
+
+  const questionContext = lastMainQuestion
+    ? `You previously asked this question:\n"${lastMainQuestion.content}"\n\n`
+    : "";
+
+  if (config.interviewMode === "flash") {
+    return `${questionContext}The candidate just responded: "${userMessage}"
+
+Ask one very brief follow-up question (1-2 short sentences) that clarifies a key detail from their answer. Do not introduce new topics and keep it quick, since this is a flash interview.`;
+  }
+
+  if (
+    config.interviewMode === "regular" ||
+    config.interviewMode === "practice"
+  ) {
+    return `${questionContext}The candidate just responded: "${userMessage}"
 
 Based on their response, ask a thoughtful follow-up question that digs deeper into their understanding or asks them to elaborate on a specific aspect. Keep it related to the current topic.`;
+  }
+
+  switch (config.interviewMode) {
+    case "play": {
+      return `${questionContext}The candidate just responded: "${userMessage}"
+
+Ask a concise follow-up question that keeps the conversation engaging while staying on the same topic. Keep it light and quick.`;
+    }
+    case "competitive": {
+      return `${questionContext}The candidate just responded: "${userMessage}"
+
+Ask a single sharp follow-up question that probes the depth of their understanding on this topic. Stay focused and concise.`;
+    }
+    case "teacher": {
+      return `${questionContext}The candidate just responded: "${userMessage}"
+
+Ask a clarifying follow-up question that helps reveal gaps in understanding, then briefly guide them toward what a strong answer would include. Keep the tone supportive.`;
+    }
+  }
+
+  const _never: never = config.interviewMode;
+  throw new Error(
+    `Unhandled interview mode in generateFollowUpPrompt: ${_never}`,
+  );
 }
 
 function generateUnknownResponsePrompt(
@@ -509,7 +555,7 @@ function generateUnknownResponsePrompt(
 
 The candidate indicated they don't know the answer or skipped the question. Acknowledge this professionally and move to the next question. Ask a different ${config.interviewType} question appropriate for a ${config.seniority}-level ${config.position} position that covers a different topic area. 
 
-Be encouraging and supportive - it's normal not to know everything. Consider asking about a topic they might be more familiar with based on the conversation so far.
+Be encouraging and supportive without using enthusiastic praise (for example, do NOT say things like "Great answer" or "Perfect" here, because they did not provide a correct answer). Normalize that it's okay not to know everything, and consider asking about a topic they might be more familiar with based on the conversation so far.
 
 This is question ${questionCount + 1} of the interview.`;
 }
@@ -666,11 +712,10 @@ Since no practice library questions are available for this specific configuratio
    - ${categoryDescription[config.interviewType]}
 
 3. **Technology Relevance**:
-   ${
-     config.technologies.length > 0
-       ? `- Focus on: ${config.technologies.join(", ")}\n   - Questions should test practical knowledge of these technologies`
-       : "- Use general technical questions appropriate for the position"
-   }
+   ${config.technologies.length > 0
+      ? `- Focus on: ${config.technologies.join(", ")}\n   - Questions should test practical knowledge of these technologies`
+      : "- Use general technical questions appropriate for the position"
+    }
 
 4. **Question Structure**:
    - Start with easier warm-up questions
