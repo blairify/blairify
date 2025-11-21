@@ -35,7 +35,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
           {/* Job Listings - Left Side */}
-          <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-left-8 duration-1000 delay-200 order-last lg:order-first">
+          <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-left-8 duration-1000 delay-200 order-last lg:order-first max-w-xl mx-auto lg:mx-0">
             <ul
               className="grid grid-cols-1 sm:grid-cols-2 gap-4"
               aria-label="Featured job opportunities"
@@ -113,7 +113,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
             </ul>
           </div>
 
-          <div className="space-y-4 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-left lg:text-left">
+          <div className="space-y-4 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col items-center lg:items-start justify-center text-center lg:text-left max-w-xl mx-auto lg:mx-0">
             <div className="space-y-4 sm:space-y-6">
               <h2
                 id="job-listings-heading"
@@ -128,27 +128,27 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
               </p>
             </div>
 
-            <div className="space-y-2">
-              <div className="flex items-center justify-left lg:justify-start gap-3">
+            <div className="space-y-2 max-w-xl mx-auto lg:mx-0">
+              <div className="flex items-center justify-center lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   Real job postings from top companies
                 </span>
               </div>
-              <div className="flex items-center justify-left lg:justify-start gap-3">
+              <div className="flex items-center justify-center lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   Position-specific interview preparation
                 </span>
               </div>
 
-              <div className="flex items-center justify-left lg:justify-start gap-3">
+              <div className="flex items-center justify-center lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   A stressless way to pepare for your next interview
                 </span>
               </div>
-              <div className="flex items-center justify-left lg:justify-start gap-3">
+              <div className="flex items-center justify-center lg:justify-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-sm text-muted-foreground">
                   First ever AI-powered job interview preparation tool
@@ -156,7 +156,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-left lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
                 onClick={() => router.push("/jobs")}
                 aria-label="Browse All Jobs"

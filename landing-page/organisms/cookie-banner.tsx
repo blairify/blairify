@@ -2,6 +2,7 @@
 
 import { Timestamp } from "firebase/firestore";
 import { Cookie, Settings, Shield, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -50,6 +51,7 @@ const COOKIE_NAME = "Blairify-cookie-consent";
 
 export const CookieBanner = () => {
   const { user } = useAuth();
+  const pathname = usePathname();
   const [showBanner, setShowBanner] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -258,8 +260,10 @@ export const CookieBanner = () => {
     setShowDetails(false);
   };
 
+  const isConfigureFlow = pathname?.startsWith("/configure");
+
   // Render floating cookie button when banner is hidden but user has consented
-  if (!showBanner && showFloatingButton) {
+  if (!showBanner && showFloatingButton && !isConfigureFlow) {
     return (
       <div className="fixed bottom-4 left-4 z-50">
         <Button

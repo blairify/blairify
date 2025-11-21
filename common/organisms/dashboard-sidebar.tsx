@@ -271,7 +271,7 @@ export default function DashboardSidebar({
       {sidebarOpen && (
         <button
           type="button"
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden border-0 p-0 w-full h-full"
+          className="fixed inset-0 bg-background/80 z-40 lg:hidden border-0 p-0 w-full h-full"
           onClick={() => setSidebarOpen(false)}
           onKeyDown={(e) => {
             if (e.key === "Escape") {
