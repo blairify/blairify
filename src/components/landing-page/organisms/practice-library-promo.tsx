@@ -69,7 +69,7 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
     <section className="max-w-7xl mx-auto py-12 sm:py-16 lg:py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-stretch auto-rows-min">
-          <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 text-center lg:text-left order-first lg:order-last">
+          <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col items-center lg:items-start text-center lg:text-left order-first lg:order-last max-w-xl mx-auto lg:mx-0">
             <div className="space-y-3 sm:space-y-4">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
                 Practice Library
@@ -81,7 +81,7 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
                 <div className="text-2xl font-bold text-primary mb-1">500+</div>
                 <div className="text-sm text-muted-foreground">
@@ -142,7 +142,9 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
               return (
                 <div
                   key={question.id}
-                  className={`h-full [perspective:1000px] ${index >= 2 ? "hidden sm:block" : ""}`}
+                  className={`h-full min-h-[200px] sm:min-h-[230px] [perspective:1000px] ${
+                    index >= 2 ? "hidden sm:block" : ""
+                  }`}
                 >
                   <Card
                     role="button"

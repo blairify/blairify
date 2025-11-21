@@ -142,7 +142,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
 
   if (!hasData) {
     return (
-      <div className="space-y-6">
+      <div className="space-y-6 max-w-xl mx-auto md:max-w-none md:mx-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
@@ -214,7 +214,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-xl mx-auto md:max-w-none md:mx-0">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

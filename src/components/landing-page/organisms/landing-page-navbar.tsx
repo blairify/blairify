@@ -1,6 +1,14 @@
 "use client";
 
-import { HelpCircle, LogOut, Menu, Settings, User, X } from "lucide-react";
+import {
+  HelpCircle,
+  Home,
+  LogOut,
+  Menu,
+  Settings,
+  User,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -309,7 +317,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/50 transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <Settings className="h-5 w-5 text-muted-foreground" />
+                      <Home className="h-5 w-5 text-muted-foreground" />
                       <span className="font-medium">Dashboard</span>
                     </Link>
                     <button

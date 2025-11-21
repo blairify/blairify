@@ -375,7 +375,7 @@ export function PracticeFlashcardsGrid({
                     }}
                   >
                     <div
-                      className={`absolute inset-0 rounded-lg border border-border bg-background shadow-sm hover:shadow-lg p-5 backface-hidden transition-shadow duration-300 ${
+                      className={`absolute inset-0 rounded-lg border border-border bg-background shadow-sm hover:shadow-lg px-5 pt-5 pb-6 backface-hidden transition-shadow duration-300 ${
                         isFlipped ? "invisible" : "visible"
                       }`}
                       style={{
@@ -392,16 +392,16 @@ export function PracticeFlashcardsGrid({
                             >
                               {question.difficulty}
                             </Badge>
-                            <div className="flex items-center gap-1.5 text-xs text-muted-foreground bg-blue-100 dark:bg-blue-950/50 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-900/50">
+                            <div className="flex items-center gap-1 text-[11px] text-muted-foreground">
                               <RotateCcw className="size-3" />
-                              <span className="font-medium">Click to flip</span>
+                              <span>Tap to flip</span>
                             </div>
                           </div>
                           <h3 className="font-bold text-lg line-clamp-2 text-slate-900 dark:text-slate-100 mb-2">
                             {question.title}
                           </h3>
                           {question.companies?.[0] && (
-                            <div className="flex items-center gap-1.5 text-xs text-muted-foreground bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-full w-fit">
+                            <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-[11px] text-muted-foreground">
                               <Building2 className="size-3.5" />
                               <span className="font-medium">
                                 {question.companies[0].name}
@@ -420,31 +420,33 @@ export function PracticeFlashcardsGrid({
                         </div>
 
                         {question.tags && question.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
-                            {question.tags.slice(0, 3).map((tag: string) => (
-                              <Badge
-                                key={tag}
-                                variant="secondary"
-                                className="text-xs px-2.5 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-                              >
-                                {tag}
-                              </Badge>
-                            ))}
-                            {question.tags.length > 3 && (
-                              <Badge
-                                variant="secondary"
-                                className="text-xs px-2.5 py-1 bg-slate-100 dark:bg-slate-800"
-                              >
-                                +{question.tags.length - 3}
-                              </Badge>
-                            )}
+                          <div className="mt-4 pt-3 pb-2 px-3 border-t border-border/60">
+                            <div className="flex flex-wrap gap-1.5">
+                              {question.tags.slice(0, 3).map((tag: string) => (
+                                <Badge
+                                  key={tag}
+                                  variant="outline"
+                                  className="text-[11px] px-2 py-0.5 rounded-full"
+                                >
+                                  {tag}
+                                </Badge>
+                              ))}
+                              {question.tags.length > 3 && (
+                                <Badge
+                                  variant="outline"
+                                  className="text-[11px] px-2 py-0.5 rounded-full text-muted-foreground"
+                                >
+                                  +{question.tags.length - 3}
+                                </Badge>
+                              )}
+                            </div>
                           </div>
                         )}
                       </div>
                     </div>
 
                     <div
-                      className={`absolute inset-0 rounded-lg border border-border bg-background shadow-sm hover:shadow-lg p-5 backface-hidden transition-shadow duration-300 ${
+                      className={`absolute inset-0 rounded-lg border border-border bg-background shadow-sm hover:shadow-lg px-5 pt-5 pb-6 backface-hidden transition-shadow duration-300 ${
                         isFlipped ? "visible" : "invisible"
                       }`}
                       style={{
@@ -484,14 +486,14 @@ export function PracticeFlashcardsGrid({
 
                         {question.primaryTechStack &&
                           question.primaryTechStack.length > 0 && (
-                            <div className="mt-4 pt-4 border-t border-emerald-200 dark:border-emerald-900/50">
+                            <div className="mt-4 pt-3 pb-2 px-3 border-t border-emerald-200 dark:border-emerald-900/50">
                               <div className="flex items-center gap-1.5 mb-2">
                                 <Zap className="size-3.5 text-emerald-600 dark:text-emerald-400" />
                                 <p className="text-xs font-semibold text-emerald-900 dark:text-emerald-100">
                                   Tech Stack
                                 </p>
                               </div>
-                              <div className="flex flex-wrap gap-2">
+                              <div className="flex flex-wrap gap-1.5">
                                 {question.primaryTechStack
                                   .slice(0, 4)
                                   .map((tech: string) => (

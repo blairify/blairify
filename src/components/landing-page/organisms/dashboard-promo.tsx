@@ -35,7 +35,7 @@ export function DashboardPromo() {
     <section className="max-w-7xl mx-auto py-12 sm:py-16 lg:py-20 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
-          <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-left-8 duration-1000 delay-200 flex flex-col justify-center text-center lg:text-left">
+          <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-left-8 duration-1000 delay-200 flex flex-col items-center lg:items-start justify-center text-center lg:text-left max-w-xl mx-auto lg:mx-0">
             <div className="space-y-4 sm:space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
                 Performance Analytics
@@ -45,7 +45,7 @@ export function DashboardPromo() {
                 scores, identify strengths, and focus on areas for improvement.
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
                 <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
                 <div className="text-xs sm:text-sm font-medium">Analytics</div>
@@ -62,20 +62,20 @@ export function DashboardPromo() {
               </div>
             </div>
 
-            <ul className="space-y-2">
-              <li className="flex items-center gap-3">
+            <ul className="space-y-2 max-w-xl mx-auto lg:mx-0">
+              <li className="flex items-center gap-3 justify-center lg:justify-start">
                 <div className="w-2 h-2 bg-primary rounded-full" />
                 <span className="text-sm text-muted-foreground">
                   Real-time performance tracking
                 </span>
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-center gap-3 justify-center lg:justify-start">
                 <div className="w-2 h-2 bg-primary rounded-full" />
                 <span className="text-sm text-muted-foreground">
                   Personalized improvement recommendations
                 </span>
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-center gap-3 justify-center lg:justify-start">
                 <div className="w-2 h-2 bg-primary rounded-full" />
                 <span className="text-sm text-muted-foreground">
                   Detailed session history and analytics
@@ -93,8 +93,8 @@ export function DashboardPromo() {
               </Button>
             </div>
           </div>
-          <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-center order-last">
-            <Card className="border-border bg-card">
+          <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-center order-last max-w-xl w-full mx-auto lg:mx-0">
+            <Card className="border-border bg-card w-full">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Activity className="h-5 w-5 text-primary" />
@@ -105,7 +105,7 @@ export function DashboardPromo() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="text-muted-foreground">
-                <ResponsiveContainer width="100%" height={300}>
+                <ResponsiveContainer width="100%" aspect={2.2}>
                   <AreaChart data={weeklyActivityData}>
                     <defs>
                       <linearGradient

@@ -8,7 +8,7 @@ export default function SettingsPage() {
 
   useEffect(() => {
     // Redirect to dashboard immediately
-    router.replace("/dashboard");
+    router.replace("/profile");
   }, [router]);
 
   // Return null to prevent any rendering
