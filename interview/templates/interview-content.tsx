@@ -40,6 +40,7 @@ interface ChatInterviewResponse {
   isComplete?: boolean;
   terminatedForProfanity?: boolean;
   terminatedForBehavior?: boolean;
+  aiErrorType?: string;
 }
 
 export function InterviewContent({ user }: InterviewContentProps) {
@@ -93,13 +94,30 @@ export function InterviewContent({ user }: InterviewContentProps) {
     window.location.href = "/results";
   };
 
+  const handleTimeUp = () => {
+    if (session.isComplete || interviewCompletedRef.current) {
+      return;
+    }
+
+    const timeoutMessage: Message = {
+      id: Date.now().toString(),
+      type: "ai",
+      content:
+        "Our time is up. I'll now analyze your responses and prepare your results.",
+      timestamp: new Date(),
+    };
+
+    addMessage(timeoutMessage);
+    markInterviewComplete();
+  };
+
   const timeRemaining = useInterviewTimer(
     config,
     mounted,
     isInterviewStarted,
     session.isPaused,
     session.isComplete,
-    markInterviewComplete,
+    handleTimeUp,
   );
 
   const { isListening, startSpeechRecognition, stopSpeechRecognition } =
@@ -307,10 +325,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
       const data: ChatInterviewResponse = await response.json();
 
       if (data.success) {
-        if (interviewCompletedRef.current) {
-          return;
-        }
-
         const aiMessage: Message = {
           id: (Date.now() + 1).toString(),
           type: "ai",
@@ -321,6 +335,16 @@ export function InterviewContent({ user }: InterviewContentProps) {
         };
 
         addMessage(aiMessage);
+
+        if (data.aiErrorType === "timeout") {
+          addMessage({
+            id: (Date.now() + 2).toString(),
+            type: "ai",
+            content:
+              "The interview AI timed out briefly, so I used a reliable fallback question. You can continue answering as normal.",
+            timestamp: new Date(),
+          });
+        }
 
         if (data.warningCount !== undefined) {
           setWarningCount(data.warningCount);
@@ -382,6 +406,14 @@ export function InterviewContent({ user }: InterviewContentProps) {
       }
     } catch (error) {
       console.error("Error sending message:", error);
+      const errorMessage =
+        error instanceof Error ? error.message : "Failed to send message";
+      addMessage({
+        id: Date.now().toString(),
+        type: "ai",
+        content: `I ran into a problem processing your last response: ${errorMessage}. Your answer above is saved in the transcript. Please try sending again in a moment.`,
+        timestamp: new Date(),
+      });
     } finally {
       setIsLoading(false);
     }
@@ -426,10 +458,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
         const data: ChatInterviewResponse = await response.json();
 
         if (data.success) {
-          if (interviewCompletedRef.current) {
-            return;
-          }
-
           const aiMessage: Message = {
             id: (Date.now() + 1).toString(),
             type: "ai",
@@ -531,10 +559,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
       const data = await response.json();
 
       if (data.success) {
-        if (interviewCompletedRef.current) {
-          return;
-        }
-
         const aiMessage: Message = {
           id: Date.now().toString(),
           type: "ai",
