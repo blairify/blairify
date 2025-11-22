@@ -4,6 +4,7 @@ import {
   generateSystemPrompt,
   generateUserPrompt,
   getDatabaseQuestionsPrompt,
+  getInterviewerForCompanyAndRole,
   getInterviewerForRole,
   validateInterviewConfig,
 } from "@/lib/interview";
@@ -41,7 +42,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const interviewer = getInterviewerForRole(interviewConfig.position);
+    const interviewer = interviewConfig.specificCompany
+      ? getInterviewerForCompanyAndRole(
+          interviewConfig.specificCompany,
+          interviewConfig.position,
+        )
+      : getInterviewerForRole(interviewConfig.position);
 
     const { getQuestionCountForMode } = await import("@/lib/interview");
     const totalQuestions = getQuestionCountForMode(

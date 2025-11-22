@@ -1,8 +1,8 @@
 import {
-  DEFAULT_INTERVIEW_CONFIG,
   QUESTION_TYPE_MAPPINGS,
   SCORING_THRESHOLDS,
 } from "@/lib/config/interview-config";
+import { getQuestionCountForMode } from "@/lib/utils/interview-helpers";
 import {
   analyzeResponseCharacteristics,
   isUnknownResponse,
@@ -44,23 +44,7 @@ export function determineQuestionType(
 }
 
 export function calculateTotalQuestions(config: InterviewConfig): number {
-  if (config.isDemoMode) {
-    return DEFAULT_INTERVIEW_CONFIG.totalQuestions.demo;
-  }
-
-  switch (config.interviewType) {
-    case "technical":
-      return DEFAULT_INTERVIEW_CONFIG.totalQuestions.technical;
-    case "bullet":
-      return DEFAULT_INTERVIEW_CONFIG.totalQuestions.bullet;
-    case "coding":
-      return DEFAULT_INTERVIEW_CONFIG.totalQuestions.coding;
-    case "system-design":
-      return DEFAULT_INTERVIEW_CONFIG.totalQuestions["system-design"];
-  }
-
-  const _never: never = config.interviewType;
-  throw new Error(`Unhandled interview type for totalQuestions: ${_never}`);
+  return getQuestionCountForMode(config.interviewMode, config.isDemoMode);
 }
 
 export function shouldGenerateFollowUp(

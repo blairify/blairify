@@ -3,6 +3,7 @@ import {
   determineQuestionType,
   generateSystemPrompt,
   generateUserPrompt,
+  getInterviewerForCompanyAndRole,
   getInterviewerForRole,
   getQuestionCountForMode,
   validateInterviewConfig,
@@ -46,7 +47,12 @@ export async function POST(request: NextRequest) {
     }
 
     // Select interviewer based on role
-    const interviewer = getInterviewerForRole(interviewConfig.position);
+    const interviewer = interviewConfig.specificCompany
+      ? getInterviewerForCompanyAndRole(
+          interviewConfig.specificCompany,
+          interviewConfig.position,
+        )
+      : getInterviewerForRole(interviewConfig.position);
 
     // Generate next question after skipping
     const systemPrompt = generateSystemPrompt(interviewConfig, interviewer);

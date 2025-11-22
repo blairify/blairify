@@ -3,6 +3,7 @@ import {
   determineQuestionType,
   generateSystemPrompt,
   generateUserPrompt,
+  getInterviewerForCompanyAndRole,
   getInterviewerForRole,
   getQuestionCountForMode,
   shouldGenerateFollowUp,
@@ -154,7 +155,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const interviewer = getInterviewerForRole(interviewConfig.position);
+    const interviewer = interviewConfig.specificCompany
+      ? getInterviewerForCompanyAndRole(
+          interviewConfig.specificCompany,
+          interviewConfig.position,
+        )
+      : getInterviewerForRole(interviewConfig.position);
 
     const maxQuestions =
       totalQuestions ||
@@ -271,6 +277,7 @@ export async function POST(request: NextRequest) {
       validated: aiResponse.success,
       isFollowUp: effectiveIsFollowUp,
       isComplete: shouldComplete,
+      aiErrorType: usedFallback ? aiResponse.error : undefined,
     });
   } catch (error) {
     console.error("Interview message API error:", error);
