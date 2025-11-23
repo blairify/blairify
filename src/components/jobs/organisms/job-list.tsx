@@ -9,6 +9,7 @@ import {
   FiList,
   FiMapPin,
 } from "react-icons/fi";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 
 interface Job {
@@ -221,15 +222,17 @@ export default function JobList({
 
         {/* Jobs */}
         {loading ? (
-          <p className="text-muted-foreground animate-pulse mt-4">
+          <Typography.Body color="secondary" className="animate-pulse mt-4">
             Loading jobs...
-          </p>
+          </Typography.Body>
         ) : error ? (
-          <p className="text-destructive mt-4">{error}</p>
+          <Typography.Body color="error" className="mt-4">
+            {error}
+          </Typography.Body>
         ) : filteredJobs.length === 0 ? (
-          <p className="text-muted-foreground mt-4">
+          <Typography.Body color="secondary" className="mt-4">
             No active programming jobs found.
-          </p>
+          </Typography.Body>
         ) : (
           <div className="px-6">
             {viewMode === "grid" ? (
@@ -240,12 +243,12 @@ export default function JobList({
                     className="flex flex-col justify-between p-4 border border-border rounded-lg bg-background shadow hover:shadow-lg transition group"
                   >
                     <div className="space-y-1">
-                      <h3 className="text-md md:text-lg font-semibold text-primary">
+                      <Typography.Heading3 color="primary">
                         {job.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
+                      </Typography.Heading3>
+                      <Typography.Caption color="secondary" className="block">
                         {job.company?.name || "Unknown Company"}
-                      </p>
+                      </Typography.Caption>
                       <div className="flex flex-wrap text-xs text-muted-foreground gap-2 mt-1">
                         <span className="flex items-center gap-1">
                           <FiMapPin className="inline" />
@@ -295,12 +298,12 @@ export default function JobList({
                   >
                     <div className="flex-1 space-y-2">
                       <div>
-                        <h3 className="text-lg font-semibold text-primary">
+                        <Typography.Heading3 color="primary">
                           {job.name}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
+                        </Typography.Heading3>
+                        <Typography.Caption color="secondary" className="block">
                           {job.company?.name || "Unknown Company"}
-                        </p>
+                        </Typography.Caption>
                       </div>
                       <div className="flex flex-wrap text-xs text-muted-foreground gap-4">
                         <span className="flex items-center gap-1">

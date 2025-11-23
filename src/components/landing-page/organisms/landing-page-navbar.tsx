@@ -230,9 +230,9 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                 aria-controls="mobile-menu"
               >
                 {isMobileMenuOpen ? (
-                  <X className="h-5 w-5" aria-hidden="true" />
+                  <X className="size-5" aria-hidden="true" />
                 ) : (
-                  <Menu className="h-5 w-5" aria-hidden="true" />
+                  <Menu className="size-5" aria-hidden="true" />
                 )}
               </Button>
             </div>
@@ -309,7 +309,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/50 transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <User className="h-5 w-5 text-muted-foreground" />
+                      <User className="size-5 text-muted-foreground" />
                       <span className="font-medium">Profile</span>
                     </Link>
                     <Link
@@ -317,7 +317,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/50 transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <Home className="h-5 w-5 text-muted-foreground" />
+                      <Home className="size-5 text-muted-foreground" />
                       <span className="font-medium">Dashboard</span>
                     </Link>
                     <button
@@ -328,7 +328,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       }}
                       className="flex items-center gap-3 p-3 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors w-full text-left text-red-600"
                     >
-                      <LogOut className="h-5 w-5" />
+                      <LogOut className="size-5" />
                       <span className="font-medium">Sign out</span>
                     </button>
                   </div>

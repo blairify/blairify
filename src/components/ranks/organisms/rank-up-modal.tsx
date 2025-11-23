@@ -2,6 +2,7 @@
 
 import { Sparkles, Trophy, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Rank } from "@/lib/ranks";
@@ -91,7 +92,7 @@ export function RankUpModal({
                   <div
                     key={i}
                     className={cn(
-                      "absolute w-2 h-2 rounded-full animate-confetti",
+                      "absolute size-2 rounded-full animate-confetti",
                       newRank.badge.bg,
                     )}
                     style={{
@@ -111,7 +112,7 @@ export function RankUpModal({
               className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors z-10"
               aria-label="Close"
             >
-              <X className="w-5 h-5" />
+              <X className="size-5" />
             </button>
 
             {/* Content */}
@@ -132,14 +133,14 @@ export function RankUpModal({
               </div>
 
               {/* Title */}
-              <h2 className="text-3xl font-bold mb-2 flex items-center justify-center gap-2">
-                <span>Rank Up!</span>
+              <Typography.Heading2 className="mb-2 flex items-center justify-center gap-2">
+                Rank Up!
                 <Sparkles className="w-6 h-6 text-yellow-500 animate-pulse" />
-              </h2>
+              </Typography.Heading2>
 
-              <p className="text-muted-foreground mb-6">
+              <Typography.Body color="secondary" className="mb-6">
                 You've reached a new rank!
-              </p>
+              </Typography.Body>
 
               {/* Rank comparison */}
               <div className="flex items-center justify-center gap-6 mb-6">
@@ -182,9 +183,12 @@ export function RankUpModal({
               {/* New perks */}
               {newRank.perks.length > 0 && (
                 <div className="mb-6">
-                  <h3 className="text-sm font-semibold mb-2 text-muted-foreground">
+                  <Typography.CaptionBold
+                    color="secondary"
+                    className="mb-2 block"
+                  >
                     New Perks Unlocked:
-                  </h3>
+                  </Typography.CaptionBold>
                   <ul className="space-y-1">
                     {newRank.perks.map((perk, index) => (
                       <li

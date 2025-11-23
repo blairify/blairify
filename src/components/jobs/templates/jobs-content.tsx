@@ -23,6 +23,7 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import useSWR from "swr";
+import { Typography } from "@/components/common/atoms/typography";
 import { JobCard } from "@/components/jobs/molecules/job-card";
 import { InterviewPreparationModal } from "@/components/jobs/organisms/interview-preparation-modal";
 import { Badge } from "@/components/ui/badge";
@@ -412,9 +413,9 @@ export function JobsContent() {
               <div className="bg-card/50 backdrop-blur-sm border border-border/60 rounded-xl p-6 shadow-lg space-y-5 animate-in fade-in-0 slide-in-from-top-2 duration-300">
                 <div className="flex items-center gap-2 pb-2 border-b border-border/50">
                   <SlidersHorizontal className="h-4 w-4 text-primary" />
-                  <h3 className="text-sm font-semibold text-foreground">
+                  <Typography.Heading3 className="text-sm font-semibold text-foreground">
                     Advanced Filters
-                  </h3>
+                  </Typography.Heading3>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -689,7 +690,9 @@ export function JobsContent() {
       <section className="container mx-auto px-6 py-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-2">
-            <h2 className="text-2xl font-semibold">Available Jobs</h2>
+            <Typography.Heading2 className="text-2xl font-semibold">
+              Available Jobs
+            </Typography.Heading2>
             {data && (
               <Badge variant="secondary">
                 {data.total.toLocaleString("fr-FR")} positions
@@ -757,9 +760,9 @@ export function JobsContent() {
         {/* Jobs Grid */}
         {!error && !isLoading && data?.results.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground text-lg">
+            <Typography.Body className="text-muted-foreground text-lg">
               No jobs found matching your criteria.
-            </p>
+            </Typography.Body>
             <Button
               onClick={clearFilters}
               className="mt-4 bg-transparent"

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Typography } from "@/components/common/atoms/typography";
 import Footer from "@/components/common/organisms/footer";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
@@ -27,13 +28,17 @@ export default function CookiePolicyPage() {
       <main className="min-h-screen bg-background pt-20">
         <div className="container mx-auto px-6 py-12 max-w-4xl">
           <div className="prose prose-lg max-w-none dark:prose-invert">
-            <h1 className="text-4xl font-bold mb-4">Cookie Policy</h1>
+            <Typography.Heading1 className="mb-4">
+              Cookie Policy
+            </Typography.Heading1>
             <p className="text-muted-foreground mb-8">
               Last Updated: October 24, 2025
             </p>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">What Are Cookies?</h2>
+              <Typography.Heading2 className="mb-4">
+                What Are Cookies?
+              </Typography.Heading2>
               <p className="mb-4">
                 Cookies are small text files that are stored on your device
                 (computer, tablet, or mobile phone) when you visit websites.
@@ -46,9 +51,9 @@ export default function CookiePolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 How We Use Cookies
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Blairify uses cookies to provide essential functionality and to
                 improve your experience on our platform. We are transparent
@@ -59,9 +64,9 @@ export default function CookiePolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Types of Cookies We Use
-              </h2>
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">Essential Cookies</h3>
               <p className="mb-4">
@@ -104,9 +109,9 @@ export default function CookiePolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Detailed Cookie Information
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 The following table provides specific information about the
                 cookies used on Blairify, including their names, purposes,
@@ -192,9 +197,9 @@ export default function CookiePolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Managing Your Cookie Preferences
-              </h2>
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">Through Blairify</h3>
               <p className="mb-4">
@@ -240,9 +245,9 @@ export default function CookiePolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Third-Party Cookies
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Blairify uses minimal third-party services to provide our
                 platform. Our cloud hosting provider may set cookies necessary
@@ -258,9 +263,9 @@ export default function CookiePolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Do Not Track Signals
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Some web browsers include a "Do Not Track" (DNT) feature that
                 signals to websites that you do not want to be tracked. We
@@ -276,7 +281,9 @@ export default function CookiePolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Cookie Consent</h2>
+              <Typography.Heading2 className="mb-4">
+                Cookie Consent
+              </Typography.Heading2>
               <p className="mb-4">
                 When you first visit Blairify, you will see a cookie consent
                 banner that explains our use of cookies. You can choose to
@@ -291,9 +298,9 @@ export default function CookiePolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Updates to This Policy
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 We may update this Cookie Policy from time to time to reflect
                 changes in our cookie practices, technology, or legal
@@ -306,7 +313,9 @@ export default function CookiePolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+              <Typography.Heading2 className="mb-4">
+                Contact Us
+              </Typography.Heading2>
               <p className="mb-4">
                 If you have questions about our use of cookies or this Cookie
                 Policy, please contact us at blairify.team@gmail.com. We are

@@ -12,6 +12,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -174,7 +175,9 @@ export function PracticeFlashcardsGrid({
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-center space-y-4">
           <Loader2 className="size-8 animate-spin mx-auto text-primary" />
-          <p className="text-muted-foreground">Loading questions...</p>
+          <Typography.Body color="secondary">
+            Loading questions...
+          </Typography.Body>
         </div>
       </div>
     );
@@ -185,10 +188,12 @@ export function PracticeFlashcardsGrid({
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-center space-y-4 max-w-md">
           <div className="p-4 bg-destructive/10 rounded-lg">
-            <p className="text-destructive font-medium">
+            <Typography.BodyMedium color="error">
               Error Loading Questions
-            </p>
-            <p className="text-sm text-muted-foreground mt-2">{error}</p>
+            </Typography.BodyMedium>
+            <Typography.Caption color="secondary" className="mt-2 block">
+              {error}
+            </Typography.Caption>
           </div>
           <Button onClick={() => window.location.reload()}>Try Again</Button>
         </div>
@@ -201,7 +206,9 @@ export function PracticeFlashcardsGrid({
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-center space-y-4">
           <BookOpen className="size-12 mx-auto text-muted-foreground" />
-          <p className="text-muted-foreground">No questions available yet.</p>
+          <Typography.Body color="secondary">
+            No questions available yet.
+          </Typography.Body>
         </div>
       </div>
     );
@@ -214,12 +221,12 @@ export function PracticeFlashcardsGrid({
           {/* Header */}
           <div className="flex items-center justify-between gap-3 mb-6">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+              <Typography.Heading1 color="primary">
                 Practice Library
-              </h1>
-              <p className="text-sm md:text-base text-muted-foreground">
+              </Typography.Heading1>
+              <Typography.Body color="secondary">
                 Study interview questions with interactive flashcards
-              </p>
+              </Typography.Body>
             </div>
           </div>
 
@@ -352,9 +359,9 @@ export function PracticeFlashcardsGrid({
         {/* Flashcards Grid */}
         {filteredQuestions.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">
+            <Typography.Body color="secondary">
               No questions match your filters. Try adjusting your search.
-            </p>
+            </Typography.Body>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -397,9 +404,12 @@ export function PracticeFlashcardsGrid({
                               <span>Tap to flip</span>
                             </div>
                           </div>
-                          <h3 className="font-bold text-lg line-clamp-2 text-slate-900 dark:text-slate-100 mb-2">
+                          <Typography.Heading3
+                            color="primary"
+                            className="mb-2 line-clamp-2"
+                          >
                             {question.title}
-                          </h3>
+                          </Typography.Heading3>
                           {question.companies?.[0] && (
                             <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-[11px] text-muted-foreground">
                               <Building2 className="size-3.5" />
@@ -461,18 +471,18 @@ export function PracticeFlashcardsGrid({
                               <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg shadow-sm shadow-emerald-500/30">
                                 <CheckCircle2 className="size-4 text-white" />
                               </div>
-                              <h3 className="font-bold text-base text-emerald-900 dark:text-emerald-100">
+                              <Typography.BodyBold className="text-emerald-900 dark:text-emerald-100 block">
                                 Answer
-                              </h3>
+                              </Typography.BodyBold>
                             </div>
                             <div className="flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/50 px-3 py-1.5 rounded-full border border-emerald-300 dark:border-emerald-900/50">
                               <RotateCcw className="size-3" />
                               <span className="font-medium">Flip back</span>
                             </div>
                           </div>
-                          <p className="text-xs text-emerald-700 dark:text-emerald-300 line-clamp-1 font-medium">
+                          <Typography.SubCaptionMedium className="text-emerald-700 dark:text-emerald-300 line-clamp-1 block">
                             {question.title}
-                          </p>
+                          </Typography.SubCaptionMedium>
                         </div>
 
                         <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
@@ -489,9 +499,9 @@ export function PracticeFlashcardsGrid({
                             <div className="mt-4 pt-3 pb-2 px-3 border-t border-emerald-200 dark:border-emerald-900/50">
                               <div className="flex items-center gap-1.5 mb-2">
                                 <Zap className="size-3.5 text-emerald-600 dark:text-emerald-400" />
-                                <p className="text-xs font-semibold text-emerald-900 dark:text-emerald-100">
+                                <Typography.SubCaptionBold className="text-emerald-900 dark:text-emerald-100 block">
                                   Tech Stack
-                                </p>
+                                </Typography.SubCaptionBold>
                               </div>
                               <div className="flex flex-wrap gap-1.5">
                                 {question.primaryTechStack

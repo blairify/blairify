@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -22,13 +23,13 @@ export function InterviewCompleteCard({
               <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-100 dark:bg-green-900 mb-4">
                 <CheckCircle className="h-10 w-10 sm:h-12 sm:w-12 text-green-600 dark:text-green-400" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-2 text-foreground">
+              <Typography.Heading3 className="text-xl sm:text-2xl font-bold mb-2 text-foreground">
                 Interview Complete!
-              </h3>
-              <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-md mx-auto">
+              </Typography.Heading3>
+              <Typography.Body className="text-sm sm:text-base text-muted-foreground mb-6 max-w-md mx-auto">
                 Congratulations! You've successfully completed the interview.
                 Ready to see how you performed?
-              </p>
+              </Typography.Body>
               <Button
                 onClick={handleConfirmViewResults}
                 size="lg"

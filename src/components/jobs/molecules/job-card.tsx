@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -470,9 +471,9 @@ export function JobCard({
                   <div className="text-sm md:text-base leading-relaxed text-foreground/90 space-y-4">
                     {parsed.sections.map((section, i) => (
                       <div key={`section-${section.title}-${i}`}>
-                        <h4 className="text-sm font-semibold text-foreground mb-2 border-b border-border pb-1 uppercase tracking-wide">
+                        <Typography.Heading3 className="text-sm font-semibold text-foreground mb-2 border-b border-border pb-1 uppercase tracking-wide">
                           {section.title}
-                        </h4>
+                        </Typography.Heading3>
                         {(() => {
                           const elements: React.ReactNode[] = [];
                           let listItems: string[] = [];
@@ -519,17 +520,24 @@ export function JobCard({
                 );
               })()
             ) : (
-              <p className="text-muted-foreground">No description available</p>
+              <Typography.Body color="secondary">
+                No description available
+              </Typography.Body>
             )}
 
             {/* Company Info */}
             {job.companyDescription?.trim() &&
               job.companyDescription.toLowerCase() !== "none" && (
                 <div className="space-y-2 p-4 bg-muted/30 rounded-lg">
-                  <h3 className="font-semibold">About {job.company}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <Typography.Heading3 className="font-semibold">
+                    About {job.company}
+                  </Typography.Heading3>
+                  <Typography.Body
+                    color="secondary"
+                    className="text-sm leading-relaxed"
+                  >
                     {job.companyDescription}
-                  </p>
+                  </Typography.Body>
                 </div>
               )}
 
@@ -538,54 +546,66 @@ export function JobCard({
               {job.jobFunction?.trim() &&
                 job.jobFunction.toLowerCase() !== "none" && (
                   <div className="p-3 bg-muted/20 rounded-lg">
-                    <h4 className="font-medium text-sm">Job Function</h4>
-                    <p className="text-muted-foreground text-sm">
+                    <Typography.BodyMedium className="text-sm">
+                      Job Function
+                    </Typography.BodyMedium>
+                    <Typography.Body color="secondary" className="text-sm">
                       {job.jobFunction}
-                    </p>
+                    </Typography.Body>
                   </div>
                 )}
               {job.experienceRange?.trim() &&
                 job.experienceRange.toLowerCase() !== "none" && (
                   <div className="p-3 bg-muted/20 rounded-lg">
-                    <h4 className="font-medium text-sm">Experience</h4>
-                    <p className="text-muted-foreground text-sm">
+                    <Typography.BodyMedium className="text-sm">
+                      Experience
+                    </Typography.BodyMedium>
+                    <Typography.Body color="secondary" className="text-sm">
                       {job.experienceRange}
-                    </p>
+                    </Typography.Body>
                   </div>
                 )}
               {safeData.companyRating && (
                 <div className="p-3 bg-muted/20 rounded-lg">
-                  <h4 className="font-medium text-sm">Company Rating</h4>
-                  <p className="text-muted-foreground text-sm">
+                  <Typography.BodyMedium className="text-sm">
+                    Company Rating
+                  </Typography.BodyMedium>
+                  <Typography.Body color="secondary" className="text-sm">
                     {safeData.companyRating.toFixed(1)}/5.0
-                  </p>
+                  </Typography.Body>
                 </div>
               )}
               {job.companyRevenue?.trim() &&
                 job.companyRevenue.toLowerCase() !== "none" && (
                   <div className="p-3 bg-muted/20 rounded-lg">
-                    <h4 className="font-medium text-sm">Revenue</h4>
-                    <p className="text-muted-foreground text-sm">
+                    <Typography.BodyMedium className="text-sm">
+                      Revenue
+                    </Typography.BodyMedium>
+                    <Typography.Body color="secondary" className="text-sm">
                       {job.companyRevenue}
-                    </p>
+                    </Typography.Body>
                   </div>
                 )}
               {job.companyNumEmployees?.trim() &&
                 job.companyNumEmployees.toLowerCase() !== "none" && (
                   <div className="p-3 bg-muted/20 rounded-lg">
-                    <h4 className="font-medium text-sm">Employees</h4>
-                    <p className="text-muted-foreground text-sm">
+                    <Typography.BodyMedium className="text-sm">
+                      Employees
+                    </Typography.BodyMedium>
+                    <Typography.Body color="secondary" className="text-sm">
                       {job.companyNumEmployees}
-                    </p>
+                    </Typography.Body>
                   </div>
                 )}
               {job.companyIndustry?.trim() &&
                 job.companyIndustry.toLowerCase() !== "none" && (
                   <div className="p-3 bg-muted/20 rounded-lg">
-                    <h4 className="font-medium text-sm">Industry</h4>
-                    <p className="text-muted-foreground text-sm">
+                    <Typography.BodyMedium className="text-sm">
+                      Industry
+                    </Typography.BodyMedium>
+                    <Typography.Body color="secondary" className="text-sm">
                       {job.companyIndustry}
-                    </p>
+                    </Typography.Body>
                   </div>
                 )}
             </div>
@@ -593,7 +613,9 @@ export function JobCard({
             {/* Tags / Skills */}
             {(safeData.tags.length > 0 || safeData.skills.length > 0) && (
               <div className="space-y-3">
-                <h4 className="font-medium">Skills & Technologies</h4>
+                <Typography.Heading3 className="font-medium">
+                  Skills & Technologies
+                </Typography.Heading3>
                 <div className="flex flex-wrap gap-2">
                   {safeData.tags.map((tag) => (
                     <Badge key={tag} variant="outline" className="text-xs">

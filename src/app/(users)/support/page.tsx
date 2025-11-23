@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import LoadingPage from "@/components/common/atoms/loading-page";
+import { Typography } from "@/components/common/atoms/typography";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
 import { Badge } from "@/components/ui/badge";
@@ -122,9 +123,9 @@ export default function SupportPage() {
                   <HelpCircle className="h-7 w-7 text-foreground" />
                 </div>
                 <div>
-                  <h1 className="text-3xl sm:text-4xl font-semibold text-foreground tracking-tight">
+                  <Typography.Heading1 className="text-foreground tracking-tight">
                     Help & Support
-                  </h1>
+                  </Typography.Heading1>
                   <p className="text-muted-foreground mt-2 text-base">
                     Find answers to common questions and get assistance
                   </p>

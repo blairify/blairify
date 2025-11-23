@@ -2,12 +2,12 @@ import {
   QUESTION_TYPE_MAPPINGS,
   SCORING_THRESHOLDS,
 } from "@/lib/config/interview-config";
-import { getQuestionCountForMode } from "@/lib/utils/interview-helpers";
 import {
   analyzeResponseCharacteristics,
   isUnknownResponse,
   validateUserResponse,
 } from "@/lib/services/ai/response-validator";
+import { getQuestionCountForMode } from "@/lib/utils/interview-helpers";
 import type {
   InterviewConfig,
   InterviewType,

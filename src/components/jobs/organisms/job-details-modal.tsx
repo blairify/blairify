@@ -11,6 +11,7 @@ import {
   MapPin,
   Share2,
 } from "lucide-react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -269,7 +270,9 @@ export default function JobDetailsModal({
 
           {job.skills && job.skills.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold">Required Skills</h3>
+              <Typography.Heading3 className="text-lg font-semibold">
+                Required Skills
+              </Typography.Heading3>
               <div className="flex flex-wrap gap-2">
                 {job.skills.map((skill) => (
                   <Badge key={skill} variant="outline">
@@ -282,7 +285,9 @@ export default function JobDetailsModal({
 
           {job.description && (
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold">Job Description</h3>
+              <Typography.Heading3 className="text-lg font-semibold">
+                Job Description
+              </Typography.Heading3>
               <div className="prose prose-sm max-w-none text-sm leading-relaxed">
                 <JobDescriptionParser description={job.description} />
               </div>
@@ -293,7 +298,9 @@ export default function JobDetailsModal({
             <>
               <Separator />
               <div className="space-y-3">
-                <h3 className="text-lg font-semibold">About {job.company}</h3>
+                <Typography.Heading3 className="text-lg font-semibold">
+                  About {job.company}
+                </Typography.Heading3>
                 {job.company_description && (
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {job.company_description}

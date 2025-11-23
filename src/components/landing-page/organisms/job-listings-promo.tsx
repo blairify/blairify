@@ -9,6 +9,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -56,8 +57,8 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                         {job.title}
                       </h4>
                       <div className="flex items-center gap-1 mt-1">
-                        <Building2 className="h-3 w-3 text-muted-foreground" />
-                        <span className="text-xs text-muted-foreground font-medium">
+                        <Building2 className="h-3 w-3 " />
+                        <span className="text-xs  font-medium">
                           {job.company}
                         </span>
                       </div>
@@ -69,14 +70,14 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
 
                   <div className="space-y-1">
                     <div className="flex items-center gap-1">
-                      <MapPin className="h-3 w-3 text-muted-foreground" />
-                      <span className="text-xs text-muted-foreground">
+                      <MapPin className="h-3 w-3 " />
+                      <span className="text-xs ">
                         {formatLocation(job.location, job.isRemote)}
                       </span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Clock className="h-3 w-3 text-muted-foreground" />
-                      <span className="text-xs text-muted-foreground">
+                      <Clock className="h-3 w-3 " />
+                      <span className="text-xs ">
                         {formatDatePosted(job.datePosted)}
                       </span>
                     </div>
@@ -115,44 +116,47 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
 
           <div className="space-y-4 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col items-center lg:items-start justify-center text-center lg:text-left max-w-xl mx-auto lg:mx-0">
             <div className="space-y-4 sm:space-y-6">
-              <h2
+              <Typography.Heading2
                 id="job-listings-heading"
                 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight"
               >
                 Practice for Real Job Opportunities
-              </h2>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              </Typography.Heading2>
+              <Typography.Body
+                color="secondary"
+                className=" text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0"
+              >
                 Browse current job openings and practice interview questions
                 specifically tailored to these positions. No stress, no
                 pressure, no payment, no excuses.
-              </p>
+              </Typography.Body>
             </div>
 
             <div className="space-y-2 max-w-xl mx-auto lg:mx-0">
               <div className="flex items-center justify-center lg:justify-start gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm text-muted-foreground">
+                <div className="size-2 bg-primary rounded-full"></div>
+                <Typography.Caption color="secondary" className="text-sm ">
                   Real job postings from top companies
-                </span>
+                </Typography.Caption>
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm text-muted-foreground">
+                <div className="size-2 bg-primary rounded-full"></div>
+                <Typography.Caption color="secondary" className="text-sm ">
                   Position-specific interview preparation
-                </span>
+                </Typography.Caption>
               </div>
 
               <div className="flex items-center justify-center lg:justify-start gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm text-muted-foreground">
+                <div className="size-2 bg-primary rounded-full"></div>
+                <Typography.Caption color="secondary" className="text-sm ">
                   A stressless way to pepare for your next interview
-                </span>
+                </Typography.Caption>
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm text-muted-foreground">
+                <div className="size-2 bg-primary rounded-full"></div>
+                <Typography.Caption color="secondary" className="text-sm ">
                   First ever AI-powered job interview preparation tool
-                </span>
+                </Typography.Caption>
               </div>
             </div>
 

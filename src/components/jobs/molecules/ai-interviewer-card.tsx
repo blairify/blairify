@@ -1,6 +1,7 @@
 "use client";
 
 import { Sparkles } from "lucide-react";
+import { Typography } from "@/components/common/atoms/typography";
 
 interface AIInterviewerCardProps {
   jobCompany: string;
@@ -18,17 +19,17 @@ export function AIInterviewerCard({
           <Sparkles className="h-5 w-5 text-primary-foreground" />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-sm sm:text-base text-foreground mb-1">
+          <Typography.Heading3 className="mb-1">
             Your AI Interviewer
-          </h3>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          </Typography.Heading3>
+          <Typography.SubCaption color="secondary" className="leading-relaxed">
             Meet your specialized AI interviewer trained in{" "}
             <span className="font-medium text-foreground">{jobCompany}</span>{" "}
             interview practices and{" "}
             <span className="font-medium text-foreground">{jobTitle}</span> role
             requirements. They will adapt questions based on your responses and
             provide real-time feedback.
-          </p>
+          </Typography.SubCaption>
         </div>
       </div>
     </div>

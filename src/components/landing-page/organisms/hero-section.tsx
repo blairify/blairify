@@ -4,6 +4,7 @@ import { ArrowRight, Gift, Share2, TrendingUp } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/providers/auth-provider";
+import { Typography } from "../../common/atoms/typography";
 import { Button } from "../../ui/button";
 import RotatingText from "../../ui/rotating-text";
 
@@ -36,7 +37,7 @@ export default function HeroSection() {
             </div>
           </div>
           <div className="flex flex-col justify-center space-y-3 sm:space-y-5 lg:space-y-6 text-center lg:text-left order-2 lg:order-1 animate-in slide-in-from-left-8 duration-1000 delay-200">
-            <h1
+            <Typography.Heading1
               id="hero-heading"
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight"
             >
@@ -56,13 +57,16 @@ export default function HeroSection() {
                   rotationInterval={8000}
                 />
               </span>
-            </h1>
+            </Typography.Heading1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-[color:var(--muted-foreground)] max-w-2xl mx-auto lg:mx-0 leading-relaxed px-2 sm:px-0">
+            <Typography.Body
+              color="secondary"
+              className="max-w-2xl mx-auto lg:mx-0 leading-relaxed px-2 sm:px-0"
+            >
               This is a new standard in job search. Curated jobs meet AI-powered
               interview prep. Browse opportunities, practice 1000+ questions,
               and land your dream role faster.
-            </p>
+            </Typography.Body>
 
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4 justify-center lg:justify-start">
               {!loading && user ? (
@@ -76,7 +80,7 @@ export default function HeroSection() {
                   >
                     Go to dashboard{" "}
                     <TrendingUp
-                      className="w-3 h-3 sm:w-4 sm:h-4 ml-2"
+                      className="size-3 sm:size-4 ml-2"
                       aria-hidden="true"
                     />
                   </Button>
@@ -100,7 +104,7 @@ export default function HeroSection() {
                   >
                     Share with friends
                     <Share2
-                      className="w-3 h-3 sm:w-4 sm:h-4 ml-2"
+                      className="size-3 sm:size-4 ml-2"
                       aria-hidden="true"
                     />
                   </Button>
@@ -116,7 +120,7 @@ export default function HeroSection() {
                   >
                     Start Practicing Free{" "}
                     <ArrowRight
-                      className="w-3 h-3 sm:w-4 sm:h-4 ml-2"
+                      className="size-3 sm:size-4 ml-2"
                       aria-hidden="true"
                     />
                   </Button>
@@ -130,7 +134,7 @@ export default function HeroSection() {
                   >
                     Gift for new joiners
                     <Gift
-                      className="w-3 h-3 sm:w-4 sm:h-4 ml-2"
+                      className="size-3 sm:size-4 ml-2"
                       aria-hidden="true"
                     />
                   </Button>

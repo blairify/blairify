@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Typography } from "@/components/common/atoms/typography";
 import Footer from "@/components/common/organisms/footer";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
@@ -27,13 +28,17 @@ export default function PrivacyPolicyPage() {
       <main className="min-h-screen bg-background pt-20">
         <div className="container mx-auto px-6 py-12 max-w-4xl">
           <div className="prose prose-lg max-w-none dark:prose-invert">
-            <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
+            <Typography.Heading1 className="mb-4">
+              Privacy Policy
+            </Typography.Heading1>
             <p className="text-muted-foreground mb-8">
               Last Updated: October 24, 2025
             </p>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
+              <Typography.Heading2 className="mb-4">
+                Introduction
+              </Typography.Heading2>
               <p className="mb-4">
                 Blairify operates as a free AI-powered interview preparation
                 platform. We are committed to protecting your privacy and
@@ -44,7 +49,9 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Who We Are</h2>
+              <Typography.Heading2 className="mb-4">
+                Who We Are
+              </Typography.Heading2>
               <p className="mb-4">
                 Blairify is operated by a team of developers. We are not a
                 registered company but a project operated by individuals who are
@@ -57,9 +64,9 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Information We Collect
-              </h2>
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">
                 Account Information
@@ -106,9 +113,9 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 How We Use Your Information
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 We use your data to provide and improve our AI interview
                 preparation services, generate personalized feedback and
@@ -122,7 +129,9 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Your Rights</h2>
+              <Typography.Heading2 className="mb-4">
+                Your Rights
+              </Typography.Heading2>
               <p className="mb-4">
                 You have comprehensive rights regarding your personal data. You
                 can request access to a copy of your personal data at any time.
@@ -141,9 +150,9 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Data Sharing and Disclosure
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 We want to be absolutely clear: we do not sell your data under
                 any circumstances. We may share your data only in specific,
@@ -156,7 +165,9 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+              <Typography.Heading2 className="mb-4">
+                Contact Us
+              </Typography.Heading2>
               <p className="mb-4">
                 For any questions about this Privacy Policy or to exercise your
                 data protection rights, please contact us at

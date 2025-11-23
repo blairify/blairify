@@ -182,10 +182,10 @@ export function AvatarIconSelector({
                   onClick={() => onSelectIcon(avatarIcon.id)}
                 >
                   <IconComponent
-                    className={`h-6 w-6 sm:h-8 sm:w-8 ${avatarIcon.color}`}
+                    className={`size-6 sm:size-8 ${avatarIcon.color}`}
                   />
                   {isSelected && (
-                    <div className="absolute -top-1 -right-1 bg-primary text-primary-foreground rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
+                    <div className="absolute -top-1 -right-1 bg-primary text-primary-foreground rounded-full size-4 sm:size-5 flex items-center justify-center">
                       <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-current rounded-full" />
                     </div>
                   )}
@@ -238,10 +238,10 @@ export function AvatarIconDisplay({
   const IconComponent = avatarIcon.icon;
 
   const sizeClasses = {
-    sm: "w-4 h-4",
-    md: "w-6 h-6",
-    lg: "w-8 h-8",
-    xl: "w-12 h-12",
+    sm: "size-4",
+    md: "size-6",
+    lg: "size-8",
+    xl: "size-12",
   };
 
   return (

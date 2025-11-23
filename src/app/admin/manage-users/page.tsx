@@ -12,6 +12,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
+import { Typography } from "@/components/common/atoms/typography";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
 import { Badge } from "@/components/ui/badge";
@@ -168,7 +169,7 @@ export default function ManageUsersPage() {
             {/* Header */}
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold">Manage Users</h1>
+                <Typography.Heading1>Manage Users</Typography.Heading1>
                 <p className="text-muted-foreground">
                   View, edit, and manage user accounts
                 </p>

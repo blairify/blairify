@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import LoadingPage from "@/components/common/atoms/loading-page";
+import { Typography } from "@/components/common/atoms/typography";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
 import { Badge } from "@/components/ui/badge";
@@ -97,13 +98,13 @@ export default function SessionDetailsPage() {
   const getInterviewIcon = (type: string) => {
     switch (type) {
       case "technical":
-        return <Code className="h-5 w-5" />;
+        return <Code className="size-5" />;
       case "bullet":
-        return <Target className="h-5 w-5" />;
+        return <Target className="size-5" />;
       case "system-design":
-        return <Target className="h-5 w-5" />;
+        return <Target className="size-5" />;
       default:
-        return <Trophy className="h-5 w-5" />;
+        return <Trophy className="size-5" />;
     }
   };
 
@@ -128,7 +129,9 @@ export default function SessionDetailsPage() {
             <div className="container mx-auto px-6 py-8">
               <div className="text-center py-12">
                 <div className="text-red-500 text-6xl mb-4">⚠️</div>
-                <h2 className="text-2xl font-bold mb-4">Session Not Found</h2>
+                <Typography.Heading2 className="mb-4">
+                  Session Not Found
+                </Typography.Heading2>
                 <p className="text-muted-foreground mb-6">{error}</p>
                 <Button
                   onClick={() => router.push("/history")}
@@ -174,7 +177,7 @@ export default function SessionDetailsPage() {
                     {getInterviewIcon(session.config.interviewType)}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">
+                    <Typography.Heading1 className="text-foreground mb-3">
                       {session.config.position
                         .split(" ")
                         .map(
@@ -184,7 +187,7 @@ export default function SessionDetailsPage() {
                         )
                         .join(" ")}{" "}
                       Interview
-                    </h1>
+                    </Typography.Heading1>
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1.5">
                         <Calendar className="h-4 w-4" />
@@ -234,7 +237,7 @@ export default function SessionDetailsPage() {
               <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
                 <CardHeader className="pb-4">
                   <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                    <TrendingUp className="h-5 w-5 text-primary" />
+                    <TrendingUp className="size-5 text-primary" />
                     Performance Breakdown
                   </CardTitle>
                 </CardHeader>
@@ -281,7 +284,7 @@ export default function SessionDetailsPage() {
             <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                  <User className="h-5 w-5 text-primary" />
+                  <User className="size-5 text-primary" />
                   Interview Configuration
                 </CardTitle>
               </CardHeader>
@@ -352,7 +355,7 @@ export default function SessionDetailsPage() {
               <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
                 <CardHeader className="pb-4">
                   <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                    <MessageSquare className="h-5 w-5 text-primary" />
+                    <MessageSquare className="size-5 text-primary" />
                     Questions & Responses ({session.questions.length})
                   </CardTitle>
                 </CardHeader>
@@ -529,7 +532,7 @@ export default function SessionDetailsPage() {
                               key={strength}
                               className="flex items-start gap-3 p-3 rounded-lg bg-white/50 dark:bg-black/20"
                             >
-                              <Star className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                              <Star className="size-5 text-green-500 mt-0.5 flex-shrink-0" />
                               <div className="prose prose-sm max-w-none dark:prose-invert">
                                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                   {strength}
@@ -559,7 +562,7 @@ export default function SessionDetailsPage() {
                               key={improvement}
                               className="flex items-start gap-3 p-3 rounded-lg bg-white/50 dark:bg-black/20"
                             >
-                              <Target className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                              <Target className="size-5 text-orange-500 mt-0.5 flex-shrink-0" />
                               <div className="prose prose-sm max-w-none dark:prose-invert">
                                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                   {improvement}
@@ -583,7 +586,7 @@ export default function SessionDetailsPage() {
                     <Card>
                       <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                          <Brain className="h-5 w-5" />
+                          <Brain className="size-5" />
                           Interview Summary
                         </CardTitle>
                       </CardHeader>
@@ -602,7 +605,7 @@ export default function SessionDetailsPage() {
                       <Card>
                         <CardHeader>
                           <CardTitle className="flex items-center gap-2">
-                            <Lightbulb className="h-5 w-5" />
+                            <Lightbulb className="size-5" />
                             Recommendations
                           </CardTitle>
                         </CardHeader>

@@ -127,7 +127,7 @@ export function MarkdownTextarea({
             className="p-1.5 hover:bg-background rounded transition-colors"
             title={action.label}
           >
-            <action.icon className="w-4 h-4" />
+            <action.icon className="size-4" />
           </Button>
         ))}
       </div>

@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import {
   canStartInterview,
   canGoNext as checkCanGoNext,
@@ -122,7 +123,9 @@ export function ConfigureContent() {
               <CardContent className="flex flex-row items-center gap-2">
                 <Icon className="size-6 text-primary flex-shrink-0" />
                 <div className="flex-1">
-                  <h3 className="font-semibold text-base">{position.label}</h3>
+                  <Typography.Heading3 className="font-semibold text-base">
+                    {position.label}
+                  </Typography.Heading3>
                 </div>
               </CardContent>
             </Card>
@@ -162,11 +165,13 @@ export function ConfigureContent() {
                     <div
                       className={`size-4 rounded-full ${level.color} ring-2 ring-offset-2 ring-offset-background ${config.seniority === level.value ? "ring-primary" : "ring-transparent"}`}
                     />
-                    <span className="font-bold text-base">{level.label}</span>
+                    <Typography.BodyBold className="font-bold text-base">
+                      {level.label}
+                    </Typography.BodyBold>
                   </div>
-                  <span className="text-sm text-muted-foreground leading-relaxed">
+                  <Typography.Body className="text-sm text-muted-foreground leading-relaxed">
                     {level.description}
-                  </span>
+                  </Typography.Body>
                 </Label>
               </div>
             ))}
@@ -180,7 +185,9 @@ export function ConfigureContent() {
     return (
       <div className="space-y-6">
         <div>
-          <h4 className="font-semibold mb-3">Company Type</h4>
+          <Typography.Heading3 className="font-semibold mb-3">
+            Company Type
+          </Typography.Heading3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {COMPANY_PROFILES.map((profile) => {
               const Icon = profile.icon;
@@ -204,10 +211,12 @@ export function ConfigureContent() {
                     <div className="flex items-start gap-3 flex-1">
                       <Icon className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                       <div className="flex-1">
-                        <h3 className="font-semibold">{profile.label}</h3>
-                        <p className="text-sm text-muted-foreground mt-2">
+                        <Typography.Heading3 className="font-semibold">
+                          {profile.label}
+                        </Typography.Heading3>
+                        <Typography.Body className="text-sm text-muted-foreground mt-2">
                           {profile.description}
-                        </p>
+                        </Typography.Body>
                       </div>
                     </div>
                   </CardContent>
@@ -220,7 +229,9 @@ export function ConfigureContent() {
         <Separator />
 
         <div>
-          <h4 className="font-semibold mb-3">Or Choose Specific Company</h4>
+          <Typography.Heading3 className="font-semibold mb-3">
+            Or Choose Specific Company
+          </Typography.Heading3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {CONFIGURE_SPECIFIC_COMPANIES.map((company) => {
               const isImageIcon = typeof company.icon === "string";
@@ -258,12 +269,12 @@ export function ConfigureContent() {
                         )
                       )}
                       <div>
-                        <h3 className="font-semibold text-sm">
+                        <Typography.Heading3 className="font-semibold text-sm">
                           {company.label}
-                        </h3>
-                        <p className="text-xs text-muted-foreground mt-1">
+                        </Typography.Heading3>
+                        <Typography.Caption className="text-xs text-muted-foreground mt-1">
                           {company.description}
-                        </p>
+                        </Typography.Caption>
                       </div>
                     </div>
                   </CardContent>
@@ -310,14 +321,14 @@ export function ConfigureContent() {
                       className={`h-6 w-6 mt-1 flex-shrink-0 ${isComingSoon ? "text-muted-foreground" : "text-primary"}`}
                     />
                     <div className="flex-1">
-                      <h3
+                      <Typography.Heading3
                         className={`font-semibold ${isComingSoon ? "text-muted-foreground" : ""}`}
                       >
                         {mode.label}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mt-2">
+                      </Typography.Heading3>
+                      <Typography.Body className="text-sm text-muted-foreground mt-2">
                         {mode.description}
-                      </p>
+                      </Typography.Body>
                     </div>
                   </div>
                 </CardContent>
@@ -381,13 +392,13 @@ export function ConfigureContent() {
                     .icon as React.ComponentType<{ className?: string }>;
                   return <StepIcon className="h-6 w-6 text-primary" />;
                 })()}
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+                <Typography.Heading2 className="text-2xl sm:text-3xl font-bold text-foreground">
                   {CONFIGURE_STEPS[currentStep].title}
-                </h2>
+                </Typography.Heading2>
               </div>
-              <p className="text-muted-foreground text-sm sm:text-base">
+              <Typography.Body className="text-muted-foreground text-sm sm:text-base">
                 {CONFIGURE_STEPS[currentStep].description}
-              </p>
+              </Typography.Body>
             </div>
 
             {/* Step Content */}

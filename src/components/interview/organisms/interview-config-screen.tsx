@@ -1,4 +1,5 @@
 import { Building, Play, Target } from "lucide-react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,13 +21,13 @@ export function InterviewConfigScreen({
     <main className="flex-1 overflow-y-auto">
       <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-4xl">
         <div className="text-center mb-6 sm:mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
+          <Typography.Heading1 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
             Ready to Start Your Interview?
-          </h1>
-          <p className="text-sm sm:text-base text-muted-foreground">
+          </Typography.Heading1>
+          <Typography.Body className="text-sm sm:text-base text-muted-foreground">
             Your personalized interview session is configured and ready to
             begin.
-          </p>
+          </Typography.Body>
         </div>
 
         <Card className="mb-6">
@@ -78,15 +79,15 @@ export function InterviewConfigScreen({
               <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-primary/10 border border-primary/20 rounded-lg">
                 <div className="flex items-center gap-2 mb-2">
                   <Building className="size-4 sm:h-5 sm:w-5 text-primary" />
-                  <h3 className="font-semibold text-sm sm:text-base text-primary">
+                  <Typography.Heading3 className="font-semibold text-sm sm:text-base text-primary">
                     Job-Specific Interview
-                  </h3>
+                  </Typography.Heading3>
                 </div>
-                <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3">
+                <Typography.Body className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3">
                   This interview is tailored for the{" "}
                   <strong>{config.position}</strong> position at{" "}
                   <strong>{config.company}</strong>
-                </p>
+                </Typography.Body>
                 {config.jobDescription && (
                   <div className="text-xs text-muted-foreground">
                     <p className="font-medium mb-1">Job Focus:</p>
@@ -108,7 +109,7 @@ export function InterviewConfigScreen({
           >
             {isLoading ? (
               <>
-                <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
+                <div className="size-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
                 Starting Interview...
               </>
             ) : (

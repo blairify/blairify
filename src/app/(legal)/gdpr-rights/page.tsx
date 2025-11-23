@@ -1,3 +1,4 @@
+import { Typography } from "@/components/common/atoms/typography";
 import Footer from "@/components/common/organisms/footer";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
@@ -8,15 +9,17 @@ export default function GDPRRightsPage() {
       <main className="min-h-screen bg-background pt-20">
         <div className="container mx-auto px-6 py-12 max-w-4xl">
           <div className="prose prose-lg max-w-none dark:prose-invert">
-            <h1 className="text-4xl font-bold mb-4">GDPR & RODO Rights</h1>
+            <Typography.Heading1 className="mb-4">
+              GDPR & RODO Rights
+            </Typography.Heading1>
             <p className="text-muted-foreground mb-8">
               Last Updated: October 24, 2025
             </p>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Your Rights Under GDPR and RODO
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 If you are located in the European Union, European Economic
                 Area, United Kingdom, or any country with similar data
@@ -30,7 +33,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Right to Access</h2>
+              <Typography.Heading2 className="mb-4">
+                Right to Access
+              </Typography.Heading2>
               <p className="mb-4">
                 Under Article 15 of the GDPR, you have the right to obtain
                 confirmation as to whether we are processing your personal data
@@ -51,9 +56,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Right to Rectification
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Under Article 16 of the GDPR, you have the right to have
                 inaccurate personal data corrected and to have incomplete
@@ -73,9 +78,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Right to Erasure (Right to be Forgotten)
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Under Article 17 of the GDPR, you have the right to request the
                 deletion of your personal data in certain circumstances. This is
@@ -99,9 +104,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Right to Restriction of Processing
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Under Article 18 of the GDPR, you have the right to request that
                 we restrict how we process your personal data in certain
@@ -123,9 +128,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Right to Data Portability
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Under Article 20 of the GDPR, you have the right to receive your
                 personal data in a structured, commonly used, and
@@ -149,7 +154,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Right to Object</h2>
+              <Typography.Heading2 className="mb-4">
+                Right to Object
+              </Typography.Heading2>
               <p className="mb-4">
                 Under Article 21 of the GDPR, you have the right to object to
                 the processing of your personal data in certain circumstances.
@@ -171,9 +178,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Right to Withdraw Consent
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Under Article 7(3) of the GDPR, where we process your personal
                 data based on your consent, you have the right to withdraw that
@@ -193,9 +200,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Right to Lodge a Complaint
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 You have the right to lodge a complaint with a supervisory
                 authority if you believe we have not handled your personal data
@@ -224,9 +231,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Rights Related to Automated Decision-Making and Profiling
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Under Article 22 of the GDPR, you have rights related to
                 automated decision-making, including profiling. At Blairify, we
@@ -250,9 +257,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Response Times and Procedures
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 We are committed to responding to all requests to exercise your
                 data protection rights in a timely and thorough manner. For
@@ -274,9 +281,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Verification of Identity
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 To protect your privacy and security, we may need to verify your
                 identity before fulfilling certain requests, particularly those
@@ -297,9 +304,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 How to Exercise Your Rights
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Exercising your data protection rights is straightforward. For
                 most rights, you can simply email us at blairify.team@gmail.com
@@ -327,9 +334,9 @@ export default function GDPRRightsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Contact Information
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 <strong>Data Protection Contact:</strong>{" "}
                 blairify.team@gmail.com

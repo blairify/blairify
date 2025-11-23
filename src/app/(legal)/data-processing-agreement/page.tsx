@@ -1,3 +1,4 @@
+import { Typography } from "@/components/common/atoms/typography";
 import Footer from "@/components/common/organisms/footer";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
@@ -8,15 +9,17 @@ export default function DataProcessingAgreementPage() {
       <main className="min-h-screen bg-background pt-20">
         <div className="container mx-auto px-6 py-12 max-w-4xl">
           <div className="prose prose-lg max-w-none dark:prose-invert">
-            <h1 className="text-4xl font-bold mb-4">
+            <Typography.Heading1 className="mb-4">
               Data Processing Agreement
-            </h1>
+            </Typography.Heading1>
             <p className="text-muted-foreground mb-8">
               Last Updated: October 24, 2025
             </p>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
+              <Typography.Heading2 className="mb-4">
+                Introduction
+              </Typography.Heading2>
               <p className="mb-4">
                 This Data Processing Agreement establishes the terms under which
                 Blairify processes personal data on behalf of our users. This
@@ -29,9 +32,9 @@ export default function DataProcessingAgreementPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Contact Information
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 For any questions, concerns, or requests related to this Data
                 Processing Agreement or our data processing activities, please

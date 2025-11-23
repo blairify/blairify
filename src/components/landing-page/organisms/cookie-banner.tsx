@@ -4,6 +4,7 @@ import { Timestamp } from "firebase/firestore";
 import { Cookie, Settings, Shield, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { DatabaseService } from "@/lib/database";
@@ -291,9 +292,9 @@ export const CookieBanner = () => {
               <div className="flex items-center gap-3">
                 <Cookie className="h-6 w-6 text-primary flex-shrink-0" />
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground">
+                  <Typography.Heading3 className="mb-2">
                     We value your privacy
-                  </h3>
+                  </Typography.Heading3>
                   <p className="text-sm text-muted-foreground">
                     Blairify uses cookies to enhance your experience
                   </p>
@@ -368,7 +369,9 @@ export const CookieBanner = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Shield className="h-6 w-6 text-primary" />
-                <h3 className="text-lg font-semibold">Cookie Preferences</h3>
+                <Typography.Heading3 className="mb-2">
+                  Cookie Preferences
+                </Typography.Heading3>
               </div>
               <Button
                 variant="ghost"
@@ -411,7 +414,7 @@ export const CookieBanner = () => {
                       }`}
                     >
                       <div
-                        className={`w-5 h-5 bg-white rounded-full shadow transition-transform transform ${
+                        className={`size-5 bg-white rounded-full shadow transition-transform transform ${
                           preferences.analytics
                             ? "translate-x-5"
                             : "translate-x-0"
@@ -444,7 +447,7 @@ export const CookieBanner = () => {
                       }`}
                     >
                       <div
-                        className={`w-5 h-5 bg-white rounded-full shadow transition-transform transform ${
+                        className={`size-5 bg-white rounded-full shadow transition-transform transform ${
                           preferences.marketing
                             ? "translate-x-5"
                             : "translate-x-0"
@@ -480,7 +483,7 @@ export const CookieBanner = () => {
                       }`}
                     >
                       <div
-                        className={`w-5 h-5 bg-white rounded-full shadow transition-transform transform ${
+                        className={`size-5 bg-white rounded-full shadow transition-transform transform ${
                           preferences.personalization
                             ? "translate-x-5"
                             : "translate-x-0"

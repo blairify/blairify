@@ -16,6 +16,7 @@ import {
 import type React from "react";
 import { useEffect, useState } from "react";
 import * as SimpleIcons from "react-icons/si";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -166,9 +167,9 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
       <main className="flex-1 flex items-center justify-center bg-background">
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-blue-600 dark:text-blue-400 animate-spin mx-auto mb-4" />
-          <p className="text-gray-600 dark:text-gray-400">
+          <Typography.Body color="secondary">
             Loading practice questions...
-          </p>
+          </Typography.Body>
         </div>
       </main>
     );
@@ -181,10 +182,12 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
           <div className="size-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
             <AlertCircle className="size-8 text-red-600 dark:text-red-400" />
           </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+          <Typography.Heading3 color="primary" className="mb-2">
             Error Loading Questions
-          </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">{error}</p>
+          </Typography.Heading3>
+          <Typography.Body color="secondary" className="mb-4">
+            {error}
+          </Typography.Body>
           <Button
             onClick={() => window.location.reload()}
             className="px-4 py-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg transition-colors"
@@ -282,7 +285,9 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
           {/* Results Summary */}
           <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 bg-card/50 backdrop-blur-sm rounded-xl border border-border/60 shadow-sm">
             <div className="flex items-center gap-2">
-              <h2 className="text-lg font-semibold">Practice Questions</h2>
+              <Typography.Heading2 className="text-lg font-semibold">
+                Practice Questions
+              </Typography.Heading2>
               <Badge variant="secondary">
                 {filteredQuestions.length} questions
               </Badge>
@@ -371,8 +376,8 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                   >
                     <TableCell>
                       <div className="max-w-md">
-                        <h3
-                          className="font-semibold text-sm line-clamp-2 text-foreground prose prose-sm dark:prose-invert max-w-none"
+                        <Typography.BodyBold
+                          className="line-clamp-2 text-foreground prose prose-sm dark:prose-invert max-w-none"
                           dangerouslySetInnerHTML={parseSimpleMarkdown(q.title)}
                         />
                       </div>
@@ -448,7 +453,7 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <div className="p-1.5 bg-primary/10 rounded-lg">
-                          <CompanyIcon className="w-4 h-4 text-primary" />
+                          <CompanyIcon className="size-4 text-primary" />
                         </div>
                         <span className="text-sm font-semibold text-foreground">
                           {q.companies?.[0]?.name || "Company"}
@@ -470,8 +475,8 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
                     </div>
 
                     {/* Question Title */}
-                    <h3
-                      className="font-semibold text-base text-foreground mb-2 line-clamp-2 prose prose-sm dark:prose-invert max-w-none"
+                    <Typography.Heading3
+                      className="text-base text-foreground mb-2 line-clamp-2 prose prose-sm dark:prose-invert max-w-none"
                       dangerouslySetInnerHTML={parseSimpleMarkdown(q.title)}
                     />
 
@@ -565,12 +570,12 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
             <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
               <Search className="w-8 h-8 text-muted-foreground" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground mb-2">
+            <Typography.Heading3 color="primary" className="mb-2">
               No questions found
-            </h3>
-            <p className="text-muted-foreground">
+            </Typography.Heading3>
+            <Typography.Body color="secondary">
               Try adjusting your search or filters
-            </p>
+            </Typography.Body>
           </div>
         )}
       </section>

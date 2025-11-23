@@ -9,6 +9,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -37,13 +38,13 @@ export function DashboardPromo() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
           <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-left-8 duration-1000 delay-200 flex flex-col items-center lg:items-start justify-center text-center lg:text-left max-w-xl mx-auto lg:mx-0">
             <div className="space-y-4 sm:space-y-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
+              <Typography.Heading2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
                 Performance Analytics
-              </h2>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              </Typography.Heading2>
+              <Typography.Body className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Get detailed insights into your performance. Monitor your
                 scores, identify strengths, and focus on areas for improvement.
-              </p>
+              </Typography.Body>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
@@ -64,22 +65,22 @@ export function DashboardPromo() {
 
             <ul className="space-y-2 max-w-xl mx-auto lg:mx-0">
               <li className="flex items-center gap-3 justify-center lg:justify-start">
-                <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="text-sm text-muted-foreground">
+                <div className="size-2 bg-primary rounded-full" />
+                <Typography.Caption className="text-sm text-muted-foreground">
                   Real-time performance tracking
-                </span>
+                </Typography.Caption>
               </li>
               <li className="flex items-center gap-3 justify-center lg:justify-start">
-                <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="text-sm text-muted-foreground">
+                <div className="size-2 bg-primary rounded-full" />
+                <Typography.Caption className="text-sm text-muted-foreground">
                   Personalized improvement recommendations
-                </span>
+                </Typography.Caption>
               </li>
               <li className="flex items-center gap-3 justify-center lg:justify-start">
-                <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="text-sm text-muted-foreground">
+                <div className="size-2 bg-primary rounded-full" />
+                <Typography.Caption className="text-sm text-muted-foreground">
                   Detailed session history and analytics
-                </span>
+                </Typography.Caption>
               </li>
             </ul>
             <div className="flex justify-center lg:justify-start">

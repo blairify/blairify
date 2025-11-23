@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import LoadingPage from "@/components/common/atoms/loading-page";
+import { Typography } from "@/components/common/atoms/typography";
 import { DashboardContent } from "@/components/dashboard/templates/dashboard-content";
 import { DashboardLayout } from "@/components/dashboard/templates/dashboard-layout";
 import { Button } from "@/components/ui/button";
@@ -75,12 +76,12 @@ export function DashboardPageClient({ user }: DashboardPageClientProps) {
       <DashboardLayout>
         <div className="min-h-screen bg-background flex items-center justify-center">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-foreground mb-2">
+            <Typography.Heading2 className="text-2xl font-bold text-foreground mb-2">
               Error Loading Dashboard
-            </h2>
-            <p className="text-muted-foreground mb-4">
+            </Typography.Heading2>
+            <Typography.Body className="text-muted-foreground mb-4">
               {error || "Failed to load dashboard data"}
-            </p>
+            </Typography.Body>
             <Button onClick={() => window.location.reload()}>
               Reload Page
             </Button>

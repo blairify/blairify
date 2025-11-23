@@ -1,3 +1,4 @@
+import { Typography } from "@/components/common/atoms/typography";
 import Footer from "@/components/common/organisms/footer";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
@@ -8,15 +9,17 @@ export default function LegalNoticePage() {
       <main className="min-h-screen bg-background pt-20">
         <div className="container mx-auto px-6 py-12 max-w-4xl">
           <div className="prose prose-lg max-w-none dark:prose-invert">
-            <h1 className="text-4xl font-bold mb-4">Legal Notice</h1>
+            <Typography.Heading1 className="mb-4">
+              Legal Notice
+            </Typography.Heading1>
             <p className="text-muted-foreground mb-8">
               Last Updated: October 24, 2025
             </p>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Service Provider Information
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Blairify is an AI-powered interview preparation platform
                 provided as a free service to help individuals practice and
@@ -40,7 +43,9 @@ export default function LegalNoticePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Legal Status</h2>
+              <Typography.Heading2 className="mb-4">
+                Legal Status
+              </Typography.Heading2>
               <p className="mb-4">
                 Blairify is currently operated as a project by a team of
                 developers who are passionate about helping people succeed in
@@ -61,9 +66,9 @@ export default function LegalNoticePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Data Protection Officer
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 We have designated a data protection contact responsible for
                 overseeing our data protection practices and ensuring compliance
@@ -87,9 +92,9 @@ export default function LegalNoticePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Supervisory Authority
-              </h2>
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">
                 For European Union and EEA Users
@@ -139,9 +144,9 @@ export default function LegalNoticePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Dispute Resolution
-              </h2>
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">
                 Informal Resolution
@@ -195,9 +200,9 @@ export default function LegalNoticePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Intellectual Property
-              </h2>
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">Copyright</h3>
               <p className="mb-4">
@@ -248,9 +253,9 @@ export default function LegalNoticePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Liability Disclaimer
-              </h2>
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">
                 Service Provided As-Is
@@ -318,9 +323,9 @@ export default function LegalNoticePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Third-Party Links and Content
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Our platform may contain links to external websites, resources,
                 or services that are not owned or controlled by Blairify. These
@@ -340,9 +345,9 @@ export default function LegalNoticePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Professional Advice Disclaimer
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Blairify provides tools and resources for interview practice and
                 preparation. The feedback and suggestions provided by our AI are
@@ -362,9 +367,9 @@ export default function LegalNoticePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Changes to This Legal Notice
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 We may update this Legal Notice from time to time to reflect
                 changes in our operations, legal requirements, or organizational
@@ -382,9 +387,9 @@ export default function LegalNoticePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Contact Information
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 For any questions, concerns, or inquiries related to this Legal
                 Notice or any legal matters concerning Blairify, please contact

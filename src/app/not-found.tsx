@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -23,24 +24,27 @@ export default function NotFound() {
           <div className="space-y-6">
             {/* Error Code */}
             <div className="space-y-2">
-              <h1
-                className="text-8xl md:text-9xl font-bold text-primary/80 tracking-tight"
+              <Typography.Heading1
+                className="text-primary/80 tracking-tight"
                 aria-label="Error 404"
               >
                 404
-              </h1>
+              </Typography.Heading1>
               <Separator className="w-24 mx-auto bg-primary/30" />
             </div>
 
             {/* Error Message */}
             <div className="space-y-3">
-              <h2 className="text-2xl md:text-3xl font-semibold text-foreground">
+              <Typography.Heading2 className="text-foreground">
                 Page Not Found
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-md mx-auto leading-relaxed">
+              </Typography.Heading2>
+              <Typography.Body
+                color="secondary"
+                className="max-w-md mx-auto leading-relaxed"
+              >
                 The page you're looking for doesn't exist or has been moved to a
                 different location.
-              </p>
+              </Typography.Body>
             </div>
 
             {/* Action Buttons */}

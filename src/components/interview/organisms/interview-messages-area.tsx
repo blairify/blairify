@@ -1,5 +1,6 @@
 import { Sparkles } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import type { InterviewerProfile } from "@/lib/config/interviewers";
 import { MessageBubble } from "../molecules/message-bubble";
 import { TypingIndicator } from "../molecules/typing-indicator";
@@ -33,13 +34,13 @@ export function InterviewMessagesArea({
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full mb-4">
                 <Sparkles className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
+              <Typography.Heading3 className="text-lg font-semibold text-foreground mb-2">
                 Ready to begin your interview?
-              </h3>
-              <p className="text-muted-foreground max-w-md mx-auto">
+              </Typography.Heading3>
+              <Typography.Body className="text-muted-foreground max-w-md mx-auto">
                 Your AI interviewer {interviewer.name} is here to help you
                 practice. Take your time and answer thoughtfully. Good luck! 🚀
-              </p>
+              </Typography.Body>
             </div>
           )}
 

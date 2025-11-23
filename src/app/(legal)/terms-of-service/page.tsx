@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Typography } from "@/components/common/atoms/typography";
 import Footer from "@/components/common/organisms/footer";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
@@ -27,15 +28,17 @@ export default function TermsOfServicePage() {
       <main className="min-h-screen bg-background pt-20">
         <div className="container mx-auto px-6 py-12 max-w-4xl">
           <div className="prose prose-lg max-w-none dark:prose-invert">
-            <h1 className="text-4xl font-bold mb-4">Terms of Service</h1>
+            <Typography.Heading1 className="mb-4">
+              Terms of Service
+            </Typography.Heading1>
             <p className="text-muted-foreground mb-8">
               Last Updated: October 24, 2025
             </p>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Acceptance of Terms
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 By accessing or using Blairify, you agree to be bound by these
                 Terms of Service and all applicable laws and regulations. If you
@@ -46,9 +49,9 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Description of Service
-              </h2>
+              </Typography.Heading2>
               <p className="mb-4">
                 Blairify is a free AI-powered interview preparation platform
                 that allows users to practice interview questions with AI
@@ -68,7 +71,9 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Eligibility</h2>
+              <Typography.Heading2 className="mb-4">
+                Eligibility
+              </Typography.Heading2>
               <p className="mb-4">
                 To use Blairify, you must be at least 16 years old and capable
                 of forming a binding contract under applicable law. You must not
@@ -79,7 +84,9 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">User Accounts</h2>
+              <Typography.Heading2 className="mb-4">
+                User Accounts
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">Account Creation</h3>
               <p className="mb-4">
@@ -106,7 +113,9 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Acceptable Use</h2>
+              <Typography.Heading2 className="mb-4">
+                Acceptable Use
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">Permitted Uses</h3>
               <p className="mb-4">
@@ -134,7 +143,9 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">User Content</h2>
+              <Typography.Heading2 className="mb-4">
+                User Content
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">
                 Your Content Ownership
@@ -174,9 +185,9 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <Typography.Heading2 className="mb-4">
                 Intellectual Property
-              </h2>
+              </Typography.Heading2>
 
               <h3 className="text-xl font-semibold mb-3">
                 Our Intellectual Property
@@ -203,7 +214,9 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Contact</h2>
+              <Typography.Heading2 className="mb-4">
+                Contact
+              </Typography.Heading2>
               <p className="mb-4">
                 If you have any questions about these Terms of Service or need
                 clarification on any provision, please contact us at

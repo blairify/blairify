@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -189,9 +190,9 @@ export function HistoryContent({ user }: HistoryContentProps) {
         <div className="min-h-screen bg-background flex items-center justify-center">
           <div className="text-center">
             <div className="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-muted-foreground">
+            <Typography.Body color="secondary">
               Loading interview history...
-            </p>
+            </Typography.Body>
           </div>
         </div>
       </main>
@@ -376,14 +377,14 @@ export function HistoryContent({ user }: HistoryContentProps) {
                           <Trophy className="h-12 w-12 text-muted-foreground/50" />
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold text-foreground mb-2">
+                          <Typography.Heading2 color="primary" className="mb-2">
                             No interviews found
-                          </h3>
-                          <p className="text-muted-foreground mb-4">
+                          </Typography.Heading2>
+                          <Typography.Body color="secondary" className="mb-4">
                             {sessions.length === 0
                               ? "Start your first interview to see your history here."
                               : "Try adjusting your search or filter criteria."}
-                          </p>
+                          </Typography.Body>
                           <Button
                             onClick={() => router.push("/configure")}
                             size="lg"
@@ -477,14 +478,17 @@ export function HistoryContent({ user }: HistoryContentProps) {
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-muted/50 mb-6">
                     <Trophy className="h-10 w-10 text-muted-foreground" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">
+                  <Typography.Heading2 color="primary" className="mb-3">
                     No interviews found
-                  </h3>
-                  <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                  </Typography.Heading2>
+                  <Typography.Body
+                    color="secondary"
+                    className="mb-6 max-w-md mx-auto"
+                  >
                     {sessions.length === 0
                       ? "Start your first interview to see your history here."
                       : "Try adjusting your search or filter criteria."}
-                  </p>
+                  </Typography.Body>
                   <Button
                     onClick={() => router.push("/configure")}
                     aria-label="Start First Interview"
@@ -516,9 +520,12 @@ export function HistoryContent({ user }: HistoryContentProps) {
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-bold text-lg text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                    <Typography.Heading3
+                      color="primary"
+                      className="mb-2 line-clamp-2 group-hover:text-primary transition-colors"
+                    >
                       {capitalizeTitle(session.config.position)}
-                    </h3>
+                    </Typography.Heading3>
 
                     {/* Type Badge */}
                     <Badge

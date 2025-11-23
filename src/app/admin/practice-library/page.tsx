@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import useSWR from "swr";
+import { Typography } from "@/components/common/atoms/typography";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
 import {
@@ -681,8 +682,8 @@ export default function ManagePracticeLibraryPage() {
                         >
                           <TableCell>
                             <div className="max-w-md">
-                              <h3
-                                className="font-semibold text-sm line-clamp-2 mb-1"
+                              <Typography.CaptionBold
+                                className="line-clamp-2 mb-1 block"
                                 dangerouslySetInnerHTML={renderMarkdown(
                                   question.title,
                                 )}
@@ -888,8 +889,8 @@ export default function ManagePracticeLibraryPage() {
                                 {question.category.replace("-", " ")}
                               </Badge>
                             </div>
-                            <h3
-                              className="font-bold text-xl prose prose-sm dark:prose-invert max-w-none"
+                            <Typography.Heading2
+                              className="prose prose-sm dark:prose-invert max-w-none"
                               dangerouslySetInnerHTML={renderMarkdown(
                                 question.title,
                               )}
