@@ -16,6 +16,7 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -192,13 +193,13 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
             <div className="rounded-full bg-muted p-6 mb-4">
               <Target className="h-12 w-12 text-muted-foreground" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">
+            <Typography.Heading3 className="text-xl font-semibold mb-2">
               No Interview Data Yet
-            </h3>
-            <p className="text-muted-foreground text-center max-w-md mb-6">
+            </Typography.Heading3>
+            <Typography.Body className="text-muted-foreground text-center max-w-md mb-6">
               Start your first interview to see your performance metrics,
               progress insights, and personalized recommendations.
-            </p>
+            </Typography.Body>
             <div className="flex gap-3">
               <Button asChild>
                 <a href="/configure">Start Your First Interview</a>
@@ -413,9 +414,9 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
             ) : (
               <div className="text-center py-12">
                 <TrendingUp className="h-12 w-12 mx-auto text-muted-foreground/40 mb-3" />
-                <p className="text-sm text-muted-foreground">
+                <Typography.Body className="text-sm text-muted-foreground">
                   Complete interviews to see your progress
-                </p>
+                </Typography.Body>
               </div>
             )}
           </CardContent>
@@ -527,9 +528,9 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
             ) : (
               <div className="col-span-full text-center py-8">
                 <Briefcase className="h-12 w-12 mx-auto text-muted-foreground/40 mb-3" />
-                <p className="text-sm text-muted-foreground mb-3">
+                <Typography.Body className="text-sm text-muted-foreground mb-3">
                   Loading job recommendations...
-                </p>
+                </Typography.Body>
               </div>
             )}
           </div>
@@ -542,14 +543,14 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
             <div className="flex items-start gap-3 flex-1">
               <Target className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <h4 className="font-semibold text-blue-900 mb-1">
+                <Typography.Heading3 className="font-semibold text-blue-900 mb-1">
                   Join the Blairify Team
-                </h4>
-                <p className="text-sm text-blue-800 mb-3">
+                </Typography.Heading3>
+                <Typography.Body className="text-sm text-blue-800 mb-3">
                   We're a growing team of passionate developers building the
                   future of interview preparation. We respond super fast to all
                   inquiries!
-                </p>
+                </Typography.Body>
                 <div className="mb-3">
                   <p className="text-sm font-medium text-blue-900 mb-2">
                     We're looking for:
@@ -697,9 +698,9 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
               ))}
             </div>
           ) : (
-            <p className="text-sm text-muted-foreground text-center py-8">
+            <Typography.Body className="text-sm text-muted-foreground text-center py-8">
               No recent sessions to display
-            </p>
+            </Typography.Body>
           )}
         </CardContent>
       </Card>

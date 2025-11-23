@@ -16,7 +16,7 @@ export function SkillProgress({ skill }: SkillProgressProps) {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-3">
           <div
-            className="w-4 h-4 rounded-full"
+            className="size-4 rounded-full"
             style={{ backgroundColor: skill.color }}
           />
           <span className="font-medium">{skill.skill}</span>

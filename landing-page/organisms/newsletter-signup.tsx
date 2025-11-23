@@ -2,6 +2,7 @@
 
 import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
 import React, { useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -53,12 +54,12 @@ export function NewsletterSignup() {
             <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mx-auto mb-4">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h2 className="text-2xl font-bold mb-2">
+            <Typography.Heading2 className="text-2xl font-bold mb-2">
               Thank you for subscribing!
-            </h2>
-            <p className="text-muted-foreground">
+            </Typography.Heading2>
+            <Typography.Body className="text-muted-foreground">
               You'll be the first to know about our latest features and updates.
-            </p>
+            </Typography.Body>
           </div>
         </div>
       </section>
@@ -75,17 +76,17 @@ export function NewsletterSignup() {
           <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/10 text-primary mx-auto mb-4 sm:mb-6">
             <Mail className="w-6 h-6 sm:w-8 sm:h-8" />
           </div>
-          <h2
+          <Typography.Heading2
             id="newsletter-heading"
             className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4"
           >
             Join Our Newsletter
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0">
+          </Typography.Heading2>
+          <Typography.Body className="text-muted-foreground text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0">
             Stay updated with new features being deployed daily! Get exclusive
             insights, tips, and be the first to know about exciting updates to
             our platform.
-          </p>
+          </Typography.Body>
           <form
             onSubmit={handleSubmit}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-lg mx-auto"
@@ -111,7 +112,7 @@ export function NewsletterSignup() {
               className="group whitespace-nowrap w-full sm:w-auto h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6"
             >
               {loading ? (
-                <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                <div className="size-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
               ) : (
                 <>
                   Subscribe
@@ -121,12 +122,12 @@ export function NewsletterSignup() {
             </Button>
           </form>
 
-          <p
+          <Typography.Body
             id="email-description"
             className="text-xs sm:text-sm text-muted-foreground mt-3 sm:mt-4 px-4 sm:px-0"
           >
             No spam, unsubscribe at any time. We respect your privacy.
-          </p>
+          </Typography.Body>
         </div>
       </div>
     </section>

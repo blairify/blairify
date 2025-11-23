@@ -9,6 +9,7 @@ import {
   AvatarIconDisplay,
   AvatarIconSelector,
 } from "@/components/common/atoms/avatar-icon-selector";
+import { Typography } from "@/components/common/atoms/typography";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -151,7 +152,7 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
     }).format(date);
   };
 
-  if (!user) {
+  if (!user || !userData) {
     return null;
   }
 
@@ -159,9 +160,9 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
     <main className="flex-1 overflow-y-auto bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 max-w-7xl">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">
+          <Typography.Heading1 className="tracking-tight">
             Profile Settings
-          </h1>
+          </Typography.Heading1>
           <p className="text-muted-foreground mt-2">
             Manage your account settings and preferences
           </p>
@@ -363,9 +364,9 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                     type="button"
                   >
                     {saving ? (
-                      <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                      <div className="size-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
                     ) : (
-                      <Save className="h-4 w-4" />
+                      <Save className="size-4" />
                     )}
                     Save Changes
                   </Button>

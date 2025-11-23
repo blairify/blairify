@@ -3,6 +3,7 @@
 import { Building2, X } from "lucide-react";
 import type React from "react";
 import * as SimpleIcons from "react-icons/si";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { parseFullMarkdown } from "@/lib/utils/markdown-parser";
@@ -47,9 +48,9 @@ export function QuestionModal({ question, onClose }: QuestionModalProps) {
               <FallbackIcon className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-foreground">
+              <Typography.Heading2 className="text-xl font-bold text-foreground">
                 {question.companies?.[0]?.name || "Company"}
-              </h2>
+              </Typography.Heading2>
               <span className="text-sm text-muted-foreground">
                 {question.topic}
               </span>
@@ -61,7 +62,7 @@ export function QuestionModal({ question, onClose }: QuestionModalProps) {
             size="icon"
             className="h-9 w-9 rounded-lg hover:bg-muted"
           >
-            <X className="w-5 h-5" />
+            <X className="size-5" />
           </Button>
         </div>
 
@@ -69,9 +70,9 @@ export function QuestionModal({ question, onClose }: QuestionModalProps) {
           {/* Question */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <h3 className="text-lg font-semibold text-foreground">
+              <Typography.Heading3 className="text-lg font-semibold text-foreground">
                 Question
-              </h3>
+              </Typography.Heading3>
               <Badge
                 variant="outline"
                 className={`px-2.5 py-1 text-xs font-medium rounded-full border ${getDifficultyColor(question.difficulty)}`}
@@ -102,9 +103,9 @@ export function QuestionModal({ question, onClose }: QuestionModalProps) {
 
           {/* Answer */}
           <div className="p-4 bg-primary/5 rounded-xl border border-primary/10">
-            <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+            <Typography.Heading3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
               <svg
-                className="w-5 h-5 text-primary"
+                className="size-5 text-primary"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -120,7 +121,7 @@ export function QuestionModal({ question, onClose }: QuestionModalProps) {
                 />
               </svg>
               Answer
-            </h3>
+            </Typography.Heading3>
             <div
               className="prose prose-sm dark:prose-invert max-w-none text-foreground/90"
               dangerouslySetInnerHTML={parseFullMarkdown(

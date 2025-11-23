@@ -3,6 +3,7 @@
 import { AlertTriangle, RefreshCw } from "lucide-react";
 import type React from "react";
 import { Component, type ErrorInfo, type ReactNode } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 
 interface Props {
@@ -55,9 +56,9 @@ class ErrorBoundaryInner extends Component<Props, State> {
               <AlertTriangle className="h-12 w-12 text-red-500" />
             </div>
 
-            <h1 className="text-xl font-semibold text-gray-900 mb-2">
+            <Typography.Heading1 color="primary" className="mb-2">
               Something went wrong
-            </h1>
+            </Typography.Heading1>
 
             <p className="text-gray-600 mb-3">
               We encountered an unexpected error. Please try refreshing the page

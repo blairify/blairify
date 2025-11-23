@@ -10,6 +10,7 @@ import {
   Shield,
   UserCheck,
 } from "lucide-react";
+import { Typography } from "@/components/common/atoms/typography";
 
 const features = [
   {
@@ -67,17 +68,17 @@ export default function FeaturesGrid() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center space-y-8 sm:space-y-12">
         <div className="space-y-4 sm:space-y-6">
-          <h2
+          <Typography.Heading2
             id="features-heading"
             className="text-2xl sm:text-3xl lg:text-4xl font-bold"
           >
             Everything You Need to{" "}
             <span className="text-[color:var(--primary)]">Succeed</span>
-          </h2>
-          <p className="text-base sm:text-lg text-[color:var(--muted-foreground)] max-w-2xl mx-auto leading-relaxed">
+          </Typography.Heading2>
+          <Typography.Body className="text-base sm:text-lg text-[color:var(--muted-foreground)] max-w-2xl mx-auto leading-relaxed">
             Train smarter with AI that understands your skill level and adapts
             to your learning goals.
-          </p>
+          </Typography.Body>
         </div>
 
         {/* Grid Container */}
@@ -94,12 +95,12 @@ export default function FeaturesGrid() {
                   <Icon size={20} className="sm:w-6 sm:h-6" />
                 </div>
 
-                <h3 className="text-base sm:text-lg font-semibold text-[color:var(--foreground)] mb-2 sm:mb-3">
+                <Typography.Heading3 className="text-base sm:text-lg font-semibold text-[color:var(--foreground)] mb-2 sm:mb-3">
                   {f.title}
-                </h3>
-                <p className="text-sm sm:text-base text-[color:var(--muted-foreground)] leading-relaxed">
+                </Typography.Heading3>
+                <Typography.Body className="text-sm sm:text-base text-[color:var(--muted-foreground)] leading-relaxed">
                   {f.description}
-                </p>
+                </Typography.Body>
               </div>
             );
           })}

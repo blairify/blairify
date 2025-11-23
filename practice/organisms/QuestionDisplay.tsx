@@ -7,6 +7,7 @@
 
 import { Building2, Clock, Tag } from "lucide-react";
 import { useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -53,11 +54,17 @@ export function QuestionDisplay({
       {/* Question Content */}
       <Card className="p-6">
         <div className="prose prose-sm dark:prose-invert max-w-none mb-6">
-          <h2 className="text-2xl font-bold mb-2">{question.title}</h2>
+          <Typography.Heading2 className="text-2xl font-bold mb-2">
+            {question.title}
+          </Typography.Heading2>
           {question.description && (
-            <p className="text-muted-foreground mb-4">{question.description}</p>
+            <Typography.Body className="text-muted-foreground mb-4">
+              {question.description}
+            </Typography.Body>
           )}
-          <div className="text-lg">{question.prompt}</div>
+          <Typography.Body className="text-lg">
+            {question.prompt}
+          </Typography.Body>
         </div>
 
         {/* Type-specific Answer Input */}
@@ -213,11 +220,11 @@ function MCQInput({
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-muted-foreground">
+      <Typography.Body className="text-sm text-muted-foreground">
         {question.allowMultipleAnswers
           ? "Select all that apply"
           : "Select one answer"}
-      </p>
+      </Typography.Body>
 
       <div className="space-y-3">
         {question.options.map((option) => (
@@ -417,9 +424,9 @@ function MatchingInput({
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-muted-foreground">
+      <Typography.Body className="text-sm text-muted-foreground">
         Match items from the left column with items from the right column
-      </p>
+      </Typography.Body>
 
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">

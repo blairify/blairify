@@ -13,6 +13,7 @@ import {
   TrendingUp,
   XCircle,
 } from "lucide-react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -42,25 +43,30 @@ export function EvaluationFeedback({
 
       {/* Reasoning */}
       <Card className="p-6">
-        <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+        <Typography.Heading3 className="mb-3 flex items-center gap-2">
           <AlertCircle className="h-5 w-5 text-primary" />
           Evaluation Summary
-        </h3>
-        <p className="text-muted-foreground">{evaluation.reasoning}</p>
+        </Typography.Heading3>
+        <Typography.Body className="text-muted-foreground">
+          {evaluation.reasoning}
+        </Typography.Body>
       </Card>
 
       {/* Strengths */}
       {evaluation.strengths.length > 0 && (
         <Card className="p-6 border-green-200 dark:border-green-900">
-          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-green-700 dark:text-green-400">
+          <Typography.Heading3
+            color="success"
+            className="mb-3 flex items-center gap-2"
+          >
             <CheckCircle2 className="h-5 w-5" />
             Strengths
-          </h3>
+          </Typography.Heading3>
           <ul className="space-y-2">
             {evaluation.strengths.map((strength, idx) => (
               <li key={idx} className="flex items-start gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                <span>{strength}</span>
+                <Typography.Body>{strength}</Typography.Body>
               </li>
             ))}
           </ul>
@@ -70,15 +76,18 @@ export function EvaluationFeedback({
       {/* Weaknesses */}
       {evaluation.weaknesses.length > 0 && (
         <Card className="p-6 border-red-200 dark:border-red-900">
-          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-red-700 dark:text-red-400">
+          <Typography.Heading3
+            color="error"
+            className="mb-3 flex items-center gap-2"
+          >
             <XCircle className="h-5 w-5" />
             Areas for Improvement
-          </h3>
+          </Typography.Heading3>
           <ul className="space-y-2">
             {evaluation.weaknesses.map((weakness, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <XCircle className="h-4 w-4 text-red-600 mt-0.5 flex-shrink-0" />
-                <span>{weakness}</span>
+                <XCircle className="size-4 text-red-600 mt-0.5 flex-shrink-0" />
+                <Typography.Body>{weakness}</Typography.Body>
               </li>
             ))}
           </ul>
@@ -88,15 +97,18 @@ export function EvaluationFeedback({
       {/* Suggestions */}
       {evaluation.suggestions.length > 0 && (
         <Card className="p-6 border-blue-200 dark:border-blue-900">
-          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-blue-700 dark:text-blue-400">
-            <Lightbulb className="h-5 w-5" />
+          <Typography.Heading3
+            color="blue"
+            className="mb-3 flex items-center gap-2"
+          >
+            <Lightbulb className="size-5" />
             Suggestions for Improvement
-          </h3>
+          </Typography.Heading3>
           <ul className="space-y-2">
             {evaluation.suggestions.map((suggestion, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <TrendingUp className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                <span>{suggestion}</span>
+                <TrendingUp className="size-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                <Typography.Body>{suggestion}</Typography.Body>
               </li>
             ))}
           </ul>
@@ -132,10 +144,10 @@ function ScoreOverview({ evaluation }: { evaluation: EvaluationResult }) {
     <Card className="p-6">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="text-lg font-semibold mb-1">Your Score</h3>
-          <p className="text-sm text-muted-foreground">
+          <Typography.Heading3 className="mb-1">Your Score</Typography.Heading3>
+          <Typography.Caption className="text-muted-foreground">
             {getScoreLabel(evaluation.percentage)}
-          </p>
+          </Typography.Caption>
         </div>
         <div className="text-right">
           <div
@@ -151,12 +163,12 @@ function ScoreOverview({ evaluation }: { evaluation: EvaluationResult }) {
 
       <Progress value={evaluation.percentage} className="h-3" />
 
-      <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-        <Award className="h-4 w-4" />
-        <span>
+      <div className="mt-4 flex items-center gap-2 text-muted-foreground">
+        <Award className="size-4" />
+        <Typography.Caption>
           Evaluated by {evaluation.evaluationModel} • Version{" "}
           {evaluation.evaluationVersion}
-        </span>
+        </Typography.Caption>
       </div>
     </Card>
   );
@@ -199,16 +211,20 @@ function OpenBreakdown({ breakdown }: { breakdown: any }) {
 
   return (
     <Card className="p-6">
-      <h3 className="text-lg font-semibold mb-4">Detailed Analysis</h3>
+      <Typography.Heading3 className="mb-4">
+        Detailed Analysis
+      </Typography.Heading3>
 
       <div className="space-y-4">
         {criteria.map((criterion) => (
           <div key={criterion.label}>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium">{criterion.label}</span>
-              <span className="text-sm text-muted-foreground">
+              <Typography.CaptionMedium>
+                {criterion.label}
+              </Typography.CaptionMedium>
+              <Typography.Caption className="text-muted-foreground">
                 {Math.round(criterion.value * 100)}%
-              </span>
+              </Typography.Caption>
             </div>
             <Progress value={criterion.value * 100} className="h-2" />
           </div>
@@ -217,14 +233,14 @@ function OpenBreakdown({ breakdown }: { breakdown: any }) {
 
       {breakdown.coveredKeyPoints && breakdown.coveredKeyPoints.length > 0 && (
         <div className="mt-6">
-          <h4 className="text-sm font-semibold mb-2 text-green-700 dark:text-green-400">
+          <Typography.CaptionBold color="success" className="mb-2">
             Key Points Covered
-          </h4>
+          </Typography.CaptionBold>
           <ul className="space-y-1">
             {breakdown.coveredKeyPoints.map((point: string, idx: number) => (
-              <li key={idx} className="text-sm flex items-start gap-2">
-                <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                <span>{point}</span>
+              <li key={idx} className="flex items-start gap-2">
+                <CheckCircle2 className="size-4 text-green-600 mt-0.5 flex-shrink-0" />
+                <Typography.Body>{point}</Typography.Body>
               </li>
             ))}
           </ul>
@@ -233,14 +249,14 @@ function OpenBreakdown({ breakdown }: { breakdown: any }) {
 
       {breakdown.missedKeyPoints && breakdown.missedKeyPoints.length > 0 && (
         <div className="mt-4">
-          <h4 className="text-sm font-semibold mb-2 text-red-700 dark:text-red-400">
+          <Typography.CaptionBold color="error" className="mb-2">
             Key Points Missed
-          </h4>
+          </Typography.CaptionBold>
           <ul className="space-y-1">
             {breakdown.missedKeyPoints.map((point: string, idx: number) => (
-              <li key={idx} className="text-sm flex items-start gap-2">
-                <XCircle className="h-4 w-4 text-red-600 mt-0.5 flex-shrink-0" />
-                <span>{point}</span>
+              <li key={idx} className="flex items-start gap-2">
+                <XCircle className="size-4 text-red-600 mt-0.5 flex-shrink-0" />
+                <Typography.Body>{point}</Typography.Body>
               </li>
             ))}
           </ul>
@@ -264,7 +280,7 @@ function CodeBreakdown({ breakdown }: { breakdown: any }) {
 
   return (
     <Card className="p-6">
-      <h3 className="text-lg font-semibold mb-4">Code Analysis</h3>
+      <Typography.Heading3 className="mb-4">Code Analysis</Typography.Heading3>
 
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2">
@@ -303,15 +319,17 @@ function CodeBreakdown({ breakdown }: { breakdown: any }) {
 function MCQBreakdown({ breakdown }: { breakdown: any }) {
   return (
     <Card className="p-6">
-      <h3 className="text-lg font-semibold mb-4">Answer Analysis</h3>
+      <Typography.Heading3 className="mb-4">
+        Answer Analysis
+      </Typography.Heading3>
 
       <div className="space-y-4">
         {breakdown.correctSelections &&
           breakdown.correctSelections.length > 0 && (
             <div>
-              <h4 className="text-sm font-semibold mb-2 text-green-700 dark:text-green-400">
+              <Typography.CaptionBold color="success" className="mb-2">
                 Correct Selections
-              </h4>
+              </Typography.CaptionBold>
               <div className="flex flex-wrap gap-2">
                 {breakdown.correctSelections.map((id: string) => (
                   <Badge
@@ -329,9 +347,9 @@ function MCQBreakdown({ breakdown }: { breakdown: any }) {
         {breakdown.incorrectSelections &&
           breakdown.incorrectSelections.length > 0 && (
             <div>
-              <h4 className="text-sm font-semibold mb-2 text-red-700 dark:text-red-400">
+              <Typography.CaptionBold color="error" className="mb-2">
                 Incorrect Selections
-              </h4>
+              </Typography.CaptionBold>
               <div className="flex flex-wrap gap-2">
                 {breakdown.incorrectSelections.map((id: string) => (
                   <Badge key={id} variant="outline" className="border-red-600">
@@ -345,9 +363,9 @@ function MCQBreakdown({ breakdown }: { breakdown: any }) {
         {breakdown.missedCorrectOptions &&
           breakdown.missedCorrectOptions.length > 0 && (
             <div>
-              <h4 className="text-sm font-semibold mb-2 text-yellow-700 dark:text-yellow-400">
+              <Typography.CaptionBold className="mb-2 text-yellow-700 dark:text-yellow-400">
                 Missed Correct Options
-              </h4>
+              </Typography.CaptionBold>
               <div className="flex flex-wrap gap-2">
                 {breakdown.missedCorrectOptions.map((id: string) => (
                   <Badge
@@ -373,7 +391,9 @@ function MCQBreakdown({ breakdown }: { breakdown: any }) {
 function MatchingBreakdown({ breakdown }: { breakdown: any }) {
   return (
     <Card className="p-6">
-      <h3 className="text-lg font-semibold mb-4">Matching Results</h3>
+      <Typography.Heading3 className="text-lg font-semibold mb-4">
+        Matching Results
+      </Typography.Heading3>
 
       <div className="grid grid-cols-3 gap-4 text-center">
         <div>

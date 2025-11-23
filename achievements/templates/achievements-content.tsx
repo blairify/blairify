@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NextAchievementCard } from "@/components/achievements/molecules/next-achievement-card";
+import { Typography } from "@/components/common/atoms/typography";
 import { RankBadge } from "@/components/ranks/organisms/rank-badge";
 import { XPProgressBar } from "@/components/ranks/organisms/xp-progress-bar";
 import { Badge } from "@/components/ui/badge";
@@ -177,10 +178,12 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
       <div className="container mx-auto px-6 py-10 space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-4xl font-bold text-foreground flex items-center gap-3">
+          <div className="flex items-center gap-3">
             <Trophy className="size-8 text-primary" />
-            Achievements
-          </h1>
+            <Typography.Heading1 className="text-foreground">
+              Achievements
+            </Typography.Heading1>
+          </div>
           <p className="text-muted-foreground text-lg">
             Track your progress and unlock milestones as you improve your
             interview skills.

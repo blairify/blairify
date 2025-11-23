@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -520,9 +521,9 @@ export function ResultsContent({ user }: ResultsContentProps) {
         {/* HEADER SECTION */}
         {/* ============================================================================ */}
         <header className="text-center border-b border-gray-200 dark:border-gray-800 pb-8 mb-2 animate-in fade-in slide-in-from-top-2 duration-700">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+          <Typography.Heading1 color="primary" className="mb-3">
             Interview Performance Report
-          </h1>
+          </Typography.Heading1>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
             Comprehensive evaluation and personalized insights for your
             professional development

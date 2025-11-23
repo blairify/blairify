@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -173,7 +174,9 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
       <main className="flex-1 flex items-center justify-center bg-background">
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
-          <p className="text-muted-foreground">Loading flashcards...</p>
+          <Typography.Body color="secondary">
+            Loading flashcards...
+          </Typography.Body>
         </div>
       </main>
     );
@@ -186,10 +189,12 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
           <div className="w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
             <X className="w-8 h-8 text-red-600 dark:text-red-400" />
           </div>
-          <h2 className="text-xl font-semibold mb-2">
+          <Typography.Heading2 color="primary" className="mb-2">
             Error Loading Questions
-          </h2>
-          <p className="text-muted-foreground mb-4">{error}</p>
+          </Typography.Heading2>
+          <Typography.Body color="secondary" className="mb-4">
+            {error}
+          </Typography.Body>
           <Button onClick={() => window.location.reload()}>Try Again</Button>
         </div>
       </main>
@@ -201,10 +206,12 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
       <main className="flex-1 flex items-center justify-center bg-background p-4">
         <div className="text-center max-w-md">
           <BookOpen className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-          <h2 className="text-xl font-semibold mb-2">No Questions Found</h2>
-          <p className="text-muted-foreground mb-4">
+          <Typography.Heading2 color="primary" className="mb-2">
+            No Questions Found
+          </Typography.Heading2>
+          <Typography.Body color="secondary" className="mb-4">
             Try adjusting your filters or search term
-          </p>
+          </Typography.Body>
           <Button
             onClick={() => {
               setSearchTerm("");
@@ -226,10 +233,12 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-3xl font-bold mb-2">Practice Flashcards</h1>
-              <p className="text-muted-foreground">
+              <Typography.Heading1 color="primary" className="mb-2">
+                Practice Flashcards
+              </Typography.Heading1>
+              <Typography.Body color="secondary">
                 Master interview questions one card at a time
-              </p>
+              </Typography.Body>
             </div>
             <Button
               variant="outline"
@@ -251,7 +260,7 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
                     Search
                   </label>
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
                     <Input
                       id="search-input"
                       placeholder="Search questions..."
@@ -320,11 +329,11 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
                 </p>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" onClick={handleShuffle}>
-                    <Shuffle className="w-4 h-4 mr-2" />
+                    <Shuffle className="size-4 mr-2" />
                     Shuffle
                   </Button>
                   <Button variant="outline" size="sm" onClick={handleReset}>
-                    <RotateCcw className="w-4 h-4 mr-2" />
+                    <RotateCcw className="size-4 mr-2" />
                     Reset
                   </Button>
                 </div>
@@ -393,9 +402,9 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
                       <BookOpen className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">
+                      <Typography.Heading3 className="text-lg">
                         {currentQuestion.title}
-                      </h3>
+                      </Typography.Heading3>
                       <div className="flex items-center gap-2 mt-1">
                         {currentQuestion.companies?.[0] && (
                           <div className="flex items-center gap-1 text-sm text-muted-foreground">
@@ -457,10 +466,12 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
                       <BookOpen className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Answer</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <Typography.Heading3 className="text-lg">
+                        Answer
+                      </Typography.Heading3>
+                      <Typography.Body color="secondary" className="text-sm">
                         {currentQuestion.title}
-                      </p>
+                      </Typography.Body>
                     </div>
                   </div>
                   <div className="text-sm text-muted-foreground bg-primary/10 px-3 py-1 rounded-full">
@@ -483,7 +494,9 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
                 {currentQuestion.primaryTechStack &&
                   currentQuestion.primaryTechStack.length > 0 && (
                     <div className="mt-6 pt-6 border-t border-primary/20">
-                      <p className="text-sm font-medium mb-2">Tech Stack:</p>
+                      <Typography.BodyMedium className="text-sm mb-2">
+                        Tech Stack:
+                      </Typography.BodyMedium>
                       <div className="flex flex-wrap gap-2">
                         {currentQuestion.primaryTechStack.map(
                           (tech: string) => (
@@ -513,7 +526,7 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
             disabled={currentIndex === 0}
             className="gap-2"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="size-5" />
             Previous
           </Button>
 
@@ -524,7 +537,7 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
               onClick={handleFlip}
               className="gap-2"
             >
-              <RotateCcw className="w-5 h-5" />
+              <RotateCcw className="size-5" />
               {isFlipped ? "Show Question" : "Show Answer"}
             </Button>
           </div>
@@ -537,7 +550,7 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
             className="gap-2"
           >
             Next
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="size-5" />
           </Button>
         </div>
 
