@@ -63,7 +63,7 @@ const features = [
 export default function FeaturesGrid() {
   return (
     <section
-      className="bg-[color:var(--background)] text-[color:var(--foreground)] py-16 sm:py-20 lg:py-24 transition-colors duration-300"
+      className="bg-[color:var(--card)] text-[color:var(--foreground)] py-16 sm:py-20 lg:py-24 transition-colors duration-300"
       aria-labelledby="features-heading"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center space-y-8 sm:space-y-12">

@@ -22,7 +22,7 @@ export default function HeroSection() {
   const { user, loading } = useAuth();
   return (
     <section
-      className="bg-[color:var(--background)] text-[color:var(--foreground)] relative overflow-visible"
+      className="bg-[color:var(--card)] text-[color:var(--foreground)] relative overflow-visible"
       aria-labelledby="hero-heading"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-16 max-w-7xl">

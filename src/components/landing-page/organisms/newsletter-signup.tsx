@@ -48,7 +48,7 @@ export function NewsletterSignup() {
 
   if (success) {
     return (
-      <section className="py-16 bg-primary/5">
+      <section className="py-16 bg-[color:var(--secondary)]">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center">
             <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mx-auto mb-4">
@@ -68,7 +68,7 @@ export function NewsletterSignup() {
 
   return (
     <section
-      className="py-12 sm:py-16 lg:py-20 bg-primary/5"
+      className="py-12 sm:py-16 lg:py-20 bg-[color:var(--secondary)]"
       aria-labelledby="newsletter-heading"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

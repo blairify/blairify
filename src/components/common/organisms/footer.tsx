@@ -1,6 +1,15 @@
 "use client";
-import { Cookie, FileText, Lock, Scale, Shield } from "lucide-react";
+import {
+  Cookie,
+  FileText,
+  Instagram,
+  Linkedin,
+  Lock,
+  Scale,
+  Shield,
+} from "lucide-react";
 import Link from "next/link";
+import { SiX } from "react-icons/si";
 import { Typography } from "../atoms/typography";
 
 export default function Footer() {
@@ -15,8 +24,26 @@ export default function Footer() {
     { href: "/legal-notice", label: "Legal Notice", icon: Scale },
   ];
 
+  const socialLinks = [
+    {
+      href: "https://www.instagram.com/blairify",
+      label: "Blairify on Instagram",
+      icon: Instagram,
+    },
+    {
+      href: "https://x.com/BlairifyTeam",
+      label: "Blairify on X (Twitter)",
+      icon: SiX,
+    },
+    {
+      href: "https://www.linkedin.com/company/blairify",
+      label: "Blairify on LinkedIn",
+      icon: Linkedin,
+    },
+  ] as const;
+
   return (
-    <footer className="bg-[color:var(--background)] text-[color:var(--muted-foreground)] border-t border-[color:var(--border)] transition-colors duration-300 mt-auto">
+    <footer className="bg-[color:var(--card)] text-[color:var(--muted-foreground)] border-t border-[color:var(--border)] transition-colors duration-300 mt-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 max-w-7xl">
         {/* Top Section: Brand + Links + Badges */}
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 mb-6">
@@ -60,7 +87,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section: Copyright & Contact */}
+        {/* Bottom Section: Copyright, Contact & Social */}
         <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-[color:var(--border)] text-xs sm:text-sm">
           <Typography.Caption
             color="secondary"
@@ -68,6 +95,23 @@ export default function Footer() {
           >
             © {currentYear} Blairify. All rights reserved.
           </Typography.Caption>
+          <div className="flex items-center gap-3">
+            {socialLinks.map((socialLink) => {
+              const Icon = socialLink.icon;
+              return (
+                <Link
+                  key={socialLink.href}
+                  href={socialLink.href}
+                  aria-label={socialLink.label}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex size-8 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--background)] hover:bg-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors touch-manipulation"
+                >
+                  <Icon className="size-4" />
+                </Link>
+              );
+            })}
+          </div>
           <Typography.Caption
             color="secondary"
             className="text-center sm:text-right"

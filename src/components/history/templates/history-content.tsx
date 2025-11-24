@@ -174,10 +174,20 @@ export function HistoryContent({ user }: HistoryContentProps) {
         0,
       ) / sessions.length;
     const totalSessions = sessions.length;
-    const totalTime = sessions.reduce(
-      (sum, session) => sum + session.totalDuration,
-      0,
-    );
+    const totalTime = sessions.reduce((sum, session) => {
+      const duration = session.totalDuration || 0;
+
+      if (
+        typeof duration !== "number" ||
+        !Number.isFinite(duration) ||
+        duration <= 0 ||
+        duration > 480
+      ) {
+        return sum;
+      }
+
+      return sum + duration;
+    }, 0);
 
     return { avgScore: Math.round(avgScore), totalSessions, totalTime };
   };

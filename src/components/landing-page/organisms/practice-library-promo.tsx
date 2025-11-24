@@ -67,7 +67,7 @@ export function PracticeLibraryPromo({ questions }: PracticeLibraryPromoProps) {
   };
 
   return (
-    <section className="max-w-7xl mx-auto py-12 sm:py-16 lg:py-20 bg-background overflow-hidden">
+    <section className="w-full py-12 sm:py-16 lg:py-20 bg-[color:var(--secondary)] overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-stretch auto-rows-min">
           <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col items-center lg:items-start text-center lg:text-left order-first lg:order-last max-w-xl mx-auto lg:mx-0">

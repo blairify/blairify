@@ -11,24 +11,10 @@ import { join } from "node:path";
 import { cert, initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 
-// Initialize Firebase
-let serviceAccount: any;
-try {
-  const serviceAccountPath = join(
-    process.cwd(),
-    "scripts",
-    "serviceAccounts.json",
-  );
-  serviceAccount = JSON.parse(readFileSync(serviceAccountPath, "utf8"));
-} catch (_error) {
-  console.error("❌ Error loading service account");
-  process.exit(1);
-}
+// Firebase initialization is done lazily inside main() to allow importing
+// generation utilities without requiring credentials.
 
-initializeApp({ credential: cert(serviceAccount) });
-const db = getFirestore();
-
-interface PracticeQuestion {
+export interface PracticeQuestion {
   category: string;
   difficulty: "easy" | "medium" | "hard";
   companyLogo: string;
@@ -602,7 +588,7 @@ const companySpecificQuestions: {
 };
 
 // Generate questions for all combinations
-function generateComprehensiveQuestions(): PracticeQuestion[] {
+export function generateComprehensiveQuestions(): PracticeQuestion[] {
   const questions: PracticeQuestion[] = [];
 
   companies.forEach((company) => {
@@ -727,6 +713,22 @@ async function main() {
   console.log(
     "🚀 Generating comprehensive questions for all companies and positions...",
   );
+
+  let serviceAccount: any;
+  try {
+    const serviceAccountPath = join(
+      process.cwd(),
+      "scripts",
+      "serviceAccounts.json",
+    );
+    serviceAccount = JSON.parse(readFileSync(serviceAccountPath, "utf8"));
+  } catch (_error) {
+    console.error("❌ Error loading service account");
+    process.exit(1);
+  }
+
+  initializeApp({ credential: cert(serviceAccount) });
+  const db = getFirestore();
 
   const questions = generateComprehensiveQuestions();
 
