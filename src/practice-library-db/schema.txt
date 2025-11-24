@@ -1,0 +1,66 @@
+{
+  "tables": [
+    {
+      "name": "practice_questions",
+      "columns": [
+        { "name": "id", "type": "string", "description": "Unique ID of the question" },
+        { "name": "type", "type": "string", "description": "Question type: mcq | open | matching | truefalse | system-design" },
+        { "name": "difficulty", "type": "string", "description": "Difficulty: entry | junior | middle | senior" },
+        { "name": "status", "type": "string", "description": "Question status: draft | published | archived" },
+        { "name": "isDemoMode", "type": "boolean", "description": "Whether this question is a demo" },
+        { "name": "companyType", "type": "string", "description": "Company type: faang | startup | enterprise" },
+        { "name": "title", "type": "string", "description": "Question title" },
+        { "name": "description", "type": "string", "description": "Longer explanation / extended context" },
+        { "name": "prompt", "type": "string", "description": "Actual question prompt shown in UI" },
+        { "name": "topic", "type": "string", "description": "Main topic, e.g. frontend, system-design" },
+        { "name": "subtopics", "type": "string[]", "description": "Additional subtopics for granular filtering" },
+        { "name": "tags", "type": "string[]", "description": "Tags used for search and filtering" },
+        { "name": "estimatedTimeMinutes", "type": "integer", "description": "Approximate time to solve" },
+        { "name": "aiEvaluationHint", "type": "string | null", "description": "Optional AI evaluation guidance" },
+        { "name": "multiChoiceAnswers", "type": "string[] | null", "description": "Array of correct answers for MCQs" },
+        { "name": "companies", "type": "jsonb | null", "description": "Optional list of companies (name, logo, size, description)" },
+        { "name": "positions", "type": "string[]", "description": "Relevant roles" },
+        { "name": "primaryTechStack", "type": "string[]", "description": "Tech stack labels" },
+        { "name": "interviewTypes", "type": "string[]", "description": "Interview types: regular | practice | flash | etc" },
+        { "name": "seniorityLevels", "type": "string[]", "description": "Target seniority levels" },
+        { "name": "createdAt", "type": "timestamp", "description": "Creation time" },
+        { "name": "updatedAt", "type": "timestamp", "description": "Last updated time" },
+        { "name": "createdBy", "type": "string", "description": "ID of user/admin who created the question" },
+        { "name": "openReferenceAnswers", "type": "jsonb | null", "description": "Reference answers for open questions" },
+        { "name": "trueFalseCorrectAnswer", "type": "boolean | null", "description": "True/false correct answer" },
+        { "name": "trueFalseExplanation", "type": "string | null", "description": "Explanation for true/false" },
+        { "name": "matchingShuffleLeft", "type": "boolean | null", "description": "Shuffle left side for matching questions" },
+        { "name": "matchingShuffleRight", "type": "boolean | null", "description": "Shuffle right side for matching questions" },
+        { "name": "matchingPairs", "type": "jsonb | null", "description": "Array of left/right pairs for matching questions" }
+      ]
+    },
+    {
+      "name": "practice_mcq_options",
+      "columns": [
+        { "name": "id", "type": "string", "description": "Unique option ID" },
+        { "name": "questionId", "type": "string", "description": "FK to practice_questions.id" },
+        { "name": "text", "type": "string", "description": "Option text" },
+        { "name": "isCorrect", "type": "boolean", "description": "Whether this option is correct" },
+        { "name": "explanation", "type": "string | null", "description": "Optional explanation" }
+      ]
+    },
+    {
+      "name": "practice_matching_pairs",
+      "columns": [
+        { "name": "id", "type": "string", "description": "Unique pair ID" },
+        { "name": "questionId", "type": "string", "description": "FK to practice_questions.id" },
+        { "name": "left", "type": "string", "description": "Left-hand item" },
+        { "name": "right", "type": "string", "description": "Right-hand item" },
+        { "name": "explanation", "type": "string | null", "description": "Optional explanation" }
+      ]
+    },
+    {
+      "name": "practice_system_design_charts",
+      "columns": [
+        { "name": "id", "type": "string", "description": "Unique chart ID" },
+        { "name": "questionId", "type": "string", "description": "FK to practice_questions.id" },
+        { "name": "chart", "type": "jsonb", "description": "Structured system design chart nodes and relationships" }
+      ]
+    }
+  ]
+}

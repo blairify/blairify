@@ -1,148 +1,195 @@
-import "dotenv/config";
-import { Pool } from "pg";
-import { drizzle } from "drizzle-orm/node-postgres";
-import * as schema from "../src/practice-library-db/schema";
-import {
-  generateComprehensiveQuestions,
-  type PracticeQuestion as GeneratedPracticeQuestion,
-} from "./generate-comprehensive-questions";
-import { convertToNewFormat } from "./convert-old-questions";
+import { config as loadEnv } from "dotenv";
+import OpenAI from "openai";
+import fs from "fs";
+import path from "path";
 
-// TO RUN:
-// export PRACTICE_LIBRARY_DATABASE_URL="your_database_url"
-// pnpm exec ts-node --project scripts/tsconfig.json scripts/seed-practice-library.ts
+loadEnv({ path: path.resolve(__dirname, "..", ".env") });
+
+// ---------------------
+// Types for output JSON
+// ---------------------
+
+interface PracticeQuestion {
+  id: string;
+  type: "mcq" | "open" | "truefalse" | "matching" | "system-design";
+  difficulty: "entry" | "junior" | "middle" | "senior";
+  status: string;
+  isDemoMode: boolean;
+  companyType: "faang" | "startup" | "enterprise";
+  title: string;
+  description: string;
+  prompt: string;
+  topic: string;
+  subtopics: string[];
+  tags: string[];
+  estimatedTimeMinutes: number;
+  aiEvaluationHint: string | null;
+  multiChoiceAnswers: string[] | null;
+  companies:
+    | {
+        name: string;
+        logo: string;
+        size?: string[];
+        description: string;
+      }[]
+    | null;
+  positions: string[];
+  primaryTechStack: string[];
+  interviewTypes: string[];
+  seniorityLevels: string[];
+  trueFalseCorrectAnswer: boolean | null;
+  trueFalseExplanation: string | null;
+  matchingShuffleLeft: boolean | null;
+  matchingShuffleRight: boolean | null;
+  matchingPairs:
+    | {
+        left: string;
+        right: string;
+        explanation?: string | null;
+      }[]
+    | null;
+  openReferenceAnswers:
+    | {
+        id: string;
+        text: string;
+        weight: number;
+      }[]
+    | null;
+  createdBy: string;
+}
+
+interface MCQOption {
+  id: string;
+  questionId: string;
+  text: string;
+  isCorrect: boolean;
+  explanation: string | null;
+}
+
+interface MatchingPair {
+  id: string;
+  questionId: string;
+  left: string;
+  right: string;
+  explanation: string | null;
+}
+
+interface SystemDesignChart {
+  id: string;
+  questionId: string;
+  chart: any[];
+}
+
+interface BatchOutput {
+  practice_questions: PracticeQuestion[];
+  practice_mcq_options: MCQOption[];
+  practice_matching_pairs: MatchingPair[];
+  practice_system_design_charts: SystemDesignChart[];
+}
+
+// ---------------------
+// Script configuration
+// ---------------------
+
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY!,
+});
+
+const TOTAL = 10;
+const BATCH_SIZE = 10;
+const OUT = "./questions_output.json";
+
+const SCHEMA_PATH = path.resolve(
+  __dirname,
+  "../src/practice-library-db/schema.txt",
+);
+const PROMPT_TEMPLATE_PATH = path.resolve(
+  __dirname,
+  "../src/practice-library-db/prompt.txt",
+);
+
+const SCHEMA = fs.readFileSync(SCHEMA_PATH, "utf8");
+const PROMPT_TEMPLATE = fs.readFileSync(PROMPT_TEMPLATE_PATH, "utf8");
+
+let accumulator: BatchOutput = {
+  practice_questions: [],
+  practice_mcq_options: [],
+  practice_matching_pairs: [],
+  practice_system_design_charts: [],
+};
+
+// ---------------------
+// Helper functions
+// ---------------------
+
+function applyTemplate(schema: string, batchSize: number) {
+  return PROMPT_TEMPLATE.replace("{{SCHEMA}}", schema).replace(/{{BATCH_SIZE}}/g, String(batchSize));
+}
+
+async function generateBatch(batchNumber: number): Promise<void> {
+  const prompt = applyTemplate(SCHEMA, BATCH_SIZE);
+
+  const res = await client.chat.completions.create({
+    model: "gpt-4.1",
+    messages: [{ role: "user", content: prompt }],
+    temperature: 0.7,
+    max_tokens: 10000,
+  });
+
+  let text = res.choices[0].message.content ?? "";
+
+  // Ensure clean JSON block
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
+  text = text.slice(start, end + 1);
+
+  let json: BatchOutput;
+
+  try {
+    json = JSON.parse(text);
+    console.log(`✓ Batch ${batchNumber}: ${json.practice_questions.length} questions generated`);
+  } catch (err) {
+    console.error(`❌ Failed to parse JSON for batch ${batchNumber}`);
+    console.error("Raw model output:");
+    console.error(text);
+    throw err;
+  }
+
+  // Merge into master list
+  accumulator.practice_questions.push(...json.practice_questions);
+  accumulator.practice_mcq_options.push(...json.practice_mcq_options);
+  accumulator.practice_matching_pairs.push(...json.practice_matching_pairs);
+  accumulator.practice_system_design_charts.push(...json.practice_system_design_charts);
+
+  fs.writeFileSync(OUT, JSON.stringify(accumulator, null, 2));
+}
+
+async function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// ---------------------
+// Main runner
+// ---------------------
 
 async function main() {
-  const connectionString = process.env.PRACTICE_LIBRARY_DATABASE_URL;
+  const batches = TOTAL / BATCH_SIZE;
 
-  if (!connectionString) {
-    throw new Error("PRACTICE_LIBRARY_DATABASE_URL is not set");
+  console.log(`🚀 Generating ${TOTAL} questions in ${batches} batches...`);
+
+  for (let i = 1; i <= batches; i++) {
+    console.log(`\n🟦 Running batch ${i}/${batches}`);
+    await generateBatch(i);
+
+    // Basic anti-rate-limit pause
+    await sleep(1200);
   }
 
-  const pool = new Pool({ connectionString });
-  const db = drizzle(pool, { schema });
-
-  const now = new Date();
-  const generatedQuestions = generateComprehensiveQuestions();
-
-  const practiceQuestions: Array<typeof schema.practiceQuestions.$inferInsert> =
-    [];
-
-  generatedQuestions.forEach(
-    (question: GeneratedPracticeQuestion, index: number) => {
-      const converted = convertToNewFormat(question as any) as any;
-
-      if (converted.type !== "open") {
-        return;
-      }
-
-      const id = `role-${question.position ?? "general"}-${question.companyLogo}-${index}`;
-
-      const companyType = mapCompanyType(question.companySize);
-
-      const companies =
-        question.companyName || question.companyLogo
-          ? [
-              {
-                name: question.companyName ?? "Unknown",
-                logo: question.companyLogo,
-                size: question.companySize,
-                description: `Generated question for ${
-                  question.companyName ?? "this company"
-                } (${question.companyLogo}).`,
-              },
-            ]
-          : null;
-
-      const seniorityLevels =
-        question.seniorityLevel && question.seniorityLevel.length > 0
-          ? question.seniorityLevel
-          : ["entry", "junior", "mid", "senior"];
-
-      practiceQuestions.push({
-        id,
-        type: "open",
-        difficulty: converted.difficulty,
-        status: converted.status,
-        isDemoMode: false,
-        companyType,
-        title: converted.title,
-        description: converted.description,
-        prompt: converted.prompt,
-        topic: converted.topic,
-        subtopics: converted.subtopics ?? [],
-        tags: converted.tags ?? [],
-        estimatedTimeMinutes: converted.estimatedTimeMinutes ?? 10,
-        aiEvaluationHint: buildAiEvaluationHint(converted.topic, converted.difficulty),
-        companies,
-        positions: question.position ? [question.position] : [],
-        primaryTechStack: question.primaryTechStack ?? [],
-        interviewTypes: ["practice"],
-        seniorityLevels,
-        createdAt: now,
-        updatedAt: now,
-        createdBy: "practice-db-role-based-generator",
-        openReferenceAnswers:
-          converted.data?.referenceAnswers &&
-          converted.data.referenceAnswers.length > 0
-            ? converted.data.referenceAnswers
-            : null,
-      });
-    },
-  );
-
-  console.log("🌱 Seeding practice questions from generated role-based data...");
-  await db.insert(schema.practiceQuestions).values(practiceQuestions);
-  console.log(`   Inserted ${practiceQuestions.length} questions`);
-
-  console.log("✅ Practice library seed complete.");
-
-  await pool.end();
+  console.log("\n🎉 Done!");
+  console.log(`Saved final output to: ${OUT}`);
 }
 
-function mapCompanyType(sizes: string[] | undefined): "faang" | "startup" | "enterprise" {
-  if (!sizes || sizes.length === 0) return "startup";
-
-  if (sizes.includes("faang")) return "faang";
-
-  if (
-    sizes.includes("enterprise") ||
-    sizes.includes("data") ||
-    sizes.includes("hardware") ||
-    sizes.includes("automotive") ||
-    sizes.includes("telecom")
-  ) {
-    return "enterprise";
-  }
-
-  if (sizes.includes("unicorn")) return "startup";
-
-  return "startup";
-}
-
-function buildAiEvaluationHint(topic: string, difficulty: string): string {
-  const base = `Evaluate depth, correctness, and clarity for a ${difficulty}-level ${topic} question.`;
-
-  if (topic === "System Design") {
-    return `${base} Pay attention to tradeoffs, bottlenecks, and realistic capacity planning.`;
-  }
-
-  if (topic === "Frontend Development") {
-    return `${base} Reward accessibility, performance considerations, and good state management.`;
-  }
-
-  if (topic === "Backend Development") {
-    return `${base} Reward understanding of data modeling, APIs, and failure handling.`;
-  }
-
-  if (topic === "Behavioral") {
-    return `${base} Reward concrete STAR stories, ownership, and learning.`;
-  }
-
-  return base;
-}
-
-main().catch((error) => {
-  console.error("❌ Seed failed:", error);
+main().catch((err) => {
+  console.error("Fatal error:", err);
   process.exit(1);
 });

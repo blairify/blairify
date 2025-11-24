@@ -1,0 +1,113 @@
+You are generating high-quality interview practice questions for a database with the following schema:
+
+[SCHEMA BELOW]
+-----------------
+{{SCHEMA}}
+-----------------
+
+OUTPUT REQUIREMENTS
+Generate {{BATCH_SIZE}} new questions.
+They MUST follow this JSON shape exactly:
+
+{
+  "practice_questions": [
+    {
+      "id": "string",
+      "type": "mcq | open | truefalse | matching | system-design",
+      "difficulty": "entry | junior | middle | senior",
+      "status": "published",
+      "isDemoMode": false,
+      "companyType": "faang | startup | enterprise",
+      "title": "string",
+      "description": "string",
+      "prompt": "string",
+      "topic": "frontend | backend | devops | system-design | algorithms | javascript | react | sql | networking | etc",
+      "subtopics": ["..."],
+      "tags": ["..."],
+      "estimatedTimeMinutes": number,
+      "aiEvaluationHint": "string or null",
+      "multiChoiceAnswers": ["correct", "answers", "for", "mcq"] or null,
+      "companies": [
+         {
+            "name": "string",
+            "logo": "string",
+            "size": ["faang" | "startup" | "enterprise"],
+            "description": "string"
+         }
+      ] or null,
+      "positions": ["..."],
+      "primaryTechStack": ["react", "typescript", "nodejs", ...],
+      "interviewTypes": ["regular", "practice"],
+      "seniorityLevels": ["entry", "junior", "middle", "senior"],
+      "trueFalseCorrectAnswer": true | null,
+      "trueFalseExplanation": "string or null",
+      "matchingShuffleLeft": boolean or null,
+      "matchingShuffleRight": boolean or null,
+      "matchingPairs": [{"left": "...", "right": "...", "explanation": "..."}] or null,
+      "openReferenceAnswers": [{"id": "string", "text": "string", "weight": 0.5}] or null,
+      "createdBy": "system"
+    }
+  ],
+
+  "practice_mcq_options": [
+    {
+      "id": "string",
+      "questionId": "string",
+      "text": "string",
+      "isCorrect": boolean,
+      "explanation": "string or null"
+    }
+  ],
+
+  "practice_matching_pairs": [
+    {
+      "id": "string",
+      "questionId": "string",
+      "left": "string",
+      "right": "string",
+      "explanation": "string or null"
+    }
+  ],
+
+  "practice_system_design_charts": [
+    {
+      "id": "string",
+      "questionId": "string",
+      "chart": [...]
+    }
+  ]
+}
+
+RULES
+- IDs must be unique UUID-like strings.
+- Every question MUST include at least:
+  - title, description, prompt, topic, difficulty
+- Mostly generate entry or junior level questions; middle/senior only occasionally
+- MCQ questions:
+  - Must output options in practice_mcq_options[]
+  - Must set multiChoiceAnswers = array of correct answer texts
+  - **All correct answers must be true / valid**
+  - Each MCQ should have 3–5 options
+- True/False questions:
+  - Must set trueFalseCorrectAnswer = true
+  - Must include trueFalseExplanation
+- Open questions:
+  - openReferenceAnswers array must contain 1–3 clear, concise samples
+- Matching questions:
+  - matchingPairs[] must be filled AND replicated to practice_matching_pairs[]
+  - Each question should have 3–6 pairs
+- System-design questions:
+  - Must output at least one chart with nodes + relationships
+  - Keep designs simple for entry/junior difficulty
+- Difficulty should be evenly distributed across the batch
+- All prompts and answers must be easy to read and beginner-friendly
+- Must strictly output VALID JSON only, no commentary
+
+Important:
+- Return **only JSON**, no explanations, no comments
+- Use a single JSON object with keys:
+  "practice_questions", "practice_mcq_options", "practice_matching_pairs", "practice_system_design_charts"
+- Wrap the JSON in a code block like this:
+
+```json
+{ ... }

@@ -213,3 +213,11 @@ Stores structured system design charts for `"system-design"` questions.
 Notes:
 
 - Typically you'll store one chart per question, but multiple charts per question are allowed if needed.
+
+### commands to run scripts 
+
+../js/blairify
+
+- npx ts-node --project scripts/tsconfig.json scripts/seed-practice-library.ts
+
+- npx ts-node --project scripts/tsconfig.json scripts/import-practice-library-from-json.ts
