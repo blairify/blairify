@@ -80,6 +80,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      dotenv:
+        specifier: ^17.2.3
+        version: 17.2.3
       drizzle-orm:
         specifier: ^0.36.0
         version: 0.36.4(@neondatabase/serverless@1.0.2)(@opentelemetry/api@1.9.0)(@prisma/client@6.16.1(prisma@6.16.1(typescript@5.9.2))(typescript@5.9.2))(@types/pg@8.15.6)(pg@8.16.3)(prisma@6.16.1(typescript@5.9.2))(react@19.2.0)(types-react@19.0.0-rc.1)
@@ -110,6 +113,9 @@ importers:
       ogl:
         specifier: ^1.0.11
         version: 1.0.11
+      openai:
+        specifier: ^6.9.1
+        version: 6.9.1(ws@8.18.3)(zod@4.1.12)
       pg:
         specifier: ^8.16.3
         version: 8.16.3
@@ -2990,6 +2996,10 @@ packages:
     resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
+  dotenv@17.2.3:
+    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
+    engines: {node: '>=12'}
+
   drizzle-kit@0.31.7:
     resolution: {integrity: sha512-hOzRGSdyKIU4FcTSFYGKdXEjFsncVwHZ43gY3WU5Bz9j5Iadp6Rh6hxLSQ1IWXpKLBKt/d5y1cpSPcV+FcoQ1A==}
     hasBin: true
@@ -4361,6 +4371,18 @@ packages:
   onetime@7.0.0:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
+
+  openai@6.9.1:
+    resolution: {integrity: sha512-vQ5Rlt0ZgB3/BNmTa7bIijYFhz3YBceAA3Z4JuoMSBftBF9YqFHIEhZakSs+O/Ad7EaoEimZvHxD5ylRjN11Lg==}
+    hasBin: true
+    peerDependencies:
+      ws: ^8.18.0
+      zod: ^3.25 || ^4.0
+    peerDependenciesMeta:
+      ws:
+        optional: true
+      zod:
+        optional: true
 
   p-limit@2.3.0:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
@@ -8132,6 +8154,8 @@ snapshots:
 
   dotenv@16.6.1: {}
 
+  dotenv@17.2.3: {}
+
   drizzle-kit@0.31.7:
     dependencies:
       '@drizzle-team/brocli': 0.10.2
@@ -9940,6 +9964,11 @@ snapshots:
   onetime@7.0.0:
     dependencies:
       mimic-function: 5.0.1
+
+  openai@6.9.1(ws@8.18.3)(zod@4.1.12):
+    optionalDependencies:
+      ws: 8.18.3
+      zod: 4.1.12
 
   p-limit@2.3.0:
     dependencies:
