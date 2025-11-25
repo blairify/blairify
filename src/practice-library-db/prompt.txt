@@ -26,17 +26,17 @@ They MUST follow this JSON shape exactly:
       "tags": ["..."],
       "estimatedTimeMinutes": number,
       "aiEvaluationHint": "string or null",
-      "multiChoiceAnswers": ["correct", "answers", "for", "mcq"] or null,
+      "multiChoiceAnswers": ["correct", "answers"] or null,
       "companies": [
          {
             "name": "string",
             "logo": "string",
-            "size": ["faang" | "startup" | "enterprise"],
+            "size": "faang | startup | enterprise",
             "description": "string"
          }
       ] or null,
       "positions": ["..."],
-      "primaryTechStack": ["react", "typescript", "nodejs", ...],
+      "primaryTechStack": ["react", "typescript", "nodejs", "..."],
       "interviewTypes": ["regular", "practice"],
       "seniorityLevels": ["entry", "junior", "middle", "senior"],
       "trueFalseCorrectAnswer": true | null,
@@ -80,34 +80,73 @@ They MUST follow this JSON shape exactly:
 
 RULES
 - IDs must be unique UUID-like strings.
-- Every question MUST include at least:
-  - title, description, prompt, topic, difficulty
-- Mostly generate entry or junior level questions; middle/senior only occasionally
-- MCQ questions:
-  - Must output options in practice_mcq_options[]
-  - Must set multiChoiceAnswers = array of correct answer texts
-  - **All correct answers must be true / valid**
-  - Each MCQ should have 3–5 options
-- True/False questions:
-  - Must set trueFalseCorrectAnswer = true
-  - Must include trueFalseExplanation
-- Open questions:
-  - openReferenceAnswers array must contain 1–3 clear, concise samples
-- Matching questions:
-  - matchingPairs[] must be filled AND replicated to practice_matching_pairs[]
-  - Each question should have 3–6 pairs
-- System-design questions:
-  - Must output at least one chart with nodes + relationships
-  - Keep designs simple for entry/junior difficulty
-- Difficulty should be evenly distributed across the batch
-- All prompts and answers must be easy to read and beginner-friendly
-- Must strictly output VALID JSON only, no commentary
+- In a single batch do not create two questions with identical prompts.
+- Avoid repeating the same concept with only small wording changes.
+- Spread topics across different sub-areas of the given technology.
+- Use only companies from this list:
 
-Important:
-- Return **only JSON**, no explanations, no comments
+{{COMPANIES}}
+Google
+Meta
+Amazon
+Apple
+Netflix
+Microsoft
+Tesla
+Nvidia
+Oracle
+Salesforce
+IBM
+Intel
+Adobe
+SAP
+Cisco
+X
+LinkedIn
+Snapchat
+TikTok
+Reddit
+Amazon AWS
+Microsoft Azure
+Google Cloud
+Cloudflare
+Vercel
+Stripe
+Spotify
+Uber
+Airbnb
+Gaming Realms
+Plandek
+
+CONTENT RULES
+- Every question MUST include:
+  title, description, prompt, topic, difficulty
+- Favour entry and junior difficulty; include few middle; rarely senior.
+- MCQ questions:
+  - must output practice_mcq_options entries
+  - must set multiChoiceAnswers with correct answer texts
+  - all correct answers must be valid
+  - each MCQ should have 3–5 options
+- True/False questions:
+  - trueFalseCorrectAnswer MUST always be true
+  - must include trueFalseExplanation
+- Open questions:
+  - include 1–3 openReferenceAnswers samples
+- Matching questions:
+  - include 3–6 matchingPairs
+  - must replicate matchingPairs into practice_matching_pairs
+- System-design questions:
+  - include at least one chart with nodes + relationships
+  - keep diagrams simple for entry/junior difficulty
+- Keep questions simple, readable and beginner-friendly.
+- Must strictly output valid JSON only, no commentary.
+
+FINAL INSTRUCTIONS
+- Return **only JSON**, no explanations or markdown.
 - Use a single JSON object with keys:
   "practice_questions", "practice_mcq_options", "practice_matching_pairs", "practice_system_design_charts"
-- Wrap the JSON in a code block like this:
+
+- The output **must** be wrapped in:
 
 ```json
 { ... }

@@ -1,36 +1,46 @@
 {
   "practice_questions": [
     {
-      "id": "d3e1e1e7-2e1e-4c76-9c81-9d34e8a7e500",
+      "id": "a1f2b3c4-d5e6-41f8-8c9e-1a2b3c4d5e6f",
       "type": "mcq",
       "difficulty": "entry",
       "status": "published",
       "isDemoMode": false,
-      "companyType": "startup",
-      "title": "JavaScript Variable Scopes",
-      "description": "Questions about the differences between var, let, and const in JavaScript.",
-      "prompt": "Which statement about JavaScript variable declarations is correct?",
-      "topic": "javascript",
+      "companyType": "faang",
+      "title": "What is the purpose of the 'alt' attribute in HTML <img> tags?",
+      "description": "Understanding the 'alt' attribute helps ensure web accessibility and SEO optimization.",
+      "prompt": "Which of the following best explains the purpose of the 'alt' attribute in an HTML <img> tag?",
+      "topic": "frontend",
       "subtopics": [
-        "variables",
-        "scope"
+        "html",
+        "accessibility"
       ],
       "tags": [
-        "javascript",
-        "variables",
-        "scope"
+        "html",
+        "img",
+        "accessibility",
+        "alt"
       ],
-      "estimatedTimeMinutes": 3,
+      "estimatedTimeMinutes": 2,
       "aiEvaluationHint": null,
       "multiChoiceAnswers": [
-        "Variables declared with let have block scope."
+        "Provides alternative text for images"
       ],
-      "companies": null,
+      "companies": [
+        {
+          "name": "Google",
+          "logo": "google-logo.png",
+          "size": "faang",
+          "description": "Leading search and web technology company"
+        }
+      ],
       "positions": [
-        "frontend developer",
-        "fullstack developer"
+        "Frontend Developer",
+        "Web Developer"
       ],
       "primaryTechStack": [
+        "html",
+        "css",
         "javascript"
       ],
       "interviewTypes": [
@@ -50,114 +60,101 @@
       "createdBy": "system"
     },
     {
-      "id": "a5b8c0d0-6b2a-4b1a-9e9b-0d8e6b1b1c2f",
-      "type": "open",
+      "id": "b2c3d4e5-f6a7-4b8c-9d0e-2b3c4d5e6f7a",
+      "type": "mcq",
       "difficulty": "junior",
       "status": "published",
       "isDemoMode": false,
-      "companyType": "faang",
-      "title": "HTTP Status Codes",
-      "description": "Understanding of common HTTP status codes and their meaning.",
-      "prompt": "Explain the difference between HTTP 200, 404, and 500 status codes.",
-      "topic": "networking",
+      "companyType": "enterprise",
+      "title": "Choosing a Data Type for User Age in SQL",
+      "description": "Selecting the correct data type is important for data integrity and storage optimization.",
+      "prompt": "Which SQL data type is most appropriate to store a user's age?",
+      "topic": "sql",
       "subtopics": [
-        "http",
-        "status codes"
+        "data types",
+        "database design"
       ],
       "tags": [
-        "http",
-        "status code",
-        "web"
+        "sql",
+        "data types",
+        "database"
       ],
-      "estimatedTimeMinutes": 5,
-      "aiEvaluationHint": "Look for correct explanations of each code and their typical use cases.",
-      "multiChoiceAnswers": null,
+      "estimatedTimeMinutes": 2,
+      "aiEvaluationHint": null,
+      "multiChoiceAnswers": [
+        "INT"
+      ],
       "companies": [
         {
-          "name": "Google",
-          "logo": "google_logo.png",
-          "size": [
-            "faang"
-          ],
-          "description": "Global technology company specializing in Internet services."
+          "name": "Oracle",
+          "logo": "oracle-logo.png",
+          "size": "enterprise",
+          "description": "Enterprise database and cloud company"
         }
       ],
       "positions": [
-        "backend engineer",
-        "devops engineer",
-        "frontend developer"
+        "Backend Developer",
+        "Database Engineer"
       ],
       "primaryTechStack": [
-        "nodejs",
-        "python",
-        "go"
+        "sql"
       ],
       "interviewTypes": [
         "regular",
         "practice"
       ],
       "seniorityLevels": [
-        "junior",
-        "middle"
+        "entry",
+        "junior"
       ],
       "trueFalseCorrectAnswer": null,
       "trueFalseExplanation": null,
       "matchingShuffleLeft": null,
       "matchingShuffleRight": null,
       "matchingPairs": null,
-      "openReferenceAnswers": [
-        {
-          "id": "ref1",
-          "text": "HTTP 200 means OK and the request was successful. 404 means Not Found, indicating the resource does not exist. 500 means Internal Server Error, showing a server-side problem.",
-          "weight": 0.5
-        },
-        {
-          "id": "ref2",
-          "text": "200: success, 404: client error for missing resource, 500: generic server failure.",
-          "weight": 0.5
-        }
-      ],
+      "openReferenceAnswers": null,
       "createdBy": "system"
     },
     {
-      "id": "b1d2f3a4-7c5e-4b7f-8d9a-1e2c5b6d7f8e",
+      "id": "c3d4e5f6-a1b2-4c8d-9e0f-3c4d5e6f7a8b",
       "type": "truefalse",
       "difficulty": "entry",
       "status": "published",
       "isDemoMode": false,
-      "companyType": "enterprise",
-      "title": "CSS Flexbox Direction",
-      "description": "Test understanding of the default flexbox direction property.",
-      "prompt": "In CSS Flexbox, the default value of the flex-direction property is 'row'. True or false?",
+      "companyType": "faang",
+      "title": "CSS Flexbox Centers Content Vertically",
+      "description": "Understanding how to center content using flexbox is essential for modern web layouts.",
+      "prompt": "Setting 'display: flex' and 'align-items: center' on a container vertically centers its child elements.",
       "topic": "frontend",
       "subtopics": [
-        "css",
-        "flexbox"
-      ],
-      "tags": [
         "css",
         "flexbox",
         "layout"
       ],
-      "estimatedTimeMinutes": 2,
+      "tags": [
+        "css",
+        "flexbox",
+        "layout",
+        "center"
+      ],
+      "estimatedTimeMinutes": 1,
       "aiEvaluationHint": null,
       "multiChoiceAnswers": null,
       "companies": [
         {
-          "name": "IBM",
-          "logo": "ibm_logo.png",
-          "size": [
-            "enterprise"
-          ],
-          "description": "Enterprise IT and consulting company."
+          "name": "Meta",
+          "logo": "meta-logo.png",
+          "size": "faang",
+          "description": "Social technology company"
         }
       ],
       "positions": [
-        "frontend developer",
-        "ui engineer"
+        "Frontend Developer",
+        "UI Engineer"
       ],
       "primaryTechStack": [
         "css",
+        "html",
         "javascript"
       ],
       "interviewTypes": [
@@ -169,7 +166,7 @@
         "junior"
       ],
       "trueFalseCorrectAnswer": true,
-      "trueFalseExplanation": "The flex-direction property defaults to 'row', so flex items are placed in a row by default.",
+      "trueFalseExplanation": "Setting 'align-items: center' on a flex container vertically centers its direct children.",
       "matchingShuffleLeft": null,
       "matchingShuffleRight": null,
       "matchingPairs": null,
@@ -177,35 +174,301 @@
       "createdBy": "system"
     },
     {
-      "id": "f6e7d8c9-0b1a-4c2d-9e8b-3c5b6d7a8e9f",
-      "type": "matching",
+      "id": "d4e5f6a1-b2c3-4d8e-9f0a-4d5e6f7a8b9c",
+      "type": "open",
       "difficulty": "junior",
       "status": "published",
       "isDemoMode": false,
       "companyType": "startup",
-      "title": "SQL Join Types",
-      "description": "Match SQL join types to their correct descriptions.",
-      "prompt": "Match each SQL join type with its description.",
-      "topic": "sql",
+      "title": "Explain the purpose of package.json in Node.js projects",
+      "description": "A package.json file is central to every Node.js project. Understanding its role is a must for developers.",
+      "prompt": "What is the purpose of the package.json file in a Node.js project?",
+      "topic": "backend",
       "subtopics": [
-        "joins"
+        "nodejs",
+        "npm",
+        "project structure"
       ],
       "tags": [
-        "sql",
-        "join",
-        "database"
+        "nodejs",
+        "npm",
+        "package.json",
+        "backend"
       ],
-      "estimatedTimeMinutes": 4,
-      "aiEvaluationHint": null,
+      "estimatedTimeMinutes": 3,
+      "aiEvaluationHint": "Look for mention of dependency management, scripts, and project metadata.",
       "multiChoiceAnswers": null,
-      "companies": null,
+      "companies": [
+        {
+          "name": "Stripe",
+          "logo": "stripe-logo.png",
+          "size": "startup",
+          "description": "API-driven payments platform"
+        }
+      ],
       "positions": [
-        "backend developer",
-        "database engineer"
+        "Backend Developer",
+        "Fullstack Developer"
       ],
       "primaryTechStack": [
-        "sql",
-        "postgresql"
+        "nodejs",
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior"
+      ],
+      "trueFalseCorrectAnswer": null,
+      "trueFalseExplanation": null,
+      "matchingShuffleLeft": null,
+      "matchingShuffleRight": null,
+      "matchingPairs": null,
+      "openReferenceAnswers": [
+        {
+          "id": "1a2b3c4d",
+          "text": "It defines the project's metadata, dependencies, scripts, and configuration for Node.js applications.",
+          "weight": 0.5
+        },
+        {
+          "id": "2b3c4d5e",
+          "text": "package.json lists all required packages and allows project scripts to be run using npm.",
+          "weight": 0.5
+        }
+      ],
+      "createdBy": "system"
+    },
+    {
+      "id": "e5f6a1b2-c3d4-4e8f-9a0b-5e6f7a8b9c0d",
+      "type": "matching",
+      "difficulty": "entry",
+      "status": "published",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Match HTTP Status Codes to Their Meaning",
+      "description": "Recognizing common HTTP status codes is fundamental for backend and frontend developers.",
+      "prompt": "Match each HTTP status code to its description.",
+      "topic": "networking",
+      "subtopics": [
+        "http",
+        "status codes"
+      ],
+      "tags": [
+        "http",
+        "status code",
+        "networking"
+      ],
+      "estimatedTimeMinutes": 2,
+      "aiEvaluationHint": null,
+      "multiChoiceAnswers": null,
+      "companies": [
+        {
+          "name": "Amazon AWS",
+          "logo": "aws-logo.png",
+          "size": "enterprise",
+          "description": "Cloud computing platform"
+        }
+      ],
+      "positions": [
+        "Backend Developer",
+        "DevOps Engineer"
+      ],
+      "primaryTechStack": [
+        "http",
+        "networking"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior"
+      ],
+      "trueFalseCorrectAnswer": null,
+      "trueFalseExplanation": null,
+      "matchingShuffleLeft": true,
+      "matchingShuffleRight": true,
+      "matchingPairs": [
+        {
+          "left": "200",
+          "right": "OK",
+          "explanation": "200 means the request was successful."
+        },
+        {
+          "left": "404",
+          "right": "Not Found",
+          "explanation": "404 means the resource was not found."
+        },
+        {
+          "left": "500",
+          "right": "Internal Server Error",
+          "explanation": "500 means an error occurred on the server."
+        },
+        {
+          "left": "301",
+          "right": "Moved Permanently",
+          "explanation": "301 means the resource has moved to a new URL."
+        }
+      ],
+      "openReferenceAnswers": null,
+      "createdBy": "system"
+    },
+    {
+      "id": "f6a1b2c3-d4e5-4f8a-9b0c-6f7a8b9c0d1e",
+      "type": "system-design",
+      "difficulty": "entry",
+      "status": "published",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Design a URL Shortener Service (Basic)",
+      "description": "This exercise checks understanding of how to design simple web services.",
+      "prompt": "How would you design a basic URL shortener like bit.ly? Show main components.",
+      "topic": "system-design",
+      "subtopics": [
+        "web services",
+        "databases"
+      ],
+      "tags": [
+        "system-design",
+        "url shortener",
+        "architecture"
+      ],
+      "estimatedTimeMinutes": 6,
+      "aiEvaluationHint": "Look for a web server, database, and mapping logic.",
+      "multiChoiceAnswers": null,
+      "companies": [
+        {
+          "name": "LinkedIn",
+          "logo": "linkedin-logo.png",
+          "size": "faang",
+          "description": "Professional networking platform"
+        }
+      ],
+      "positions": [
+        "Backend Developer",
+        "System Designer"
+      ],
+      "primaryTechStack": [
+        "nodejs",
+        "database",
+        "http"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior"
+      ],
+      "trueFalseCorrectAnswer": null,
+      "trueFalseExplanation": null,
+      "matchingShuffleLeft": null,
+      "matchingShuffleRight": null,
+      "matchingPairs": null,
+      "openReferenceAnswers": null,
+      "createdBy": "system"
+    },
+    {
+      "id": "a7b8c9d0-e1f2-4a3b-8c4d-7e8f9a0b1c2d",
+      "type": "mcq",
+      "difficulty": "entry",
+      "status": "published",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "JavaScript Variable Declaration",
+      "description": "Understanding variable declarations is essential for writing correct JavaScript code.",
+      "prompt": "Which of the following is NOT a valid way to declare a variable in JavaScript?",
+      "topic": "javascript",
+      "subtopics": [
+        "variables",
+        "syntax"
+      ],
+      "tags": [
+        "javascript",
+        "variable",
+        "syntax"
+      ],
+      "estimatedTimeMinutes": 2,
+      "aiEvaluationHint": null,
+      "multiChoiceAnswers": [
+        "variable myVar = 5;"
+      ],
+      "companies": [
+        {
+          "name": "Microsoft",
+          "logo": "microsoft-logo.png",
+          "size": "faang",
+          "description": "Global technology company"
+        }
+      ],
+      "positions": [
+        "Frontend Developer",
+        "JavaScript Developer"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior"
+      ],
+      "trueFalseCorrectAnswer": null,
+      "trueFalseExplanation": null,
+      "matchingShuffleLeft": null,
+      "matchingShuffleRight": null,
+      "matchingPairs": null,
+      "openReferenceAnswers": null,
+      "createdBy": "system"
+    },
+    {
+      "id": "b8c9d0e1-f2a3-4b5c-8d6e-9a0b1c2d3e4f",
+      "type": "mcq",
+      "difficulty": "middle",
+      "status": "published",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "React useEffect Dependency Array",
+      "description": "Understanding how the dependency array in useEffect works is key for managing side effects.",
+      "prompt": "What happens if you omit the dependency array when using React's useEffect hook?",
+      "topic": "react",
+      "subtopics": [
+        "hooks",
+        "lifecycle"
+      ],
+      "tags": [
+        "react",
+        "useEffect",
+        "hooks"
+      ],
+      "estimatedTimeMinutes": 3,
+      "aiEvaluationHint": null,
+      "multiChoiceAnswers": [
+        "The effect runs after every render"
+      ],
+      "companies": [
+        {
+          "name": "Netflix",
+          "logo": "netflix-logo.png",
+          "size": "faang",
+          "description": "Streaming entertainment service"
+        }
+      ],
+      "positions": [
+        "Frontend Developer",
+        "React Developer"
+      ],
+      "primaryTechStack": [
+        "react",
+        "javascript"
       ],
       "interviewTypes": [
         "regular",
@@ -217,140 +480,48 @@
       ],
       "trueFalseCorrectAnswer": null,
       "trueFalseExplanation": null,
-      "matchingShuffleLeft": true,
-      "matchingShuffleRight": true,
-      "matchingPairs": [
-        {
-          "left": "INNER JOIN",
-          "right": "Returns only matching rows from both tables.",
-          "explanation": "INNER JOIN returns records with matching values in both tables."
-        },
-        {
-          "left": "LEFT JOIN",
-          "right": "Returns all rows from the left table and matching rows from the right.",
-          "explanation": "LEFT JOIN returns all records from the left table, and the matched records from the right."
-        },
-        {
-          "left": "RIGHT JOIN",
-          "right": "Returns all rows from the right table and matching rows from the left.",
-          "explanation": "RIGHT JOIN returns all records from the right table, and the matched records from the left."
-        },
-        {
-          "left": "FULL OUTER JOIN",
-          "right": "Returns all rows when there is a match in either table.",
-          "explanation": "FULL OUTER JOIN returns all records when there is a match in either left or right table."
-        }
-      ],
+      "matchingShuffleLeft": null,
+      "matchingShuffleRight": null,
+      "matchingPairs": null,
       "openReferenceAnswers": null,
       "createdBy": "system"
     },
     {
-      "id": "c2e3f4d5-6a7b-8c9d-0e1f-2a3b4c5d6e7f",
-      "type": "system-design",
-      "difficulty": "senior",
-      "status": "published",
-      "isDemoMode": false,
-      "companyType": "faang",
-      "title": "Design a URL Shortener Service",
-      "description": "Evaluate ability to design a scalable and robust URL shortener like bit.ly.",
-      "prompt": "Design a system for a URL shortener service that supports billions of URLs and high availability.",
-      "topic": "system-design",
-      "subtopics": [
-        "scalability",
-        "databases",
-        "caching"
-      ],
-      "tags": [
-        "system design",
-        "scalability",
-        "url shortener"
-      ],
-      "estimatedTimeMinutes": 20,
-      "aiEvaluationHint": "Look for discussion of unique code generation, data storage, read/write patterns, high availability, and scaling.",
-      "multiChoiceAnswers": null,
-      "companies": [
-        {
-          "name": "Meta",
-          "logo": "meta_logo.png",
-          "size": [
-            "faang"
-          ],
-          "description": "Social media and technology company."
-        }
-      ],
-      "positions": [
-        "backend engineer",
-        "systems architect"
-      ],
-      "primaryTechStack": [
-        "nodejs",
-        "redis",
-        "mysql",
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice"
-      ],
-      "seniorityLevels": [
-        "senior"
-      ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": [
-        {
-          "id": "ref1",
-          "text": "Discuss database sharding, unique code generation, caching, replication, and handling redirection.",
-          "weight": 0.5
-        }
-      ],
-      "createdBy": "system"
-    },
-    {
-      "id": "f1a1b2c3-d4e5-6789-abcd-ef0123456789",
-      "type": "mcq",
-      "difficulty": "middle",
+      "id": "c9d0e1f2-a3b4-4c5d-8e6f-0a1b2c3d4e5f",
+      "type": "open",
+      "difficulty": "entry",
       "status": "published",
       "isDemoMode": false,
       "companyType": "enterprise",
-      "title": "React useEffect Hook",
-      "description": "Tests knowledge of how useEffect works in React functional components.",
-      "prompt": "When does the function passed to the useEffect hook in React run by default?",
-      "topic": "react",
+      "title": "Explain the difference between == and === in JavaScript",
+      "description": "Understanding equality operators in JavaScript helps avoid common bugs.",
+      "prompt": "In JavaScript, what is the difference between == and === operators?",
+      "topic": "javascript",
       "subtopics": [
-        "hooks",
-        "useEffect"
+        "operators",
+        "equality"
       ],
       "tags": [
-        "react",
-        "hooks",
-        "useEffect"
+        "javascript",
+        "equality",
+        "operators"
       ],
-      "estimatedTimeMinutes": 5,
-      "aiEvaluationHint": null,
-      "multiChoiceAnswers": [
-        "After every render"
-      ],
+      "estimatedTimeMinutes": 2,
+      "aiEvaluationHint": "Check if the answer mentions type coercion.",
+      "multiChoiceAnswers": null,
       "companies": [
         {
-          "name": "SAP",
-          "logo": "sap_logo.png",
-          "size": [
-            "enterprise"
-          ],
-          "description": "Enterprise application software company."
+          "name": "IBM",
+          "logo": "ibm-logo.png",
+          "size": "enterprise",
+          "description": "Global technology and consulting company"
         }
       ],
       "positions": [
-        "frontend developer",
-        "react engineer"
+        "Frontend Developer",
+        "JavaScript Developer"
       ],
       "primaryTechStack": [
-        "react",
-        "typescript",
         "javascript"
       ],
       "interviewTypes": [
@@ -358,64 +529,8 @@
         "practice"
       ],
       "seniorityLevels": [
-        "middle"
-      ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": null,
-      "createdBy": "system"
-    },
-    {
-      "id": "e2c3d4a5-b6f7-8e9d-0c1b-2a3f4e5d6b7c",
-      "type": "open",
-      "difficulty": "senior",
-      "status": "published",
-      "isDemoMode": false,
-      "companyType": "faang",
-      "title": "Eventual Consistency vs Strong Consistency",
-      "description": "Assesses understanding of consistency models in distributed systems.",
-      "prompt": "Compare eventual consistency and strong consistency in distributed systems. Give examples where each is appropriate.",
-      "topic": "system-design",
-      "subtopics": [
-        "distributed systems",
-        "consistency"
-      ],
-      "tags": [
-        "consistency",
-        "distributed systems",
-        "system design"
-      ],
-      "estimatedTimeMinutes": 10,
-      "aiEvaluationHint": "Look for correct definitions, trade-offs, and realistic scenarios.",
-      "multiChoiceAnswers": null,
-      "companies": [
-        {
-          "name": "Amazon",
-          "logo": "amazon_logo.png",
-          "size": [
-            "faang"
-          ],
-          "description": "Global e-commerce and cloud computing company."
-        }
-      ],
-      "positions": [
-        "systems architect",
-        "backend engineer"
-      ],
-      "primaryTechStack": [
-        "java",
-        "aws",
-        "dynamodb"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice"
-      ],
-      "seniorityLevels": [
-        "senior"
+        "entry",
+        "junior"
       ],
       "trueFalseCorrectAnswer": null,
       "trueFalseExplanation": null,
@@ -424,53 +539,57 @@
       "matchingPairs": null,
       "openReferenceAnswers": [
         {
-          "id": "ref1",
-          "text": "Eventual consistency allows data to become consistent over time. Strong consistency requires all reads to see the latest write. Eventual consistency is used in systems like DNS or S3; strong consistency in banking systems.",
+          "id": "3c4d5e6f",
+          "text": "== compares values after type coercion; === checks both value and type without converting.",
           "weight": 0.5
         }
       ],
       "createdBy": "system"
     },
     {
-      "id": "f7e8c9b0-1a2b-3c4d-5e6f-7a8b9c0d1e2f",
+      "id": "d0e1f2a3-b4c5-4d6e-8f0a-1b2c3d4e5f6a",
       "type": "matching",
-      "difficulty": "middle",
+      "difficulty": "entry",
       "status": "published",
       "isDemoMode": false,
       "companyType": "startup",
-      "title": "DevOps Tools and Their Use Cases",
-      "description": "Match DevOps tools to their primary use.",
-      "prompt": "Match each DevOps tool to its primary use case.",
-      "topic": "devops",
+      "title": "Match JavaScript Array Methods to Their Description",
+      "description": "Knowing basic array methods is essential for everyday JavaScript programming.",
+      "prompt": "Match the JavaScript array method to its correct description.",
+      "topic": "javascript",
       "subtopics": [
-        "tools",
-        "automation"
+        "array methods"
       ],
       "tags": [
-        "devops",
-        "tools",
-        "automation"
+        "javascript",
+        "array",
+        "methods"
       ],
-      "estimatedTimeMinutes": 4,
+      "estimatedTimeMinutes": 2,
       "aiEvaluationHint": null,
       "multiChoiceAnswers": null,
-      "companies": null,
+      "companies": [
+        {
+          "name": "Vercel",
+          "logo": "vercel-logo.png",
+          "size": "startup",
+          "description": "Cloud platform for frontend developers"
+        }
+      ],
       "positions": [
-        "devops engineer",
-        "cloud engineer"
+        "Frontend Developer",
+        "JavaScript Developer"
       ],
       "primaryTechStack": [
-        "docker",
-        "kubernetes",
-        "jenkins"
+        "javascript"
       ],
       "interviewTypes": [
         "regular",
         "practice"
       ],
       "seniorityLevels": [
-        "middle",
-        "senior"
+        "entry",
+        "junior"
       ],
       "trueFalseCorrectAnswer": null,
       "trueFalseExplanation": null,
@@ -478,342 +597,219 @@
       "matchingShuffleRight": true,
       "matchingPairs": [
         {
-          "left": "Docker",
-          "right": "Containerization",
-          "explanation": "Docker packages applications into containers."
+          "left": "map()",
+          "right": "Creates a new array with results of calling a function for each element",
+          "explanation": "map() transforms each item and returns a new array."
         },
         {
-          "left": "Jenkins",
-          "right": "Continuous Integration",
-          "explanation": "Jenkins automates building and testing code."
+          "left": "filter()",
+          "right": "Returns a new array with only elements that pass a test",
+          "explanation": "filter() is used for filtering arrays."
         },
         {
-          "left": "Terraform",
-          "right": "Infrastructure as Code",
-          "explanation": "Terraform manages infrastructure via configuration files."
-        },
-        {
-          "left": "Kubernetes",
-          "right": "Container Orchestration",
-          "explanation": "Kubernetes manages deployment and scaling of containers."
+          "left": "push()",
+          "right": "Adds one or more elements to the end of the array",
+          "explanation": "push() adds elements to the end."
         }
       ],
-      "openReferenceAnswers": null,
-      "createdBy": "system"
-    },
-    {
-      "id": "a2b3c4d5-e6f7-8a9b-c0d1-e2f3a4b5c6d7",
-      "type": "truefalse",
-      "difficulty": "middle",
-      "status": "published",
-      "isDemoMode": false,
-      "companyType": "enterprise",
-      "title": "SQL Indexes and Performance",
-      "description": "Checks understanding of the impact of indexes on SQL query performance.",
-      "prompt": "Adding an index to a table always improves the performance of all queries on that table. True or false?",
-      "topic": "sql",
-      "subtopics": [
-        "indexing",
-        "performance"
-      ],
-      "tags": [
-        "sql",
-        "index",
-        "performance"
-      ],
-      "estimatedTimeMinutes": 3,
-      "aiEvaluationHint": null,
-      "multiChoiceAnswers": null,
-      "companies": [
-        {
-          "name": "Oracle",
-          "logo": "oracle_logo.png",
-          "size": [
-            "enterprise"
-          ],
-          "description": "Database and cloud technology company."
-        }
-      ],
-      "positions": [
-        "database engineer",
-        "backend developer"
-      ],
-      "primaryTechStack": [
-        "sql",
-        "oracle"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice"
-      ],
-      "seniorityLevels": [
-        "middle",
-        "senior"
-      ],
-      "trueFalseCorrectAnswer": false,
-      "trueFalseExplanation": "Indexes improve SELECT query performance but can slow down INSERT, UPDATE, and DELETE operations.",
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": null,
-      "createdBy": "system"
-    },
-    {
-      "id": "b3f4a5c6-d7e8-9a0b-1c2d-3e4f5a6b7c8d",
-      "type": "mcq",
-      "difficulty": "senior",
-      "status": "published",
-      "isDemoMode": false,
-      "companyType": "faang",
-      "title": "TCP vs UDP Characteristics",
-      "description": "Analyzes understanding of the core differences between TCP and UDP protocols.",
-      "prompt": "Which of the following statements about TCP and UDP is correct?",
-      "topic": "networking",
-      "subtopics": [
-        "protocols",
-        "tcp",
-        "udp"
-      ],
-      "tags": [
-        "tcp",
-        "udp",
-        "networking"
-      ],
-      "estimatedTimeMinutes": 5,
-      "aiEvaluationHint": null,
-      "multiChoiceAnswers": [
-        "TCP is connection-oriented, while UDP is connectionless."
-      ],
-      "companies": [
-        {
-          "name": "Netflix",
-          "logo": "netflix_logo.png",
-          "size": [
-            "faang"
-          ],
-          "description": "Streaming entertainment service."
-        }
-      ],
-      "positions": [
-        "network engineer",
-        "backend engineer"
-      ],
-      "primaryTechStack": [
-        "go",
-        "linux",
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice"
-      ],
-      "seniorityLevels": [
-        "senior"
-      ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
       "openReferenceAnswers": null,
       "createdBy": "system"
     }
   ],
   "practice_mcq_options": [
     {
-      "id": "op1-d3e1e1e7",
-      "questionId": "d3e1e1e7-2e1e-4c76-9c81-9d34e8a7e500",
-      "text": "Variables declared with var are block scoped.",
-      "isCorrect": false,
-      "explanation": "var is function scoped, not block scoped."
-    },
-    {
-      "id": "op2-d3e1e1e7",
-      "questionId": "d3e1e1e7-2e1e-4c76-9c81-9d34e8a7e500",
-      "text": "Variables declared with let have block scope.",
+      "id": "11111111-1111-4a11-8c11-1a1b1c1d1e1f",
+      "questionId": "a1f2b3c4-d5e6-41f8-8c9e-1a2b3c4d5e6f",
+      "text": "Provides alternative text for images",
       "isCorrect": true,
-      "explanation": "let variables are block scoped."
+      "explanation": "The 'alt' attribute specifies alternative text for images if they cannot be displayed."
     },
     {
-      "id": "op3-d3e1e1e7",
-      "questionId": "d3e1e1e7-2e1e-4c76-9c81-9d34e8a7e500",
-      "text": "const variables can be reassigned.",
+      "id": "22222222-2222-4b22-8d22-2b2c2d2e2f2a",
+      "questionId": "a1f2b3c4-d5e6-41f8-8c9e-1a2b3c4d5e6f",
+      "text": "Sets the image size",
       "isCorrect": false,
-      "explanation": "const variables cannot be reassigned after their initial assignment."
+      "explanation": "Image size is set with 'width' and 'height', not 'alt'."
     },
     {
-      "id": "op4-d3e1e1e7",
-      "questionId": "d3e1e1e7-2e1e-4c76-9c81-9d34e8a7e500",
-      "text": "var and let have the same scoping rules.",
+      "id": "33333333-3333-4c33-8e33-3c3d3e3f3a3b",
+      "questionId": "a1f2b3c4-d5e6-41f8-8c9e-1a2b3c4d5e6f",
+      "text": "Provides a link for the image",
       "isCorrect": false,
-      "explanation": "var is function scoped, let is block scoped."
+      "explanation": "Links are specified with <a> tags."
     },
     {
-      "id": "op1-f1a1b2c3",
-      "questionId": "f1a1b2c3-d4e5-6789-abcd-ef0123456789",
-      "text": "After every render",
+      "id": "44444444-4444-4d44-8f44-4d4e4f4a4b4c",
+      "questionId": "a1f2b3c4-d5e6-41f8-8c9e-1a2b3c4d5e6f",
+      "text": "Specifies the image format",
+      "isCorrect": false,
+      "explanation": "Image format is defined by the file extension."
+    },
+    {
+      "id": "55555555-5555-4e55-8a55-5e5f5a5b5c5d",
+      "questionId": "b2c3d4e5-f6a7-4b8c-9d0e-2b3c4d5e6f7a",
+      "text": "VARCHAR",
+      "isCorrect": false,
+      "explanation": "VARCHAR is for variable-length strings."
+    },
+    {
+      "id": "66666666-6666-4f66-8b66-6f6a6b6c6d6e",
+      "questionId": "b2c3d4e5-f6a7-4b8c-9d0e-2b3c4d5e6f7a",
+      "text": "INT",
       "isCorrect": true,
-      "explanation": "By default, useEffect runs after every render."
+      "explanation": "Age is a whole number, so INT is appropriate."
     },
     {
-      "id": "op2-f1a1b2c3",
-      "questionId": "f1a1b2c3-d4e5-6789-abcd-ef0123456789",
-      "text": "Only after the first render",
+      "id": "77777777-7777-4a77-8c77-7a7b7c7d7e7f",
+      "questionId": "b2c3d4e5-f6a7-4b8c-9d0e-2b3c4d5e6f7a",
+      "text": "DATE",
       "isCorrect": false,
-      "explanation": "This happens only if the dependency array is empty."
+      "explanation": "DATE is for date values, not age."
     },
     {
-      "id": "op3-f1a1b2c3",
-      "questionId": "f1a1b2c3-d4e5-6789-abcd-ef0123456789",
-      "text": "Before rendering",
+      "id": "88888888-8888-4b88-8d88-8b8c8d8e8f8a",
+      "questionId": "b2c3d4e5-f6a7-4b8c-9d0e-2b3c4d5e6f7a",
+      "text": "BOOLEAN",
       "isCorrect": false,
-      "explanation": "useEffect runs after rendering, not before."
+      "explanation": "BOOLEAN stores true/false values."
     },
     {
-      "id": "op4-f1a1b2c3",
-      "questionId": "f1a1b2c3-d4e5-6789-abcd-ef0123456789",
-      "text": "Only after state updates",
+      "id": "99999999-9999-4c99-8e99-9c9d9e9f9a9b",
+      "questionId": "a7b8c9d0-e1f2-4a3b-8c4d-7e8f9a0b1c2d",
+      "text": "let myVar = 5;",
       "isCorrect": false,
-      "explanation": "It depends on the dependency array."
+      "explanation": "This is a valid ES6 variable declaration."
     },
     {
-      "id": "op1-b3f4a5c6",
-      "questionId": "b3f4a5c6-d7e8-9a0b-1c2d-3e4f5a6b7c8d",
-      "text": "TCP is connection-oriented, while UDP is connectionless.",
+      "id": "10101010-1010-4d10-8f10-0a0b0c0d0e0f",
+      "questionId": "a7b8c9d0-e1f2-4a3b-8c4d-7e8f9a0b1c2d",
+      "text": "var myVar = 5;",
+      "isCorrect": false,
+      "explanation": "This is a valid ES5 variable declaration."
+    },
+    {
+      "id": "11121314-1516-4e17-8a11-1b1c1d1e1f20",
+      "questionId": "a7b8c9d0-e1f2-4a3b-8c4d-7e8f9a0b1c2d",
+      "text": "const myVar = 5;",
+      "isCorrect": false,
+      "explanation": "This is a valid ES6 constant declaration."
+    },
+    {
+      "id": "12131415-1617-4f18-8b12-2c2d2e2f2021",
+      "questionId": "a7b8c9d0-e1f2-4a3b-8c4d-7e8f9a0b1c2d",
+      "text": "variable myVar = 5;",
       "isCorrect": true,
-      "explanation": "TCP requires a connection; UDP does not."
+      "explanation": "'variable' is not valid JavaScript syntax for declarations."
     },
     {
-      "id": "op2-b3f4a5c6",
-      "questionId": "b3f4a5c6-d7e8-9a0b-1c2d-3e4f5a6b7c8d",
-      "text": "UDP guarantees delivery of packets in order.",
+      "id": "13141516-1718-4a19-8c13-3d3e3f3a3b3c",
+      "questionId": "b8c9d0e1-f2a3-4b5c-8d6e-9a0b1c2d3e4f",
+      "text": "The effect runs only on mount",
       "isCorrect": false,
-      "explanation": "UDP does not guarantee delivery or order."
+      "explanation": "To run only on mount, pass an empty array []."
     },
     {
-      "id": "op3-b3f4a5c6",
-      "questionId": "b3f4a5c6-d7e8-9a0b-1c2d-3e4f5a6b7c8d",
-      "text": "TCP is faster than UDP for real-time data.",
-      "isCorrect": false,
-      "explanation": "UDP is typically faster for real-time but less reliable."
+      "id": "14151617-1819-4b20-8d14-4e4f4a4b4c4d",
+      "questionId": "b8c9d0e1-f2a3-4b5c-8d6e-9a0b1c2d3e4f",
+      "text": "The effect runs after every render",
+      "isCorrect": true,
+      "explanation": "No dependency array means it runs after every render."
     },
     {
-      "id": "op4-b3f4a5c6",
-      "questionId": "b3f4a5c6-d7e8-9a0b-1c2d-3e4f5a6b7c8d",
-      "text": "UDP is always preferred for file transfer protocols.",
+      "id": "15161718-1920-4c21-8e15-5f5a5b5c5d5e",
+      "questionId": "b8c9d0e1-f2a3-4b5c-8d6e-9a0b1c2d3e4f",
+      "text": "The effect never runs",
       "isCorrect": false,
-      "explanation": "TCP is preferred for file transfers due to reliability."
+      "explanation": "This is not correct; it will always run."
+    },
+    {
+      "id": "16171819-2021-4d22-8f16-6a6b6c6d6e6f",
+      "questionId": "b8c9d0e1-f2a3-4b5c-8d6e-9a0b1c2d3e4f",
+      "text": "The effect runs only when dependencies change",
+      "isCorrect": false,
+      "explanation": "This happens only when you specify dependencies."
     }
   ],
   "practice_matching_pairs": [
     {
-      "id": "mp1-f6e7d8c9",
-      "questionId": "f6e7d8c9-0b1a-4c2d-9e8b-3c5b6d7a8e9f",
-      "left": "INNER JOIN",
-      "right": "Returns only matching rows from both tables.",
-      "explanation": "INNER JOIN returns records with matching values in both tables."
+      "id": "201a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
+      "questionId": "e5f6a1b2-c3d4-4e8f-9a0b-5e6f7a8b9c0d",
+      "left": "200",
+      "right": "OK",
+      "explanation": "200 means the request was successful."
     },
     {
-      "id": "mp2-f6e7d8c9",
-      "questionId": "f6e7d8c9-0b1a-4c2d-9e8b-3c5b6d7a8e9f",
-      "left": "LEFT JOIN",
-      "right": "Returns all rows from the left table and matching rows from the right.",
-      "explanation": "LEFT JOIN returns all records from the left table, and the matched records from the right."
+      "id": "212b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      "questionId": "e5f6a1b2-c3d4-4e8f-9a0b-5e6f7a8b9c0d",
+      "left": "404",
+      "right": "Not Found",
+      "explanation": "404 means the resource was not found."
     },
     {
-      "id": "mp3-f6e7d8c9",
-      "questionId": "f6e7d8c9-0b1a-4c2d-9e8b-3c5b6d7a8e9f",
-      "left": "RIGHT JOIN",
-      "right": "Returns all rows from the right table and matching rows from the left.",
-      "explanation": "RIGHT JOIN returns all records from the right table, and the matched records from the left."
+      "id": "223c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+      "questionId": "e5f6a1b2-c3d4-4e8f-9a0b-5e6f7a8b9c0d",
+      "left": "500",
+      "right": "Internal Server Error",
+      "explanation": "500 means an error occurred on the server."
     },
     {
-      "id": "mp4-f6e7d8c9",
-      "questionId": "f6e7d8c9-0b1a-4c2d-9e8b-3c5b6d7a8e9f",
-      "left": "FULL OUTER JOIN",
-      "right": "Returns all rows when there is a match in either table.",
-      "explanation": "FULL OUTER JOIN returns all records when there is a match in either left or right table."
+      "id": "234d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+      "questionId": "e5f6a1b2-c3d4-4e8f-9a0b-5e6f7a8b9c0d",
+      "left": "301",
+      "right": "Moved Permanently",
+      "explanation": "301 means the resource has moved to a new URL."
     },
     {
-      "id": "mp1-f7e8c9b0",
-      "questionId": "f7e8c9b0-1a2b-3c4d-5e6f-7a8b9c0d1e2f",
-      "left": "Docker",
-      "right": "Containerization",
-      "explanation": "Docker packages applications into containers."
+      "id": "245e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
+      "questionId": "d0e1f2a3-b4c5-4d6e-8f0a-1b2c3d4e5f6a",
+      "left": "map()",
+      "right": "Creates a new array with results of calling a function for each element",
+      "explanation": "map() transforms each item and returns a new array."
     },
     {
-      "id": "mp2-f7e8c9b0",
-      "questionId": "f7e8c9b0-1a2b-3c4d-5e6f-7a8b9c0d1e2f",
-      "left": "Jenkins",
-      "right": "Continuous Integration",
-      "explanation": "Jenkins automates building and testing code."
+      "id": "256f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b",
+      "questionId": "d0e1f2a3-b4c5-4d6e-8f0a-1b2c3d4e5f6a",
+      "left": "filter()",
+      "right": "Returns a new array with only elements that pass a test",
+      "explanation": "filter() is used for filtering arrays."
     },
     {
-      "id": "mp3-f7e8c9b0",
-      "questionId": "f7e8c9b0-1a2b-3c4d-5e6f-7a8b9c0d1e2f",
-      "left": "Terraform",
-      "right": "Infrastructure as Code",
-      "explanation": "Terraform manages infrastructure via configuration files."
-    },
-    {
-      "id": "mp4-f7e8c9b0",
-      "questionId": "f7e8c9b0-1a2b-3c4d-5e6f-7a8b9c0d1e2f",
-      "left": "Kubernetes",
-      "right": "Container Orchestration",
-      "explanation": "Kubernetes manages deployment and scaling of containers."
+      "id": "267a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c",
+      "questionId": "d0e1f2a3-b4c5-4d6e-8f0a-1b2c3d4e5f6a",
+      "left": "push()",
+      "right": "Adds one or more elements to the end of the array",
+      "explanation": "push() adds elements to the end."
     }
   ],
   "practice_system_design_charts": [
     {
-      "id": "chart1-c2e3f4d5",
-      "questionId": "c2e3f4d5-6a7b-8c9d-0e1f-2a3b4c5d6e7f",
+      "id": "31a2b3c4-d5e6-41f8-82de-7f6e5d4c3b2a",
+      "questionId": "f6a1b2c3-d4e5-4f8a-9b0c-6f7a8b9c0d1e",
       "chart": [
         {
-          "id": "node1",
-          "type": "user",
-          "label": "User",
-          "connections": [
-            "load_balancer"
-          ]
-        },
-        {
-          "id": "load_balancer",
-          "type": "component",
-          "label": "Load Balancer",
-          "connections": [
-            "web_servers"
-          ]
-        },
-        {
-          "id": "web_servers",
-          "type": "component",
-          "label": "Web Servers",
-          "connections": [
-            "cache",
-            "db"
-          ]
-        },
-        {
-          "id": "cache",
-          "type": "component",
-          "label": "Cache (Redis/Memcached)",
-          "connections": [
-            "db"
-          ]
+          "id": "web-server",
+          "label": "Web Server",
+          "type": "component"
         },
         {
           "id": "db",
-          "type": "component",
-          "label": "Database (Sharded)",
-          "connections": [
-            "url_mapping"
-          ]
+          "label": "Database",
+          "type": "storage"
         },
         {
-          "id": "url_mapping",
-          "type": "entity",
-          "label": "URL Mapping Table",
-          "connections": []
+          "id": "user",
+          "label": "User",
+          "type": "actor"
+        },
+        {
+          "from": "user",
+          "to": "web-server",
+          "label": "Shorten/Retrieve URL"
+        },
+        {
+          "from": "web-server",
+          "to": "db",
+          "label": "Store/Retrieve mapping"
         }
       ]
     }
