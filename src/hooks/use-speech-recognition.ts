@@ -13,7 +13,7 @@ export function useSpeechRecognition(onTranscript: (text: string) => void) {
       !("webkitSpeechRecognition" in window) &&
       !("SpeechRecognition" in window)
     ) {
-      alert(
+      console.warn(
         "Speech recognition is not supported in this browser. Please use Chrome, Safari, or Edge.",
       );
       return;
@@ -110,11 +110,11 @@ export function useSpeechRecognition(onTranscript: (text: string) => void) {
           // Don't stop listening for no-speech errors
           return;
         } else if (event.error === "audio-capture") {
-          alert(
+          console.warn(
             "Microphone access denied. Please allow microphone access and try again.",
           );
         } else if (event.error === "not-allowed") {
-          alert(
+          console.warn(
             "Microphone access not allowed. Please enable microphone permissions.",
           );
         }

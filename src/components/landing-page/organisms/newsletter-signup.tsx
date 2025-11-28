@@ -13,9 +13,6 @@ export function NewsletterSignup() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!email) return alert("Please enter an email address.");
-
     setLoading(true);
     setSuccess(false);
 
@@ -38,7 +35,7 @@ export function NewsletterSignup() {
 
       setSuccess(true);
       setEmail("");
-    setTimeout(() => setSuccess(false), 3000);
+      setTimeout(() => setSuccess(false), 3000);
     } catch (err) {
       console.error("Subscription failed:", err);
     } finally {

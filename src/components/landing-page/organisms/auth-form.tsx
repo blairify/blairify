@@ -22,6 +22,7 @@ import { useGuestGuard } from "@/hooks/use-auth-guard";
 import {
   checkEmailExists,
   registerWithEmailAndPassword,
+  requestPasswordReset,
   signInWithEmailAndPassword,
   signInWithGitHub,
   signInWithGoogle,
@@ -50,6 +51,9 @@ export default function AuthForm({
   const [error, setError] = useState("");
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [currentMode, setCurrentMode] = useState(mode);
+  const [showResetForm, setShowResetForm] = useState(false);
+  const [isResettingPassword, setIsResettingPassword] = useState(false);
+  const [resetMessage, setResetMessage] = useState("");
 
   // Login form data
   const [loginData, setLoginData] = useState({
@@ -182,6 +186,35 @@ export default function AuthForm({
       setError("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    if (!loginData.email) {
+      setError("Please enter your email address.");
+      return;
+    }
+
+    setIsResettingPassword(true);
+    setError("");
+    setResetMessage("");
+
+    try {
+      const { error: resetError } = await requestPasswordReset(loginData.email);
+
+      if (resetError) {
+        setError(resetError);
+        return;
+      }
+
+      setResetMessage(
+        "If an account exists for this email, we've sent a password reset link.",
+      );
+    } catch (error) {
+      console.error("Password reset failed:", error);
+      setError("Unable to send reset email. Please try again.");
+    } finally {
+      setIsResettingPassword(false);
     }
   };
 
@@ -341,6 +374,9 @@ export default function AuthForm({
 
   const getStepTitle = () => {
     if (currentMode === "login") {
+      if (showResetForm) {
+        return "Reset your password";
+      }
       return "Welcome back";
     }
 
@@ -364,6 +400,9 @@ export default function AuthForm({
 
   const getStepDescription = () => {
     if (currentMode === "login") {
+      if (showResetForm) {
+        return "Enter your email address to receive a password reset link";
+      }
       return "Sign in to continue your interview preparation journey";
     }
 
@@ -385,61 +424,124 @@ export default function AuthForm({
     }
   };
 
-  const renderLoginForm = () => (
-    <form onSubmit={handleLoginSubmit} className="space-y-6 mt-6">
-      <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
-        <Input
-          id="email"
-          type="email"
-          placeholder="Enter your email"
-          value={loginData.email}
-          onChange={(e) => handleInputChange("email", e.target.value)}
-          required
-          className="bg-input border-border"
-          disabled={isLoading}
-        />
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
-        <div className="relative">
-          <Input
-            id="password"
-            type={showPassword ? "text" : "password"}
-            placeholder="Enter your password"
-            value={loginData.password}
-            onChange={(e) => handleInputChange("password", e.target.value)}
-            required
-            className="bg-input border-border pr-10"
-            disabled={isLoading}
-          />
+  const renderLoginForm = () => {
+    if (showResetForm) {
+      return (
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            void handlePasswordReset();
+          }}
+          className="space-y-6 mt-6"
+        >
+          <div className="space-y-2">
+            <Label htmlFor="reset-email">Reset password</Label>
+            <Input
+              id="reset-email"
+              type="email"
+              placeholder="Enter your email to reset your password"
+              value={loginData.email}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+              required
+              className="bg-input border-border"
+              disabled={isLoading || isResettingPassword}
+            />
+          </div>
           <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-            onClick={() => setShowPassword(!showPassword)}
-            disabled={isLoading}
+            type="submit"
+            variant="outline"
+            className="w-full"
+            disabled={isResettingPassword || !loginData.email}
           >
-            {showPassword ? (
-              <EyeOff className="h-4 w-4 text-muted-foreground" />
-            ) : (
-              <Eye className="h-4 w-4 text-muted-foreground" />
-            )}
+            {isResettingPassword ? "Sending reset link..." : "Send reset link"}
           </Button>
-        </div>
-      </div>
+          <button
+            type="button"
+            className="w-full text-sm text-primary hover:underline disabled:opacity-50"
+            onClick={() => {
+              setShowResetForm(false);
+              setResetMessage("");
+              setError("");
+            }}
+            disabled={isResettingPassword}
+          >
+            Back to login
+          </button>
+        </form>
+      );
+    }
 
-      <Button
-        type="submit"
-        className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-        disabled={isLoading}
-      >
-        {isLoading ? "Signing in..." : "Sign In"}
-      </Button>
-    </form>
-  );
+    return (
+      <form onSubmit={handleLoginSubmit} className="space-y-6 mt-6">
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            value={loginData.email}
+            onChange={(e) => handleInputChange("email", e.target.value)}
+            required
+            className="bg-input border-border"
+            disabled={isLoading || isResettingPassword}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="password">Password</Label>
+          <div className="relative">
+            <Input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter your password"
+              value={loginData.password}
+              onChange={(e) => handleInputChange("password", e.target.value)}
+              required
+              className="bg-input border-border pr-10"
+              disabled={isLoading || isResettingPassword}
+            />
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+              onClick={() => setShowPassword(!showPassword)}
+              disabled={isLoading || isResettingPassword}
+            >
+              {showPassword ? (
+                <EyeOff className="h-4 w-4 text-muted-foreground" />
+              ) : (
+                <Eye className="h-4 w-4 text-muted-foreground" />
+              )}
+            </Button>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-end">
+          <button
+            type="button"
+            className="text-sm text-primary hover:underline disabled:opacity-50"
+            onClick={() => {
+              setShowResetForm(true);
+              setResetMessage("");
+              setError("");
+            }}
+            disabled={isLoading || isResettingPassword}
+          >
+            Forgot password?
+          </button>
+        </div>
+
+        <Button
+          type="submit"
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+          disabled={isLoading || isResettingPassword}
+        >
+          {isLoading ? "Signing in..." : "Sign In"}
+        </Button>
+      </form>
+    );
+  };
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -721,6 +823,20 @@ export default function AuthForm({
     </div>
   );
 
+  const cardTransformClass =
+    currentMode === "login" && !showResetForm
+      ? "md:translate-x-[calc(100%)]"
+      : "md:translate-x-0";
+
+  const logoTransformClass =
+    currentMode === "login" && !showResetForm
+      ? "md:-translate-x-[calc(100%+5rem)]"
+      : "md:translate-x-0";
+
+  const shellOverflowClass = showResetForm
+    ? "overflow-visible"
+    : "overflow-hidden";
+
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
       {isMobile ? (
@@ -737,10 +853,15 @@ export default function AuthForm({
               <CardDescription>{getStepDescription()}</CardDescription>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="min-h-[420px]">
             {error && (
               <div className="mb-4 p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
                 {error}
+              </div>
+            )}
+            {resetMessage && (
+              <div className="mb-4 p-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-md dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400">
+                {resetMessage}
               </div>
             )}
 
@@ -753,22 +874,26 @@ export default function AuthForm({
                 }`}
               >
                 {currentMode === "login" ? (
-                  <>
-                    {renderSocialButtons()}
+                  showResetForm ? (
+                    renderLoginForm()
+                  ) : (
+                    <>
+                      {renderSocialButtons()}
 
-                    <div className="relative mt-6">
-                      <div className="absolute inset-0 flex items-center">
-                        <Separator className="w-full" />
+                      <div className="relative mt-6">
+                        <div className="absolute inset-0 flex items-center">
+                          <Separator className="w-full" />
+                        </div>
+                        <div className="relative flex justify-center text-xs uppercase">
+                          <span className="bg-card px-2 text-muted-foreground">
+                            Or continue with email
+                          </span>
+                        </div>
                       </div>
-                      <div className="relative flex justify-center text-xs uppercase">
-                        <span className="bg-card px-2 text-muted-foreground">
-                          Or continue with email
-                        </span>
-                      </div>
-                    </div>
 
-                    {renderLoginForm()}
-                  </>
+                      {renderLoginForm()}
+                    </>
+                  )
                 ) : (
                   <>
                     <div className="overflow-hidden">
@@ -846,7 +971,7 @@ export default function AuthForm({
               <p
                 className={`text-sm text-muted-foreground ${currentMode === "login" ? "mt-4" : "mt-0"}`}
               >
-                {currentMode === "login" ? (
+                {currentMode === "login" && !showResetForm && (
                   <>
                     Don't have an account?{" "}
                     {onModeChange ? (
@@ -867,7 +992,9 @@ export default function AuthForm({
                       </Button>
                     )}
                   </>
-                ) : (
+                )}
+
+                {currentMode === "register" && !showResetForm && (
                   <>
                     Already have an account?{" "}
                     {onModeChange ? (
@@ -895,11 +1022,13 @@ export default function AuthForm({
         </Card>
       ) : (
         <Card className="p-6 bg-transparent shadow-none">
-          <div className="w-full max-w-6xl flex flex-col md:flex-row gap-8 items-center flex-1 relative overflow-hidden">
+          <div
+            className={`w-full max-w-6xl flex flex-col md:flex-row gap-8 items-center flex-1 relative ${shellOverflowClass}`}
+          >
             <div
               className={`min-w-1/2 max-w-1/2 transition-all duration-700 ease-in-out z-10 transform ${
-                currentMode === "login"
-                  ? "md:translate-x-[calc(100%)]"
+                currentMode === "login" && !showResetForm
+                  ? cardTransformClass
                   : "md:translate-x-0"
               }`}
             >
@@ -916,10 +1045,15 @@ export default function AuthForm({
                     <CardDescription>{getStepDescription()}</CardDescription>
                   </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="min-h-[420px]">
                   {error && (
                     <div className="mb-4 p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
                       {error}
+                    </div>
+                  )}
+                  {resetMessage && (
+                    <div className="mb-4 p-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-md dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400">
+                      {resetMessage}
                     </div>
                   )}
 
@@ -932,22 +1066,26 @@ export default function AuthForm({
                       }`}
                     >
                       {currentMode === "login" ? (
-                        <>
-                          {renderSocialButtons()}
+                        showResetForm ? (
+                          renderLoginForm()
+                        ) : (
+                          <>
+                            {renderSocialButtons()}
 
-                          <div className="relative mt-6">
-                            <div className="absolute inset-0 flex items-center">
-                              <Separator className="w-full" />
+                            <div className="relative mt-6">
+                              <div className="absolute inset-0 flex items-center">
+                                <Separator className="w-full" />
+                              </div>
+                              <div className="relative flex justify-center text-xs uppercase">
+                                <span className="bg-card px-2 text-muted-foreground">
+                                  Or continue with email
+                                </span>
+                              </div>
                             </div>
-                            <div className="relative flex justify-center text-xs uppercase">
-                              <span className="bg-card px-2 text-muted-foreground">
-                                Or continue with email
-                              </span>
-                            </div>
-                          </div>
 
-                          {renderLoginForm()}
-                        </>
+                            {renderLoginForm()}
+                          </>
+                        )
                       ) : (
                         <>
                           <div className="overflow-hidden">
@@ -1030,7 +1168,7 @@ export default function AuthForm({
                     <p
                       className={`text-sm text-muted-foreground ${currentMode === "login" ? "mt-4" : "mt-0"}`}
                     >
-                      {currentMode === "login" ? (
+                      {currentMode === "login" && !showResetForm && (
                         <>
                           Don't have an account?{" "}
                           {onModeChange ? (
@@ -1051,7 +1189,9 @@ export default function AuthForm({
                             </Button>
                           )}
                         </>
-                      ) : (
+                      )}
+
+                      {currentMode === "register" && (
                         <>
                           Already have an account?{" "}
                           {onModeChange ? (
@@ -1081,8 +1221,8 @@ export default function AuthForm({
 
             <div
               className={`transition-all duration-700 ease-in-out transform z-2 ${
-                currentMode === "login"
-                  ? "md:-translate-x-[calc(100%+5rem)]"
+                currentMode === "login" && !showResetForm
+                  ? logoTransformClass
                   : "md:translate-x-0"
               }`}
             >

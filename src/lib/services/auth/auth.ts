@@ -6,6 +6,7 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithPopup,
   signOut,
   type User,
@@ -161,6 +162,28 @@ export const signInWithEmailAndPassword = async (
   } catch (error) {
     const authError = error as AuthError;
     return { user: null, error: getErrorMessage(authError) };
+  }
+};
+
+export const requestPasswordReset = async (
+  email: string,
+): Promise<{ error: string | null }> => {
+  try {
+    if (!auth) {
+      return { error: "Firebase Auth is not properly initialized" };
+    }
+
+    await sendPasswordResetEmail(auth, email);
+
+    return { error: null };
+  } catch (error) {
+    const authError = error as AuthError;
+
+    if (authError.code === "auth/user-not-found") {
+      return { error: null };
+    }
+
+    return { error: getErrorMessage(authError) };
   }
 };
 

@@ -2,7 +2,15 @@
 
 import { updateProfile } from "firebase/auth";
 import { doc, setDoc, updateDoc } from "firebase/firestore";
-import { Briefcase, Calendar, Clock, Mail, Save, User } from "lucide-react";
+import {
+  Briefcase,
+  Calendar,
+  Clock,
+  Lock,
+  Mail,
+  Save,
+  User,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
@@ -26,6 +34,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { db } from "@/lib/firebase";
 import type { UserData } from "@/lib/services/auth/auth";
+import { requestPasswordReset } from "@/lib/services/auth/auth";
 import { useAuth } from "@/providers/auth-provider";
 
 interface ProfileContentProps {
@@ -56,6 +65,11 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
   const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [resettingPassword, setResettingPassword] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [statusVariant, setStatusVariant] = useState<"success" | "error">(
+    "success",
+  );
   const [editData, setEditData] = useState({
     displayName: "",
     role: "",
@@ -100,7 +114,8 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
       setSelectedIcon(iconId);
       await refreshUserData();
     } catch (error) {
-      alert(
+      setStatusVariant("error");
+      setStatusMessage(
         `Failed to update avatar: ${error instanceof Error ? error.message : "Unknown error"}`,
       );
     } finally {
@@ -110,12 +125,14 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
 
   const handleSaveProfile = async () => {
     if (!user) {
-      alert("User not authenticated. Please sign in again.");
+      setStatusVariant("error");
+      setStatusMessage("User not authenticated. Please sign in again.");
       return;
     }
 
     if (!db) {
-      alert(
+      setStatusVariant("error");
+      setStatusMessage(
         "Database connection failed. Please refresh the page and try again.",
       );
       return;
@@ -148,13 +165,49 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
       await setDoc(doc(db, "users", user.uid), userDocData, { merge: true });
       await refreshUserData();
       setIsEditing(false);
-      alert("Profile updated successfully!");
+      setStatusVariant("success");
+      setStatusMessage("Profile updated successfully.");
     } catch (error) {
-      alert(
+      setStatusVariant("error");
+      setStatusMessage(
         `Failed to update profile: ${error instanceof Error ? error.message : "Unknown error"}`,
       );
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    if (!user?.email) {
+      setStatusVariant("error");
+      setStatusMessage("No email is associated with this account.");
+      return;
+    }
+
+    setResettingPassword(true);
+
+    try {
+      const { error } = await requestPasswordReset(user.email);
+
+      if (error) {
+        setStatusVariant("error");
+        setStatusMessage(error);
+        return;
+      }
+
+      setStatusVariant("success");
+      setStatusMessage(
+        "If an account exists for this email, we've sent a password reset link.",
+      );
+    } catch (error) {
+      setStatusVariant("error");
+      setStatusMessage(
+        `Unable to send reset email: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`,
+      );
+    } finally {
+      setResettingPassword(false);
     }
   };
 
@@ -193,6 +246,18 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
             Manage your account settings and preferences
           </p>
         </div>
+
+        {statusMessage && (
+          <div
+            className={`mb-6 p-3 text-sm border rounded-md ${
+              statusVariant === "success"
+                ? "text-emerald-700 bg-emerald-50 border-emerald-200 dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400"
+                : "text-red-600 bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400"
+            }`}
+          >
+            {statusMessage}
+          </div>
+        )}
 
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 lg:gap-8">
           <Card className="xl:col-span-4 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
@@ -471,6 +536,26 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                     <p className="font-mono text-sm mt-2 break-all bg-background rounded p-2 border">
                       {user.uid}
                     </p>
+                  </div>
+                  <div className="bg-muted/30 rounded-lg p-4 border space-y-3">
+                    <Label className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
+                      <Lock className="size-4" />
+                      Security
+                    </Label>
+                    <p className="text-sm text-muted-foreground">
+                      Send a password reset link to your email address.
+                    </p>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="mt-1"
+                      onClick={handlePasswordReset}
+                      disabled={resettingPassword}
+                    >
+                      {resettingPassword
+                        ? "Sending reset link..."
+                        : "Send reset link"}
+                    </Button>
                   </div>
                   {userData?.howDidYouHear && (
                     <div className="bg-muted/30 rounded-lg p-4 border">
