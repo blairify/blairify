@@ -90,6 +90,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             : "bg-transparent"
         }`}
         aria-label="Main navigation"
+        data-analytics-id="home-navbar"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">

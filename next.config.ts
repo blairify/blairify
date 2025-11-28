@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "media.licdn.com",
+      },
+      {
+        protocol: "https",
         hostname: "d2q79iu7y748jz.cloudfront.net",
         pathname: "/**",
       },

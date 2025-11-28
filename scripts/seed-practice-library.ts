@@ -1,8 +1,7 @@
 import { config as loadEnv } from "dotenv";
 import OpenAI from "openai";
 import fs from "fs";
-import path from "path";
-
+import path from "path";export {};
 loadEnv({ path: path.resolve(__dirname, "..", ".env") });
 
 // ---------------------

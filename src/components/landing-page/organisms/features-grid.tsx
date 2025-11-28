@@ -65,6 +65,7 @@ export default function FeaturesGrid() {
     <section
       className="bg-[color:var(--card)] text-[color:var(--foreground)] py-16 sm:py-20 lg:py-24 transition-colors duration-300"
       aria-labelledby="features-heading"
+      data-analytics-id="home-features"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center space-y-8 sm:space-y-12">
         <div className="space-y-4 sm:space-y-6">

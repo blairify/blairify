@@ -12,5 +12,9 @@ export default function AuthPage() {
     setMode(newMode);
   };
 
-  return <AuthForm mode={mode} onModeChange={handleModeChange} />;
+  return (
+    <div data-analytics-id="auth-page">
+      <AuthForm mode={mode} onModeChange={handleModeChange} />
+    </div>
+  );
 }

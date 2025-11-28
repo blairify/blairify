@@ -6,11 +6,7 @@ import HeroSection from "@/components/landing-page/organisms/hero-section";
 import { JobListingsPromo } from "@/components/landing-page/organisms/job-listings-promo";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 import { NewsletterSignup } from "@/components/landing-page/organisms/newsletter-signup";
-import { PracticeLibraryPromo } from "@/components/landing-page/organisms/practice-library-promo";
-import {
-  getFeaturedJobs,
-  getFeaturedPracticeQuestions,
-} from "@/lib/services/landing-page-data";
+import { getFeaturedJobs } from "@/lib/services/landing-page-data";
 
 export const metadata: Metadata = {
   title: "Blairify - AI-Powered Career Acceleration Platform ",
@@ -177,10 +173,7 @@ const jsonLd = {
 export default async function HomePage() {
   const scrollThreshold = 150;
 
-  const [featuredJobs, practiceQuestions] = await Promise.all([
-    getFeaturedJobs(4),
-    getFeaturedPracticeQuestions(4),
-  ]);
+  const [featuredJobs] = await Promise.all([getFeaturedJobs(4)]);
 
   return (
     <>
@@ -188,6 +181,7 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script src="https://t.contentsquare.net/uxa/b4b60ede51676.js"></script>
       <div className="flex-1">
         <div className="min-h-screen bg-transparent relative z-10">
           <Navbar scrollThreshold={scrollThreshold} />
@@ -195,11 +189,11 @@ export default async function HomePage() {
             id="main-content"
             className="bg-[color:var(--background)] text-[color:var(--foreground)]"
             aria-label="Main content"
+            data-analytics-id="home-main"
           >
             <HeroSection />
             <JobListingsPromo jobs={featuredJobs} />
             <DashboardPromo />
-            <PracticeLibraryPromo questions={practiceQuestions} />
             <FeaturesGrid />
             <NewsletterSignup />
           </main>

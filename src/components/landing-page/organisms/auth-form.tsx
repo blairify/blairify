@@ -433,6 +433,7 @@ export default function AuthForm({
             void handlePasswordReset();
           }}
           className="space-y-6 mt-6"
+          data-analytics-id="auth-reset-form"
         >
           <div className="space-y-2">
             <Label htmlFor="reset-email">Reset password</Label>
@@ -472,7 +473,11 @@ export default function AuthForm({
     }
 
     return (
-      <form onSubmit={handleLoginSubmit} className="space-y-6 mt-6">
+      <form
+        onSubmit={handleLoginSubmit}
+        className="space-y-6 mt-6"
+        data-analytics-id="auth-login-form"
+      >
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
           <Input
@@ -838,7 +843,10 @@ export default function AuthForm({
     : "overflow-hidden";
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
+    <div
+      className="min-h-screen bg-background flex flex-col items-center justify-center p-4"
+      data-analytics-id="auth-shell"
+    >
       {isMobile ? (
         <Card className="border-border bg-card w-full max-w-md mx-4 sm:mx-auto">
           <CardHeader className="text-center">

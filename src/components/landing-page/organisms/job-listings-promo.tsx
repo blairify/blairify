@@ -32,6 +32,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
     <section
       className="w-full bg-[color:var(--secondary)] py-12 sm:py-16 lg:py-20 overflow-hidden"
       aria-labelledby="job-listings-heading"
+      data-analytics-id="home-jobs-promo"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">

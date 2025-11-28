@@ -3,7 +3,6 @@
 import {
   Award,
   BookOpen,
-  Briefcase,
   History,
   Home,
   Map as MapIcon,
@@ -19,6 +18,7 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import Logo from "@/components/common/atoms/logo-blairify";
 import { Button } from "@/components/ui/button";
+import { BriefcaseIcon } from "@/components/ui/icons/akar-icons-briefcase";
 import { isSuperAdmin } from "@/lib/services/auth/auth-roles";
 import { useAuth } from "@/providers/auth-provider";
 
@@ -115,22 +115,6 @@ export default function DashboardSidebar({
           </Link>
 
           <Link
-            href="/practice"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
-              isActive("/practice")
-                ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-            }`}
-          >
-            <BookOpen className="size-5 flex-shrink-0" />
-            <span
-              className={`truncate ${isActive("/practice") ? "font-medium" : ""}`}
-            >
-              Practice Library
-            </span>
-          </Link>
-
-          <Link
             href="/jobs"
             className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
               isActive("/jobs")
@@ -138,7 +122,7 @@ export default function DashboardSidebar({
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             }`}
           >
-            <Briefcase className="size-5 flex-shrink-0" />
+            <BriefcaseIcon className="size-5 flex-shrink-0" />
             <span
               className={`truncate ${isActive("/jobs") ? "font-medium" : ""}`}
             >
@@ -168,6 +152,18 @@ export default function DashboardSidebar({
               Achievements
             </span>
           </Link>
+
+          <button
+            type="button"
+            disabled
+            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
+          >
+            <BookOpen className="size-5 flex-shrink-0" />
+            <span className="truncate text-sm">Practice Library</span>
+            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+              Soon
+            </span>
+          </button>
 
           <button
             type="button"
@@ -240,21 +236,6 @@ export default function DashboardSidebar({
                   Manage Library
                 </span>
               </Link>
-              {/* <Link
-                href="/admin/manage-users"
-                className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
-                  isActive("/admin/manage-users")
-                    ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                    : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                }`}
-              >
-                <Settings className="size-5 flex-shrink-0" />
-                <span
-                  className={`truncate ${isActive("/admin/manage-users") ? "font-medium" : ""}`}
-                >
-                  Manage Users
-                </span>
-              </Link> */}
             </>
           )}
         </nav>

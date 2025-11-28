@@ -40,7 +40,7 @@ const faqData = [
     id: "practice-questions",
     question: "How can I access practice questions?",
     answer:
-      "Visit the 'Practice Library' from the sidebar to browse through our comprehensive collection of questions. You can filter by company, difficulty, category, and specific tags to find relevant practice material.",
+      "Start a new mock interview from the 'New Interview' option in the sidebar. The AI interviewer will use curated questions tailored to your role and difficulty. The dedicated Practice Library is being reworked and will return soon.",
   },
   {
     id: "results-analysis",
@@ -76,7 +76,7 @@ const faqData = [
     id: "company-specific",
     question: "Can I practice for specific companies?",
     answer:
-      "Our practice library includes questions tagged with specific companies where they were asked. Use the company filter to focus on your target companies.",
+      "Yes. When configuring a new interview, select your target company so the AI focuses on that company's style and expectations.",
   },
   {
     id: "difficulty-levels",
