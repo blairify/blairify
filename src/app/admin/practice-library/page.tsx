@@ -64,6 +64,19 @@ import {
 } from "@/lib/services/practice-questions/practice-questions-service";
 import { useAuth } from "@/providers/auth-provider";
 
+export default function ManagePracticeLibraryPage() {
+  const router = useRouter();
+  const { user, loading } = useAuth();
+
+  useEffect(() => {
+    if (!loading && !isSuperAdmin(user)) {
+      router.replace("/dashboard");
+    }
+  }, [loading, router, user]);
+
+  return null;
+}
+
 // SWR fetcher function
 const fetcher = async () => {
   return await getAllPracticeQuestions();
@@ -246,7 +259,7 @@ const getCompanyNameFromLogo = (logo: CompanyLogo): string => {
   return logoToName[logo] || logo;
 };
 
-export default function ManagePracticeLibraryPage() {
+function _LegacyManagePracticeLibraryPage() {
   const router = useRouter();
   const { user, loading } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);

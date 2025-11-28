@@ -8,19 +8,15 @@ import {
   Map as MapIcon,
   Newspaper,
   Plus,
-  Settings,
   Users,
   Wallet,
   X,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useMemo } from "react";
 import Logo from "@/components/common/atoms/logo-blairify";
 import { Button } from "@/components/ui/button";
 import { BriefcaseIcon } from "@/components/ui/icons/akar-icons-briefcase";
-import { isSuperAdmin } from "@/lib/services/auth/auth-roles";
-import { useAuth } from "@/providers/auth-provider";
 
 interface DashboardSidebarProps {
   sidebarOpen: boolean;
@@ -34,10 +30,6 @@ export default function DashboardSidebar({
   userAdmin: _,
 }: DashboardSidebarProps) {
   const pathname = usePathname();
-  const { user } = useAuth();
-
-  // Memoize admin check to prevent unnecessary re-renders
-  const showAdminLinks = useMemo(() => isSuperAdmin(user), [user]);
 
   const isActive = (path: string) => {
     return pathname === path;
@@ -212,32 +204,6 @@ export default function DashboardSidebar({
               Soon
             </span>
           </button>
-
-          {/* Superadmin Only Links */}
-          {showAdminLinks && (
-            <>
-              <div className="pt-4 pb-2 px-3">
-                <p className="text-xs font-semibold text-sidebar-foreground/60 uppercase tracking-wider">
-                  Admin
-                </p>
-              </div>
-              <Link
-                href="/admin/practice-library"
-                className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
-                  isActive("/admin/practice-library")
-                    ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                    : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                }`}
-              >
-                <Settings className="size-5 flex-shrink-0" />
-                <span
-                  className={`truncate ${isActive("/admin/practice-library") ? "font-medium" : ""}`}
-                >
-                  Manage Library
-                </span>
-              </Link>
-            </>
-          )}
         </nav>
 
         {/* Footer - Sticky at bottom */}

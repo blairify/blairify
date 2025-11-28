@@ -645,7 +645,7 @@ export default function SessionDetailsPage() {
               </Button>
               <Button
                 aria-label="Practice More Questions"
-                onClick={() => router.push("/practice")}
+                onClick={() => router.push("/configure")}
                 variant="outline"
                 size="lg"
                 className="w-full sm:w-auto h-12 px-8 font-semibold text-base"

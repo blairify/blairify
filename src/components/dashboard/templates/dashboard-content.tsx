@@ -205,7 +205,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
                 <a href="/configure">Start Your First Interview</a>
               </Button>
               <Button variant="outline" asChild>
-                <a href="/practice">Browse Practice Questions</a>
+                <a href="/jobs">Browse Jobs</a>
               </Button>
             </div>
           </CardContent>

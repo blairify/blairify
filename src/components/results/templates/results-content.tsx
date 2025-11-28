@@ -813,11 +813,11 @@ export function ResultsContent({ user }: ResultsContentProps) {
           </Button>
           <Button
             variant="outline"
-            onClick={() => router.push("/practice")}
+            onClick={() => router.push("/history")}
             className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
           >
             <BookOpen className="h-4 w-4 mr-2" />
-            Practice Mode
+            View Interview History
           </Button>
         </div>
 
