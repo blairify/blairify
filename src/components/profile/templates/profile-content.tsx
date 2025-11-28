@@ -16,6 +16,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { db } from "@/lib/firebase";
 import type { UserData } from "@/lib/services/auth/auth";
@@ -24,6 +31,25 @@ import { useAuth } from "@/providers/auth-provider";
 interface ProfileContentProps {
   user: UserData;
 }
+
+const ROLE_OPTIONS = [
+  "Frontend Developer",
+  "Backend Developer",
+  "Full Stack Developer",
+  "DevOps Engineer",
+  "Mobile Developer",
+  "Data Engineer",
+  "Data Scientist",
+  "Cybersecurity Engineer",
+  "Product Manager",
+];
+
+const EXPERIENCE_OPTIONS = [
+  "Entry (no experience)",
+  "Junior (0-2 years)",
+  "Mid (2-5 years)",
+  "Senior (5-8 years)",
+];
 
 export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
   const { user, userData, refreshUserData } = useAuth();
@@ -291,9 +317,6 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                 </Label>
                 <div className="bg-muted/50 rounded-lg p-4 border">
                   <p className="font-medium break-all">{user.email}</p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    This cannot be changed
-                  </p>
                 </div>
               </div>
 
@@ -302,22 +325,33 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                   htmlFor="role"
                   className="flex items-center gap-2 text-sm font-medium"
                 >
-                  <Briefcase className="h-4 w-4" />
+                  <Briefcase className="size-4" />
                   Role/Position
                 </Label>
                 {isEditing ? (
-                  <Input
-                    id="role"
-                    value={editData.role}
-                    onChange={(e) =>
+                  <Select
+                    value={editData.role || ""}
+                    onValueChange={(value) =>
                       setEditData((prev) => ({
                         ...prev,
-                        role: e.target.value,
+                        role: value,
                       }))
                     }
-                    placeholder="e.g. Software Engineer, Product Manager"
-                    className="h-11"
-                  />
+                  >
+                    <SelectTrigger
+                      id="role"
+                      className="h-11 w-full justify-between"
+                    >
+                      <SelectValue placeholder="Select your role" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {ROLE_OPTIONS.map((option) => (
+                        <SelectItem key={option} value={option}>
+                          {option}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 ) : (
                   <div className="bg-muted/50 rounded-lg p-4 border">
                     <p className="font-medium">{userData?.role || "Not set"}</p>
@@ -330,22 +364,33 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                   htmlFor="experience"
                   className="text-sm font-medium flex items-center gap-2"
                 >
-                  <Clock className="h-4 w-4" />
+                  <Clock className="size-4" />
                   Experience Level
                 </Label>
                 {isEditing ? (
-                  <Input
-                    id="experience"
-                    value={editData.experience}
-                    onChange={(e) =>
+                  <Select
+                    value={editData.experience || ""}
+                    onValueChange={(value) =>
                       setEditData((prev) => ({
                         ...prev,
-                        experience: e.target.value,
+                        experience: value,
                       }))
                     }
-                    placeholder="e.g. 3+ years, Senior level, Entry level"
-                    className="h-11"
-                  />
+                  >
+                    <SelectTrigger
+                      id="experience"
+                      className="h-11 w-full justify-between"
+                    >
+                      <SelectValue placeholder="Select your experience level" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {EXPERIENCE_OPTIONS.map((option) => (
+                        <SelectItem key={option} value={option}>
+                          {option}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 ) : (
                   <div className="bg-muted/50 rounded-lg p-4 border">
                     <p className="font-medium">

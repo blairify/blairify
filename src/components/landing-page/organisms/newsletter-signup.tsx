@@ -38,7 +38,7 @@ export function NewsletterSignup() {
 
       setSuccess(true);
       setEmail("");
-      setTimeout(() => setSuccess(false), 3000);
+    setTimeout(() => setSuccess(false), 3000);
     } catch (err) {
       console.error("Subscription failed:", err);
     } finally {
