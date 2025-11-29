@@ -8,6 +8,7 @@ import {
   Clock,
   Lock,
   Mail,
+  MapPin,
   Save,
   User,
 } from "lucide-react";
@@ -19,7 +20,6 @@ import {
 } from "@/components/common/atoms/avatar-icon-selector";
 import { Typography } from "@/components/common/atoms/typography";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -36,6 +36,7 @@ import { db } from "@/lib/firebase";
 import type { UserData } from "@/lib/services/auth/auth";
 import { requestPasswordReset } from "@/lib/services/auth/auth";
 import { useAuth } from "@/providers/auth-provider";
+import type { UserPreferences } from "@/types/firestore";
 
 interface ProfileContentProps {
   user: UserData;
@@ -74,6 +75,7 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
     displayName: "",
     role: "",
     experience: "",
+    preferredLocation: "",
   });
   const [selectedIcon, setSelectedIcon] = useState<string>("");
 
@@ -88,6 +90,7 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
       displayName: userData?.displayName || user?.displayName || "",
       role: userData?.role || "",
       experience: userData?.experience || "",
+      preferredLocation: userData?.preferences?.preferredLocation || "",
     });
 
     if (userData?.avatarIcon) {
@@ -144,6 +147,26 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
         displayName: editData.displayName,
       });
 
+      const existingPreferences: UserPreferences | undefined = (
+        userData as unknown as { preferences?: UserPreferences } | null
+      )?.preferences;
+
+      const basePreferences: UserPreferences = existingPreferences ?? {
+        preferredDifficulty: "intermediate",
+        preferredInterviewTypes: ["technical"],
+        targetCompanies: [],
+        notificationsEnabled: true,
+        darkMode: false,
+        language: "en",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      };
+
+      const updatedPreferences: UserPreferences = {
+        ...basePreferences,
+        preferredLocation:
+          editData.preferredLocation || basePreferences.preferredLocation || "",
+      };
+
       const userDocData = {
         displayName: editData.displayName,
         role: editData.role,
@@ -152,11 +175,9 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
         uid: user.uid,
         avatarIcon: selectedIcon || null,
         photoURL: null,
+        preferences: updatedPreferences,
         ...(userData && {
           createdAt: userData.createdAt,
-          ...(userData.howDidYouHear && {
-            howDidYouHear: userData.howDidYouHear,
-          }),
         }),
         lastLoginAt: new Date(),
         ...(!userData && { createdAt: new Date() }),
@@ -261,8 +282,8 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
 
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 lg:gap-8">
           <Card className="xl:col-span-4 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
-            <CardHeader className="text-center pb-6">
-              <div className="relative mx-auto w-28 h-28 sm:w-36 sm:h-36 mb-6">
+            <CardHeader className="pb-6">
+              <div className="relative mx-auto w-28 h-28 sm:w-36 sm:h-36 mb-6 flex items-center justify-center">
                 {userData?.avatarIcon ? (
                   <div className="w-36 h-36 border-4 border-primary/30 rounded-full flex items-center justify-center bg-background shadow-lg">
                     <AvatarIconDisplay
@@ -279,17 +300,50 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                   </Avatar>
                 )}
               </div>
-              <CardTitle className="text-xl sm:text-2xl font-bold">
-                {userData?.displayName || user.displayName || "User"}
-              </CardTitle>
-              <p className="text-muted-foreground text-sm sm:text-base break-all mt-2">
-                {user.email}
-              </p>
-              {(userData?.role || editData.role) && (
-                <Badge variant="secondary" className="mt-3 px-3 py-1">
-                  {userData?.role || editData.role}
-                </Badge>
-              )}
+              <div className="space-y-3">
+                <p className="text-xs font-semibold tracking-wide uppercase text-primary/80 text-center">
+                  Your interview profile
+                </p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-muted-foreground flex items-center gap-2">
+                      <MapPin className="size-4" />
+                      Location
+                    </span>
+                    <span className="font-medium text-right">
+                      {userData.preferences?.preferredLocation || "Not set"}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-muted-foreground flex items-center gap-2">
+                      <Briefcase className="size-4" />
+                      Work type
+                    </span>
+                    <span className="font-medium text-right">
+                      {userData.preferences?.preferredWorkTypes?.join(", ") ||
+                        "Not set"}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-muted-foreground flex items-center gap-2">
+                      <Clock className="size-4" />
+                      Goal
+                    </span>
+                    <span className="font-medium text-right">
+                      {userData.preferences?.careerGoals?.[0] || "Not set"}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-muted-foreground flex items-center gap-2">
+                      <Mail className="size-4" />
+                      Email
+                    </span>
+                    <span className="font-medium text-right truncate max-w-[160px] sm:max-w-[200px]">
+                      {user.email}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </CardHeader>
           </Card>
 
@@ -332,6 +386,8 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                       displayName: userData?.displayName || "",
                       role: userData?.role || "",
                       experience: userData?.experience || "",
+                      preferredLocation:
+                        userData?.preferences?.preferredLocation || "",
                     });
                   } else {
                     setIsEditing(true);
@@ -465,6 +521,36 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                 )}
               </div>
 
+              <div className="space-y-3">
+                <Label
+                  htmlFor="preferredLocation"
+                  className="text-sm font-medium flex items-center gap-2"
+                >
+                  <MapPin className="size-4" />
+                  Preferred work location
+                </Label>
+                {isEditing ? (
+                  <Input
+                    id="preferredLocation"
+                    value={editData.preferredLocation}
+                    onChange={(event) =>
+                      setEditData((prev) => ({
+                        ...prev,
+                        preferredLocation: event.target.value,
+                      }))
+                    }
+                    placeholder="e.g. Remote Europe, London, UK"
+                    className="h-11"
+                  />
+                ) : (
+                  <div className="bg-muted/50 rounded-lg p-4 border">
+                    <p className="font-medium">
+                      {userData.preferences?.preferredLocation || "Not set"}
+                    </p>
+                  </div>
+                )}
+              </div>
+
               {isEditing && (
                 <div className="flex justify-end pt-4 border-t">
                   <Button
@@ -557,16 +643,7 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                         : "Send reset link"}
                     </Button>
                   </div>
-                  {userData?.howDidYouHear && (
-                    <div className="bg-muted/30 rounded-lg p-4 border">
-                      <Label className="text-muted-foreground text-sm font-medium">
-                        How did you hear about us?
-                      </Label>
-                      <p className="mt-2 font-medium">
-                        {userData.howDidYouHear}
-                      </p>
-                    </div>
-                  )}
+                  {/* Additional preference fields can be surfaced here later if needed */}
                 </div>
               </div>
             </CardContent>

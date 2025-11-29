@@ -13,7 +13,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import type { UserProfile } from "../../../types/firestore";
+import type { UserPreferences, UserProfile } from "../../../types/firestore";
 import { DatabaseService } from "../../database";
 import { auth, db } from "../../firebase";
 import { safeSetDoc } from "../../firestore-utils";
@@ -40,7 +40,20 @@ export interface UserData {
   howDidYouHear?: string;
   createdAt: Date;
   lastLoginAt: Date;
+  preferences?: UserPreferences;
 }
+
+const toDateSafe = (value: unknown): Date => {
+  if (!value) return new Date(0);
+  if (value instanceof Date) return value;
+
+  const maybeTimestamp = value as { toDate?: () => Date };
+  if (typeof maybeTimestamp.toDate === "function") {
+    return maybeTimestamp.toDate();
+  }
+
+  return new Date(0);
+};
 
 // Convert UserProfile to UserData for backward compatibility
 const userProfileToUserData = (profile: UserProfile): UserData => ({
@@ -52,8 +65,9 @@ const userProfileToUserData = (profile: UserProfile): UserData => ({
   role: profile.role,
   experience: profile.experience,
   howDidYouHear: profile.howDidYouHear,
-  createdAt: profile.createdAt.toDate(),
-  lastLoginAt: profile.lastLoginAt.toDate(),
+  createdAt: toDateSafe(profile.createdAt),
+  lastLoginAt: toDateSafe(profile.lastLoginAt),
+  preferences: profile.preferences,
 });
 
 // Check if email already exists (fallback method)
@@ -95,10 +109,10 @@ export const registerWithEmailAndPassword = async (
   email: string,
   password: string,
   displayName: string,
-  additionalData: {
-    role: string;
-    experience: string;
-    howDidYouHear: string;
+  additionalData?: {
+    role?: string;
+    experience?: string;
+    howDidYouHear?: string;
   },
 ): Promise<{ user: User | null; error: string | null }> => {
   try {
@@ -126,9 +140,13 @@ export const registerWithEmailAndPassword = async (
       email: user.email || "",
       displayName,
       ...(user.photoURL && { photoURL: user.photoURL }),
-      role: additionalData.role,
-      experience: additionalData.experience,
-      howDidYouHear: additionalData.howDidYouHear,
+      ...(additionalData?.role && { role: additionalData.role }),
+      ...(additionalData?.experience && {
+        experience: additionalData.experience,
+      }),
+      ...(additionalData?.howDidYouHear && {
+        howDidYouHear: additionalData.howDidYouHear,
+      }),
     };
 
     await DatabaseService.createUserWithCompleteProfile(user.uid, profileData);

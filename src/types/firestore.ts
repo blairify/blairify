@@ -80,6 +80,12 @@ export interface UserPreferences {
   darkMode: boolean;
   language: string;
   timezone: string;
+  preferredLocation?: string;
+  preferredTechnologies?: string[];
+  preferredWorkTypes?: string[];
+  expectedSalary?: string;
+  struggleAreas?: string[];
+  careerGoals?: string[];
 }
 
 export interface UserSubscription {

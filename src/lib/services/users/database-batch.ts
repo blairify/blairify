@@ -26,9 +26,11 @@ export async function createUserWithCompleteProfile(
       email: profileData.email || "",
       displayName: profileData.displayName || "",
       ...(profileData.photoURL && { photoURL: profileData.photoURL }),
-      role: profileData.role,
-      experience: profileData.experience,
-      howDidYouHear: profileData.howDidYouHear,
+      ...(profileData.role && { role: profileData.role }),
+      ...(profileData.experience && { experience: profileData.experience }),
+      ...(profileData.howDidYouHear && {
+        howDidYouHear: profileData.howDidYouHear,
+      }),
       preferences: {
         preferredDifficulty: "intermediate",
         preferredInterviewTypes: ["technical"],

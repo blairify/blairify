@@ -72,7 +72,7 @@ export default function AuthForm({
     howDidYouHear: "",
   });
 
-  const totalSteps = 6;
+  const totalSteps = 3;
 
   // Add state for email validation step
   const [_showEmailValidation, _setShowEmailValidation] = useState(false);
@@ -229,10 +229,7 @@ export default function AuthForm({
         !formData.name ||
         !formData.email ||
         !formData.password ||
-        !formData.confirmPassword ||
-        !formData.experience ||
-        !formData.role ||
-        !formData.howDidYouHear
+        !formData.confirmPassword
       ) {
         throw new Error("Please fill in all fields");
       }
@@ -249,11 +246,6 @@ export default function AuthForm({
         formData.email,
         formData.password,
         formData.name,
-        {
-          role: formData.role,
-          experience: formData.experience,
-          howDidYouHear: formData.howDidYouHear,
-        },
       );
 
       if (error) {
