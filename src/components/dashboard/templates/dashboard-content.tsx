@@ -4,7 +4,6 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Award,
-  Briefcase,
   Calendar,
   Clock,
   ExternalLink,
@@ -13,7 +12,6 @@ import {
   TrendingUp,
   X,
 } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { Typography } from "@/components/common/atoms/typography";
@@ -49,15 +47,6 @@ import type {
   WeeklyActivity,
 } from "@/lib/services/dashboard/dashboard-analytics";
 
-interface Job {
-  id: string;
-  title?: string;
-  name?: string;
-  company?: string;
-  location?: string;
-  logoUrl?: string;
-}
-
 interface DashboardContentProps {
   dashboardData: {
     stats: DashboardStats;
@@ -66,7 +55,6 @@ interface DashboardContentProps {
     questionTypesData: QuestionTypeStats[];
     weeklyActivityData: WeeklyActivity[];
     recentSessions: RecentSession[];
-    suggestedJobs: Job[];
   };
 }
 
@@ -78,7 +66,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
     questionTypesData: _questionTypesData,
     weeklyActivityData,
     recentSessions,
-    suggestedJobs,
   } = dashboardData;
 
   const hasData = stats.totalSessions > 0;
@@ -463,79 +450,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           </CardContent>
         </Card>
       </div>
-
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle className="flex items-center gap-2">
-                <Briefcase className="h-5 w-5" />
-                Recommended Jobs
-              </CardTitle>
-              <CardDescription>Positions matching your profile</CardDescription>
-            </div>
-            <Button variant="ghost" size="sm" asChild>
-              <a href="/jobs">
-                View All
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {suggestedJobs && suggestedJobs.length > 0 ? (
-              suggestedJobs.slice(0, 4).map((job: Job) => (
-                <a
-                  key={job.id}
-                  href={`/jobs?id=${job.id}`}
-                  className="block p-4 rounded-lg border hover:bg-muted/50 transition-colors group"
-                >
-                  {job.logoUrl && (
-                    <div className="mb-3 flex items-center justify-center h-12 w-12 rounded-lg bg-muted/50 overflow-hidden">
-                      <Image
-                        src={job.logoUrl}
-                        alt={`${job.company} logo`}
-                        width={48}
-                        height={48}
-                        className="h-full w-full object-contain p-1"
-                        onError={(e) => {
-                          e.currentTarget.style.display = "none";
-                        }}
-                      />
-                    </div>
-                  )}
-
-                  <h4 className="font-semibold text-sm mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                    {job.title || job.name}
-                  </h4>
-
-                  <div className="space-y-1">
-                    {job.company && (
-                      <p className="text-xs text-muted-foreground font-medium">
-                        {job.company}
-                      </p>
-                    )}
-                    {job.location && (
-                      <p className="text-xs text-muted-foreground flex items-center gap-1">
-                        <span>📍</span>
-                        <span className="line-clamp-1">{job.location}</span>
-                      </p>
-                    )}
-                  </div>
-                </a>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-8">
-                <Briefcase className="h-12 w-12 mx-auto text-muted-foreground/40 mb-3" />
-                <Typography.Body className="text-sm text-muted-foreground mb-3">
-                  Loading job recommendations...
-                </Typography.Body>
-              </div>
-            )}
-          </div>
-        </CardContent>
-      </Card>
 
       {showTeamAlert && (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 relative">

@@ -357,24 +357,6 @@ function calculateImprovementRate(sessions: InterviewSession[]): number {
 }
 
 /**
- * Get suggested jobs based on user role and recent interview types
- */
-export async function getSuggestedJobs() {
-  try {
-    // Fetch jobs from API route (client-safe)
-    const response = await fetch("/api/jobs?limit=4");
-    if (!response.ok) {
-      return [];
-    }
-    const data = await response.json();
-    return data.jobs || [];
-  } catch (error) {
-    console.error("Error fetching suggested jobs:", error);
-    return [];
-  }
-}
-
-/**
  * Get suggested practice questions based on weak areas
  */
 export async function getSuggestedPractice(userId: string) {
@@ -442,7 +424,6 @@ export async function getDashboardData(userId: string) {
     questionTypesData,
     weeklyActivityData,
     recentSessions,
-    suggestedJobs,
   ] = await Promise.all([
     getDashboardStats(userId),
     getPerformanceData(userId),
@@ -450,7 +431,6 @@ export async function getDashboardData(userId: string) {
     getQuestionTypeStats(userId),
     getWeeklyActivity(userId),
     getRecentSessions(userId, 5),
-    getSuggestedJobs(),
   ]);
 
   return {
@@ -460,6 +440,5 @@ export async function getDashboardData(userId: string) {
     questionTypesData,
     weeklyActivityData,
     recentSessions,
-    suggestedJobs,
   };
 }

@@ -21,15 +21,6 @@ import { getDashboardData } from "@/lib/services/dashboard/dashboard-analytics";
 import { useAuth } from "@/providers/auth-provider";
 import type { UserPreferences } from "@/types/firestore";
 
-interface Job {
-  id: string;
-  title?: string;
-  name?: string;
-  company?: string;
-  location?: string;
-  logoUrl?: string;
-}
-
 interface DashboardPageClientProps {
   user: UserData;
 }
@@ -43,7 +34,6 @@ export function DashboardPageClient({ user }: DashboardPageClientProps) {
     questionTypesData: QuestionTypeStats[];
     weeklyActivityData: WeeklyActivity[];
     recentSessions: RecentSession[];
-    suggestedJobs: Job[];
   } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
