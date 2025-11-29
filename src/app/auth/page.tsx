@@ -1,12 +1,16 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import AuthForm from "@/components/landing-page/organisms/auth-form";
 
 type AuthMode = "login" | "register";
 
 export default function AuthPage() {
-  const [mode, setMode] = useState<AuthMode>("register");
+  const searchParams = useSearchParams();
+  const modeParam = searchParams.get("mode");
+  const initialMode: AuthMode = modeParam === "login" ? "login" : "register";
+  const [mode, setMode] = useState<AuthMode>(initialMode);
 
   const handleModeChange = (newMode: AuthMode) => {
     setMode(newMode);

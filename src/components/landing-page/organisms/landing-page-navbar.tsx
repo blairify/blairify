@@ -205,15 +205,25 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
               ) : (
                 <div className="flex items-center gap-4">
                   <ThemeToggle />
-
-                  <Button
-                    onClick={() => router.push("/auth")}
-                    aria-label="Get Started"
-                    className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 lg:px-6"
-                    size="lg"
-                  >
-                    Get Started
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      onClick={() => router.push("/auth?mode=login")}
+                      aria-label="Login"
+                      className="px-4 lg:px-5"
+                      size="lg"
+                    >
+                      Login
+                    </Button>
+                    <Button
+                      onClick={() => router.push("/auth?mode=register")}
+                      aria-label="Register"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 lg:px-6"
+                      size="lg"
+                    >
+                      Register
+                    </Button>
+                  </div>
                 </div>
               )}
             </div>
@@ -335,16 +345,27 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                   </div>
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <Button
                     onClick={() => {
-                      router.push("/auth");
+                      router.push("/auth?mode=login");
                       setIsMobileMenuOpen(false);
                     }}
-                    aria-label="Get Started"
+                    aria-label="Login"
+                    variant="outline"
+                    className="w-full h-12 text-base font-medium"
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      router.push("/auth?mode=register");
+                      setIsMobileMenuOpen(false);
+                    }}
+                    aria-label="Register"
                     className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base font-medium"
                   >
-                    Get Started
+                    Register
                   </Button>
                 </div>
               )}
