@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { ProfileOnboardingModal } from "@/components/dashboard/organisms/profile-onboarding-modal";
@@ -26,6 +27,7 @@ interface DashboardPageClientProps {
 }
 
 export function DashboardPageClient({ user }: DashboardPageClientProps) {
+  const router = useRouter();
   const { user: authUser, userData, refreshUserData } = useAuth();
   const [dashboardData, setDashboardData] = useState<{
     stats: DashboardStats;
@@ -164,6 +166,7 @@ export function DashboardPageClient({ user }: DashboardPageClientProps) {
       window.localStorage.setItem(key, "1");
       await refreshUserData();
       setShowOnboarding(false);
+      router.push("/jobs");
     } catch (err) {
       console.error("Error saving onboarding profile:", err);
     } finally {
