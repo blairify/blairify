@@ -7,83 +7,141 @@ You are generating high-quality interview practice questions for a database with
 
 OUTPUT REQUIREMENTS
 Generate {{BATCH_SIZE}} new questions.
-They MUST follow this JSON shape exactly:
+You MUST return a SINGLE JSON object with EXACTLY these 5 top-level array keys:
+- "mcq_questions"
+- "open_questions"
+- "truefalse_questions"
+- "matching_questions"
+- "system_design_questions"
+
+Each array may be empty, but the keys MUST always be present.
+
+The shared core fields for every question are:
 
 {
-  "practice_questions": [
-    {
-      "id": "string",
-      "type": "mcq | open | truefalse | matching | system-design",
-      "difficulty": "entry | junior | middle | senior",
-      "status": "published",
-      "isDemoMode": false,
-      "companyType": "faang | startup | enterprise",
-      "title": "string",
-      "description": "string",
-      "prompt": "string",
-      "topic": "frontend | backend | devops | system-design | algorithms | javascript | react | sql | networking | etc",
-      "subtopics": ["..."],
-      "tags": ["..."],
-      "estimatedTimeMinutes": number,
-      "aiEvaluationHint": "string or null",
-      "multiChoiceAnswers": ["correct", "answers"] or null,
-      "companies": [
-         {
-            "name": "string",
-            "logo": "string",
-            "size": "faang | startup | enterprise",
-            "description": "string"
-         }
-      ] or null,
-      "positions": ["..."],
-      "primaryTechStack": ["react", "typescript", "nodejs", "..."],
-      "interviewTypes": ["regular", "practice"],
-      "seniorityLevels": ["entry", "junior", "middle", "senior"],
-      "trueFalseCorrectAnswer": true | null,
-      "trueFalseExplanation": "string or null",
-      "matchingShuffleLeft": boolean or null,
-      "matchingShuffleRight": boolean or null,
-      "matchingPairs": [{"left": "...", "right": "...", "explanation": "..."}] or null,
-      "openReferenceAnswers": [{"id": "string", "text": "string", "weight": 0.5}] or null,
-      "createdBy": "system"
-    }
-  ],
+  "id": "string",
+  "status": "draft | published | archived",
+  "reviewerId": "string or null",
+  "reviewedAt": "ISO8601 string or null",
 
-  "practice_mcq_options": [
-    {
-      "id": "string",
-      "questionId": "string",
-      "text": "string",
-      "isCorrect": boolean,
-      "explanation": "string or null"
-    }
-  ],
+  "difficulty": "entry | junior | middle | senior",
+  "isDemoMode": false,
+  "companyType": "faang | startup | enterprise",
 
-  "practice_matching_pairs": [
-    {
-      "id": "string",
-      "questionId": "string",
-      "left": "string",
-      "right": "string",
-      "explanation": "string or null"
-    }
-  ],
+  "title": "string",
+  "description": "string",
+  "prompt": "string",
 
-  "practice_system_design_charts": [
+  "topic": "frontend | backend | devops | system-design | algorithms | javascript | react | sql | networking | etc",
+  "subtopics": ["string", "..."],
+  "tags": ["string", "..."],
+  "estimatedTimeMinutes": number,
+
+  "aiEvaluationHint": "string or null",
+
+  "companies": [
     {
-      "id": "string",
-      "questionId": "string",
-      "chart": [...]
+      "name": "string",
+      "logo": "string",
+      "size": ["faang" | "startup" | "enterprise"],
+      "description": "string"
     }
-  ]
+  ] or null,
+
+  "positions": ["Frontend Engineer", "Backend Engineer", "Full Stack Engineer", "..."],
+  "primaryTechStack": ["react", "typescript", "nodejs", "..."],
+
+  "interviewTypes": ["regular", "practice", "flash", "play", "competitive", "teacher"],
+  "seniorityLevels": ["entry", "junior", "mid", "senior"],
+
+  "createdAt": "ISO8601 string",
+  "updatedAt": "ISO8601 string",
+  "createdBy": "generated_by_ai"
 }
 
+Type-specific fields are added per table below.
+
+"mcq_questions": [
+  {
+    // shared core fields...
+    "correctAnswerText": "string"
+  }
+],
+
+"open_questions": [
+  {
+    // shared core fields...
+    "referenceAnswers": [
+      {
+        "id": "string",
+        "text": "string",
+        "keyPoints": ["string", "..."]
+      }
+    ]
+  }
+],
+
+"truefalse_questions": [
+  {
+    // shared core fields...
+    "correctAnswer": true | false,
+    "explanation": "string",
+    "trickinessLevel": number or null
+  }
+],
+
+"matching_questions": [
+  {
+    // shared core fields...
+    "shuffleLeft": boolean or null,
+    "shuffleRight": boolean or null,
+    "minPairs": number or null,
+    "maxPairs": number or null,
+
+    "pairs": [
+      {
+        "id": "string",
+        "left": "string",
+        "right": "string",
+        "explanation": "string or null",
+        "group": "string or null"
+      }
+    ]
+  }
+],
+
+"system_design_questions": [
+  {
+    // shared core fields...
+    "complexityLevel": "entry" | "junior" | "middle" | "senior" | null,
+    "nonFunctionalRequirements": ["string", "..."],
+    "constraints": ["string", "..."],
+    "scalingFocus": "string or null",
+    "hints": ["string", "..."],
+
+    "charts": [
+      {
+        "id": "string",
+        "nodes": [
+          {
+            "id": "string",
+            "type": "service | db | cache | queue | client | external",
+            "label": "string",
+            "description": "string",
+            "connections": ["id-of-other-node", "..."]
+          }
+        ]
+      }
+    ]
+  }
+]
+}
 RULES
 - IDs must be unique UUID-like strings.
-- In a single batch do not create two questions with identical prompts.
+- In a single batch do not create two questions with identical descriptions.
 - Avoid repeating the same concept with only small wording changes.
 - Spread topics across different sub-areas of the given technology.
-- Use only companies from this list:
+- Use only companies from this list (company name MUST match exactly and logo MUST be a React icon name from react-icons/si):
 
 {{COMPANIES}}
 Google
@@ -120,33 +178,55 @@ Plandek
 
 CONTENT RULES
 - Every question MUST include:
-  title, description, prompt, topic, difficulty
+  title, description, prompt, topic, difficulty, estimatedTimeMinutes
+- description is the human-readable text shown directly to the user as the question.
+- prompt is the text we can feed to an AI model for evaluation. It may repeat the description but can also add instructions for how to evaluate answers.
+- aiEvaluationHint:
+  - MUST be tailored to this specific question (no generic templates).
+  - For open and system-design questions, MUST be a non-empty string that can be used directly as guidance for an AI evaluator. It SHOULD:
+    - list the key points or aspects a strong answer should mention,
+    - note common mistakes or misconceptions to penalize,
+    - describe how to judge partial vs full credit.
+  - For other question types it MAY be null.
 - Favour entry and junior difficulty; include few middle; rarely senior.
 - MCQ questions:
-  - must output practice_mcq_options entries
-  - must set multiChoiceAnswers with correct answer texts
-  - all correct answers must be valid
-  - each MCQ should have 3–5 options
+  - MUST appear in mcq_questions.
+  - correctAnswerText MUST be a single fully correct (true) answer statement.
+  - Additional incorrect options will be generated later based on correctAnswerText.
 - True/False questions:
-  - trueFalseCorrectAnswer MUST always be true
-  - must include trueFalseExplanation
+  - MUST appear in truefalse_questions.
+  - correctAnswer MUST be either true or false (not null).
+  - explanation MUST clearly justify the answer.
 - Open questions:
-  - include 1–3 openReferenceAnswers samples
+  - MUST appear in open_questions.
+  - SHOULD include 1–3 referenceAnswers as examples or guidance.
+  - aiEvaluationHint is the primary source of evaluation logic.
 - Matching questions:
-  - include 3–6 matchingPairs
-  - must replicate matchingPairs into practice_matching_pairs
+  - MUST appear in matching_questions.
+  - MUST include 3–6 pairs.
+  - shuffleLeft/shuffleRight indicate which sides are shuffled in the UI.
 - System-design questions:
-  - include at least one chart with nodes + relationships
-  - keep diagrams simple for entry/junior difficulty
+  - MUST appear in system_design_questions.
+  - MUST include at least one chart with nodes + relationships.
+  - the question description MUST clearly explain the system, the key components, and what the candidate should design or reason about.
+  - keep diagrams simple for entry/junior difficulty.
+- Positions:
+  - positions MUST be an array of plain strings (no objects).
+  - use simple role names like "Frontend Engineer", "Backend Engineer", "Full Stack Engineer", "DevOps Engineer".
+- Interview types:
+  - interviewTypes MUST use only: "regular", "practice", "flash", "play", "competitive", "teacher".
+  - for MCQ questions: interviewTypes MUST include only "play".
+- Seniority levels:
+  - seniorityLevels MUST use only: "entry", "junior", "mid", "senior".
+- createdBy:
+  - MUST always be exactly the string "generated_by_ai" for all questions.
 - Keep questions simple, readable and beginner-friendly.
-- Must strictly output valid JSON only, no commentary.
+- Must strictly output valid JSON only, no commentary or markdown.
 
 FINAL INSTRUCTIONS
-- Return **only JSON**, no explanations or markdown.
+- Return only JSON, no explanations or markdown, no code fences.
 - Use a single JSON object with keys:
-  "practice_questions", "practice_mcq_options", "practice_matching_pairs", "practice_system_design_charts"
+  "mcq_questions", "open_questions", "truefalse_questions", "matching_questions", "system_design_questions".
+- Do not include trailing commas.
+- All string values MUST be double-quoted.
 
-- The output **must** be wrapped in:
-
-```json
-{ ... }

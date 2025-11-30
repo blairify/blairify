@@ -5,85 +5,113 @@ import path from "path";export {};
 loadEnv({ path: path.resolve(__dirname, "..", ".env") });
 
 // ---------------------
-// Types for output JSON
+// Types for output JSON (v2, 5 arrays)
 // ---------------------
 
-interface PracticeQuestion {
-  id: string;
-  type: "mcq" | "open" | "truefalse" | "matching" | "system-design";
-  difficulty: "entry" | "junior" | "middle" | "senior";
-  status: string;
-  isDemoMode: boolean;
-  companyType: "faang" | "startup" | "enterprise";
-  title: string;
+interface JsonCompany {
+  name: string;
+  logo: string;
+  size?: string[];
   description: string;
-  prompt: string;
-  topic: string;
-  subtopics: string[];
-  tags: string[];
-  estimatedTimeMinutes: number;
-  aiEvaluationHint: string | null;
-  multiChoiceAnswers: string[] | null;
-  companies:
-    | {
-        name: string;
-        logo: string;
-        size?: string[];
-        description: string;
-      }[]
-    | null;
-  positions: string[];
-  primaryTechStack: string[];
-  interviewTypes: string[];
-  seniorityLevels: string[];
-  trueFalseCorrectAnswer: boolean | null;
-  trueFalseExplanation: string | null;
-  matchingShuffleLeft: boolean | null;
-  matchingShuffleRight: boolean | null;
-  matchingPairs:
-    | {
-        left: string;
-        right: string;
-        explanation?: string | null;
-      }[]
-    | null;
-  openReferenceAnswers:
-    | {
-        id: string;
-        text: string;
-        weight: number;
-      }[]
-    | null;
-  createdBy: string;
 }
 
-interface MCQOption {
+interface JsonReferenceAnswer {
   id: string;
-  questionId: string;
   text: string;
-  isCorrect: boolean;
-  explanation: string | null;
+  weight: number;
+  keyPoints?: string[];
 }
 
-interface MatchingPair {
+interface JsonMatchingPair {
   id: string;
-  questionId: string;
   left: string;
   right: string;
   explanation: string | null;
 }
 
-interface SystemDesignChart {
+interface JsonSystemDesignNode {
   id: string;
-  questionId: string;
-  chart: any[];
+  type: string;
+  label: string;
+  description: string;
+  connections: string[];
+}
+
+interface JsonSystemDesignChart {
+  id: string;
+  nodes: JsonSystemDesignNode[];
+}
+
+interface JsonCoreQuestion {
+  id: string;
+  status: "draft" | "published" | "archived";
+  reviewerId: string | null;
+  reviewedAt: string | null;
+
+  difficulty: "entry" | "junior" | "middle" | "senior";
+  isDemoMode: boolean;
+  companyType: "faang" | "startup" | "enterprise";
+
+  title: string;
+  description: string;
+  prompt: string;
+
+  topic: string;
+  subtopics: string[];
+  tags: string[];
+  estimatedTimeMinutes: number;
+
+  aiEvaluationHint: string | null;
+
+  companies: JsonCompany[] | null;
+  positions: string[];
+  primaryTechStack: string[];
+
+  interviewTypes: string[];
+  seniorityLevels: string[];
+
+  createdAt: string;
+  updatedAt: string;
+  createdBy: string;
+}
+
+interface McqQuestion extends JsonCoreQuestion {
+  correctAnswerText: string;
+}
+
+interface OpenQuestion extends JsonCoreQuestion {
+  referenceAnswers: JsonReferenceAnswer[] | null;
+}
+
+interface TrueFalseQuestion extends JsonCoreQuestion {
+  correctAnswer: boolean;
+  explanation: string;
+  trickinessLevel: number | null;
+}
+
+interface MatchingQuestion extends JsonCoreQuestion {
+  shuffleLeft: boolean | null;
+  shuffleRight: boolean | null;
+  minPairs: number | null;
+  maxPairs: number | null;
+  pairs: JsonMatchingPair[] | null;
+}
+
+interface SystemDesignQuestion extends JsonCoreQuestion {
+  complexityLevel: "entry" | "junior" | "middle" | "senior" | null;
+  nonFunctionalRequirements: string[];
+  constraints: string[];
+  scalingFocus: string | null;
+  hints: string[];
+  charts: JsonSystemDesignChart[] | null;
 }
 
 interface BatchOutput {
-  practice_questions: PracticeQuestion[];
-  practice_mcq_options: MCQOption[];
-  practice_matching_pairs: MatchingPair[];
-  practice_system_design_charts: SystemDesignChart[];
+  mcq_questions: McqQuestion[];
+  open_questions: OpenQuestion[];
+  truefalse_questions: TrueFalseQuestion[];
+  matching_questions: MatchingQuestion[];
+  system_design_questions: SystemDesignQuestion[];
 }
 
 // ---------------------
@@ -94,8 +122,8 @@ const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
 });
 
-const TOTAL = 10;
-const BATCH_SIZE = 10;
+const TOTAL = 30;
+const BATCH_SIZE = 30;
 const OUT = "./questions_output.json";
 
 const SCHEMA_PATH = path.resolve(
@@ -111,10 +139,11 @@ const SCHEMA = fs.readFileSync(SCHEMA_PATH, "utf8");
 const PROMPT_TEMPLATE = fs.readFileSync(PROMPT_TEMPLATE_PATH, "utf8");
 
 let accumulator: BatchOutput = {
-  practice_questions: [],
-  practice_mcq_options: [],
-  practice_matching_pairs: [],
-  practice_system_design_charts: [],
+  mcq_questions: [],
+  open_questions: [],
+  truefalse_questions: [],
+  matching_questions: [],
+  system_design_questions: [],
 };
 
 // ---------------------
@@ -146,7 +175,13 @@ async function generateBatch(batchNumber: number): Promise<void> {
 
   try {
     json = JSON.parse(text);
-    console.log(`✓ Batch ${batchNumber}: ${json.practice_questions.length} questions generated`);
+    const totalQuestions =
+      json.mcq_questions.length +
+      json.open_questions.length +
+      json.truefalse_questions.length +
+      json.matching_questions.length +
+      json.system_design_questions.length;
+    console.log(`✓ Batch ${batchNumber}: ${totalQuestions} questions generated`);
   } catch (err) {
     console.error(`❌ Failed to parse JSON for batch ${batchNumber}`);
     console.error("Raw model output:");
@@ -155,10 +190,11 @@ async function generateBatch(batchNumber: number): Promise<void> {
   }
 
   // Merge into master list
-  accumulator.practice_questions.push(...json.practice_questions);
-  accumulator.practice_mcq_options.push(...json.practice_mcq_options);
-  accumulator.practice_matching_pairs.push(...json.practice_matching_pairs);
-  accumulator.practice_system_design_charts.push(...json.practice_system_design_charts);
+  accumulator.mcq_questions.push(...json.mcq_questions);
+  accumulator.open_questions.push(...json.open_questions);
+  accumulator.truefalse_questions.push(...json.truefalse_questions);
+  accumulator.matching_questions.push(...json.matching_questions);
+  accumulator.system_design_questions.push(...json.system_design_questions);
 
   fs.writeFileSync(OUT, JSON.stringify(accumulator, null, 2));
 }

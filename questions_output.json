@@ -1,46 +1,350 @@
 {
-  "practice_questions": [
+  "mcq_questions": [
     {
-      "id": "a1f2b3c4-d5e6-41f8-8c9e-1a2b3c4d5e6f",
-      "type": "mcq",
+      "id": "ad1c1e10-6f87-4b2c-9305-07b7e3d2fe10",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
       "difficulty": "entry",
-      "status": "published",
       "isDemoMode": false,
       "companyType": "faang",
-      "title": "What is the purpose of the 'alt' attribute in HTML <img> tags?",
-      "description": "Understanding the 'alt' attribute helps ensure web accessibility and SEO optimization.",
-      "prompt": "Which of the following best explains the purpose of the 'alt' attribute in an HTML <img> tag?",
+      "title": "What does CSS stand for?",
+      "description": "Select the correct full form of CSS.",
+      "prompt": "What is the full form of CSS in web development?",
       "topic": "frontend",
       "subtopics": [
-        "html",
-        "accessibility"
+        "css",
+        "basics"
       ],
       "tags": [
-        "html",
-        "img",
-        "accessibility",
-        "alt"
+        "css",
+        "abbreviation",
+        "web"
       ],
-      "estimatedTimeMinutes": 2,
+      "estimatedTimeMinutes": 1,
       "aiEvaluationHint": null,
-      "multiChoiceAnswers": [
-        "Provides alternative text for images"
-      ],
       "companies": [
         {
           "name": "Google",
-          "logo": "google-logo.png",
-          "size": "faang",
-          "description": "Leading search and web technology company"
+          "logo": "SiGoogle",
+          "size": [
+            "faang"
+          ],
+          "description": "Global leader in search and web technologies."
         }
       ],
       "positions": [
-        "Frontend Developer",
-        "Web Developer"
+        "Frontend Engineer"
       ],
       "primaryTechStack": [
-        "html",
         "css",
+        "html"
+      ],
+      "interviewTypes": [
+        "play"
+      ],
+      "seniorityLevels": [
+        "entry"
+      ],
+      "createdAt": "2024-06-14T10:00:00Z",
+      "updatedAt": "2024-06-14T10:00:00Z",
+      "createdBy": "generated_by_ai",
+      "correctAnswerText": "Cascading Style Sheets"
+    },
+    {
+      "id": "b110e3bb-a1e9-4e71-bc4a-5a4e5d6b1bc9",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Purpose of useState in React",
+      "description": "Which hook is used to add state to a functional component in React?",
+      "prompt": "Which React hook allows you to add state to a functional component?",
+      "topic": "react",
+      "subtopics": [
+        "hooks",
+        "state-management"
+      ],
+      "tags": [
+        "react",
+        "hooks",
+        "useState"
+      ],
+      "estimatedTimeMinutes": 2,
+      "aiEvaluationHint": null,
+      "companies": [
+        {
+          "name": "Vercel",
+          "logo": "SiVercel",
+          "size": [
+            "startup"
+          ],
+          "description": "Platform for frontend frameworks and static sites."
+        }
+      ],
+      "positions": [
+        "Frontend Engineer",
+        "Full Stack Engineer"
+      ],
+      "primaryTechStack": [
+        "react",
+        "javascript"
+      ],
+      "interviewTypes": [
+        "play"
+      ],
+      "seniorityLevels": [
+        "junior"
+      ],
+      "createdAt": "2024-06-14T10:02:00Z",
+      "updatedAt": "2024-06-14T10:02:00Z",
+      "createdBy": "generated_by_ai",
+      "correctAnswerText": "useState"
+    },
+    {
+      "id": "b9c5a7a0-2d8e-4ad7-9d96-6c95f9f8a24b",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "entry",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "SQL command to retrieve all records",
+      "description": "Which SQL keyword is used to select all records from a table?",
+      "prompt": "What SQL statement retrieves all records from a table?",
+      "topic": "sql",
+      "subtopics": [
+        "select",
+        "basics"
+      ],
+      "tags": [
+        "sql",
+        "select",
+        "query"
+      ],
+      "estimatedTimeMinutes": 1,
+      "aiEvaluationHint": null,
+      "companies": [
+        {
+          "name": "Oracle",
+          "logo": "SiOracle",
+          "size": [
+            "enterprise"
+          ],
+          "description": "Enterprise provider of database solutions."
+        }
+      ],
+      "positions": [
+        "Backend Engineer"
+      ],
+      "primaryTechStack": [
+        "sql"
+      ],
+      "interviewTypes": [
+        "play"
+      ],
+      "seniorityLevels": [
+        "entry"
+      ],
+      "createdAt": "2024-06-14T10:04:00Z",
+      "updatedAt": "2024-06-14T10:04:00Z",
+      "createdBy": "generated_by_ai",
+      "correctAnswerText": "SELECT * FROM table_name;"
+    },
+    {
+      "id": "e7a5ef0e-509c-41e8-b0a6-7c6f6f14fba2",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "HTTP method for data retrieval",
+      "description": "Which HTTP method is used to request data from a server?",
+      "prompt": "Which HTTP method is typically used for retrieving data from a server?",
+      "topic": "networking",
+      "subtopics": [
+        "http",
+        "basics"
+      ],
+      "tags": [
+        "http",
+        "networking",
+        "request"
+      ],
+      "estimatedTimeMinutes": 1,
+      "aiEvaluationHint": null,
+      "companies": [
+        {
+          "name": "Meta",
+          "logo": "SiMeta",
+          "size": [
+            "faang"
+          ],
+          "description": "Social media and technology company."
+        }
+      ],
+      "positions": [
+        "Frontend Engineer",
+        "Backend Engineer"
+      ],
+      "primaryTechStack": [
+        "http",
+        "javascript"
+      ],
+      "interviewTypes": [
+        "play"
+      ],
+      "seniorityLevels": [
+        "junior"
+      ],
+      "createdAt": "2024-06-14T10:06:00Z",
+      "updatedAt": "2024-06-14T10:06:00Z",
+      "createdBy": "generated_by_ai",
+      "correctAnswerText": "GET"
+    },
+    {
+      "id": "4d033f40-e2e3-4e61-95a4-0832c0c43f7b",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "JavaScript keyword for variable declaration",
+      "description": "Which keyword is used to declare a variable in JavaScript that can change value?",
+      "prompt": "What JavaScript keyword is used to declare a mutable variable?",
+      "topic": "javascript",
+      "subtopics": [
+        "variables",
+        "basics"
+      ],
+      "tags": [
+        "javascript",
+        "variables",
+        "let"
+      ],
+      "estimatedTimeMinutes": 1,
+      "aiEvaluationHint": null,
+      "companies": [
+        {
+          "name": "Stripe",
+          "logo": "SiStripe",
+          "size": [
+            "startup"
+          ],
+          "description": "Fintech company specializing in payment processing."
+        }
+      ],
+      "positions": [
+        "Frontend Engineer",
+        "Full Stack Engineer"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "play"
+      ],
+      "seniorityLevels": [
+        "junior"
+      ],
+      "createdAt": "2024-06-14T10:08:00Z",
+      "updatedAt": "2024-06-14T10:08:00Z",
+      "createdBy": "generated_by_ai",
+      "correctAnswerText": "let"
+    },
+    {
+      "id": "ca2b0b03-4c12-4ead-b0e9-e0a0ab9b6f38",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "middle",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Purpose of Docker",
+      "description": "What is the primary purpose of Docker in software development?",
+      "prompt": "What main problem does Docker solve for developers?",
+      "topic": "devops",
+      "subtopics": [
+        "containers",
+        "tools"
+      ],
+      "tags": [
+        "docker",
+        "devops",
+        "containers"
+      ],
+      "estimatedTimeMinutes": 2,
+      "aiEvaluationHint": null,
+      "companies": [
+        {
+          "name": "IBM",
+          "logo": "SiIbm",
+          "size": [
+            "enterprise"
+          ],
+          "description": "Multinational technology and consulting company."
+        }
+      ],
+      "positions": [
+        "DevOps Engineer"
+      ],
+      "primaryTechStack": [
+        "docker"
+      ],
+      "interviewTypes": [
+        "play"
+      ],
+      "seniorityLevels": [
+        "mid"
+      ],
+      "createdAt": "2024-06-14T10:10:00Z",
+      "updatedAt": "2024-06-14T10:10:00Z",
+      "createdBy": "generated_by_ai",
+      "correctAnswerText": "Containerization of applications"
+    }
+  ],
+  "open_questions": [
+    {
+      "id": "e323c7c7-3a29-4d3d-9e75-4cc2f8b0c6f2",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "entry",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Explain the difference between == and === in JavaScript",
+      "description": "Describe how the == and === operators differ in JavaScript.",
+      "prompt": "Explain the difference between the == and === operators in JavaScript, including when you might use each.",
+      "topic": "javascript",
+      "subtopics": [
+        "operators",
+        "basics"
+      ],
+      "tags": [
+        "javascript",
+        "comparison"
+      ],
+      "estimatedTimeMinutes": 3,
+      "aiEvaluationHint": "A strong answer should explain that == checks for value equality with type coercion, while === checks for both value and type equality without coercion. Penalize answers that do not mention type coercion or confuse the operators. Partial credit for mentioning value vs type.",
+      "companies": [
+        {
+          "name": "Netflix",
+          "logo": "SiNetflix",
+          "size": [
+            "faang"
+          ],
+          "description": "Streaming and technology company."
+        }
+      ],
+      "positions": [
+        "Frontend Engineer",
+        "Full Stack Engineer"
+      ],
+      "primaryTechStack": [
         "javascript"
       ],
       "interviewTypes": [
@@ -48,53 +352,190 @@
         "practice"
       ],
       "seniorityLevels": [
-        "entry",
-        "junior"
+        "entry"
       ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": null,
-      "createdBy": "system"
+      "createdAt": "2024-06-14T10:12:00Z",
+      "updatedAt": "2024-06-14T10:12:00Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "1",
+          "text": "== checks for value equality and allows type conversion, while === checks for both value and data type, so no conversion.",
+          "keyPoints": [
+            "== does type coercion",
+            "=== checks value and type strictly"
+          ]
+        }
+      ]
     },
     {
-      "id": "b2c3d4e5-f6a7-4b8c-9d0e-2b3c4d5e6f7a",
-      "type": "mcq",
+      "id": "0f3ee1aa-8d1e-4b34-9342-12c6e35bfc62",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
       "difficulty": "junior",
-      "status": "published",
       "isDemoMode": false,
-      "companyType": "enterprise",
-      "title": "Choosing a Data Type for User Age in SQL",
-      "description": "Selecting the correct data type is important for data integrity and storage optimization.",
-      "prompt": "Which SQL data type is most appropriate to store a user's age?",
-      "topic": "sql",
+      "companyType": "faang",
+      "title": "Describe how a RESTful API works",
+      "description": "Explain what a RESTful API is and how it operates.",
+      "prompt": "Describe the main principles of a RESTful API and how clients interact with resources using HTTP methods.",
+      "topic": "backend",
       "subtopics": [
-        "data types",
-        "database design"
+        "api",
+        "rest"
       ],
       "tags": [
-        "sql",
-        "data types",
-        "database"
+        "rest",
+        "api",
+        "http"
       ],
-      "estimatedTimeMinutes": 2,
-      "aiEvaluationHint": null,
-      "multiChoiceAnswers": [
-        "INT"
-      ],
+      "estimatedTimeMinutes": 4,
+      "aiEvaluationHint": "Responses should mention resources, statelessness, use of HTTP methods (GET, POST, PUT, DELETE), and the concept of URIs. Penalize missing or incorrect HTTP methods, or not explaining statelessness. Partial credit for naming HTTP verbs and mentioning URIs.",
       "companies": [
         {
-          "name": "Oracle",
-          "logo": "oracle-logo.png",
-          "size": "enterprise",
-          "description": "Enterprise database and cloud company"
+          "name": "Amazon",
+          "logo": "SiAmazon",
+          "size": [
+            "faang"
+          ],
+          "description": "E-commerce and cloud computing company."
         }
       ],
       "positions": [
-        "Backend Developer",
-        "Database Engineer"
+        "Backend Engineer"
+      ],
+      "primaryTechStack": [
+        "nodejs",
+        "rest"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice"
+      ],
+      "seniorityLevels": [
+        "junior"
+      ],
+      "createdAt": "2024-06-14T10:13:00Z",
+      "updatedAt": "2024-06-14T10:13:00Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "1",
+          "text": "A RESTful API uses HTTP methods to interact with resources identified by URIs and is stateless.",
+          "keyPoints": [
+            "HTTP methods",
+            "resources",
+            "URIs",
+            "statelessness"
+          ]
+        },
+        {
+          "id": "2",
+          "text": "Clients use GET, POST, PUT, and DELETE to request or modify resources on the server.",
+          "keyPoints": [
+            "GET, POST, PUT, DELETE",
+            "client-server interaction"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6d095ff2-1ae0-4b3e-91d7-6e97c21c5f53",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "entry",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "What is responsive web design?",
+      "description": "Explain what is meant by responsive web design and why it's important.",
+      "prompt": "Describe the concept of responsive web design and give an example of why it matters.",
+      "topic": "frontend",
+      "subtopics": [
+        "css",
+        "layout"
+      ],
+      "tags": [
+        "responsive",
+        "web",
+        "css"
+      ],
+      "estimatedTimeMinutes": 3,
+      "aiEvaluationHint": "A strong answer mentions adjusting layouts to different screen sizes/devices, using flexible grids or media queries, and improves usability on mobile. Penalize vague answers. Partial credit for mentioning different devices or media queries.",
+      "companies": [
+        {
+          "name": "Airbnb",
+          "logo": "SiAirbnb",
+          "size": [
+            "startup"
+          ],
+          "description": "Online marketplace for lodging and travel."
+        }
+      ],
+      "positions": [
+        "Frontend Engineer"
+      ],
+      "primaryTechStack": [
+        "css",
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice"
+      ],
+      "seniorityLevels": [
+        "entry"
+      ],
+      "createdAt": "2024-06-14T10:15:00Z",
+      "updatedAt": "2024-06-14T10:15:00Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "1",
+          "text": "Responsive web design means building websites that adjust layout and content to fit different screen sizes, such as phones and desktops.",
+          "keyPoints": [
+            "adjusts to screen size",
+            "improves usability",
+            "media queries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e4b1dfc8-4c73-480d-b5dc-6d8f2b3e8e01",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "How do indexes improve SQL query performance?",
+      "description": "Explain how database indexes make SQL queries faster.",
+      "prompt": "Describe the purpose of indexes in SQL databases and how they improve query performance.",
+      "topic": "sql",
+      "subtopics": [
+        "indexes",
+        "performance"
+      ],
+      "tags": [
+        "sql",
+        "index",
+        "performance"
+      ],
+      "estimatedTimeMinutes": 4,
+      "aiEvaluationHint": "Answers should mention that indexes help locate data faster, like a book index. Penalize answers not mentioning search speed or missing the analogy. Partial credit for mentioning quick lookup or avoiding full table scans.",
+      "companies": [
+        {
+          "name": "SAP",
+          "logo": "SiSap",
+          "size": [
+            "enterprise"
+          ],
+          "description": "Enterprise application software provider."
+        }
+      ],
+      "positions": [
+        "Backend Engineer"
       ],
       "primaryTechStack": [
         "sql"
@@ -104,461 +545,391 @@
         "practice"
       ],
       "seniorityLevels": [
-        "entry",
         "junior"
       ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": null,
-      "createdBy": "system"
+      "createdAt": "2024-06-14T10:17:00Z",
+      "updatedAt": "2024-06-14T10:17:00Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "1",
+          "text": "Indexes allow the database to find rows quickly without scanning the whole table, improving query speed.",
+          "keyPoints": [
+            "quick lookup",
+            "avoids full table scan"
+          ]
+        }
+      ]
     },
     {
-      "id": "c3d4e5f6-a1b2-4c8d-9e0f-3c4d5e6f7a8b",
-      "type": "truefalse",
-      "difficulty": "entry",
-      "status": "published",
+      "id": "737e0b69-6cd6-4a9a-ae37-5b99b5d7a55d",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
-      "title": "CSS Flexbox Centers Content Vertically",
-      "description": "Understanding how to center content using flexbox is essential for modern web layouts.",
-      "prompt": "Setting 'display: flex' and 'align-items: center' on a container vertically centers its child elements.",
+      "title": "Describe the role of a CDN",
+      "description": "What is a CDN and how does it help websites perform better?",
+      "prompt": "Explain what a Content Delivery Network (CDN) is and how it improves website performance.",
       "topic": "frontend",
       "subtopics": [
-        "css",
-        "flexbox",
-        "layout"
+        "performance",
+        "cdn"
       ],
       "tags": [
-        "css",
-        "flexbox",
-        "layout",
-        "center"
-      ],
-      "estimatedTimeMinutes": 1,
-      "aiEvaluationHint": null,
-      "multiChoiceAnswers": null,
-      "companies": [
-        {
-          "name": "Meta",
-          "logo": "meta-logo.png",
-          "size": "faang",
-          "description": "Social technology company"
-        }
-      ],
-      "positions": [
-        "Frontend Developer",
-        "UI Engineer"
-      ],
-      "primaryTechStack": [
-        "css",
-        "html",
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
-      "trueFalseCorrectAnswer": true,
-      "trueFalseExplanation": "Setting 'align-items: center' on a flex container vertically centers its direct children.",
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": null,
-      "createdBy": "system"
-    },
-    {
-      "id": "d4e5f6a1-b2c3-4d8e-9f0a-4d5e6f7a8b9c",
-      "type": "open",
-      "difficulty": "junior",
-      "status": "published",
-      "isDemoMode": false,
-      "companyType": "startup",
-      "title": "Explain the purpose of package.json in Node.js projects",
-      "description": "A package.json file is central to every Node.js project. Understanding its role is a must for developers.",
-      "prompt": "What is the purpose of the package.json file in a Node.js project?",
-      "topic": "backend",
-      "subtopics": [
-        "nodejs",
-        "npm",
-        "project structure"
-      ],
-      "tags": [
-        "nodejs",
-        "npm",
-        "package.json",
-        "backend"
+        "cdn",
+        "performance",
+        "web"
       ],
       "estimatedTimeMinutes": 3,
-      "aiEvaluationHint": "Look for mention of dependency management, scripts, and project metadata.",
-      "multiChoiceAnswers": null,
+      "aiEvaluationHint": "Good answers mention distributing content to servers near users, reducing latency, and offloading main servers. Penalize answers that only mention caching or are incomplete. Partial credit for mentioning geography or faster loading.",
       "companies": [
         {
-          "name": "Stripe",
-          "logo": "stripe-logo.png",
-          "size": "startup",
-          "description": "API-driven payments platform"
+          "name": "Cloudflare",
+          "logo": "SiCloudflare",
+          "size": [
+            "faang"
+          ],
+          "description": "Cloud platform for security and performance."
         }
       ],
       "positions": [
-        "Backend Developer",
-        "Fullstack Developer"
-      ],
-      "primaryTechStack": [
-        "nodejs",
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": [
-        {
-          "id": "1a2b3c4d",
-          "text": "It defines the project's metadata, dependencies, scripts, and configuration for Node.js applications.",
-          "weight": 0.5
-        },
-        {
-          "id": "2b3c4d5e",
-          "text": "package.json lists all required packages and allows project scripts to be run using npm.",
-          "weight": 0.5
-        }
-      ],
-      "createdBy": "system"
-    },
-    {
-      "id": "e5f6a1b2-c3d4-4e8f-9a0b-5e6f7a8b9c0d",
-      "type": "matching",
-      "difficulty": "entry",
-      "status": "published",
-      "isDemoMode": false,
-      "companyType": "enterprise",
-      "title": "Match HTTP Status Codes to Their Meaning",
-      "description": "Recognizing common HTTP status codes is fundamental for backend and frontend developers.",
-      "prompt": "Match each HTTP status code to its description.",
-      "topic": "networking",
-      "subtopics": [
-        "http",
-        "status codes"
-      ],
-      "tags": [
-        "http",
-        "status code",
-        "networking"
-      ],
-      "estimatedTimeMinutes": 2,
-      "aiEvaluationHint": null,
-      "multiChoiceAnswers": null,
-      "companies": [
-        {
-          "name": "Amazon AWS",
-          "logo": "aws-logo.png",
-          "size": "enterprise",
-          "description": "Cloud computing platform"
-        }
-      ],
-      "positions": [
-        "Backend Developer",
+        "Frontend Engineer",
         "DevOps Engineer"
       ],
       "primaryTechStack": [
-        "http",
-        "networking"
+        "cdn"
       ],
       "interviewTypes": [
         "regular",
         "practice"
       ],
       "seniorityLevels": [
-        "entry",
         "junior"
       ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": true,
-      "matchingShuffleRight": true,
-      "matchingPairs": [
+      "createdAt": "2024-06-14T10:19:00Z",
+      "updatedAt": "2024-06-14T10:19:00Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
         {
-          "left": "200",
-          "right": "OK",
-          "explanation": "200 means the request was successful."
-        },
-        {
-          "left": "404",
-          "right": "Not Found",
-          "explanation": "404 means the resource was not found."
-        },
-        {
-          "left": "500",
-          "right": "Internal Server Error",
-          "explanation": "500 means an error occurred on the server."
-        },
-        {
-          "left": "301",
-          "right": "Moved Permanently",
-          "explanation": "301 means the resource has moved to a new URL."
+          "id": "1",
+          "text": "A CDN stores copies of website content on servers around the world, so users get data from the closest server, making sites load faster.",
+          "keyPoints": [
+            "geographically distributed",
+            "reduces latency",
+            "faster loading"
+          ]
         }
-      ],
-      "openReferenceAnswers": null,
-      "createdBy": "system"
-    },
+      ]
+    }
+  ],
+  "truefalse_questions": [
     {
-      "id": "f6a1b2c3-d4e5-4f8a-9b0c-6f7a8b9c0d1e",
-      "type": "system-design",
+      "id": "e2298d3a-50b6-4c5f-82c3-8f13e8d1e0e1",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
       "difficulty": "entry",
-      "status": "published",
       "isDemoMode": false,
-      "companyType": "faang",
-      "title": "Design a URL Shortener Service (Basic)",
-      "description": "This exercise checks understanding of how to design simple web services.",
-      "prompt": "How would you design a basic URL shortener like bit.ly? Show main components.",
-      "topic": "system-design",
+      "companyType": "startup",
+      "title": "HTML is a programming language",
+      "description": "True or False: HTML is classified as a programming language.",
+      "prompt": "Determine if HTML is a programming language.",
+      "topic": "frontend",
       "subtopics": [
-        "web services",
-        "databases"
+        "html",
+        "basics"
       ],
       "tags": [
-        "system-design",
-        "url shortener",
-        "architecture"
+        "html",
+        "language",
+        "basics"
       ],
-      "estimatedTimeMinutes": 6,
-      "aiEvaluationHint": "Look for a web server, database, and mapping logic.",
-      "multiChoiceAnswers": null,
+      "estimatedTimeMinutes": 1,
+      "aiEvaluationHint": null,
       "companies": [
         {
-          "name": "LinkedIn",
-          "logo": "linkedin-logo.png",
-          "size": "faang",
-          "description": "Professional networking platform"
+          "name": "Reddit",
+          "logo": "SiReddit",
+          "size": [
+            "startup"
+          ],
+          "description": "Online platform for community discussion."
         }
       ],
       "positions": [
-        "Backend Developer",
-        "System Designer"
+        "Frontend Engineer"
       ],
       "primaryTechStack": [
-        "nodejs",
-        "database",
-        "http"
+        "html"
       ],
       "interviewTypes": [
-        "regular",
-        "practice"
+        "flash"
       ],
       "seniorityLevels": [
-        "entry",
-        "junior"
+        "entry"
       ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": null,
-      "createdBy": "system"
+      "createdAt": "2024-06-14T10:20:00Z",
+      "updatedAt": "2024-06-14T10:20:00Z",
+      "createdBy": "generated_by_ai",
+      "correctAnswer": false,
+      "explanation": "HTML is a markup language used to structure web pages, not a programming language.",
+      "trickinessLevel": 1
     },
     {
-      "id": "a7b8c9d0-e1f2-4a3b-8c4d-7e8f9a0b1c2d",
-      "type": "mcq",
-      "difficulty": "entry",
-      "status": "published",
+      "id": "d7c0b5d2-6fd2-43fc-8a8c-abf8ab5c5d12",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
-      "title": "JavaScript Variable Declaration",
-      "description": "Understanding variable declarations is essential for writing correct JavaScript code.",
-      "prompt": "Which of the following is NOT a valid way to declare a variable in JavaScript?",
-      "topic": "javascript",
+      "title": "React uses a virtual DOM",
+      "description": "True or False: React improves performance by using a virtual DOM.",
+      "prompt": "State whether React uses a virtual DOM for performance.",
+      "topic": "react",
       "subtopics": [
-        "variables",
-        "syntax"
+        "virtual-dom"
       ],
       "tags": [
-        "javascript",
-        "variable",
-        "syntax"
+        "react",
+        "virtual-dom"
       ],
-      "estimatedTimeMinutes": 2,
+      "estimatedTimeMinutes": 1,
       "aiEvaluationHint": null,
-      "multiChoiceAnswers": [
-        "variable myVar = 5;"
+      "companies": [
+        {
+          "name": "Meta",
+          "logo": "SiMeta",
+          "size": [
+            "faang"
+          ],
+          "description": "Social media and technology company."
+        }
       ],
+      "positions": [
+        "Frontend Engineer"
+      ],
+      "primaryTechStack": [
+        "react"
+      ],
+      "interviewTypes": [
+        "flash"
+      ],
+      "seniorityLevels": [
+        "junior"
+      ],
+      "createdAt": "2024-06-14T10:22:00Z",
+      "updatedAt": "2024-06-14T10:22:00Z",
+      "createdBy": "generated_by_ai",
+      "correctAnswer": true,
+      "explanation": "React creates and uses a virtual DOM to efficiently update the real DOM only when necessary.",
+      "trickinessLevel": 2
+    },
+    {
+      "id": "f8c0e7e6-01d6-43a0-9673-9d9b5f1b2a0a",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "entry",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "SQL tables can have duplicate primary keys",
+      "description": "True or False: It is allowed to have duplicate primary keys in a SQL table.",
+      "prompt": "Determine if a SQL table can have duplicate primary keys.",
+      "topic": "sql",
+      "subtopics": [
+        "primary-key"
+      ],
+      "tags": [
+        "sql",
+        "primary-key",
+        "uniqueness"
+      ],
+      "estimatedTimeMinutes": 1,
+      "aiEvaluationHint": null,
       "companies": [
         {
           "name": "Microsoft",
-          "logo": "microsoft-logo.png",
-          "size": "faang",
-          "description": "Global technology company"
+          "logo": "SiMicrosoft",
+          "size": [
+            "enterprise"
+          ],
+          "description": "Technology company offering software and cloud services."
         }
       ],
       "positions": [
-        "Frontend Developer",
-        "JavaScript Developer"
+        "Backend Engineer"
       ],
       "primaryTechStack": [
-        "javascript"
+        "sql"
       ],
       "interviewTypes": [
-        "regular",
-        "practice"
+        "flash"
       ],
       "seniorityLevels": [
-        "entry",
-        "junior"
+        "entry"
       ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": null,
-      "createdBy": "system"
+      "createdAt": "2024-06-14T10:24:00Z",
+      "updatedAt": "2024-06-14T10:24:00Z",
+      "createdBy": "generated_by_ai",
+      "correctAnswer": false,
+      "explanation": "Primary keys must be unique for each row in a SQL table.",
+      "trickinessLevel": 1
     },
     {
-      "id": "b8c9d0e1-f2a3-4b5c-8d6e-9a0b1c2d3e4f",
-      "type": "mcq",
-      "difficulty": "middle",
-      "status": "published",
+      "id": "8b0d94c0-5a7e-4e6f-9e2b-1a7f8e9b9d2d",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
       "isDemoMode": false,
-      "companyType": "enterprise",
-      "title": "React useEffect Dependency Array",
-      "description": "Understanding how the dependency array in useEffect works is key for managing side effects.",
-      "prompt": "What happens if you omit the dependency array when using React's useEffect hook?",
-      "topic": "react",
-      "subtopics": [
-        "hooks",
-        "lifecycle"
-      ],
-      "tags": [
-        "react",
-        "useEffect",
-        "hooks"
-      ],
-      "estimatedTimeMinutes": 3,
-      "aiEvaluationHint": null,
-      "multiChoiceAnswers": [
-        "The effect runs after every render"
-      ],
-      "companies": [
-        {
-          "name": "Netflix",
-          "logo": "netflix-logo.png",
-          "size": "faang",
-          "description": "Streaming entertainment service"
-        }
-      ],
-      "positions": [
-        "Frontend Developer",
-        "React Developer"
-      ],
-      "primaryTechStack": [
-        "react",
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "middle"
-      ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": null,
-      "createdBy": "system"
-    },
-    {
-      "id": "c9d0e1f2-a3b4-4c5d-8e6f-0a1b2c3d4e5f",
-      "type": "open",
-      "difficulty": "entry",
-      "status": "published",
-      "isDemoMode": false,
-      "companyType": "enterprise",
-      "title": "Explain the difference between == and === in JavaScript",
-      "description": "Understanding equality operators in JavaScript helps avoid common bugs.",
-      "prompt": "In JavaScript, what is the difference between == and === operators?",
+      "companyType": "startup",
+      "title": "The 'for' loop in JavaScript can be infinite",
+      "description": "True or False: You can create an infinite loop using a 'for' statement in JavaScript.",
+      "prompt": "Decide if a JavaScript 'for' loop can run infinitely.",
       "topic": "javascript",
       "subtopics": [
-        "operators",
-        "equality"
+        "loops"
       ],
       "tags": [
         "javascript",
-        "equality",
-        "operators"
+        "loops",
+        "for"
       ],
-      "estimatedTimeMinutes": 2,
-      "aiEvaluationHint": "Check if the answer mentions type coercion.",
-      "multiChoiceAnswers": null,
+      "estimatedTimeMinutes": 1,
+      "aiEvaluationHint": null,
       "companies": [
         {
-          "name": "IBM",
-          "logo": "ibm-logo.png",
-          "size": "enterprise",
-          "description": "Global technology and consulting company"
+          "name": "Snapchat",
+          "logo": "SiSnapchat",
+          "size": [
+            "startup"
+          ],
+          "description": "Social media platform focused on messaging."
         }
       ],
       "positions": [
-        "Frontend Developer",
-        "JavaScript Developer"
+        "Frontend Engineer"
       ],
       "primaryTechStack": [
         "javascript"
       ],
       "interviewTypes": [
-        "regular",
-        "practice"
+        "flash"
       ],
       "seniorityLevels": [
-        "entry",
         "junior"
       ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": null,
-      "matchingShuffleRight": null,
-      "matchingPairs": null,
-      "openReferenceAnswers": [
+      "createdAt": "2024-06-14T10:26:00Z",
+      "updatedAt": "2024-06-14T10:26:00Z",
+      "createdBy": "generated_by_ai",
+      "correctAnswer": true,
+      "explanation": "A 'for' loop without a stopping condition will run forever, creating an infinite loop.",
+      "trickinessLevel": 2
+    }
+  ],
+  "matching_questions": [
+    {
+      "id": "2e0ddbb1-7a69-4d79-9ede-f1b7e30e9ea7",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "entry",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Match HTTP status codes with meanings",
+      "description": "Match each HTTP status code to its correct meaning.",
+      "prompt": "Match the HTTP status codes on the left with their correct descriptions on the right.",
+      "topic": "networking",
+      "subtopics": [
+        "http",
+        "status-codes"
+      ],
+      "tags": [
+        "http",
+        "status",
+        "networking"
+      ],
+      "estimatedTimeMinutes": 2,
+      "aiEvaluationHint": null,
+      "companies": [
         {
-          "id": "3c4d5e6f",
-          "text": "== compares values after type coercion; === checks both value and type without converting.",
-          "weight": 0.5
+          "name": "Amazon AWS",
+          "logo": "SiAmazonaws",
+          "size": [
+            "faang"
+          ],
+          "description": "Cloud computing division of Amazon."
         }
       ],
-      "createdBy": "system"
+      "positions": [
+        "Backend Engineer",
+        "DevOps Engineer"
+      ],
+      "primaryTechStack": [
+        "http"
+      ],
+      "interviewTypes": [
+        "play"
+      ],
+      "seniorityLevels": [
+        "entry"
+      ],
+      "createdAt": "2024-06-14T10:27:00Z",
+      "updatedAt": "2024-06-14T10:27:00Z",
+      "createdBy": "generated_by_ai",
+      "shuffleLeft": true,
+      "shuffleRight": true,
+      "minPairs": 4,
+      "maxPairs": 4,
+      "pairs": [
+        {
+          "id": "1",
+          "left": "200",
+          "right": "OK - Success",
+          "explanation": "Standard success response.",
+          "group": null
+        },
+        {
+          "id": "2",
+          "left": "404",
+          "right": "Not Found",
+          "explanation": "Resource could not be found.",
+          "group": null
+        },
+        {
+          "id": "3",
+          "left": "500",
+          "right": "Internal Server Error",
+          "explanation": "Server encountered an error.",
+          "group": null
+        },
+        {
+          "id": "4",
+          "left": "301",
+          "right": "Moved Permanently",
+          "explanation": "Resource has been permanently moved.",
+          "group": null
+        }
+      ]
     },
     {
-      "id": "d0e1f2a3-b4c5-4d6e-8f0a-1b2c3d4e5f6a",
-      "type": "matching",
-      "difficulty": "entry",
-      "status": "published",
+      "id": "d6c2f1b1-53ea-4e9a-9c35-8a8e7c4e5b41",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
-      "title": "Match JavaScript Array Methods to Their Description",
-      "description": "Knowing basic array methods is essential for everyday JavaScript programming.",
-      "prompt": "Match the JavaScript array method to its correct description.",
+      "title": "Match JavaScript array methods to their function",
+      "description": "Match each JavaScript array method to what it does.",
+      "prompt": "Match the array method on the left to its function on the right.",
       "topic": "javascript",
       "subtopics": [
-        "array methods"
+        "arrays",
+        "methods"
       ],
       "tags": [
         "javascript",
@@ -567,249 +938,451 @@
       ],
       "estimatedTimeMinutes": 2,
       "aiEvaluationHint": null,
-      "multiChoiceAnswers": null,
       "companies": [
         {
-          "name": "Vercel",
-          "logo": "vercel-logo.png",
-          "size": "startup",
-          "description": "Cloud platform for frontend developers"
+          "name": "Uber",
+          "logo": "SiUber",
+          "size": [
+            "startup"
+          ],
+          "description": "Ride-sharing technology platform."
         }
       ],
       "positions": [
-        "Frontend Developer",
-        "JavaScript Developer"
+        "Frontend Engineer"
       ],
       "primaryTechStack": [
         "javascript"
+      ],
+      "interviewTypes": [
+        "play"
+      ],
+      "seniorityLevels": [
+        "junior"
+      ],
+      "createdAt": "2024-06-14T10:29:00Z",
+      "updatedAt": "2024-06-14T10:29:00Z",
+      "createdBy": "generated_by_ai",
+      "shuffleLeft": true,
+      "shuffleRight": true,
+      "minPairs": 4,
+      "maxPairs": 4,
+      "pairs": [
+        {
+          "id": "1",
+          "left": "push",
+          "right": "Adds an element to the end",
+          "explanation": "push appends to array",
+          "group": null
+        },
+        {
+          "id": "2",
+          "left": "pop",
+          "right": "Removes the last element",
+          "explanation": "pop removes from end",
+          "group": null
+        },
+        {
+          "id": "3",
+          "left": "shift",
+          "right": "Removes the first element",
+          "explanation": "shift removes from start",
+          "group": null
+        },
+        {
+          "id": "4",
+          "left": "unshift",
+          "right": "Adds an element to the start",
+          "explanation": "unshift adds to beginning",
+          "group": null
+        }
+      ]
+    },
+    {
+      "id": "b6b52f15-1b4f-42fe-b6b5-0d7b8d7e5b40",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "entry",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Match SQL clauses to their purpose",
+      "description": "Match each SQL clause to what it is used for.",
+      "prompt": "Match the SQL clause on the left with its purpose on the right.",
+      "topic": "sql",
+      "subtopics": [
+        "clauses"
+      ],
+      "tags": [
+        "sql",
+        "clause",
+        "basics"
+      ],
+      "estimatedTimeMinutes": 2,
+      "aiEvaluationHint": null,
+      "companies": [
+        {
+          "name": "Salesforce",
+          "logo": "SiSalesforce",
+          "size": [
+            "enterprise"
+          ],
+          "description": "Cloud-based software for customer relationship management."
+        }
+      ],
+      "positions": [
+        "Backend Engineer"
+      ],
+      "primaryTechStack": [
+        "sql"
+      ],
+      "interviewTypes": [
+        "play"
+      ],
+      "seniorityLevels": [
+        "entry"
+      ],
+      "createdAt": "2024-06-14T10:31:00Z",
+      "updatedAt": "2024-06-14T10:31:00Z",
+      "createdBy": "generated_by_ai",
+      "shuffleLeft": false,
+      "shuffleRight": true,
+      "minPairs": 4,
+      "maxPairs": 4,
+      "pairs": [
+        {
+          "id": "1",
+          "left": "SELECT",
+          "right": "Choose columns to display",
+          "explanation": "SELECT specifies columns",
+          "group": null
+        },
+        {
+          "id": "2",
+          "left": "WHERE",
+          "right": "Filter rows",
+          "explanation": "WHERE restricts rows",
+          "group": null
+        },
+        {
+          "id": "3",
+          "left": "ORDER BY",
+          "right": "Sort results",
+          "explanation": "ORDER BY sorts output",
+          "group": null
+        },
+        {
+          "id": "4",
+          "left": "GROUP BY",
+          "right": "Group rows for aggregation",
+          "explanation": "GROUP BY for aggregates",
+          "group": null
+        }
+      ]
+    }
+  ],
+  "system_design_questions": [
+    {
+      "id": "d1e9d2c8-94a2-477d-b9f2-1e8b1e4c5a6d",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "entry",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Design a URL shortener service",
+      "description": "Design a basic URL shortener similar to bit.ly. Your system should allow users to enter a long URL and receive a short link that redirects to the original address.",
+      "prompt": "Describe how you would design a simple URL shortener system. Include how you would store and retrieve URLs and handle redirection.",
+      "topic": "system-design",
+      "subtopics": [
+        "web",
+        "databases"
+      ],
+      "tags": [
+        "system-design",
+        "url",
+        "databases"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "The answer should mention mapping short codes to long URLs, use of a database, basic redirection logic, and mention unique code generation. Penalize if no storage mechanism is described. Partial credit for mentioning database or redirect logic.",
+      "companies": [
+        {
+          "name": "Google",
+          "logo": "SiGoogle",
+          "size": [
+            "faang"
+          ],
+          "description": "Global leader in search and web technologies."
+        }
+      ],
+      "positions": [
+        "Backend Engineer"
+      ],
+      "primaryTechStack": [
+        "nodejs",
+        "sql"
       ],
       "interviewTypes": [
         "regular",
         "practice"
       ],
       "seniorityLevels": [
-        "entry",
-        "junior"
+        "entry"
       ],
-      "trueFalseCorrectAnswer": null,
-      "trueFalseExplanation": null,
-      "matchingShuffleLeft": true,
-      "matchingShuffleRight": true,
-      "matchingPairs": [
+      "createdAt": "2024-06-14T10:33:00Z",
+      "updatedAt": "2024-06-14T10:33:00Z",
+      "createdBy": "generated_by_ai",
+      "complexityLevel": "entry",
+      "nonFunctionalRequirements": [
+        "simplicity",
+        "availability"
+      ],
+      "constraints": [
+        "short links must be unique"
+      ],
+      "scalingFocus": "Handles a moderate number of URL mappings.",
+      "hints": [
+        "Consider how to generate unique short codes.",
+        "What database will you use for mapping?"
+      ],
+      "charts": [
         {
-          "left": "map()",
-          "right": "Creates a new array with results of calling a function for each element",
-          "explanation": "map() transforms each item and returns a new array."
-        },
+          "id": "chart1",
+          "nodes": [
+            {
+              "id": "client",
+              "type": "client",
+              "label": "User Client",
+              "description": "User enters a long URL and receives a short URL.",
+              "connections": [
+                "webserver"
+              ]
+            },
+            {
+              "id": "webserver",
+              "type": "service",
+              "label": "Web Server",
+              "description": "Handles requests for shortening and redirecting URLs.",
+              "connections": [
+                "db"
+              ]
+            },
+            {
+              "id": "db",
+              "type": "db",
+              "label": "Database",
+              "description": "Stores mappings of short codes to original URLs.",
+              "connections": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa3e5c3e-0a8a-4bfc-9b6a-c6b8f4e7ffdb",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Design a basic file upload API",
+      "description": "Design a simple backend system for users to upload and retrieve files. Focus on storing the files and providing download links.",
+      "prompt": "Explain how you would design a simple file upload and retrieval system, including storage and API endpoints.",
+      "topic": "system-design",
+      "subtopics": [
+        "api",
+        "storage"
+      ],
+      "tags": [
+        "system-design",
+        "file-upload",
+        "api"
+      ],
+      "estimatedTimeMinutes": 12,
+      "aiEvaluationHint": "Look for mention of storage (e.g., local disk or cloud), endpoint for upload, endpoint for download, and metadata storage (e.g., filename, path). Penalize if no mention of file storage or download links. Partial credit for describing only upload logic.",
+      "companies": [
         {
-          "left": "filter()",
-          "right": "Returns a new array with only elements that pass a test",
-          "explanation": "filter() is used for filtering arrays."
-        },
-        {
-          "left": "push()",
-          "right": "Adds one or more elements to the end of the array",
-          "explanation": "push() adds elements to the end."
+          "name": "Microsoft Azure",
+          "logo": "SiMicrosoftazure",
+          "size": [
+            "startup"
+          ],
+          "description": "Microsoft's cloud computing platform."
         }
       ],
-      "openReferenceAnswers": null,
-      "createdBy": "system"
-    }
-  ],
-  "practice_mcq_options": [
-    {
-      "id": "11111111-1111-4a11-8c11-1a1b1c1d1e1f",
-      "questionId": "a1f2b3c4-d5e6-41f8-8c9e-1a2b3c4d5e6f",
-      "text": "Provides alternative text for images",
-      "isCorrect": true,
-      "explanation": "The 'alt' attribute specifies alternative text for images if they cannot be displayed."
-    },
-    {
-      "id": "22222222-2222-4b22-8d22-2b2c2d2e2f2a",
-      "questionId": "a1f2b3c4-d5e6-41f8-8c9e-1a2b3c4d5e6f",
-      "text": "Sets the image size",
-      "isCorrect": false,
-      "explanation": "Image size is set with 'width' and 'height', not 'alt'."
-    },
-    {
-      "id": "33333333-3333-4c33-8e33-3c3d3e3f3a3b",
-      "questionId": "a1f2b3c4-d5e6-41f8-8c9e-1a2b3c4d5e6f",
-      "text": "Provides a link for the image",
-      "isCorrect": false,
-      "explanation": "Links are specified with <a> tags."
-    },
-    {
-      "id": "44444444-4444-4d44-8f44-4d4e4f4a4b4c",
-      "questionId": "a1f2b3c4-d5e6-41f8-8c9e-1a2b3c4d5e6f",
-      "text": "Specifies the image format",
-      "isCorrect": false,
-      "explanation": "Image format is defined by the file extension."
-    },
-    {
-      "id": "55555555-5555-4e55-8a55-5e5f5a5b5c5d",
-      "questionId": "b2c3d4e5-f6a7-4b8c-9d0e-2b3c4d5e6f7a",
-      "text": "VARCHAR",
-      "isCorrect": false,
-      "explanation": "VARCHAR is for variable-length strings."
-    },
-    {
-      "id": "66666666-6666-4f66-8b66-6f6a6b6c6d6e",
-      "questionId": "b2c3d4e5-f6a7-4b8c-9d0e-2b3c4d5e6f7a",
-      "text": "INT",
-      "isCorrect": true,
-      "explanation": "Age is a whole number, so INT is appropriate."
-    },
-    {
-      "id": "77777777-7777-4a77-8c77-7a7b7c7d7e7f",
-      "questionId": "b2c3d4e5-f6a7-4b8c-9d0e-2b3c4d5e6f7a",
-      "text": "DATE",
-      "isCorrect": false,
-      "explanation": "DATE is for date values, not age."
-    },
-    {
-      "id": "88888888-8888-4b88-8d88-8b8c8d8e8f8a",
-      "questionId": "b2c3d4e5-f6a7-4b8c-9d0e-2b3c4d5e6f7a",
-      "text": "BOOLEAN",
-      "isCorrect": false,
-      "explanation": "BOOLEAN stores true/false values."
-    },
-    {
-      "id": "99999999-9999-4c99-8e99-9c9d9e9f9a9b",
-      "questionId": "a7b8c9d0-e1f2-4a3b-8c4d-7e8f9a0b1c2d",
-      "text": "let myVar = 5;",
-      "isCorrect": false,
-      "explanation": "This is a valid ES6 variable declaration."
-    },
-    {
-      "id": "10101010-1010-4d10-8f10-0a0b0c0d0e0f",
-      "questionId": "a7b8c9d0-e1f2-4a3b-8c4d-7e8f9a0b1c2d",
-      "text": "var myVar = 5;",
-      "isCorrect": false,
-      "explanation": "This is a valid ES5 variable declaration."
-    },
-    {
-      "id": "11121314-1516-4e17-8a11-1b1c1d1e1f20",
-      "questionId": "a7b8c9d0-e1f2-4a3b-8c4d-7e8f9a0b1c2d",
-      "text": "const myVar = 5;",
-      "isCorrect": false,
-      "explanation": "This is a valid ES6 constant declaration."
-    },
-    {
-      "id": "12131415-1617-4f18-8b12-2c2d2e2f2021",
-      "questionId": "a7b8c9d0-e1f2-4a3b-8c4d-7e8f9a0b1c2d",
-      "text": "variable myVar = 5;",
-      "isCorrect": true,
-      "explanation": "'variable' is not valid JavaScript syntax for declarations."
-    },
-    {
-      "id": "13141516-1718-4a19-8c13-3d3e3f3a3b3c",
-      "questionId": "b8c9d0e1-f2a3-4b5c-8d6e-9a0b1c2d3e4f",
-      "text": "The effect runs only on mount",
-      "isCorrect": false,
-      "explanation": "To run only on mount, pass an empty array []."
-    },
-    {
-      "id": "14151617-1819-4b20-8d14-4e4f4a4b4c4d",
-      "questionId": "b8c9d0e1-f2a3-4b5c-8d6e-9a0b1c2d3e4f",
-      "text": "The effect runs after every render",
-      "isCorrect": true,
-      "explanation": "No dependency array means it runs after every render."
-    },
-    {
-      "id": "15161718-1920-4c21-8e15-5f5a5b5c5d5e",
-      "questionId": "b8c9d0e1-f2a3-4b5c-8d6e-9a0b1c2d3e4f",
-      "text": "The effect never runs",
-      "isCorrect": false,
-      "explanation": "This is not correct; it will always run."
-    },
-    {
-      "id": "16171819-2021-4d22-8f16-6a6b6c6d6e6f",
-      "questionId": "b8c9d0e1-f2a3-4b5c-8d6e-9a0b1c2d3e4f",
-      "text": "The effect runs only when dependencies change",
-      "isCorrect": false,
-      "explanation": "This happens only when you specify dependencies."
-    }
-  ],
-  "practice_matching_pairs": [
-    {
-      "id": "201a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
-      "questionId": "e5f6a1b2-c3d4-4e8f-9a0b-5e6f7a8b9c0d",
-      "left": "200",
-      "right": "OK",
-      "explanation": "200 means the request was successful."
-    },
-    {
-      "id": "212b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
-      "questionId": "e5f6a1b2-c3d4-4e8f-9a0b-5e6f7a8b9c0d",
-      "left": "404",
-      "right": "Not Found",
-      "explanation": "404 means the resource was not found."
-    },
-    {
-      "id": "223c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
-      "questionId": "e5f6a1b2-c3d4-4e8f-9a0b-5e6f7a8b9c0d",
-      "left": "500",
-      "right": "Internal Server Error",
-      "explanation": "500 means an error occurred on the server."
-    },
-    {
-      "id": "234d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
-      "questionId": "e5f6a1b2-c3d4-4e8f-9a0b-5e6f7a8b9c0d",
-      "left": "301",
-      "right": "Moved Permanently",
-      "explanation": "301 means the resource has moved to a new URL."
-    },
-    {
-      "id": "245e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
-      "questionId": "d0e1f2a3-b4c5-4d6e-8f0a-1b2c3d4e5f6a",
-      "left": "map()",
-      "right": "Creates a new array with results of calling a function for each element",
-      "explanation": "map() transforms each item and returns a new array."
-    },
-    {
-      "id": "256f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b",
-      "questionId": "d0e1f2a3-b4c5-4d6e-8f0a-1b2c3d4e5f6a",
-      "left": "filter()",
-      "right": "Returns a new array with only elements that pass a test",
-      "explanation": "filter() is used for filtering arrays."
-    },
-    {
-      "id": "267a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c",
-      "questionId": "d0e1f2a3-b4c5-4d6e-8f0a-1b2c3d4e5f6a",
-      "left": "push()",
-      "right": "Adds one or more elements to the end of the array",
-      "explanation": "push() adds elements to the end."
-    }
-  ],
-  "practice_system_design_charts": [
-    {
-      "id": "31a2b3c4-d5e6-41f8-82de-7f6e5d4c3b2a",
-      "questionId": "f6a1b2c3-d4e5-4f8a-9b0c-6f7a8b9c0d1e",
-      "chart": [
+      "positions": [
+        "Backend Engineer",
+        "Full Stack Engineer"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice"
+      ],
+      "seniorityLevels": [
+        "junior"
+      ],
+      "createdAt": "2024-06-14T10:35:00Z",
+      "updatedAt": "2024-06-14T10:35:00Z",
+      "createdBy": "generated_by_ai",
+      "complexityLevel": "junior",
+      "nonFunctionalRequirements": [
+        "file integrity",
+        "basic security"
+      ],
+      "constraints": [
+        "limited file size"
+      ],
+      "scalingFocus": "Not required to handle large-scale uploads.",
+      "hints": [
+        "How will you identify and store files?",
+        "What endpoints are needed?"
+      ],
+      "charts": [
         {
-          "id": "web-server",
-          "label": "Web Server",
-          "type": "component"
-        },
+          "id": "chart1",
+          "nodes": [
+            {
+              "id": "client",
+              "type": "client",
+              "label": "User Client",
+              "description": "Uploads and downloads files.",
+              "connections": [
+                "api"
+              ]
+            },
+            {
+              "id": "api",
+              "type": "service",
+              "label": "API Server",
+              "description": "Handles file upload and download requests.",
+              "connections": [
+                "storage",
+                "db"
+              ]
+            },
+            {
+              "id": "storage",
+              "type": "external",
+              "label": "File Storage",
+              "description": "Stores the uploaded files.",
+              "connections": []
+            },
+            {
+              "id": "db",
+              "type": "db",
+              "label": "Metadata Database",
+              "description": "Stores file metadata (name, path, user).",
+              "connections": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf2debb3-4b98-4a58-9f19-14d7e9e5a9a3",
+      "status": "draft",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Design a simple chat messaging service",
+      "description": "Create a design for a basic chat application that allows two users to send and receive text messages in real time.",
+      "prompt": "Describe how to design a simple chat system supporting real-time messaging between two users.",
+      "topic": "system-design",
+      "subtopics": [
+        "messaging",
+        "realtime"
+      ],
+      "tags": [
+        "system-design",
+        "chat",
+        "realtime"
+      ],
+      "estimatedTimeMinutes": 15,
+      "aiEvaluationHint": "Look for mention of message storage (e.g., database), real-time delivery (e.g., websockets), user authentication, and message routing. Penalize if answers include no real-time element or omit storage. Partial credit for describing only sending or storing messages.",
+      "companies": [
         {
-          "id": "db",
-          "label": "Database",
-          "type": "storage"
-        },
+          "name": "TikTok",
+          "logo": "SiTiktok",
+          "size": [
+            "faang"
+          ],
+          "description": "Social platform for sharing short videos."
+        }
+      ],
+      "positions": [
+        "Full Stack Engineer"
+      ],
+      "primaryTechStack": [
+        "nodejs",
+        "websockets"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice"
+      ],
+      "seniorityLevels": [
+        "junior"
+      ],
+      "createdAt": "2024-06-14T10:37:00Z",
+      "updatedAt": "2024-06-14T10:37:00Z",
+      "createdBy": "generated_by_ai",
+      "complexityLevel": "junior",
+      "nonFunctionalRequirements": [
+        "real-time delivery"
+      ],
+      "constraints": [
+        "one-to-one messaging"
+      ],
+      "scalingFocus": "Support small number of users.",
+      "hints": [
+        "How are messages delivered in real time?",
+        "How are messages stored for history?"
+      ],
+      "charts": [
         {
-          "id": "user",
-          "label": "User",
-          "type": "actor"
-        },
-        {
-          "from": "user",
-          "to": "web-server",
-          "label": "Shorten/Retrieve URL"
-        },
-        {
-          "from": "web-server",
-          "to": "db",
-          "label": "Store/Retrieve mapping"
+          "id": "chart1",
+          "nodes": [
+            {
+              "id": "clientA",
+              "type": "client",
+              "label": "User A",
+              "description": "Sends and receives messages.",
+              "connections": [
+                "chatserver"
+              ]
+            },
+            {
+              "id": "clientB",
+              "type": "client",
+              "label": "User B",
+              "description": "Sends and receives messages.",
+              "connections": [
+                "chatserver"
+              ]
+            },
+            {
+              "id": "chatserver",
+              "type": "service",
+              "label": "Chat Server",
+              "description": "Handles real-time message delivery.",
+              "connections": [
+                "db"
+              ]
+            },
+            {
+              "id": "db",
+              "type": "db",
+              "label": "Message Storage",
+              "description": "Stores chat messages for history.",
+              "connections": []
+            }
+          ]
         }
       ]
     }

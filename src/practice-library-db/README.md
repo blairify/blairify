@@ -1,223 +1,227 @@
-# Practice Library Database Schema
+# Practice Library Database Schema (v2)
 
 Human-readable reference for `src/practice-library-db/schema.ts`.
 
-The practice library uses **4 tables**:
+The v2 practice library uses **5 tables**, one per question type:
 
-1. `practice_questions` – one row per question (any type)
-2. `practice_mcq_options` – answer options for MCQ questions
-3. `practice_matching_pairs` – left/right pairs for matching questions
-4. `practice_system_design_charts` – system design charts for system-design questions
+1. `mcq_questions` – multiple-choice questions (with nested options)
+2. `open_questions` – open-ended questions (with nested reference answers)
+3. `truefalse_questions` – true/false questions
+4. `matching_questions` – matching questions (with nested pairs)
+5. `system_design_questions` – system-design questions (with nested charts)
+
+Each table shares a common core shape, then adds type-specific fields.
 
 ---
 
-## Table: `practice_questions`
+## Shared Columns (all tables)
 
-**Purpose**
-
-All questions live here, regardless of type. Type-specific details are either:
-
-- stored directly on this table (open, true/false, some code/matching flags), or
-- stored in linked tables (MCQ options, matching pairs, code test cases).
-
-**Columns**
+Every `*_questions` table has these columns:
 
 - `id` (text, PK)
-  - Unique ID of the question.
-
-- `type` (text → `QuestionType`)
-  - Question format: `"mcq" | "open" | "matching" | "truefalse" | "system-design"`.
-
-- `difficulty` (text → `DifficultyLevel`)
-  - Difficulty: `"entry" | "junior" | "middle" | "senior"`.
+  - Unique question ID.
 
 - `status` (text → `QuestionStatus`)
-  - Lifecycle state: `"draft" | "published" | "archived"`.
+  - Lifecycle: `"draft" | "published" | "archived"`.
+
+- `reviewerId` (text, nullable)
+  - User ID of the last reviewer.
+
+- `reviewedAt` (timestamptz, nullable)
+  - When the question was last reviewed.
+
+- `difficulty` (text → `DifficultyLevel`)
+  - `"entry" | "junior" | "middle" | "senior"`.
 
 - `isDemoMode` (boolean)
-  - Whether this question is a demo question.
+  - Whether this is a demo question.
 
 - `companyType` (text → `CompanyType`)
-  - Company type: `"faang" | "startup" | "enterprise"`.
+  - `"faang" | "startup" | "enterprise"`.
 
 - `title` (text)
   - Short, human-readable title.
 
 - `description` (text)
-  - Longer explanation / extended context.
+  - User-facing description of the question.
 
 - `prompt` (text)
-  - Actual question prompt shown in the UI and to the AI.
+  - AI-facing prompt; may extend the description with evaluation instructions.
 
 - `topic` (text)
   - Main topic (e.g. `"frontend"`, `"system-design"`).
 
 - `subtopics` (text[], default `[]`)
-  - Additional subtopics for more granular filtering.
+  - Additional subtopics for filtering.
 
 - `tags` (text[], default `[]`)
-  - Tags used for search and filtering.
+  - Tags for search/filter.
 
 - `estimatedTimeMinutes` (integer, default `0`)
-  - Approximate time to solve the question.
+  - Approximate time to solve.
 
 - `aiEvaluationHint` (text, nullable)
-  - Optional guidance text for how the AI should evaluate or respond to answers for this question.
-
-- `multiChoiceAnswers` (text[], nullable)
-  - Array of correct answers for MCQ questions.
+  - Optional guidance for AI evaluation.
+  - Required and non-empty for open and system-design questions.
 
 - `companies` (jsonb, nullable)
-  - Optional list of companies for which this question is relevant.
+  - Optional list of companies this question is relevant for.
   - Each entry:
     - `name`: company name (e.g. `"Google"`).
     - `logo`: icon name (e.g. `"SiGoogle"`).
-    - `size?`: array of segments (e.g. `["faang"]`, `["startup"]`).
-    - `description`: description of the company.
+    - `size?`: segments like `["faang"]`, `["startup"]`.
+    - `description`: company description.
 
 - `positions` (text[], default `[]`)
-  - Relevant roles (e.g. `"Frontend Engineer"`, `"Full Stack Developer"`).
+  - Relevant roles (e.g. `"Frontend Engineer"`, `"Backend Engineer"`).
 
 - `primaryTechStack` (text[], default `[]`)
   - Tech stack labels (e.g. `"react"`, `"typescript"`, `"nodejs"`).
 
-- `interviewTypes` (text[], default `[]`)
-  - Where this question is used in interviews:
-    - `"regular" | "practice" | "flash" | "play" | "competitive" | "teacher"`.
+- `interviewTypes` (text[] → `QuestionInterviewMode[]`, default `[]`)
+  - Where the question is used: `"regular" | "practice" | "flash" | "play" | "competitive" | "teacher"`.
 
 - `seniorityLevels` (text[], default `[]`)
-  - Seniority levels this question targets.
+  - Target seniority levels.
 
-- `createdAt` (timestamp with timezone)
+- `createdAt` (timestamptz)
   - When the question was created.
 
-- `updatedAt` (timestamp with timezone)
+- `updatedAt` (timestamptz)
   - When the question was last updated.
 
 - `createdBy` (text)
   - ID of the user/admin who created the question.
 
-### System design questions (type = `"system-design"`)
+---
 
-- System design diagrams/charts are stored in the `practice_system_design_charts` table.
-- Each chart row contains a `chart` (jsonb, default `[]`) with structured nodes and relationships so the UI and AI can understand the system.
+## Table: `mcq_questions`
 
-### Open questions (type = `"open"`)
+**Purpose**
 
-- `openReferenceAnswers` (jsonb, nullable)
-  - Array of reference answers used as **guidance**, not strict strings.
-  - Each entry (`ReferenceAnswer`):
+Multiple-choice questions where we only store the single correct answer text.
+
+**Additional Columns**
+
+- `correctAnswerText` (text)
+  - The single fully correct option text for this MCQ.
+
+Notes:
+
+- Additional incorrect options (distractors) can be generated later based on `correctAnswerText`.
+
+---
+
+## Table: `open_questions`
+
+**Purpose**
+
+Open-ended questions evaluated by AI with structured reference answers.
+
+**Additional Columns**
+
+- `referenceAnswers` (jsonb, nullable → `ReferenceAnswer[]`)
+  - Array of reference answers used as guidance:
     - `id`: internal identifier.
-    - `text`: sample / reference answer.
+    - `text`: sample/reference answer.
     - `weight`: importance (0–1).
+    - `keyPoints`: key concepts/phrases that should appear.
 
-### True/False questions (type = `"truefalse"`)
+Notes:
 
-- `trueFalseCorrectAnswer` (boolean, nullable)
+- `aiEvaluationHint` is required and describes how to grade that specific question.
+- `referenceAnswers` are examples/guidance; they do not need explicit weights if you prefer to rely on `aiEvaluationHint`.
+
+---
+
+## Table: `truefalse_questions`
+
+**Purpose**
+
+True/false questions with deterministic scoring and explanation.
+
+**Additional Columns**
+
+- `correctAnswer` (boolean)
   - Whether the statement is true or false.
 
-- `trueFalseExplanation` (text, nullable)
-  - Explanation for why the statement is true or false.
+- `explanation` (text)
+  - Why the statement is true or false.
 
-### Matching questions (type = `"matching"`)
-
-- `matchingShuffleLeft` (boolean, nullable)
-  - Whether to shuffle the left side.
-
-- `matchingShuffleRight` (boolean, nullable)
-  - Whether to shuffle the right side.
-
-- `matchingPairs` (jsonb, nullable)
-  - Array of left/right pairs for matching questions.
-
-## Table: `practice_mcq_options`
-
-**Purpose**
-
-Stores answer options for MCQ questions.
-
-**Columns**
-
-- `id` (text, PK)
-  - Unique option ID.
-
-- `questionId` (text, FK → `practice_questions.id`)
-  - MCQ question this option belongs to.
-  - `onDelete: "cascade"` – deleting a question removes its options.
-
-- `text` (text)
-  - Text of the option shown to the user.
-
-- `isCorrect` (boolean)
-  - Whether this option is correct.
-
-- `explanation` (text, nullable)
-  - Optional explanation why the option is correct/incorrect.
-
-Notes:
-
-- MCQ “answers” are represented by the set of options where `isCorrect = true`.
-- This supports single or multiple correct answers.
+- `trickinessLevel` (integer, nullable)
+  - Optional 1–5 scale for how tricky the question is.
 
 ---
 
-## Table: `practice_matching_pairs`
+## Table: `matching_questions`
 
 **Purpose**
 
-Stores the left/right pairs for matching questions.
+Matching questions with left/right pairs represented as nested JSON.
 
-**Columns**
+**Additional Columns**
 
-- `id` (text, PK)
-  - Unique pair ID.
+- `shuffleLeft` / `shuffleRight` (boolean, nullable)
+  - Whether to shuffle the left/right side in the UI.
 
-- `questionId` (text, FK → `practice_questions.id`)
-  - Matching question this pair belongs to.
+- `minPairs` / `maxPairs` (integer, nullable)
+  - Optional constraints on number of pairs.
 
-- `left` (text)
-  - Left-hand item shown in the UI.
-
-- `right` (text)
-  - Right-hand item that is the correct match.
-
-- `explanation` (text, nullable)
-  - Optional explanation describing the relationship.
+- `pairs` (jsonb, nullable → `MatchingPair[]`)
+  - Array of pairs:
+    - `id`: pair ID.
+    - `left`: left-hand item.
+    - `right`: right-hand item.
+    - `explanation`: relationship explanation.
 
 Notes:
 
-- The correct matching solution is the set of (left, right) pairs stored here.
+- The correct matching solution is the set of `(left, right)` pairs.
 
 ---
 
-## Table: `practice_system_design_charts`
+## Table: `system_design_questions`
 
 **Purpose**
 
-Stores structured system design charts for `"system-design"` questions.
+System-design questions with structured constraints and charts.
 
-**Columns**
+**Additional Columns**
 
-- `id` (text, PK)
-  - Unique chart ID.
+- `complexityLevel` (text, nullable)
+  - Perceived complexity: `"entry" | "junior" | "middle" | "senior"`.
 
-- `questionId` (text, FK → `practice_questions.id`)
-  - System-design question this chart belongs to.
-  - `onDelete: "cascade"` – deleting a question removes its charts.
+- `nonFunctionalRequirements` (text[], default `[]`)
+  - Non-functional requirements (e.g. `"high availability"`, `"low latency"`).
 
-- `chart` (jsonb, default `[]`)
-  - Structured data for system-design diagrams or nodes.
-  - Flexible JSON structure so the UI can render charts/graphs later.
-  - Contains information about the system design chart, including nodes and their relationships.
+- `constraints` (text[], default `[]`)
+  - Key constraints (e.g. `"EU data residency"`, `"mobile-first"`).
+
+- `scalingFocus` (text, nullable)
+  - Freeform description of scaling profile.
+
+- `hints` (text[], default `[]`)
+  - Optional hints that can be surfaced to the user.
+
+- `charts` (jsonb, nullable)
+  - Array of charts. Each chart:
+    - `id`: chart ID.
+    - `nodes`: array of nodes:
+      - `id`: node ID.
+      - `type`: node type (e.g. `"service"`, `"db"`, `"cache"`, `"queue"`, `"client"`, `"external"`).
+      - `label`: display label.
+      - `description`: what the node does.
+      - `connections`: list of IDs of connected nodes.
 
 Notes:
 
-- Typically you'll store one chart per question, but multiple charts per question are allowed if needed.
+- `aiEvaluationHint` is required and should describe what a good design includes, what to reward, and what to penalize.
 
-### commands to run scripts 
+---
 
-../js/blairify
+### Commands to run scripts
 
-- npx ts-node --project scripts/tsconfig.json scripts/seed-practice-library.ts
+From the repo root (`../js/blairify`):
 
-- npx ts-node --project scripts/tsconfig.json scripts/import-practice-library-from-json.ts
+- `npx ts-node --project scripts/tsconfig.json scripts/seed-practice-library.ts`
+- `npx ts-node --project scripts/tsconfig.json scripts/import-practice-library-from-json.ts`

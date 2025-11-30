@@ -3,10 +3,11 @@ import fs from "fs";
 import path from "path";
 import { practiceDb } from "../src/practice-library-db/client";
 import {
-  practiceMatchingPairs,
-  practiceMcqOptions,
-  practiceQuestions,
-  practiceSystemDesignCharts,
+  mcqQuestions,
+  openQuestions,
+  truefalseQuestions,
+  matchingQuestions,
+  systemDesignQuestions,
 } from "../src/practice-library-db/schema";
 
 interface JsonCompany {
@@ -24,68 +25,95 @@ interface JsonReferenceAnswer {
 }
 
 interface JsonMatchingPair {
+  id: string;
   left: string;
   right: string;
-  explanation?: string | null;
+  explanation: string | null;
 }
 
-interface JsonQuestion {
+interface JsonSystemDesignNode {
   id: string;
-  type: "mcq" | "open" | "truefalse" | "matching" | "system-design";
-  difficulty: "entry" | "junior" | "middle" | "senior";
-  status: string;
-  isDemoMode: boolean;
-  companyType: "faang" | "startup" | "enterprise";
-  title: string;
+  type: string;
+  label: string;
   description: string;
-  prompt: string;
-  topic: string;
-  subtopics: string[];
-  tags: string[];
-  estimatedTimeMinutes: number;
-  aiEvaluationHint: string | null;
-  multiChoiceAnswers: string[] | null;
-  companies: JsonCompany[] | null;
-  positions: string[];
-  primaryTechStack: string[];
-  interviewTypes: string[];
-  seniorityLevels: string[];
-  trueFalseCorrectAnswer: boolean | null;
-  trueFalseExplanation: string | null;
-  matchingShuffleLeft: boolean | null;
-  matchingShuffleRight: boolean | null;
-  matchingPairs: JsonMatchingPair[] | null;
-  openReferenceAnswers: JsonReferenceAnswer[] | null;
-  createdBy: string;
-}
-
-interface JsonMcqOption {
-  id: string;
-  questionId: string;
-  text: string;
-  isCorrect: boolean;
-  explanation: string | null;
-}
-
-interface JsonMatchingPairRow {
-  id: string;
-  questionId: string;
-  left: string;
-  right: string;
-  explanation: string | null;
+  connections: string[];
 }
 
 interface JsonSystemDesignChart {
   id: string;
-  questionId: string;
-  chart: unknown[];
+  nodes: JsonSystemDesignNode[];
+}
+
+interface JsonCoreQuestion {
+  id: string;
+  status: string;
+  reviewerId: string | null;
+  reviewedAt: string | null;
+
+  difficulty: "entry" | "junior" | "middle" | "senior";
+  isDemoMode: boolean;
+  companyType: "faang" | "startup" | "enterprise";
+
+  title: string;
+  description: string;
+  prompt: string;
+
+  topic: string;
+  subtopics: string[];
+  tags: string[];
+  estimatedTimeMinutes: number;
+
+  aiEvaluationHint: string | null;
+
+  companies: JsonCompany[] | null;
+  positions: string[];
+  primaryTechStack: string[];
+
+  interviewTypes: string[];
+  seniorityLevels: string[];
+
+  createdAt: string;
+  updatedAt: string;
+  createdBy: string;
+}
+
+interface JsonMcqQuestion extends JsonCoreQuestion {
+  correctAnswerText: string;
+}
+
+interface JsonOpenQuestion extends JsonCoreQuestion {
+  referenceAnswers: JsonReferenceAnswer[] | null;
+}
+
+interface JsonTruefalseQuestion extends JsonCoreQuestion {
+  correctAnswer: boolean;
+  explanation: string;
+  trickinessLevel: number | null;
+}
+
+interface JsonMatchingQuestion extends JsonCoreQuestion {
+  shuffleLeft: boolean | null;
+  shuffleRight: boolean | null;
+  minPairs: number | null;
+  maxPairs: number | null;
+  pairs: JsonMatchingPair[] | null;
+}
+
+interface JsonSystemDesignQuestion extends JsonCoreQuestion {
+  complexityLevel: "entry" | "junior" | "middle" | "senior" | null;
+  nonFunctionalRequirements: string[];
+  constraints: string[];
+  scalingFocus: string | null;
+  hints: string[];
+  charts: JsonSystemDesignChart[] | null;
 }
 
 interface JsonBatch {
-  practice_questions: JsonQuestion[];
-  practice_mcq_options: JsonMcqOption[];
-  practice_matching_pairs: JsonMatchingPairRow[];
-  practice_system_design_charts: JsonSystemDesignChart[];
+  mcq_questions: JsonMcqQuestion[];
+  open_questions: JsonOpenQuestion[];
+  truefalse_questions: JsonTruefalseQuestion[];
+  matching_questions: JsonMatchingQuestion[];
+  system_design_questions: JsonSystemDesignQuestion[];
 }
 
 async function main() {
@@ -100,87 +128,195 @@ async function main() {
   const now = new Date();
 
   await practiceDb.transaction(async (tx) => {
-    if (data.practice_questions.length === 0) return;
+    const hasAny =
+      data.mcq_questions.length > 0 ||
+      data.open_questions.length > 0 ||
+      data.truefalse_questions.length > 0 ||
+      data.matching_questions.length > 0 ||
+      data.system_design_questions.length > 0;
 
-    await tx.insert(practiceQuestions).values(
-      data.practice_questions.map((q) => ({
-        id: q.id,
-        type: q.type,
-        difficulty: q.difficulty,
-        status: q.status as any,
-        isDemoMode: q.isDemoMode,
-        companyType: q.companyType as any,
-        title: q.title,
-        description: q.description,
-        prompt: q.prompt,
-        topic: q.topic,
-        subtopics: q.subtopics ?? [],
-        tags: q.tags ?? [],
-        estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
-        aiEvaluationHint: q.aiEvaluationHint ?? null,
-        multiChoiceAnswers: q.multiChoiceAnswers ?? null,
-        companies: q.companies ?? null,
-        positions: q.positions ?? [],
-        primaryTechStack: q.primaryTechStack ?? [],
-        interviewTypes: (q.interviewTypes ?? []) as any,
-        seniorityLevels: q.seniorityLevels ?? [],
-        createdAt: now,
-        updatedAt: now,
-        createdBy: q.createdBy || "system",
-        openReferenceAnswers: q.openReferenceAnswers
-          ? q.openReferenceAnswers.map((r) => ({
-              ...r,
-              keyPoints: r.keyPoints ?? [],
-            }))
-          : null,
-        trueFalseCorrectAnswer: q.trueFalseCorrectAnswer ?? null,
-        trueFalseExplanation: q.trueFalseExplanation ?? null,
-        matchingShuffleLeft: q.matchingShuffleLeft ?? null,
-        matchingShuffleRight: q.matchingShuffleRight ?? null,
-        matchingPairs: (q.matchingPairs ?? null) as any,
-      })),
-    );
+    if (!hasAny) return;
 
-    if (data.practice_mcq_options.length > 0) {
-      await tx.insert(practiceMcqOptions).values(
-        data.practice_mcq_options.map((o) => ({
-          id: o.id,
-          questionId: o.questionId,
-          text: o.text,
-          isCorrect: o.isCorrect,
-          explanation: o.explanation ?? null,
+    if (data.mcq_questions.length > 0) {
+      await tx.insert(mcqQuestions).values(
+        data.mcq_questions.map((q) => ({
+          id: q.id,
+          status: q.status as any,
+          reviewerId: q.reviewerId ?? null,
+          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
+          difficulty: q.difficulty,
+          isDemoMode: q.isDemoMode,
+          companyType: q.companyType as any,
+          title: q.title,
+          description: q.description,
+          prompt: q.prompt,
+          topic: q.topic,
+          subtopics: q.subtopics ?? [],
+          tags: q.tags ?? [],
+          estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
+          aiEvaluationHint: q.aiEvaluationHint ?? null,
+          companies: q.companies ?? null,
+          positions: q.positions ?? [],
+          primaryTechStack: q.primaryTechStack ?? [],
+          interviewTypes: (q.interviewTypes ?? []) as any,
+          seniorityLevels: q.seniorityLevels ?? [],
+          createdAt: now,
+          updatedAt: now,
+          createdBy: "generated_by_ai",
+          correctAnswerText: q.correctAnswerText,
         })),
       );
     }
 
-    if (data.practice_matching_pairs.length > 0) {
-      await tx.insert(practiceMatchingPairs).values(
-        data.practice_matching_pairs.map((p) => ({
-          id: p.id,
-          questionId: p.questionId,
-          left: p.left,
-          right: p.right,
-          explanation: p.explanation ?? null,
+    if (data.open_questions.length > 0) {
+      await tx.insert(openQuestions).values(
+        data.open_questions.map((q) => ({
+          id: q.id,
+          status: q.status as any,
+          reviewerId: q.reviewerId ?? null,
+          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
+          difficulty: q.difficulty,
+          isDemoMode: q.isDemoMode,
+          companyType: q.companyType as any,
+          title: q.title,
+          description: q.description,
+          prompt: q.prompt,
+          topic: q.topic,
+          subtopics: q.subtopics ?? [],
+          tags: q.tags ?? [],
+          estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
+          aiEvaluationHint: q.aiEvaluationHint ?? null,
+          companies: q.companies ?? null,
+          positions: q.positions ?? [],
+          primaryTechStack: q.primaryTechStack ?? [],
+          interviewTypes: (q.interviewTypes ?? []) as any,
+          seniorityLevels: q.seniorityLevels ?? [],
+          createdAt: now,
+          updatedAt: now,
+          createdBy: "generated_by_ai",
+          referenceAnswers: q.referenceAnswers
+            ? q.referenceAnswers.map((r) => ({
+                id: r.id,
+                text: r.text,
+                weight: r.weight,
+                keyPoints: r.keyPoints ?? [],
+              }))
+            : null,
         })),
       );
     }
 
-    if (data.practice_system_design_charts.length > 0) {
-      await tx.insert(practiceSystemDesignCharts).values(
-        data.practice_system_design_charts.map((c) => ({
-          id: c.id,
-          questionId: c.questionId,
-          chart: c.chart ?? [],
+    if (data.truefalse_questions.length > 0) {
+      await tx.insert(truefalseQuestions).values(
+        data.truefalse_questions.map((q) => ({
+          id: q.id,
+          status: q.status as any,
+          reviewerId: q.reviewerId ?? null,
+          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
+          difficulty: q.difficulty,
+          isDemoMode: q.isDemoMode,
+          companyType: q.companyType as any,
+          title: q.title,
+          description: q.description,
+          prompt: q.prompt,
+          topic: q.topic,
+          subtopics: q.subtopics ?? [],
+          tags: q.tags ?? [],
+          estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
+          aiEvaluationHint: q.aiEvaluationHint ?? null,
+          companies: q.companies ?? null,
+          positions: q.positions ?? [],
+          primaryTechStack: q.primaryTechStack ?? [],
+          interviewTypes: (q.interviewTypes ?? []) as any,
+          seniorityLevels: q.seniorityLevels ?? [],
+          createdAt: now,
+          updatedAt: now,
+          createdBy: "generated_by_ai",
+          correctAnswer: q.correctAnswer,
+          explanation: q.explanation,
+          trickinessLevel: q.trickinessLevel ?? null,
+        })),
+      );
+    }
+
+    if (data.matching_questions.length > 0) {
+      await tx.insert(matchingQuestions).values(
+        data.matching_questions.map((q) => ({
+          id: q.id,
+          status: q.status as any,
+          reviewerId: q.reviewerId ?? null,
+          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
+          difficulty: q.difficulty,
+          isDemoMode: q.isDemoMode,
+          companyType: q.companyType as any,
+          title: q.title,
+          description: q.description,
+          prompt: q.prompt,
+          topic: q.topic,
+          subtopics: q.subtopics ?? [],
+          tags: q.tags ?? [],
+          estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
+          aiEvaluationHint: q.aiEvaluationHint ?? null,
+          companies: q.companies ?? null,
+          positions: q.positions ?? [],
+          primaryTechStack: q.primaryTechStack ?? [],
+          interviewTypes: (q.interviewTypes ?? []) as any,
+          seniorityLevels: q.seniorityLevels ?? [],
+          createdAt: now,
+          updatedAt: now,
+          createdBy: "generated_by_ai",
+          shuffleLeft: q.shuffleLeft ?? null,
+          shuffleRight: q.shuffleRight ?? null,
+          minPairs: q.minPairs ?? null,
+          maxPairs: q.maxPairs ?? null,
+          pairs: (q.pairs ?? null) as any,
+        })),
+      );
+    }
+
+    if (data.system_design_questions.length > 0) {
+      await tx.insert(systemDesignQuestions).values(
+        data.system_design_questions.map((q) => ({
+          id: q.id,
+          status: q.status as any,
+          reviewerId: q.reviewerId ?? null,
+          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
+          difficulty: q.difficulty,
+          isDemoMode: q.isDemoMode,
+          companyType: q.companyType as any,
+          title: q.title,
+          description: q.description,
+          prompt: q.prompt,
+          topic: q.topic,
+          subtopics: q.subtopics ?? [],
+          tags: q.tags ?? [],
+          estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
+          aiEvaluationHint: q.aiEvaluationHint ?? null,
+          companies: q.companies ?? null,
+          positions: q.positions ?? [],
+          primaryTechStack: q.primaryTechStack ?? [],
+          interviewTypes: (q.interviewTypes ?? []) as any,
+          seniorityLevels: q.seniorityLevels ?? [],
+          createdAt: now,
+          updatedAt: now,
+          createdBy: "generated_by_ai",
+          complexityLevel: q.complexityLevel ?? null,
+          nonFunctionalRequirements: q.nonFunctionalRequirements ?? [],
+          constraints: q.constraints ?? [],
+          scalingFocus: q.scalingFocus ?? null,
+          hints: q.hints ?? [],
+          charts: (q.charts ?? null) as any,
         })),
       );
     }
   });
 
   console.log("✅ Imported questions into practice library DB:", {
-    questions: data.practice_questions.length,
-    mcqOptions: data.practice_mcq_options.length,
-    matchingPairs: data.practice_matching_pairs.length,
-    systemDesignCharts: data.practice_system_design_charts.length,
+    mcqQuestions: data.mcq_questions.length,
+    openQuestions: data.open_questions.length,
+    truefalseQuestions: data.truefalse_questions.length,
+    matchingQuestions: data.matching_questions.length,
+    systemDesignQuestions: data.system_design_questions.length,
   });
 }
 

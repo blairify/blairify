@@ -12,16 +12,16 @@ import type {
   MatchingPair,
   QuestionInterviewMode,
   QuestionStatus,
-  QuestionType,
   ReferenceAnswer,
 } from "@/types/practice-question";
 
-export const practiceQuestions = pgTable("practice_questions", {
+export const mcqQuestions = pgTable("mcq_questions", {
   id: text("id").primaryKey(),
-  type: text("type").$type<QuestionType>().notNull(),
-  difficulty: text("difficulty").$type<DifficultyLevel>().notNull(),
   status: text("status").$type<QuestionStatus>().notNull(),
+  reviewerId: text("reviewer_id"),
+  reviewedAt: timestamp("reviewed_at", { withTimezone: true }),
 
+  difficulty: text("difficulty").$type<DifficultyLevel>().notNull(),
   isDemoMode: boolean("is_demo_mode").notNull().default(false),
   companyType: text("company_type").$type<CompanyType>().notNull(),
 
@@ -35,14 +35,102 @@ export const practiceQuestions = pgTable("practice_questions", {
   estimatedTimeMinutes: integer("estimated_time_minutes").notNull().default(0),
 
   aiEvaluationHint: text("ai_evaluation_hint"),
+  companies: jsonb("companies").$type<
+    Array<{
+      name: string;
+      logo: string;
+      size?: string[];
+      description: string;
+    }> | null
+  >(),
+  positions: text("positions").array().notNull().default([]),
+  primaryTechStack: text("primary_tech_stack").array().notNull().default([]),
 
-  multiChoiceAnswers: text("multi_choice_answers").array(),
-  companies: jsonb("companies").$type<Array<{
-    name: string;
-    logo: string;
-    size?: string[];
-    description: string;
-  }> | null>(),
+  interviewTypes: text("interview_types")
+    .array()
+    .$type<QuestionInterviewMode[]>()
+    .notNull()
+    .default([]),
+  seniorityLevels: text("seniority_levels").array().notNull().default([]),
+
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull(),
+  createdBy: text("created_by").notNull(),
+  correctAnswerText: text("correct_answer_text").notNull(),
+});
+
+export const openQuestions = pgTable("open_questions", {
+  id: text("id").primaryKey(),
+  status: text("status").$type<QuestionStatus>().notNull(),
+  reviewerId: text("reviewer_id"),
+  reviewedAt: timestamp("reviewed_at", { withTimezone: true }),
+
+  difficulty: text("difficulty").$type<DifficultyLevel>().notNull(),
+  isDemoMode: boolean("is_demo_mode").notNull().default(false),
+  companyType: text("company_type").$type<CompanyType>().notNull(),
+
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  prompt: text("prompt").notNull(),
+
+  topic: text("topic").notNull(),
+  subtopics: text("subtopics").array().notNull().default([]),
+  tags: text("tags").array().notNull().default([]),
+  estimatedTimeMinutes: integer("estimated_time_minutes").notNull().default(0),
+
+  aiEvaluationHint: text("ai_evaluation_hint"),
+  companies: jsonb("companies").$type<
+    Array<{
+      name: string;
+      logo: string;
+      size?: string[];
+      description: string;
+    }> | null
+  >(),
+  positions: text("positions").array().notNull().default([]),
+  primaryTechStack: text("primary_tech_stack").array().notNull().default([]),
+
+  interviewTypes: text("interview_types")
+    .array()
+    .$type<QuestionInterviewMode[]>()
+    .notNull()
+    .default([]),
+  seniorityLevels: text("seniority_levels").array().notNull().default([]),
+
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull(),
+  createdBy: text("created_by").notNull(),
+  referenceAnswers: jsonb("reference_answers").$type<ReferenceAnswer[] | null>(),
+});
+
+export const truefalseQuestions = pgTable("truefalse_questions", {
+  id: text("id").primaryKey(),
+  status: text("status").$type<QuestionStatus>().notNull(),
+  reviewerId: text("reviewer_id"),
+  reviewedAt: timestamp("reviewed_at", { withTimezone: true }),
+
+  difficulty: text("difficulty").$type<DifficultyLevel>().notNull(),
+  isDemoMode: boolean("is_demo_mode").notNull().default(false),
+  companyType: text("company_type").$type<CompanyType>().notNull(),
+
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  prompt: text("prompt").notNull(),
+
+  topic: text("topic").notNull(),
+  subtopics: text("subtopics").array().notNull().default([]),
+  tags: text("tags").array().notNull().default([]),
+  estimatedTimeMinutes: integer("estimated_time_minutes").notNull().default(0),
+
+  aiEvaluationHint: text("ai_evaluation_hint"),
+  companies: jsonb("companies").$type<
+    Array<{
+      name: string;
+      logo: string;
+      size?: string[];
+      description: string;
+    }> | null
+  >(),
   positions: text("positions").array().notNull().default([]),
   primaryTechStack: text("primary_tech_stack").array().notNull().default([]),
 
@@ -57,48 +145,120 @@ export const practiceQuestions = pgTable("practice_questions", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull(),
   createdBy: text("created_by").notNull(),
 
-  // Open questions
-  openReferenceAnswers: jsonb("open_reference_answers").$type<
-    ReferenceAnswer[] | null
+  correctAnswer: boolean("correct_answer").notNull(),
+  explanation: text("explanation").notNull(),
+  trickinessLevel: integer("trickiness_level"),
+});
+
+export const matchingQuestions = pgTable("matching_questions", {
+  id: text("id").primaryKey(),
+  status: text("status").$type<QuestionStatus>().notNull(),
+  reviewerId: text("reviewer_id"),
+  reviewedAt: timestamp("reviewed_at", { withTimezone: true }),
+
+  difficulty: text("difficulty").$type<DifficultyLevel>().notNull(),
+  isDemoMode: boolean("is_demo_mode").notNull().default(false),
+  companyType: text("company_type").$type<CompanyType>().notNull(),
+
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  prompt: text("prompt").notNull(),
+
+  topic: text("topic").notNull(),
+  subtopics: text("subtopics").array().notNull().default([]),
+  tags: text("tags").array().notNull().default([]),
+  estimatedTimeMinutes: integer("estimated_time_minutes").notNull().default(0),
+
+  aiEvaluationHint: text("ai_evaluation_hint"),
+  companies: jsonb("companies").$type<
+    Array<{
+      name: string;
+      logo: string;
+      size?: string[];
+      description: string;
+    }> | null
   >(),
+  positions: text("positions").array().notNull().default([]),
+  primaryTechStack: text("primary_tech_stack").array().notNull().default([]),
 
-  // True/False questions
-  trueFalseCorrectAnswer: boolean("truefalse_correct_answer"),
-  trueFalseExplanation: text("truefalse_explanation"),
-
-  // Matching questions
-  matchingShuffleLeft: boolean("matching_shuffle_left"),
-  matchingShuffleRight: boolean("matching_shuffle_right"),
-  matchingPairs: jsonb("matching_pairs").$type<MatchingPair[] | null>(),
-});
-
-export const practiceMcqOptions = pgTable("practice_mcq_options", {
-  id: text("id").primaryKey(),
-  questionId: text("question_id")
+  interviewTypes: text("interview_types")
+    .array()
+    .$type<QuestionInterviewMode[]>()
     .notNull()
-    .references(() => practiceQuestions.id, { onDelete: "cascade" }),
-  text: text("text").notNull(),
-  isCorrect: boolean("is_correct").notNull(),
-  explanation: text("explanation"),
+    .default([]),
+  seniorityLevels: text("seniority_levels").array().notNull().default([]),
+
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull(),
+  createdBy: text("created_by").notNull(),
+
+  shuffleLeft: boolean("shuffle_left"),
+  shuffleRight: boolean("shuffle_right"),
+  minPairs: integer("min_pairs"),
+  maxPairs: integer("max_pairs"),
+  pairs: jsonb("pairs").$type<MatchingPair[] | null>(),
 });
 
-export const practiceMatchingPairs = pgTable("practice_matching_pairs", {
+export const systemDesignQuestions = pgTable("system_design_questions", {
   id: text("id").primaryKey(),
-  questionId: text("question_id")
-    .notNull()
-    .references(() => practiceQuestions.id, { onDelete: "cascade" }),
-  left: text("left").notNull(),
-  right: text("right").notNull(),
-  explanation: text("explanation"),
-});
+  status: text("status").$type<QuestionStatus>().notNull(),
+  reviewerId: text("reviewer_id"),
+  reviewedAt: timestamp("reviewed_at", { withTimezone: true }),
 
-export const practiceSystemDesignCharts = pgTable(
-  "practice_system_design_charts",
-  {
-    id: text("id").primaryKey(),
-    questionId: text("question_id")
-      .notNull()
-      .references(() => practiceQuestions.id, { onDelete: "cascade" }),
-    chart: jsonb("chart").notNull().default([]),
-  },
-);
+  difficulty: text("difficulty").$type<DifficultyLevel>().notNull(),
+  isDemoMode: boolean("is_demo_mode").notNull().default(false),
+  companyType: text("company_type").$type<CompanyType>().notNull(),
+
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  prompt: text("prompt").notNull(),
+
+  topic: text("topic").notNull(),
+  subtopics: text("subtopics").array().notNull().default([]),
+  tags: text("tags").array().notNull().default([]),
+  estimatedTimeMinutes: integer("estimated_time_minutes").notNull().default(0),
+
+  aiEvaluationHint: text("ai_evaluation_hint"),
+  companies: jsonb("companies").$type<
+    Array<{
+      name: string;
+      logo: string;
+      size?: string[];
+      description: string;
+    }> | null
+  >(),
+  positions: text("positions").array().notNull().default([]),
+  primaryTechStack: text("primary_tech_stack").array().notNull().default([]),
+
+  interviewTypes: text("interview_types")
+    .array()
+    .$type<QuestionInterviewMode[]>()
+    .notNull()
+    .default([]),
+  seniorityLevels: text("seniority_levels").array().notNull().default([]),
+
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull(),
+  createdBy: text("created_by").notNull(),
+
+  complexityLevel: text("complexity_level"),
+  nonFunctionalRequirements: text("non_functional_requirements")
+    .array()
+    .notNull()
+    .default([]),
+  constraints: text("constraints").array().notNull().default([]),
+  scalingFocus: text("scaling_focus"),
+  hints: text("hints").array().notNull().default([]),
+  charts: jsonb("charts").$type<
+    Array<{
+      id: string;
+      nodes: Array<{
+        id: string;
+        type: string;
+        label: string;
+        description: string;
+        connections: string[];
+      }>;
+    }> | null
+  >(),
+});
