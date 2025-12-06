@@ -5,6 +5,8 @@ import { ErrorBoundary } from "@/components/common/error-boundary";
 import { DashboardPageClient } from "@/components/dashboard/templates/dashboard-page-client";
 import { requireAuth } from "@/lib/server-auth";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Dashboard | Blairify - Your Career Progress Hub",
   description:

@@ -5,6 +5,8 @@ import { ErrorBoundary } from "@/components/common/error-boundary";
 import { ProfilePageClient } from "@/components/profile/templates/profile-page-client";
 import { requireAuth } from "@/lib/server-auth";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Profile | Blairify - Manage Your Career Profile",
   description:

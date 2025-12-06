@@ -5,6 +5,8 @@ import { ErrorBoundary } from "@/components/common/error-boundary";
 import { JobsPageClient } from "@/components/jobs/templates/jobs-page-client";
 import { requireAuth } from "@/lib/server-auth";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Tech Jobs | Blairify - Find Your Next Career Opportunity",
   description:
