@@ -35,14 +35,12 @@ export const mcqQuestions = pgTable("mcq_questions", {
   estimatedTimeMinutes: integer("estimated_time_minutes").notNull().default(0),
 
   aiEvaluationHint: text("ai_evaluation_hint"),
-  companies: jsonb("companies").$type<
-    Array<{
-      name: string;
-      logo: string;
-      size?: string[];
-      description: string;
-    }> | null
-  >(),
+  companies: jsonb("companies").$type<Array<{
+    name: string;
+    logo: string;
+    size?: string[];
+    description: string;
+  }> | null>(),
   positions: text("positions").array().notNull().default([]),
   primaryTechStack: text("primary_tech_stack").array().notNull().default([]),
 
@@ -79,14 +77,12 @@ export const openQuestions = pgTable("open_questions", {
   estimatedTimeMinutes: integer("estimated_time_minutes").notNull().default(0),
 
   aiEvaluationHint: text("ai_evaluation_hint"),
-  companies: jsonb("companies").$type<
-    Array<{
-      name: string;
-      logo: string;
-      size?: string[];
-      description: string;
-    }> | null
-  >(),
+  companies: jsonb("companies").$type<Array<{
+    name: string;
+    logo: string;
+    size?: string[];
+    description: string;
+  }> | null>(),
   positions: text("positions").array().notNull().default([]),
   primaryTechStack: text("primary_tech_stack").array().notNull().default([]),
 
@@ -100,7 +96,9 @@ export const openQuestions = pgTable("open_questions", {
   createdAt: timestamp("created_at", { withTimezone: true }).notNull(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull(),
   createdBy: text("created_by").notNull(),
-  referenceAnswers: jsonb("reference_answers").$type<ReferenceAnswer[] | null>(),
+  referenceAnswers: jsonb("reference_answers").$type<
+    ReferenceAnswer[] | null
+  >(),
 });
 
 export const truefalseQuestions = pgTable("truefalse_questions", {
@@ -123,14 +121,12 @@ export const truefalseQuestions = pgTable("truefalse_questions", {
   estimatedTimeMinutes: integer("estimated_time_minutes").notNull().default(0),
 
   aiEvaluationHint: text("ai_evaluation_hint"),
-  companies: jsonb("companies").$type<
-    Array<{
-      name: string;
-      logo: string;
-      size?: string[];
-      description: string;
-    }> | null
-  >(),
+  companies: jsonb("companies").$type<Array<{
+    name: string;
+    logo: string;
+    size?: string[];
+    description: string;
+  }> | null>(),
   positions: text("positions").array().notNull().default([]),
   primaryTechStack: text("primary_tech_stack").array().notNull().default([]),
 
@@ -170,14 +166,12 @@ export const matchingQuestions = pgTable("matching_questions", {
   estimatedTimeMinutes: integer("estimated_time_minutes").notNull().default(0),
 
   aiEvaluationHint: text("ai_evaluation_hint"),
-  companies: jsonb("companies").$type<
-    Array<{
-      name: string;
-      logo: string;
-      size?: string[];
-      description: string;
-    }> | null
-  >(),
+  companies: jsonb("companies").$type<Array<{
+    name: string;
+    logo: string;
+    size?: string[];
+    description: string;
+  }> | null>(),
   positions: text("positions").array().notNull().default([]),
   primaryTechStack: text("primary_tech_stack").array().notNull().default([]),
 
@@ -219,14 +213,12 @@ export const systemDesignQuestions = pgTable("system_design_questions", {
   estimatedTimeMinutes: integer("estimated_time_minutes").notNull().default(0),
 
   aiEvaluationHint: text("ai_evaluation_hint"),
-  companies: jsonb("companies").$type<
-    Array<{
-      name: string;
-      logo: string;
-      size?: string[];
-      description: string;
-    }> | null
-  >(),
+  companies: jsonb("companies").$type<Array<{
+    name: string;
+    logo: string;
+    size?: string[];
+    description: string;
+  }> | null>(),
   positions: text("positions").array().notNull().default([]),
   primaryTechStack: text("primary_tech_stack").array().notNull().default([]),
 
@@ -249,16 +241,14 @@ export const systemDesignQuestions = pgTable("system_design_questions", {
   constraints: text("constraints").array().notNull().default([]),
   scalingFocus: text("scaling_focus"),
   hints: text("hints").array().notNull().default([]),
-  charts: jsonb("charts").$type<
-    Array<{
+  charts: jsonb("charts").$type<Array<{
+    id: string;
+    nodes: Array<{
       id: string;
-      nodes: Array<{
-        id: string;
-        type: string;
-        label: string;
-        description: string;
-        connections: string[];
-      }>;
-    }> | null
-  >(),
+      type: string;
+      label: string;
+      description: string;
+      connections: string[];
+    }>;
+  }> | null>(),
 });

@@ -24,7 +24,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import type { UserData } from "@/lib/services/auth/auth";
-import { queryQuestions } from "@/lib/services/questions/question-repository";
 import { parseFullMarkdown } from "@/lib/utils/markdown-parser";
 import type { Question } from "@/types/practice-question";
 
@@ -50,12 +49,25 @@ export function PracticeFlashcards({ user: _user }: PracticeFlashcardsProps) {
       try {
         setLoading(true);
         setError(null);
-        const { questions: data } = await queryQuestions({
-          filters: { status: "published" },
-          limit: 1000,
-        });
-        setQuestions(data);
-        setFilteredQuestions(data);
+        const response = await fetch(
+          "/api/practice/questions?limit=1000&status=published",
+        );
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch questions: ${response.statusText}`);
+        }
+
+        const result = (await response.json()) as {
+          success: boolean;
+          questions: Question[];
+        };
+
+        if (!result.success) {
+          throw new Error("Failed to load questions");
+        }
+
+        setQuestions(result.questions);
+        setFilteredQuestions(result.questions);
       } catch (err) {
         setError(
           err instanceof Error ? err.message : "Failed to load questions",

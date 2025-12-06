@@ -53,8 +53,20 @@ export async function getRelevantQuestionsForInterview(
   try {
     // Fetch questions from API endpoint instead of direct Firestore access
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+
+    const params = new URLSearchParams({
+      limit: "1000",
+      status: "published",
+    });
+
+    // Use position as canonical role topic for filtering
+    if (config.position) {
+      params.set("topic", config.position);
+      params.set("position", config.position);
+    }
+
     const response = await fetch(
-      `${baseUrl}/api/practice/questions?limit=1000&status=published`,
+      `${baseUrl}/api/practice/questions?${params.toString()}`,
     );
 
     if (!response.ok) {
@@ -93,7 +105,13 @@ export async function getRelevantQuestionsForInterview(
         config.technologies.length === 0 ||
         matchTechStack(q, config.technologies);
 
-      return difficultyMatch && categoryMatch && techStackMatch;
+      // Enforce role/topic match when position is specified
+      const roleMatch =
+        !config.position ||
+        q.topic === config.position ||
+        (q.positions ?? []).includes(config.position);
+
+      return difficultyMatch && categoryMatch && techStackMatch && roleMatch;
     });
 
     // Shuffle with timestamp-based seed for better randomization
@@ -138,8 +156,19 @@ export async function getRandomQuestionForInterview(
   try {
     // Fetch questions from API endpoint instead of direct Firestore access
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+
+    const params = new URLSearchParams({
+      limit: "1000",
+      status: "published",
+    });
+
+    if (config.position) {
+      params.set("topic", config.position);
+      params.set("position", config.position);
+    }
+
     const response = await fetch(
-      `${baseUrl}/api/practice/questions?limit=1000&status=published`,
+      `${baseUrl}/api/practice/questions?${params.toString()}`,
     );
 
     if (!response.ok) {
@@ -173,7 +202,12 @@ export async function getRandomQuestionForInterview(
         config.technologies.length === 0 ||
         matchTechStack(q, config.technologies);
 
-      return difficultyMatch && categoryMatch && techStackMatch;
+      const roleMatch =
+        !config.position ||
+        q.topic === config.position ||
+        (q.positions ?? []).includes(config.position);
+
+      return difficultyMatch && categoryMatch && techStackMatch && roleMatch;
     });
 
     if (relevantQuestions.length === 0) {
@@ -215,10 +249,18 @@ function matchCategoryToInterviewType(
 ): boolean {
   const categoryMap: Record<InterviewType, string[]> = {
     technical: [
-      "algorithms",
-      "data-structures",
+      // Role topics
       "frontend",
       "backend",
+      "fullstack",
+      "devops",
+      "mobile",
+      "data-engineer",
+      "data-scientist",
+      "cybersecurity",
+      // Functional topics
+      "algorithms",
+      "data-structures",
       "database",
       "performance",
       "testing",
@@ -226,23 +268,32 @@ function matchCategoryToInterviewType(
       "api-design",
       "architecture",
       "cloud",
-      "devops",
     ],
     "system-design": [
       "system-design",
+      "backend",
+      "fullstack",
+      "devops",
       "scalability",
       "architecture",
       "cloud",
-      "devops",
       "performance",
       "database",
       "api-design",
     ],
     coding: [
-      "algorithms",
-      "data-structures",
+      // Role topics
       "frontend",
       "backend",
+      "fullstack",
+      "devops",
+      "mobile",
+      "data-engineer",
+      "data-scientist",
+      "cybersecurity",
+      // Functional topics
+      "algorithms",
+      "data-structures",
       "testing",
       "debugging",
       "performance",
@@ -254,6 +305,7 @@ function matchCategoryToInterviewType(
       "problem-solving",
       "code-review",
       "debugging",
+      "product",
     ],
   };
 

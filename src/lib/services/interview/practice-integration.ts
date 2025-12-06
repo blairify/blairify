@@ -19,7 +19,7 @@ import { evaluateAnswer } from "../evaluation/evaluation-service";
 import {
   getQuestionById,
   queryQuestions,
-} from "../questions/question-repository";
+} from "../questions/neon-question-repository";
 
 // ============================================================================
 // Type Mappings

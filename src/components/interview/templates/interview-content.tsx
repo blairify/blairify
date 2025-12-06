@@ -29,6 +29,7 @@ interface StartInterviewResponse {
   message: string;
   error?: string;
   details?: unknown;
+  questionIds?: string[];
 }
 
 interface ChatInterviewResponse {
@@ -170,6 +171,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
           messages: [aiMessage],
           currentQuestionCount: 1,
           hasPersonalizedIntro: true,
+          questionIds: data.questionIds ?? [],
+          ...(data.questionIds && data.questionIds.length > 0
+            ? { totalQuestions: data.questionIds.length }
+            : {}),
         });
 
         if (user?.uid && !databaseSessionId) {
@@ -309,6 +314,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
           questionCount: session.currentQuestionCount,
           totalQuestions: session.totalQuestions,
           warningCount: warningCount,
+          questionIds: session.questionIds,
         }),
       });
 
@@ -441,6 +447,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
             questionCount: session.currentQuestionCount,
             totalQuestions: session.totalQuestions,
             warningCount,
+            questionIds: session.questionIds,
           }),
         });
 
@@ -549,6 +556,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
           interviewConfig: config,
           questionCount: session.currentQuestionCount,
           totalQuestions: session.totalQuestions,
+          questionIds: session.questionIds,
         }),
       });
 

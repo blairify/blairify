@@ -7,6 +7,38 @@ You are generating high-quality interview practice questions for a database with
 
 OUTPUT REQUIREMENTS
 Generate {{BATCH_SIZE}} new questions.
+
+For this batch, you MUST generate questions only in "open_questions".
+The arrays "mcq_questions", "truefalse_questions", "matching_questions", and "system_design_questions" MUST be present but MUST be empty arrays.
+
+For this batch, there is a SINGLE target role topic: "{{ROLE_TOPIC}}".
+- Every question MUST have "topic" set to exactly "{{ROLE_TOPIC}}".
+- "{{ROLE_TOPIC}}" MUST be one of these allowed role topics (one word, lowercase, no spaces):
+  - "frontend" (Frontend Developer)
+  - "backend" (Backend Developer)
+  - "fullstack" (Full Stack Developer)
+  - "devops" (DevOps Engineer)
+  - "mobile" (Mobile Developer)
+  - "data-engineer" (Data Engineer)
+  - "data-scientist" (Data Scientist)
+  - "cybersecurity" (Cybersecurity Engineer)
+  - "product" (Product Manager)
+
+Across ALL questions in this batch, enforce an approximate mix of difficulties:
+- about 25% "entry"
+- about 35% "junior"
+- about 30% "middle"
+- about 10% "senior" (no more than ~10–15% of the batch)
+
+Across ALL questions in this batch, ensure topics are appropriate to the target roles and cover the core sub-areas for that role.
+
+- For engineering roles ("frontend", "backend", "fullstack", "devops", "mobile", "data-engineer", "data-scientist", "cybersecurity"):
+  - cover a mix of language/framework fundamentals, debugging, performance, testing, architecture, and system-design aspects relevant to that role.
+- For "product":
+  - focus on product thinking, trade-offs, metrics, prioritisation, and collaborating with engineering, not low-level coding syntax.
+
+Avoid generating 100% pure syntax trivia: at least half of the questions should be scenario-based or applied.
+
 You MUST return a SINGLE JSON object with EXACTLY these 5 top-level array keys:
 - "mcq_questions"
 - "open_questions"
@@ -32,7 +64,7 @@ The shared core fields for every question are:
   "description": "string",
   "prompt": "string",
 
-  "topic": "frontend | backend | devops | system-design | algorithms | javascript | react | sql | networking | etc",
+  "topic": "frontend | backend | fullstack | devops | mobile | data-engineer | data-scientist | cybersecurity | product",
   "subtopics": ["string", "..."],
   "tags": ["string", "..."],
   "estimatedTimeMinutes": number,
@@ -48,7 +80,7 @@ The shared core fields for every question are:
     }
   ] or null,
 
-  "positions": ["Frontend Engineer", "Backend Engineer", "Full Stack Engineer", "..."],
+  "positions": ["frontend", "backend", "fullstack", "..."],
   "primaryTechStack": ["react", "typescript", "nodejs", "..."],
 
   "interviewTypes": ["regular", "practice", "flash", "play", "competitive", "teacher"],
@@ -59,14 +91,7 @@ The shared core fields for every question are:
   "createdBy": "generated_by_ai"
 }
 
-Type-specific fields are added per table below.
-
-"mcq_questions": [
-  {
-    // shared core fields...
-    "correctAnswerText": "string"
-  }
-],
+Type-specific fields for this batch (open_questions only) are:
 
 "open_questions": [
   {
@@ -79,63 +104,8 @@ Type-specific fields are added per table below.
       }
     ]
   }
-],
-
-"truefalse_questions": [
-  {
-    // shared core fields...
-    "correctAnswer": true | false,
-    "explanation": "string",
-    "trickinessLevel": number or null
-  }
-],
-
-"matching_questions": [
-  {
-    // shared core fields...
-    "shuffleLeft": boolean or null,
-    "shuffleRight": boolean or null,
-    "minPairs": number or null,
-    "maxPairs": number or null,
-
-    "pairs": [
-      {
-        "id": "string",
-        "left": "string",
-        "right": "string",
-        "explanation": "string or null",
-        "group": "string or null"
-      }
-    ]
-  }
-],
-
-"system_design_questions": [
-  {
-    // shared core fields...
-    "complexityLevel": "entry" | "junior" | "middle" | "senior" | null,
-    "nonFunctionalRequirements": ["string", "..."],
-    "constraints": ["string", "..."],
-    "scalingFocus": "string or null",
-    "hints": ["string", "..."],
-
-    "charts": [
-      {
-        "id": "string",
-        "nodes": [
-          {
-            "id": "string",
-            "type": "service | db | cache | queue | client | external",
-            "label": "string",
-            "description": "string",
-            "connections": ["id-of-other-node", "..."]
-          }
-        ]
-      }
-    ]
-  }
 ]
-}
+
 RULES
 - IDs must be unique UUID-like strings.
 - In a single batch do not create two questions with identical descriptions.
@@ -188,31 +158,24 @@ CONTENT RULES
     - note common mistakes or misconceptions to penalize,
     - describe how to judge partial vs full credit.
   - For other question types it MAY be null.
-- Favour entry and junior difficulty; include few middle; rarely senior.
-- MCQ questions:
-  - MUST appear in mcq_questions.
-  - correctAnswerText MUST be a single fully correct (true) answer statement.
-  - Additional incorrect options will be generated later based on correctAnswerText.
-- True/False questions:
-  - MUST appear in truefalse_questions.
-  - correctAnswer MUST be either true or false (not null).
-  - explanation MUST clearly justify the answer.
+- Include a healthy mix of difficulties in every batch: some entry, some junior, some middle, and some senior questions, following the distribution above.
+- Senior questions MUST involve realistic scenarios (architecture, debugging complex issues, trade-offs, or multi-step reasoning), not simple definition or syntax trivia.
 - Open questions:
   - MUST appear in open_questions.
   - SHOULD include 1–3 referenceAnswers as examples or guidance.
   - aiEvaluationHint is the primary source of evaluation logic.
-- Matching questions:
-  - MUST appear in matching_questions.
-  - MUST include 3–6 pairs.
-  - shuffleLeft/shuffleRight indicate which sides are shuffled in the UI.
-- System-design questions:
-  - MUST appear in system_design_questions.
-  - MUST include at least one chart with nodes + relationships.
-  - the question description MUST clearly explain the system, the key components, and what the candidate should design or reason about.
-  - keep diagrams simple for entry/junior difficulty.
 - Positions:
   - positions MUST be an array of plain strings (no objects).
-  - use simple role names like "Frontend Engineer", "Backend Engineer", "Full Stack Engineer", "DevOps Engineer".
+  - Use lower-case role slugs like:
+    - "frontend"
+    - "backend"
+    - "fullstack"
+    - "devops"
+    - "mobile"
+    - "data-engineer"
+    - "data-scientist"
+    - "cybersecurity"
+    - "product".
 - Interview types:
   - interviewTypes MUST use only: "regular", "practice", "flash", "play", "competitive", "teacher".
   - for MCQ questions: interviewTypes MUST include only "play".
@@ -220,7 +183,9 @@ CONTENT RULES
   - seniorityLevels MUST use only: "entry", "junior", "mid", "senior".
 - createdBy:
   - MUST always be exactly the string "generated_by_ai" for all questions.
-- Keep questions simple, readable and beginner-friendly.
+- Keep wording clear, concise, and readable.
+- For entry/junior questions, keep scenarios simple and focused on fundamentals.
+- For middle/senior questions, use realistic complexity and multi-step reasoning while keeping the text clear.
 - Must strictly output valid JSON only, no commentary or markdown.
 
 FINAL INSTRUCTIONS

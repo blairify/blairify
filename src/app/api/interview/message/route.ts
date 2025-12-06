@@ -35,6 +35,7 @@ export async function POST(request: NextRequest) {
       isFollowUp = false,
       totalQuestions,
       warningCount = 0,
+      questionIds,
     } = body;
 
     if (!interviewConfig) {
@@ -187,6 +188,36 @@ export async function POST(request: NextRequest) {
     const shouldComplete =
       !effectiveIsFollowUp && currentQuestionCount >= maxQuestions;
 
+    let currentQuestionPrompt: string | undefined;
+
+    const safeQuestionIds: string[] =
+      Array.isArray(questionIds) && questionIds.length > 0 ? questionIds : [];
+
+    if (
+      safeQuestionIds.length > 0 &&
+      !effectiveIsFollowUp &&
+      !interviewConfig.isDemoMode
+    ) {
+      const nextIndex = currentQuestionCount;
+
+      if (nextIndex >= 0 && nextIndex < safeQuestionIds.length) {
+        try {
+          const { getQuestionById } = await import(
+            "@/lib/services/questions/neon-question-repository"
+          );
+          const nextQuestion = await getQuestionById(
+            safeQuestionIds[nextIndex],
+          );
+          currentQuestionPrompt = nextQuestion?.prompt;
+        } catch (error) {
+          console.error("Failed to load Neon question for interview message:", {
+            error,
+            nextIndex,
+          });
+        }
+      }
+    }
+
     const systemPrompt = generateSystemPrompt(interviewConfig, interviewer);
     const userPrompt = generateUserPrompt(
       processedMessage,
@@ -195,6 +226,7 @@ export async function POST(request: NextRequest) {
       currentQuestionCount,
       effectiveIsFollowUp,
       interviewer,
+      currentQuestionPrompt,
     );
 
     const aiResponse = await generateInterviewResponse(

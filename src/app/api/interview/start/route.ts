@@ -66,6 +66,30 @@ export async function POST(request: NextRequest) {
 
     const systemPrompt =
       generateSystemPrompt(interviewConfig, interviewer) + questionsPrompt;
+
+    let firstQuestionPrompt: string | undefined;
+
+    if (
+      Array.isArray(questionIds) &&
+      questionIds.length > 0 &&
+      !interviewConfig.isDemoMode
+    ) {
+      try {
+        const { getQuestionById } = await import(
+          "@/lib/services/questions/neon-question-repository"
+        );
+        const firstQuestion = await getQuestionById(questionIds[0]);
+        firstQuestionPrompt = firstQuestion?.prompt;
+      } catch (error) {
+        console.error(
+          "Failed to load first Neon question for interview start:",
+          {
+            error,
+          },
+        );
+      }
+    }
+
     const userPrompt = generateUserPrompt(
       "",
       [],
@@ -73,6 +97,7 @@ export async function POST(request: NextRequest) {
       0,
       false,
       interviewer,
+      firstQuestionPrompt,
     );
 
     const aiResponse = await generateInterviewResponse(
@@ -104,6 +129,7 @@ export async function POST(request: NextRequest) {
         name: interviewer.name,
         avatarConfig: interviewer.avatarConfig,
       },
+      questionIds,
     });
   } catch (error) {
     console.error("Interview start API error:", error);

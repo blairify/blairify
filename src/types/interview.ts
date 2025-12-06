@@ -36,6 +36,7 @@ export interface InterviewSession {
   messages: Message[];
   currentQuestionCount: number;
   totalQuestions: number;
+  questionIds: string[];
   startTime: Date;
   endTime?: Date;
   isComplete: boolean;

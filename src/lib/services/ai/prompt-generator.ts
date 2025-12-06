@@ -94,6 +94,7 @@ export function generateUserPrompt(
   questionCount: number,
   isFollowUp: boolean,
   interviewer?: InterviewerProfile,
+  currentQuestionPrompt?: string,
 ): string {
   if (config.isDemoMode) {
     return generateDemoUserPrompt(
@@ -104,7 +105,11 @@ export function generateUserPrompt(
   }
 
   if (conversationHistory.length === 0) {
-    return generateFirstQuestionPrompt(config, interviewer);
+    return generateFirstQuestionPrompt(
+      config,
+      interviewer,
+      currentQuestionPrompt,
+    );
   }
 
   if (isFollowUp) {
@@ -125,7 +130,12 @@ export function generateUserPrompt(
   const isUnknown = isUnknownResponse(userMessage);
 
   if (isUnknown) {
-    return generateUnknownResponsePrompt(userMessage, config, questionCount);
+    return generateUnknownResponsePrompt(
+      userMessage,
+      config,
+      questionCount,
+      currentQuestionPrompt,
+    );
   }
 
   return generateNextQuestionPrompt(
@@ -133,6 +143,7 @@ export function generateUserPrompt(
     conversationHistory,
     config,
     questionCount,
+    currentQuestionPrompt,
   );
 }
 
@@ -458,18 +469,34 @@ This should be the final demo question. Ask something fun and encouraging that w
 function generateFirstQuestionPrompt(
   config: InterviewConfig,
   interviewer?: InterviewerProfile,
+  questionText?: string,
 ): string {
   const interviewerName = interviewer?.name || "TEST2";
 
   if (config.contextType === "job-specific" && config.company) {
-    return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question that's specifically tailored to this job opportunity and the requirements mentioned in the job context. Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
+    return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question from the mandatory practice library question list provided in the system prompt. Do not create or improvise any new questions – you must only use questions from that list.$
+$
+If a specific practice library question is provided, your first question MUST be semantically equivalent to it (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
+"${questionText ?? ""}"$
+$
+Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
   }
 
   if (config.company) {
-    return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question appropriate for a ${config.seniority}-level role at this company. Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
+    return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question from the mandatory practice library question list provided in the system prompt that is appropriate for a ${config.seniority}-level role at this company. Do not create or improvise any new questions – you must only use questions from that list.$
+$
+If a specific practice library question is provided, your first question MUST be semantically equivalent to it (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
+"${questionText ?? ""}"$
+$
+Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
   }
 
-  return `This is the start of a ${config.interviewType} interview. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question appropriate for a ${config.seniority}-level ${config.position} position. Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
+  return `This is the start of a ${config.interviewType} interview. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question from the mandatory practice library question list provided in the system prompt that is appropriate for a ${config.seniority}-level ${config.position} position. Do not create or improvise any new questions – you must only use questions from that list.$
+$
+If a specific practice library question is provided, your first question MUST be semantically equivalent to it (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
+"${questionText ?? ""}"$
+$
+Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
 }
 
 function getJobSpecificPrompt(
@@ -550,14 +577,20 @@ function generateUnknownResponsePrompt(
   userMessage: string,
   config: InterviewConfig,
   questionCount: number,
+  currentQuestionPrompt?: string,
 ): string {
   return `The candidate responded: "${userMessage}"
 
-The candidate indicated they don't know the answer or skipped the question. Acknowledge this professionally and move to the next question. Ask a different ${config.interviewType} question appropriate for a ${config.seniority}-level ${config.position} position that covers a different topic area. 
+The candidate indicated they don't know the answer or skipped the question. Acknowledge this professionally and move to the next question from the mandatory practice library question list defined in the system prompt. Do not create or improvise any new primary interview questions – only select the next unused question from that list.
 
-Be encouraging and supportive without using enthusiastic praise (for example, do NOT say things like "Great answer" or "Perfect" here, because they did not provide a correct answer). Normalize that it's okay not to know everything, and consider asking about a topic they might be more familiar with based on the conversation so far.
+If all questions from the practice library list have already been asked, do not invent new questions. Instead, briefly explain that there are no remaining questions in the planned set and gracefully move toward ending the interview.
 
-This is question ${questionCount + 1} of the interview.`;
+If a specific practice library question has been selected for the next turn, your next main question MUST be semantically equivalent to it (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
+"${currentQuestionPrompt ?? ""}"
+
+Be encouraging and supportive without using enthusiastic praise (for example, do NOT say things like "Great answer" or "Perfect" here, because they did not provide a correct answer). Normalize that it's okay not to know everything.
+
+This is question ${questionCount + 1} of the ${config.interviewType} interview for a ${config.seniority}-level ${config.position} position.`;
 }
 
 function generateClosingPrompt(
@@ -590,6 +623,7 @@ function generateNextQuestionPrompt(
   conversationHistory: Message[],
   config: InterviewConfig,
   questionCount: number,
+  currentQuestionPrompt?: string,
 ): string {
   const recentContext = conversationHistory
     .slice(-6)
@@ -601,27 +635,44 @@ function generateNextQuestionPrompt(
 
   const coveredTopics = extractCoveredTopics(conversationHistory);
 
+  if (currentQuestionPrompt) {
+    return `The candidate's previous response was: "${userMessage}"
+
+This is question ${questionCount + 1} of the interview.
+
+You MUST now ask the following practice library question (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
+"${currentQuestionPrompt}"
+
+⚠️ CRITICAL - QUESTION SOURCE AND REPETITION:
+- You MUST NOT create or improvise any new primary interview questions
+- Only use questions from the practice library list in the system prompt
+- Topics/concepts already covered: ${
+      coveredTopics.length > 0 ? coveredTopics.join(", ") : "none yet"
+    }
+- Do not repeat questions or substantially duplicate topics that have already been covered
+
+Recent conversation:
+${recentContext}`;
+  }
+
   return `The candidate's previous response was: "${userMessage}"
 
-This is question ${questionCount + 1} of the interview. Please ask the next ${config.interviewType} question appropriate for a ${config.seniority}-level ${config.position} position.
+This is question ${questionCount + 1} of the interview. Using only the mandatory practice library question list provided in the system prompt, ask the next unanswered question in order that is appropriate for a ${config.seniority}-level ${config.position} position.
 
-⚠️ CRITICAL - AVOID REPETITION:
-Topics/concepts already covered: ${coveredTopics.length > 0 ? coveredTopics.join(", ") : "none yet"}
+⚠️ CRITICAL - QUESTION SOURCE AND REPETITION:
+- You MUST NOT create or improvise any new primary interview questions
+- Only use questions from the practice library list in the system prompt
+- Topics/concepts already covered: ${
+    coveredTopics.length > 0 ? coveredTopics.join(", ") : "none yet"
+  }
+- Do not repeat questions or substantially duplicate topics that have already been covered
 
-DO NOT ask about these topics again. Instead, explore NEW areas such as:
-- Different technical concepts or tools
-- Alternative problem-solving scenarios
-- Different aspects of the development lifecycle
-- Various architectural patterns or design principles
-- Different performance or optimization challenges
-- Security, testing, or deployment topics not yet covered
-- Team collaboration, code review, or best practices
-- Real-world debugging or troubleshooting scenarios
+If all questions from the practice library list have already been asked, do not invent new questions. Instead, briefly explain that the planned questions are complete and transition toward ending the interview.
 
 Recent conversation:
 ${recentContext}
 
-Your next question MUST be completely different from previous questions. Vary the question type (scenario-based, conceptual, practical, comparison, problem-solving). Make it specific and relevant to ${config.position} role.`;
+Your next question must come directly from the remaining questions in the practice library list. Do not introduce topics that are not present in that list.`;
 }
 
 function extractCoveredTopics(conversationHistory: Message[]): string[] {
@@ -690,63 +741,15 @@ function generateFallbackQuestionsPrompt(
   config: InterviewConfig,
   questionCount: number,
 ): { prompt: string; questionIds: string[] } {
-  const prompt = `\n\n## 📝 INTERVIEW QUESTION GENERATION GUIDELINES:
+  const prompt = `\n\n## ⚠️ NO PRACTICE LIBRARY QUESTIONS AVAILABLE
 
-Since no practice library questions are available for this specific configuration, you will need to generate ${questionCount} appropriate interview questions.
+For this specific interview configuration (position: ${config.position}, seniority: ${config.seniority}, interview type: ${config.interviewType}, tech stack: ${
+    config.technologies.length > 0 ? config.technologies.join(", ") : "General"
+  }), there are currently no matching questions in the practice library database for the requested total of ${questionCount} questions.
 
-**Interview Configuration**:
-- **Position**: ${config.position}
-- **Seniority Level**: ${config.seniority} (${difficultyMap[config.seniority]})
-- **Interview Type**: ${config.interviewType} (${categoryDescription[config.interviewType]})
-- **Tech Stack**: ${config.technologies.length > 0 ? config.technologies.join(", ") : "General"}
-- **Total Questions**: ${questionCount}
+You must not generate or improvise new primary interview questions. Instead, briefly explain to the candidate that there are no available questions for this configuration and that the interview cannot proceed with the practice library.
 
-🎯 **QUESTION GENERATION REQUIREMENTS**:
-
-1. **Difficulty Alignment**: 
-   - Questions must match ${config.seniority}-level expectations
-   - ${difficultyMap[config.seniority]}
-
-2. **Interview Type Focus**:
-   - ${config.interviewType} interview style
-   - ${categoryDescription[config.interviewType]}
-
-3. **Technology Relevance**:
-   ${
-     config.technologies.length > 0
-       ? `- Focus on: ${config.technologies.join(", ")}\n   - Questions should test practical knowledge of these technologies`
-       : "- Use general technical questions appropriate for the position"
-   }
-
-4. **Question Structure**:
-   - Start with easier warm-up questions
-   - Progress to more challenging topics
-   - Include both theoretical and practical aspects
-   - Ask one question at a time
-   - Wait for candidate's answer before proceeding
-
-5. **Quality Standards**:
-   - Questions should be clear and specific
-   - Avoid ambiguous or trick questions
-   - Focus on real-world scenarios when possible
-   - Provide constructive feedback after each answer
-   - Ask follow-up questions to assess depth of knowledge
-
-6. **Interview Flow**:
-   - Maintain conversational tone
-   - Build rapport with the candidate
-   - Adapt difficulty based on candidate's responses
-   - Provide encouragement and guidance
-   - Keep questions relevant to ${config.position} role
-
-✅ **ALLOWED ACTIONS**:
-- Generate questions appropriate for the configuration
-- Adapt question difficulty based on candidate performance
-- Ask clarifying follow-up questions
-- Provide detailed feedback and explanations
-- Adjust interview pace based on candidate's comfort level
-
-Remember: Create a professional, supportive interview experience that accurately assesses the candidate's skills for a ${config.seniority}-level ${config.position} position.`;
+Keep the tone professional and supportive, and suggest that they try again with a different configuration or topic that has available questions.`;
 
   return { prompt, questionIds: [] };
 }
@@ -765,16 +768,16 @@ export async function getDatabaseQuestionsPrompt(
     );
 
     if (questions.length === 0) {
-      console.log(
-        "⚠️ No practice library questions available, using AI-generated questions",
+      console.error(
+        "❌ No practice library questions available for this configuration",
+        {
+          seniority: config.seniority,
+          interviewType: config.interviewType,
+          technologies: config.technologies,
+          position: config.position,
+        },
       );
       return generateFallbackQuestionsPrompt(config, questionCount);
-    }
-
-    if (questions.length < questionCount) {
-      console.log(
-        `⚠️ Only ${questions.length}/${questionCount} questions available from practice library, will supplement with AI-generated questions`,
-      );
     }
 
     const questionIds = questions.map((q) => q.id || "").filter(Boolean);
@@ -782,52 +785,7 @@ export async function getDatabaseQuestionsPrompt(
       .map((q, i) => `${i + 1}. ${formatQuestionForPrompt(q)}`)
       .join("\n\n");
 
-    const needsSupplementation = questions.length < questionCount;
-    const remainingQuestions = questionCount - questions.length;
-
-    const prompt = needsSupplementation
-      ? `\n\n## 📚 HYBRID INTERVIEW QUESTIONS (Practice Library + AI-Generated):
-
-**Available Practice Library Questions**: ${questions.length}
-**Additional Questions Needed**: ${remainingQuestions}
-**Total Questions for Interview**: ${questionCount}
-
-**Selection Criteria**:
-- **Difficulty**: ${config.seniority}-level (${difficultyMap[config.seniority]})
-- **Category**: ${config.interviewType} interview (${categoryDescription[config.interviewType]})
-- **Tech Stack**: ${config.technologies.length > 0 ? config.technologies.join(", ") : "General"}
-
----
-📋 **PRACTICE LIBRARY QUESTIONS** (Ask these first):
-${questionsText}
----
-
-🎯 **INTERVIEW INSTRUCTIONS**:
-
-**Phase 1 - Practice Library Questions (Questions 1-${questions.length})**:
-1. **START HERE** - Ask the ${questions.length} questions from the practice library above
-2. **Ask sequentially** - Go through them in order
-3. **Rephrase naturally** - Make questions conversational while keeping core content
-4. **Evaluate carefully** - Use the provided expected answers as guidelines
-
-**Phase 2 - AI-Generated Questions (Questions ${questions.length + 1}-${questionCount})**:
-After completing all practice library questions, generate ${remainingQuestions} additional questions that:
-- Match the ${config.seniority}-level difficulty
-- Focus on ${config.interviewType} interview topics
-- Test ${config.technologies.length > 0 ? config.technologies.join(", ") : "general technical"} knowledge
-- Maintain consistent difficulty and style with the practice library questions
-- Fill any gaps in coverage from the practice library questions
-
-✅ **ALLOWED ACTIONS**:
-- Use all practice library questions first
-- Generate additional questions only after practice library questions are exhausted
-- Rephrase questions naturally
-- Ask follow-up clarifications
-- Provide constructive feedback
-- Adapt difficulty based on candidate performance
-
-Remember: Prioritize practice library questions, then supplement with AI-generated questions to reach ${questionCount} total questions.`
-      : `\n\n## ⚠️ MANDATORY INTERVIEW QUESTIONS FROM PRACTICE LIBRARY:
+    const prompt = `\n\n## ⚠️ MANDATORY INTERVIEW QUESTIONS FROM PRACTICE LIBRARY:
 
 🔒 **STRICT REQUIREMENT**: You MUST ONLY ask questions from the list below. DO NOT create, generate, or improvise any questions outside of this list.
 
@@ -846,22 +804,22 @@ ${questionsText}
 1. **ONLY USE THE QUESTIONS ABOVE** - Do not create new questions or deviate from this list
 2. **Ask questions sequentially** - Start with Question 1, then 2, then 3, etc.
 3. **Rephrase naturally** - Make questions conversational while keeping the core content
-4. **One question at a time** - Wait for candidate's answer before moving to next question
+4. **One question at a time** - Wait for the candidate's answer before moving to the next question
 5. **Use expected answers** - Evaluate responses against the provided answer guidelines
 6. **Provide feedback** - Give constructive feedback after each answer
-7. **Ask follow-ups** - Clarify or dig deeper based on candidate's response, but return to the next question from the list
+7. **Ask follow-ups** - Clarify or dig deeper based on the candidate's response, but always return to the next question from the list for new primary questions
 
 🚫 **FORBIDDEN ACTIONS**:
 - Creating questions not in the list above
 - Skipping questions from the list
 - Asking random technical questions
-- Generating improvised questions
+- Generating improvised primary questions
 
 ✅ **ALLOWED FLEXIBILITY**:
 - Rephrasing questions for natural conversation
 - Asking follow-up clarifications on candidate's answers
 - Providing feedback and guidance
-- Adjusting tone based on candidate's level
+- Adjusting tone based on the candidate's level
 
 Remember: Your job is to guide the candidate through THESE SPECIFIC QUESTIONS from our practice library, not to create new ones.`;
 

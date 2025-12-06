@@ -321,25 +321,14 @@ export function getFallbackResponse(
   isFollowUp: boolean,
 ): string {
   if (config.isDemoMode) {
-    return "That's interesting! Our AI service is currently at capacity, but let me continue with a demo question. What interests you most about this field and what draws you to this type of work?";
+    return "I'm having some technical issues generating the next demo response right now. This is just a demo, so your progress isn't affected, but please refresh the page or try again in a moment.";
   }
 
   if (isFollowUp) {
-    return "Thank you for that detailed explanation. I appreciate your insights. Let's continue with the next question to explore different aspects of your experience.";
+    return "I ran into a technical issue while generating a follow-up question. Your previous answer is saved, but I can't reliably continue this follow-up. Please wait a moment and try again, or move on to the next question when the interview resumes.";
   }
 
-  switch (config.interviewType) {
-    case "technical":
-      return "Let me ask you a fundamental technical question. Can you walk me through your approach to debugging a complex issue in a system you're unfamiliar with?";
-    case "coding":
-      return "Here's a coding question for you: How would you approach optimizing a slow-performing database query? Please describe your thought process step by step.";
-    case "system-design":
-      return "Let's discuss system design. How would you design a scalable system to handle user authentication for a growing application with millions of users?";
-    case "bullet":
-      return "Let's keep this concise. In bullet points, can you describe the key factors you consider when choosing between different technology solutions?";
-    default:
-      return "Let me ask you about your experience. Can you describe a challenging project you worked on and how you approached solving the main technical obstacles?";
-  }
+  return "I encountered a technical problem while generating the next interview question. Your previous responses are saved, but I can't safely continue this interview right now. Please wait a moment and try again, or restart the interview when you're ready. I apologize for the inconvenience.";
 }
 
 /**

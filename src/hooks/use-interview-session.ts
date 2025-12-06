@@ -36,6 +36,7 @@ export function useInterviewSession(config: InterviewConfig) {
       messages: [],
       currentQuestionCount: 0,
       totalQuestions,
+      questionIds: [],
       startTime: new Date(),
       isComplete: false,
       isPaused: false,

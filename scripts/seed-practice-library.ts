@@ -122,8 +122,21 @@ const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
 });
 
-const TOTAL = 30;
-const BATCH_SIZE = 30;
+const ROLE_TOPICS = [
+  "frontend",
+  "backend",
+  "fullstack",
+  "devops",
+  "mobile",
+  "data-engineer",
+  "data-scientist",
+  "cybersecurity",
+  "product",
+] as const;
+
+const QUESTIONS_PER_ROLE = 10;
+const BATCH_SIZE = QUESTIONS_PER_ROLE;
+const TOTAL = ROLE_TOPICS.length * QUESTIONS_PER_ROLE;
 const OUT = "./questions_output.json";
 
 const SCHEMA_PATH = path.resolve(
@@ -146,22 +159,50 @@ let accumulator: BatchOutput = {
   system_design_questions: [],
 };
 
+const seenQuestionKeys = new Set<string>();
+
+function normalizeText(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function questionKey(q: JsonCoreQuestion): string {
+  return `${normalizeText(q.topic)}::${normalizeText(q.title)}`;
+}
+
+function dedupeQuestions<T extends JsonCoreQuestion>(items: T[]): T[] {
+  const result: T[] = [];
+
+  for (const item of items) {
+    const key = questionKey(item);
+    if (seenQuestionKeys.has(key)) continue;
+    seenQuestionKeys.add(key);
+    result.push(item);
+  }
+
+  return result;
+}
+
 // ---------------------
 // Helper functions
 // ---------------------
 
-function applyTemplate(schema: string, batchSize: number) {
-  return PROMPT_TEMPLATE.replace("{{SCHEMA}}", schema).replace(/{{BATCH_SIZE}}/g, String(batchSize));
+function applyTemplate(schema: string, batchSize: number, roleTopic: string) {
+  return PROMPT_TEMPLATE.replace("{{SCHEMA}}", schema)
+    .replace(/{{BATCH_SIZE}}/g, String(batchSize))
+    .replace(/{{ROLE_TOPIC}}/g, roleTopic);
 }
 
-async function generateBatch(batchNumber: number): Promise<void> {
-  const prompt = applyTemplate(SCHEMA, BATCH_SIZE);
+async function generateBatch(
+  batchNumber: number,
+  roleTopic: (typeof ROLE_TOPICS)[number],
+): Promise<void> {
+  const prompt = applyTemplate(SCHEMA, BATCH_SIZE, roleTopic);
 
   const res = await client.chat.completions.create({
     model: "gpt-4.1",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 10000,
+    max_completion_tokens: 10000,
   });
 
   let text = res.choices[0].message.content ?? "";
@@ -175,13 +216,6 @@ async function generateBatch(batchNumber: number): Promise<void> {
 
   try {
     json = JSON.parse(text);
-    const totalQuestions =
-      json.mcq_questions.length +
-      json.open_questions.length +
-      json.truefalse_questions.length +
-      json.matching_questions.length +
-      json.system_design_questions.length;
-    console.log(`✓ Batch ${batchNumber}: ${totalQuestions} questions generated`);
   } catch (err) {
     console.error(`❌ Failed to parse JSON for batch ${batchNumber}`);
     console.error("Raw model output:");
@@ -189,12 +223,25 @@ async function generateBatch(batchNumber: number): Promise<void> {
     throw err;
   }
 
+  const mcq = dedupeQuestions(json.mcq_questions);
+  const open = dedupeQuestions(json.open_questions);
+  const tf = dedupeQuestions(json.truefalse_questions);
+  const matching = dedupeQuestions(json.matching_questions);
+  const systemDesign = dedupeQuestions(json.system_design_questions);
+
+  const totalQuestions =
+    mcq.length + open.length + tf.length + matching.length + systemDesign.length;
+
+  console.log(
+    `✓ Batch ${batchNumber}: ${totalQuestions} questions generated (after dedupe)`,
+  );
+
   // Merge into master list
-  accumulator.mcq_questions.push(...json.mcq_questions);
-  accumulator.open_questions.push(...json.open_questions);
-  accumulator.truefalse_questions.push(...json.truefalse_questions);
-  accumulator.matching_questions.push(...json.matching_questions);
-  accumulator.system_design_questions.push(...json.system_design_questions);
+  accumulator.mcq_questions.push(...mcq);
+  accumulator.open_questions.push(...open);
+  accumulator.truefalse_questions.push(...tf);
+  accumulator.matching_questions.push(...matching);
+  accumulator.system_design_questions.push(...systemDesign);
 
   fs.writeFileSync(OUT, JSON.stringify(accumulator, null, 2));
 }
@@ -208,13 +255,16 @@ async function sleep(ms: number) {
 // ---------------------
 
 async function main() {
-  const batches = TOTAL / BATCH_SIZE;
+  const batches = ROLE_TOPICS.length;
 
-  console.log(`🚀 Generating ${TOTAL} questions in ${batches} batches...`);
+  console.log(
+    `🚀 Generating ${TOTAL} questions (${QUESTIONS_PER_ROLE} per role) in ${batches} batches...`,
+  );
 
-  for (let i = 1; i <= batches; i++) {
-    console.log(`\n🟦 Running batch ${i}/${batches}`);
-    await generateBatch(i);
+  for (let i = 0; i < batches; i++) {
+    const roleTopic = ROLE_TOPICS[i];
+    console.log(`\n🟦 Running batch ${i + 1}/${batches} for topic "${roleTopic}"`);
+    await generateBatch(i + 1, roleTopic);
 
     // Basic anti-rate-limit pause
     await sleep(1200);

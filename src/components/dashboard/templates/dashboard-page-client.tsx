@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { ProfileOnboardingModal } from "@/components/dashboard/organisms/profile-onboarding-modal";

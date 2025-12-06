@@ -24,6 +24,7 @@ export async function POST(request: NextRequest) {
       interviewConfig,
       questionCount,
       totalQuestions,
+      questionIds,
     } = body;
 
     // Validate required fields
@@ -54,6 +55,32 @@ export async function POST(request: NextRequest) {
         )
       : getInterviewerForRole(interviewConfig.position);
 
+    const safeQuestionIds: string[] =
+      Array.isArray(questionIds) && questionIds.length > 0 ? questionIds : [];
+
+    let currentQuestionPrompt: string | undefined;
+
+    if (safeQuestionIds.length > 0 && !interviewConfig.isDemoMode) {
+      const nextIndex = questionCount || 0;
+
+      if (nextIndex >= 0 && nextIndex < safeQuestionIds.length) {
+        try {
+          const { getQuestionById } = await import(
+            "@/lib/services/questions/neon-question-repository"
+          );
+          const nextQuestion = await getQuestionById(
+            safeQuestionIds[nextIndex],
+          );
+          currentQuestionPrompt = nextQuestion?.prompt;
+        } catch (error) {
+          console.error("Failed to load Neon question for skip route:", {
+            error,
+            nextIndex,
+          });
+        }
+      }
+    }
+
     // Generate next question after skipping
     const systemPrompt = generateSystemPrompt(interviewConfig, interviewer);
     const userPrompt = generateUserPrompt(
@@ -63,6 +90,7 @@ export async function POST(request: NextRequest) {
       (questionCount || 0) + 1, // Increment question count
       false, // Not a follow-up
       interviewer,
+      currentQuestionPrompt,
     );
 
     // Get AI response for the next question

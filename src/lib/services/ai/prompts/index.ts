@@ -1,18 +1,22 @@
 /**
  * Prompt Generation Module
- * Modular functional approach to generating AI prompts
+ * Thin facade over the canonical prompt implementations.
+ *
+ * This file exists for backwards compatibility with the modular
+ * `ai/prompts` API but delegates to `prompt-generator.ts` to avoid
+ * duplication and drift.
  */
 
+// Canonical prompt functions (system, user, questions)
+export {
+  generateAnalysisSystemPrompt,
+  generateSystemPrompt,
+  generateUserPrompt,
+  getDatabaseQuestionsPrompt,
+} from "@/lib/services/ai/prompt-generator";
 // Re-export constants for external use
 export {
   CATEGORY_DESCRIPTION,
   DIFFICULTY_MAP,
   PASSING_THRESHOLDS,
 } from "./constants";
-export { getDatabaseQuestionsPrompt } from "./question-prompts";
-// Re-export all prompt generation functions
-export {
-  generateAnalysisSystemPrompt,
-  generateSystemPrompt,
-} from "./system-prompts";
-export { generateUserPrompt } from "./user-prompts";
