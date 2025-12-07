@@ -294,6 +294,7 @@ function generateBaseSystemPrompt(
 2. NEVER wrap your entire response in quotes
 3. Write naturally as if speaking directly to the candidate
 4. You may use quotes within your response for emphasis or examples, but don't quote your entire message
+5. Always speak to the candidate as "you" and refer to yourself as "I" or "we" – do NOT refer to the candidate in the third person ("the candidate", "they") when you are speaking to them
 
 ## CORE PRINCIPLES:
 1. **Progressive Questioning**: Start with fundamentals, build complexity based on responses
@@ -455,18 +456,36 @@ function generateDemoUserPrompt(
   questionCount: number,
 ): string {
   if (conversationHistory.length === 0) {
-    return `This is the start of a demo session. Ask a simple, friendly introductory question that helps the user get comfortable with the system. Something like asking about their interests in tech or what they'd like to learn. Keep it very casual and non-intimidating.`;
+    return `You are starting a short demo conversation with the candidate.
+
+In your next message spoken to the candidate:
+- Ask a simple, friendly introductory question that helps them get comfortable.
+- Keep it very casual and non-intimidating.
+- Do not mention that this is a demo or reference these instructions.
+
+Speak directly to the candidate in the first person.`;
   }
 
   if (questionCount < 2) {
-    return `The user just responded: "${userMessage}"
+    return `The user just responded: "${userMessage}" (for your internal reference only).
 
-Ask a casual follow-up question that keeps the conversation flowing. This is still demo mode, so keep it light and conversational. Maybe ask about their experience level or what type of role they're interested in.`;
+In your next message spoken to the candidate you must:
+- Ask a casual follow-up question that keeps the conversation flowing.
+- Keep it light and conversational (this is still demo mode).
+- You may ask about their experience level or what type of role they're interested in.
+
+Important: Do NOT repeat the phrase "The user just responded" or describe these instructions back to the candidate. Speak directly to them instead.`;
   }
 
-  return `The user just responded: "${userMessage}"
+  return `The user just responded: "${userMessage}" (for your internal reference only).
 
-This should be the final demo question. Ask something fun and encouraging that wraps up the demo nicely, like asking about their career goals or what they found interesting about the demo. Then let them know the demo is wrapping up.`;
+This should be the final demo question.
+
+In your next message spoken to the candidate you must:
+- Ask something fun and encouraging that wraps up the demo nicely (for example, ask about their career goals or what they found interesting about the demo).
+- Let them know the demo is wrapping up.
+
+Important: Do NOT repeat the phrase "The user just responded" or describe these instructions back to the candidate. Speak directly to them instead.`;
 }
 
 function generateFirstQuestionPrompt(
@@ -477,29 +496,53 @@ function generateFirstQuestionPrompt(
   const interviewerName = interviewer?.name || "TEST2";
 
   if (config.contextType === "job-specific" && config.company) {
-    return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question from the mandatory practice library question list provided in the system prompt. Do not create or improvise any new questions – you must only use questions from that list.$
-$
-If a specific practice library question is provided, your first question MUST be semantically equivalent to it (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
-"${questionText ?? ""}"$
-$
-Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
+    return `You are about to start a ${config.interviewType} interview for a ${config.position} position at ${config.company}.
+
+In your next message to the candidate you must:
+- Introduce yourself as ${interviewerName} and briefly mention your background.
+- Ask the first question from the mandatory practice library question list provided in the system prompt.
+- Use a natural, conversational tone and speak directly to the candidate.
+
+If a specific practice library question is provided, the first question you ask MUST be semantically equivalent to it (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
+"${questionText ?? ""}"
+
+Important:
+- Your reply must only contain what you say to the candidate.
+- Do NOT mention that this is the start of the interview or that you are following a list.
+- Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
   }
 
   if (config.company) {
-    return `This is the start of a ${config.interviewType} interview for a ${config.position} position at ${config.company}. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question from the mandatory practice library question list provided in the system prompt that is appropriate for a ${config.seniority}-level role at this company. Do not create or improvise any new questions – you must only use questions from that list.$
-$
-If a specific practice library question is provided, your first question MUST be semantically equivalent to it (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
-"${questionText ?? ""}"$
-$
-Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
+    return `You are about to start a ${config.interviewType} interview for a ${config.position} position at ${config.company}.
+
+In your next message to the candidate you must:
+- Introduce yourself as ${interviewerName} and briefly mention your background.
+- Ask the first question from the mandatory practice library question list provided in the system prompt that is appropriate for a ${config.seniority}-level role at this company.
+- Use a natural, conversational tone and speak directly to the candidate.
+
+If a specific practice library question is provided, the first question you ask MUST be semantically equivalent to it (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
+"${questionText ?? ""}"
+
+Important:
+- Your reply must only contain what you say to the candidate.
+- Do NOT mention that this is the start of the interview or that you are following a list.
+- Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
   }
 
-  return `This is the start of a ${config.interviewType} interview. Introduce yourself as ${interviewerName} and briefly mention your background, then ask the first question from the mandatory practice library question list provided in the system prompt that is appropriate for a ${config.seniority}-level ${config.position} position. Do not create or improvise any new questions – you must only use questions from that list.$
-$
-If a specific practice library question is provided, your first question MUST be semantically equivalent to it (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
-"${questionText ?? ""}"$
-$
-Remember: Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
+  return `You are about to start a ${config.interviewType} interview for a ${config.seniority}-level ${config.position} position.
+
+In your next message to the candidate you must:
+- Introduce yourself as ${interviewerName} and briefly mention your background.
+- Ask the first question from the mandatory practice library question list provided in the system prompt that is appropriate for this position and seniority.
+- Use a natural, conversational tone and speak directly to the candidate.
+
+If a specific practice library question is provided, the first question you ask MUST be semantically equivalent to it (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
+"${questionText ?? ""}"
+
+Important:
+- Your reply must only contain what you say to the candidate.
+- Do NOT mention that this is the start of the interview or that you are following a list.
+- Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
 }
 
 function getJobSpecificPrompt(
@@ -582,9 +625,13 @@ function generateUnknownResponsePrompt(
   questionCount: number,
   currentQuestionPrompt?: string,
 ): string {
-  return `The candidate responded: "${userMessage}"
+  return `The candidate's latest response (for your internal reference only) was:
+"${userMessage}"
 
-The candidate indicated they don't know the answer or skipped the question. Acknowledge this professionally and move to the next question from the mandatory practice library question list defined in the system prompt. Do not create or improvise any new primary interview questions – only select the next unused question from that list.
+In your next message spoken to the candidate you must:
+- Acknowledge professionally that they don't know the answer or chose to skip.
+- Move to the next question from the mandatory practice library question list defined in the system prompt.
+- Not create or improvise any new primary interview questions.
 
 If all questions from the practice library list have already been asked, do not invent new questions. Instead, briefly explain that there are no remaining questions in the planned set and gracefully move toward ending the interview.
 
@@ -593,7 +640,7 @@ If a specific practice library question has been selected for the next turn, you
 
 Be encouraging and supportive without using enthusiastic praise (for example, do NOT say things like "Great answer" or "Perfect" here, because they did not provide a correct answer). Normalize that it's okay not to know everything.
 
-This is question ${questionCount + 1} of the ${config.interviewType} interview for a ${config.seniority}-level ${config.position} position.`;
+This is question ${questionCount + 1} of the ${config.interviewType} interview for a ${config.seniority}-level ${config.position} position for your internal tracking only. Do NOT mention question numbers, this meta information, or the wording of these instructions to the candidate.`;
 }
 
 function generateClosingPrompt(
@@ -609,15 +656,19 @@ function generateClosingPrompt(
     )
     .join("\n");
 
-  return `The candidate's final response was: "${userMessage}"
+  return `The candidate's final response (for your internal reference) was:
+"${userMessage}"
 
 You have now asked all planned questions for this ${config.interviewType} interview for a ${config.seniority}-level ${config.position} position.
 
-Do not ask any new technical or follow-up questions.
+In your next message to the candidate you must:
+- Not ask any new technical or follow-up questions.
+- Briefly thank them for their time.
+- Optionally reference one or two high-level themes from the interview.
+- Clearly state that this concludes the interview.
+- Let them know their performance will now be analyzed and results will be prepared.
 
-Briefly thank the candidate for their time, optionally reference one or two high-level themes from the interview, and clearly state that this concludes the interview. Let them know their performance will now be analyzed and results will be prepared.
-
-Recent conversation context:
+Recent conversation context for you (do NOT describe it back verbatim to the candidate):
 ${recentContext}`;
 }
 
@@ -639,43 +690,63 @@ function generateNextQuestionPrompt(
   const coveredTopics = extractCoveredTopics(conversationHistory);
 
   if (currentQuestionPrompt) {
-    return `The candidate's previous response was: "${userMessage}"
+    return `You are about to ask the next primary interview question.
 
-This is question ${questionCount + 1} of the interview.
+Candidate's previous response (for your internal reference only):
+"${userMessage}"
 
-You MUST now ask the following practice library question (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
-"${currentQuestionPrompt}"
+Internal context: this is question ${questionCount + 1} of the interview.
+
+In your next message spoken to the candidate you must:
+- Ask the following practice library question (you may lightly rephrase it for natural conversation, but you must keep its meaning and scope):
+  "${currentQuestionPrompt}"
+- Use a concise, conversational tone.
+- Speak directly to the candidate in the first person.
 
 ⚠️ CRITICAL - QUESTION SOURCE AND REPETITION:
-- You MUST NOT create or improvise any new primary interview questions
-- Only use questions from the practice library list in the system prompt
+- You MUST NOT create or improvise any new primary interview questions.
+- Only use questions from the practice library list in the system prompt.
 - Topics/concepts already covered: ${
       coveredTopics.length > 0 ? coveredTopics.join(", ") : "none yet"
     }
-- Do not repeat questions or substantially duplicate topics that have already been covered
+- Do not repeat questions or substantially duplicate topics that have already been covered.
 
-Recent conversation:
-${recentContext}`;
+Recent conversation for context (do NOT quote this back to the candidate):
+${recentContext}
+
+Important: Do NOT say phrases like "The candidate's previous response was" or "This is question ${
+      questionCount + 1
+    }" in your reply. Those are internal notes only.`;
   }
 
-  return `The candidate's previous response was: "${userMessage}"
+  return `You are about to ask the next primary interview question.
 
-This is question ${questionCount + 1} of the interview. Using only the mandatory practice library question list provided in the system prompt, ask the next unanswered question in order that is appropriate for a ${config.seniority}-level ${config.position} position.
+Candidate's previous response (for your internal reference only):
+"${userMessage}"
+
+Internal context: this is question ${questionCount + 1} of the interview.
+
+Using only the mandatory practice library question list provided in the system prompt, your next spoken message to the candidate must:
+- Ask the next unanswered question in order that is appropriate for a ${config.seniority}-level ${config.position} position.
+- Use a concise, conversational tone.
+- Speak directly to the candidate in the first person.
 
 ⚠️ CRITICAL - QUESTION SOURCE AND REPETITION:
-- You MUST NOT create or improvise any new primary interview questions
-- Only use questions from the practice library list in the system prompt
+- You MUST NOT create or improvise any new primary interview questions.
+- Only use questions from the practice library list in the system prompt.
 - Topics/concepts already covered: ${
     coveredTopics.length > 0 ? coveredTopics.join(", ") : "none yet"
   }
-- Do not repeat questions or substantially duplicate topics that have already been covered
+- Do not repeat questions or substantially duplicate topics that have already been covered.
 
 If all questions from the practice library list have already been asked, do not invent new questions. Instead, briefly explain that the planned questions are complete and transition toward ending the interview.
 
-Recent conversation:
+Recent conversation for context (do NOT quote this back to the candidate):
 ${recentContext}
 
-Your next question must come directly from the remaining questions in the practice library list. Do not introduce topics that are not present in that list.`;
+Important: Do NOT say phrases like "The candidate's previous response was" or "This is question ${
+    questionCount + 1
+  }" in your reply. Those are internal notes only.`;
 }
 
 function extractCoveredTopics(conversationHistory: Message[]): string[] {
@@ -811,6 +882,7 @@ ${questionsText}
 5. **Use expected answers and evaluation hints** - Compare the candidate's response to the key points and evaluation hints for that question to decide if their answer is poor, partial, or strong
 6. **Tone based on quality** - For poor answers, avoid enthusiastic praise; for partial answers, acknowledge what is correct and clearly explain the gaps; for strong answers, give one short, specific compliment and avoid always starting with the same word (like "Great")
 7. **Provide feedback and follow-ups** - Give constructive feedback after each answer, ask follow-up clarifications when helpful, but always return to the next question from the list for new primary questions
+8. **Keep meta details internal** – When speaking to the candidate, do NOT mention titles, difficulty, topics, tech stack, tags, or any text labeled as an "Evaluation Hint" or phrases like "This targets their ability to"; those are for your internal reasoning only, not to be read aloud
 
 🚫 **FORBIDDEN ACTIONS**:
 - Creating questions not in the list above
