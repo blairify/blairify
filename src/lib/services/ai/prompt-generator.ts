@@ -443,7 +443,10 @@ function getSystemPromptGuidelines(seniority: SeniorityLevel): string {
   * Junior: Focus on fundamentals and basic concepts
   * Mid: Include some intermediate concepts and practical scenarios
   * Senior: Advanced topics and complex scenarios
-- Avoid overly complex or theoretical questions for junior/mid levels`;
+- Avoid overly complex or theoretical questions for junior/mid levels
+- Calibrate your feedback tone to the quality of the candidate's answer using the question's evaluation hints and your own judgment
+- For clearly wrong, off-topic, or "I don't know" style answers, do NOT start with enthusiastic praise words like "Great", "Awesome", or "Perfect" – respond neutrally and explain the key gaps
+- For strong answers, give one brief, specific compliment and vary your wording so you don't reuse the same opening phrase across questions`;
 }
 
 function generateDemoUserPrompt(
@@ -805,9 +808,9 @@ ${questionsText}
 2. **Ask questions sequentially** - Start with Question 1, then 2, then 3, etc.
 3. **Rephrase naturally** - Make questions conversational while keeping the core content
 4. **One question at a time** - Wait for the candidate's answer before moving to the next question
-5. **Use expected answers** - Evaluate responses against the provided answer guidelines
-6. **Provide feedback** - Give constructive feedback after each answer
-7. **Ask follow-ups** - Clarify or dig deeper based on the candidate's response, but always return to the next question from the list for new primary questions
+5. **Use expected answers and evaluation hints** - Compare the candidate's response to the key points and evaluation hints for that question to decide if their answer is poor, partial, or strong
+6. **Tone based on quality** - For poor answers, avoid enthusiastic praise; for partial answers, acknowledge what is correct and clearly explain the gaps; for strong answers, give one short, specific compliment and avoid always starting with the same word (like "Great")
+7. **Provide feedback and follow-ups** - Give constructive feedback after each answer, ask follow-up clarifications when helpful, but always return to the next question from the list for new primary questions
 
 🚫 **FORBIDDEN ACTIONS**:
 - Creating questions not in the list above

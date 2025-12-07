@@ -361,10 +361,14 @@ export function formatQuestionForPrompt(question: Question): string {
   // Format company info
   const company = question.companies?.[0]?.name || "General";
 
+  const evaluationHint = question.aiEvaluationHint
+    ? `\nEvaluation Hint (for you only, do NOT read aloud): ${question.aiEvaluationHint}`
+    : "";
+
   // Enhanced format: more comprehensive but AI-readable, without exposing reference answers
   return `**${question.title}** (${question.difficulty})\nTopic: ${
     question.topic
   }\nTech: ${techStack || "General"}\nCompany: ${
     company
-  }\nQuestion: ${question.prompt}\nTags: ${question.tags.join(", ")}`;
+  }\nQuestion: ${question.prompt}\nTags: ${question.tags.join(", ")}${evaluationHint}`;
 }

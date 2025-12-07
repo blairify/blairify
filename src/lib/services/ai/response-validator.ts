@@ -76,14 +76,20 @@ export function validateUserResponse(response: string): {
 }
 
 export function isUnknownResponse(message: string): boolean {
-  const lowerMessage = message.toLowerCase();
-  return (
-    lowerMessage.includes("don't know") ||
-    lowerMessage.includes("not sure") ||
-    lowerMessage.includes("idk") ||
-    lowerMessage.includes("no idea") ||
-    message === "[Question skipped]"
-  );
+  const trimmed = message.trim();
+
+  if (!trimmed) return true;
+
+  if (
+    trimmed === "[Question skipped]" ||
+    trimmed.toLowerCase() === "[question skipped]"
+  ) {
+    return true;
+  }
+
+  const { isNoAnswer, isGibberish } = validateUserResponse(trimmed);
+
+  return isNoAnswer || isGibberish;
 }
 
 export function analyzeResponseCharacteristics(response: string): {
