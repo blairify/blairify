@@ -20,7 +20,7 @@ export default function Logo({
   const linkClasses =
     `!flex !flex-col !items-center !justify-center ${className}`.trim();
   const logoTextClasses =
-    "!font-stretch-extra-expanded text-black !font-extrabold dark:text-white";
+    "font-heading !font-stretch-extra-expanded text-black !font-extrabold dark:text-white";
 
   if (variant === "minimal") {
     return (

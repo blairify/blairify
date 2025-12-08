@@ -1,21 +1,13 @@
 "use client";
 
-import { ArrowRight, Gift, Share2, TrendingUp } from "lucide-react";
-import dynamic from "next/dynamic";
+import { ArrowRight, Share2, TrendingUp } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { SiLightning } from "react-icons/si";
 import { useAuth } from "@/providers/auth-provider";
 import { Typography } from "../../common/atoms/typography";
 import { Button } from "../../ui/button";
 import RotatingText from "../../ui/rotating-text";
-
-const MainLogo = dynamic(() => import("../../common/atoms/main-logo"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full bg-transparent flex items-center justify-center">
-      <div className="w-16 h-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
-    </div>
-  ),
-});
 
 export default function HeroSection() {
   const router = useRouter();
@@ -26,15 +18,22 @@ export default function HeroSection() {
       aria-labelledby="hero-heading"
       data-analytics-id="home-hero"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-16 max-w-7xl">
+      <div className="container mx-auto  px-4 sm:px-6 lg:px-8 py-6 sm:py-16 lg:py-26 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-center">
-          <div className="flex justify-center lg:justify-end items-center order-1 lg:order-2 animate-in slide-in-from-right-8 duration-1000 delay-400">
+          <div className="group flex justify-center lg:justify-end items-center order-1 lg:order-2 animate-in slide-in-from-right-8 duration-1000 delay-400 mt-10 sm:mt-0">
             <div
-              className="relative w-full pt-8 sm:pt-12 lg:pt-14 max-w-[180px] sm:max-w-[250px] lg:max-w-[350px] xl:max-w-[450px] aspect-[1/1]"
+              className="relative w-full pt-4 sm:pt-8 lg:pt-10 max-w-[120px] sm:max-w-[210px] lg:max-w-[280px] xl:max-w-[340px] aspect-[1/1] animate-float-slow transition-transform duration-500 group-hover:scale-110"
               role="img"
               aria-label="Blairify logo - AI-powered interview preparation platform"
             >
-              <MainLogo size="md" />
+              <Image
+                src="/icon0.svg"
+                alt="Blairify logo"
+                fill
+                priority
+                sizes="(max-width: 640px) 28vw, (max-width: 1024px) 28vw, 320px"
+                className="object-contain drop-shadow-lg"
+              />
             </div>
           </div>
           <div className="flex flex-col justify-center space-y-3 sm:space-y-5 lg:space-y-6 text-center lg:text-left order-2 lg:order-1 animate-in slide-in-from-left-8 duration-1000 delay-200">
@@ -117,6 +116,7 @@ export default function HeroSection() {
                     onClick={() => {
                       router.push("/auth");
                     }}
+                    variant="outline"
                     aria-label="Start practicing for free - Sign up now"
                   >
                     Start Practicing Free{" "}
@@ -128,13 +128,13 @@ export default function HeroSection() {
                   <Button
                     variant="outline"
                     className="w-full sm:w-auto text-xs sm:text-sm lg:text-base px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3"
-                    onClick={() => {
-                      router.push("/auth");
-                    }}
-                    aria-label="Special gift for new members - Start practicing"
+                    onClick={() =>
+                      window.open("https://enterprise.blairify.com", "_self")
+                    }
+                    aria-label="Explore Enterprise Features"
                   >
-                    Gift for new joiners
-                    <Gift
+                    Explore Enterprise Features
+                    <SiLightning
                       className="size-3 sm:size-4 ml-2"
                       aria-hidden="true"
                     />

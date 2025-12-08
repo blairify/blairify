@@ -47,7 +47,7 @@ export default function Footer() {
       className="bg-[color:var(--card)] text-[color:var(--muted-foreground)] border-t border-[color:var(--border)] transition-colors duration-300 mt-auto"
       data-analytics-id="home-footer"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 max-w-7xl bg-[color:var(--muted)]/10">
         {/* Top Section: Brand + Links + Badges */}
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 mb-6">
           {/* Brand + Legal Links */}

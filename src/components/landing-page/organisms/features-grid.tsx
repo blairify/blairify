@@ -1,15 +1,15 @@
 "use client";
 
 import {
-  Activity,
-  BarChart2,
-  Clock,
-  Cpu,
-  FileText,
-  Repeat,
-  Shield,
-  UserCheck,
-} from "lucide-react";
+  SiAmazon,
+  SiClockify,
+  SiDatabricks,
+  SiGoogleassistant,
+  SiLetsencrypt,
+  SiOpenai,
+  SiTableau,
+  SiZapier,
+} from "react-icons/si";
 import { Typography } from "@/components/common/atoms/typography";
 
 const features = [
@@ -17,46 +17,46 @@ const features = [
     title: "AI-Generated Questions",
     description:
       "Adaptive, real-life interview questions tailored to your experience and target role.",
-    icon: Cpu,
+    icon: SiOpenai,
   },
   {
     title: "Smart Follow-Ups",
     description:
       "AI maintains context and asks intelligent follow-up questions.",
-    icon: Repeat,
+    icon: SiGoogleassistant,
   },
   {
     title: "Instant Feedback",
     description: "Receive detailed analysis with actionable suggestions.",
-    icon: Activity,
+    icon: SiDatabricks,
   },
   {
     title: "Progress Analytics",
     description: "Track your improvement over time with detailed metrics.",
-    icon: BarChart2,
+    icon: SiTableau,
   },
   {
     title: "Role-Specific Practice",
     description: "Tailored questions for Frontend, Backend, DevOps, and more.",
-    icon: UserCheck,
+    icon: SiAmazon,
   },
   {
     title: "Multiple Formats",
     description:
       "Practice via text, voice recording, or whiteboard challenges.",
-    icon: FileText,
+    icon: SiZapier,
   },
   {
     title: "24/7 Availability",
     description:
       "Practice anytime, anywhere with our always-available AI interviewer.",
-    icon: Clock,
+    icon: SiClockify,
   },
   {
     title: "Secure & Private",
     description:
       "Your practice sessions and data are protected with enterprise-grade security.",
-    icon: Shield,
+    icon: SiLetsencrypt,
   },
 ];
 

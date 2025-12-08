@@ -1,4 +1,5 @@
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Lora, Noto_Sans } from "next/font/google";
 import Script from "next/script";
 import { type ReactNode, Suspense } from "react";
 import { CookieBanner } from "../components/landing-page/organisms/cookie-banner";
@@ -9,6 +10,18 @@ import { ThemeProvider } from "../providers/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
 import LoadingPage from "@/components/common/atoms/loading-page";
+
+const headingFont = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-heading-var",
+});
+
+const bodyFont = Noto_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body-var",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -120,7 +133,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TNB35QZL');`}
         </Script>
       </head>
-      <body className="font-sans antialiased min-h-screen bg-background text-foreground">
+      <body
+        className={`${bodyFont.variable} ${headingFont.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
+      >
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-TNB35QZL"

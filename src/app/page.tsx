@@ -192,10 +192,15 @@ export default async function HomePage() {
             data-analytics-id="home-main"
           >
             <HeroSection />
+            <div className="h-px w-full bg-border/10" aria-hidden="true" />
             <JobListingsPromo jobs={featuredJobs} />
+            <div className="h-px w-full bg-border/10" aria-hidden="true" />
             <DashboardPromo />
-            <FeaturesGrid />
+            <div className="h-px w-full bg-border/10" aria-hidden="true" />
             <NewsletterSignup />
+
+            <div className="h-px w-full bg-border/10" aria-hidden="true" />
+            <FeaturesGrid />
           </main>
         </div>
       </div>

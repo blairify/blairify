@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import React, { useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
@@ -74,9 +74,6 @@ export function NewsletterSignup() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/10 text-primary mx-auto mb-4 sm:mb-6">
-            <Mail className="w-6 h-6 sm:w-8 sm:h-8" />
-          </div>
           <Typography.Heading2
             id="newsletter-heading"
             className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4"

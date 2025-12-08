@@ -1,6 +1,8 @@
 "use client";
 
 import { Eye, EyeOff } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type React from "react";
 import { useEffect, useState } from "react";
@@ -16,7 +18,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
 import { Separator } from "@/components/ui/separator";
 import { useGuestGuard } from "@/hooks/use-auth-guard";
 import {
@@ -27,7 +28,6 @@ import {
   signInWithGitHub,
   signInWithGoogle,
 } from "@/lib/services/auth/auth";
-import Logo from "../../common/atoms/logo-blairify";
 
 type AuthMode = "login" | "register";
 
@@ -796,441 +796,451 @@ export default function AuthForm({
   };
 
   const renderSocialButtons = () => (
-    <div className="flex flex-wrap gap-4 justify-center">
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 justify-center">
       <Button
         type="button"
         variant="outline"
-        className="flex items-center justify-center min-w-[180px] max-w-xs bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+        className="flex items-center justify-center max-w-xs bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
         onClick={handleGithubLogin}
         disabled={isLoading}
       >
         <FaGithub className="mr-2" />
-        {isMobile ? "GitHub" : "Continue with GitHub"}
+        GitHub
       </Button>
       <Button
         type="button"
         variant="outline"
-        className="flex items-center justify-center min-w-[180px] max-w-xs bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+        className="flex items-center justify-center max-w-xs bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
         onClick={handleGoogleLogin}
         disabled={isLoading}
       >
         <FaGoogle className="mr-2" />
-        {isMobile ? "Google" : "Continue with Google"}
+        Google
       </Button>
     </div>
   );
-
-  const cardTransformClass =
-    currentMode === "login" && !showResetForm
-      ? "md:translate-x-[calc(100%)]"
-      : "md:translate-x-0";
-
-  const logoTransformClass =
-    currentMode === "login" && !showResetForm
-      ? "md:-translate-x-[calc(100%+5rem)]"
-      : "md:translate-x-0";
-
-  const shellOverflowClass = showResetForm
-    ? "overflow-visible"
-    : "overflow-hidden";
 
   return (
     <div
       className="min-h-screen bg-background flex flex-col items-center justify-center p-4"
       data-analytics-id="auth-shell"
     >
-      {isMobile ? (
-        <Card className="border-border bg-card w-full max-w-md mx-4 sm:mx-auto">
-          <CardHeader className="text-center">
-            <div
-              className={`transition-all duration-500 ease-in-out ${
-                isTransitioning
-                  ? "opacity-0 transform translate-y-2 scale-95"
-                  : "opacity-100 transform translate-y-0 scale-100"
-              }`}
-            >
-              <CardTitle className="text-2xl">{getStepTitle()}</CardTitle>
-              <CardDescription>{getStepDescription()}</CardDescription>
-            </div>
-          </CardHeader>
-          <CardContent className="min-h-[420px]">
-            {error && (
-              <div className="mb-4 p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
-                {error}
+      <div className="w-full max-w-5xl">
+        {isMobile ? (
+          <Card className="w-full rounded-3xl border border-[color:var(--border)]/60 bg-[color:var(--card)]/95 shadow-2xl backdrop-blur">
+            <CardHeader className="space-y-4">
+              <div className="flex items-center justify-between">
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="gap-1 text-xs text-muted-foreground hover:text-foreground md:hidden"
+                >
+                  <Link href="/">
+                    <span aria-hidden="true">←</span> Back to home
+                  </Link>
+                </Button>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                  Blairify
+                </span>
               </div>
-            )}
-            {resetMessage && (
-              <div className="mb-4 p-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-md dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400">
-                {resetMessage}
-              </div>
-            )}
-
-            <div className="relative overflow-hidden">
               <div
-                className={`transition-all duration-500 ease-in-out ${
+                className={`text-center transition-all duration-500 ease-in-out ${
                   isTransitioning
-                    ? "opacity-0 transform translate-x-4 scale-95"
-                    : "opacity-100 transform translate-x-0 scale-100"
+                    ? "opacity-0 transform translate-y-2 scale-95"
+                    : "opacity-100 transform translate-y-0 scale-100"
                 }`}
               >
-                {currentMode === "login" ? (
-                  showResetForm ? (
-                    renderLoginForm()
+                <CardTitle className="text-2xl">{getStepTitle()}</CardTitle>
+                <CardDescription className="text-sm">
+                  {getStepDescription()}
+                </CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent className="min-h-[420px] space-y-4">
+              {error && (
+                <div className="mb-4 p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
+                  {error}
+                </div>
+              )}
+              {resetMessage && (
+                <div className="mb-4 p-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-md dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400">
+                  {resetMessage}
+                </div>
+              )}
+
+              <div className="relative overflow-hidden">
+                <div
+                  className={`transition-all duration-500 ease-in-out ${
+                    isTransitioning
+                      ? "opacity-0 transform translate-x-4 scale-95"
+                      : "opacity-100 transform translate-x-0 scale-100"
+                  }`}
+                >
+                  {currentMode === "login" ? (
+                    showResetForm ? (
+                      renderLoginForm()
+                    ) : (
+                      <>
+                        {renderSocialButtons()}
+
+                        <div className="relative mt-6">
+                          <div className="absolute inset-0 flex items-center">
+                            <Separator className="w-full" />
+                          </div>
+                          <div className="relative flex justify-center text-xs uppercase">
+                            <span className="bg-card px-2 text-muted-foreground">
+                              Or continue with email
+                            </span>
+                          </div>
+                        </div>
+
+                        {renderLoginForm()}
+                      </>
+                    )
                   ) : (
                     <>
-                      {renderSocialButtons()}
+                      <div className="overflow-hidden">
+                        <div
+                          className="flex transition-transform duration-300 ease-in-out"
+                          style={{
+                            transform: `translateX(-${(currentStep - 1) * 100}%)`,
+                          }}
+                        >
+                          {[...Array(totalSteps)].map((_, index) => (
+                            <div
+                              key={`content-${index + 1}`}
+                              className="w-full flex-shrink-0"
+                            >
+                              {currentStep === index + 1 && renderStepContent()}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
 
-                      <div className="relative mt-6">
+                      <div className="flex justify-between mt-6">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={handlePrevious}
+                          disabled={
+                            currentStep === 1 || isLoading || isCheckingEmail
+                          }
+                          className="bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+                        >
+                          Previous
+                        </Button>
+
+                        {currentStep === totalSteps ? (
+                          <Button
+                            onClick={handleRegisterSubmit}
+                            disabled={!canProceedToNextStep() || isLoading}
+                            className="bg-primary text-primary-foreground hover:bg-primary/90"
+                          >
+                            {isLoading
+                              ? "Creating Account..."
+                              : "Create Account"}
+                          </Button>
+                        ) : (
+                          <Button
+                            type="button"
+                            onClick={handleNext}
+                            disabled={
+                              !canProceedToNextStep() ||
+                              isLoading ||
+                              isCheckingEmail
+                            }
+                            className="bg-primary text-primary-foreground hover:bg-primary/90"
+                          >
+                            Next
+                          </Button>
+                        )}
+                      </div>
+
+                      <div className="relative my-6">
                         <div className="absolute inset-0 flex items-center">
                           <Separator className="w-full" />
                         </div>
                         <div className="relative flex justify-center text-xs uppercase">
                           <span className="bg-card px-2 text-muted-foreground">
-                            Or continue with email
+                            Or sign up with
                           </span>
                         </div>
                       </div>
-
-                      {renderLoginForm()}
+                      <div className="my-6">{renderSocialButtons()}</div>
                     </>
-                  )
-                ) : (
-                  <>
-                    <div className="overflow-hidden">
-                      <div
-                        className="flex transition-transform duration-300 ease-in-out"
-                        style={{
-                          transform: `translateX(-${(currentStep - 1) * 100}%)`,
-                        }}
-                      >
-                        {[...Array(totalSteps)].map((_, index) => (
-                          <div
-                            key={`content-${index + 1}`}
-                            className="w-full flex-shrink-0"
-                          >
-                            {currentStep === index + 1 && renderStepContent()}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                  )}
+                </div>
+              </div>
 
-                    <div className="flex justify-between mt-6">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={handlePrevious}
-                        disabled={
-                          currentStep === 1 || isLoading || isCheckingEmail
-                        }
-                        className="bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
-                      >
-                        Previous
-                      </Button>
-
-                      {currentStep === totalSteps ? (
-                        <Button
-                          onClick={handleRegisterSubmit}
-                          disabled={!canProceedToNextStep() || isLoading}
-                          className="bg-primary text-primary-foreground hover:bg-primary/90"
+              <div className="text-center">
+                <p
+                  className={`text-sm text-muted-foreground ${currentMode === "login" ? "mt-4" : "mt-0"}`}
+                >
+                  {currentMode === "login" && !showResetForm && (
+                    <>
+                      Don't have an account?{" "}
+                      {onModeChange ? (
+                        <button
+                          type="button"
+                          onClick={() => handleModeSwitch("register")}
+                          className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                          disabled={isLoading || isTransitioning}
                         >
-                          {isLoading ? "Creating Account..." : "Create Account"}
-                        </Button>
+                          Sign up
+                        </button>
                       ) : (
                         <Button
-                          type="button"
-                          onClick={handleNext}
-                          disabled={
-                            !canProceedToNextStep() ||
-                            isLoading ||
-                            isCheckingEmail
-                          }
-                          className="bg-primary text-primary-foreground hover:bg-primary/90"
+                          onClick={() => handleModeSwitch("register")}
+                          className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
                         >
-                          Next
+                          Sign up
                         </Button>
                       )}
-                    </div>
+                    </>
+                  )}
 
-                    <div className="relative my-6">
-                      <div className="absolute inset-0 flex items-center">
-                        <Separator className="w-full" />
-                      </div>
-                      <div className="relative flex justify-center text-xs uppercase">
-                        <span className="bg-card px-2 text-muted-foreground">
-                          Or sign up with
-                        </span>
-                      </div>
-                    </div>
-                    <div className="my-6">{renderSocialButtons()}</div>
-                  </>
-                )}
+                  {currentMode === "register" && !showResetForm && (
+                    <>
+                      Already have an account?{" "}
+                      {onModeChange ? (
+                        <button
+                          type="button"
+                          onClick={() => handleModeSwitch("login")}
+                          className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                          disabled={isLoading || isTransitioning}
+                        >
+                          Log In
+                        </button>
+                      ) : (
+                        <Button
+                          onClick={() => handleModeSwitch("login")}
+                          className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
+                        >
+                          Log In
+                        </Button>
+                      )}
+                    </>
+                  )}
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+          <div className="w-full grid md:grid-cols-2 rounded-3xl overflow-hidden border border-[color:var(--border)]/60 shadow-2xl">
+            <div className="hidden md:flex flex-col items-center justify-center bg-[hsl(var(--blairify-bg-200))] text-[color:var(--foreground)] relative min-h-[32rem]">
+              <div className="relative w-40 h-40 sm:w-56 sm:h-56">
+                <Image
+                  src="/icon0.svg"
+                  alt="Blairify logo"
+                  fill
+                  priority
+                  className="object-contain drop-shadow-2xl"
+                />
               </div>
             </div>
 
-            <div className="text-center">
-              <p
-                className={`text-sm text-muted-foreground ${currentMode === "login" ? "mt-4" : "mt-0"}`}
+            <div className="w-full bg-card p-6 sm:p-10 flex flex-col justify-center min-h-[32rem]">
+              <div className="flex justify-end mb-4">
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="gap-2 text-xs text-muted-foreground hover:text-foreground"
+                >
+                  <Link href="/">
+                    <span aria-hidden="true">←</span> Back to home
+                  </Link>
+                </Button>
+              </div>
+              <div
+                className={`text-center transition-all duration-500 ease-in-out ${
+                  isTransitioning
+                    ? "opacity-0 transform translate-y-2 scale-95"
+                    : "opacity-100 transform translate-y-0 scale-100"
+                }`}
               >
-                {currentMode === "login" && !showResetForm && (
-                  <>
-                    Don't have an account?{" "}
-                    {onModeChange ? (
-                      <button
-                        type="button"
-                        onClick={() => handleModeSwitch("register")}
-                        className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
-                        disabled={isLoading || isTransitioning}
-                      >
-                        Sign up
-                      </button>
-                    ) : (
-                      <Button
-                        onClick={() => handleModeSwitch("register")}
-                        className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
-                      >
-                        Sign up
-                      </Button>
-                    )}
-                  </>
+                <h2 className="text-2xl font-semibold text-[color:var(--foreground)]">
+                  {getStepTitle()}
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  {getStepDescription()}
+                </p>
+              </div>
+
+              <div className="mt-6 flex-1 flex flex-col">
+                {error && (
+                  <div className="mb-4 p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
+                    {error}
+                  </div>
+                )}
+                {resetMessage && (
+                  <div className="mb-4 p-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-md dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400">
+                    {resetMessage}
+                  </div>
                 )}
 
-                {currentMode === "register" && !showResetForm && (
-                  <>
-                    Already have an account?{" "}
-                    {onModeChange ? (
-                      <button
-                        type="button"
-                        onClick={() => handleModeSwitch("login")}
-                        className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
-                        disabled={isLoading || isTransitioning}
-                      >
-                        Log In
-                      </button>
-                    ) : (
-                      <Button
-                        onClick={() => handleModeSwitch("login")}
-                        className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
-                      >
-                        Log In
-                      </Button>
-                    )}
-                  </>
-                )}
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-      ) : (
-        <Card className="p-6 bg-transparent shadow-none">
-          <div
-            className={`w-full max-w-6xl flex flex-col md:flex-row gap-8 items-center flex-1 relative ${shellOverflowClass}`}
-          >
-            <div
-              className={`min-w-1/2 max-w-1/2 transition-all duration-700 ease-in-out z-10 transform ${
-                currentMode === "login" && !showResetForm
-                  ? cardTransformClass
-                  : "md:translate-x-0"
-              }`}
-            >
-              <Card className="border-border bg-card w-full">
-                <CardHeader className="text-center">
+                <div className="relative overflow-hidden flex-1">
                   <div
                     className={`transition-all duration-500 ease-in-out ${
                       isTransitioning
-                        ? "opacity-0 transform translate-y-2 scale-95"
-                        : "opacity-100 transform translate-y-0 scale-100"
+                        ? "opacity-0 transform translate-x-4 scale-95"
+                        : "opacity-100 transform translate-x-0 scale-100"
                     }`}
                   >
-                    <CardTitle className="text-2xl">{getStepTitle()}</CardTitle>
-                    <CardDescription>{getStepDescription()}</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="min-h-[420px]">
-                  {error && (
-                    <div className="mb-4 p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
-                      {error}
-                    </div>
-                  )}
-                  {resetMessage && (
-                    <div className="mb-4 p-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-md dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400">
-                      {resetMessage}
-                    </div>
-                  )}
-
-                  <div className="relative overflow-hidden">
-                    <div
-                      className={`transition-all duration-500 ease-in-out ${
-                        isTransitioning
-                          ? "opacity-0 transform translate-x-4 scale-95"
-                          : "opacity-100 transform translate-x-0 scale-100"
-                      }`}
-                    >
-                      {currentMode === "login" ? (
-                        showResetForm ? (
-                          renderLoginForm()
-                        ) : (
-                          <>
-                            {renderSocialButtons()}
-
-                            <div className="relative mt-6">
-                              <div className="absolute inset-0 flex items-center">
-                                <Separator className="w-full" />
-                              </div>
-                              <div className="relative flex justify-center text-xs uppercase">
-                                <span className="bg-card px-2 text-muted-foreground">
-                                  Or continue with email
-                                </span>
-                              </div>
-                            </div>
-
-                            {renderLoginForm()}
-                          </>
-                        )
+                    {currentMode === "login" ? (
+                      showResetForm ? (
+                        renderLoginForm()
                       ) : (
                         <>
-                          <div className="overflow-hidden">
-                            <div
-                              className="flex transition-transform duration-300 ease-in-out"
-                              style={{
-                                transform: `translateX(-${(currentStep - 1) * 100}%)`,
-                              }}
-                            >
-                              {[...Array(totalSteps)].map((_, index) => (
-                                <div
-                                  key={`content-${index + 1}`}
-                                  className="w-full flex-shrink-0"
-                                >
-                                  {currentStep === index + 1 &&
-                                    renderStepContent()}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
+                          {renderSocialButtons()}
 
-                          <div className="flex justify-between mt-6">
-                            <Button
-                              type="button"
-                              variant="outline"
-                              onClick={handlePrevious}
-                              disabled={
-                                currentStep === 1 ||
-                                isLoading ||
-                                isCheckingEmail
-                              }
-                              className="bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
-                            >
-                              Previous
-                            </Button>
-
-                            {currentStep === totalSteps ? (
-                              <Button
-                                onClick={handleRegisterSubmit}
-                                disabled={!canProceedToNextStep() || isLoading}
-                                className="bg-primary text-primary-foreground hover:bg-primary/90"
-                              >
-                                {isLoading
-                                  ? "Creating Account..."
-                                  : "Create Account"}
-                              </Button>
-                            ) : (
-                              <Button
-                                type="button"
-                                onClick={handleNext}
-                                disabled={
-                                  !canProceedToNextStep() ||
-                                  isLoading ||
-                                  isCheckingEmail
-                                }
-                                className="bg-primary text-primary-foreground hover:bg-primary/90"
-                              >
-                                Next
-                              </Button>
-                            )}
-                          </div>
-
-                          <div className="relative my-6">
+                          <div className="relative mt-6">
                             <div className="absolute inset-0 flex items-center">
                               <Separator className="w-full" />
                             </div>
                             <div className="relative flex justify-center text-xs uppercase">
                               <span className="bg-card px-2 text-muted-foreground">
-                                Or sign up with
+                                Or continue with email
                               </span>
                             </div>
                           </div>
-                          <div className="my-6">{renderSocialButtons()}</div>
-                        </>
-                      )}
-                    </div>
-                  </div>
 
-                  <div className="text-center">
-                    <p
-                      className={`text-sm text-muted-foreground ${currentMode === "login" ? "mt-4" : "mt-0"}`}
-                    >
-                      {currentMode === "login" && !showResetForm && (
-                        <>
-                          Don't have an account?{" "}
-                          {onModeChange ? (
-                            <button
-                              type="button"
-                              onClick={() => handleModeSwitch("register")}
-                              className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
-                              disabled={isLoading || isTransitioning}
+                          {renderLoginForm()}
+                        </>
+                      )
+                    ) : (
+                      <>
+                        <div className="overflow-hidden">
+                          <div
+                            className="flex transition-transform duration-300 ease-in-out"
+                            style={{
+                              transform: `translateX(-${(currentStep - 1) * 100}%)`,
+                            }}
+                          >
+                            {[...Array(totalSteps)].map((_, index) => (
+                              <div
+                                key={`content-${index + 1}`}
+                                className="w-full flex-shrink-0"
+                              >
+                                {currentStep === index + 1 &&
+                                  renderStepContent()}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="flex justify-between mt-6">
+                          <Button
+                            type="button"
+                            variant="outline"
+                            onClick={handlePrevious}
+                            disabled={
+                              currentStep === 1 || isLoading || isCheckingEmail
+                            }
+                            className="bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+                          >
+                            Previous
+                          </Button>
+
+                          {currentStep === totalSteps ? (
+                            <Button
+                              onClick={handleRegisterSubmit}
+                              disabled={!canProceedToNextStep() || isLoading}
+                              className="bg-primary text-primary-foreground hover:bg-primary/90"
                             >
-                              Sign up
-                            </button>
+                              {isLoading
+                                ? "Creating Account..."
+                                : "Create Account"}
+                            </Button>
                           ) : (
                             <Button
-                              onClick={() => handleModeSwitch("register")}
-                              className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
-                            >
-                              Sign up
-                            </Button>
-                          )}
-                        </>
-                      )}
-
-                      {currentMode === "register" && (
-                        <>
-                          Already have an account?{" "}
-                          {onModeChange ? (
-                            <button
                               type="button"
-                              onClick={() => handleModeSwitch("login")}
-                              className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
-                              disabled={isLoading || isTransitioning}
+                              onClick={handleNext}
+                              disabled={
+                                !canProceedToNextStep() ||
+                                isLoading ||
+                                isCheckingEmail
+                              }
+                              className="bg-primary text-primary-foreground hover:bg-primary/90"
                             >
-                              Log In
-                            </button>
-                          ) : (
-                            <Button
-                              onClick={() => handleModeSwitch("login")}
-                              className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
-                            >
-                              Log In
+                              Next
                             </Button>
                           )}
-                        </>
-                      )}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+                        </div>
 
-            <div
-              className={`transition-all duration-700 ease-in-out transform z-2 ${
-                currentMode === "login" && !showResetForm
-                  ? logoTransformClass
-                  : "md:translate-x-0"
-              }`}
-            >
-              <Logo variant="stacked" />
+                        <div className="relative my-6">
+                          <div className="absolute inset-0 flex items-center">
+                            <Separator className="w-full" />
+                          </div>
+                          <div className="relative flex justify-center text-xs uppercase">
+                            <span className="bg-card px-2 text-muted-foreground">
+                              Or sign up with
+                            </span>
+                          </div>
+                        </div>
+                        <div className="my-6">{renderSocialButtons()}</div>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                <div className="text-center mt-6">
+                  <p
+                    className={`text-sm text-muted-foreground ${currentMode === "login" ? "mt-4" : "mt-0"}`}
+                  >
+                    {currentMode === "login" && !showResetForm && (
+                      <>
+                        Don't have an account?{" "}
+                        {onModeChange ? (
+                          <button
+                            type="button"
+                            onClick={() => handleModeSwitch("register")}
+                            className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                            disabled={isLoading || isTransitioning}
+                          >
+                            Sign up
+                          </button>
+                        ) : (
+                          <Button
+                            onClick={() => handleModeSwitch("register")}
+                            className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
+                          >
+                            Sign up
+                          </Button>
+                        )}
+                      </>
+                    )}
+
+                    {currentMode === "register" && (
+                      <>
+                        Already have an account?{" "}
+                        {onModeChange ? (
+                          <button
+                            type="button"
+                            onClick={() => handleModeSwitch("login")}
+                            className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                            disabled={isLoading || isTransitioning}
+                          >
+                            Log In
+                          </button>
+                        ) : (
+                          <Button
+                            onClick={() => handleModeSwitch("login")}
+                            className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
+                          >
+                            Log In
+                          </Button>
+                        )}
+                      </>
+                    )}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </Card>
-      )}
+        )}
+      </div>
     </div>
   );
 }

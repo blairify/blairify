@@ -1,6 +1,12 @@
 "use client";
-import { Activity, ArrowRight, Award, Target, TrendingUp } from "lucide-react";
 import { useRouter } from "next/navigation";
+import {
+  SiDatabricks,
+  SiMinutemailer,
+  SiOpslevel,
+  SiSpeedtest,
+  SiTableau,
+} from "react-icons/si";
 import {
   Area,
   AreaChart,
@@ -37,7 +43,7 @@ export function DashboardPromo() {
       className="w-full bg-[color:var(--card)] py-12 sm:py-16 lg:py-20 overflow-hidden"
       data-analytics-id="home-dashboard-promo"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
           <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-left-8 duration-1000 delay-200 flex flex-col items-center lg:items-start justify-center text-center lg:text-left max-w-xl mx-auto lg:mx-0">
             <div className="space-y-4 sm:space-y-6">
@@ -51,41 +57,21 @@ export function DashboardPromo() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
-                <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
+                <SiDatabricks className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
                 <div className="text-xs sm:text-sm font-medium">Analytics</div>
               </div>
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
-                <Target className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
+                <SiTableau className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
                 <div className="text-xs sm:text-sm font-medium">Insights</div>
               </div>
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
-                <Award className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
+                <SiOpslevel className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
                 <div className="text-xs sm:text-sm font-medium">
                   Achievements
                 </div>
               </div>
             </div>
 
-            <ul className="space-y-2 max-w-xl mx-auto lg:mx-0">
-              <li className="flex items-center gap-3 justify-center lg:justify-start">
-                <div className="size-2 bg-primary rounded-full" />
-                <Typography.Caption className="text-sm text-muted-foreground">
-                  Real-time performance tracking
-                </Typography.Caption>
-              </li>
-              <li className="flex items-center gap-3 justify-center lg:justify-start">
-                <div className="size-2 bg-primary rounded-full" />
-                <Typography.Caption className="text-sm text-muted-foreground">
-                  Personalized improvement recommendations
-                </Typography.Caption>
-              </li>
-              <li className="flex items-center gap-3 justify-center lg:justify-start">
-                <div className="size-2 bg-primary rounded-full" />
-                <Typography.Caption className="text-sm text-muted-foreground">
-                  Detailed session history and analytics
-                </Typography.Caption>
-              </li>
-            </ul>
             <div className="flex justify-center lg:justify-start">
               <Button
                 onClick={() => router.push("/auth")}
@@ -93,7 +79,7 @@ export function DashboardPromo() {
                 className="group w-full sm:w-auto h-12 sm:h-10 text-base sm:text-sm font-medium px-6 sm:px-4"
               >
                 View Analytics Dashboard
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <SiMinutemailer className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
           </div>
@@ -101,7 +87,7 @@ export function DashboardPromo() {
             <Card className="border-border bg-card w-full">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Activity className="h-5 w-5 text-primary" />
+                  <SiSpeedtest className="h-5 w-5 text-primary" />
                   Weekly Activity
                 </CardTitle>
                 <CardDescription>
@@ -121,12 +107,12 @@ export function DashboardPromo() {
                       >
                         <stop
                           offset="5%"
-                          stopColor="oklch(74.6% 0.16 232.661)"
+                          stopColor="var(--primary)"
                           stopOpacity={0.8}
                         />
                         <stop
                           offset="95%"
-                          stopColor="oklch(74.6% 0.16 232.661)"
+                          stopColor="var(--primary)"
                           stopOpacity={0.1}
                         />
                       </linearGradient>
@@ -155,7 +141,7 @@ export function DashboardPromo() {
                     <Area
                       type="monotone"
                       dataKey="sessions"
-                      stroke="oklch(74.6% 0.16 232.661)"
+                      stroke="var(--primary)"
                       strokeWidth={2}
                       fill="url(#sessionsGradient)"
                     />
