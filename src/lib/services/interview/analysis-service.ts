@@ -438,22 +438,22 @@ function generateExecutiveSummary(
   } = responseAnalysis;
 
   if (substantiveResponses === 0) {
-    return "The candidate failed to provide any substantive responses during the interview. Every answer was either 'I don't know', skipped, or gibberish. This demonstrates a complete lack of preparation and knowledge required for this role.";
+    return "No substantive responses were provided in this interview. Most answers were 'I don't know', skipped, or off-topic, so it was not possible to reliably assess readiness for this role.";
   }
 
   if (effectiveResponseRate < RESPONSE_RATE_THRESHOLDS.CRITICAL) {
-    return `The candidate struggled severely, with only ${substantiveResponses} out of ${totalQuestions} questions receiving real answers. This indicates fundamental knowledge gaps that make them unsuitable for this ${config.seniority}-level position.`;
+    return `Only ${substantiveResponses} of ${totalQuestions} questions received substantive answers. This performance highlights significant gaps in core knowledge for a ${config.seniority}-level position.`;
   }
 
   if (effectiveResponseRate < RESPONSE_RATE_THRESHOLDS.LOW) {
-    return `The candidate showed limited knowledge, failing to adequately answer over half the interview questions. While they demonstrated some basic understanding, the numerous "I don't know" responses (${noAnswerResponses}) indicate they are not ready for this role.`;
+    return `The candidate showed some familiarity with the topics but was unable to give complete answers for more than half of the questions. The number of "I don't know" responses (${noAnswerResponses}) suggests they are not yet ready for this role.`;
   }
 
   if (passed) {
-    return `The candidate demonstrated sufficient knowledge and problem-solving ability to pass this ${config.seniority}-level interview. While there are areas for improvement, they showed the foundational competencies required for the role.`;
+    return `The candidate demonstrated enough knowledge and problem-solving ability to meet the bar for this ${config.seniority}-level interview. There are still clear areas to strengthen, but the fundamentals for the role are present.`;
   }
 
-  return `The candidate showed some knowledge but fell short of the ${passingThreshold.score}-point threshold required for ${config.seniority}-level positions. Key technical gaps and inconsistent responses prevented a passing score.`;
+  return `The candidate showed partial understanding of several areas but did not reach the ${passingThreshold.score}-point threshold expected for ${config.seniority}-level positions. Important gaps and inconsistent responses prevented a passing recommendation.`;
 }
 
 function generateWhyDecision(
@@ -471,18 +471,18 @@ function generateWhyDecision(
   } = responseAnalysis;
 
   if (!passed) {
-    let decision = `The candidate FAILED this interview with a score of ${score}/${passingThreshold.score}. `;
+    let decision = `The candidate did not meet the required standard for this interview, scoring ${score}/${passingThreshold.score}. `;
 
     if (substantiveResponses < totalQuestions / 2) {
-      decision += `They were unable to answer ${noAnswerResponses + skippedQuestions} questions out of ${totalQuestions} total questions, saying "I don't know" or skipping them entirely. `;
+      decision += `They were unable to provide substantive answers to ${noAnswerResponses + skippedQuestions} of ${totalQuestions} questions, often responding with "I don't know" or skipping them. `;
     }
 
-    decision += `For a ${config.seniority}-level ${config.position} role, we expect candidates to demonstrate strong foundational knowledge and the ability to work through problems even when unsure. This candidate showed neither, failing to meet the minimum bar for hiring.`;
+    decision += `For a ${config.seniority}-level ${config.position} role, we expect consistent demonstration of core knowledge and the ability to work through unfamiliar problems. This performance falls below that bar, so a hiring recommendation is not appropriate at this time.`;
 
     return decision;
   }
 
-  return `The candidate PASSED this interview with a score of ${score}/${passingThreshold.score}. They provided substantive answers to ${substantiveResponses} out of ${totalQuestions} questions, demonstrating adequate knowledge of core ${config.position} concepts. While not perfect, they showed sufficient competency to perform at a ${config.seniority} level with appropriate onboarding and support.`;
+  return `The candidate met the standard for this interview with a score of ${score}/${passingThreshold.score}. They provided substantive answers to ${substantiveResponses} of ${totalQuestions} questions, showing sufficient command of key ${config.position} concepts for a ${config.seniority}-level role. With focused onboarding and continued practice, they should be able to grow effectively in this position.`;
 }
 
 function generateRecommendations(
@@ -499,18 +499,18 @@ function generateRecommendations(
 
 function generatePassingRecommendations(config: InterviewConfig): string {
   return `### Next Steps Before Starting:
-1. **Strengthen Weak Areas** (2-4 weeks): Review the topics where you struggled during the interview
-2. **Practical Application** (Ongoing): Build small projects to reinforce theoretical knowledge
-3. **Communication Practice** (1-2 weeks): Practice explaining technical concepts clearly and concisely
+1. **Strengthen Weak Areas** (2-4 weeks): Review the topics where you struggled during the interview, with emphasis on areas that are critical for a ${config.seniority}-level ${config.position} role.
+2. **Practical Application** (Ongoing): Build small projects or enhancements that use the same technologies you discussed to reinforce theoretical knowledge.
+3. **Communication Practice** (1-2 weeks): Practice explaining technical concepts clearly and concisely, focusing on structure and real examples.
 
 ### Learning Resources:
 - Official documentation for ${config.position} core technologies
-- Online courses: Udemy, Coursera, or Pluralsight specific to your role
+- Online courses (Udemy, Coursera, Pluralsight) targeted at ${config.seniority}-level ${config.position} work
 - Practice platforms: LeetCode, HackerRank for technical problem-solving
-- Mock interviews: Practice with peers or use interview prep services
+- Mock interviews: Practice with peers or use structured interview prep services
 
 ### Interview Performance Tips:
-- Even when unsure, explain your thinking process rather than saying "I don't know"
+- When unsure, walk through your thought process rather than defaulting to "I don't know"
 - Use the STAR method (Situation, Task, Action, Result) for behavioral questions
 - Ask clarifying questions before answering to show analytical thinking`;
 }
@@ -527,13 +527,13 @@ function generateFailingRecommendations(
 
   const startingPoint =
     substantiveResponses === 0
-      ? "You need to learn the basics from scratch. Start with introductory courses."
-      : `Focus on core ${config.position} concepts you couldn't answer`;
+      ? "Start with introductory resources to build a solid foundation in the core concepts for this role before focusing on more advanced material."
+      : `Focus first on the core ${config.position} concepts you were unable to explain confidently.`;
 
   const honestAssessment =
     effectiveResponseRate < RESPONSE_RATE_THRESHOLDS.CRITICAL
-      ? `You are not ready for ${config.seniority}-level interviews. Consider applying for internships or junior positions first to gain foundational experience.`
-      : `You have some knowledge but significant gaps remain. Focus on systematic learning and practical application before attempting another interview at this level.`;
+      ? `This performance suggests you are not yet ready for ${config.seniority}-level interviews. Consider targeting internships or junior positions first to build experience and confidence.`
+      : `You have a partial base of knowledge, but significant gaps remain. Prioritize systematic learning and practical application before attempting another interview at this level.`;
 
   return `### Critical Improvements Required Before Re-interviewing:
 1. **Master Fundamentals** (${timeframe}): ${startingPoint}
@@ -637,7 +637,5 @@ ${whyDecision}
 ## RECOMMENDATIONS
 ${recommendations}
 
----
-
-**Note**: This analysis reflects the actual performance demonstrated during the interview. ${!passed ? "A failing score means you did not meet the minimum threshold required for this position." : "While you passed, continue improving in the areas identified above."}`;
+**Note**: This analysis reflects your performance in this interview. ${!passed ? "A non-passing score means your current level of readiness does not yet meet the bar for this position." : "Even with a passing score, continuing to work on the areas highlighted above will strengthen your readiness for this role."}`;
 }

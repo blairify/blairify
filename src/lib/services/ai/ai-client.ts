@@ -237,7 +237,7 @@ export async function generateAnalysis(
           { role: "system", content: systemPrompt },
           { role: "user", content: analysisPrompt },
         ],
-        temperature: 0.2,
+        temperature: 0.4,
         maxTokens: 2500,
       });
     });

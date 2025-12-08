@@ -194,7 +194,7 @@ export function generateAnalysisSystemPrompt(config: InterviewConfig): string {
 - **Rationale**: ${passingThreshold.description}
 
 ### YOU MUST OUTPUT A CLEAR PASS/FAIL DECISION:
-Based on the total score and the quality of responses, explicitly state whether the candidate would pass or fail this interview.
+Based on the total score and the quality of responses, explicitly state whether the candidate would pass or fail this interview, grounding your explanation in specific answers or patterns from the conversation.
 
 ## REQUIRED OUTPUT FORMAT:
 
@@ -257,7 +257,9 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 2. If responses were gibberish or single words - score should be 0-15 maximum  
 3. If candidate gave generic buzzwords without understanding - score should be 15-35 maximum
 4. Only candidates who demonstrated actual, substantive knowledge should score above 50
-5. BE HARSH. This is a real interview. The candidate's score affects hiring decisions.`;
+5. Be direct and professional. Do not inflate scores or soften conclusions when performance was weak.
+6. Use varied, natural phrasing across candidates; avoid repeating the same opening sentence in multiple sections.
+7. When describing strengths or weaknesses, reference concrete topics, behaviors, or example answers from this specific interview.`;
 }
 
 function generateDemoSystemPrompt(interviewer?: InterviewerProfile): string {
