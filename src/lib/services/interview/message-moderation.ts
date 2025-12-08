@@ -52,6 +52,10 @@ export function detectLanguageRequest(message: string) {
 export function detectProfanity(message: string) {
   const normalized = message.toLowerCase();
 
+  if (isSecurityPenTestContext(normalized)) {
+    return false;
+  }
+
   const profanityPatterns = [
     // === ENGLISH (expanded) ===
     /\b(fuck|fucking|motherfucker|motherfucking|fuckin|fuckhead|fuckface|fuckwit|fuckup|shit|bullshit|horseshit|dogshit|holyshit|crap|piss|pissed|pissing|pussy|cunt|dick|cock|prick|arse|ass|asshole|jackass|smartass|badass|dumbass|bitch|bitches|bastard|slut|whore|hoe|wanker|tosser|bugger|bollocks|twat|jerk|jerking|jerkoff|dipshit|dumbfuck|retard|moron|idiot|suck my dick|eat shit|go fuck yourself|dickhead|shithead|cum|cumshot|jerkoff|jackoff|nigger|nigga|faggot|fag|tranny|dyke|shemale|motherfucker|goddamn|damnit|son of a bitch|piece of shit|cockhead|fuckboy|fuckboi|buttfuck|deepthroat|blowjob|handjob|rimjob|sex|porn|bukkake|gangbang|anal|fisting|dildo|vibrator|nipple|boobs|tits|titties|pussylick|suckcock|suckdick|lickpussy|lickass)\b/i,
@@ -111,6 +115,13 @@ export function detectInappropriateBehavior(
 ) {
   const normalized = message.toLowerCase();
 
+  if (isSecurityPenTestContext(normalized)) {
+    return {
+      containsInappropriateBehavior: false,
+      newWarningCount: warningCount,
+    };
+  }
+
   const inappropriateBehaviorPatterns = [
     // Threats and violence
     /\b(kill|murder|die|death|threat|threaten|violence|violent|hurt|harm|attack|assault|fight|beat|punch|kick|stab|shoot|gun|weapon|bomb|terrorist|terrorism|destroy|annihilate|eliminate|exterminate)\b/i,
@@ -142,6 +153,16 @@ export function detectInappropriateBehavior(
     containsInappropriateBehavior: true,
     newWarningCount,
   };
+}
+
+function isSecurityPenTestContext(normalized: string): boolean {
+  if (!normalized.includes("penetration")) return false;
+  if (normalized.includes("penetration test")) return true;
+  if (normalized.includes("penetration testing")) return true;
+  if (normalized.includes("pentest")) return true;
+  if (normalized.includes("pen test")) return true;
+  if (normalized.includes("pen-testing")) return true;
+  return false;
 }
 
 export function sanitizeMessageForPrivacy(message: string) {

@@ -26,7 +26,7 @@ export default function Footer() {
 
   const socialLinks = [
     {
-      href: "https://www.instagram.com/blairify",
+      href: "https://www.instagram.com/blairtalk",
       label: "Blairify on Instagram",
       icon: Instagram,
     },
