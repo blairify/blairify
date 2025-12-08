@@ -13,7 +13,10 @@ import {
   generateInterviewResponse,
   getFallbackResponse,
 } from "@/lib/services/ai/ai-client";
-import { validateAIResponse } from "@/lib/services/ai/response-validator";
+import {
+  validateAIResponse,
+  validateQuestionSequence,
+} from "@/lib/services/ai/response-validator";
 import type { Message } from "@/types/interview";
 
 export async function POST(request: NextRequest) {
@@ -87,7 +90,7 @@ export async function POST(request: NextRequest) {
       "I do not know the answer. I'd like to skip this question and move to the next one.",
       conversationHistory || [],
       interviewConfig,
-      (questionCount || 0) + 1, // Increment question count
+      questionCount || 0,
       false, // Not a follow-up
       interviewer,
       currentQuestionPrompt,
@@ -118,11 +121,36 @@ export async function POST(request: NextRequest) {
           `AI response validation failed on skip: ${validation.reason}`,
         );
         finalMessage = getFallbackResponse(interviewConfig, false);
-      } else if (validation.sanitized) {
-        finalMessage = validation.sanitized;
       } else {
-        finalMessage = aiResponse.content;
+        const contentForSequence = validation.sanitized ?? aiResponse.content;
+
+        if (!interviewConfig.isDemoMode) {
+          const expectedIndex = (questionCount || 0) + 1;
+
+          const sequenceCheck = validateQuestionSequence(
+            contentForSequence,
+            expectedIndex,
+            true,
+          );
+
+          if (!sequenceCheck.isValid) {
+            console.warn(
+              `AI question sequence validation failed on skip: ${sequenceCheck.reason}`,
+            );
+            finalMessage = getFallbackResponse(interviewConfig, false);
+          } else {
+            finalMessage = contentForSequence;
+          }
+        } else {
+          finalMessage = contentForSequence;
+        }
       }
+    }
+
+    if (finalMessage) {
+      finalMessage = finalMessage
+        .replace(/\s*\[BANK_QUESTION_INDEX:\s*\d+\]\s*$/gi, "")
+        .trim();
     }
 
     if (

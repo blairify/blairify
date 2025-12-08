@@ -14,7 +14,10 @@ import {
   generateInterviewResponse,
   getFallbackResponse,
 } from "@/lib/services/ai/ai-client";
-import { validateAIResponse } from "@/lib/services/ai/response-validator";
+import {
+  validateAIResponse,
+  validateQuestionSequence,
+} from "@/lib/services/ai/response-validator";
 import {
   detectDisallowedTopic,
   detectInappropriateBehavior,
@@ -254,11 +257,38 @@ export async function POST(request: NextRequest) {
         console.warn(`AI response validation failed: ${validation.reason}`);
         finalMessage = getFallbackResponse(interviewConfig, isFollowUp);
         usedFallback = true;
-      } else if (validation.sanitized) {
-        finalMessage = validation.sanitized;
       } else {
-        finalMessage = aiResponse.content;
+        const contentForSequence = validation.sanitized ?? aiResponse.content;
+
+        if (!interviewConfig.isDemoMode) {
+          const expectPrimaryQuestion = !effectiveIsFollowUp && !shouldComplete;
+          const expectedIndex = currentQuestionCount + 1;
+
+          const sequenceCheck = validateQuestionSequence(
+            contentForSequence,
+            expectedIndex,
+            expectPrimaryQuestion,
+          );
+
+          if (!sequenceCheck.isValid) {
+            console.warn(
+              `AI question sequence validation failed: ${sequenceCheck.reason}`,
+            );
+            finalMessage = getFallbackResponse(interviewConfig, isFollowUp);
+            usedFallback = true;
+          } else {
+            finalMessage = contentForSequence;
+          }
+        } else {
+          finalMessage = contentForSequence;
+        }
       }
+    }
+
+    if (finalMessage) {
+      finalMessage = finalMessage
+        .replace(/\s*\[BANK_QUESTION_INDEX:\s*\d+\]\s*$/gi, "")
+        .trim();
     }
 
     if (

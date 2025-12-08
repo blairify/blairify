@@ -114,6 +114,12 @@ export async function POST(request: NextRequest) {
       finalMessage = getFallbackResponse(interviewConfig, false);
     }
 
+    if (finalMessage) {
+      finalMessage = finalMessage
+        .replace(/\s*\[BANK_QUESTION_INDEX:\s*\d+\]\s*$/gi, "")
+        .trim();
+    }
+
     const questionType = determineQuestionType(
       interviewConfig.interviewType,
       0,

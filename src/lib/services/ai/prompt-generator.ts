@@ -509,7 +509,9 @@ If a specific practice library question is provided, the first question you ask 
 Important:
 - Your reply must only contain what you say to the candidate.
 - Do NOT mention that this is the start of the interview or that you are following a list.
-- Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
+- Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...").
+
+At the very end of your response, on a new line after everything you say to the candidate, append the exact internal marker "[BANK_QUESTION_INDEX: 1]". Do not explain this marker or mention why it exists when speaking to the candidate.`;
   }
 
   if (config.company) {
@@ -526,7 +528,9 @@ If a specific practice library question is provided, the first question you ask 
 Important:
 - Your reply must only contain what you say to the candidate.
 - Do NOT mention that this is the start of the interview or that you are following a list.
-- Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
+- Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...").
+
+At the very end of your response, on a new line after everything you say to the candidate, append the exact internal marker "[BANK_QUESTION_INDEX: 1]". Do not explain this marker or mention why it exists when speaking to the candidate.`;
   }
 
   return `You are about to start a ${config.interviewType} interview for a ${config.seniority}-level ${config.position} position.
@@ -542,7 +546,9 @@ If a specific practice library question is provided, the first question you ask 
 Important:
 - Your reply must only contain what you say to the candidate.
 - Do NOT mention that this is the start of the interview or that you are following a list.
-- Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...")`;
+- Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes. Your name should be part of your natural introduction (e.g., "Hi! I'm ${interviewerName}, and I've been...").
+
+At the very end of your response, on a new line after everything you say to the candidate, append the exact internal marker "[BANK_QUESTION_INDEX: 1]". Do not explain this marker or mention why it exists when speaking to the candidate.`;
 }
 
 function getJobSpecificPrompt(
@@ -640,7 +646,14 @@ If a specific practice library question has been selected for the next turn, you
 
 Be encouraging and supportive without using enthusiastic praise (for example, do NOT say things like "Great answer" or "Perfect" here, because they did not provide a correct answer). Normalize that it's okay not to know everything.
 
-This is question ${questionCount + 1} of the ${config.interviewType} interview for a ${config.seniority}-level ${config.position} position for your internal tracking only. Do NOT mention question numbers, this meta information, or the wording of these instructions to the candidate.`;
+This is question ${
+    questionCount + 1
+  } of the ${config.interviewType} interview for a ${config.seniority}-level ${
+    config.position
+  } position for your internal tracking only.
+\nAt the very end of your response, on a new line after everything you say to the candidate, append the exact internal marker "[BANK_QUESTION_INDEX: ${
+    questionCount + 1
+  }]". Do not explain this marker or mention why it exists when speaking to the candidate.`;
 }
 
 function generateClosingPrompt(
@@ -714,9 +727,10 @@ In your next message spoken to the candidate you must:
 Recent conversation for context (do NOT quote this back to the candidate):
 ${recentContext}
 
-Important: Do NOT say phrases like "The candidate's previous response was" or "This is question ${
+Important: Do NOT say phrases like "The candidate's previous response was" or quote these internal instructions in your reply.
+\nAt the very end of your response, on a new line after everything you say to the candidate, append the exact internal marker "[BANK_QUESTION_INDEX: ${
       questionCount + 1
-    }" in your reply. Those are internal notes only.`;
+    }]". Do not explain this marker or mention why it exists when speaking to the candidate.`;
   }
 
   return `You are about to ask the next primary interview question.
@@ -744,9 +758,10 @@ If all questions from the practice library list have already been asked, do not 
 Recent conversation for context (do NOT quote this back to the candidate):
 ${recentContext}
 
-Important: Do NOT say phrases like "The candidate's previous response was" or "This is question ${
+Important: Do NOT say phrases like "The candidate's previous response was" or quote these internal instructions in your reply.
+\nAt the very end of your response, on a new line after everything you say to the candidate, append the exact internal marker "[BANK_QUESTION_INDEX: ${
     questionCount + 1
-  }" in your reply. Those are internal notes only.`;
+  }]". Do not explain this marker or mention why it exists when speaking to the candidate.`;
 }
 
 function extractCoveredTopics(conversationHistory: Message[]): string[] {

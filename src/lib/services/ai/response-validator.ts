@@ -49,6 +49,68 @@ export function validateAIResponse(
   return { isValid: true };
 }
 
+export function validateQuestionSequence(
+  response: string,
+  expectedPrimaryIndex: number,
+  expectPrimaryQuestion: boolean,
+): ValidationResult {
+  const questionLabelPattern = /\[BANK_QUESTION_INDEX:\s*(\d+)\]/gi;
+  const matches = Array.from(response.matchAll(questionLabelPattern));
+
+  if (!expectPrimaryQuestion) {
+    if (matches.length > 0) {
+      return {
+        isValid: false,
+        reason:
+          "Unexpected Question # label when no new primary question should be asked",
+      };
+    }
+
+    return { isValid: true };
+  }
+
+  if (matches.length === 0) {
+    return {
+      isValid: false,
+      reason: "Missing Question # label for primary question",
+    };
+  }
+
+  const indices = new Set<number>();
+
+  for (const match of matches) {
+    const rawIndex = match[1];
+    const parsedIndex = Number.parseInt(rawIndex, 10);
+
+    if (Number.isNaN(parsedIndex)) {
+      return {
+        isValid: false,
+        reason: "Invalid Question # label format",
+      };
+    }
+
+    indices.add(parsedIndex);
+  }
+
+  if (indices.size > 1) {
+    return {
+      isValid: false,
+      reason: "Multiple Question # labels found in primary question response",
+    };
+  }
+
+  const [index] = Array.from(indices);
+
+  if (index !== expectedPrimaryIndex) {
+    return {
+      isValid: false,
+      reason: `Invalid question index: expected Question #${expectedPrimaryIndex}, got Question #${index}`,
+    };
+  }
+
+  return { isValid: true };
+}
+
 export function validateUserResponse(response: string): {
   isNoAnswer: boolean;
   isGibberish: boolean;

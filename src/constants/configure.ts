@@ -99,13 +99,13 @@ export const SENIORITY_LEVELS = [
   {
     value: "entry",
     label: "Entry Level",
-    description: "0-2 years experience",
+    description: "0 years experience",
     color: "bg-chart-1",
   },
   {
     value: "junior",
     label: "Junior",
-    description: "0-2 years experience",
+    description: "1-2 years experience",
     color: "bg-chart-2",
   },
   {
