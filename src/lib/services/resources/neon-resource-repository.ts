@@ -1,7 +1,11 @@
 import { desc, eq } from "drizzle-orm";
 import { practiceDb } from "@/practice-library-db/client";
 import { resources } from "@/practice-library-db/schema";
-import type { ResourceLink, ResourceType, SeniorityLevel } from "@/types/interview";
+import type {
+  ResourceLink,
+  ResourceType,
+  SeniorityLevel,
+} from "@/types/interview";
 
 type ResourceRow = typeof resources.$inferSelect;
 

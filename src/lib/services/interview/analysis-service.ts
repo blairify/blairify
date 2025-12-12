@@ -1,9 +1,9 @@
 import { SENIORITY_EXPECTATIONS } from "@/lib/config/interview-config";
 import type {
   InterviewConfig,
+  InterviewResults,
   KnowledgeGap,
   KnowledgeGapPriority,
-  InterviewResults,
   ResponseAnalysis,
 } from "@/types/interview";
 import { calculateMaxScore } from "./interview-service";
@@ -84,7 +84,6 @@ export function parseAnalysis(
     console.error("Error parsing analysis:", error);
     return createErrorAnalysis(analysis, config);
   }
-
 }
 
 function stripInlineMarkdown(value: string): string {
@@ -202,7 +201,8 @@ function parseKnowledgeGapChunk(chunk: string): KnowledgeGap | null {
   const title = stripInlineMarkdown(titleMatch?.[1]?.trim() ?? "");
   if (!title) return null;
 
-  const priority = (priorityMatch?.[1]?.toLowerCase() ?? "medium") as KnowledgeGapPriority;
+  const priority = (priorityMatch?.[1]?.toLowerCase() ??
+    "medium") as KnowledgeGapPriority;
   const tags = (tagsMatch?.[1] ?? "")
     .split(",")
     .map((t) => normalizeGapTag(t))

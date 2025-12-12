@@ -28,6 +28,11 @@ import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import { addUserXP } from "@/lib/services/users/user-xp";
 import { parseFullMarkdown } from "@/lib/utils/markdown-parser";
+import {
+  generateAnalysisMessages,
+  generateOutcomeMessage,
+  getResultsCopySeed,
+} from "@/lib/utils/results-copy";
 import type { InterviewResults, KnowledgeGapPriority } from "@/types/interview";
 
 function getPriorityLabel(priority: KnowledgeGapPriority): string {
@@ -59,103 +64,6 @@ function getPriorityClass(priority: KnowledgeGapPriority): string {
     }
   }
 }
-
-// ============================================================================
-// DYNAMIC ANALYSIS MESSAGES
-// ============================================================================
-
-const getAnalysisMessages = () => {
-  const messageVariants = [
-    [
-      "Reviewing your technical responses...",
-      "Evaluating problem-solving approaches...",
-      "Analyzing communication effectiveness...",
-      "Assessing professional readiness...",
-      "Calculating performance metrics...",
-      "Compiling comprehensive feedback...",
-    ],
-    [
-      "Processing interview transcript...",
-      "Examining technical depth and accuracy...",
-      "Evaluating analytical reasoning...",
-      "Reviewing response quality patterns...",
-      "Generating detailed insights...",
-      "Finalizing performance report...",
-    ],
-    [
-      "Analyzing your interview performance...",
-      "Assessing technical competency levels...",
-      "Reviewing problem-solving strategies...",
-      "Evaluating communication clarity...",
-      "Identifying strengths and gaps...",
-      "Preparing personalized feedback...",
-    ],
-  ];
-
-  // Randomly select a variant set for variety
-  return messageVariants[Math.floor(Math.random() * messageVariants.length)];
-};
-
-// ============================================================================
-// OUTCOME MESSAGE GENERATORS
-// ============================================================================
-
-const getOutcomeMessage = (score: number, passed: boolean): string => {
-  if (passed) {
-    if (score >= 90) {
-      const messages = [
-        "Exceptional performance across all competency areas.",
-        "Outstanding demonstration of technical expertise and problem-solving.",
-        "Impressive depth of knowledge and professional communication.",
-        "Excellent interview showcasing strong technical fundamentals.",
-      ];
-      return messages[Math.floor(Math.random() * messages.length)];
-    }
-    if (score >= 80) {
-      const messages = [
-        "Strong performance with solid technical foundation.",
-        "Good demonstration of core competencies and practical knowledge.",
-        "Competent showing with clear understanding of key concepts.",
-        "Solid interview performance meeting role requirements.",
-      ];
-      return messages[Math.floor(Math.random() * messages.length)];
-    }
-    const messages = [
-      "Satisfactory performance meeting minimum requirements.",
-      "Adequate demonstration of foundational competencies.",
-      "Acceptable performance with room for continued growth.",
-      "Met the passing threshold with baseline knowledge demonstrated.",
-    ];
-    return messages[Math.floor(Math.random() * messages.length)];
-  }
-
-  // Failed outcomes - direct but growth-focused
-  if (score >= 60) {
-    const messages = [
-      "Close to passing - focus on strengthening key technical areas.",
-      "Near the threshold - targeted preparation will bridge remaining gaps.",
-      "Some competencies demonstrated - additional study needed in core areas.",
-      "Approaching requirements - focused development will improve candidacy.",
-    ];
-    return messages[Math.floor(Math.random() * messages.length)];
-  }
-  if (score >= 40) {
-    const messages = [
-      "Significant knowledge gaps identified - systematic learning required.",
-      "Foundational skills need development before reapplying at this level.",
-      "Multiple competency areas require focused improvement.",
-      "Substantial preparation needed to meet position requirements.",
-    ];
-    return messages[Math.floor(Math.random() * messages.length)];
-  }
-  const messages = [
-    "Critical gaps in required competencies - extensive preparation recommended.",
-    "Fundamental knowledge building needed before pursuing this level.",
-    "Insufficient demonstration of core skills - consider foundational training.",
-    "Significant development required across all competency areas.",
-  ];
-  return messages[Math.floor(Math.random() * messages.length)];
-};
 
 const getPerformanceLabel = (score: number, passed?: boolean): string => {
   if (passed === true) {
@@ -192,15 +100,64 @@ export function ResultsContent({ user }: ResultsContentProps) {
   const [analysisMessages, setAnalysisMessages] = useState<string[]>([]);
   const [outcomeMessage, setOutcomeMessage] = useState<string>("");
   const [currentDate, setCurrentDate] = useState<string>("");
+  const [copySeed, setCopySeed] = useState<number | null>(null);
+  const [storedConfig, setStoredConfig] = useState<
+    { position: string; seniority: string } | undefined
+  >(undefined);
 
   // Set current date and analysis messages on client side only to avoid hydration mismatch
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString());
-    setAnalysisMessages(getAnalysisMessages());
+
+    const interviewSessionRaw = localStorage.getItem("interviewSession");
+    const interviewConfigRaw = localStorage.getItem("interviewConfig");
+    const interviewSessionId = localStorage.getItem("interviewSessionId");
+
+    setCopySeed(
+      getResultsCopySeed({
+        interviewSessionId,
+        interviewSessionRaw,
+        interviewConfigRaw,
+      }),
+    );
+
+    try {
+      const parsedConfig = interviewConfigRaw
+        ? (JSON.parse(interviewConfigRaw) as {
+            position?: string;
+            seniority?: string;
+          })
+        : null;
+
+      if (parsedConfig?.position && parsedConfig?.seniority) {
+        setStoredConfig({
+          position: parsedConfig.position,
+          seniority: parsedConfig.seniority,
+        });
+      }
+    } catch {
+      // noop
+    }
   }, []);
 
   useEffect(() => {
+    if (copySeed === null) return;
+    setAnalysisMessages(
+      generateAnalysisMessages({
+        seed: copySeed,
+        config: storedConfig as
+          | {
+              position: string;
+              seniority: "entry" | "junior" | "mid" | "senior";
+            }
+          | undefined,
+      }),
+    );
+  }, [copySeed, storedConfig]);
+
+  useEffect(() => {
     if (!isAnalyzing) return;
+    if (analysisMessages.length === 0) return;
 
     const messageInterval = setInterval(() => {
       setCurrentMessageIndex(
@@ -315,11 +272,49 @@ export function ResultsContent({ user }: ResultsContentProps) {
         if (data.success) {
           setProgress(100);
           setResults(data.feedback);
+
+          const seed = getResultsCopySeed({
+            interviewSessionId: localStorage.getItem("interviewSessionId"),
+            interviewSessionRaw: localStorage.getItem("interviewSession"),
+            interviewConfigRaw: localStorage.getItem("interviewConfig"),
+          });
+
+          let configFromStorage:
+            | {
+                position: string;
+                seniority: "entry" | "junior" | "mid" | "senior";
+              }
+            | undefined;
+          try {
+            const raw = localStorage.getItem("interviewConfig");
+            const parsed = raw
+              ? (JSON.parse(raw) as {
+                  position?: string;
+                  seniority?: "entry" | "junior" | "mid" | "senior";
+                })
+              : null;
+
+            if (parsed?.position && parsed?.seniority) {
+              configFromStorage = {
+                position: parsed.position,
+                seniority: parsed.seniority,
+              };
+            }
+          } catch {
+            // noop
+          }
+
           setOutcomeMessage(
-            getOutcomeMessage(
-              data.feedback.score,
-              data.feedback.passed || false,
-            ),
+            generateOutcomeMessage({
+              seed,
+              results: {
+                score: data.feedback.score,
+                passed: data.feedback.passed ?? false,
+                strengths: data.feedback.strengths,
+                improvements: data.feedback.improvements,
+              },
+              config: configFromStorage,
+            }),
           );
 
           if (user?.uid) {
@@ -481,7 +476,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
                 variant="default"
                 className="hover:scale-105 transition-transform"
               >
-                <RotateCcw className="h-4 w-4 mr-2" />
+                <RotateCcw className="size-4 mr-2" />
                 Retry Analysis
               </Button>
               <Button
@@ -790,7 +785,8 @@ export function ResultsContent({ user }: ResultsContentProps) {
                 Knowledge Gaps & Resources
               </CardTitle>
               <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                Focus on the high-priority items first. Each gap has curated links from the resource library.
+                Focus on the high-priority items first. Each gap has curated
+                links from the resource library.
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
@@ -896,7 +892,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
             variant={results.passed ? "default" : "outline"}
             className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
           >
-            <RotateCcw className="h-4 w-4 mr-2" />
+            <RotateCcw className="size-4 mr-2" />
             {results.passed ? "Take Another Interview" : "Try Again"}
           </Button>
           <Button
@@ -904,7 +900,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
             onClick={() => router.push("/dashboard")}
             className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
           >
-            <Target className="h-4 w-4 mr-2" />
+            <Target className="size-4 mr-2" />
             View Dashboard
           </Button>
           <Button
@@ -912,7 +908,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
             onClick={() => router.push("/history")}
             className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
           >
-            <BookOpen className="h-4 w-4 mr-2" />
+            <BookOpen className="size-4 mr-2" />
             View Interview History
           </Button>
         </div>
