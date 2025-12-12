@@ -56,10 +56,32 @@ export interface InterviewResults {
   detailedAnalysis: string;
   recommendations: string;
   nextSteps: string;
+  knowledgeGaps?: KnowledgeGap[];
   decision?: "PASS" | "FAIL";
   passed?: boolean;
   passingThreshold?: number;
   whyDecision?: string;
+}
+
+export type ResourceType = "docs" | "course" | "video" | "book" | "practice";
+
+export type KnowledgeGapPriority = "high" | "medium" | "low";
+
+export interface ResourceLink {
+  id: string;
+  title: string;
+  url: string;
+  type: ResourceType;
+  tags: string[];
+  difficulty?: SeniorityLevel;
+}
+
+export interface KnowledgeGap {
+  title: string;
+  priority: KnowledgeGapPriority;
+  tags: string[];
+  why: string;
+  resources: ResourceLink[];
 }
 
 export interface ResponseAnalysis {

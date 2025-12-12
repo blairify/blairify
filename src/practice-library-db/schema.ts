@@ -15,6 +15,18 @@ import type {
   ReferenceAnswer,
 } from "@/types/practice-question";
 
+export const resources = pgTable("resources", {
+  id: text("id").primaryKey(),
+  title: text("title").notNull(),
+  url: text("url").notNull(),
+  type: text("type").notNull(),
+  tags: text("tags").array().notNull().default([]),
+  difficulty: text("difficulty"),
+  isActive: boolean("is_active").notNull().default(true),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull(),
+});
+
 export const mcqQuestions = pgTable("mcq_questions", {
   id: text("id").primaryKey(),
   status: text("status").$type<QuestionStatus>().notNull(),

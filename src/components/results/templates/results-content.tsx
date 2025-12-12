@@ -28,20 +28,36 @@ import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import { addUserXP } from "@/lib/services/users/user-xp";
 import { parseFullMarkdown } from "@/lib/utils/markdown-parser";
+import type { InterviewResults, KnowledgeGapPriority } from "@/types/interview";
 
-interface InterviewResults {
-  score: number;
-  scoreColor: string;
-  overallScore: string;
-  strengths: string[];
-  improvements: string[];
-  detailedAnalysis: string;
-  recommendations: string;
-  nextSteps: string;
-  decision?: string;
-  passed?: boolean;
-  passingThreshold?: number;
-  whyDecision?: string;
+function getPriorityLabel(priority: KnowledgeGapPriority): string {
+  switch (priority) {
+    case "high":
+      return "High priority";
+    case "medium":
+      return "Medium priority";
+    case "low":
+      return "Low priority";
+    default: {
+      const _never: never = priority;
+      throw new Error(`Unhandled priority: ${_never}`);
+    }
+  }
+}
+
+function getPriorityClass(priority: KnowledgeGapPriority): string {
+  switch (priority) {
+    case "high":
+      return "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300";
+    case "medium":
+      return "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300";
+    case "low":
+      return "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300";
+    default: {
+      const _never: never = priority;
+      throw new Error(`Unhandled priority: ${_never}`);
+    }
+  }
 }
 
 // ============================================================================
@@ -765,6 +781,83 @@ export function ResultsContent({ user }: ResultsContentProps) {
             </CardContent>
           </Card>
         </div>
+
+        {results.knowledgeGaps && results.knowledgeGaps.length > 0 && (
+          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+              <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                <BookOpen className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                Knowledge Gaps & Resources
+              </CardTitle>
+              <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                Focus on the high-priority items first. Each gap has curated links from the resource library.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <div className="space-y-6">
+                {results.knowledgeGaps.map((gap, index) => (
+                  <div
+                    key={`${gap.title}-${index}`}
+                    className="rounded-lg border border-gray-200 dark:border-gray-800 p-4"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                      <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                        {gap.title}
+                      </div>
+                      <span
+                        className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getPriorityClass(
+                          gap.priority,
+                        )}`}
+                      >
+                        {getPriorityLabel(gap.priority)}
+                      </span>
+                    </div>
+
+                    {gap.why && (
+                      <div className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+                        {gap.why}
+                      </div>
+                    )}
+
+                    {gap.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {gap.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {gap.resources.length > 0 ? (
+                      <ul className="space-y-2">
+                        {gap.resources.map((r) => (
+                          <li key={r.id} className="text-sm">
+                            <a
+                              className="text-blue-700 dark:text-blue-300 hover:underline"
+                              href={r.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {r.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="text-sm text-gray-500 dark:text-gray-500 italic">
+                        No resources found for these tags yet.
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* ============================================================================ */}
         {/* DETAILED PERFORMANCE ANALYSIS */}

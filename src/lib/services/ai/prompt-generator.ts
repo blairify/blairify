@@ -252,6 +252,17 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 - [Another resource]
 - [Third resource]
 
+## KNOWLEDGE GAPS
+- Title: [short gap name]
+  Priority: [high | medium | low]
+  Tags: [comma-separated kebab-case tags, e.g. react-rendering, sql-indexes]
+  Why: [1 sentence explaining why this is a gap based on the transcript]
+
+Rules for KNOWLEDGE GAPS:
+- Output 3-6 gaps max.
+- Tags MUST be generic skill tags (no URLs, no provider names, no full sentences).
+- If the candidate passed, still output gaps, but prioritize "medium" and "low".
+
 ## CRITICAL REMINDERS FOR SCORING:
 1. If a candidate answered mostly "I don't know" - score should be 0-20 maximum
 2. If responses were gibberish or single words - score should be 0-15 maximum  

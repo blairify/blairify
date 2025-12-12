@@ -16,10 +16,12 @@ import {
   analyzeResponseQuality,
   validateInterviewConfig,
 } from "@/lib/services/interview/interview-service";
+import { getResourcesByTags } from "@/lib/services/resources/neon-resource-repository";
 import type {
   AnalyzeApiRequest,
   AnalyzeApiResponse,
   InterviewConfig,
+  KnowledgeGap,
   Message,
   ResponseAnalysis,
 } from "@/types/interview";
@@ -116,9 +118,24 @@ export async function POST(
       interviewConfig,
     );
 
+    const knowledgeGaps = feedback.knowledgeGaps ?? [];
+    const enrichedKnowledgeGaps: KnowledgeGap[] = await Promise.all(
+      knowledgeGaps.map(async (gap) => {
+        const resources = await getResourcesByTags(gap.tags, 5);
+        return { ...gap, resources };
+      }),
+    );
+
+    const enrichedFeedback = {
+      ...feedback,
+      ...(enrichedKnowledgeGaps.length > 0
+        ? { knowledgeGaps: enrichedKnowledgeGaps }
+        : {}),
+    };
+
     return NextResponse.json({
       success: true,
-      feedback,
+      feedback: enrichedFeedback,
       rawAnalysis: analysisText,
     });
   } catch (error) {

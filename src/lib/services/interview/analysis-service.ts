@@ -1,6 +1,8 @@
 import { SENIORITY_EXPECTATIONS } from "@/lib/config/interview-config";
 import type {
   InterviewConfig,
+  KnowledgeGap,
+  KnowledgeGapPriority,
   InterviewResults,
   ResponseAnalysis,
 } from "@/types/interview";
@@ -55,6 +57,7 @@ type AnalysisSections = {
   recommendations: string;
   nextSteps: string;
   whyDecision: string;
+  knowledgeGaps: KnowledgeGap[];
 };
 
 export function parseAnalysis(
@@ -81,6 +84,25 @@ export function parseAnalysis(
     console.error("Error parsing analysis:", error);
     return createErrorAnalysis(analysis, config);
   }
+
+}
+
+function stripInlineMarkdown(value: string): string {
+  return value
+    .replace(/`+/g, "")
+    .replace(/\*\*+/g, "")
+    .replace(/__+/g, "")
+    .replace(/\*+/g, "")
+    .replace(/_+/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normalizeGapTag(value: string): string {
+  const cleaned = stripInlineMarkdown(value)
+    .replace(/^Tags:\s*/i, "")
+    .trim();
+  return toKebabCase(cleaned);
 }
 
 export function generateMockAnalysis(
@@ -138,6 +160,9 @@ function extractAnalysisSections(analysis: string): AnalysisSections {
   const overallScore = extractSection(analysis, "INTERVIEW RESULT");
   const whyDecision = extractSection(analysis, "WHY THIS DECISION");
   const recommendations = extractSection(analysis, "RECOMMENDATIONS");
+  const knowledgeGaps = extractKnowledgeGaps(
+    extractSection(analysis, "KNOWLEDGE GAPS"),
+  );
 
   return {
     decision,
@@ -151,7 +176,68 @@ function extractAnalysisSections(analysis: string): AnalysisSections {
     detailedAnalysis: buildDetailedAnalysis(analysis, whyDecision),
     recommendations,
     nextSteps: recommendations,
+    knowledgeGaps,
   };
+}
+
+function extractKnowledgeGaps(sectionText: string): KnowledgeGap[] {
+  if (!sectionText.trim()) return [];
+
+  const chunks = sectionText
+    .split(/\n\s*-\s*Title:/i)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  return chunks
+    .map((chunk) => parseKnowledgeGapChunk(chunk))
+    .filter((gap): gap is KnowledgeGap => gap !== null);
+}
+
+function parseKnowledgeGapChunk(chunk: string): KnowledgeGap | null {
+  const titleMatch = chunk.match(/^\s*(.+?)\s*(?:\n|$)/);
+  const priorityMatch = chunk.match(/Priority:\s*(high|medium|low)/i);
+  const tagsMatch = chunk.match(/Tags:\s*([^\n]+)/i);
+  const whyMatch = chunk.match(/Why:\s*([^\n]+)/i);
+
+  const title = stripInlineMarkdown(titleMatch?.[1]?.trim() ?? "");
+  if (!title) return null;
+
+  const priority = (priorityMatch?.[1]?.toLowerCase() ?? "medium") as KnowledgeGapPriority;
+  const tags = (tagsMatch?.[1] ?? "")
+    .split(",")
+    .map((t) => normalizeGapTag(t))
+    .filter(Boolean);
+  const fallbackTags = deriveTagsFromTitle(title);
+  const why = stripInlineMarkdown((whyMatch?.[1] ?? "").trim());
+
+  return {
+    title,
+    priority,
+    tags: tags.length > 0 ? tags : fallbackTags,
+    why,
+    resources: [],
+  };
+}
+
+function deriveTagsFromTitle(title: string): string[] {
+  const primary = toKebabCase(title);
+  const tags: string[] = [];
+  if (primary) tags.push(primary);
+
+  const reactMatch = /\breact\b/i.test(title);
+  if (reactMatch && !tags.includes("react")) tags.push("react");
+
+  return tags;
+}
+
+function toKebabCase(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 function extractDecision(analysis: string): "PASS" | "FAIL" | "UNKNOWN" {
@@ -371,6 +457,7 @@ function buildInterviewResults(params: {
     recommendations: sections.recommendations,
     nextSteps: sections.nextSteps,
     whyDecision: sections.whyDecision,
+    knowledgeGaps: sections.knowledgeGaps,
     score,
     scoreColor: getScoreColor(score),
     passed: decision === "PASS",
@@ -589,6 +676,8 @@ function formatMockAnalysis(data: {
     config,
   } = data;
 
+  const knowledgeGaps = generateMockKnowledgeGaps(config, passed);
+
   const strengthsOrNone = (threshold: number, text: string) =>
     categoryScores.technical > threshold ? text : "- None demonstrated";
 
@@ -631,6 +720,9 @@ ${categoryScores.professional > 10 ? "- Showed up and participated in the interv
 - Knowledge gaps suggest insufficient experience
 - Not ready for ${config.seniority}-level responsibilities
 
+## KNOWLEDGE GAPS
+${knowledgeGaps}
+
 ## WHY THIS DECISION
 ${whyDecision}
 
@@ -638,4 +730,48 @@ ${whyDecision}
 ${recommendations}
 
 **Note**: This analysis reflects your performance in this interview. ${!passed ? "A non-passing score means your current level of readiness does not yet meet the bar for this position." : "Even with a passing score, continuing to work on the areas highlighted above will strengthen your readiness for this role."}`;
+}
+
+function generateMockKnowledgeGaps(
+  config: InterviewConfig,
+  passed: boolean,
+): string {
+  const priority = passed ? "medium" : "high";
+
+  switch (config.interviewType) {
+    case "technical":
+    case "coding":
+      return `- Title: Data structures fundamentals
+  Priority: ${priority}
+  Tags: data-structures, algorithms
+  Why: Your answers did not show consistent correctness and depth in core problem-solving fundamentals.
+
+- Title: JavaScript/TypeScript fundamentals
+  Priority: ${priority}
+  Tags: javascript-fundamentals, typescript-basics
+  Why: Several responses suggested gaps in language fundamentals expected for this role.`;
+    case "system-design":
+      return `- Title: Scalability fundamentals
+  Priority: ${priority}
+  Tags: scalability, caching
+  Why: You did not clearly explain how you would scale and cache under load.
+
+- Title: Data storage trade-offs
+  Priority: ${priority}
+  Tags: sql-indexes, database-design
+  Why: Key trade-offs around storage and indexing were missing or unclear.`;
+    case "bullet":
+      return `- Title: Structured communication
+  Priority: ${priority}
+  Tags: communication, storytelling
+  Why: Your answers were not consistently structured and outcome-focused.
+
+- Title: Behavioral examples
+  Priority: ${priority}
+  Tags: star-method, behavioral-interview
+  Why: Several answers lacked concrete examples and measurable results.`;
+  }
+
+  const _never: never = config.interviewType;
+  throw new Error(`Unhandled interview type: ${_never}`);
 }
