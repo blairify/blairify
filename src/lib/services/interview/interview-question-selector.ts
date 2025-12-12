@@ -8,6 +8,7 @@ import type {
   InterviewType,
   SeniorityLevel,
 } from "@/components/interview/types";
+import { shuffleWithSeed } from "@/lib/utils/seeded-random";
 import type { DifficultyLevel, Question } from "@/types/practice-question";
 
 /**
@@ -115,7 +116,7 @@ export async function getRelevantQuestionsForInterview(
     });
 
     // Shuffle with timestamp-based seed for better randomization
-    const shuffled = shuffleArrayWithSeed(relevantQuestions, Date.now());
+    const shuffled = shuffleWithSeed(relevantQuestions, Date.now());
     const selected = shuffled.slice(0, count);
 
     // Mark selected questions as recently used
@@ -326,29 +327,6 @@ function matchTechStack(question: Question, technologies: string[]): boolean {
   return requiredTech.some((tech) =>
     questionTech.some((qTech) => qTech.includes(tech) || tech.includes(qTech)),
   );
-}
-
-/**
- * Shuffle array with timestamp-based seeding for better randomization
- * Uses a simple seeded random number generator
- */
-function shuffleArrayWithSeed<T>(array: T[], seed: number): T[] {
-  const shuffled = [...array];
-
-  // Simple seeded random number generator (LCG algorithm)
-  let currentSeed = seed;
-  const seededRandom = () => {
-    currentSeed = (currentSeed * 9301 + 49297) % 233280;
-    return currentSeed / 233280;
-  };
-
-  // Fisher-Yates shuffle with seeded random
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(seededRandom() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-
-  return shuffled;
 }
 
 /**

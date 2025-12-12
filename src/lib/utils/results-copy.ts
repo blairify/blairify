@@ -1,3 +1,4 @@
+import { createSeededRandom, pickOne } from "@/lib/utils/seeded-random";
 import type { InterviewConfig, InterviewResults } from "@/types/interview";
 
 function hashStringToInt(value: string): number {
@@ -6,24 +7,6 @@ function hashStringToInt(value: string): number {
     hash = (hash * 33) ^ value.charCodeAt(i);
   }
   return hash >>> 0;
-}
-
-function createSeededRandom(seed: number): () => number {
-  let currentSeed = seed;
-
-  return () => {
-    currentSeed = (currentSeed * 9301 + 49297) % 233280;
-    return currentSeed / 233280;
-  };
-}
-
-function pickOne<T>(items: readonly T[], rng: () => number): T {
-  if (items.length === 0) {
-    throw new Error("pickOne: items must not be empty");
-  }
-
-  const index = Math.floor(rng() * items.length);
-  return items[index];
 }
 
 export type ResultsCopySeedInput = {

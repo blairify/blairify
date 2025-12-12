@@ -41,12 +41,13 @@ export async function getResourcesByTags(
 
   const matched = rows.filter((r) => hasAnyTag(r.tags, tags));
 
-  console.info("[resources] lookup", {
-    queryTags: tags,
-    activeRows: rows.length,
-    matchedRows: matched.length,
-    sampleRowTags: rows.slice(0, 5).map((r) => r.tags),
-  });
+  if (process.env.NODE_ENV === "development") {
+    console.info("[resources] lookup", {
+      queryTags: tags,
+      activeRows: rows.length,
+      matchedRows: matched.length,
+    });
+  }
 
   return matched.slice(0, limit).map(toResourceLink);
 }
