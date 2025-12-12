@@ -19,6 +19,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useGuestGuard } from "@/hooks/use-auth-guard";
 import {
   checkEmailExists,
@@ -34,11 +35,15 @@ type AuthMode = "login" | "register";
 interface AuthFormProps {
   mode: AuthMode;
   onModeChange?: (mode: AuthMode) => void;
+  audience?: "individual" | "enterprise";
+  onAudienceChange?: (audience: "individual" | "enterprise") => void;
 }
 
 export default function AuthForm({
   mode = "login",
   onModeChange,
+  audience,
+  onAudienceChange,
 }: AuthFormProps) {
   const router = useRouter();
   const { loading: authLoading } = useGuestGuard();
@@ -844,6 +849,21 @@ export default function AuthForm({
                   Blairify
                 </span>
               </div>
+              {onAudienceChange && (
+                <div className="flex justify-start">
+                  <Tabs
+                    value={audience ?? "individual"}
+                    onValueChange={(value) =>
+                      onAudienceChange(value as "individual" | "enterprise")
+                    }
+                  >
+                    <TabsList>
+                      <TabsTrigger value="individual">Individual</TabsTrigger>
+                      <TabsTrigger value="enterprise">Enterprise</TabsTrigger>
+                    </TabsList>
+                  </Tabs>
+                </div>
+              )}
               <div
                 className={`text-center transition-all duration-500 ease-in-out ${
                   isTransitioning
@@ -1038,6 +1058,21 @@ export default function AuthForm({
                   className="object-contain drop-shadow-2xl"
                 />
               </div>
+              {onAudienceChange && (
+                <div className="absolute inset-x-0 bottom-10 flex justify-center">
+                  <Tabs
+                    value={audience ?? "individual"}
+                    onValueChange={(value) =>
+                      onAudienceChange(value as "individual" | "enterprise")
+                    }
+                  >
+                    <TabsList>
+                      <TabsTrigger value="individual">Individual</TabsTrigger>
+                      <TabsTrigger value="enterprise">Enterprise</TabsTrigger>
+                    </TabsList>
+                  </Tabs>
+                </div>
+              )}
             </div>
 
             <div className="w-full bg-card p-6 sm:p-10 flex flex-col justify-center min-h-[32rem]">

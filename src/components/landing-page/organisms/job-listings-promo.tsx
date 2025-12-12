@@ -22,10 +22,10 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
       aria-labelledby="job-listings-heading"
       data-analytics-id="home-jobs-promo"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
           {/* Job Listings - Left Side */}
-          <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-left-8 duration-1000 delay-200 order-last lg:order-first max-w-xl mx-auto lg:mx-0">
+          <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-left-8 duration-1000 delay-200 order-last lg:order-first max-w-xl lg:max-w-none mx-auto lg:mx-0">
             <ul
               className="grid grid-cols-1 sm:grid-cols-2 gap-4"
               aria-label="Featured job opportunities"
@@ -82,7 +82,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
             </ul>
           </div>
 
-          <div className="space-y-4 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col items-center lg:items-start justify-center text-center lg:text-left max-w-xl mx-auto lg:mx-0">
+          <div className="space-y-4 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col items-center lg:items-start justify-center text-center lg:text-left max-w-xl lg:max-w-none mx-auto lg:mx-0">
             <div className="space-y-4 sm:space-y-6">
               <Typography.Heading2
                 id="job-listings-heading"
@@ -92,7 +92,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
               </Typography.Heading2>
               <Typography.Body
                 color="secondary"
-                className=" text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                className="text-base sm:text-lg leading-relaxed max-w-2xl lg:max-w-3xl mx-auto lg:mx-0"
               >
                 Browse current job openings and practice interview questions
                 specifically tailored to these positions. No stress, no
