@@ -198,6 +198,7 @@ export async function saveInterviewResults(
     recommendations: string;
     nextSteps: string;
   },
+  existingSessionId?: string | null,
 ): Promise<string> {
   try {
     const database = ensureDatabase();
@@ -207,7 +208,10 @@ export async function saveInterviewResults(
       userId,
       COLLECTIONS.SESSIONS,
     );
-    const sessionDoc = doc(sessionsRef);
+    const sessionDoc =
+      existingSessionId != null && existingSessionId !== ""
+        ? doc(sessionsRef, existingSessionId)
+        : doc(sessionsRef);
 
     // Convert messages to interview questions and responses
     const questions: InterviewQuestion[] = [];
@@ -244,8 +248,16 @@ export async function saveInterviewResults(
     }
 
     // Build session object without undefined values
+    const startedAtTimestamp = sessionData.startTime
+      ? Timestamp.fromDate(new Date(sessionData.startTime))
+      : Timestamp.now();
+
+    const completedAtTimestamp = sessionData.endTime
+      ? Timestamp.fromDate(new Date(sessionData.endTime))
+      : Timestamp.now();
+
     const sessionBase = {
-      sessionId: sessionDoc.id,
+      sessionId: existingSessionId ?? sessionDoc.id,
       config: {
         position: config.position,
         seniority: config.seniority,
@@ -265,12 +277,8 @@ export async function saveInterviewResults(
       status: (sessionData.isComplete
         ? "completed"
         : "abandoned") as SessionStatus,
-      startedAt: sessionData.startTime
-        ? Timestamp.fromDate(new Date(sessionData.startTime))
-        : Timestamp.now(),
-      completedAt: sessionData.endTime
-        ? Timestamp.fromDate(new Date(sessionData.endTime))
-        : Timestamp.now(),
+      startedAt: startedAtTimestamp,
+      completedAt: completedAtTimestamp,
       totalDuration:
         sessionData.endTime && sessionData.startTime
           ? Math.round(

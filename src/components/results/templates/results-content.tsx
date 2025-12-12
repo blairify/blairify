@@ -308,11 +308,14 @@ export function ResultsContent({ user }: ResultsContentProps) {
 
           if (user?.uid) {
             try {
+              const existingSessionId =
+                localStorage.getItem("interviewSessionId");
               await DatabaseService.saveInterviewResults(
                 user.uid,
                 session,
                 config,
                 data.feedback,
+                existingSessionId,
               );
 
               // Update XP, levels, badges

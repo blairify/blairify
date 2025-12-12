@@ -88,6 +88,9 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
     localStorage.setItem("interviewSession", JSON.stringify(sessionData));
     localStorage.setItem("interviewConfig", JSON.stringify(config));
+    if (databaseSessionId) {
+      localStorage.setItem("interviewSessionId", databaseSessionId);
+    }
   };
 
   const handleViewResults = () => {
@@ -376,6 +379,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
             );
             localStorage.setItem("interviewConfig", JSON.stringify(config));
 
+            if (databaseSessionId) {
+              localStorage.setItem("interviewSessionId", databaseSessionId);
+            }
+
             window.location.href = "/results";
             return;
           }
@@ -398,6 +405,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
               JSON.stringify(terminationData),
             );
             localStorage.setItem("interviewConfig", JSON.stringify(config));
+
+            if (databaseSessionId) {
+              localStorage.setItem("interviewSessionId", databaseSessionId);
+            }
 
             window.location.href = "/results";
             return;
@@ -522,6 +533,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
                 JSON.stringify(terminationData),
               );
               localStorage.setItem("interviewConfig", JSON.stringify(config));
+
+              if (databaseSessionId) {
+                localStorage.setItem("interviewSessionId", databaseSessionId);
+              }
 
               window.location.href = "/results";
               return;
