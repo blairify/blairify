@@ -474,7 +474,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
   // RENDER: LOADING STATE
   // ============================================================================
 
-  if (!isAnalyzing) {
+  if (isAnalyzing) {
     return (
       <main
         className={`flex-1 overflow-auto flex items-center justify-center p-4 ${backgroundClass}`}
