@@ -108,7 +108,7 @@ export function ConfigureContent() {
           return (
             <Card
               key={position.value}
-              className={`cursor-pointer transition-all hover:bg-blue-50 hover:border-blue-300 dark:hover:bg-blue-900/10 dark:hover:border-blue-600 ${
+              className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/50 dark:hover:bg-primary/10 dark:hover:border-primary/60 ${
                 config.position === position.value
                   ? "ring-2 ring-primary bg-primary/10"
                   : "border-border"
@@ -158,7 +158,7 @@ export function ConfigureContent() {
                   className={`flex flex-col p-5 rounded-xl border-2 cursor-pointer transition-all h-full min-h-[130px] justify-center shadow-sm hover:shadow-md ${
                     config.seniority === level.value
                       ? "border-primary bg-primary/5 shadow-md scale-105"
-                      : "border-border hover:border-primary/50 hover:bg-accent/50"
+                      : "border-border hover:border-primary/50 hover:bg-primary/5"
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-3">
@@ -194,7 +194,7 @@ export function ConfigureContent() {
               return (
                 <Card
                   key={profile.value}
-                  className={`cursor-pointer transition-all hover:bg-blue-50 hover:border-blue-300 dark:hover:bg-blue-900/10 dark:hover:border-blue-600 h-full ${
+                  className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/50 dark:hover:bg-primary/10 dark:hover:border-primary/60 h-full ${
                     config.companyProfile === profile.value
                       ? "ring-2 ring-primary bg-primary/10"
                       : "border-border"
@@ -240,7 +240,7 @@ export function ConfigureContent() {
               return (
                 <Card
                   key={company.value}
-                  className={`cursor-pointer transition-all hover:bg-blue-50 hover:border-blue-300 hover:scale-105 dark:hover:bg-blue-900/10 dark:hover:border-blue-600 h-full ${
+                  className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/50 hover:scale-105 dark:hover:bg-primary/10 dark:hover:border-primary/60 h-full ${
                     config.specificCompany === company.value
                       ? "ring-2 ring-primary bg-primary/10"
                       : "border-border"
@@ -300,7 +300,7 @@ export function ConfigureContent() {
                 className={`transition-all h-full ${
                   isComingSoon
                     ? "opacity-60 cursor-not-allowed"
-                    : `cursor-pointer hover:bg-blue-50 hover:border-blue-300 dark:hover:bg-blue-900/10 dark:hover:border-blue-600 ${
+                    : `cursor-pointer hover:bg-primary/5 hover:border-primary/50 dark:hover:bg-primary/10 dark:hover:border-primary/60 ${
                         config.interviewMode === mode.value
                           ? "ring-2 ring-primary bg-primary/10"
                           : "border-border"
