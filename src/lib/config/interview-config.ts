@@ -266,6 +266,7 @@ export const SCORING_THRESHOLDS = {
 
   followUpScoreThreshold: 2,
   maxConsecutiveFollowUps: 2,
+  maxFollowUpsPerQuestion: 2,
 } as const;
 
 // Default Interview Settings

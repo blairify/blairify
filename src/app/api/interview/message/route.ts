@@ -9,6 +9,7 @@ import {
   shouldGenerateFollowUp,
   validateInterviewConfig,
 } from "@/lib/interview";
+import { SCORING_THRESHOLDS } from "@/lib/config/interview-config";
 import {
   aiClient,
   generateInterviewResponse,
@@ -26,6 +27,27 @@ import {
   sanitizeMessageForPrivacy,
 } from "@/lib/services/interview/message-moderation";
 import type { Message } from "@/types/interview";
+
+function getFollowUpsSinceLastMainQuestion(conversationHistory: Message[]):
+  | { count: number; hasMainQuestion: boolean }
+  | { count: 0; hasMainQuestion: false } {
+  let count = 0;
+
+  for (let i = conversationHistory.length - 1; i >= 0; i--) {
+    const msg = conversationHistory[i];
+
+    if (msg.type !== "ai") continue;
+
+    if (msg.isFollowUp) {
+      count += 1;
+      continue;
+    }
+
+    return { count, hasMainQuestion: true };
+  }
+
+  return { count: 0, hasMainQuestion: false };
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -175,10 +197,22 @@ export async function POST(request: NextRequest) {
 
     const currentQuestionCount = questionCount || 0;
 
+    const historyForFollowUpCount: Message[] = Array.isArray(conversationHistory)
+      ? (conversationHistory as Message[])
+      : [];
+    const followUpCountState = getFollowUpsSinceLastMainQuestion(
+      historyForFollowUpCount,
+    );
+    const maxFollowUpsPerQuestion = SCORING_THRESHOLDS.maxFollowUpsPerQuestion;
+    const reachedFollowUpCap =
+      followUpCountState.hasMainQuestion &&
+      followUpCountState.count >= maxFollowUpsPerQuestion;
+
     const autoFollowUp =
       !isFollowUp &&
       !interviewConfig.isDemoMode &&
       Array.isArray(conversationHistory) &&
+      !reachedFollowUpCap &&
       shouldGenerateFollowUp(
         processedMessage,
         conversationHistory as Message[],
@@ -186,7 +220,8 @@ export async function POST(request: NextRequest) {
         currentQuestionCount,
       );
 
-    const effectiveIsFollowUp = isFollowUp || autoFollowUp;
+    const requestedFollowUp = isFollowUp && !reachedFollowUpCap;
+    const effectiveIsFollowUp = requestedFollowUp || autoFollowUp;
 
     const shouldComplete =
       !effectiveIsFollowUp && currentQuestionCount >= maxQuestions;
@@ -245,7 +280,7 @@ export async function POST(request: NextRequest) {
 
     if (!aiResponse.success || !aiResponse.content) {
       console.warn("AI response failed, using fallback");
-      finalMessage = getFallbackResponse(interviewConfig, isFollowUp);
+      finalMessage = getFallbackResponse(interviewConfig, effectiveIsFollowUp);
       usedFallback = true;
     } else {
       const validation = validateAIResponse(
@@ -256,7 +291,7 @@ export async function POST(request: NextRequest) {
 
       if (!validation.isValid) {
         console.warn(`AI response validation failed: ${validation.reason}`);
-        finalMessage = getFallbackResponse(interviewConfig, isFollowUp);
+        finalMessage = getFallbackResponse(interviewConfig, effectiveIsFollowUp);
         usedFallback = true;
       } else {
         const contentForSequence = validation.sanitized ?? aiResponse.content;
@@ -275,7 +310,10 @@ export async function POST(request: NextRequest) {
             console.warn(
               `AI question sequence validation failed: ${sequenceCheck.reason}`,
             );
-            finalMessage = getFallbackResponse(interviewConfig, isFollowUp);
+            finalMessage = getFallbackResponse(
+              interviewConfig,
+              effectiveIsFollowUp,
+            );
             usedFallback = true;
           } else {
             finalMessage = contentForSequence;
