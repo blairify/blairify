@@ -197,7 +197,7 @@ function processBlockquotes(text: string): string {
       .filter((line) => line.trim())
       .map((line) => line.replace(/^>\s*/, ""))
       .join("<br>");
-    return `\n\n<!--BLOCKQUOTE--><blockquote class="border-l-4 border-blue-500 dark:border-blue-400 pl-4 py-2 my-4 bg-blue-50 dark:bg-blue-950/20 rounded-r-lg"><p class="text-gray-600 dark:text-gray-400 italic mb-0">${content}</p></blockquote><!--/BLOCKQUOTE-->\n\n`;
+    return `\n\n<!--BLOCKQUOTE--><blockquote class="border-l-4 border-primary/60 dark:border-primary/40 pl-4 py-2 my-4 bg-primary/5 dark:bg-primary/10 rounded-r-lg"><p class="text-gray-600 dark:text-gray-400 italic mb-0">${content}</p></blockquote><!--/BLOCKQUOTE-->\n\n`;
   });
 }
 

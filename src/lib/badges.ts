@@ -46,9 +46,9 @@ export const BADGE_RARITY_COLORS: Record<
     text: "text-green-700 dark:text-green-400",
   },
   rare: {
-    border: "border-blue-500",
-    bg: "bg-blue-50 dark:bg-blue-900/20",
-    text: "text-blue-700 dark:text-blue-400",
+    border: "border-primary/70 dark:border-primary/50",
+    bg: "bg-primary/10 dark:bg-primary/20",
+    text: "text-primary dark:text-primary/80",
   },
   epic: {
     border: "border-purple-500",
@@ -138,7 +138,7 @@ export const BADGE_DEFINITIONS: Badge[] = [
     description: "Reached level 25",
     category: "milestone",
     rarity: "rare",
-    icon: "Award",
+    icon: "GiFlowerTwirl",
     color: "#9B59B6",
     unlockCondition: "Reach level 25",
   },

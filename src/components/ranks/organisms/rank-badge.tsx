@@ -1,6 +1,8 @@
 "use client";
 
-import { Award, Crown, Flame, Gem, Shield, Star, Trophy } from "lucide-react";
+import { Crown, Flame, Gem, Shield, Star, Trophy } from "lucide-react";
+import { GiFlowerTwirl } from "react-icons/gi";
+
 import type { Rank } from "@/lib/ranks";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +17,7 @@ interface RankBadgeProps {
 
 const icons = {
   Shield,
-  Award,
+  GiFlowerTwirl,
   Crown,
   Gem,
   Star,

@@ -50,43 +50,44 @@ class ErrorBoundaryInner extends Component<Props, State> {
       const errorMessage = this.state.error?.message;
 
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-          <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 text-center">
-            <div className="flex justify-center mb-4">
-              <AlertTriangle className="h-12 w-12 text-red-500" />
+        <div className="min-h-screen flex items-center justify-center bg-background px-4 py-8 text-foreground">
+          <div className="max-w-md w-full bg-card border border-border rounded-2xl shadow-xl p-6 text-center space-y-4">
+            <div className="flex justify-center">
+              <AlertTriangle className="h-12 w-12 text-amber-500" />
             </div>
 
-            <Typography.Heading1 color="primary" className="mb-2">
+            <Typography.Heading1 className="text-foreground">
               Something went wrong
             </Typography.Heading1>
 
-            <p className="text-gray-600 mb-3">
+            <p className="text-muted-foreground">
               We encountered an unexpected error. Please try refreshing the page
               or contact support if the problem persists.
             </p>
 
             {errorMessage && (
-              <p className="text-xs text-gray-500 mb-4 break-words">
-                <span className="font-semibold">Error:</span> {errorMessage}
+              <p className="text-xs text-muted-foreground mb-2 break-words">
+                <span className="font-semibold text-foreground">Error:</span>{" "}
+                {errorMessage}
               </p>
             )}
 
             {process.env.NODE_ENV === "development" && this.state.error && (
-              <details className="mb-4 text-left">
-                <summary className="cursor-pointer text-sm text-gray-500 mb-2">
+              <details className="mb-4 text-left rounded-lg bg-muted/50 text-sm text-muted-foreground">
+                <summary className="cursor-pointer px-3 py-2 text-foreground/80">
                   Error Details (Development)
                 </summary>
-                <pre className="text-xs bg-gray-100 p-2 rounded overflow-auto">
+                <pre className="text-xs px-3 pb-3 overflow-auto">
                   {this.state.error.stack}
                 </pre>
               </details>
             )}
 
-            <div className="flex gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 onClick={this.handleRetry}
                 variant="outline"
-                className="flex items-center gap-2"
+                className="flex items-center justify-center gap-2"
               >
                 <RefreshCw className="h-4 w-4" />
                 Try Again

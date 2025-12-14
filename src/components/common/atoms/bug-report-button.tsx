@@ -226,7 +226,7 @@ export function BugReportButton({
                   </SelectItem>
                   <SelectItem value="preference">
                     <span className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-blue-500" />
+                      <span className="h-2 w-2 rounded-full bg-primary" />
                       Preference
                     </span>
                   </SelectItem>

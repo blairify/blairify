@@ -262,9 +262,10 @@ export const CookieBanner = () => {
   };
 
   const isConfigureFlow = pathname?.startsWith("/configure");
+  const isLandingPage = pathname === "/";
 
   // Render floating cookie button when banner is hidden but user has consented
-  if (!showBanner && showFloatingButton && !isConfigureFlow) {
+  if (!showBanner && showFloatingButton && isLandingPage && !isConfigureFlow) {
     return (
       <div className="fixed bottom-4 left-4 z-50">
         <Button
@@ -281,7 +282,7 @@ export const CookieBanner = () => {
     );
   }
 
-  if (!showBanner) return null;
+  if (!showBanner || !isLandingPage) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 pointer-events-none animate-in slide-in-from-bottom duration-300">

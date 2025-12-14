@@ -159,7 +159,7 @@ export function PracticeFlashcardsGrid({
       case "entry":
         return "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20";
       case "junior":
-        return "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20";
+        return "bg-primary/10 text-primary dark:text-primary/80 border-primary/20";
       case "middle":
         return "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20";
       case "senior":

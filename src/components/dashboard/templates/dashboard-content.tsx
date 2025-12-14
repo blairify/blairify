@@ -75,7 +75,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
   const chartConfig = {
     score: {
       label: "Score",
-      color: "#3b82f6",
+      color: "hsl(var(--primary))",
     },
   } satisfies ChartConfig;
 
@@ -126,6 +126,11 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
       .split("-")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
+  };
+
+  const formatTitleCase = (value: string) => {
+    if (!value) return "";
+    return value.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
   };
 
   if (!hasData) {
@@ -310,7 +315,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
             {performanceData.length > 0 && (
               <Select value={timeRange} onValueChange={setTimeRange}>
                 <SelectTrigger
-                  className="w-[160px] rounded-lg sm:ml-auto"
+                  className="w-[160px] rounded-lg sm:ml-auto border-primary/40 text-primary focus:ring-primary focus:ring-offset-0"
                   aria-label="Select a time range"
                 >
                   <SelectValue placeholder="All time" />
@@ -343,12 +348,12 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
                     <linearGradient id="fillScore" x1="0" y1="0" x2="0" y2="1">
                       <stop
                         offset="5%"
-                        stopColor="var(--color-score)"
+                        stopColor="var(--primary)"
                         stopOpacity={0.8}
                       />
                       <stop
                         offset="95%"
-                        stopColor="var(--color-score)"
+                        stopColor="var(--primary)"
                         stopOpacity={0.1}
                       />
                     </linearGradient>
@@ -393,7 +398,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
                     dataKey="score"
                     type="natural"
                     fill="url(#fillScore)"
-                    stroke="var(--color-score)"
+                    stroke="var(--primary)"
                     strokeWidth={2}
                   />
                 </AreaChart>
@@ -451,52 +456,137 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
         </Card>
       </div>
 
+      <Card>
+        <CardHeader>
+          <CardTitle>Recent Interview Sessions</CardTitle>
+          <CardDescription>
+            Your latest interview performances and results
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          {recentSessions.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {recentSessions.map((session, index) => (
+                <div
+                  key={session.id}
+                  className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors"
+                >
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <Typography.BodyBold className="font-semibold">
+                        {formatTitleCase(session.position)}
+                      </Typography.BodyBold>
+                      <Badge variant="secondary">
+                        {formatKebabCase(session.type)}
+                      </Badge>
+                    </div>
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="h-3.5 w-3.5" />
+                        <Typography.Caption className="text-muted-foreground">
+                          {session.date.toLocaleDateString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          })}
+                        </Typography.Caption>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Clock className="h-3.5 w-3.5" />
+                        <Typography.Caption className="text-muted-foreground">
+                          {session.duration} minutes
+                        </Typography.Caption>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <Typography.BodyBold
+                      className={`text-2xl ${getScoreColor(session.score)}`}
+                    >
+                      {session.score}%
+                    </Typography.BodyBold>
+                    {index > 0 && recentSessions[index - 1].score > 0 && (
+                      <div className="flex items-center justify-end gap-1 text-xs mt-1">
+                        {session.score > recentSessions[index - 1].score ? (
+                          <>
+                            <ArrowUpRight className="h-3 w-3 text-emerald-600" />
+                            <Typography.CaptionMedium className="text-emerald-600 font-medium">
+                              +
+                              {Math.abs(
+                                session.score - recentSessions[index - 1].score,
+                              )}
+                            </Typography.CaptionMedium>
+                          </>
+                        ) : session.score < recentSessions[index - 1].score ? (
+                          <>
+                            <ArrowDownRight className="h-3 w-3 text-red-600" />
+                            <Typography.CaptionMedium className="text-red-600 font-medium">
+                              -
+                              {Math.abs(
+                                session.score - recentSessions[index - 1].score,
+                              )}
+                            </Typography.CaptionMedium>
+                          </>
+                        ) : null}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <Typography.Body className="text-sm text-muted-foreground text-center py-8">
+              No recent sessions to display
+            </Typography.Body>
+          )}
+        </CardContent>
+      </Card>
       {showTeamAlert && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 relative">
+        <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 relative">
           <div className="flex items-start justify-between">
             <div className="flex items-start gap-3 flex-1">
-              <Target className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+              <Target className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <Typography.Heading3 className="font-semibold text-blue-900 mb-1">
+                <Typography.Heading3 className="font-semibold text-primary mb-1">
                   Join the Blairify Team
                 </Typography.Heading3>
-                <Typography.Body className="text-sm text-blue-800 mb-3">
+                <Typography.Body className="text-sm text-muted-foreground mb-3">
                   We're a growing team of passionate developers building the
                   future of interview preparation. We respond super fast to all
                   inquiries!
                 </Typography.Body>
                 <div className="mb-3">
-                  <p className="text-sm font-medium text-blue-900 mb-2">
+                  <p className="text-sm font-medium text-primary mb-2">
                     We're looking for:
                   </p>
                   <div className="flex flex-wrap gap-2 text-xs">
                     <Badge
                       variant="secondary"
-                      className="bg-blue-100 text-blue-800"
+                      className="bg-primary/10 text-primary border border-primary/20"
                     >
                       Quality Engineers
                     </Badge>
                     <Badge
                       variant="secondary"
-                      className="bg-blue-100 text-blue-800"
+                      className="bg-primary/10 text-primary border border-primary/20"
                     >
                       DevOps Engineers
                     </Badge>
                     <Badge
                       variant="secondary"
-                      className="bg-blue-100 text-blue-800"
+                      className="bg-primary/10 text-primary border border-primary/20"
                     >
                       Fullstack Developers
                     </Badge>
                     <Badge
                       variant="secondary"
-                      className="bg-blue-100 text-blue-800"
+                      className="bg-primary/10 text-primary border border-primary/20"
                     >
                       Marketing
                     </Badge>
                     <Badge
                       variant="secondary"
-                      className="bg-blue-100 text-blue-800"
+                      className="bg-primary/10 text-primary border border-primary/20"
                     >
                       Business & Finance
                     </Badge>
@@ -526,7 +616,7 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="h-6 w-6 p-0 text-blue-600 hover:text-blue-800 hover:bg-blue-100"
+              className="h-6 w-6 p-0 text-primary hover:text-primary hover:bg-primary/20"
               onClick={() => setShowTeamAlert(false)}
             >
               <X className="h-4 w-4" />
@@ -534,90 +624,6 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
           </div>
         </div>
       )}
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Recent Interview Sessions</CardTitle>
-          <CardDescription>
-            Your latest interview performances and results
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {recentSessions.length > 0 ? (
-            <div className="space-y-3">
-              {recentSessions.map((session, index) => (
-                <div
-                  key={session.id}
-                  className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors"
-                >
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h4 className="font-semibold">{session.position}</h4>
-                      <Badge variant="secondary">
-                        {formatKebabCase(session.type)}
-                      </Badge>
-                    </div>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5" />
-                        <span>
-                          {session.date.toLocaleDateString("en-US", {
-                            month: "short",
-                            day: "numeric",
-                            year: "numeric",
-                          })}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5" />
-                        <span>{session.duration} minutes</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div
-                      className={`text-2xl font-bold ${getScoreColor(
-                        session.score,
-                      )}`}
-                    >
-                      {session.score}%
-                    </div>
-                    {index > 0 && recentSessions[index - 1].score > 0 && (
-                      <div className="flex items-center justify-end gap-1 text-xs mt-1">
-                        {session.score > recentSessions[index - 1].score ? (
-                          <>
-                            <ArrowUpRight className="h-3 w-3 text-emerald-600" />
-                            <span className="text-emerald-600 font-medium">
-                              +
-                              {Math.abs(
-                                session.score - recentSessions[index - 1].score,
-                              )}
-                            </span>
-                          </>
-                        ) : session.score < recentSessions[index - 1].score ? (
-                          <>
-                            <ArrowDownRight className="h-3 w-3 text-red-600" />
-                            <span className="text-red-600 font-medium">
-                              -
-                              {Math.abs(
-                                session.score - recentSessions[index - 1].score,
-                              )}
-                            </span>
-                          </>
-                        ) : null}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <Typography.Body className="text-sm text-muted-foreground text-center py-8">
-              No recent sessions to display
-            </Typography.Body>
-          )}
-        </CardContent>
-      </Card>
     </div>
   );
 }

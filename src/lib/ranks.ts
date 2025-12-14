@@ -95,7 +95,7 @@ export const RANKS: Rank[] = [
       secondary: "#FFA500",
       gradient: "from-yellow-500 via-yellow-400 to-yellow-600",
     },
-    icon: "Award",
+    icon: "GiFlowerTwirl",
     badge: {
       border: "border-yellow-500",
       bg: "bg-gradient-to-br from-yellow-500/20 to-yellow-700/20",

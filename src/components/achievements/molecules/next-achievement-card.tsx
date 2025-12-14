@@ -1,10 +1,17 @@
 "use client";
 
 import { type LucideIcon, Target } from "lucide-react";
+import type { ComponentType } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import type { AchievementTier } from "@/lib/achievements";
+
+type SupportedIconProps = {
+  className?: string;
+};
+
+export type AchievementIcon = LucideIcon | ComponentType<SupportedIconProps>;
 
 interface NextAchievementCardProps {
   name: string;
@@ -12,7 +19,7 @@ interface NextAchievementCardProps {
   tier: AchievementTier;
   progress: number;
   xpReward: number;
-  Icon: LucideIcon;
+  Icon: AchievementIcon;
   badgeClassName: string;
 }
 

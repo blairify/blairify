@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Award,
   Clock,
   Crown,
   Flame,
@@ -14,6 +13,8 @@ import {
   Zap,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { GiFlowerTwirl } from "react-icons/gi";
+import type { IconType } from "react-icons/lib";
 import { NextAchievementCard } from "@/components/achievements/molecules/next-achievement-card";
 import { Typography } from "@/components/common/atoms/typography";
 import { RankBadge } from "@/components/ranks/organisms/rank-badge";
@@ -37,12 +38,12 @@ const ICON_COMPONENTS = {
   Target,
   Star,
   Clock,
-  Award,
+  GiFlowerTwirl,
   Crown,
   Zap,
   Flame,
   Sparkles,
-} satisfies Record<string, LucideIcon>;
+} satisfies Record<string, LucideIcon | IconType>;
 
 type IconKey = keyof typeof ICON_COMPONENTS;
 

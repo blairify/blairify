@@ -645,28 +645,28 @@ export function InterviewContent({ user }: InterviewContentProps) {
         messages={session.messages}
         isLoading={isLoading}
         interviewer={interviewer}
+        completionCard={
+          session.isComplete ? (
+            <InterviewCompleteCard onViewResults={handleViewResults} />
+          ) : null
+        }
       />
 
-      {!session.isComplete && (
-        <div className="sticky bottom-0 z-10 bg-background/95 backdrop-blur-lg border-t border-border/50 shadow-lg">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4">
-            <MessageInput
-              value={currentMessage}
-              onChange={setCurrentMessage}
-              onSend={handleSendMessage}
-              onStartVoice={startSpeechRecognition}
-              onStopVoice={stopSpeechRecognition}
-              isListening={isListening}
-              isPaused={session.isPaused}
-              isLoading={isLoading}
-            />
-          </div>
+      <div className="sticky bottom-0 z-10 bg-background/95 backdrop-blur-lg border-t border-border/50 shadow-lg">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4">
+          <MessageInput
+            value={currentMessage}
+            onChange={setCurrentMessage}
+            onSend={handleSendMessage}
+            onStartVoice={startSpeechRecognition}
+            onStopVoice={stopSpeechRecognition}
+            isListening={isListening}
+            isPaused={session.isPaused}
+            isLoading={isLoading}
+            isDisabled={session.isComplete}
+          />
         </div>
-      )}
-
-      {session.isComplete && (
-        <InterviewCompleteCard onViewResults={handleViewResults} />
-      )}
+      </div>
 
       <TokenCounter messages={session.messages} />
     </main>

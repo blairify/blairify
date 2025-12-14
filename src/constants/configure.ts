@@ -100,25 +100,25 @@ export const SENIORITY_LEVELS = [
     value: "entry",
     label: "Entry Level",
     description: "0 years experience",
-    color: "bg-chart-1",
+    color: "bg-green-500",
   },
   {
     value: "junior",
     label: "Junior",
     description: "1-2 years experience",
-    color: "bg-chart-2",
+    color: "bg-yellow-500",
   },
   {
     value: "mid",
     label: "Mid-level",
     description: "2-5 years experience",
-    color: "bg-chart-3",
+    color: "bg-orange-500",
   },
   {
     value: "senior",
     label: "Senior",
     description: "5+ years experience",
-    color: "bg-chart-4",
+    color: "bg-red-500",
   },
 ];
 

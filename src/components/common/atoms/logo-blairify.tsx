@@ -1,51 +1,77 @@
 "use client";
 
+import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 
+type LogoVariant = "iconOnly" | "textOnly" | "iconText" | "iconTextVertical";
+
 interface LogoProps {
-  variant?: "stacked" | "minimal";
+  variant?: LogoVariant;
   className?: string;
-  repeatCount?: number;
+  textClassName?: string;
+  iconSize?: number;
 }
 
-const DEFAULT_REPEAT_COUNT = 7;
+const LOGO_TEXT_CLASS =
+  "font-heading font-semibold tracking-tight text-xl text-foreground";
+const ICON_PATH = "/icon0.svg";
 
 export const LogoText = () => <>Blairify</>;
 
 export default function Logo({
-  variant = "minimal",
+  variant = "iconText",
   className = "",
-  repeatCount = DEFAULT_REPEAT_COUNT,
+  textClassName = "",
+  iconSize = 22,
 }: LogoProps) {
-  const linkClasses =
-    `!flex !flex-col !items-center !justify-center ${className}`.trim();
-  const logoTextClasses =
-    "font-heading !font-stretch-extra-expanded text-black !font-extrabold dark:text-white";
+  const renderIcon = () => (
+    <Image
+      src={ICON_PATH}
+      alt="Blairify logo icon"
+      width={iconSize}
+      height={iconSize}
+      className="shrink-0 mr-1"
+      priority
+    />
+  );
 
-  if (variant === "minimal") {
-    return (
-      <Link aria-label="Home" href="/" className={linkClasses}>
-        <span className={logoTextClasses}>
-          <LogoText />
-        </span>
-      </Link>
-    );
-  }
+  const renderText = () => (
+    <span className={clsx(LOGO_TEXT_CLASS, textClassName)}>
+      <LogoText />
+    </span>
+  );
+
+  const content = (() => {
+    switch (variant) {
+      case "iconOnly":
+        return renderIcon();
+      case "textOnly":
+        return renderText();
+      case "iconTextVertical":
+        return (
+          <div className="flex flex-col items-center gap-1">
+            {renderIcon()}
+            {renderText()}
+          </div>
+        );
+      default:
+        return (
+          <div className="flex items-center gap-2">
+            {renderIcon()}
+            {renderText()}
+          </div>
+        );
+    }
+  })();
 
   return (
-    <Link aria-label="Home" href="/" className={linkClasses}>
-      <div
-        className={`${logoTextClasses} !flex !flex-col !items-center !justify-center !mx-auto !text-6xl`}
-      >
-        {Array.from({ length: repeatCount }, (_, i) => {
-          const stableKey = `logo-element-${repeatCount}-position-${i + 1}`;
-          return (
-            <span key={stableKey}>
-              <LogoText />
-            </span>
-          );
-        })}
-      </div>
+    <Link
+      aria-label="Home"
+      href="/"
+      className={clsx("inline-flex items-center justify-center", className)}
+    >
+      {content}
     </Link>
   );
 }

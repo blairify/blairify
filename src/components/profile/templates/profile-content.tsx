@@ -263,9 +263,9 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
           <Typography.Heading1 className="tracking-tight">
             Profile Settings
           </Typography.Heading1>
-          <p className="text-muted-foreground mt-2">
+          <Typography.Body color="secondary" className="mt-2">
             Manage your account settings and preferences
-          </p>
+          </Typography.Body>
         </div>
 
         {statusMessage && (
@@ -301,46 +301,46 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                 )}
               </div>
               <div className="space-y-3">
-                <p className="text-xs font-semibold tracking-wide uppercase text-primary/80 text-center">
+                <Typography.SubCaptionBold className="tracking-wide uppercase text-primary/80 text-center">
                   Your interview profile
-                </p>
-                <div className="space-y-2 text-sm">
+                </Typography.SubCaptionBold>
+                <div className="space-y-2 mt-2">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-muted-foreground flex items-center gap-2">
+                    <Typography.CaptionMedium className="text-muted-foreground flex items-center gap-2">
                       <MapPin className="size-4" />
                       Location
-                    </span>
-                    <span className="font-medium text-right">
+                    </Typography.CaptionMedium>
+                    <Typography.BodyMedium className="text-right">
                       {userData.preferences?.preferredLocation || "Not set"}
-                    </span>
+                    </Typography.BodyMedium>
                   </div>
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-muted-foreground flex items-center gap-2">
+                  <div className="flex items-center justify-betwen gap-2">
+                    <Typography.CaptionMedium className="text-muted-foreground flex items-center gap-2">
                       <Briefcase className="size-4" />
                       Work type
-                    </span>
-                    <span className="font-medium text-right">
+                    </Typography.CaptionMedium>
+                    <Typography.BodyMedium className="text-right">
                       {userData.preferences?.preferredWorkTypes?.join(", ") ||
                         "Not set"}
-                    </span>
+                    </Typography.BodyMedium>
                   </div>
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-muted-foreground flex items-center gap-2">
+                    <Typography.CaptionMedium className="text-muted-foreground flex items-center gap-2">
                       <Clock className="size-4" />
                       Goal
-                    </span>
-                    <span className="font-medium text-right">
+                    </Typography.CaptionMedium>
+                    <Typography.BodyMedium className="text-right">
                       {userData.preferences?.careerGoals?.[0] || "Not set"}
-                    </span>
+                    </Typography.BodyMedium>
                   </div>
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-muted-foreground flex items-center gap-2">
+                    <Typography.CaptionMedium className="text-muted-foreground flex items-center gap-2">
                       <Mail className="size-4" />
                       Email
-                    </span>
-                    <span className="font-medium text-right truncate max-w-[160px] sm:max-w-[200px]">
+                    </Typography.CaptionMedium>
+                    <Typography.BodyMedium className="text-right truncate max-w-[160px] sm:max-w-[200px]">
                       {user.email}
-                    </span>
+                    </Typography.BodyMedium>
                   </div>
                 </div>
               </div>
@@ -368,13 +368,13 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
           <Card className="xl:col-span-7">
             <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <CardTitle className="flex items-center gap-2 text-xl font-semibold">
+                <Typography.Heading3 className="flex items-center gap-2">
                   <User className="h-5 w-5 text-primary" />
                   Profile Details
-                </CardTitle>
-                <p className="text-sm text-muted-foreground mt-1">
+                </Typography.Heading3>
+                <Typography.Caption color="secondary" className="mt-1 block">
                   Update your personal information and preferences
-                </p>
+                </Typography.Caption>
               </div>
               <Button
                 variant={isEditing ? "outline" : "default"}

@@ -135,7 +135,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: "twenty_five_interviews",
     name: "Interview Veteran",
     description: "Complete 25 interview sessions.",
-    icon: "Award",
+    icon: "GiFlowerTwirl",
     tier: "gold",
     category: "sessions",
     xpReward: XP_BY_TIER.gold,

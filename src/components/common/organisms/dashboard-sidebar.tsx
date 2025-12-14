@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Award,
   BookOpen,
   History,
   Home,
@@ -14,6 +13,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { TiFlowChildren } from "react-icons/ti";
 import Logo from "@/components/common/atoms/logo-blairify";
 import { Button } from "@/components/ui/button";
 import { BriefcaseIcon } from "@/components/ui/icons/akar-icons-briefcase";
@@ -137,7 +137,7 @@ export default function DashboardSidebar({
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             }`}
           >
-            <Award className="size-5 flex-shrink-0" />
+            <TiFlowChildren className="size-5 flex-shrink-0" />
             <span
               className={`truncate ${isActive("/achievements") ? "font-medium" : ""}`}
             >

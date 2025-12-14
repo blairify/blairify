@@ -187,8 +187,8 @@ export default function JobDetailsModal({
 
   const getSiteColor = (site: string) => {
     const colors: Record<string, string> = {
-      indeed: "bg-blue-100 text-blue-800",
-      linkedin: "bg-blue-600 text-white",
+      indeed: "bg-primary/10 text-primary",
+      linkedin: "bg-primary text-primary-foreground",
       zip_recruiter: "bg-green-100 text-green-800",
       google: "bg-red-100 text-red-800",
       glassdoor: "bg-green-600 text-white",

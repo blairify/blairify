@@ -1,4 +1,5 @@
 import { Loader2, Mic, MicOff, Send } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -11,6 +12,7 @@ interface MessageInputProps {
   isListening: boolean;
   isPaused: boolean;
   isLoading: boolean;
+  isDisabled?: boolean;
 }
 
 export function MessageInput({
@@ -22,12 +24,37 @@ export function MessageInput({
   isListening,
   isPaused,
   isLoading,
+  isDisabled = false,
 }: MessageInputProps) {
   const MAX_CHARS = 2000;
+  const MIN_HEIGHT = 40;
+  const MAX_HEIGHT = 160;
   const charCount = value.length;
   const hasContent = value.trim().length > 0;
   const isNearLimit = charCount > MAX_CHARS * 0.8;
   const isOverLimit = charCount > MAX_CHARS;
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const [inputHeight, setInputHeight] = useState(MIN_HEIGHT);
+  const shouldCenterVertically = inputHeight <= MIN_HEIGHT;
+  const isInputDisabled = isDisabled || isPaused || isLoading;
+
+  useEffect(() => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
+
+    if (textarea.value !== value) {
+      textarea.value = value;
+    }
+
+    textarea.style.height = "auto";
+    const newHeight = Math.min(
+      Math.max(textarea.scrollHeight, MIN_HEIGHT),
+      MAX_HEIGHT,
+    );
+    textarea.style.height = `${newHeight}px`;
+
+    setInputHeight(newHeight);
+  }, [value]);
 
   return (
     <div className="w-full max-w-4xl mx-auto">
@@ -63,9 +90,10 @@ export function MessageInput({
       )}
 
       <div className="relative bg-background border border-border rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-        <div className="flex items-end gap-2 p-3">
+        <div className="flex items-center gap-2 p-3">
           <div className="flex-1 relative">
             <Textarea
+              ref={textareaRef}
               value={value}
               onChange={(e) => {
                 const newValue = e.target.value;
@@ -75,11 +103,13 @@ export function MessageInput({
               }}
               maxLength={MAX_CHARS}
               placeholder={
-                isPaused
-                  ? "Interview is paused. Resume to continue..."
-                  : isLoading
-                    ? "Waiting for AI response..."
-                    : "Message AI interviewer..."
+                isDisabled
+                  ? "Interview complete. View your results to continue."
+                  : isPaused
+                    ? "Interview is paused. Resume to continue..."
+                    : isLoading
+                      ? "Waiting for AI response..."
+                      : "Message AI interviewer..."
               }
               className="min-h-10 max-h-80 resize-none border-0 bg-transparent p-0 text-base placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0 overflow-y-auto"
               onKeyDown={(e) => {
@@ -88,18 +118,19 @@ export function MessageInput({
                   !e.shiftKey &&
                   hasContent &&
                   !isPaused &&
-                  !isLoading
+                  !isLoading &&
+                  !isDisabled
                 ) {
                   e.preventDefault();
                   onSend();
                 }
               }}
-              disabled={isPaused || isLoading}
+              disabled={isInputDisabled}
               rows={1}
               style={{
                 height: "auto",
-                minHeight: "40px",
-                lineHeight: "1.5",
+                minHeight: `${MIN_HEIGHT}px`,
+                lineHeight: shouldCenterVertically ? `${MIN_HEIGHT}px` : "1.5",
                 wordWrap: "break-word",
                 overflowWrap: "break-word",
               }}
@@ -107,12 +138,13 @@ export function MessageInput({
                 const target = e.target as HTMLTextAreaElement;
                 target.style.height = "auto";
                 const newHeight = Math.min(
-                  Math.max(target.scrollHeight, 40),
-                  160,
+                  Math.max(target.scrollHeight, MIN_HEIGHT),
+                  MAX_HEIGHT,
                 );
                 target.style.height = `${newHeight}px`;
+                setInputHeight(newHeight);
 
-                if (target.scrollHeight > 160) {
+                if (target.scrollHeight > MAX_HEIGHT) {
                   target.scrollTop = target.scrollHeight - target.clientHeight;
                 }
               }}
@@ -124,7 +156,7 @@ export function MessageInput({
               onClick={isListening ? onStopVoice : onStartVoice}
               variant={isListening ? "destructive" : "outline"}
               size="sm"
-              disabled={isPaused || isLoading}
+              disabled={isInputDisabled}
               className={`size-9 p-0 rounded-full transition-all duration-200 ${
                 isListening
                   ? "bg-red-500 hover:bg-red-600 text-white animate-pulse shadow-lg"
@@ -147,10 +179,20 @@ export function MessageInput({
             </Button>
             <Button
               onClick={onSend}
-              disabled={!hasContent || isPaused || isLoading || isOverLimit}
+              disabled={
+                !hasContent ||
+                isPaused ||
+                isLoading ||
+                isOverLimit ||
+                isDisabled
+              }
               size="sm"
               className={`size-8 p-0 rounded-lg transition-all ${
-                hasContent && !isPaused && !isLoading && !isOverLimit
+                hasContent &&
+                !isPaused &&
+                !isLoading &&
+                !isOverLimit &&
+                !isDisabled
                   ? "bg-primary hover:bg-primary/90 text-primary-foreground"
                   : "bg-muted text-muted-foreground cursor-not-allowed"
               }`}

@@ -35,8 +35,8 @@ const avatarIcons: AvatarIcon[] = [
     id: "user",
     name: "Professional",
     icon: User,
-    color: "text-blue-600",
-    bgColor: "bg-blue-100",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
   },
   {
     id: "crown",

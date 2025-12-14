@@ -702,8 +702,8 @@ export default function SessionDetailsPage() {
                                   key={rec}
                                   className="flex items-start gap-2"
                                 >
-                                  <div className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span className="text-xs font-medium text-blue-600 dark:text-blue-400">
+                                  <div className="w-6 h-6 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span className="text-xs font-medium text-primary dark:text-primary/80">
                                       {index + 1}
                                     </span>
                                   </div>

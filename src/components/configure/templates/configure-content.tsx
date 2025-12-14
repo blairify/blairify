@@ -100,6 +100,16 @@ export function ConfigureContent() {
     }
   };
 
+  const updateConfig = <K extends keyof InterviewConfig>(
+    key: K,
+    value: InterviewConfig[K],
+  ) => {
+    setConfig((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
+
   function renderPositionStep() {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-1">
@@ -108,24 +118,17 @@ export function ConfigureContent() {
           return (
             <Card
               key={position.value}
-              className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/50 dark:hover:bg-primary/10 dark:hover:border-primary/60 ${
+              className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
                 config.position === position.value
                   ? "ring-2 ring-primary bg-primary/10"
                   : "border-border"
               }`}
-              onClick={() =>
-                setConfig((prev) => ({
-                  ...prev,
-                  position: position.value,
-                }))
-              }
+              onClick={() => updateConfig("position", position.value)}
             >
               <CardContent className="flex flex-row items-center gap-2">
                 <Icon className="size-6 text-primary flex-shrink-0" />
                 <div className="flex-1">
-                  <Typography.Heading3 className="font-semibold text-base">
-                    {position.label}
-                  </Typography.Heading3>
+                  <Typography.BodyBold>{position.label}</Typography.BodyBold>
                 </div>
               </CardContent>
             </Card>
@@ -141,10 +144,8 @@ export function ConfigureContent() {
         <div>
           <RadioGroup
             value={config.seniority}
-            onValueChange={(value) =>
-              setConfig((prev) => ({ ...prev, seniority: value }))
-            }
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            onValueChange={(value) => updateConfig("seniority", value)}
+            className="grid grid-cols-1 sm:grid-cols-4 gap-4"
           >
             {SENIORITY_LEVELS.map((level) => (
               <div key={level.value} className="h-full">
@@ -162,16 +163,12 @@ export function ConfigureContent() {
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <div
-                      className={`size-4 rounded-full ${level.color} ring-2 ring-offset-2 ring-offset-background ${config.seniority === level.value ? "ring-primary" : "ring-transparent"}`}
-                    />
-                    <Typography.BodyBold className="font-bold text-base">
-                      {level.label}
-                    </Typography.BodyBold>
+                    <div className={`size-4 rounded-full ${level.color}`} />
+                    <Typography.BodyBold>{level.label}</Typography.BodyBold>
                   </div>
-                  <Typography.Body className="text-sm text-muted-foreground leading-relaxed">
+                  <Typography.CaptionMedium>
                     {level.description}
-                  </Typography.Body>
+                  </Typography.CaptionMedium>
                 </Label>
               </div>
             ))}
@@ -185,38 +182,32 @@ export function ConfigureContent() {
     return (
       <div className="space-y-6">
         <div>
-          <Typography.Heading3 className="font-semibold mb-3">
+          <Typography.BodyBold className="font-semibold my-10">
             Company Type
-          </Typography.Heading3>
+          </Typography.BodyBold>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {COMPANY_PROFILES.map((profile) => {
               const Icon = profile.icon;
               return (
                 <Card
                   key={profile.value}
-                  className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/50 dark:hover:bg-primary/10 dark:hover:border-primary/60 h-full ${
+                  className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
                     config.companyProfile === profile.value
                       ? "ring-2 ring-primary bg-primary/10"
                       : "border-border"
                   }`}
-                  onClick={() =>
-                    setConfig((prev) => ({
-                      ...prev,
-                      companyProfile: profile.value,
-                      specificCompany: "",
-                    }))
-                  }
+                  onClick={() => updateConfig("companyProfile", profile.value)}
                 >
-                  <CardContent className="p-4 h-full flex flex-col min-h-[100px]">
+                  <CardContent className="p-4 h-full flex flex-col ">
                     <div className="flex items-start gap-3 flex-1">
-                      <Icon className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                      <Icon className="size-6 text-primary mt-1 flex-shrink-0" />
                       <div className="flex-1">
-                        <Typography.Heading3 className="font-semibold">
+                        <Typography.BodyBold>
                           {profile.label}
-                        </Typography.Heading3>
-                        <Typography.Body className="text-sm text-muted-foreground mt-2">
+                        </Typography.BodyBold>
+                        <Typography.CaptionMedium>
                           {profile.description}
-                        </Typography.Body>
+                        </Typography.CaptionMedium>
                       </div>
                     </div>
                   </CardContent>
@@ -226,12 +217,12 @@ export function ConfigureContent() {
           </div>
         </div>
 
-        <Separator />
+        <Separator className="my-10" />
 
         <div>
-          <Typography.Heading3 className="font-semibold mb-3">
+          <Typography.BodyBold className="mb-10">
             Or Choose Specific Company
-          </Typography.Heading3>
+          </Typography.BodyBold>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {CONFIGURE_SPECIFIC_COMPANIES.map((company) => {
               const isImageIcon = typeof company.icon === "string";
@@ -240,20 +231,17 @@ export function ConfigureContent() {
               return (
                 <Card
                   key={company.value}
-                  className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/50 hover:scale-105 dark:hover:bg-primary/10 dark:hover:border-primary/60 h-full ${
+                  className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/40 hover:scale-105 dark:hover:bg-primary/10 dark:hover:border-primary/40 h-full ${
                     config.specificCompany === company.value
                       ? "ring-2 ring-primary bg-primary/10"
                       : "border-border"
                   }`}
-                  onClick={() =>
-                    setConfig((prev) => ({
-                      ...prev,
-                      specificCompany: company.value,
-                      companyProfile: "",
-                    }))
-                  }
+                  onClick={() => {
+                    updateConfig("specificCompany", company.value);
+                    updateConfig("companyProfile", "faang");
+                  }}
                 >
-                  <CardContent className="p-4 text-center h-full flex flex-col justify-center min-h-[120px]">
+                  <CardContent className="p-4 text-center h-full flex flex-col justify-center min-h-[100px]">
                     <div className="flex flex-col items-center justify-between gap-3 flex-1 ">
                       {isImageIcon ? (
                         <Image
@@ -261,20 +249,17 @@ export function ConfigureContent() {
                           height={48}
                           src={company.icon as string}
                           alt={`${company.label} logo`}
-                          className="h-12 w-12 object-contain"
+                          className="size-12 object-contain"
                         />
                       ) : (
                         CompanyIcon && (
-                          <CompanyIcon className={`h-8 w-8 ${company.color}`} />
+                          <CompanyIcon className={`size-9 ${company.color}`} />
                         )
                       )}
                       <div>
-                        <Typography.Heading3 className="font-semibold text-sm">
+                        <Typography.BodyBold className="font-semibold text-sm">
                           {company.label}
-                        </Typography.Heading3>
-                        <Typography.Caption className="text-xs text-muted-foreground mt-1">
-                          {company.description}
-                        </Typography.Caption>
+                        </Typography.BodyBold>
                       </div>
                     </div>
                   </CardContent>
@@ -300,7 +285,7 @@ export function ConfigureContent() {
                 className={`transition-all h-full ${
                   isComingSoon
                     ? "opacity-60 cursor-not-allowed"
-                    : `cursor-pointer hover:bg-primary/5 hover:border-primary/50 dark:hover:bg-primary/10 dark:hover:border-primary/60 ${
+                    : `cursor-pointer hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
                         config.interviewMode === mode.value
                           ? "ring-2 ring-primary bg-primary/10"
                           : "border-border"
@@ -315,20 +300,20 @@ export function ConfigureContent() {
                   }
                 }}
               >
-                <CardContent className="p-4 h-full flex flex-col min-h-[100px]">
+                <CardContent className="p-4 h-full flex flex-col ">
                   <div className="flex items-start gap-3 flex-1">
                     <Icon
-                      className={`h-6 w-6 mt-1 flex-shrink-0 ${isComingSoon ? "text-muted-foreground" : "text-primary"}`}
+                      className={`size-6 mt-1 flex-shrink-0 ${isComingSoon ? "text-muted-foreground" : "text-primary"}`}
                     />
                     <div className="flex-1">
-                      <Typography.Heading3
-                        className={`font-semibold ${isComingSoon ? "text-muted-foreground" : ""}`}
+                      <Typography.BodyBold
+                        className={`${isComingSoon ? "text-muted-foreground" : ""}`}
                       >
                         {mode.label}
-                      </Typography.Heading3>
-                      <Typography.Body className="text-sm text-muted-foreground mt-2">
+                      </Typography.BodyBold>
+                      <Typography.CaptionMedium className="mt-2">
                         {mode.description}
-                      </Typography.Body>
+                      </Typography.CaptionMedium>
                     </div>
                   </div>
                 </CardContent>
@@ -392,9 +377,9 @@ export function ConfigureContent() {
                     .icon as React.ComponentType<{ className?: string }>;
                   return <StepIcon className="h-6 w-6 text-primary" />;
                 })()}
-                <Typography.Heading2 className="text-2xl sm:text-3xl font-bold text-foreground">
+                <Typography.Body className="text-2xl sm:text-3xl font-bold text-foreground">
                   {CONFIGURE_STEPS[currentStep].title}
-                </Typography.Heading2>
+                </Typography.Body>
               </div>
               <Typography.Body className="text-muted-foreground text-sm sm:text-base">
                 {CONFIGURE_STEPS[currentStep].description}

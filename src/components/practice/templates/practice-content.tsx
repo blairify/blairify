@@ -202,7 +202,7 @@ export function PracticeContent({ user: _user }: PracticeContentProps) {
           </Typography.Body>
           <Button
             onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg transition-colors"
+            className="px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors"
           >
             Try Again
           </Button>

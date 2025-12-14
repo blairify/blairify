@@ -1,20 +1,8 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-
-// SEO Metadata for 404 page
-export const metadata: Metadata = {
-  title: "Page Not Found - 404 Error",
-  description:
-    "The page you're looking for doesn't exist. Return to Blairify homepage or explore our interview preparation platform.",
-  robots: {
-    index: false, // Don't index 404 pages
-    follow: true,
-  },
-};
 
 export default function NotFound() {
   return (

@@ -116,6 +116,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
   const [storedConfig, setStoredConfig] = useState<
     { position: string; seniority: string } | undefined
   >(undefined);
+  const backgroundClass = "bg-gradient-to-b from-background to-muted/20";
 
   // Set current date and analysis messages on client side only to avoid hydration mismatch
   useEffect(() => {
@@ -473,49 +474,49 @@ export function ResultsContent({ user }: ResultsContentProps) {
   // RENDER: LOADING STATE
   // ============================================================================
 
-  if (isAnalyzing) {
+  if (!isAnalyzing) {
     return (
-      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
+      <main
+        className={`flex-1 overflow-auto flex items-center justify-center p-4 ${backgroundClass}`}
+      >
         <Card className="w-full max-w-lg border shadow-lg animate-in fade-in duration-500">
           <CardContent className="pt-16 pb-16">
             <div className="flex justify-center mb-8">
-              <div className="relative">
-                <div className="w-16 h-16 border-4 border-gray-200 dark:border-gray-700 border-t-blue-600 dark:border-t-blue-400 rounded-full animate-spin"></div>
-                <div
-                  className="absolute inset-0 w-16 h-16 border-4 border-transparent border-t-indigo-400 dark:border-t-indigo-500 rounded-full animate-spin"
-                  style={{
-                    animationDuration: "1.5s",
-                    animationDirection: "reverse",
-                  }}
-                ></div>
+              <div className="containerForBlocks">
+                <div className="loadingspinner">
+                  <div id="square1"></div>
+                  <div id="square2"></div>
+                  <div id="square3"></div>
+                  <div id="square4"></div>
+                  <div id="square5"></div>
+                </div>
               </div>
             </div>
-            <h3 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-gray-100 animate-in fade-in slide-in-from-top-2 duration-700">
+            <Typography.Heading2 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-gray-100 animate-in fade-in slide-in-from-top-2 duration-700">
               Analyzing Your Performance
-            </h3>
-            <p className="text-base text-gray-600 dark:text-gray-400 text-center min-h-[3rem] mb-8 leading-relaxed px-4 animate-in fade-in duration-500">
+            </Typography.Heading2>
+            <Typography.Body className="text-base text-gray-600 dark:text-gray-400 text-center min-h-[3rem] mb-8 leading-relaxed px-4 animate-in fade-in duration-500">
               {analysisMessages[currentMessageIndex]}
-            </p>
+            </Typography.Body>
 
-            {/* Progress Bar */}
             <div className="w-full max-w-md mx-auto space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                <Typography.CaptionMedium className="text-sm font-medium text-gray-600 dark:text-gray-400">
                   Analysis Progress
-                </span>
-                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">
+                </Typography.CaptionMedium>
+                <Typography.BodyBold className="text-sm font-bold text-gray-900 dark:text-gray-100">
                   {progress}%
-                </span>
+                </Typography.BodyBold>
               </div>
               <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-3 overflow-hidden shadow-inner">
                 <div
-                  className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 h-full rounded-full transition-all duration-700 ease-out"
+                  className="bg-primary h-full rounded-full transition-all duration-700 ease-out"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
-              <div className="text-xs text-gray-500 dark:text-gray-500 text-center">
+              <Typography.SubCaption className="text-xs text-gray-500 dark:text-gray-500 text-center">
                 Usually takes 30-90 seconds
-              </div>
+              </Typography.SubCaption>
             </div>
           </CardContent>
         </Card>
@@ -529,7 +530,9 @@ export function ResultsContent({ user }: ResultsContentProps) {
 
   if (error) {
     return (
-      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
+      <main
+        className={`flex-1 overflow-auto flex items-center justify-center p-4 ${backgroundClass}`}
+      >
         <Card className="w-full max-w-lg border-2 border-red-200 dark:border-red-900 shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-500">
           <CardContent className="pt-12 pb-12">
             <div className="flex justify-center mb-6">
@@ -537,12 +540,12 @@ export function ResultsContent({ user }: ResultsContentProps) {
                 <AlertTriangle className="h-8 w-8 text-red-600 dark:text-red-400" />
               </div>
             </div>
-            <h3 className="text-xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
+            <Typography.Heading3 className="text-xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
               Analysis Unavailable
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-center mb-8 leading-relaxed px-4">
+            </Typography.Heading3>
+            <Typography.Body className="text-gray-600 dark:text-gray-400 text-center mb-8 leading-relaxed px-4">
               {error}
-            </p>
+            </Typography.Body>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 onClick={() => window.location.reload()}
@@ -572,7 +575,9 @@ export function ResultsContent({ user }: ResultsContentProps) {
 
   if (!results) {
     return (
-      <main className="flex-1 overflow-auto flex items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
+      <main
+        className={`flex-1 overflow-auto flex items-center justify-center p-4 ${backgroundClass}`}
+      >
         <Card className="w-full max-w-lg border shadow-lg animate-in fade-in duration-500">
           <CardContent className="pt-12 pb-12 text-center">
             <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-6">
@@ -602,7 +607,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
   // ============================================================================
 
   return (
-    <main className="flex-1 overflow-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
+    <main className={`flex-1 overflow-auto ${backgroundClass}`}>
       <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
         {/* ============================================================================ */}
         {/* HEADER SECTION */}
@@ -690,7 +695,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
         {/* ============================================================================ */}
         {/* OVERALL ASSESSMENT */}
         {/* ============================================================================ */}
-        <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
           <CardHeader className="border-b border-gray-200 dark:border-gray-800">
             <CardTitle className="flex items-center gap-3 text-xl font-semibold text-gray-900 dark:text-gray-100">
               <BarChart3 className="h-6 w-6 text-blue-600 dark:text-blue-400" />
@@ -764,7 +769,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
         </Card>
 
         {practiceQuestionIds.length > 0 && (
-          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
             <CardHeader className="border-b border-gray-200 dark:border-gray-800">
               <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
                 <Lightbulb className="h-5 w-5 text-amber-600 dark:text-amber-400" />
@@ -818,7 +823,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
         {/* STRENGTHS & IMPROVEMENTS GRID */}
         {/* ============================================================================ */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-left-4 duration-700">
+          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-left-4">
             <CardHeader className="border-b border-gray-200 dark:border-gray-800">
               <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
                 <Award className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
@@ -855,7 +860,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
             </CardContent>
           </Card>
 
-          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-right-4 duration-700">
+          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-right-4">
             <CardHeader className="border-b border-gray-200 dark:border-gray-800">
               <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
                 <Target className="h-5 w-5 text-amber-600 dark:text-amber-400" />

@@ -10,12 +10,14 @@ interface InterviewMessagesAreaProps {
   messages: Message[];
   isLoading: boolean;
   interviewer: InterviewerProfile;
+  completionCard?: React.ReactNode;
 }
 
 export function InterviewMessagesArea({
   messages,
   isLoading,
   interviewer,
+  completionCard,
 }: InterviewMessagesAreaProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -59,6 +61,8 @@ export function InterviewMessagesArea({
                 <TypingIndicator interviewer={interviewer} />
               </div>
             )}
+
+            {completionCard}
           </div>
 
           <div ref={messagesEndRef} className="h-4" />

@@ -1,4 +1,5 @@
 import { Clock, MessageSquare, User } from "lucide-react";
+import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
@@ -21,6 +22,8 @@ export function MessageBubble({
 }: MessageBubbleProps) {
   const { user, userData } = useAuth();
 
+  const [displayedContent, setDisplayedContent] = useState(message.content);
+
   const formatTime = (timestamp: Date) => {
     return new Intl.DateTimeFormat("en-US", {
       hour: "2-digit",
@@ -40,6 +43,49 @@ export function MessageBubble({
 
   const isUser = message.type === "user";
   const isAI = message.type === "ai";
+
+  useEffect(() => {
+    if (!isAI || !isLatest) {
+      setDisplayedContent(message.content);
+      return;
+    }
+
+    const words = message.content.split(" ");
+
+    if (words.length <= 1) {
+      setDisplayedContent(message.content);
+      return;
+    }
+
+    setDisplayedContent("");
+
+    let index = 0;
+    let timeout: number | null = null;
+    const baseDelay = 65;
+    const delayVariance = 70;
+
+    const scheduleNext = () => {
+      timeout = window.setTimeout(
+        () => {
+          index += 1;
+          setDisplayedContent(words.slice(0, index).join(" "));
+
+          if (index < words.length) {
+            scheduleNext();
+          }
+        },
+        baseDelay + Math.random() * delayVariance,
+      );
+    };
+
+    scheduleNext();
+
+    return () => {
+      if (timeout) {
+        window.clearTimeout(timeout);
+      }
+    };
+  }, [isAI, isLatest, message.content]);
 
   return (
     <div
@@ -115,7 +161,7 @@ export function MessageBubble({
               } prose-p:my-2 prose-p:leading-relaxed prose-headings:my-2 prose-ul:my-2 prose-ol:my-2`}
             >
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {message.content}
+                {isAI ? displayedContent : message.content}
               </ReactMarkdown>
             </div>
           </div>
@@ -124,7 +170,7 @@ export function MessageBubble({
           {isLatest && (
             <div
               className={`absolute inset-0 rounded-2xl ${
-                isUser ? "bg-primary/5" : "bg-blue-500/5"
+                isUser ? "bg-primary/5" : "bg-primary/10"
               } animate-pulse`}
             />
           )}
