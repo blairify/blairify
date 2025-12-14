@@ -30,7 +30,7 @@ export async function getResourcesByTags(
   tags: string[],
   limit: number,
 ): Promise<ResourceLink[]> {
-  if (tags.length === 0) return [];
+  if (limit <= 0) return [];
 
   const rows = await practiceDb
     .select()
@@ -39,7 +39,19 @@ export async function getResourcesByTags(
     .orderBy(desc(resources.updatedAt))
     .limit(500);
 
-  const matched = rows.filter((r) => hasAnyTag(r.tags, tags));
+  const matched =
+    tags.length === 0 ? [] : rows.filter((r) => hasAnyTag(r.tags, tags));
+  const minDesired = Math.min(3, limit);
+  const pool = matched.length >= minDesired ? matched : [...matched, ...rows];
+  const selected: ResourceRow[] = [];
+  const seen = new Set<string>();
+
+  for (const row of pool) {
+    if (seen.has(row.id)) continue;
+    seen.add(row.id);
+    selected.push(row);
+    if (selected.length >= limit && selected.length >= minDesired) break;
+  }
 
   if (process.env.NODE_ENV === "development") {
     console.info("[resources] lookup", {
@@ -49,5 +61,7 @@ export async function getResourcesByTags(
     });
   }
 
-  return matched.slice(0, limit).map(toResourceLink);
+  return selected
+    .slice(0, Math.max(minDesired, Math.min(limit, selected.length)))
+    .map(toResourceLink);
 }

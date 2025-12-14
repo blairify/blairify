@@ -176,6 +176,7 @@ export async function saveInterviewResults(
       content: string;
       timestamp?: Date | string;
     }>;
+    questionIds?: string[];
     isComplete: boolean;
     startTime?: Date | string;
     endTime?: Date | string;
@@ -217,12 +218,20 @@ export async function saveInterviewResults(
     const questions: InterviewQuestion[] = [];
     const responses: InterviewResponse[] = [];
 
+    const practiceQuestionIds = (sessionData.questionIds ?? []).filter(Boolean);
+
     for (let i = 0; i < sessionData.messages.length; i += 2) {
       const aiMessage = sessionData.messages[i];
       const userMessage = sessionData.messages[i + 1];
 
       if (aiMessage?.type === "ai" && userMessage?.type === "user") {
-        const questionId = `q_${i / 2 + 1}`;
+        const questionIndex = i / 2;
+        const practiceQuestionId = practiceQuestionIds[questionIndex];
+        const questionId =
+          typeof practiceQuestionId === "string" &&
+          practiceQuestionId.length > 0
+            ? practiceQuestionId
+            : `q_${questionIndex + 1}`;
 
         questions.push({
           id: questionId,

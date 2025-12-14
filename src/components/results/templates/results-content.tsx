@@ -7,6 +7,7 @@ import {
   BookOpen,
   CheckCircle,
   FileText,
+  Lightbulb,
   MessageSquare,
   RotateCcw,
   Target,
@@ -34,6 +35,7 @@ import {
   getResultsCopySeed,
 } from "@/lib/utils/results-copy";
 import type { InterviewResults, KnowledgeGapPriority } from "@/types/interview";
+import type { Question } from "@/types/practice-question";
 
 function getPriorityLabel(priority: KnowledgeGapPriority): string {
   switch (priority) {
@@ -86,6 +88,12 @@ const getPerformanceLabel = (score: number, passed?: boolean): string => {
   return "Needs Improvement";
 };
 
+function stripLinks(value: string): string {
+  const withoutMarkdownLinks = value.replace(/\[([^\]]+)]\([^)]+\)/g, "$1");
+  const withoutUrls = withoutMarkdownLinks.replace(/https?:\/\/\S+/g, "");
+  return withoutUrls.replace(/\s{2,}/g, " ").trim();
+}
+
 interface ResultsContentProps {
   user: UserData;
 }
@@ -95,6 +103,10 @@ export function ResultsContent({ user }: ResultsContentProps) {
   const [isAnalyzing, setIsAnalyzing] = useState(true);
   const [results, setResults] = useState<InterviewResults | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [practiceQuestionIds, setPracticeQuestionIds] = useState<string[]>([]);
+  const [practiceQuestionsById, setPracticeQuestionsById] = useState<
+    Record<string, Question>
+  >({});
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [analysisMessages, setAnalysisMessages] = useState<string[]>([]);
@@ -112,6 +124,50 @@ export function ResultsContent({ user }: ResultsContentProps) {
     const interviewSessionRaw = localStorage.getItem("interviewSession");
     const interviewConfigRaw = localStorage.getItem("interviewConfig");
     const interviewSessionId = localStorage.getItem("interviewSessionId");
+
+    try {
+      const parsedSession = interviewSessionRaw
+        ? (JSON.parse(interviewSessionRaw) as { questionIds?: string[] })
+        : null;
+      const questionIds = parsedSession?.questionIds ?? [];
+
+      setPracticeQuestionIds(questionIds);
+
+      if (questionIds.length > 0) {
+        void (async () => {
+          try {
+            const questions = await Promise.all(
+              questionIds.map(async (id) => {
+                try {
+                  const res = await fetch(`/api/practice/questions/${id}`);
+                  if (!res.ok) return null;
+                  const data = (await res.json()) as {
+                    success: boolean;
+                    question?: Question;
+                  };
+                  if (!data.success || !data.question) return null;
+                  return data.question;
+                } catch {
+                  return null;
+                }
+              }),
+            );
+
+            const next: Record<string, Question> = {};
+            for (const q of questions) {
+              if (!q) continue;
+              next[q.id] = q;
+            }
+            setPracticeQuestionsById(next);
+          } catch {
+            setPracticeQuestionsById({});
+          }
+        })();
+      }
+    } catch {
+      setPracticeQuestionIds([]);
+      setPracticeQuestionsById({});
+    }
 
     setCopySeed(
       getResultsCopySeed({
@@ -140,33 +196,50 @@ export function ResultsContent({ user }: ResultsContentProps) {
     }
   }, []);
 
+  const getExampleAnswer = (question: Question): string | null => {
+    switch (question.type) {
+      case "open":
+        return question.referenceAnswers?.[0]?.text ?? null;
+      case "mcq":
+        return question.options?.find((o) => o.isCorrect)?.text ?? null;
+      case "truefalse":
+        return `${question.correctAnswer}`;
+      case "matching":
+      case "code":
+        return null;
+      default: {
+        const _never: never = question;
+        throw new Error(`Unhandled question type: ${_never}`);
+      }
+    }
+  };
+
   useEffect(() => {
     if (copySeed === null) return;
-    setAnalysisMessages(
-      generateAnalysisMessages({
-        seed: copySeed,
-        config: storedConfig as
-          | {
-              position: string;
-              seniority: "entry" | "junior" | "mid" | "senior";
-            }
-          | undefined,
-      }),
-    );
+    const next = generateAnalysisMessages({
+      seed: copySeed,
+      config: storedConfig as
+        | {
+            position: string;
+            seniority: "entry" | "junior" | "mid" | "senior";
+          }
+        | undefined,
+    });
+
+    setAnalysisMessages(Array.isArray(next) ? next : []);
   }, [copySeed, storedConfig]);
 
   useEffect(() => {
     if (!isAnalyzing) return;
-    if (analysisMessages.length === 0) return;
+    const messageCount = analysisMessages?.length ?? 0;
+    if (messageCount === 0) return;
 
     const messageInterval = setInterval(() => {
-      setCurrentMessageIndex(
-        (prevIndex) => (prevIndex + 1) % analysisMessages.length,
-      );
+      setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % messageCount);
     }, 2500);
 
     return () => clearInterval(messageInterval);
-  }, [isAnalyzing, analysisMessages.length]);
+  }, [isAnalyzing, analysisMessages]);
 
   // Progress simulation effect
   useEffect(() => {
@@ -690,6 +763,57 @@ export function ResultsContent({ user }: ResultsContentProps) {
           </CardContent>
         </Card>
 
+        {practiceQuestionIds.length > 0 && (
+          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+              <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                <Lightbulb className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                Questions & Example Answers
+              </CardTitle>
+              <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                Practice-library examples to benchmark your responses.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <div className="space-y-6">
+                {practiceQuestionIds.map((id, idx) => {
+                  const q = practiceQuestionsById[id] ?? null;
+                  const example = q ? getExampleAnswer(q) : null;
+
+                  return (
+                    <div
+                      key={id}
+                      className="rounded-lg border border-gray-200 dark:border-gray-800 p-4"
+                    >
+                      <div className="flex items-center justify-between gap-3 mb-3">
+                        <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                          Question {idx + 1}: {q?.title ?? "(failed to load)"}
+                        </div>
+                        <span className="text-xs text-gray-600 dark:text-gray-400">
+                          {q?.type ?? "unknown"}
+                        </span>
+                      </div>
+
+                      {example ? (
+                        <div
+                          className="prose prose-sm prose-gray dark:prose-invert max-w-none leading-relaxed"
+                          dangerouslySetInnerHTML={parseFullMarkdown(example)}
+                        />
+                      ) : (
+                        <div className="text-sm text-gray-600 dark:text-gray-400">
+                          {q
+                            ? "No example answer available for this question yet."
+                            : "Question details unavailable (could not fetch from Neon)."}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {/* ============================================================================ */}
         {/* STRENGTHS & IMPROVEMENTS GRID */}
         {/* ============================================================================ */}
@@ -759,7 +883,7 @@ export function ResultsContent({ user }: ResultsContentProps) {
                         <TrendingUp className="w-3 h-3" />
                       </div>
                       <span className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                        {improvement}
+                        {stripLinks(improvement)}
                       </span>
                     </li>
                   ))}

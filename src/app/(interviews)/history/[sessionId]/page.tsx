@@ -32,6 +32,7 @@ import { Separator } from "@/components/ui/separator";
 import { DatabaseService } from "@/lib/database";
 import { useAuth } from "@/providers/auth-provider";
 import type { InterviewSession } from "@/types/firestore";
+import type { Question } from "@/types/practice-question";
 
 export default function SessionDetailsPage() {
   const params = useParams();
@@ -39,6 +40,9 @@ export default function SessionDetailsPage() {
   const [session, setSession] = useState<InterviewSession | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [practiceQuestionsById, setPracticeQuestionsById] = useState<
+    Record<string, Question>
+  >({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
 
@@ -76,6 +80,63 @@ export default function SessionDetailsPage() {
 
     loadSession();
   }, [user?.uid, sessionId]);
+
+  useEffect(() => {
+    if (!session?.questions || session.questions.length === 0) {
+      setPracticeQuestionsById({});
+      return;
+    }
+
+    void (async () => {
+      const ids = session.questions.map((q) => q.id).filter(Boolean);
+      if (ids.length === 0) {
+        setPracticeQuestionsById({});
+        return;
+      }
+
+      const fetched = await Promise.all(
+        ids.map(async (id) => {
+          try {
+            const res = await fetch(`/api/practice/questions/${id}`);
+            if (!res.ok) return null;
+            const data = (await res.json()) as {
+              success: boolean;
+              question?: Question;
+            };
+            if (!data.success || !data.question) return null;
+            return data.question;
+          } catch {
+            return null;
+          }
+        }),
+      );
+
+      const next: Record<string, Question> = {};
+      for (const q of fetched) {
+        if (!q) continue;
+        next[q.id] = q;
+      }
+      setPracticeQuestionsById(next);
+    })();
+  }, [session?.questions]);
+
+  const getExampleAnswer = (question: Question): string | null => {
+    switch (question.type) {
+      case "open":
+        return question.referenceAnswers?.[0]?.text ?? null;
+      case "mcq":
+        return question.options?.find((o) => o.isCorrect)?.text ?? null;
+      case "truefalse":
+        return `${question.correctAnswer}`;
+      case "matching":
+      case "code":
+        return null;
+      default: {
+        const _never: never = question;
+        throw new Error(`Unhandled question type: ${_never}`);
+      }
+    }
+  };
 
   const getScoreColor = (score: number) => {
     if (score >= 90) return "text-green-600";
@@ -366,6 +427,12 @@ export default function SessionDetailsPage() {
                         (r) => r.questionId === question.id,
                       );
 
+                      const practiceQuestion =
+                        practiceQuestionsById[question.id] ?? null;
+                      const exampleAnswer = practiceQuestion
+                        ? getExampleAnswer(practiceQuestion)
+                        : null;
+
                       return (
                         <div
                           key={question.id}
@@ -404,6 +471,24 @@ export default function SessionDetailsPage() {
                                   <span className="text-foreground">
                                     {question.category}
                                   </span>
+                                </div>
+                              )}
+
+                              {exampleAnswer && (
+                                <div className="mt-4">
+                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                    <Lightbulb className="h-4 w-4 text-primary" />
+                                    Example Answer:
+                                  </div>
+                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                    <div className="prose prose-sm max-w-none dark:prose-invert">
+                                      <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                      >
+                                        {exampleAnswer}
+                                      </ReactMarkdown>
+                                    </div>
+                                  </div>
                                 </div>
                               )}
                             </div>
