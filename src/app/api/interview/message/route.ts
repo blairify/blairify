@@ -241,6 +241,7 @@ export async function POST(request: NextRequest) {
 
     let finalMessage: string;
     let usedFallback = false;
+    let servedBankedQuestion = false;
 
     if (!aiResponse.success || !aiResponse.content) {
       console.warn("AI response failed, using fallback");
@@ -292,6 +293,19 @@ export async function POST(request: NextRequest) {
     }
 
     if (
+      usedFallback &&
+      !effectiveIsFollowUp &&
+      !interviewConfig.isDemoMode &&
+      !shouldComplete &&
+      typeof currentQuestionPrompt === "string" &&
+      currentQuestionPrompt.trim().length > 0
+    ) {
+      finalMessage = `Question #${currentQuestionCount + 1}: ${currentQuestionPrompt.trim()}`;
+      usedFallback = false;
+      servedBankedQuestion = true;
+    }
+
+    if (
       !usedFallback &&
       !effectiveIsFollowUp &&
       !interviewConfig.isDemoMode &&
@@ -336,10 +350,11 @@ export async function POST(request: NextRequest) {
       success: true,
       message: finalMessage,
       questionType,
-      validated: aiResponse.success,
+      validated: servedBankedQuestion ? true : aiResponse.success,
       isFollowUp: effectiveIsFollowUp,
       isComplete: shouldComplete,
-      aiErrorType: usedFallback ? aiResponse.error : undefined,
+      usedFallback,
+      aiErrorType: usedFallback ? (aiResponse.error ?? "fallback") : undefined,
     });
   } catch (error) {
     console.error("Interview message API error:", error);

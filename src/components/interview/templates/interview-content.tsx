@@ -42,6 +42,7 @@ interface ChatInterviewResponse {
   terminatedForProfanity?: boolean;
   terminatedForBehavior?: boolean;
   aiErrorType?: string;
+  usedFallback?: boolean;
 }
 
 export function InterviewContent({ user }: InterviewContentProps) {
@@ -417,7 +418,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
           markInterviewComplete();
         }
 
-        if (!data.isFollowUp) {
+        if (!data.isFollowUp && !data.usedFallback) {
           incrementQuestionCount();
         }
       }
