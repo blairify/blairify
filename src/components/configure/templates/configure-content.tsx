@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
 import { Typography } from "@/components/common/atoms/typography";
 import {
   canStartInterview,
@@ -13,6 +14,7 @@ import {
 import type { InterviewConfig } from "@/components/configure/utils/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
@@ -52,6 +54,125 @@ export function ConfigureContent() {
     interviewType: "technical",
     duration: "30",
   });
+
+  const [jobListingUrl, setJobListingUrl] = useState("");
+  const [isImportingJob, setIsImportingJob] = useState(false);
+
+  const allowedPositionValues = new Set(POSITIONS.map((p) => p.value));
+  const allowedSeniorityValues = new Set(SENIORITY_LEVELS.map((s) => s.value));
+  const allowedCompanyProfiles = new Set(COMPANY_PROFILES.map((p) => p.value));
+
+  const getFirstIncompleteStep = (next: InterviewConfig) => {
+    if (!next.position) return 0;
+    if (!next.seniority) return 1;
+    if (!next.companyProfile && !next.specificCompany) return 2;
+    return 3;
+  };
+
+  const importFromJobListingUrl = async () => {
+    const url = jobListingUrl.trim();
+    if (!url) {
+      toast.error("Job listing URL required");
+      return;
+    }
+
+    setIsImportingJob(true);
+
+    try {
+      const params = new URLSearchParams({ url });
+      const res = await fetch(`/api/job-listing/import?${params.toString()}`);
+      const data = (await res.json()) as
+        | {
+            success: true;
+            data?: {
+              position?: string;
+              seniority?: string;
+              technologies: string[];
+              company?: string;
+              companyProfile?: string;
+              title?: string;
+            };
+          }
+        | { success: false; error?: string };
+
+      if (!res.ok || !data.success) {
+        toast.error("Failed to import", {
+          description:
+            "error" in data && data.error ? data.error : "Please try again.",
+        });
+        return;
+      }
+
+      const imported = data.data;
+      if (!imported) {
+        toast.error("Import failed", { description: "Empty response." });
+        return;
+      }
+
+      const mergedTechnologies = [
+        ...new Set([...config.technologies, ...(imported.technologies ?? [])]),
+      ];
+
+      const position =
+        imported.position && allowedPositionValues.has(imported.position)
+          ? imported.position
+          : config.position;
+
+      const seniority =
+        imported.seniority && allowedSeniorityValues.has(imported.seniority)
+          ? imported.seniority
+          : config.seniority;
+
+      const companyProfile =
+        imported.companyProfile &&
+        allowedCompanyProfiles.has(imported.companyProfile)
+          ? imported.companyProfile
+          : config.companyProfile;
+
+      const normalizedImportedCompany = imported.company
+        ? imported.company.trim().toLowerCase()
+        : "";
+
+      const specificCompany = normalizedImportedCompany
+        ? (CONFIGURE_SPECIFIC_COMPANIES.find((c) => {
+            const normalizedLabel = c.label.trim().toLowerCase();
+            if (normalizedLabel === normalizedImportedCompany) return true;
+            return normalizedImportedCompany.includes(normalizedLabel);
+          })?.value ?? config.specificCompany)
+        : config.specificCompany;
+
+      const finalCompanyProfile = specificCompany
+        ? "faang"
+        : companyProfile || "generic";
+
+      const nextConfig: InterviewConfig = {
+        ...config,
+        position,
+        seniority,
+        companyProfile: finalCompanyProfile,
+        specificCompany,
+        technologies: mergedTechnologies,
+      };
+
+      setConfig(nextConfig);
+      setCurrentStep(getFirstIncompleteStep(nextConfig));
+
+      if (imported.title) {
+        toast.success("Imported from job listing", {
+          description: imported.title,
+        });
+      } else {
+        toast.success("Imported from job listing");
+      }
+    } catch (error) {
+      console.error("Failed to import job listing:", error);
+      toast.error("Failed to import", {
+        description: error instanceof Error ? error.message : "Unknown error",
+      });
+    } finally {
+      setIsImportingJob(false);
+    }
+  };
 
   const handleStartInterview = () => {
     if (!canStartInterview(config)) return;
@@ -112,28 +233,63 @@ export function ConfigureContent() {
 
   function renderPositionStep() {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-1">
-        {POSITIONS.map((position) => {
-          const Icon = position.icon;
-          return (
-            <Card
-              key={position.value}
-              className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
-                config.position === position.value
-                  ? "ring-2 ring-primary bg-primary/10"
-                  : "border-border"
-              }`}
-              onClick={() => updateConfig("position", position.value)}
+      <div className="space-y-8">
+        <div className="space-y-2">
+          <Label htmlFor="job-listing-url">Job listing URL (optional)</Label>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Input
+              id="job-listing-url"
+              placeholder="Paste a job URL (LinkedIn, Greenhouse, Lever, etc.)"
+              value={jobListingUrl}
+              onChange={(e) => setJobListingUrl(e.target.value)}
+              autoCapitalize="none"
+              autoCorrect="off"
+              inputMode="url"
+              disabled={isImportingJob}
+            />
+            <Button
+              type="button"
+              variant="outline"
+              onClick={importFromJobListingUrl}
+              disabled={isImportingJob || !jobListingUrl.trim()}
+              className="shrink-0"
             >
-              <CardContent className="flex flex-row items-center gap-2">
-                <Icon className="size-6 text-primary flex-shrink-0" />
-                <div className="flex-1">
-                  <Typography.BodyBold>{position.label}</Typography.BodyBold>
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
+              {isImportingJob ? "Importing..." : "Import"}
+            </Button>
+          </div>
+          {config.technologies.length > 0 && (
+            <Typography.CaptionMedium className="text-muted-foreground">
+              Imported tech: {config.technologies.slice(0, 8).join(", ")}
+              {config.technologies.length > 8 ? "..." : ""}
+            </Typography.CaptionMedium>
+          )}
+        </div>
+
+        <Separator />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-1">
+          {POSITIONS.map((position) => {
+            const Icon = position.icon;
+            return (
+              <Card
+                key={position.value}
+                className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
+                  config.position === position.value
+                    ? "ring-2 ring-primary bg-primary/10"
+                    : "border-border"
+                }`}
+                onClick={() => updateConfig("position", position.value)}
+              >
+                <CardContent className="flex flex-row items-center gap-2">
+                  <Icon className="size-6 text-primary flex-shrink-0" />
+                  <div className="flex-1">
+                    <Typography.BodyBold>{position.label}</Typography.BodyBold>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
       </div>
     );
   }
@@ -404,7 +560,7 @@ export function ConfigureContent() {
               disabled={currentStep === 0}
               className="flex items-center gap-2 h-10 sm:h-11 px-4 sm:px-6 text-sm sm:text-base"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="size-4" />
               <span className="hidden sm:inline">Previous</span>
               <span className="sm:hidden">Prev</span>
             </Button>
@@ -423,7 +579,7 @@ export function ConfigureContent() {
               >
                 <span className="hidden sm:inline">Start Interview</span>
                 <span className="sm:hidden">Start</span>
-                <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+                <ArrowRight className="size-4 sm:size-5" />
               </Button>
             ) : (
               <Button
@@ -433,7 +589,7 @@ export function ConfigureContent() {
               >
                 <span className="hidden sm:inline">Next</span>
                 <span className="sm:hidden">Next</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="size-4" />
               </Button>
             )}
           </div>
