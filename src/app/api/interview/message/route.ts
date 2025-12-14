@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { SCORING_THRESHOLDS } from "@/lib/config/interview-config";
 import {
   determineQuestionType,
   generateSystemPrompt,
@@ -9,7 +10,6 @@ import {
   shouldGenerateFollowUp,
   validateInterviewConfig,
 } from "@/lib/interview";
-import { SCORING_THRESHOLDS } from "@/lib/config/interview-config";
 import {
   aiClient,
   generateInterviewResponse,
@@ -28,7 +28,9 @@ import {
 } from "@/lib/services/interview/message-moderation";
 import type { Message } from "@/types/interview";
 
-function getFollowUpsSinceLastMainQuestion(conversationHistory: Message[]):
+function getFollowUpsSinceLastMainQuestion(
+  conversationHistory: Message[],
+):
   | { count: number; hasMainQuestion: boolean }
   | { count: 0; hasMainQuestion: false } {
   let count = 0;
@@ -155,6 +157,10 @@ export async function POST(request: NextRequest) {
         isComplete: false,
         behaviorWarning: true,
         warningCount: newWarningCount,
+        matchedBehaviorPatterns:
+          "matchedPatterns" in behaviorCheck
+            ? behaviorCheck.matchedPatterns
+            : undefined,
       });
     }
 
@@ -197,7 +203,9 @@ export async function POST(request: NextRequest) {
 
     const currentQuestionCount = questionCount || 0;
 
-    const historyForFollowUpCount: Message[] = Array.isArray(conversationHistory)
+    const historyForFollowUpCount: Message[] = Array.isArray(
+      conversationHistory,
+    )
       ? (conversationHistory as Message[])
       : [];
     const followUpCountState = getFollowUpsSinceLastMainQuestion(
@@ -291,7 +299,10 @@ export async function POST(request: NextRequest) {
 
       if (!validation.isValid) {
         console.warn(`AI response validation failed: ${validation.reason}`);
-        finalMessage = getFallbackResponse(interviewConfig, effectiveIsFollowUp);
+        finalMessage = getFallbackResponse(
+          interviewConfig,
+          effectiveIsFollowUp,
+        );
         usedFallback = true;
       } else {
         const contentForSequence = validation.sanitized ?? aiResponse.content;

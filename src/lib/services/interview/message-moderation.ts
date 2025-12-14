@@ -119,12 +119,13 @@ export function detectInappropriateBehavior(
     return {
       containsInappropriateBehavior: false,
       newWarningCount: warningCount,
+      matchedPatterns: [],
     };
   }
 
   const inappropriateBehaviorPatterns = [
     // Threats and violence
-    /\b(kill|murder|die|death|threat|threaten|violence|violent|hurt|harm|attack|assault|fight|beat|punch|kick|stab|shoot|gun|weapon|bomb|terrorist|terrorism|destroy|annihilate|eliminate|exterminate)\b/i,
+    /\b(kill|murder|die|death|threaten|violence|violent|assault|stab|shoot|gun|weapon|bomb|terrorist|terrorism|destroy|annihilate)\b/i,
 
     // Discriminatory language
     /\b(nigger|nigga|faggot|fag|tranny|dyke|retard|retarded|mongoloid|spic|wetback|chink|gook|jap|kike|towelhead|sandnigger|raghead|cracker|honky|whitey|gringo|beaner|coon|porch monkey|jungle bunny|cotton picker|slave|slavery|plantation|master race|white power|white supremacy|kkk|ku klux klan|aryan|skinhead)\b/i,
@@ -133,17 +134,20 @@ export function detectInappropriateBehavior(
     /\b(sexy|hot|beautiful|gorgeous|cute|attractive|boobs|tits|ass|pussy|dick|cock|penis|vagina|sex|sexual|fuck me|sleep with|bed|bedroom|naked|nude|strip|undress|masturbate|orgasm|climax|horny|aroused|turned on|seduce|flirt|date me|marry me|love you|kiss|hug|touch|feel|grope|fondle)\b/i,
 
     // Abusive language toward interviewer
-    /\b(stupid|dumb|idiot|moron|retard|loser|pathetic|worthless|useless|incompetent|clueless|ignorant|shut up|fuck you|screw you|go to hell|kiss my ass|bite me|whatever|don't care|boring|waste of time|pointless|ridiculous|absurd|nonsense)\b/i,
+    /\b(stupid|dumb|idiot|moron|retard|pathetic|ignorant|shut up|fuck you|screw you|go to hell|kiss my ass|bite me)\b/i,
   ];
 
-  const containsInappropriateBehavior = inappropriateBehaviorPatterns.some(
-    (pattern) => pattern.test(normalized),
-  );
+  const matchedPatterns = inappropriateBehaviorPatterns
+    .filter((pattern) => pattern.test(normalized))
+    .map((pattern) => pattern.toString());
+
+  const containsInappropriateBehavior = matchedPatterns.length > 0;
 
   if (!containsInappropriateBehavior) {
     return {
       containsInappropriateBehavior: false,
       newWarningCount: warningCount,
+      matchedPatterns: [],
     };
   }
 
@@ -152,6 +156,7 @@ export function detectInappropriateBehavior(
   return {
     containsInappropriateBehavior: true,
     newWarningCount,
+    matchedPatterns,
   };
 }
 
