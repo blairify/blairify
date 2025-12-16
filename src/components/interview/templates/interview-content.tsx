@@ -43,6 +43,7 @@ interface ChatInterviewResponse {
   terminatedForBehavior?: boolean;
   aiErrorType?: string;
   usedFallback?: boolean;
+  matchedBehaviorPatterns?: string[];
 }
 
 function getUserFacingInterviewErrorMessage(error: unknown) {
@@ -351,6 +352,12 @@ export function InterviewContent({ user }: InterviewContentProps) {
       const data: ChatInterviewResponse = await response.json();
 
       if (data.success) {
+        if (data.matchedBehaviorPatterns && data.matchedBehaviorPatterns.length) {
+          console.warn("Moderation matched behavior patterns:", {
+            matchedBehaviorPatterns: data.matchedBehaviorPatterns,
+          });
+        }
+
         const aiMessage: Message = {
           id: (Date.now() + 1).toString(),
           type: "ai",

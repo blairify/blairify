@@ -134,6 +134,10 @@ export async function POST(request: NextRequest) {
     const behaviorCheck = detectInappropriateBehavior(message, warningCount);
 
     if (behaviorCheck.containsInappropriateBehavior) {
+      console.warn("⚠️ Inappropriate behavior detected:", {
+        matchedPatterns:
+          "matchedPatterns" in behaviorCheck ? behaviorCheck.matchedPatterns : [],
+      });
       const { newWarningCount } = behaviorCheck;
 
       if (newWarningCount >= 2) {
@@ -311,24 +315,29 @@ export async function POST(request: NextRequest) {
         const contentForSequence = validation.sanitized ?? aiResponse.content;
 
         if (!interviewConfig.isDemoMode) {
-          const expectPrimaryQuestion = !effectiveIsFollowUp && !shouldComplete;
-          const expectedIndex = currentQuestionCount + 1;
+          if (safeQuestionIds.length > 0) {
+            const expectPrimaryQuestion =
+              !effectiveIsFollowUp && !shouldComplete;
+            const expectedIndex = currentQuestionCount + 1;
 
-          const sequenceCheck = validateQuestionSequence(
-            contentForSequence,
-            expectedIndex,
-            expectPrimaryQuestion,
-          );
+            const sequenceCheck = validateQuestionSequence(
+              contentForSequence,
+              expectedIndex,
+              expectPrimaryQuestion,
+            );
 
-          if (!sequenceCheck.isValid) {
-            console.warn(
-              `AI question sequence validation failed: ${sequenceCheck.reason}`,
-            );
-            finalMessage = getFallbackResponse(
-              interviewConfig,
-              effectiveIsFollowUp,
-            );
-            usedFallback = true;
+            if (!sequenceCheck.isValid) {
+              console.warn(
+                `AI question sequence validation failed: ${sequenceCheck.reason}`,
+              );
+              finalMessage = getFallbackResponse(
+                interviewConfig,
+                effectiveIsFollowUp,
+              );
+              usedFallback = true;
+            } else {
+              finalMessage = contentForSequence;
+            }
           } else {
             finalMessage = contentForSequence;
           }

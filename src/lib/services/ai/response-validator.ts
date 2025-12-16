@@ -41,11 +41,6 @@ export function validateAIResponse(
     return technicalCheck;
   }
 
-  const formatCheck = validateFormat(response);
-  if (formatCheck.sanitized) {
-    return formatCheck;
-  }
-
   return { isValid: true };
 }
 
@@ -56,6 +51,9 @@ export function validateQuestionSequence(
 ): ValidationResult {
   const questionLabelPattern = /\[BANK_QUESTION_INDEX:\s*(\d+)\]/gi;
   const matches = Array.from(response.matchAll(questionLabelPattern));
+
+  const altQuestionLabelPattern = /\bquestion\s*#?\s*(\d+)\b/gi;
+  const altMatches = Array.from(response.matchAll(altQuestionLabelPattern));
 
   if (!expectPrimaryQuestion) {
     if (matches.length > 0) {
@@ -70,10 +68,43 @@ export function validateQuestionSequence(
   }
 
   if (matches.length === 0) {
-    return {
-      isValid: false,
-      reason: "Missing Question # label for primary question",
-    };
+    if (altMatches.length === 0) {
+      return { isValid: true };
+    }
+
+    const indices = new Set<number>();
+
+    for (const match of altMatches) {
+      const rawIndex = match[1];
+      const parsedIndex = Number.parseInt(rawIndex, 10);
+
+      if (Number.isNaN(parsedIndex)) {
+        return {
+          isValid: false,
+          reason: "Invalid Question # label format",
+        };
+      }
+
+      indices.add(parsedIndex);
+    }
+
+    if (indices.size > 1) {
+      return {
+        isValid: false,
+        reason: "Multiple Question # labels found in primary question response",
+      };
+    }
+
+    const [index] = Array.from(indices);
+
+    if (index !== expectedPrimaryIndex) {
+      return {
+        isValid: false,
+        reason: `Invalid question index: expected Question #${expectedPrimaryIndex}, got Question #${index}`,
+      };
+    }
+
+    return { isValid: true };
   }
 
   const indices = new Set<number>();
@@ -234,19 +265,6 @@ function validateTechnicalContent(
         reason: "Coding interview should reference programming concepts",
       };
     }
-  }
-
-  return { isValid: true };
-}
-
-function validateFormat(response: string): ValidationResult {
-  const sentences = response.split(/[.!?]+/).filter((s) => s.trim().length > 0);
-
-  if (sentences.length > SCORING_THRESHOLDS.maxSentences) {
-    return {
-      isValid: true,
-      sanitized: `${sentences.slice(0, 6).join(". ")}. [Question continued...]`,
-    };
   }
 
   return { isValid: true };
