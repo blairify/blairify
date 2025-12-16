@@ -55,8 +55,14 @@ export async function POST(request: NextRequest) {
       interviewConfig.isDemoMode,
     );
 
+    const baseUrl = request.nextUrl.origin;
+
     const { prompt: questionsPrompt, questionIds } =
-      await getDatabaseQuestionsPrompt(interviewConfig, totalQuestions);
+      await getDatabaseQuestionsPrompt(
+        interviewConfig,
+        totalQuestions,
+        baseUrl,
+      );
 
     console.log("📚 Loaded questions from database:", {
       totalQuestions,

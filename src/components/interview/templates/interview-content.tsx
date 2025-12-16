@@ -45,6 +45,23 @@ interface ChatInterviewResponse {
   usedFallback?: boolean;
 }
 
+function getUserFacingInterviewErrorMessage(error: unknown) {
+  const raw = error instanceof Error ? error.message : "";
+  const normalized = raw.toLowerCase();
+
+  if (
+    normalized.includes("failed to process message") ||
+    normalized.includes("failed to send message") ||
+    normalized.includes("timeout") ||
+    normalized.includes("network") ||
+    normalized.includes("fetch")
+  ) {
+    return "I ran into a temporary issue processing that. Your answer is saved in the transcript. Please try sending again in a moment.";
+  }
+
+  return "I ran into an issue processing that. Your answer is saved in the transcript. Please try again in a moment.";
+}
+
 export function InterviewContent({ user }: InterviewContentProps) {
   const { config, mounted } = useInterviewConfig();
   const [isInterviewStarted, setIsInterviewStarted] = useState(false);
@@ -229,12 +246,11 @@ export function InterviewContent({ user }: InterviewContentProps) {
       }
     } catch (error) {
       console.error("Error starting interview:", error);
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to start interview";
       addMessage({
         id: Date.now().toString(),
         type: "ai",
-        content: `I apologize, but there was an error starting the interview: ${errorMessage}. Please check your configuration and try again.`,
+        content:
+          "I ran into an issue starting the interview. Please try again in a moment.",
         timestamp: new Date(),
       });
     } finally {
@@ -424,12 +440,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to send message";
       addMessage({
         id: Date.now().toString(),
         type: "ai",
-        content: `I ran into a problem processing your last response: ${errorMessage}. Your answer above is saved in the transcript. Please try sending again in a moment.`,
+        content: getUserFacingInterviewErrorMessage(error),
         timestamp: new Date(),
       });
     } finally {

@@ -859,6 +859,7 @@ Keep the tone professional and supportive, and suggest that they try again with 
 export async function getDatabaseQuestionsPrompt(
   config: InterviewConfig,
   questionCount: number,
+  baseUrl?: string,
 ): Promise<{ prompt: string; questionIds: string[] }> {
   try {
     const { getRelevantQuestionsForInterview, formatQuestionForPrompt } =
@@ -867,6 +868,7 @@ export async function getDatabaseQuestionsPrompt(
     const questions = await getRelevantQuestionsForInterview(
       config,
       questionCount,
+      baseUrl,
     );
 
     if (questions.length === 0) {

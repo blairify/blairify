@@ -96,7 +96,14 @@ export function detectDisallowedTopic(message: string) {
     /\b(suicide|kill myself|end my life|self harm|cutting|depression|anxiety|mental health|therapy|therapist|psychiatrist|medication|antidepressant|bipolar|schizophrenia|ptsd|trauma|abuse|domestic violence|sexual assault|rape|harassment|discrimination|racism|sexism|homophobia|transphobia|xenophobia|hate crime|bullying|stalking|addiction|alcoholism|drug abuse|overdose|rehab|recovery)\b/i,
 
     // Inappropriate personal questions
-    /\b(how old are you|what's your age|where do you live|what's your address|phone number|social security|ssn|credit card|bank account|password|personal information|private life|dating|relationship|married|single|divorced|boyfriend|girlfriend|husband|wife|children|kids|family|parents|salary|income|money|wealth|rich|poor|financial|debt|loan|mortgage)\b/i,
+    /\b(how old are you|what's your age|where do you live|what's your address|phone number|social security|ssn|personal information|private life)\b/i,
+
+    /\b(my|our|your)\s+password\b/i,
+    /\b(password is|my password is|your password is)\b/i,
+    /\b(credit card number|card number|bank account number|account number)\b/i,
+    /\b(ssn|social security number)\b/i,
+
+    /\b(are you|you are|you're|i am|i'm)\s+(married|single|divorced)\b/i,
 
     // Conspiracy theories and misinformation
     /\b(flat earth|moon landing|hoax|fake news|mainstream media|msm|lizard people|chemtrails|vaccines cause autism|microchip|5g|covid conspiracy|plandemic|new world order|agenda 21|population control|mind control|brainwashing|propaganda)\b/i,
@@ -106,7 +113,14 @@ export function detectDisallowedTopic(message: string) {
     pattern.test(normalized),
   );
 
-  return containsDisallowedTopic;
+  const matchedPatterns = disallowedTopicPatterns
+    .filter((pattern) => pattern.test(normalized))
+    .map((pattern) => pattern.toString());
+
+  return {
+    containsDisallowedTopic,
+    matchedPatterns,
+  };
 }
 
 export function detectInappropriateBehavior(

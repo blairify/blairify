@@ -114,9 +114,12 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const containsDisallowedTopic = detectDisallowedTopic(message);
+    const disallowedTopicCheck = detectDisallowedTopic(message);
 
-    if (containsDisallowedTopic) {
+    if (disallowedTopicCheck.containsDisallowedTopic) {
+      console.log("🚫 Disallowed topic detected:", {
+        matchedPatterns: disallowedTopicCheck.matchedPatterns,
+      });
       return NextResponse.json({
         success: true,
         message:

@@ -18,6 +18,19 @@ import type { DifficultyLevel, Question } from "@/types/practice-question";
 const recentlyUsedQuestions = new Map<string, number>();
 const CACHE_EXPIRY_MS = 30 * 60 * 1000; // 30 minutes
 
+function getQuestionsBaseUrl(explicitBaseUrl?: string) {
+  if (explicitBaseUrl) {
+    return explicitBaseUrl;
+  }
+
+  const publicUrl = process.env.NEXT_PUBLIC_APP_URL;
+  if (publicUrl) {
+    return publicUrl;
+  }
+
+  return "http://localhost:3000";
+}
+
 /**
  * Add question to recently used cache
  */
@@ -50,10 +63,11 @@ function wasRecentlyUsed(questionId: string): boolean {
 export async function getRelevantQuestionsForInterview(
   config: InterviewConfig,
   count: number = 10,
+  baseUrl?: string,
 ): Promise<Question[]> {
   try {
     // Fetch questions from API endpoint instead of direct Firestore access
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+    const resolvedBaseUrl = getQuestionsBaseUrl(baseUrl);
 
     const params = new URLSearchParams({
       limit: "1000",
@@ -67,7 +81,7 @@ export async function getRelevantQuestionsForInterview(
     }
 
     const response = await fetch(
-      `${baseUrl}/api/practice/questions?${params.toString()}`,
+      `${resolvedBaseUrl}/api/practice/questions?${params.toString()}`,
     );
 
     if (!response.ok) {
@@ -153,10 +167,11 @@ export async function getRelevantQuestionsForInterview(
 export async function getRandomQuestionForInterview(
   config: InterviewConfig,
   usedQuestionIds: string[] = [],
+  baseUrl?: string,
 ): Promise<Question | null> {
   try {
     // Fetch questions from API endpoint instead of direct Firestore access
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+    const resolvedBaseUrl = getQuestionsBaseUrl(baseUrl);
 
     const params = new URLSearchParams({
       limit: "1000",
@@ -169,7 +184,7 @@ export async function getRandomQuestionForInterview(
     }
 
     const response = await fetch(
-      `${baseUrl}/api/practice/questions?${params.toString()}`,
+      `${resolvedBaseUrl}/api/practice/questions?${params.toString()}`,
     );
 
     if (!response.ok) {
