@@ -226,6 +226,14 @@ export async function saveInterviewResults(
     const questions: InterviewQuestion[] = [];
     const responses: InterviewResponse[] = [];
 
+    const resolvedScore = analysis.score > 0 ? analysis.score : 0;
+    const resolvedFeedback =
+      analysis.detailedAnalysis.trim().length > 0
+        ? analysis.detailedAnalysis
+        : analysis.overallScore.trim().length > 0
+          ? analysis.overallScore
+          : "Analysis pending";
+
     const practiceQuestionIds = (sessionData.questionIds ?? []).filter(Boolean);
 
     for (let i = 0; i < sessionData.messages.length; i += 2) {
@@ -256,8 +264,8 @@ export async function saveInterviewResults(
           response: userMessage.content,
           duration: 180,
           confidence: 7,
-          score: 0, // No score without real analysis
-          feedback: "Analysis pending",
+          score: resolvedScore,
+          feedback: resolvedFeedback,
           keyPoints: [],
           missedPoints: [],
         });
