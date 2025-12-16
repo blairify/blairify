@@ -2,13 +2,14 @@ import { type NextRequest, NextResponse } from "next/server";
 
 // Protected routes that require authentication
 const protectedRoutes = [
-  "/dashboard",
+  "/my-progress",
   "/jobs",
   "/history",
   "/profile",
   "/results",
   "/configure",
   "/interview",
+  "/onboarding",
 ];
 
 // Public routes that don't require authentication
@@ -16,6 +17,8 @@ const publicRoutes = ["/", "/auth"];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  const isOnboardingRoute = pathname.startsWith("/onboarding");
 
   // Check if the current path is protected
   const isProtectedRoute = protectedRoutes.some((route) =>
@@ -34,6 +37,9 @@ export async function middleware(request: NextRequest) {
     request.cookies.get("firebase-auth-token")?.value ||
     request.cookies.get("auth-token")?.value;
 
+  const onboardingComplete =
+    request.cookies.get("onboarding-complete")?.value === "1";
+
   // If accessing a protected route without auth, redirect to login
   if (isProtectedRoute && !firebaseAuthToken) {
     const loginUrl = new URL("/auth", request.url);
@@ -41,9 +47,18 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(loginUrl);
   }
 
-  // If accessing auth pages while authenticated, redirect to dashboard
+  if (firebaseAuthToken && !onboardingComplete && !isOnboardingRoute) {
+    return NextResponse.redirect(new URL("/onboarding", request.url));
+  }
+
+  if (firebaseAuthToken && onboardingComplete && isOnboardingRoute) {
+    return NextResponse.redirect(new URL("/my-progress", request.url));
+  }
+
   if (isPublicRoute && pathname.startsWith("/auth") && firebaseAuthToken) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    return NextResponse.redirect(
+      new URL(onboardingComplete ? "/my-progress" : "/onboarding", request.url),
+    );
   }
 
   return NextResponse.next();

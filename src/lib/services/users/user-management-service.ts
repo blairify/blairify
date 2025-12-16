@@ -113,9 +113,7 @@ export async function createUser(
       preferredInterviewTypes: [],
       targetCompanies: [],
       notificationsEnabled: true,
-      darkMode: false,
       language: "en",
-      timezone: "UTC",
     },
     subscription: userData.subscription || {
       plan: "free",

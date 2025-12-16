@@ -25,9 +25,17 @@ import type {
   InterviewResponse,
   InterviewSession,
   InterviewType,
+  SeniorityLevel,
   SessionStatus,
 } from "@/types/firestore";
 import { COLLECTIONS, ensureDatabase } from "../common/database-common";
+
+const SENIORITY_LEVELS: SeniorityLevel[] = ["entry", "junior", "mid", "senior"];
+
+function parseSeniorityLevel(value: string): SeniorityLevel {
+  const normalized = value.toLowerCase() as SeniorityLevel;
+  return SENIORITY_LEVELS.includes(normalized) ? normalized : "mid";
+}
 
 // ================================
 // INTERVIEW SESSIONS OPERATIONS
@@ -269,7 +277,7 @@ export async function saveInterviewResults(
       sessionId: existingSessionId ?? sessionDoc.id,
       config: {
         position: config.position,
-        seniority: config.seniority,
+        seniority: parseSeniorityLevel(config.seniority),
         interviewMode: config.interviewMode as
           | "regular"
           | "practice"

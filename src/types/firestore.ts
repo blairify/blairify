@@ -20,7 +20,8 @@ export interface UserProfile {
   // Profile Details
   role?: string;
   experience?: string;
-  howDidYouHear?: string;
+
+  onboardingCompleted?: boolean;
 
   // Gamification
   experiencePoints?: number;
@@ -77,9 +78,8 @@ export interface UserPreferences {
   preferredInterviewTypes: InterviewType[];
   targetCompanies: string[];
   notificationsEnabled: boolean;
-  darkMode: boolean;
   language: string;
-  timezone: string;
+  earlyJobMatchingEnabled?: boolean;
   preferredLocation?: string;
   preferredTechnologies?: string[];
   preferredWorkTypes?: string[];
@@ -89,7 +89,7 @@ export interface UserPreferences {
 }
 
 export interface UserSubscription {
-  plan: "free" | "pro" | "enterprise";
+  plan: "free" | "pro";
   status: "active" | "cancelled" | "expired";
   expiresAt?: Timestamp;
   features: string[];
@@ -171,51 +171,47 @@ export interface InterviewSession {
   startedAt?: Timestamp;
   completedAt?: Timestamp;
   totalDuration: number; // actual minutes spent
-
-  // Performance Data
   scores?: SessionScores;
-
-  // Questions and Responses
   questions: InterviewQuestion[];
   responses: InterviewResponse[];
-
-  // AI Analysis
   analysis: SessionAnalysis;
-
-  // Feedback
   userFeedback?: UserSessionFeedback;
-
-  // Metadata
   createdAt: Timestamp;
   updatedAt: Timestamp;
 }
 
 export interface InterviewConfig {
   position: string;
-  seniority: string;
+  seniority: SeniorityLevel;
+  technologies?: string[];
   companyProfile?: string;
   specificCompany?: string;
-  interviewMode:
-    | "regular"
-    | "practice"
-    | "flash"
-    | "play"
-    | "competitive"
-    | "teacher";
+  company?: string;
+  interviewMode: InterviewMode;
   interviewType: InterviewType;
   duration: number; // minutes
+  isDemoMode?: boolean;
+  contextType?: string;
+  jobId?: string;
+  jobDescription?: string;
+  jobRequirements?: string;
+  jobLocation?: string;
+  jobType?: string;
   difficulty?: "easy" | "medium" | "hard";
   focusAreas?: string[];
 }
 
-export type InterviewType =
-  | "technical"
-  | "bullet"
-  | "system-design"
-  | "mixed"
-  | "coding"
-  | "case-study"
-  | "culture-fit";
+export type SeniorityLevel = "entry" | "junior" | "mid" | "senior";
+
+export type InterviewMode =
+  | "regular"
+  | "practice"
+  | "flash"
+  | "play"
+  | "competitive"
+  | "teacher";
+
+export type InterviewType = "technical" | "bullet" | "coding" | "system-design";
 
 export type SessionStatus =
   | "scheduled"

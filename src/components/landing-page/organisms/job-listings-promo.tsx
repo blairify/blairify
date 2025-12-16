@@ -61,9 +61,15 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                       size="sm"
                       variant="outline"
                       className="w-full min-[600px]:w-1/3 text-xs"
-                      onClick={() => window.open("#", "_blank")}
+                      onClick={() =>
+                        window.open(
+                          job.jobUrlDirect ?? job.jobUrl ?? "#",
+                          "_blank",
+                        )
+                      }
+                      disabled={!job.jobUrlDirect && !job.jobUrl}
                     >
-                      <ExternalLink className="h-3 w-3 mr-1" />
+                      <ExternalLink className="mr-1 size-3" />
                       Apply
                     </Button>
                     <Button
@@ -73,7 +79,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                       onClick={() => router.push("/configure")}
                     >
                       <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                      <Lightbulb className="h-3 w-3 mr-1 relative z-10" />
+                      <Lightbulb className="mr-1 size-3 relative z-10" />
                       <span className="relative z-10">Interview with AI</span>
                     </Button>
                   </div>
@@ -107,7 +113,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                 className="group w-full sm:w-auto"
               >
                 Browse All Jobs
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 variant="outline"
@@ -116,7 +122,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
                 onClick={() => router.push("/configure")}
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                <Lightbulb className="h-4 w-4 mr-2 relative z-10" />
+                <Lightbulb className="mr-2 size-4 relative z-10" />
                 <span className="relative z-10">Start Practice Interview</span>
               </Button>
             </div>

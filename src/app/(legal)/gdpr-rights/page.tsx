@@ -320,9 +320,9 @@ export default function GDPRRightsPage() {
                 Some rights can also be exercised directly through your Blairify
                 account settings. For example, you can update your personal
                 information, download your data, delete your account, and manage
-                cookie preferences all from within your account dashboard. We
-                have designed these features to make it as easy as possible for
-                you to control your personal data.
+                cookie preferences all from within your account progress
+                tracking. We have designed these features to make it as easy as
+                possible for you to control your personal data.
               </p>
               <p className="mb-4">
                 We are here to help you exercise your rights and answer any

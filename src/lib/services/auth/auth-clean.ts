@@ -29,7 +29,6 @@ export interface UserData {
   avatarIcon?: string;
   role?: string;
   experience?: string;
-  howDidYouHear?: string;
   createdAt: Date;
   lastLoginAt: Date;
 }
@@ -42,7 +41,6 @@ export const registerWithEmailAndPassword = async (
   additionalData: {
     role: string;
     experience: string;
-    howDidYouHear: string;
   },
 ): Promise<{ user: User | null; error: string | null }> => {
   try {
@@ -73,7 +71,6 @@ export const registerWithEmailAndPassword = async (
       photoURL: user.photoURL || undefined,
       role: additionalData.role,
       experience: additionalData.experience,
-      howDidYouHear: additionalData.howDidYouHear,
       createdAt: new Date(),
       lastLoginAt: new Date(),
     };

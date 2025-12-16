@@ -19,7 +19,7 @@ Allow: /data-processing-agreement
 
 # Block admin and user-specific areas
 Disallow: /admin/
-Disallow: /dashboard
+Disallow: /my-progress
 Disallow: /profile
 Disallow: /settings
 Disallow: /configure

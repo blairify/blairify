@@ -51,10 +51,13 @@ describe("GET /api/jobs - Featured Jobs", () => {
     expect(data.jobs[0].title).toBe("Software Engineer");
     expect(data.jobs[1].id).toBe("2");
     expect(data.jobs[1].title).toBe("Frontend Developer");
-    expect(prisma.job.findMany).toHaveBeenCalledWith({
-      orderBy: { datePosted: "desc" },
-      take: 2,
-    });
+    expect(prisma.job.findMany).toHaveBeenCalledWith(
+      expect.objectContaining({
+        select: expect.any(Object),
+        orderBy: { datePosted: "desc" },
+        take: 2,
+      }),
+    );
   });
 
   it("should parse limit as integer", async () => {
@@ -63,9 +66,12 @@ describe("GET /api/jobs - Featured Jobs", () => {
     const request = new Request("http://localhost:3000/api/jobs?limit=5");
     await GET(request);
 
-    expect(prisma.job.findMany).toHaveBeenCalledWith({
-      orderBy: { datePosted: "desc" },
-      take: 5,
-    });
+    expect(prisma.job.findMany).toHaveBeenCalledWith(
+      expect.objectContaining({
+        select: expect.any(Object),
+        orderBy: { datePosted: "desc" },
+        take: 5,
+      }),
+    );
   });
 });

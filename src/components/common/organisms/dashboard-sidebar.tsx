@@ -1,22 +1,17 @@
 "use client";
 
-import {
-  BookOpen,
-  History,
-  Home,
-  Map as MapIcon,
-  Newspaper,
-  Plus,
-  Users,
-  Wallet,
-  X,
-} from "lucide-react";
+import { History, Plus, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { GiDandelionFlower } from "react-icons/gi";
+import { GrFlows } from "react-icons/gr";
+import { IoIosRadio } from "react-icons/io";
+import { LuBookAudio } from "react-icons/lu";
+import { MdOutlineLocalFireDepartment } from "react-icons/md";
+import { TbProgressBolt } from "react-icons/tb";
 import { TiFlowChildren } from "react-icons/ti";
 import Logo from "@/components/common/atoms/logo-blairify";
 import { Button } from "@/components/ui/button";
-import { BriefcaseIcon } from "@/components/ui/icons/akar-icons-briefcase";
 
 interface DashboardSidebarProps {
   sidebarOpen: boolean;
@@ -59,22 +54,6 @@ export default function DashboardSidebar({
 
         <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
           <Link
-            href="/dashboard"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
-              isActive("/dashboard")
-                ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-            }`}
-          >
-            <Home className="size-5 flex-shrink-0" />
-            <span
-              className={`truncate ${isActive("/dashboard") ? "font-medium" : ""}`}
-            >
-              Dashboard
-            </span>
-          </Link>
-
-          <Link
             href="/configure"
             className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
               isActive("/configure")
@@ -87,6 +66,21 @@ export default function DashboardSidebar({
               className={`truncate ${isActive("/configure") ? "font-medium" : ""}`}
             >
               New Interview
+            </span>
+          </Link>
+          <Link
+            href="/jobs"
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+              isActive("/jobs")
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            }`}
+          >
+            <MdOutlineLocalFireDepartment className="size-5 flex-shrink-0" />
+            <span
+              className={`truncate ${isActive("/jobs") ? "font-medium" : ""}`}
+            >
+              Real Offers
             </span>
           </Link>
 
@@ -102,23 +96,7 @@ export default function DashboardSidebar({
             <span
               className={`truncate ${isActive("/history") ? "font-medium" : ""}`}
             >
-              Interview History
-            </span>
-          </Link>
-
-          <Link
-            href="/jobs"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
-              isActive("/jobs")
-                ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-            }`}
-          >
-            <BriefcaseIcon className="size-5 flex-shrink-0" />
-            <span
-              className={`truncate ${isActive("/jobs") ? "font-medium" : ""}`}
-            >
-              Job Listings
+              History
             </span>
           </Link>
 
@@ -128,7 +106,21 @@ export default function DashboardSidebar({
               Progress
             </p>
           </div>
-
+          <Link
+            href="/my-progress"
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+              isActive("/my-progress")
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            }`}
+          >
+            <TbProgressBolt className="size-5 flex-shrink-0" />
+            <span
+              className={`truncate ${isActive("/my-progress") ? "font-medium" : ""}`}
+            >
+              My Progress
+            </span>
+          </Link>
           <Link
             href="/achievements"
             className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
@@ -150,8 +142,8 @@ export default function DashboardSidebar({
             disabled
             className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
           >
-            <BookOpen className="size-5 flex-shrink-0" />
-            <span className="truncate text-sm">Practice Library</span>
+            <LuBookAudio className="size-5 flex-shrink-0" />
+            <span className="truncate text-sm">Docs</span>
             <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
               Soon
             </span>
@@ -162,7 +154,7 @@ export default function DashboardSidebar({
             disabled
             className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
           >
-            <MapIcon className="size-5 flex-shrink-0" />
+            <GrFlows className="size-5 flex-shrink-0" />
             <span className="truncate text-sm">Roadmap</span>
             <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
               Soon
@@ -174,7 +166,7 @@ export default function DashboardSidebar({
             disabled
             className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
           >
-            <Newspaper className="size-5 flex-shrink-0" />
+            <IoIosRadio className="size-5 flex-shrink-0" />
             <span className="truncate text-sm">Tech News</span>
             <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
               Soon
@@ -186,20 +178,8 @@ export default function DashboardSidebar({
             disabled
             className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
           >
-            <Wallet className="size-5 flex-shrink-0" />
-            <span className="truncate text-sm">Blairify Wallet</span>
-            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-              Soon
-            </span>
-          </button>
-
-          <button
-            type="button"
-            disabled
-            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
-          >
-            <Users className="size-5 flex-shrink-0" />
-            <span className="truncate text-sm">Community</span>
+            <GiDandelionFlower className="size-5 flex-shrink-0" />
+            <span className="truncate text-sm">BairTalk</span>
             <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
               Soon
             </span>

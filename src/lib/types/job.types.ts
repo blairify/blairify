@@ -7,9 +7,11 @@ export interface Job {
   readonly title: string;
   readonly company: string;
   readonly location?: string | null;
+  readonly cityNormalized?: string | null;
   readonly description?: string | null;
   readonly type?: string | null;
   readonly level?: string | null;
+  readonly seniorityLevel?: string | null;
   readonly remote: boolean;
   readonly salary?: string | null;
   readonly minAmount?: string | null;
@@ -25,6 +27,9 @@ export interface Job {
   readonly postedAt: string | Date;
   readonly companyLogo?: string | null;
   readonly companyDescription?: string | null;
+  readonly companyUrl?: string | null;
+  readonly companyUrlDirect?: string | null;
+  readonly companyProfile?: string | null;
   readonly jobFunction?: string | null;
   readonly experienceRange?: string | null;
   readonly companyRating?: number | null;

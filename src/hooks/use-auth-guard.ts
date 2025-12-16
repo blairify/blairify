@@ -17,7 +17,7 @@ export const useAuthGuard = (redirectTo = "/auth") => {
   return { user, loading };
 };
 
-export const useGuestGuard = (redirectTo = "/dashboard") => {
+export const useGuestGuard = (redirectTo = "/my-progress") => {
   const { user, loading } = useAuth();
   const router = useRouter();
 

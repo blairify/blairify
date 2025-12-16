@@ -645,30 +645,3 @@ export const INTERVIEW_MODES = [
     icon: Pen,
   },
 ];
-
-export const INTERVIEW_TYPES = [
-  {
-    value: "technical",
-    label: "Technical Interview",
-    description: "Coding and system design",
-    icon: Code,
-  },
-  {
-    value: "bullet",
-    label: "Bullet Interview",
-    description: "Quick 3-question session",
-    icon: Target,
-  },
-  {
-    value: "system-design",
-    label: "System Design",
-    description: "Architecture and scalability",
-    icon: Building,
-  },
-  {
-    value: "mixed",
-    label: "Mixed Interview",
-    description: "Combination of all types",
-    icon: Users,
-  },
-];

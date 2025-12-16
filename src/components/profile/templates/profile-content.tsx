@@ -156,9 +156,7 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
         preferredInterviewTypes: ["technical"],
         targetCompanies: [],
         notificationsEnabled: true,
-        darkMode: false,
         language: "en",
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       };
 
       const updatedPreferences: UserPreferences = {

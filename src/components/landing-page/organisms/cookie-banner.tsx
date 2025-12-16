@@ -49,6 +49,7 @@ interface CookieConsent {
 
 const COOKIE_CONSENT_VERSION = "1.0";
 const COOKIE_NAME = "Blairify-cookie-consent";
+const GDPR_STORAGE_KEY = "Blairify-gdpr-data";
 
 export const CookieBanner = () => {
   const { user } = useAuth();
@@ -66,6 +67,24 @@ export const CookieBanner = () => {
 
   const checkConsentStatus = useCallback(async () => {
     try {
+      if (!localStorage.getItem(GDPR_STORAGE_KEY)) {
+        localStorage.setItem(
+          GDPR_STORAGE_KEY,
+          JSON.stringify({
+            cookieConsentGiven: false,
+            cookieConsentDate: new Date().toISOString(),
+            cookiePreferences: {
+              necessary: true,
+              analytics: false,
+              marketing: false,
+              personalization: false,
+            },
+            consentVersion: COOKIE_CONSENT_VERSION,
+            lastUpdated: new Date().toISOString(),
+          }),
+        );
+      }
+
       const localConsent = localStorage.getItem(COOKIE_NAME);
       if (localConsent) {
         const consent: CookieConsent = JSON.parse(localConsent);
@@ -74,6 +93,17 @@ export const CookieBanner = () => {
           consent.version === COOKIE_CONSENT_VERSION &&
           consent.hasConsented
         ) {
+          const consentDateIso = new Date(consent.consentDate).toISOString();
+          localStorage.setItem(
+            GDPR_STORAGE_KEY,
+            JSON.stringify({
+              cookieConsentGiven: consent.hasConsented,
+              cookieConsentDate: consentDateIso,
+              cookiePreferences: consent.preferences,
+              consentVersion: consent.version,
+              lastUpdated: new Date().toISOString(),
+            }),
+          );
           setShowBanner(false);
           setShowFloatingButton(true);
           setPreferences(consent.preferences);
@@ -97,6 +127,16 @@ export const CookieBanner = () => {
               version: dbConsent.version,
             };
             localStorage.setItem(COOKIE_NAME, JSON.stringify(localConsent));
+            localStorage.setItem(
+              GDPR_STORAGE_KEY,
+              JSON.stringify({
+                cookieConsentGiven: dbConsent.hasConsented,
+                cookieConsentDate: dbConsent.consentDate.toDate().toISOString(),
+                cookiePreferences: dbConsent.preferences,
+                consentVersion: dbConsent.version,
+                lastUpdated: new Date().toISOString(),
+              }),
+            );
             setShowBanner(false);
             setShowFloatingButton(true);
             setPreferences(dbConsent.preferences);
@@ -148,6 +188,16 @@ export const CookieBanner = () => {
       };
 
       localStorage.setItem(COOKIE_NAME, JSON.stringify(consent));
+      localStorage.setItem(
+        GDPR_STORAGE_KEY,
+        JSON.stringify({
+          cookieConsentGiven: consentGiven,
+          cookieConsentDate: consent.consentDate.toISOString(),
+          cookiePreferences: finalPreferences,
+          consentVersion: COOKIE_CONSENT_VERSION,
+          lastUpdated: new Date().toISOString(),
+        }),
+      );
 
       if (user?.uid) {
         const dbConsent = {
@@ -189,6 +239,16 @@ export const CookieBanner = () => {
         version: COOKIE_CONSENT_VERSION,
       };
       localStorage.setItem(COOKIE_NAME, JSON.stringify(consent));
+      localStorage.setItem(
+        GDPR_STORAGE_KEY,
+        JSON.stringify({
+          cookieConsentGiven: consentGiven,
+          cookieConsentDate: consent.consentDate.toISOString(),
+          cookiePreferences: consent.preferences,
+          consentVersion: COOKIE_CONSENT_VERSION,
+          lastUpdated: new Date().toISOString(),
+        }),
+      );
       setShowBanner(false);
       setShowFloatingButton(true);
     } finally {

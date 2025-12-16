@@ -70,7 +70,7 @@ const faqData = [
     id: "progress-tracking",
     question: "How do I track my improvement over time?",
     answer:
-      "The dashboard provides an overview of your performance trends, success rates, and areas of focus. You can also review detailed analytics in your interview history.",
+      "Insights provides an overview of your performance trends, success rates, and areas of focus. You can also review detailed analytics in your interview history.",
   },
   {
     id: "company-specific",

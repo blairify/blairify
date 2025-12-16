@@ -19,6 +19,7 @@ model Job {
   title               String?   @db.Text
   company             String?   @db.Text
   location            String?   @db.Text
+  cityNormalized      String?   @map("city_normalized") @db.Text
   datePosted          DateTime? @map("date_posted") @db.Date
   jobType             String?   @map("job_type") @db.VarChar(50)
   salarySource        String?   @map("salary_source") @db.VarChar(50)
@@ -28,6 +29,7 @@ model Job {
   currency            String?   @db.VarChar(10)
   isRemote            Boolean?  @map("is_remote") @default(false)
   jobLevel            String?   @map("job_level") @db.VarChar(50)
+  seniorityLevel      String?   @map("seniority_level") @db.VarChar(50)
   jobFunction         String?   @map("job_function") @db.Text
   listingType         String?   @map("listing_type") @db.VarChar(50)
   emails              String?   @db.Text
@@ -37,6 +39,7 @@ model Job {
   companyLogo         String?   @map("company_logo") @db.Text
   companyUrlDirect    String?   @map("company_url_direct") @db.Text
   companyAddresses    String?   @map("company_addresses") @db.Text
+  companyProfile      String?   @map("company_profile") @db.VarChar(50)
   companyNumEmployees String?   @map("company_num_employees") @db.VarChar(50)
   companyRevenue      String?   @map("company_revenue") @db.VarChar(50)
   companyDescription  String?   @map("company_description") @db.Text

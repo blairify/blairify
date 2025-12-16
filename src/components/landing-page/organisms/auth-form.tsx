@@ -72,9 +72,6 @@ export default function AuthForm({
     email: "",
     password: "",
     confirmPassword: "",
-    role: "",
-    experience: "",
-    howDidYouHear: "",
   });
 
   const totalSteps = 3;
@@ -184,7 +181,7 @@ export default function AuthForm({
       }
 
       if (user) {
-        router.push("/dashboard");
+        router.push("/onboarding");
       }
     } catch (error) {
       console.error("Login failed:", error);
@@ -269,7 +266,7 @@ export default function AuthForm({
       }
 
       if (user) {
-        router.push("/dashboard");
+        router.push("/onboarding");
       }
     } catch (error) {
       console.error("Registration failed:", error);
@@ -291,15 +288,7 @@ export default function AuthForm({
       }
 
       if (user) {
-        router.push("/dashboard");
-      }
-      if (error) {
-        setError(error);
-        return;
-      }
-
-      if (user) {
-        router.push("/dashboard");
+        router.push("/onboarding");
       }
     } catch (error) {
       console.error("Google login failed:", error);
@@ -321,7 +310,7 @@ export default function AuthForm({
       }
 
       if (user) {
-        router.push("/dashboard");
+        router.push("/onboarding");
       }
     } catch (error) {
       console.error("GitHub login failed:", error);
@@ -358,12 +347,6 @@ export default function AuthForm({
           formData.password === formData.confirmPassword &&
           formData.password.length >= 6
         );
-      case 4:
-        return formData.role;
-      case 5:
-        return formData.experience;
-      case 6:
-        return formData.howDidYouHear;
       default:
         return false;
     }
@@ -381,15 +364,9 @@ export default function AuthForm({
       case 1:
         return "What's your email?";
       case 2:
-        return "Tell us your name";
+        return "What's your name?";
       case 3:
-        return "Secure your account";
-      case 4:
-        return "What's your target role?";
-      case 5:
-        return "Your experience level";
-      case 6:
-        return "How did you find us?";
+        return "Create a password";
       default:
         return "Create Account";
     }
@@ -405,17 +382,11 @@ export default function AuthForm({
 
     switch (currentStep) {
       case 1:
-        return "Enter your email address to get started";
+        return "We'll use this to sign you in";
       case 2:
-        return "What should we call you?";
+        return "We'll use this as your display name";
       case 3:
-        return "Create a strong password for your account";
-      case 4:
-        return "Select the role you're preparing for";
-      case 5:
-        return "Help us personalize your experience";
-      case 6:
-        return "We'd love to know how you discovered us";
+        return "Make it strong and secure";
       default:
         return "Start your AI-powered interview preparation journey";
     }
@@ -658,138 +629,6 @@ export default function AuthForm({
                     <Eye className="h-4 w-4 text-muted-foreground" />
                   )}
                 </Button>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 4:
-        return (
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { value: "frontend", label: "Frontend Engineer" },
-                  { value: "backend", label: "Backend Engineer" },
-                  { value: "fullstack", label: "Full Stack Engineer" },
-                  { value: "devops", label: "DevOps Engineer" },
-                  { value: "mobile", label: "Mobile Developer" },
-                  { value: "data", label: "Data Engineer" },
-                  { value: "product", label: "Product Manager" },
-                  { value: "design", label: "UI/UX Designer" },
-                ].map((role) => (
-                  <button
-                    key={role.value}
-                    className={`cursor-pointer p-2 transition-all duration-200 border-2 text-center rounded-md hover:shadow-md ${
-                      formData.role === role.value
-                        ? "border-primary bg-primary/5"
-                        : "border-border hover:border-primary/50"
-                    }`}
-                    onClick={() => handleInputChange("role", role.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleInputChange("role", role.value);
-                      }
-                    }}
-                    type="button"
-                    tabIndex={0}
-                    aria-label={`Select ${role.label} as your target role`}
-                  >
-                    <p className="text-sm font-medium">{role.label}</p>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
-
-      case 5:
-        return (
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { value: "entry", label: "Entry Level" },
-                  { value: "mid", label: "Middle" },
-                  { value: "junior", label: "Junior" },
-                  { value: "senior", label: "Senior" },
-                ].map((exp) => (
-                  <button
-                    key={exp.value}
-                    className={`cursor-pointer transition-all rounded-md duration-200 border-2 hover:shadow-md ${
-                      formData.experience === exp.value
-                        ? "border-primary bg-primary/5"
-                        : "border-border hover:border-primary/50"
-                    }`}
-                    onClick={() => handleInputChange("experience", exp.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleInputChange("experience", exp.value);
-                      }
-                    }}
-                    type="button"
-                    tabIndex={0}
-                    aria-label={`Select ${exp.label} experience level`}
-                  >
-                    <div className="px-2 py-1">
-                      <p className="text-sm font-medium">{exp.label}</p>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
-
-      case 6:
-        return (
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { value: "search", label: "Google Search" },
-                  { value: "social", label: "Social Media" },
-                  { value: "linkedin", label: "LinkedIn" },
-                  { value: "twitter", label: "Twitter/X" },
-                  { value: "youtube", label: "YouTube" },
-                  { value: "reddit", label: "Reddit" },
-                  { value: "hackernews", label: "Hacker News" },
-                  { value: "friend", label: "Friend/Colleague" },
-                  { value: "blog", label: "Blog/Article" },
-                  { value: "podcast", label: "Podcast" },
-                  { value: "newsletter", label: "Newsletter" },
-                  { value: "ad", label: "Advertisement" },
-                  { value: "github", label: "GitHub" },
-                  { value: "producthunt", label: "Product Hunt" },
-                  { value: "other", label: "Other" },
-                ].map((source) => (
-                  <button
-                    key={source.value}
-                    className={`cursor-pointer transition-all rounded-md duration-200 border-2 hover:shadow-md ${
-                      formData.howDidYouHear === source.value
-                        ? "border-primary bg-primary/5"
-                        : "border-border hover:border-primary/50"
-                    }`}
-                    onClick={() =>
-                      handleInputChange("howDidYouHear", source.value)
-                    }
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleInputChange("howDidYouHear", source.value);
-                      }
-                    }}
-                    type="button"
-                    tabIndex={0}
-                    aria-label={`Select ${source.label} as how you found us`}
-                  >
-                    <div className="px-2 py-1">
-                      <p className="text-sm font-medium">{source.label}</p>
-                    </div>
-                  </button>
-                ))}
               </div>
             </div>
           </div>

@@ -12,11 +12,10 @@ import {
   type User,
   updateProfile,
 } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, Timestamp } from "firebase/firestore";
 import type { UserPreferences, UserProfile } from "../../../types/firestore";
 import { DatabaseService } from "../../database";
 import { auth, db } from "../../firebase";
-import { safeSetDoc } from "../../firestore-utils";
 
 // Auth providers
 const githubProvider = new GithubAuthProvider();
@@ -37,7 +36,7 @@ export interface UserData {
   avatarIcon?: string;
   role?: string;
   experience?: string;
-  howDidYouHear?: string;
+  onboardingCompleted?: boolean;
   createdAt: Date;
   lastLoginAt: Date;
   preferences?: UserPreferences;
@@ -64,11 +63,87 @@ const userProfileToUserData = (profile: UserProfile): UserData => ({
   avatarIcon: profile.avatarIcon,
   role: profile.role,
   experience: profile.experience,
-  howDidYouHear: profile.howDidYouHear,
+  onboardingCompleted: profile.onboardingCompleted,
   createdAt: toDateSafe(profile.createdAt),
   lastLoginAt: toDateSafe(profile.lastLoginAt),
   preferences: profile.preferences,
 });
+
+const GDPR_STORAGE_KEY = "Blairify-gdpr-data";
+
+function getGdprProfileFields(): Pick<
+  UserProfile,
+  "cookieConsent" | "gdprData"
+> {
+  if (typeof window === "undefined") {
+    return {};
+  }
+
+  try {
+    const gdprRaw = window.localStorage.getItem(GDPR_STORAGE_KEY);
+    if (!gdprRaw) {
+      return {};
+    }
+
+    const gdprParsed = JSON.parse(gdprRaw) as {
+      cookieConsentGiven?: boolean;
+      cookieConsentDate?: string;
+      cookiePreferences?: {
+        necessary: boolean;
+        analytics: boolean;
+        marketing: boolean;
+        personalization: boolean;
+      };
+      consentVersion?: string;
+      lastUpdated?: string;
+      dataProcessingConsent?: boolean;
+      marketingEmailConsent?: boolean;
+    };
+
+    if (
+      !gdprParsed.cookiePreferences ||
+      typeof gdprParsed.cookieConsentGiven !== "boolean"
+    ) {
+      return {};
+    }
+
+    const consentDate = gdprParsed.cookieConsentDate
+      ? new Date(gdprParsed.cookieConsentDate)
+      : new Date();
+    const consentTimestamp = Timestamp.fromDate(consentDate);
+
+    const lastUpdated = gdprParsed.lastUpdated
+      ? new Date(gdprParsed.lastUpdated)
+      : new Date();
+
+    const version = gdprParsed.consentVersion ?? "1.0";
+
+    return {
+      cookieConsent: {
+        hasConsented: gdprParsed.cookieConsentGiven,
+        consentDate: consentTimestamp,
+        preferences: gdprParsed.cookiePreferences,
+        version,
+      },
+      gdprData: {
+        cookieConsentGiven: gdprParsed.cookieConsentGiven,
+        cookieConsentDate: consentTimestamp,
+        cookiePreferences: gdprParsed.cookiePreferences,
+        consentVersion: version,
+        lastUpdated: Timestamp.fromDate(lastUpdated),
+        ...(gdprParsed.dataProcessingConsent !== undefined && {
+          dataProcessingConsent: gdprParsed.dataProcessingConsent,
+        }),
+        ...(gdprParsed.marketingEmailConsent !== undefined && {
+          marketingEmailConsent: gdprParsed.marketingEmailConsent,
+        }),
+      },
+    };
+  } catch (error) {
+    console.warn("Failed to read GDPR consent from localStorage:", error);
+    return {};
+  }
+}
 
 // Check if email already exists (fallback method)
 export const checkEmailExists = async (
@@ -112,7 +187,6 @@ export const registerWithEmailAndPassword = async (
   additionalData?: {
     role?: string;
     experience?: string;
-    howDidYouHear?: string;
   },
 ): Promise<{ user: User | null; error: string | null }> => {
   try {
@@ -136,6 +210,7 @@ export const registerWithEmailAndPassword = async (
     await updateProfile(user, { displayName });
 
     // Create comprehensive user profile with default skills using our database service
+    const gdprFields = getGdprProfileFields();
     const profileData = {
       email: user.email || "",
       displayName,
@@ -144,9 +219,7 @@ export const registerWithEmailAndPassword = async (
       ...(additionalData?.experience && {
         experience: additionalData.experience,
       }),
-      ...(additionalData?.howDidYouHear && {
-        howDidYouHear: additionalData.howDidYouHear,
-      }),
+      ...gdprFields,
     };
 
     await DatabaseService.createUserWithCompleteProfile(user.uid, profileData);
@@ -221,16 +294,13 @@ export const signInWithGitHub = async (): Promise<{
     // Check if user exists in Firestore
     const userDoc = await getDoc(doc(db, "users", user.uid));
     if (!userDoc.exists()) {
-      // Create user document if it doesn't exist
-      const userData: UserData = {
-        uid: user.uid,
+      const gdprFields = getGdprProfileFields();
+      await DatabaseService.createUserWithCompleteProfile(user.uid, {
         email: user.email || "",
-        displayName: user.displayName,
-        photoURL: user.photoURL || undefined,
-        createdAt: new Date(),
-        lastLoginAt: new Date(),
-      };
-      await safeSetDoc(doc(db, "users", user.uid), userData);
+        displayName: user.displayName || "",
+        ...(user.photoURL && { photoURL: user.photoURL }),
+        ...gdprFields,
+      });
     } else {
       // Update last login time
       await updateUserLastLogin(user.uid);
@@ -259,17 +329,13 @@ export const signInWithGoogle = async (): Promise<{
     // Check if user exists in Firestore
     const userDoc = await getDoc(doc(db, "users", user.uid));
     if (!userDoc.exists()) {
-      // Create user document if it doesn't exist
-      const userData: UserData = {
-        uid: user.uid,
+      const gdprFields = getGdprProfileFields();
+      await DatabaseService.createUserWithCompleteProfile(user.uid, {
         email: user.email || "",
-        displayName: user.displayName,
-        photoURL: user.photoURL || undefined,
-        createdAt: new Date(),
-        lastLoginAt: new Date(),
-      };
-
-      await safeSetDoc(doc(db, "users", user.uid), userData);
+        displayName: user.displayName || "",
+        ...(user.photoURL && { photoURL: user.photoURL }),
+        ...gdprFields,
+      });
     } else {
       // Update last login time
       await updateUserLastLogin(user.uid);

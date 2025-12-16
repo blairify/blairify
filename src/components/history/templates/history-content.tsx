@@ -139,10 +139,6 @@ export function HistoryContent({ user }: HistoryContentProps) {
       case "bullet":
       case "system-design":
         return <Target className="h-4 w-4" />;
-      case "mixed":
-      case "case-study":
-      case "culture-fit":
-        return <Trophy className="h-4 w-4" />;
     }
 
     const _never: never = type;

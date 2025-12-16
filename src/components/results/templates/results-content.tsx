@@ -557,10 +557,10 @@ export function ResultsContent({ user }: ResultsContentProps) {
               </Button>
               <Button
                 variant="outline"
-                onClick={() => router.push("/dashboard")}
+                onClick={() => router.push("/my-progress")}
                 className="hover:scale-105 transition-transform"
               >
-                Return to Dashboard
+                Home
               </Button>
             </div>
           </CardContent>
@@ -1026,11 +1026,11 @@ export function ResultsContent({ user }: ResultsContentProps) {
           </Button>
           <Button
             variant="outline"
-            onClick={() => router.push("/dashboard")}
+            onClick={() => router.push("/my-progress")}
             className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
           >
             <Target className="size-4 mr-2" />
-            View Dashboard
+            Insights{" "}
           </Button>
           <Button
             variant="outline"

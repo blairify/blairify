@@ -10,7 +10,7 @@ export default function LoadingPage({
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
       <div className="text-center animate-pulse space-y-4">
-        <Logo variant="iconOnly" />
+        <Logo iconSize={100} variant="iconOnly" />
         <p className="text-muted-foreground">{message}</p>
       </div>
     </div>

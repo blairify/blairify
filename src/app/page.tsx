@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     "software engineer jobs",
     "interview preparation",
     "job listings",
+    "real offers",
     "career opportunities",
     "job application tracking",
     "interview practice",
@@ -152,7 +153,7 @@ const jsonLd = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Personalized Dashboard",
+              name: "Personalized Insights",
               description: "Track your progress and interview preparation",
             },
           },
@@ -160,7 +161,7 @@ const jsonLd = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Job Listings",
+              name: "Real Offers",
               description: "Browse and apply to relevant job opportunities",
             },
           },

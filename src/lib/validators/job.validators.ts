@@ -307,7 +307,9 @@ export const validateJob = (job: Job): JobValidationResult => {
   const errors: string[] = [];
 
   // Validate optional fields and collect results
-  const locationResult = validateJobLocation(job.location);
+  const locationResult = validateJobLocation(
+    job.cityNormalized ?? job.location,
+  );
   const levelResult = validateJobLevel(job.level);
   const categoryResult = validateJobCategory(job.category);
   const typeResult = validateJobType(job.type);

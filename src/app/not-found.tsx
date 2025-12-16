@@ -53,8 +53,8 @@ export default function NotFound() {
                 className="min-w-32 border-[color:var(--border)] text-[color:var(--foreground)] 
                 hover:text-[color:var(--secondary)] hover:border-[color:var(--primary)] transition-colors"
               >
-                <Link href="/dashboard" aria-label="Navigate to dashboard">
-                  Go to Dashboard
+                <Link href="/my-progress" aria-label="Navigate to my progress">
+                  Let's see my progress
                 </Link>
               </Button>
             </nav>

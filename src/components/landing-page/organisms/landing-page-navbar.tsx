@@ -5,6 +5,7 @@ import {
   Home,
   LogOut,
   Menu,
+  Plus,
   Settings,
   User,
   X,
@@ -97,52 +98,20 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             <div className="flex-shrink-0">
               <Logo />
             </div>
-            <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
+            <div className="hidden md:flex items-center space-x-2">
               {!loading && user ? (
                 <>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button
-                          onClick={() => router.push("/profile")}
-                          aria-label="View Profile"
-                          variant="ghost"
-                          className="relative h-10 w-10 rounded-full p-0 hover:bg-accent/50 transition-colors"
-                        >
-                          <div className="w-8 h-8 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
-                            {userData?.avatarIcon ? (
-                              <AvatarIconDisplay
-                                iconId={userData.avatarIcon}
-                                size="sm"
-                                className="w-8 h-8"
-                              />
-                            ) : (
-                              <Avatar className="w-8 h-8 border-2 border-primary/20">
-                                <AvatarImage
-                                  src={user?.photoURL || userData?.photoURL}
-                                  alt={
-                                    userData?.displayName ||
-                                    user?.displayName ||
-                                    "User"
-                                  }
-                                />
-                                <AvatarFallback className="bg-primary/10 text-primary">
-                                  {getInitials(
-                                    userData?.displayName ||
-                                      user?.displayName ||
-                                      null,
-                                  )}
-                                </AvatarFallback>
-                              </Avatar>
-                            )}
-                          </div>
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>View Profile</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+                  <Link aria-label="View Profile" href="/my-progress">
+                    <Button size="lg">My progress</Button>
+                  </Link>
+
+                  <Link aria-label="View Profile" href="/configure">
+                    <Button size="lg" variant="outline">
+                      {" "}
+                      <Plus className="size-5 flex-shrink-0" />
+                      New Interview
+                    </Button>
+                  </Link>
 
                   <div className="flex items-center gap-2">
                     <ThemeToggle />
@@ -197,6 +166,49 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>Sign Out</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            onClick={() => router.push("/profile")}
+                            aria-label="View Profile"
+                            variant="ghost"
+                            className="relative h-10 w-10 rounded-full p-0 hover:bg-accent/50 transition-colors"
+                          >
+                            <div className="w-8 h-8 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
+                              {userData?.avatarIcon ? (
+                                <AvatarIconDisplay
+                                  iconId={userData.avatarIcon}
+                                  size="sm"
+                                  className="w-8 h-8"
+                                />
+                              ) : (
+                                <Avatar className="w-8 h-8 border-2 border-primary/20">
+                                  <AvatarImage
+                                    src={user?.photoURL || userData?.photoURL}
+                                    alt={
+                                      userData?.displayName ||
+                                      user?.displayName ||
+                                      "User"
+                                    }
+                                  />
+                                  <AvatarFallback className="bg-primary/10 text-primary">
+                                    {getInitials(
+                                      userData?.displayName ||
+                                        user?.displayName ||
+                                        null,
+                                    )}
+                                  </AvatarFallback>
+                                </Avatar>
+                              )}
+                            </div>
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>View Profile</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -324,12 +336,12 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       <span className="font-medium">Profile</span>
                     </Link>
                     <Link
-                      href="/dashboard"
+                      href="/my-progress"
                       className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/50 transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <Home className="size-5 text-muted-foreground" />
-                      <span className="font-medium">Dashboard</span>
+                      <span className="font-medium">My progress</span>
                     </Link>
                     <button
                       type="button"

@@ -70,7 +70,7 @@ export default function ManagePracticeLibraryPage() {
 
   useEffect(() => {
     if (!loading && !isSuperAdmin(user)) {
-      router.replace("/dashboard");
+      router.replace("/my-progress");
     }
   }, [loading, router, user]);
 
@@ -284,7 +284,7 @@ function _LegacyManagePracticeLibraryPage() {
   // Check authorization
   useEffect(() => {
     if (!loading && !isSuperAdmin(user)) {
-      router.push("/dashboard");
+      router.push("/my-progress");
     }
   }, [user, loading, router]);
 

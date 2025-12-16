@@ -47,17 +47,16 @@ export async function createUserProfile(
       ...(profileData.photoURL && { photoURL: profileData.photoURL }),
       ...(profileData.role && { role: profileData.role }),
       ...(profileData.experience && { experience: profileData.experience }),
-      ...(profileData.howDidYouHear && {
-        howDidYouHear: profileData.howDidYouHear,
+      ...(profileData.cookieConsent && {
+        cookieConsent: profileData.cookieConsent,
       }),
+      ...(profileData.gdprData && { gdprData: profileData.gdprData }),
       preferences: {
         preferredDifficulty: "intermediate",
         preferredInterviewTypes: ["technical"],
         targetCompanies: [],
         notificationsEnabled: true,
-        darkMode: false,
         language: "en",
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         ...profileData.preferences,
       },
       subscription: {

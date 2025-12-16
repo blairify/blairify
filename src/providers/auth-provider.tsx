@@ -6,6 +6,10 @@ import type { UserData } from "@/lib/services/auth/auth";
 import { getUserData, onAuthStateChange } from "@/lib/services/auth/auth";
 import { cookieUtils } from "@/lib/utils/cookies";
 
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 interface AuthContextType {
   user: User | null;
   userData: UserData | null;
@@ -45,10 +49,30 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           secure: true,
           sameSite: "strict",
         });
-        // Fetch additional user data from Firestore
+        // Fetch additional user data from Firestore.
+        // Auth state change can fire before user profile write completes
+        // (esp. right after sign up), so we retry briefly.
         try {
-          const data = await getUserData(user.uid);
+          let data: UserData | null = null;
+          const delaysMs = [0, 150, 300, 600, 1000];
+          for (const delayMs of delaysMs) {
+            if (delayMs > 0) await sleep(delayMs);
+
+            data = await getUserData(user.uid);
+            if (data) break;
+          }
+
           setUserData(data);
+
+          if (data?.onboardingCompleted) {
+            cookieUtils.set("onboarding-complete", "1", {
+              path: "/",
+              secure: true,
+              sameSite: "strict",
+            });
+          } else {
+            cookieUtils.clear("onboarding-complete");
+          }
         } catch (error) {
           // If getUserData fails (e.g., offline), we still set the user
           // but with null userData. The app can still function with just auth data
@@ -67,10 +91,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             );
           }
           setUserData(null);
+          cookieUtils.clear("onboarding-complete");
         }
       } else {
         // Clear auth cookie when user signs out
         cookieUtils.clear("firebase-auth-token");
+        cookieUtils.clear("onboarding-complete");
         setUserData(null);
       }
 

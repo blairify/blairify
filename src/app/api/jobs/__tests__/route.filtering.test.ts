@@ -73,7 +73,21 @@ describe("GET /api/jobs - Filtering and Pagination", () => {
       expect(prisma.job.findMany).toHaveBeenCalledWith(
         expect.objectContaining({
           where: expect.objectContaining({
-            jobLevel: { contains: "senior", mode: "insensitive" },
+            AND: expect.arrayContaining([
+              expect.objectContaining({
+                OR: expect.arrayContaining([
+                  expect.objectContaining({
+                    seniorityLevel: {
+                      contains: "senior",
+                      mode: "insensitive",
+                    },
+                  }),
+                  expect.objectContaining({
+                    jobLevel: { contains: "senior", mode: "insensitive" },
+                  }),
+                ]),
+              }),
+            ]),
           }),
         }),
       );
@@ -91,7 +105,24 @@ describe("GET /api/jobs - Filtering and Pagination", () => {
       expect(prisma.job.findMany).toHaveBeenCalledWith(
         expect.objectContaining({
           where: expect.objectContaining({
-            jobType: { contains: "full-time", mode: "insensitive" },
+            AND: expect.arrayContaining([
+              expect.objectContaining({
+                OR: expect.arrayContaining([
+                  expect.objectContaining({
+                    jobType: { contains: "full-time", mode: "insensitive" },
+                  }),
+                  expect.objectContaining({
+                    jobType: { contains: "fulltime", mode: "insensitive" },
+                  }),
+                  expect.objectContaining({
+                    jobType: { contains: "full time", mode: "insensitive" },
+                  }),
+                  expect.objectContaining({
+                    jobType: { contains: "full_time", mode: "insensitive" },
+                  }),
+                ]),
+              }),
+            ]),
           }),
         }),
       );
@@ -181,8 +212,22 @@ describe("GET /api/jobs - Filtering and Pagination", () => {
           where: expect.objectContaining({
             OR: expect.any(Array),
             location: { contains: "remote", mode: "insensitive" },
-            jobLevel: { contains: "senior", mode: "insensitive" },
             isRemote: true,
+            AND: expect.arrayContaining([
+              expect.objectContaining({
+                OR: expect.arrayContaining([
+                  expect.objectContaining({
+                    seniorityLevel: {
+                      contains: "senior",
+                      mode: "insensitive",
+                    },
+                  }),
+                  expect.objectContaining({
+                    jobLevel: { contains: "senior", mode: "insensitive" },
+                  }),
+                ]),
+              }),
+            ]),
           }),
         }),
       );
@@ -199,6 +244,7 @@ describe("GET /api/jobs - Filtering and Pagination", () => {
 
       expect(prisma.job.findMany).toHaveBeenCalledWith(
         expect.objectContaining({
+          select: expect.any(Object),
           skip: 0, // (1 - 1) * 20
           take: 20,
         }),
@@ -216,6 +262,7 @@ describe("GET /api/jobs - Filtering and Pagination", () => {
 
       expect(prisma.job.findMany).toHaveBeenCalledWith(
         expect.objectContaining({
+          select: expect.any(Object),
           skip: 20, // (3 - 1) * 10
           take: 10,
         }),
@@ -223,10 +270,13 @@ describe("GET /api/jobs - Filtering and Pagination", () => {
     });
 
     it("should return pagination metadata", async () => {
-      const mockJobs = Array(10).fill({
-        id: "1",
+      const mockJobs = Array.from({ length: 10 }, (_, i) => ({
+        id: `${i + 1}`,
         title: "Test Job",
-      });
+        company: "Test Co",
+        createdAt: new Date("2024-01-01"),
+        updatedAt: new Date("2024-01-01"),
+      }));
 
       (prisma.job.count as jest.Mock).mockResolvedValue(45);
       (prisma.job.findMany as jest.Mock).mockResolvedValue(mockJobs);
@@ -242,8 +292,9 @@ describe("GET /api/jobs - Filtering and Pagination", () => {
       expect(data.per_page).toBe(10);
       expect(data.total).toBe(45);
       expect(data.page_count).toBe(5); // Math.ceil(45 / 10)
-      expect(data.results).toEqual(mockJobs);
-      expect(data.jobs).toEqual(mockJobs); // Backward compatibility
+      expect(data.results).toHaveLength(10);
+      expect(data.results[0].id).toBe("1");
+      expect(data.jobs).toHaveLength(10); // Backward compatibility
     });
   });
 });

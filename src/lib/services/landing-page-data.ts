@@ -10,6 +10,8 @@ type JobQueryResult = {
   company: string | null;
   location: string | null;
   jobType: string | null;
+  jobUrl: string | null;
+  jobUrlDirect: string | null;
   datePosted: Date | null;
   minAmount: Decimal | null;
   maxAmount: Decimal | null;
@@ -24,6 +26,8 @@ export interface JobListing {
   company: string | null;
   location: string | null;
   jobType: string | null;
+  jobUrl?: string | null;
+  jobUrlDirect?: string | null;
   datePosted: string;
   minAmount?: number | null;
   maxAmount?: number | null;
@@ -161,6 +165,8 @@ export async function getFeaturedJobs(
         company: true,
         location: true,
         jobType: true,
+        jobUrl: true,
+        jobUrlDirect: true,
         datePosted: true,
         minAmount: true,
         maxAmount: true,
@@ -177,6 +183,8 @@ export async function getFeaturedJobs(
       company: job.company,
       location: job.location,
       jobType: job.jobType,
+      jobUrl: job.jobUrl,
+      jobUrlDirect: job.jobUrlDirect,
       datePosted: job.datePosted?.toISOString() || new Date().toISOString(),
       minAmount: job.minAmount ? Number(job.minAmount) : null,
       maxAmount: job.maxAmount ? Number(job.maxAmount) : null,
@@ -198,6 +206,8 @@ export async function getFeaturedJobs(
       company: job.company || "Tech Company",
       location: job.location || "Remote",
       jobType: job.jobType || "Full-time",
+      jobUrl: job.jobUrl,
+      jobUrlDirect: job.jobUrlDirect,
       datePosted: job.datePosted,
       minAmount: job.minAmount,
       maxAmount: job.maxAmount,

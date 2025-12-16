@@ -75,10 +75,10 @@ export function DashboardPromo() {
             <div className="flex justify-center lg:justify-start">
               <Button
                 onClick={() => router.push("/auth")}
-                aria-label="View Analytics Dashboard"
+                aria-label="View Insights"
                 className="group w-full sm:w-auto h-12 sm:h-10 text-base sm:text-sm font-medium px-6 sm:px-4"
               >
-                View Analytics Dashboard
+                View Insights
                 <SiMinutemailer className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
