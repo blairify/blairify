@@ -352,7 +352,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
       const data: ChatInterviewResponse = await response.json();
 
       if (data.success) {
-        if (data.matchedBehaviorPatterns && data.matchedBehaviorPatterns.length) {
+        if (
+          data.matchedBehaviorPatterns &&
+          data.matchedBehaviorPatterns.length
+        ) {
           console.warn("Moderation matched behavior patterns:", {
             matchedBehaviorPatterns: data.matchedBehaviorPatterns,
           });

@@ -136,7 +136,9 @@ export async function POST(request: NextRequest) {
     if (behaviorCheck.containsInappropriateBehavior) {
       console.warn("⚠️ Inappropriate behavior detected:", {
         matchedPatterns:
-          "matchedPatterns" in behaviorCheck ? behaviorCheck.matchedPatterns : [],
+          "matchedPatterns" in behaviorCheck
+            ? behaviorCheck.matchedPatterns
+            : [],
       });
       const { newWarningCount } = behaviorCheck;
 

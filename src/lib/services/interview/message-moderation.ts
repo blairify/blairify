@@ -64,7 +64,7 @@ const DISALLOWED_TOPIC_PATTERNS: RegExp[] = [
   /\b(god|jesus|christ|christian|christianity|muslim|islam|islamic|jew|jewish|judaism|hindu|hinduism|buddhist|buddhism|religion|religious|church|mosque|synagogue|temple|bible|quran|torah|prayer|pray|faith|belief|atheist|agnostic|satan|devil|hell|heaven|prophet|muhammad|allah|buddha|shiva|vishnu|brahma|karma|reincarnation|afterlife|soul|spirit|holy|sacred|blessed|cursed|sin|sinner|salvation|redemption|missionary|evangelist|fundamentalist|extremist|radical|sect|cult)\b/i,
 
   // Sensitive personal topics
-  /\b(suicide|kill myself|end my life|self harm|cutting|depression|anxiety|mental health|therapy|therapist|psychiatrist|medication|antidepressant|bipolar|schizophrenia|ptsd|trauma|abuse|domestic violence|sexual assault|rape|harassment|discrimination|racism|sexism|homophobia|transphobia|xenophobia|hate crime|bullying|stalking|addiction|alcoholism|drug abuse|overdose|rehab|recovery)\b/i,
+  /\b(suicide|kill myself|end my life|self harm|cutting|depression|anxiety|mental health|therapy|therapist|psychiatrist|medication|antidepressant|bipolar|schizophrenia|ptsd|trauma|domestic violence|sexual assault|rape|harassment|discrimination|racism|sexism|homophobia|transphobia|xenophobia|hate crime|bullying|stalking|addiction|alcoholism|drug abuse|overdose|rehab)\b/i,
 
   // Inappropriate personal questions
   /\b(how old are you|what's your age|where do you live|what's your address|phone number|social security|ssn|personal information|private life)\b/i,
@@ -152,8 +152,6 @@ const INAPPROPRIATE_BEHAVIOR_PATTERNS: RegExp[] = [
     "sexual",
     "fuck me",
     "sleep with",
-    "bed",
-    "bedroom",
     "naked",
     "nude",
     "strip",
@@ -164,15 +162,6 @@ const INAPPROPRIATE_BEHAVIOR_PATTERNS: RegExp[] = [
     "horny",
     "aroused",
     "turned on",
-    "seduce",
-    "flirt",
-    "date me",
-    "marry me",
-    "love you",
-    "kiss",
-    "hug",
-    "touch",
-    "feel",
     "grope",
     "fondle",
   ]),
@@ -197,9 +186,9 @@ const INAPPROPRIATE_BEHAVIOR_PATTERNS: RegExp[] = [
 export function detectLanguageRequest(message: string) {
   const normalized = message.toLowerCase();
 
-  const matchedPatterns = LANGUAGE_REQUEST_PATTERNS
-    .filter((pattern) => pattern.test(normalized))
-    .map((pattern) => pattern.toString());
+  const matchedPatterns = LANGUAGE_REQUEST_PATTERNS.filter((pattern) =>
+    pattern.test(normalized),
+  ).map((pattern) => pattern.toString());
 
   return {
     isLanguageRequest: matchedPatterns.length > 0,
@@ -228,9 +217,9 @@ export function detectDisallowedTopic(message: string) {
     pattern.test(normalized),
   );
 
-  const matchedPatterns = DISALLOWED_TOPIC_PATTERNS
-    .filter((pattern) => pattern.test(normalized))
-    .map((pattern) => pattern.toString());
+  const matchedPatterns = DISALLOWED_TOPIC_PATTERNS.filter((pattern) =>
+    pattern.test(normalized),
+  ).map((pattern) => pattern.toString());
 
   return {
     containsDisallowedTopic,
@@ -252,9 +241,9 @@ export function detectInappropriateBehavior(
     };
   }
 
-  const matchedPatterns = INAPPROPRIATE_BEHAVIOR_PATTERNS
-    .filter((pattern) => pattern.test(normalized))
-    .map((pattern) => pattern.toString());
+  const matchedPatterns = INAPPROPRIATE_BEHAVIOR_PATTERNS.filter((pattern) =>
+    pattern.test(normalized),
+  ).map((pattern) => pattern.toString());
 
   const containsInappropriateBehavior = matchedPatterns.length > 0;
 
@@ -297,10 +286,7 @@ function anyToken(tokens: string[]): RegExp {
     .map((token) => escapeRegex(token).replace(/\s+/g, "\\s+"));
 
   const body = parts.join("|");
-  return new RegExp(
-    `(?<![\\p{L}\\p{N}_])(?:${body})(?![\\p{L}\\p{N}_])`,
-    "iu",
-  );
+  return new RegExp(`(?<![\\p{L}\\p{N}_])(?:${body})(?![\\p{L}\\p{N}_])`, "iu");
 }
 
 function escapeRegex(value: string): string {
