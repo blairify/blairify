@@ -91,7 +91,7 @@ export function MessageInput({
 
       <div className="relative bg-background border border-border rounded-2xl shadow-sm hover:shadow-md transition-shadow">
         <div className="flex items-center gap-2 p-3">
-          <div className="flex-1 relative">
+          <div className="flex-1 min-w-0 relative">
             <Textarea
               ref={textareaRef}
               value={value}
@@ -111,7 +111,7 @@ export function MessageInput({
                       ? "Waiting for AI response..."
                       : "Message AI interviewer..."
               }
-              className="min-h-10 max-h-80 resize-none border-0 bg-transparent p-0 text-base placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0 overflow-y-auto"
+              className="min-h-10 max-h-80 w-full min-w-0 resize-none border-0 bg-transparent p-0 text-base placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0 overflow-y-auto"
               onKeyDown={(e) => {
                 if (
                   e.key === "Enter" &&
@@ -132,7 +132,7 @@ export function MessageInput({
                 minHeight: `${MIN_HEIGHT}px`,
                 lineHeight: shouldCenterVertically ? `${MIN_HEIGHT}px` : "1.5",
                 wordWrap: "break-word",
-                overflowWrap: "break-word",
+                overflowWrap: "anywhere",
               }}
               onInput={(e) => {
                 const target = e.target as HTMLTextAreaElement;

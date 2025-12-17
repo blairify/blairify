@@ -105,7 +105,7 @@ export function MessageBubble({
       )}
 
       {/* Message Content */}
-      <div className="flex flex-col gap-1 max-w-[85%] sm:max-w-[75%]">
+      <div className="flex flex-col gap-1 max-w-[85%] sm:max-w-[75%] min-w-0">
         {/* Message Header */}
         <div
           className={`flex items-center gap-2 text-xs text-muted-foreground ${isUser ? "justify-end" : "justify-start"}`}
@@ -156,7 +156,7 @@ export function MessageBubble({
             )}
 
             <div
-              className={`prose prose-sm max-w-none ${
+              className={`prose prose-sm max-w-none min-w-0 break-words [overflow-wrap:anywhere] ${
                 isUser ? "prose-invert" : "dark:prose-invert"
               } prose-p:my-2 prose-p:leading-relaxed prose-headings:my-2 prose-ul:my-2 prose-ol:my-2`}
             >
