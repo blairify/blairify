@@ -25,9 +25,10 @@ export function InterviewPageClient({ user }: InterviewPageClientProps) {
           className="border-b border-border bg-muted/40 px-4 py-2 text-sm text-muted-foreground"
           role="note"
         >
-          Beta: this interview experience is still in progress. If you hit a bug,
-          type <span className="font-medium text-foreground">continue</span> or
-          press the <span className="font-medium text-foreground">Skip</span> button.
+          Beta: this interview experience is still in progress. If you hit a
+          bug, type{" "}
+          <span className="font-medium text-foreground">continue</span> or press
+          the <span className="font-medium text-foreground">Skip</span> button.
         </div>
         <InterviewContent user={user} />
       </div>

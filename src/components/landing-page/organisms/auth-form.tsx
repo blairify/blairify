@@ -8,6 +8,7 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import LoadingPage from "@/components/common/atoms/loading-page";
+import Logo from "@/components/common/atoms/logo-blairify";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -19,7 +20,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useGuestGuard } from "@/hooks/use-auth-guard";
 import {
   checkEmailExists,
@@ -400,7 +400,7 @@ export default function AuthForm({
             e.preventDefault();
             void handlePasswordReset();
           }}
-          className="space-y-6 mt-6"
+          className="space-y-4 mt-4"
           data-analytics-id="auth-reset-form"
         >
           <div className="space-y-2">
@@ -443,7 +443,7 @@ export default function AuthForm({
     return (
       <form
         onSubmit={handleLoginSubmit}
-        className="space-y-6 mt-6"
+        className="space-y-4 mt-4"
         data-analytics-id="auth-login-form"
       >
         <div className="space-y-2">
@@ -477,23 +477,23 @@ export default function AuthForm({
               type="button"
               variant="ghost"
               size="sm"
-              className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+              className="absolute right-1 top-1/2 -translate-y-1/2 size-9 p-0 hover:bg-transparent"
               onClick={() => setShowPassword(!showPassword)}
               disabled={isLoading || isResettingPassword}
             >
               {showPassword ? (
-                <EyeOff className="h-4 w-4 text-muted-foreground" />
+                <EyeOff className="size-4 text-muted-foreground" />
               ) : (
-                <Eye className="h-4 w-4 text-muted-foreground" />
+                <Eye className="size-4 text-muted-foreground" />
               )}
             </Button>
           </div>
         </div>
 
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-center">
           <button
             type="button"
-            className="text-sm text-primary hover:underline disabled:opacity-50"
+            className="text-sm text-muted-foreground hover:text-foreground underline-offset-4 hover:underline disabled:opacity-50"
             onClick={() => {
               setShowResetForm(true);
               setResetMessage("");
@@ -640,11 +640,11 @@ export default function AuthForm({
   };
 
   const renderSocialButtons = () => (
-    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 justify-center">
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center">
       <Button
         type="button"
         variant="outline"
-        className="flex items-center justify-center max-w-xs bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+        className="flex w-full sm:w-auto sm:flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-10"
         onClick={handleGithubLogin}
         disabled={isLoading}
       >
@@ -654,7 +654,7 @@ export default function AuthForm({
       <Button
         type="button"
         variant="outline"
-        className="flex items-center justify-center max-w-xs bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+        className="flex w-full sm:w-auto sm:flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-10"
         onClick={handleGoogleLogin}
         disabled={isLoading}
       >
@@ -666,41 +666,64 @@ export default function AuthForm({
 
   return (
     <div
-      className="min-h-screen bg-background flex flex-col items-center justify-center p-4"
+      className="min-h-screen bg-background flex flex-col items-center justify-center p-3"
       data-analytics-id="auth-shell"
     >
       <div className="w-full max-w-5xl">
         {isMobile ? (
-          <Card className="w-full rounded-3xl border border-[color:var(--border)]/60 bg-[color:var(--card)]/95 shadow-2xl backdrop-blur">
-            <CardHeader className="space-y-4">
+          <Card className="w-full rounded-3xl border border-[color:var(--border)]/60 bg-[color:var(--card)]/95 shadow-2xl backdrop-blur py-4 gap-4">
+            <CardHeader className="space-y-3 px-4">
               <div className="flex items-center justify-between">
                 <Button
                   asChild
                   variant="ghost"
                   size="sm"
-                  className="gap-1 text-xs text-muted-foreground hover:text-foreground md:hidden"
+                  className="auth-back-home-landscape-outline gap-1 text-xs bg-background/60 border border-border/60 text-muted-foreground hover:text-foreground hover:bg-background/80 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:hidden"
                 >
                   <Link href="/">
                     <span aria-hidden="true">←</span> Back to home
                   </Link>
                 </Button>
-                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                  Blairify
-                </span>
+                <Logo variant="iconOnly" className="opacity-80" iconSize={18} />
               </div>
               {onAudienceChange && (
-                <div className="flex justify-start">
-                  <Tabs
-                    value={audience ?? "individual"}
-                    onValueChange={(value) =>
-                      onAudienceChange(value as "individual" | "enterprise")
-                    }
+                <div className="flex w-full justify-center">
+                  <div
+                    role="tablist"
+                    aria-label="Audience"
+                    className="auth-audience-switch inline-grid grid-cols-2 rounded-lg bg-muted text-muted-foreground"
                   >
-                    <TabsList>
-                      <TabsTrigger value="individual">Individual</TabsTrigger>
-                      <TabsTrigger value="enterprise">Enterprise</TabsTrigger>
-                    </TabsList>
-                  </Tabs>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={
+                        (audience ?? "individual") === "individual"
+                      }
+                      onClick={() => onAudienceChange("individual")}
+                      className={
+                        (audience ?? "individual") === "individual"
+                          ? "auth-audience-switch__btn inline-flex items-center justify-center rounded-md bg-background text-foreground font-medium shadow-none"
+                          : "auth-audience-switch__btn inline-flex items-center justify-center rounded-md font-medium hover:text-foreground"
+                      }
+                    >
+                      Individual
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={
+                        (audience ?? "individual") === "enterprise"
+                      }
+                      onClick={() => onAudienceChange("enterprise")}
+                      className={
+                        (audience ?? "individual") === "enterprise"
+                          ? "auth-audience-switch__btn inline-flex items-center justify-center rounded-md bg-background text-foreground font-medium shadow-none"
+                          : "auth-audience-switch__btn inline-flex items-center justify-center rounded-md font-medium hover:text-foreground"
+                      }
+                    >
+                      Enterprise
+                    </button>
+                  </div>
                 </div>
               )}
               <div
@@ -710,13 +733,13 @@ export default function AuthForm({
                     : "opacity-100 transform translate-y-0 scale-100"
                 }`}
               >
-                <CardTitle className="text-2xl">{getStepTitle()}</CardTitle>
+                <CardTitle className="text-xl">{getStepTitle()}</CardTitle>
                 <CardDescription className="text-sm">
                   {getStepDescription()}
                 </CardDescription>
               </div>
             </CardHeader>
-            <CardContent className="min-h-[420px] space-y-4">
+            <CardContent className="space-y-3 px-4">
               {error && (
                 <div className="mb-4 p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
                   {error}
@@ -743,7 +766,7 @@ export default function AuthForm({
                       <>
                         {renderSocialButtons()}
 
-                        <div className="relative mt-6">
+                        <div className="relative mt-4">
                           <div className="absolute inset-0 flex items-center">
                             <Separator className="w-full" />
                           </div>
@@ -899,17 +922,42 @@ export default function AuthForm({
               </div>
               {onAudienceChange && (
                 <div className="absolute inset-x-0 bottom-10 flex justify-center">
-                  <Tabs
-                    value={audience ?? "individual"}
-                    onValueChange={(value) =>
-                      onAudienceChange(value as "individual" | "enterprise")
-                    }
+                  <div
+                    role="tablist"
+                    aria-label="Audience"
+                    className="auth-audience-switch inline-grid grid-cols-2 rounded-lg bg-muted text-muted-foreground"
                   >
-                    <TabsList>
-                      <TabsTrigger value="individual">Individual</TabsTrigger>
-                      <TabsTrigger value="enterprise">Enterprise</TabsTrigger>
-                    </TabsList>
-                  </Tabs>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={
+                        (audience ?? "individual") === "individual"
+                      }
+                      onClick={() => onAudienceChange("individual")}
+                      className={
+                        (audience ?? "individual") === "individual"
+                          ? "auth-audience-switch__btn inline-flex items-center justify-center rounded-md bg-background text-foreground font-medium shadow-none"
+                          : "auth-audience-switch__btn inline-flex items-center justify-center rounded-md font-medium hover:text-foreground"
+                      }
+                    >
+                      Individual
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={
+                        (audience ?? "individual") === "enterprise"
+                      }
+                      onClick={() => onAudienceChange("enterprise")}
+                      className={
+                        (audience ?? "individual") === "enterprise"
+                          ? "auth-audience-switch__btn inline-flex items-center justify-center rounded-md bg-background text-foreground font-medium shadow-none"
+                          : "auth-audience-switch__btn inline-flex items-center justify-center rounded-md font-medium hover:text-foreground"
+                      }
+                    >
+                      Enterprise
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
@@ -920,7 +968,7 @@ export default function AuthForm({
                   asChild
                   variant="ghost"
                   size="sm"
-                  className="gap-2 text-xs text-muted-foreground hover:text-foreground"
+                  className="auth-back-home-landscape-outline gap-2 text-xs border border-border/60 text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   <Link href="/">
                     <span aria-hidden="true">←</span> Back to home

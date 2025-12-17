@@ -58,7 +58,7 @@ export default function Footer() {
             </Typography.Heading3>
 
             {/* Legal Links */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-wrap gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-2 text-sm sm:text-base w-full lg:w-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-3 justify-items-center sm:justify-items-start lg:flex lg:flex-wrap gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-2 text-sm sm:text-base w-full lg:w-auto">
               {legalLinks.map((link) => {
                 const Icon = link.icon;
                 return (

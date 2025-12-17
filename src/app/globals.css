@@ -77,6 +77,7 @@ pre code.hljs {
     --button-hover-bg: hsl(var(--bg-300));
     --button-hover-text: hsl(var(--text-100));
     --button-hover-border: transparent;
+    --button-focus-outline: hsl(var(--border-200) / 0.8);
   }
 
   .btn--danger {
@@ -115,6 +116,36 @@ pre code.hljs {
     --button-hover-bg: hsl(var(--danger-100) / 0.12);
     --button-hover-text: hsl(var(--danger-000));
     --button-loading-color: hsl(var(--danger-000));
+  }
+
+  .tap-highlight-transparent {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .auth-audience-switch {
+    padding: 1px;
+  }
+
+  .auth-audience-switch__btn {
+    height: 1rem;
+    font-size: 8px;
+    line-height: 1;
+    padding-left: 0.375rem;
+    padding-right: 0.375rem;
+  }
+
+  @media (orientation: landscape) {
+    .auth-audience-switch__btn {
+      height: 1.25rem;
+      font-size: 10px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .auth-back-home-landscape-outline {
+      outline: 2px solid hsl(var(--ring));
+      outline-offset: 2px;
+    }
   }
 
   .field {

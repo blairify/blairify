@@ -99,7 +99,7 @@ export function NewsletterSignup() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 h-10 sm:h-12 text-sm sm:text-base"
+              className="flex-1 h-12 sm:h-12 text-base"
               disabled={loading}
               aria-describedby="email-description"
               aria-invalid={false}
@@ -107,7 +107,7 @@ export function NewsletterSignup() {
             <Button
               type="submit"
               disabled={loading || !email}
-              className="group whitespace-nowrap w-full sm:w-auto h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6"
+              className="group whitespace-nowrap w-full sm:w-auto h-12 sm:h-12 text-base px-4 sm:px-6"
             >
               {loading ? (
                 <div className="size-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />

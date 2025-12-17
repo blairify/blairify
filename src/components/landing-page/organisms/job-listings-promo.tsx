@@ -27,7 +27,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
           {/* Job Listings - Left Side */}
           <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-left-8 duration-1000 delay-200 order-last lg:order-first max-w-xl lg:max-w-none mx-auto lg:mx-0">
             <ul
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              className="grid grid-cols-2 gap-4"
               aria-label="Featured job opportunities"
             >
               {featuredJobs.map((job, index) => (
@@ -118,7 +118,7 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
               <Button
                 variant="outline"
                 aria-label="Start Practice Interview"
-                className="w-full sm:w-auto hover:bg-primary/10 hover:border-primary hover:text-blue-800 relative overflow-hidden group/btn"
+                className="w-full sm:w-auto hover:bg-primary/10 hover:border-primary relative overflow-hidden group/btn"
                 onClick={() => router.push("/configure")}
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />

@@ -242,9 +242,13 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             <div className="md:hidden flex items-center space-x-2">
               <ThemeToggle />
               <Button
-                variant="ghost"
-                size="sm"
-                className="h-10 w-10 p-0"
+                variant="outline"
+                size="icon"
+                className={
+                  isMobileMenuOpen
+                    ? "bg-background/95 hover:bg-background/95 backdrop-blur-md"
+                    : undefined
+                }
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={
                   isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"
@@ -284,7 +288,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             <div className="container mx-auto px-4 py-6">
               {!loading && user ? (
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-4 rounded-lg bg-accent/50">
+                  <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/50">
                     <div className="w-10 h-10 rounded-full">
                       {userData?.avatarIcon ? (
                         <AvatarIconDisplay
@@ -329,7 +333,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                   <div className="space-y-2">
                     <Link
                       href="/profile"
-                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/50 transition-colors"
+                      className="tap-highlight-transparent flex items-center gap-3 p-3 rounded-lg text-foreground visited:text-foreground no-underline outline-none focus:outline-none hover:bg-muted/50 focus:bg-muted/60 active:bg-muted/60 active:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <User className="size-5 text-muted-foreground" />
@@ -337,7 +341,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                     </Link>
                     <Link
                       href="/my-progress"
-                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/50 transition-colors"
+                      className="tap-highlight-transparent flex items-center gap-3 p-3 rounded-lg text-foreground visited:text-foreground no-underline outline-none focus:outline-none hover:bg-muted/50 focus:bg-muted/60 active:bg-muted/60 active:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <Home className="size-5 text-muted-foreground" />
@@ -349,7 +353,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                         handleSignOut();
                         setIsMobileMenuOpen(false);
                       }}
-                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors w-full text-left text-red-600"
+                      className="tap-highlight-transparent flex items-center gap-3 p-3 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors w-full text-left text-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
                     >
                       <LogOut className="size-5" />
                       <span className="font-medium">Sign out</span>

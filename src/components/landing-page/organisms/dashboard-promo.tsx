@@ -55,7 +55,7 @@ export function DashboardPromo() {
                 scores, identify strengths, and focus on areas for improvement.
               </Typography.Body>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
               <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
                 <SiDatabricks className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
                 <div className="text-xs sm:text-sm font-medium">Analytics</div>
@@ -96,7 +96,10 @@ export function DashboardPromo() {
               </CardHeader>
               <CardContent className="text-muted-foreground">
                 <ResponsiveContainer width="100%" aspect={2.2}>
-                  <AreaChart data={weeklyActivityData}>
+                  <AreaChart
+                    data={weeklyActivityData}
+                    margin={{ top: 8, right: 0, bottom: 0, left: 0 }}
+                  >
                     <defs>
                       <linearGradient
                         id="sessionsGradient"
@@ -135,6 +138,7 @@ export function DashboardPromo() {
                       fontSize={12}
                       tickLine={false}
                       axisLine={false}
+                      width={28}
                       tick={{ fill: "var(--foreground)" }}
                     />
 
