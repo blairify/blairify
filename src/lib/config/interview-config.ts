@@ -127,8 +127,6 @@ export const COMPANY_PROMPTS: CompanyPrompts = {
     "Emphasize fintech innovation, banking as a service, and regulatory compliance. Focus on scalable financial systems.",
   plandek:
     "Focus on software development analytics, engineering metrics, and data-driven insights for development teams.",
-  gamingrealms:
-    "Focus on gaming systems, real-time multiplayer architecture, and scalable game backend development.",
   blik: "Emphasize payment gateway systems, financial transaction processing, and secure payment infrastructure.",
   wise: "Focus on international money transfers, currency exchange, and cost-effective financial solutions.",
 

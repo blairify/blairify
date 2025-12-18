@@ -143,7 +143,6 @@ Stripe
 Spotify
 Uber
 Airbnb
-Gaming Realms
 Plandek
 
 CONTENT RULES

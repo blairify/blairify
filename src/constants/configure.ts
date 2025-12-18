@@ -384,14 +384,6 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     icon: "/assets/PlandekLogo.png",
     color: "text-blue-500",
   },
-
-  {
-    value: "gamingrealms",
-    label: "Gaming Realms",
-    description: "Gaming developer, licensor & distributor",
-    icon: "/assets/GamingRealmsLogo.png",
-    color: "text-blue-600",
-  },
   {
     value: "blik",
     label: "Blik",
