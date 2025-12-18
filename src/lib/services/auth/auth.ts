@@ -440,7 +440,11 @@ const getErrorMessage = (error: AuthError): string => {
     case "auth/credential-already-in-use":
       return "This credential is already associated with a different user account.";
     case "auth/invalid-credential":
-      return "The provided credential is malformed or has expired.";
+      return "Sign-in details expired or invalid. Please try again.";
+    case "auth/invalid-login-credentials":
+      return "Email or password is incorrect.";
+    case "auth/expired-action-code":
+      return "This link has expired. Please request a new one.";
     default:
       return error.message || "An unexpected error occurred.";
   }

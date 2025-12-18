@@ -598,69 +598,80 @@ export default function SessionDetailsPage() {
             )}
 
             {/* Analysis & Feedback */}
-            {session.analysis && (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                {/* Strengths */}
-                {session.analysis.strengths &&
-                  session.analysis.strengths.length > 0 && (
-                    <Card className="border-2 border-green-200 dark:border-green-800 shadow-lg bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950">
-                      <CardHeader className="pb-4">
-                        <CardTitle className="flex items-center gap-2 text-green-600 dark:text-green-400 text-xl font-bold">
-                          <CheckCircle className="h-6 w-6" />
-                          Strengths
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <ul className="space-y-3">
-                          {session.analysis.strengths.map((strength) => (
-                            <li
-                              key={strength}
-                              className="flex items-start gap-3 p-3 rounded-lg bg-white/50 dark:bg-black/20"
-                            >
-                              <Star className="size-5 text-green-500 mt-0.5 flex-shrink-0" />
-                              <div className="prose prose-sm max-w-none dark:prose-invert">
-                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                  {strength}
-                                </ReactMarkdown>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  )}
+            {session.analysis &&
+              (() => {
+                const showStrengthsAndGrowth = false;
 
-                {/* Areas for Improvement */}
-                {session.analysis.improvements &&
-                  session.analysis.improvements.length > 0 && (
-                    <Card className="border-2 border-orange-200 dark:border-orange-800 shadow-lg bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950 dark:to-amber-950">
-                      <CardHeader className="pb-4">
-                        <CardTitle className="flex items-center gap-2 text-orange-600 dark:text-orange-400 text-xl font-bold">
-                          <Lightbulb className="h-6 w-6" />
-                          Areas for Improvement
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <ul className="space-y-3">
-                          {session.analysis.improvements.map((improvement) => (
-                            <li
-                              key={improvement}
-                              className="flex items-start gap-3 p-3 rounded-lg bg-white/50 dark:bg-black/20"
-                            >
-                              <Target className="size-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                              <div className="prose prose-sm max-w-none dark:prose-invert">
-                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                  {improvement}
-                                </ReactMarkdown>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  )}
-              </div>
-            )}
+                if (!showStrengthsAndGrowth) return null;
+
+                return (
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    {/* Strengths */}
+                    {session.analysis.strengths &&
+                      session.analysis.strengths.length > 0 && (
+                        <Card className="border-2 border-green-200 dark:border-green-800 shadow-lg bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950">
+                          <CardHeader className="pb-4">
+                            <CardTitle className="flex items-center gap-2 text-green-600 dark:text-green-400 text-xl font-bold">
+                              <CheckCircle className="h-6 w-6" />
+                              Strengths
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <ul className="space-y-3">
+                              {session.analysis.strengths.map((strength) => (
+                                <li
+                                  key={strength}
+                                  className="flex items-start gap-3 p-3 rounded-lg bg-white/50 dark:bg-black/20"
+                                >
+                                  <Star className="size-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                  <div className="prose prose-sm max-w-none dark:prose-invert">
+                                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                      {strength}
+                                    </ReactMarkdown>
+                                  </div>
+                                </li>
+                              ))}
+                            </ul>
+                          </CardContent>
+                        </Card>
+                      )}
+
+                    {/* Areas for Improvement */}
+                    {session.analysis.improvements &&
+                      session.analysis.improvements.length > 0 && (
+                        <Card className="border-2 border-orange-200 dark:border-orange-800 shadow-lg bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950 dark:to-amber-950">
+                          <CardHeader className="pb-4">
+                            <CardTitle className="flex items-center gap-2 text-orange-600 dark:text-orange-400 text-xl font-bold">
+                              <Lightbulb className="h-6 w-6" />
+                              Areas for Improvement
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <ul className="space-y-3">
+                              {session.analysis.improvements.map(
+                                (improvement) => (
+                                  <li
+                                    key={improvement}
+                                    className="flex items-start gap-3 p-3 rounded-lg bg-white/50 dark:bg-black/20"
+                                  >
+                                    <Target className="size-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                                    <div className="prose prose-sm max-w-none dark:prose-invert">
+                                      <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                      >
+                                        {improvement}
+                                      </ReactMarkdown>
+                                    </div>
+                                  </li>
+                                ),
+                              )}
+                            </ul>
+                          </CardContent>
+                        </Card>
+                      )}
+                  </div>
+                );
+              })()}
 
             {/* Summary and Recommendations */}
             {session.analysis &&

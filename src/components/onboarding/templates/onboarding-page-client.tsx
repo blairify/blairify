@@ -667,46 +667,55 @@ export function OnboardingPageClient({
   }
 
   return (
-    <main className="min-h-screen bg-secondary dark:bg-secondary-dark px-4 pt-[18vh] pb-10">
+    <main className="flex min-h-screen flex-col justify-center overflow-x-hidden bg-secondary dark:bg-secondary-dark px-3 py-10 md:block md:px-4 md:pt-[18vh] md:pb-10">
       <div className="mx-auto w-full max-w-3xl">
         <div className="mb-8">
           {currentStep === "next-action" ? (
             <div className="flex justify-end">
               {stepIndex === 0 ? null : (
-                <button
+                <Button
                   type="button"
+                  variant="outline"
+                  size="sm"
                   onClick={handleBack}
                   disabled={isSaving}
-                  className="inline-flex items-center gap-1 text-sm font-medium leading-none text-muted-foreground hover:text-foreground disabled:opacity-50"
                   aria-label="Go back"
+                  className="hidden gap-1 md:inline-flex"
                 >
                   <ChevronLeft className="size-4" />
                   Back
-                </button>
+                </Button>
               )}
             </div>
           ) : (
             <>
-              <div className="flex items-baseline justify-between gap-4">
-                <Typography.Heading1 className="sm:text-3xl">
-                  Personalize your{" "}
-                  <span className="text-primary">Blairify</span> experience
-                </Typography.Heading1>
+              <div className="space-y-4 md:space-y-0">
+                <div className="flex flex-col items-center gap-3 md:flex-row md:items-baseline md:justify-between md:gap-4">
+                  <Typography.Heading1 className="text-center sm:text-3xl md:text-left">
+                    Personalize your{" "}
+                    <span className="text-primary">Blairify</span> experience
+                  </Typography.Heading1>
 
-                {stepIndex === 0 ? null : (
-                  <button
-                    type="button"
-                    onClick={handleBack}
-                    disabled={isSaving}
-                    className="inline-flex items-center gap-1 text-sm font-medium leading-none text-muted-foreground hover:text-foreground disabled:opacity-50"
-                    aria-label="Go back"
-                  >
-                    <ChevronLeft className="size-4" />
-                    Back
-                  </button>
-                )}
+                  {stepIndex === 0 ? null : (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={handleBack}
+                      disabled={isSaving}
+                      aria-label="Go back"
+                      className="hidden gap-1 md:inline-flex"
+                    >
+                      <ChevronLeft className="size-4" />
+                      Back
+                    </Button>
+                  )}
+                </div>
               </div>
-              <Typography.Caption color="secondary" className="mt-2 block">
+              <Typography.Caption
+                color="secondary"
+                className="mt-3 block text-center md:mt-2 md:text-left"
+              >
                 Complete onboarding to unlock the platform.
               </Typography.Caption>
             </>
@@ -724,10 +733,10 @@ export function OnboardingPageClient({
           >
             {currentStep === "role" && (
               <div className="space-y-4">
-                <Typography.CaptionMedium className="mb-2 block">
+                <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
                   Target role
                 </Typography.CaptionMedium>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                   {ROLE_OPTIONS.map((option) => (
                     <button
                       key={option}
@@ -752,10 +761,10 @@ export function OnboardingPageClient({
 
             {currentStep === "experience" && (
               <div className="space-y-4">
-                <Typography.CaptionMedium className="mb-2 block">
+                <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
                   Experience level
                 </Typography.CaptionMedium>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                   {EXPERIENCE_OPTIONS.map((option) => (
                     <button
                       key={option}
@@ -780,10 +789,10 @@ export function OnboardingPageClient({
 
             {currentStep === "employment-type" && (
               <div className="space-y-4">
-                <Typography.CaptionMedium className="mb-2 block">
+                <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
                   Employment type
                 </Typography.CaptionMedium>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                   {EMPLOYMENT_TYPE_OPTIONS.map((option) => (
                     <button
                       key={option}
@@ -808,10 +817,10 @@ export function OnboardingPageClient({
 
             {currentStep === "work-mode" && (
               <div className="space-y-4">
-                <Typography.CaptionMedium className="mb-2 block">
+                <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
                   Work mode
                 </Typography.CaptionMedium>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                   {WORK_MODE_OPTIONS.map((option) => (
                     <button
                       key={option}
@@ -836,10 +845,10 @@ export function OnboardingPageClient({
 
             {currentStep === "struggle-areas" && (
               <div className="space-y-4">
-                <Typography.CaptionMedium className="mb-2 block">
+                <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
                   Main areas you struggle with
                 </Typography.CaptionMedium>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                   {STRUGGLE_OPTIONS.map((option) => (
                     <button
                       key={option}
@@ -867,10 +876,10 @@ export function OnboardingPageClient({
 
             {currentStep === "career-goals" && (
               <div className="space-y-4">
-                <Typography.CaptionMedium className="mb-2 block">
+                <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
                   What are you looking for right now?
                 </Typography.CaptionMedium>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                   {GOAL_OPTIONS.map((option) => (
                     <button
                       key={option}
@@ -1058,8 +1067,25 @@ export function OnboardingPageClient({
             )}
           </div>
 
+          {stepIndex === 0 ? null : (
+            <div className="mt-10 flex justify-center md:hidden">
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={handleBack}
+                disabled={isSaving}
+                aria-label="Go back"
+                className="gap-1 !min-h-0 !min-w-0 !h-auto rounded-md border px-2.5 py-1.5 text-xs text-muted-foreground"
+              >
+                <ChevronLeft className="size-4" />
+                Back
+              </Button>
+            </div>
+          )}
+
           {shouldAutoAdvance ? null : (
-            <div className="mt-6 flex justify-start">
+            <div className="mt-6 flex justify-center md:justify-start">
               <Button type="button" onClick={handleNext} disabled={!canNext}>
                 {stepIndex === totalSteps - 1
                   ? isSaving

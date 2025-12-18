@@ -311,12 +311,16 @@ export function InterviewContent({ user }: InterviewContentProps) {
       return;
     }
 
+    const messageToSend = currentMessage;
+
     const userMessage: Message = {
       id: Date.now().toString(),
       type: "user",
-      content: currentMessage,
+      content: messageToSend,
       timestamp: new Date(),
     };
+
+    const conversationHistoryToSend = [...session.messages, userMessage];
 
     addMessage(userMessage);
     setCurrentMessage("");
@@ -329,8 +333,8 @@ export function InterviewContent({ user }: InterviewContentProps) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          message: currentMessage,
-          conversationHistory: session.messages,
+          message: messageToSend,
+          conversationHistory: conversationHistoryToSend,
           interviewConfig: config,
           questionCount: session.currentQuestionCount,
           totalQuestions: session.totalQuestions,

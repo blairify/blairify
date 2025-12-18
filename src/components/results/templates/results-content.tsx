@@ -822,89 +822,97 @@ export function ResultsContent({ user }: ResultsContentProps) {
         {/* ============================================================================ */}
         {/* STRENGTHS & IMPROVEMENTS GRID */}
         {/* ============================================================================ */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-left-4">
-            <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-              <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                <Award className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-                Key Strengths Demonstrated
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              {results.strengths.length > 0 ? (
-                <ul className="space-y-4">
-                  {results.strengths.map((strength, index) => (
-                    <li
-                      key={`strength-${index}`}
-                      className="flex items-start gap-3 group animate-in fade-in slide-in-from-left-2 duration-500"
-                      style={{ animationDelay: `${index * 100}ms` }}
-                    >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
-                        <CheckCircle className="w-3 h-3" />
-                      </div>
-                      <span className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                        {strength}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <div className="text-center py-8">
-                  <Award className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                  <p className="text-sm text-gray-500 dark:text-gray-500 italic">
-                    Building foundational skills - keep developing your
-                    technical expertise!
-                  </p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+        {(() => {
+          const showStrengthsAndGrowth = false;
 
-          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-right-4">
-            <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-              <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                <Target className="h-5 w-5 text-amber-600 dark:text-amber-400" />
-                {results.passed === false
-                  ? "Critical Development Areas"
-                  : "Growth Opportunities"}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              {results.improvements.length > 0 ? (
-                <ul className="space-y-4">
-                  {results.improvements.map((improvement, index) => (
-                    <li
-                      key={`improvement-${index}`}
-                      className="flex items-start gap-3 group animate-in fade-in slide-in-from-right-2 duration-500"
-                      style={{ animationDelay: `${index * 100}ms` }}
-                    >
-                      <div
-                        className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${
-                          results.passed === false
-                            ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                            : "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300"
-                        }`}
-                      >
-                        <TrendingUp className="w-3 h-3" />
-                      </div>
-                      <span className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                        {stripLinks(improvement)}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <div className="text-center py-8">
-                  <Target className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                  <p className="text-sm text-gray-500 dark:text-gray-500 italic">
-                    Excellent foundation - continue building advanced
-                    competencies!
-                  </p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </div>
+          if (!showStrengthsAndGrowth) return null;
+
+          return (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-left-4">
+                <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                  <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                    <Award className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                    Key Strengths Demonstrated
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  {results.strengths.length > 0 ? (
+                    <ul className="space-y-4">
+                      {results.strengths.map((strength, index) => (
+                        <li
+                          key={`strength-${index}`}
+                          className="flex items-start gap-3 group animate-in fade-in slide-in-from-left-2 duration-500"
+                          style={{ animationDelay: `${index * 100}ms` }}
+                        >
+                          <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
+                            <CheckCircle className="w-3 h-3" />
+                          </div>
+                          <span className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            {strength}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="text-center py-8">
+                      <Award className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+                      <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                        Building foundational skills - keep developing your
+                        technical expertise!
+                      </p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+
+              <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-right-4">
+                <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                  <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                    <Target className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                    {results.passed === false
+                      ? "Critical Development Areas"
+                      : "Growth Opportunities"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  {results.improvements.length > 0 ? (
+                    <ul className="space-y-4">
+                      {results.improvements.map((improvement, index) => (
+                        <li
+                          key={`improvement-${index}`}
+                          className="flex items-start gap-3 group animate-in fade-in slide-in-from-right-2 duration-500"
+                          style={{ animationDelay: `${index * 100}ms` }}
+                        >
+                          <div
+                            className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${
+                              results.passed === false
+                                ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                                : "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300"
+                            }`}
+                          >
+                            <TrendingUp className="w-3 h-3" />
+                          </div>
+                          <span className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            {stripLinks(improvement)}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="text-center py-8">
+                      <Target className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+                      <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                        Excellent foundation - continue building advanced
+                        competencies!
+                      </p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+          );
+        })()}
 
         {results.knowledgeGaps && results.knowledgeGaps.length > 0 && (
           <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
