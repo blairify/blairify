@@ -163,10 +163,64 @@ const minutesByDifficulty = (difficulty: Difficulty): number => {
 
 const uniq = <T,>(items: T[]): T[] => Array.from(new Set(items));
 
-const normalizeQuestion = (s: string): string => {
-  const v = s.trim();
-  if (!v) return v;
-  return v.endsWith("?") ? v : `${v}?`;
+const hashToIndex = (value: string, mod: number) => {
+  let h = 0;
+  for (let i = 0; i < value.length; i += 1) {
+    h = (h * 31 + value.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h) % mod;
+};
+
+const inferCompanyType = (opts: { id: string; difficulty: Difficulty }): CompanyType => {
+  const base = (() => {
+    switch (opts.difficulty) {
+      case "entry":
+        return "startup";
+      case "junior":
+        return "enterprise";
+      case "mid":
+        return "enterprise";
+      case "senior":
+        return "faang";
+      default: {
+        const _never: never = opts.difficulty;
+        throw new Error(`Unhandled difficulty: ${_never}`);
+      }
+    }
+  })();
+
+  const pool: CompanyType[] = ["startup", "enterprise", "faang"];
+  pool.splice(pool.indexOf(base), 1);
+  pool.unshift(base);
+  return pool[hashToIndex(opts.id, pool.length)];
+};
+
+const normalizeQuestion = (raw: string): string => {
+  const trimmed = raw.trim();
+  const cleaned = trimmed.replace(/\s+/g, " ").trim();
+  return cleaned.endsWith("?") ? cleaned : `${cleaned}?`;
+};
+
+const sanitizeAnswerText = (raw: string): string => {
+  const s = raw
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .replace(/\n\s*Copy code\s*\n/gi, "\n")
+    .replace(/\n\s*(typescript|javascript|ts|js|json|bash|shell)\s*\n/gi, "\n")
+    .replace(/[\n\t]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return s;
+};
+
+const sanitizePromptText = (raw: string): string => {
+  return raw
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .replace(/[\n\t]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 };
 
 const assessDifficulty = (opts: { question: string; tags: string[] }): Difficulty => {
@@ -205,7 +259,12 @@ const assessDifficulty = (opts: { question: string; tags: string[] }): Difficult
   return "senior";
 };
 
-const classifyFromQuestion = (question: string) => {
+const classifyFromQuestion = (
+  question: string,
+  opts: {
+    baseTags: string[];
+  },
+) => {
   const q = question.toLowerCase();
   const tags: string[] = [];
   const subtopics: string[] = [];
@@ -213,7 +272,7 @@ const classifyFromQuestion = (question: string) => {
   const addTag = (...xs: string[]) => tags.push(...xs);
   const addSub = (...xs: string[]) => subtopics.push(...xs);
 
-  addTag("javascript");
+  addTag(...opts.baseTags);
 
   if (/\b(this)\b/.test(q)) addTag("this");
   if (/\b(closure|closures)\b/.test(q)) addTag("closures");
@@ -245,6 +304,215 @@ const classifyFromQuestion = (question: string) => {
     tags: uniq(tags),
     subtopics: uniq(subtopics),
   };
+};
+
+const CANONICAL_TECH_SLUGS = [
+  // Programming languages
+  "python",
+  "java",
+  "javascript",
+  "typescript",
+  "csharp",
+  "go",
+  "rust",
+  "php",
+  "bash",
+  "cpp",
+
+  // Front-End & UI Development
+  "react",
+  "html",
+  "css",
+  "react-native",
+  "swift",
+  "kotlin",
+  "flutter",
+  "xamarin",
+  "dotnet-maui",
+  "blazor",
+
+  // Back-End & API Development
+  "nodejs",
+  "rest-api",
+  "graphql",
+  "spring",
+  "firebase",
+  "dotnet",
+  "aspnet-core",
+  "entity-framework-core",
+
+  // Databases & Caching
+  "sql",
+  "nosql",
+  "redis",
+  "caching",
+  "message-queues",
+
+  // DevOps & Infrastructure
+  "devops",
+  "aws",
+  "gcp",
+  "azure",
+  "docker",
+  "kubernetes",
+  "terraform",
+  "cdn",
+  "microservices",
+  "distributed-computing",
+  "cloud-computing",
+  "monitoring-observability",
+
+  // Systems, OS & Networking
+  "linux",
+  "operating-systems",
+  "networks",
+  "computer-architecture",
+
+  // Fundamentals
+  "oop",
+  "design-principles",
+  "design-patterns",
+  "git",
+  "concurrency",
+  "software-testing",
+  "functional-programming",
+] as const;
+
+const TECH_ALIASES: Record<string, string> = {
+  "c#": "csharp",
+  csharp: "csharp",
+  "c++": "cpp",
+  cpp: "cpp",
+  golang: "go",
+  "node.js": "nodejs",
+  node: "nodejs",
+  "rest": "rest-api",
+  "restapi": "rest-api",
+  graphql: "graphql",
+  html5: "html",
+  "reactnative": "react-native",
+  "asp.net": "aspnet-core",
+  aspnet: "aspnet-core",
+  "aspnetcore": "aspnet-core",
+  "entityframework": "entity-framework-core",
+  "entityframeworkcore": "entity-framework-core",
+  efcore: "entity-framework-core",
+  "messagequeue": "message-queues",
+  "messagequeues": "message-queues",
+  mq: "message-queues",
+  "monitoring": "monitoring-observability",
+  observability: "monitoring-observability",
+  os: "operating-systems",
+  networking: "networks",
+};
+
+const toSlug = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/\./g, "")
+    .replace(/\+/g, "pp")
+    .replace(/#/g, "sharp")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+
+const tokenizeSourceKey = (sourceKey: string) => {
+  const normalized = toSlug(sourceKey);
+  return uniq(normalized.split(/[^a-z0-9]+/g).filter(Boolean));
+};
+
+const inferBaseTechFromSourceKey = (sourceKey: string) => {
+  const normalized = toSlug(sourceKey);
+  const tokenSet = new Set(tokenizeSourceKey(sourceKey));
+  const canonical = new Set<string>(CANONICAL_TECH_SLUGS);
+
+  const mappedTokens = uniq(
+    Array.from(tokenSet).map((t) => TECH_ALIASES[t] ?? t),
+  );
+
+  const hits = new Set<string>();
+  for (const t of mappedTokens) {
+    if (canonical.has(t)) hits.add(t);
+  }
+
+  for (const slug of CANONICAL_TECH_SLUGS) {
+    if (normalized.includes(slug)) hits.add(slug);
+  }
+
+  const primaryTechStack = Array.from(hits);
+  return {
+    baseTags: primaryTechStack,
+    primaryTechStack,
+  };
+};
+
+const CREATED_BY = "admin";
+
+const inferPositions = (opts: {
+  question: string;
+  tags: string[];
+  subtopics: string[];
+  primaryTechStack: string[];
+}): PositionSlug[] => {
+  const q = opts.question.toLowerCase();
+  const t = new Set(opts.tags.map((x) => x.toLowerCase()));
+  const s = new Set(opts.subtopics.map((x) => x.toLowerCase()));
+  const stack = new Set(opts.primaryTechStack.map((x) => x.toLowerCase()));
+
+  const out = new Set<PositionSlug>();
+
+  const add = (...xs: PositionSlug[]) => {
+    for (const x of xs) out.add(x);
+  };
+
+  const hasFront =
+    /\b(dom|document|window|css|html|browser|react|vue|angular|svelte|next\.js|jsx|tsx)\b/.test(q) ||
+    t.has("dom") ||
+    t.has("events") ||
+    stack.has("react") ||
+    stack.has("nextjs") ||
+    stack.has("typescript");
+  const hasBack =
+    /\b(api|rest|graphql|http|server|backend|node\.js|node|express|nestjs|sql|database|orm|cache|redis|queue)\b/.test(q) ||
+    t.has("http") ||
+    stack.has("php") ||
+    stack.has("python") ||
+    stack.has("java") ||
+    stack.has("go") ||
+    stack.has("nodejs");
+
+  const hasDevops =
+    /\b(devops|docker|kubernetes|k8s|ci\/?cd|terraform|aws|gcp|azure|deployment|observability|monitoring)\b/.test(q);
+  const hasMobile = /\b(android|ios|swift|kotlin|react native|flutter)\b/.test(q);
+  const hasDataEng =
+    /\b(etl|data pipeline|warehouse|spark|airflow|kafka|bigquery|snowflake)\b/.test(q) ||
+    s.has("data") ||
+    stack.has("sql");
+  const hasDataSci = /\b(machine learning|ml|model|training|regression|classification|statistics)\b/.test(q);
+  const hasSecurity = /\b(xss|csrf|cors|oauth|jwt|encryption|hashing|security|vulnerability)\b/.test(q) || t.has("security");
+  const hasProduct = /\b(product|roadmap|metrics|kpi|stakeholder|requirement|user story)\b/.test(q);
+
+  if (hasFront) add("frontend");
+  if (hasBack) add("backend");
+  if (hasDevops) add("devops");
+  if (hasMobile) add("mobile");
+  if (hasDataEng) add("data-engineer");
+  if (hasDataSci) add("data-scientist");
+  if (hasSecurity) add("cybersecurity");
+  if (hasProduct) add("product");
+
+  if (out.has("frontend") || out.has("backend")) out.add("fullstack");
+  if (out.size === 0) {
+    if (stack.has("php") || stack.has("python") || stack.has("java") || stack.has("go")) {
+      out.add("backend");
+      out.add("fullstack");
+    } else {
+      out.add("fullstack");
+    }
+  }
+
+  return Array.from(out);
 };
 
 const titleFromQuestion = (question: string): string => {
@@ -469,7 +737,7 @@ const generateAnswer = async (opts: {
   primaryTechStack: string[];
 }) => {
   const kp = opts.keyPoints.map((k) => `- ${k}`).join("\n");
-  const stack = opts.primaryTechStack.length > 0 ? opts.primaryTechStack.join(", ") : "javascript";
+  const stack = opts.primaryTechStack.length > 0 ? opts.primaryTechStack.join(", ") : "unknown";
 
   const prompt = [
     `Create a high-quality reference answer for an interview practice question.`,
@@ -548,19 +816,22 @@ const normalizeOpenQuestion = (
     client: OpenAI | null;
     model: string;
     sourceKey: string;
+    baseTags: string[];
+    primaryTechStack: string[];
   },
 ) => {
   const question = normalizeQuestion(q.description || q.title);
-  const { tags, subtopics } = classifyFromQuestion(question);
+  const { tags, subtopics } = classifyFromQuestion(question, { baseTags: opts.baseTags });
+  const keyPoints = keyPointsFromQuestion(question, tags);
+
   const nextDifficulty = opts.autoDifficulty
     ? assessDifficulty({ question, tags })
     : normalizeDifficulty(q.difficulty);
-  const keyPoints = keyPointsFromQuestion(question, tags);
 
   const refAnswers = q.referenceAnswers
     ? q.referenceAnswers.map((r, idx) => ({
         id: r.id || `${q.id}-ref-${idx + 1}`,
-        text: r.text,
+        text: sanitizeAnswerText(r.text),
         weight: r.weight ?? 1,
         keyPoints,
       }))
@@ -573,18 +844,25 @@ const normalizeOpenQuestion = (
     difficulty: nextDifficulty,
     title: titleFromQuestion(question),
     description: question,
+    companyType: inferCompanyType({ id: q.id, difficulty: nextDifficulty }),
     tags,
     subtopics,
-    prompt: promptFrom({ question, difficulty: nextDifficulty, keyPoints }),
-    aiEvaluationHint: aiHintFrom(keyPoints),
+    prompt: sanitizePromptText(promptFrom({ question, difficulty: nextDifficulty, keyPoints })),
+    aiEvaluationHint: sanitizePromptText(aiHintFrom(keyPoints)),
     estimatedTimeMinutes: minutesByDifficulty(nextDifficulty),
     positions: q.positions?.length
       ? q.positions
-      : (["frontend", "backend", "fullstack"] as PositionSlug[]),
+      : inferPositions({
+          question,
+          tags,
+          subtopics,
+          primaryTechStack: opts.primaryTechStack,
+        }),
     topic: q.topic ?? "fullstack",
-    primaryTechStack: uniq([...(q.primaryTechStack ?? []), "javascript"]),
+    primaryTechStack: uniq([...(q.primaryTechStack ?? []), ...opts.primaryTechStack]),
     interviewTypes: q.interviewTypes ?? ["regular", "practice", "flash", "teacher"],
     seniorityLevels: seniorityLevelsFromDifficulty(nextDifficulty),
+    createdBy: CREATED_BY,
     referenceAnswers: needsAnswer ? null : refAnswers,
   };
 
@@ -618,7 +896,7 @@ const maybeFillMissingAnswer = async (q: any, opts: {
     question: q.__question,
     difficulty: q.difficulty,
     keyPoints: q.__keyPoints,
-    primaryTechStack: q.primaryTechStack ?? ["javascript"],
+    primaryTechStack: q.primaryTechStack ?? [],
   });
 
   const ref: JsonReferenceAnswer = {
@@ -643,6 +921,8 @@ const toJsonBatch = async (
     fillMissingAnswers: boolean;
     client: OpenAI | null;
     model: string;
+    baseTags: string[];
+    primaryTechStack: string[];
   },
 ) => {
   if (typeof input !== "object" || input === null) {
@@ -665,6 +945,8 @@ const toJsonBatch = async (
         client: opts.client,
         model: opts.model,
         sourceKey: opts.sourceKey,
+        baseTags: opts.baseTags,
+        primaryTechStack: opts.primaryTechStack,
       }),
     );
 
@@ -696,10 +978,11 @@ const toJsonBatch = async (
   const staged = (legacyList as LegacyQuestion[]).map((q) => {
     const difficulty = toDifficultyFromLegacyLevel(q.level);
     const question = normalizeQuestion(q.title);
-    const { tags, subtopics } = classifyFromQuestion(question);
+    const { tags, subtopics } = classifyFromQuestion(question, { baseTags: opts.baseTags });
     const keyPoints = keyPointsFromQuestion(question, tags);
 
     const hasAnswer = typeof q.answer === "string" && q.answer.trim().length > 0;
+    const answerText = hasAnswer ? sanitizeAnswerText(q.answer!) : null;
 
     return normalizeOpenQuestion({
       id: `${opts.sourceKey}-${q.id}`,
@@ -708,28 +991,36 @@ const toJsonBatch = async (
       reviewedAt: null,
       difficulty: opts.autoDifficulty ? assessDifficulty({ question, tags }) : difficulty,
       isDemoMode: false,
-      companyType: "enterprise",
+      companyType: inferCompanyType({
+        id: `${opts.sourceKey}-${q.id}`,
+        difficulty: opts.autoDifficulty ? assessDifficulty({ question, tags }) : difficulty,
+      }),
       title: titleFromQuestion(question),
       description: question,
-      prompt: promptFrom({ question, difficulty, keyPoints }),
+      prompt: sanitizePromptText(promptFrom({ question, difficulty, keyPoints })),
       topic: "fullstack",
       subtopics,
       tags,
       estimatedTimeMinutes: minutesByDifficulty(difficulty),
-      aiEvaluationHint: aiHintFrom(keyPoints),
+      aiEvaluationHint: sanitizePromptText(aiHintFrom(keyPoints)),
       companies: null,
-      positions: ["frontend", "backend", "fullstack"],
-      primaryTechStack: ["javascript"],
+      positions: inferPositions({
+        question,
+        tags,
+        subtopics,
+        primaryTechStack: opts.primaryTechStack,
+      }),
+      primaryTechStack: opts.primaryTechStack,
       interviewTypes: ["regular", "practice", "flash", "teacher"],
       seniorityLevels: seniorityLevelsFromDifficulty(difficulty),
       createdAt: extractedAt,
       updatedAt: extractedAt,
-      createdBy: "generated_by_ai",
+      createdBy: CREATED_BY,
       referenceAnswers: hasAnswer
         ? [
             {
               id: `${opts.sourceKey}-${q.id}-ref-1`,
-              text: q.answer!,
+              text: answerText!,
               weight: 1,
               keyPoints,
             },
@@ -741,6 +1032,8 @@ const toJsonBatch = async (
       client: opts.client,
       model: opts.model,
       sourceKey: opts.sourceKey,
+      baseTags: opts.baseTags,
+      primaryTechStack: opts.primaryTechStack,
     });
   });
 
@@ -778,6 +1071,8 @@ async function main() {
     .replace(/^-|-$/g, "")
     .toLowerCase();
 
+  const baseTech = inferBaseTechFromSourceKey(sourceKey);
+
   const effectiveModel = model ?? "gpt-4.1-mini";
   const client = fillMissingAnswers
     ? (() => {
@@ -794,6 +1089,8 @@ async function main() {
     fillMissingAnswers,
     client,
     model: effectiveModel,
+    baseTags: baseTech.baseTags,
+    primaryTechStack: baseTech.primaryTechStack,
   });
 
   fs.writeFileSync(outPath, JSON.stringify(batch, null, 2) + "\n");
