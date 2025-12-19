@@ -1,0 +1,468 @@
+{
+  "totalQuestions": 66,
+  "extractedAt": "2025-12-19T14:44:47.776Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is TypeScript?",
+      "answer": "TypeScript is a statically-typed programming language developed by Microsoft. It extends JavaScript by adding a type system, allowing developers to specify data types for variables, function parameters, and return values. This helps catch errors early in the development process and makes code more robust and maintainable.\nTypeScript is transpiled into JavaScript, making it compatible with all JavaScript environments, and it's commonly used in web development for building scalable and reliable applications.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "List the benefits of TypeScript.",
+      "answer": "Strong Typing: TypeScript's ability to explicitly define variable types improves code quality and reliability. It reduces the likelihood of runtime errors by catching type-related issues during development.\nCode Clarity and Maintainability: By enforcing type definitions, TypeScript makes the code more readable and easier to understand, which is particularly beneficial in large codebases or team environments.\nObject-Oriented Features: TypeScript supports object-oriented programming features like classes, interfaces, and inheritance, making it easier to organize and manage code.\nImproved Tooling and IDE Support: TypeScript's strong typing allows for better tooling support, including more powerful autocompletion, navigation, and refactoring capabilities.\nCompatibility with JavaScript: TypeScript is a superset of JavaScript, meaning any valid JavaScript code is also valid TypeScript. This makes it easy to adopt incrementally and use with existing JavaScript codebases.\nEarly Error Detection: TypeScript's compiler can detect errors at compile-time rather than at runtime, leading to more robust code and faster debugging.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "List the disadvantages of TypeScript.",
+      "answer": "Learning Curve: For developers not familiar with strongly typed languages, there's a learning curve to understand TypeScript's typing system.\nAdditional Complexity: TypeScript adds additional complexity with its types and interfaces, which can be a hindrance for small projects or simple applications.\nCompilation Step: TypeScript code needs to be compiled to JavaScript, adding an extra step in the development process.\nPotentially Verbose: Typing can make code more verbose, particularly when defining complex types or interfaces.\nTooling Requirement: Effective use of TypeScript requires appropriate tooling, which might not be readily available or integrated into all development environments.\nAdoption in Existing Projects: Integrating TypeScript into an existing JavaScript project can be challenging, especially if the project is large and complex.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "Define static typing.",
+      "answer": "Static typing in programming refers to a feature where the type of a variable (such as an integer, string, etc.) is known and checked at compile-time, before the program is run. This contrasts with dynamic typing, where variable types are typically understood and can change during runtime.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "How to declare a variable in TypeScript?",
+      "answer": "In TypeScript, declaring a variable is similar to how it's done in JavaScript, but with the addition of type annotations. Here's the basic syntax:\n\ntypescript\n\nCopy code\n\nlet variableName: Type = value;\nlet (or const for constants, var for function-scoped variables) is the keyword used to declare a variable.\nvariableName is the name of the variable.\nType is the TypeScript type of the variable (like number, string, boolean, etc.).\nvalue is the initial value assigned to the variable.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "Name the access modifiers supported in TypeScript.",
+      "answer": "TypeScript supports several access modifiers to control the visibility and accessibility of class members (properties and methods). These are:\n\nPublic: This is the default access level. Public members are accessible from anywhere without any restrictions. They can be accessed from outside the class, from derived classes, and within the class itself.\n\ntypescript\n\nCopy code\n\nclass Example {\n  public publicProperty: string;\n}\nPrivate: Private members are accessible only within the class that defines them. They cannot be accessed from outside of the class or by derived classes.\n\ntypescript\n\nCopy code\n\nclass Example {\n  private privateProperty: string;\n}\nProtected: Protected members are accessible within the class and by classes that are derived from it. However, they are not accessible from outside these classes.\n\ntypescript\n\nCopy code\n\nclass Example {\n  protected protectedProperty: string;\n}\nReadonly: This is not exactly an access modifier but a modifier that can be used in conjunction with the above access modifiers. It makes a property read-only, meaning it can be assigned a value only during declaration or within the constructor of the same class.\n\ntypescript\n\nCopy code\n\nclass Example {\n  readonly readonlyProperty: string;\n}",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "What is the use of the tsconfig.json file?",
+      "answer": "The tsconfig.json file in TypeScript is a crucial configuration file used to specify how the TypeScript compiler (tsc) should compile TypeScript code into JavaScript. It serves several important purposes:\n\nCompiler Options: It allows you to set various compiler options, such as the target JavaScript version (e.g., ES5, ES6), module system (e.g., CommonJS, ES Modules), strictness settings, and more. These options enable you to control the behavior of the compiler and the features it supports.\nProject Structure: It helps define the structure of your TypeScript project. You can specify which files and directories should be included or excluded from the compilation process.\nType Checking Rules: TypeScript offers a set of type checking options that can be configured in tsconfig.json. This includes enabling strict type checking, implicit any checks, strict null checks, and others, which help in writing more robust and error-free code.\nSource Maps: You can configure the generation of source maps, which help in debugging the TypeScript code after it's been compiled to JavaScript.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "What is TSX?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "Can TypeScript be used for the backend?",
+      "answer": "Yes, TypeScript can definitely be used for backend development. TypeScript, being a superset of JavaScript, can run anywhere JavaScript runs, including on the server side, typically with Node.js.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "Explain what type inference is in TypeScript.",
+      "answer": "Type inference in TypeScript is the ability of the TypeScript compiler to automatically deduce or determine the data type of a variable or expression without explicitly specifying it.\nTypeScript analyzes your code and infers the type based on how you've used variables and values. This feature allows you to write code with less explicit type annotations while still benefiting from the benefits of static typing.\nExample:\n\ntypescript\n\nCopy code\n\nlet numberValue = 42; // TypeScript infers the type \"number\" for numberValue\nlet stringValue = \"Hello\"; // TypeScript infers the type \"string\" for stringValue\n \nfunction add(a, b) {\n    return a + b;\n}\n \nconst result = add(10, 20); // TypeScript infers the type of \"result\" as \"number\"",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "How to create objects in TypeScript?",
+      "answer": "Creating objects in TypeScript can be done in several ways, similar to JavaScript, but with the added benefit of type annotations for enforcing the structure of the objects.\nExample:\n\ntypescript\n\nCopy code\n\ntype User = {\n    name: string;\n    age: number;\n};\n \nlet user: User = {\n    name: \"Alice\",\n    age: 25\n};",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "How can you ensure that TypeScript code is transpiled to ES5 for compatibility with older browsers?",
+      "answer": "You can specify the target ECMAScript version by configuring the tsconfig.json file. Set the target property to es5 to ensure TypeScript transpiles the code to ES5, which is compatible with older browsers.\n\njson\n\nCopy code\n\n{\n  \"compilerOptions\": {\n    \"target\": \"es5\",\n    \"module\": \"commonjs\",\n    // Other compiler options...\n  },\n  // Other configuration settings...\n}",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "What is the any type in TypeScript, and when should you use it?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What is the as keyword used for in TypeScript?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "What is the readonly modifier in TypeScript, and how can you use it to create immutable properties?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "What are TypeScript decorators?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "Explain the difference between interface and type alias in TypeScript.",
+      "answer": "In TypeScript, both interfaces and type aliases are used to define custom data types, but they have some differences:\nSyntax:\nInterface: Interfaces are defined using the interface keyword. They describe the shape of an object or class.\nType Alias: Type aliases are defined using the type keyword. They can represent any type, not just objects, and are more flexible.\nExtending/Implementing:\nInterface: Interfaces can be extended by other interfaces using the extends keyword, and classes can implement interfaces.\nType Alias: Type aliases cannot be extended or implemented. They are standalone and represent specific types.\nCompatibility:\nInterface: Interfaces are open-ended by default. If you declare an interface with a certain structure, you can later add more properties to it without causing issues.\nType Alias: Type aliases create exact types. Once defined, you cannot add or change properties to the type without breaking compatibility.\nUnion and Intersection:\nInterface: Interfaces are not suitable for creating union or intersection types directly.\nType Alias: Type aliases can be used to create union types (|) and intersection types (&) more easily.\nExample:\n\ntypescript\n\nCopy code\n\n// Interface\ninterface Person {\n    name: string;\n    age: number;\n}\n   \n// Extending an interface\ninterface Employee extends Person {\n    employeeId: string;\n}\n \n// Type alias\ntype Person = {\n    name: string;\n    age: number;\n};\n \n// Creating a union type with a type alias\ntype StringOrNumber = string | number;",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is a type guard in TypeScript, and how does it help narrow down types?",
+      "answer": "A type guard is a TypeScript function or expression that checks and narrows down the type of a value within a certain code block.\nCommon type guards include typeof, instanceof, and custom user-defined functions.\n\ntypescript\n\nCopy code\n\nfunction isString(value: any): value is string {\n  return typeof value === \"string\";\n}\n \nlet data: any = \"Hello, TypeScript!\";\nif (isString(data)) {\n  // TypeScript knows 'data' is a string here.\n  console.log(data.length);\n}",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "What is the TypeScript Compiler (tsc) and how does it work? Explain the process of compiling TypeScript code to JavaScript.",
+      "answer": "The TypeScript Compiler (tsc) is a command-line tool used to transpile TypeScript code into JavaScript code. The compilation process involves several steps:\nType Checking: The TypeScript compiler checks the TypeScript code for type errors and performs type inference to determine variable types.\nEmitting JavaScript: After successful type checking, the compiler generates equivalent JavaScript code. The generated code adheres to the specified ECMAScript version (e.g., ES5, ES6).\nOutput Files: The compiled JavaScript code can be output to one or more JavaScript files, preserving the directory structure of the source code.\nDeclaration Files (Optional): Declaration files (with a .d.ts extension) can also be generated to provide type information for TypeScript consumers of JavaScript libraries.\nModule Resolution: If the code uses modules, the compiler resolves module dependencies and ensures that imported modules are available.\nSource Maps (Optional): Optionally, source maps can be generated to map the compiled JavaScript code back to the original TypeScript source code for debugging.\nTo compile TypeScript code, you typically run the tsc command with the TypeScript source files as arguments.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "How can a class constant be implemented in TypeScript?",
+      "answer": "In TypeScript, class constants can be implemented using static readonly modifiers. These modifiers are used together to create properties that are constant at the class level. This means they belong to the class itself rather than to instances of the class, and their values cannot be altered once set.\nExample:\n\ntypescript\n\nCopy code\n\nclass MyClass {\n    static readonly CONSTANT_NAME: Type = value;\n}\n  \nconsole.log(MyClass.CONSTANT_NAME);\nstatic means the property belongs to the class itself, not to instances of the class.\nreadonly ensures that the property's value cannot be changed after its initial assignment.\nCONSTANT_NAME is the name of your constant. By convention, constants are often written in uppercase.\nType is the TypeScript type of the constant (like number, string, boolean, etc.).\nvalue is the value assigned to the constant.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "Explain the different variants of the for loop in TypeScript.",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "Explain what tuples are TypeScript.",
+      "answer": "Tuples in TypeScript are an array-like structure where each element in the array can have a specific type. Unlike regular arrays where all elements typically have the same type, tuples allow for a mixture of different types, with each position in the tuple having a fixed, designated type.\nThis feature is particularly useful when you want to return multiple values from a function or when you need to group together a few values with different types.\n\ntypescript\n\nCopy code\n\nlet user: [number, string] = [1, \"John\"];",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "Explain the never type in TypeScript.",
+      "answer": "The never type represents values that never occur. It's often inferred in situations like functions that throw errors or enter infinite loops.\nPractical use cases include exhaustive checking in discriminated unions and functions that never return (e.g., an exception-throwing function).\nExample:\n\ntypescript\n\nCopy code\n\n// Functions that never return\nfunction throwError(message: string): never {\n    throw new Error(message);\n}\n \nfunction infiniteLoop(): never {\n    while (true) {}\n}",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What is an enum in TypeScript.",
+      "answer": "An enum in TypeScript is a set of named values with a numeric backing. It's similar to an object or dictionary in JavaScript, but it provides type safety and readability.\nEnums are often used for defining a set of related constant values, such as days of the week or HTTP status codes.\n\ntypescript\n\nCopy code\n\nenum LogLevel {\n    Error = \"ERROR\",\n    Warning = \"WARNING\",\n    Info = \"INFO\",\n}\n \nconst error: LogLevel = LogLevel.Error; // \"ERROR\"",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "What is strict mode in TypeScript?",
+      "answer": "Strict mode in TypeScript enables strict type checking rules and prevents certain unsafe behaviors.\nIt helps catch potential bugs and ensures code adheres to best practices. Enabling strict mode (\"strict\": true in tsconfig.json) is recommended for writing robust TypeScript code.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "What is the null and undefined type in TypeScript?",
+      "answer": "In TypeScript, both null and undefined are types that represent special values indicating the absence of a meaningful value. They are used to handle cases where a variable or expression does not have a valid or defined value. However there are subtle differences.\nnull Type:\nThe null type represents the intentional absence of any object value or a deliberate assignment of \"no value.\"\n\ntypescript\n\nCopy code\n\nlet myValue: null = null;\n\nundefined Type:\nThe undefined type represents the absence of a value due to the variable or property being declared but not assigned any value.\n\ntypescript\n\nCopy code\n\nlet myValue: undefined = undefined;",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "What is a union type in TypeScript?",
+      "answer": "A union type allows a variable to have multiple types. It's defined using the | symbol. Union types are useful when a variable can accept different data types.\n\ntypescript\n\nCopy code\n\nlet value: string | number;\nvalue = \"Hello\"; // Valid\nvalue = 42;      // Valid",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "What are intersection types in TypeScript, and how do they differ from union types?",
+      "answer": "In TypeScript, intersection types allow you to combine multiple types into a single type, representing values that have all the characteristics of each type involved. Intersection types are denoted by the & (ampersand) operator.\nThey are used to create more complex types by merging two or more types, making them stricter and more specific.\n\ntypescript\n\nCopy code\n\ntype CombinedType = Type1 & Type2;",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "What are mapped types in TypeScript?",
+      "answer": "In TypeScript, mapped types are a powerful feature that allow you to create new types by transforming or modifying the properties of existing types.\nMapped types are particularly useful for generating new types based on existing ones, often used for scenarios like creating read-only versions of objects, optionalizing properties, or changing property types.\nMapped types are defined using the keyof and in keywords in combination with type operations.\nExample:\n\ntypescript\n\nCopy code\n\ntype MappedType = {\n    [Property in SourceType]: NewType;\n};\nProperty: This represents the name of the property in the resulting type.\nSourceType: This is the type whose properties you want to transform or modify.\nNewType: This specifies the new type of the property in the resulting type.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "How does TypeScript handle asynchronous programming?",
+      "answer": "TypeScript uses async and await to work with asynchronous operations in a more readable and structured manner.\nasync is used to define a function that returns a promise, and await is used to pause the execution of a function until the promise is resolved.\n\ntypescript\n\nCopy code\n\nasync function fetchData() {\n  const response = await fetch('https://api.example.com/data');\n  const data = await response.json();\n  return data;\n}",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is void, and when to use the void type?",
+      "answer": "In TypeScript, void is a type that represents the absence of any value. It is commonly used as the return type of functions that do not return a value. In other words, if a function is intended to perform an action but not return anything, you would annotate it with void.\nThe most common use of void is as the return type for functions that do not return anything. For example:\n\ntypescript\n\nCopy code\n\nfunction logMessage(message: string): void {\n    console.log(message);\n}",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "What is optional chaining in TypeScript?",
+      "answer": "Optional chaining in TypeScript is a language feature that allows for safe navigation of nested object properties or method calls by using the ?. operator.\nIt addresses the issue of potentially encountering null or undefined values when accessing properties or calling methods on objects. With optional chaining, if any part of the chain is null or undefined, the expression short-circuits, and the result is also null or undefined, preventing runtime errors.\n\ntypescript\n\nCopy code\n\nconst person = {\n    name: 'Alice',\n    address: {\n        city: 'New York',\n        zipcode: '10001'\n    }\n};\n \nconst city = person.address?.city; // Safe access, city will be 'New York'\nconst country = person.address?.country; // Safe access, country is undefined",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "What are mixins?",
+      "answer": "Mixins in programming, including in TypeScript, are a design pattern that allows you to create classes which combine behaviors or functionalities from multiple parent classes or objects. They are used to overcome the limitations of single inheritance by enabling a form of multiple inheritance or composition. Mixins allow you to \"mix in\" additional properties or methods into a class.\nExample:\n\ntypescript\n\nCopy code\n\n// A mixin function that adds a timestamp to a class\nfunction Timestamped<T extends { new (...args: any[]): {} }>(Base: T) {\n    return class extends Base {\n        timestamp = Date.now();\n    };\n}\n \n// A base class\nclass User {\n    name: string;\n    constructor(name: string) {\n        this.name = name;\n    }\n}\n \n// Creating a class from a mixin\nconst TimestampedUser = Timestamped(User);\n \n// Using the new class\nconst user = new TimestampedUser(\"Alice\");\nconsole.log(user.name);       // Alice\nconsole.log(user.timestamp);  // A timestamp value\n\nIn this example, the Timestamped function is a mixin that adds a timestamp property to any class. It is used to create a new class TimestampedUser which has both the properties and methods of User as well as the added timestamp property from the mixin.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What is the purpose of keyof in TypeScript",
+      "answer": "The keyof keyword in TypeScript is used to create a union type of all possible keys in an object type. It's often used to create type-safe code when working with object properties.\n\ntypescript\n\nCopy code\n\ninterface Person {\n  name: string;\n  age: number;\n}\n \ntype PersonKeys = keyof Person; // \"name\" | \"age\"",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "What are \"conditional types\" in TypeScript?",
+      "answer": "Conditional types in TypeScript allow you to create type mappings based on the characteristics of other types. They are defined using the extends keyword and conditional expressions.\nBasic Syntax:\n\ntypescript\n\nCopy code\n\ntype MyConditionalType<T> = T extends U ? X : Y;\n\nT is the type parameter you're checking.\nU is a type you're comparing T to.\nX is the type that MyConditionalType resolves to when T extends U.\nY is the type that MyConditionalType resolves to when T does not extend U.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "What are distributive conditional types?",
+      "answer": "Distributive Conditional Types in TypeScript are a powerful feature that allows you to apply a conditional type to each member of a union type individually. This feature becomes particularly useful when you want to transform types based on certain conditions.\nExample:\n\ntypescript\n\nCopy code\n\ntype ConditionalType = T extends U ? X : Y;\nHere, T extends U is the condition: if T is assignable to U, then the type will be X; otherwise, it will be Y.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "Explain the concept of discriminated unions in TypeScript.",
+      "answer": "Discriminated unions, also known as tagged unions or algebraic data types, are a TypeScript and programming language feature that allows you to create complex type structures by combining multiple types into a single type.\nDiscriminated unions are distinguished by a shared property called a discriminant, which helps TypeScript determine which specific type within the union is currently in use.\nExample:\n\ntypescript\n\nCopy code\n\ntype Shape = {\n    kind: 'circle';\n    radius: number;\n} | {\n    kind: 'rectangle';\n    width: number;\n    height: number;\n};\n \nfunction getArea(shape: Shape): number {\n    switch (shape.kind) {\n        case 'circle':\n            return Math.PI * shape.radius ** 2;\n        case 'rectangle':\n            return shape.width * shape.height;\n        default:\n            // TypeScript ensures all cases are handled\n            const exhaustiveCheck: never = shape;\n            return exhaustiveCheck;\n    }\n}\nIn this example, the Shape type is a discriminated union consisting of two variants: circle and rectangle. The kind property serves as the discriminant. The getArea function uses a switch statement to determine the specific type within the union based on the kind property and calculates the area accordingly.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Mid",
+      "title": "What is the \"non-nullable assertion operator\" (!) in TypeScript?",
+      "answer": "The non-nullable assertion operator (!) in TypeScript tells the compiler that a variable or property is guaranteed to be non-null or non-undefined, even if the compiler cannot infer it. It should be used with caution when you're certain that a value won't be null or undefined to avoid runtime errors.\n\ntypescript\n\nCopy code\n\nfunction greet(name: string | null): string {\n    // Use the non-nullable assertion operator to assert that 'name' is not null\n    return `Hello, ${name!}!`; // 'name!' asserts that 'name' is not null\n}\n \nconst result1 = greet(\"Alice\"); // Valid, 'name' is a non-null string\nconst result2 = greet(null);    // Valid, but potentially risky",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Mid",
+      "title": "Explain the concept of \"recursive types\" in TypeScript.",
+      "answer": "Recursive types in TypeScript are types that refer to themselves in their own definition. They are often used to model data structures like trees or linked lists. Here's an example of a recursive type for a binary tree:\nExample:\n\ntypescript\n\nCopy code\n\ntype TreeNode<T> = {\n  value: T;\n  left?: TreeNode<T>;\n  right?: TreeNode<T>;\n};",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Mid",
+      "title": "Explain the purpose of type predicates in TypeScript.",
+      "answer": "Type predicates in TypeScript are functions that assert the type of a value and narrow it down within the function's scope. They are often used with the is keyword to check if a value matches a specific type.\n\ntypescript\n\nCopy code\n\nfunction isString(value: any): value is string {\n  return typeof value === 'string';\n}\n \nif (isString(someValue)) {\n  // 'someValue' is now recognized as 'string' type.\n  console.log(someValue.length);\n}",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Mid",
+      "title": "What is the purpose of noImplicitAny?",
+      "answer": "The noImplicitAny flag in TypeScript is a compiler option that, when enabled, ensures that the type any is not implicitly assigned to variables, parameters, and function return types when their type is not explicitly declared and cannot be inferred from the context. The primary purpose of this flag is to enforce stronger type checking, thereby catching potential errors or ambiguities in the code at compile time.\n\ntypescript\n\nCopy code\n\n// Without noImplicitAny\nfunction add(a, b) {\n    return a + b;\n}\n \n// With noImplicitAny\nfunction add(a, b) {\n    return a + b; // Error: Parameter 'a' implicitly has an 'any' type.\n}",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Mid",
+      "title": "What is the purpose of the unknown type in TypeScript?",
+      "answer": "The unknown type in TypeScript represents a type-safe counterpart to the any type. While any allows you to assign any value to a variable without type checking, unknown requires you to perform type checks or type assertions before using the value.\nIt's recommended to use unknown when you need to work with values of unknown or untrusted types and want to maintain type safety.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Mid",
+      "title": "What is the Partial utility type in TypeScript?",
+      "answer": "The Partial utility type in TypeScript allows you to create a new type that makes all properties of an existing type optional. It's often used when you want to create partial objects that may not have all required properties.\n\ntypescript\n\nCopy code\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n \ntype PartialUser = Partial<User>;\n \nconst partialUser: PartialUser = {\n  name: 'John',\n};",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Mid",
+      "title": "What is the Omit utility type in TypeScript?",
+      "answer": "The Omit utility type is used to create a new type by excluding specific properties from an existing type. It allows you to create a type that has all the properties of the original type except for the ones you specify to be omitted.\n\ntypescript\n\nCopy code\n\ntype Person = {\n  name: string;\n  age: number;\n  address: string;\n};\n \ntype PersonWithoutAge = Omit<Person, 'age'>;",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Mid",
+      "title": "What is meant by contextual typing?",
+      "answer": "Contextual typing in TypeScript refers to the TypeScript compiler's ability to infer the type of an expression based on its context. This means the context in which a value is used can influence its type without the need for explicit type annotations. This feature is particularly useful for making the code more concise and readable while still benefiting from TypeScript's strong typing capabilities.\n\ntypescript\n\nCopy code\n\ninterface Event {\n    message: string;\n}\n \nfunction handleEvent(event: Event) {\n    console.log(event.message);\n}\n \n// In a callback, TypeScript knows the type of 'e' is Event\ndocument.addEventListener(\"click\", (e) => handleEvent(e));",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Mid",
+      "title": "How do the extensions .ts and .tsx differ in TypeScript?",
+      "answer": "In TypeScript, .ts files are standard files for writing TypeScript code, suitable for scripts or applications without JSX syntax. Conversely, .tsx files are used specifically when incorporating JSX syntax, commonly employed in React development for embedding HTML/XML-like code within TypeScript.\nThe TypeScript compiler treats .tsx files differently, enabling it to correctly parse the JSX elements. Trying to use JSX in a .ts file will result in compilation errors, as the compiler does not expect or understand JSX in these files. Thus, the choice between .ts and .tsx hinges on whether or not the file includes JSX code.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Mid",
+      "title": "What is \"type-safe nullish coalescing\" in TypeScript?",
+      "answer": "Type-safe nullish coalescing in TypeScript is an enhancement of the nullish coalescing operator (??) that ensures type-specific safety when providing default values for nullable or undefined variables. It only uses the default value when the variable is explicitly null or undefined, preventing unintentional fallbacks for other falsy values.\nExample:\n\ntypescript\n\nCopy code\n\nconst result = variable ?? defaultValue; \nThis example will assign defaultValue to result only when variable is null or undefined, not for other falsy values like 0 or false.",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Mid",
+      "title": "What is Scope variable?",
+      "answer": "In TypeScript, a scope variable's accessibility is determined by where it is declared, which can either be within a specific block (local scope) or outside any block (global scope). Local scope variables, declared within functions or blocks using let or const, are accessible only within those blocks and cannot be accessed from outside.\nGlobal scope variables, declared outside any function or block, are accessible from any part of the program. TypeScript, following JavaScript's scoping rules, allows for clear and manageable variable scopes to prevent naming conflicts and unintended interactions.\n\ntypescript\n\nCopy code\n\nlet globalVar = \"Accessible globally\";\n \nfunction testScope() {\n    let localVar = \"Accessible only in this function\";\n    console.log(globalVar); // Works fine\n    console.log(localVar);  // Works fine\n}\n \ntestScope();\nconsole.log(globalVar);   // Works fine\nconsole.log(localVar);    // Error: localVar is not defined outside testScope",
+      "isPremium": false
+    },
+    {
+      "id": 49,
+      "level": "Mid",
+      "title": "What is the purpose of \"string literal types\" in TypeScript?",
+      "answer": "String literal types in TypeScript allow you to create types that accept only specific string values. They are defined using string literal values as type annotations.\n\ntypescript\n\nCopy code\n\ntype Fruit = 'apple' | 'banana' | 'orange';\n \nfunction eat(fruit: Fruit): void {\n  console.log(`Eating a ${fruit}`);\n}\n \neat('apple'); // Valideat('grape'); // Error: Argument of type '\"grape\"' is not assignable to parameter of type 'Fruit'.",
+      "isPremium": false
+    },
+    {
+      "id": 50,
+      "level": "Mid",
+      "title": "Explain the purpose of the \"key remapping\" feature in mapped types in TypeScript.",
+      "answer": "Key remapping in mapped types allows you to create a new type by transforming or renaming the keys of an existing type. It's achieved by using the in keyword and defining new keys.\nExample:\n\ntypescript\n\nCopy code\n\ntype RenameKeys<T> = {\n  [K in keyof T as `new_${K}`]: T[K];\n};\n \ntype Original = { foo: string; bar: number };\ntype Renamed = RenameKeys<Original>; // { new_foo: string; new_bar: number }",
+      "isPremium": false
+    },
+    {
+      "id": 51,
+      "level": "Mid",
+      "title": "Explain the concept of \"declaration files\" in TypeScript.",
+      "answer": "Declaration files (.d.ts) in TypeScript are used to declare the types and interfaces for external JavaScript libraries or modules that lack type definitions. They provide type information for TypeScript when working with JavaScript code.\nExample:\n\ntypescript\n\nCopy code\n\n// math-lib.d.tsdeclare module 'math-lib' {\n  export function add(x: number, y: number): number;\n  export function subtract(x: number, y: number): number;\n}",
+      "isPremium": false
+    },
+    {
+      "id": 52,
+      "level": "Mid",
+      "title": "Explain the as const assertion in TypeScript.",
+      "answer": "The as const assertion in TypeScript is used to create read-only literal types from values. It tells TypeScript to infer the most specific literal type for the expression.\nExample:\n\ntypescript\n\nCopy code\n\nconst colors = ['red', 'green', 'blue'] as const;\n// 'colors' is of type: ['red', 'green', 'blue']\n \nfunction getColor(color: typeof colors[number]) {\n  // 'color' can only be one of the literal values in 'colors'\n  return color;\n}",
+      "isPremium": false
+    },
+    {
+      "id": 53,
+      "level": "Mid",
+      "title": "What is an anonymous function in TypeScript?",
+      "answer": "An anonymous function in TypeScript, as in JavaScript, is a function that is defined without a name. Anonymous functions are often used in situations where a function is used as an argument to another function, or assigned to a variable, and a name is not needed or would not add clarity to the code. They are commonly used in callbacks, event handlers, and with promises.\n\ntypescript\n\nCopy code\n\n// Example using an arrow function:\nlet myFunction = () => {\n    console.log(\"Hello from an anonymous function!\");\n};",
+      "isPremium": false
+    },
+    {
+      "id": 54,
+      "level": "Mid",
+      "title": "Explain Getters/Setters in TypeScript.",
+      "answer": "In TypeScript, getters and setters are special methods used to read and modify the properties of an object. They provide a way to define accessors on object properties, allowing for more controlled and flexible property access and mutation.\n\ntypescript\n\nCopy code\n\nclass Person {\n    private _name: string;\n  \n    get name(): string {\n        return this._name;\n    }\n  \n    set name(newName: string) {\n        if (newName.length > 0) {\n            this._name = newName;\n        }\n    }\n}\n  \nlet person = new Person(\"Alice\");\nperson.name = \"Bob\"; // Changed using setter",
+      "isPremium": false
+    },
+    {
+      "id": 55,
+      "level": "Mid",
+      "title": "Explain the difference between String and string in TypeScript.",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 56,
+      "level": "Senior",
+      "title": "Explain modules in TypeScript.",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 57,
+      "level": "Senior",
+      "title": "Name the two primary types of modules in TypeScript?",
+      "answer": "Internal (File-Level) Modules:\nIntroduction: Internal modules are created using TypeScript's module system within a single TypeScript file. They provide a way to encapsulate related code within the file itself. Internal modules are also referred to as \"file-level modules\" or \"namespaces.\"\nSyntax: Internal modules are defined using the namespace keyword (or using the ES6 module syntax), and code within them is encapsulated.\n\ntypescript\n\nCopy code\n\n// Internal module (namespace) example\nnamespace MyNamespace {\n    export function greet(name: string) {\n        console.log(`Hello, ${name}!`);\n    }\n}\nExternal (Ambient) Modules:\nIntroduction: External modules are used to organize code across multiple files and are more commonly used in modern TypeScript projects. They are also known as \"ambient modules\" or \"ES6 modules.\"\nSyntax: External modules use the export and import keywords to define and import code from other files.\n\ntypescript\n\nCopy code\n\n// ModuleA.ts\nexport const message = \"Hello from ModuleA\";\n  \n// ModuleB.ts\nimport { message } from \"./ModuleA\";\nconsole.log(message); // \"Hello from ModuleA\"",
+      "isPremium": false
+    },
+    {
+      "id": 58,
+      "level": "Senior",
+      "title": "What are namespaces in TypeScript?",
+      "answer": "In TypeScript, namespaces (formerly known as \"internal modules\") are a way to encapsulate and organize related code within a single file or across multiple files.\nNamespaces provide a level of modularity and prevent naming conflicts by allowing you to group related functions, classes, variables, or other code constructs under a common namespace name.\nExample:\n\ntypescript\n\nCopy code\n\n// Definition\nnamespace MyNamespace {\n    export function someFunction() {\n        // ...\n    }\n}\n \n// Usage\nMyNamespace.someFunction();",
+      "isPremium": false
+    },
+    {
+      "id": 59,
+      "level": "Senior",
+      "title": "What is the difference between extends and implements in TypeScript?",
+      "answer": "In TypeScript, extends is used for class inheritance, allowing a class to inherit properties and methods from another class, thereby establishing a subclass-superclass relationship. In contrast, implements is used when a class wants to adhere to the structure defined by an interface, ensuring that it implements all the properties and methods of the interface.\n\ntypescript\n\nCopy code\n\n// Using extends for inheritance\nclass Animal {\n    eat() { console.log(\"Eating\"); }\n}\n \nclass Dog extends Animal {\n    bark() { console.log(\"Woof!\"); }\n}\n \n// Using implements for interface adherence\ninterface Movable {\n    move(): void;\n}\n \nclass Car implements Movable {\n    move() { console.log(\"Car is moving\"); }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 60,
+      "level": "Senior",
+      "title": "Explain the symbol type in TypeScript.",
+      "answer": "A symbol in TypeScript (and JavaScript) is a unique and immutable primitive value used primarily as a key for object properties to avoid name collisions. Each time a symbol is created, it is distinct from other symbols, even if they have the same description.\nSymbols are created using the Symbol() function and can be used to define object properties that are not easily accessible or overridden by other code.\n\ntypescript\n\nCopy code\n\nlet myUniqueKey = Symbol(\"unique_property\");\nlet myObject = {\n    [myUniqueKey]: \"This is a unique property\"\n};\n \nconsole.log(myObject[myUniqueKey]); // Outputs: \"This is a unique property\"",
+      "isPremium": false
+    },
+    {
+      "id": 61,
+      "level": "Senior",
+      "title": "Explain \"module resolution\" in TypeScript.",
+      "answer": "Module resolution in TypeScript determines how the compiler finds and loads external modules or libraries. There are two primary strategies: \"Node.js\" and \"Classic.\"\nNode.js module resolution is used for CommonJS modules, while Classic module resolution is used for AMD and System modules. Node.js resolution follows Node.js's module resolution algorithm, while Classic resolution uses relative and absolute paths.",
+      "isPremium": false
+    },
+    {
+      "id": 62,
+      "level": "Senior",
+      "title": "What is an abstract class in TypeScript, and how is it different from a regular class?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 63,
+      "level": "Senior",
+      "title": "What are triple-slash directives?",
+      "answer": "Triple-slash directives in TypeScript are single-line comments containing a single XML tag. They are used to give instructions to the compiler and are only valid at the top of their containing file. Triple-slash directives serve specific purposes, such as declaring dependencies on other files or adjusting compiler settings.\nThe most common triple-slash directive is the reference directive. It is used to declare dependencies on other files.\n\ntypescript\n\nCopy code\n\n/// <reference path=\"anotherFile.ts\" />",
+      "isPremium": false
+    },
+    {
+      "id": 64,
+      "level": "Senior",
+      "title": "What is a generic type in TypeScript?",
+      "answer": "A generic type in TypeScript is a type that can work with multiple data types while preserving type safety. It allows you to create functions, classes, or interfaces that can operate on values of different types without knowing those types in advance.\nGeneric types are defined using a placeholder type parameter enclosed in angle brackets (<T> by convention), which represents the actual type that will be provided when the generic type is used.\nExample:\n\ntypescript\n\nCopy code\n\nfunction swap<T>(a: T, b: T): [T, T] {\n    return [b, a];\n}\n  \nconst [x, y] = swap(10, 20); // x is 20, y is 10\nconst [str1, str2] = swap(\"Hello\", \"World\"); // str1 is \"World\", str2 is \"Hello\"",
+      "isPremium": false
+    },
+    {
+      "id": 65,
+      "level": "Senior",
+      "title": "Name some use cases when generics can be useful?",
+      "answer": "Reusability: Generics allow you to write code that can be reused for different data types, reducing code duplication.\nType Safety: They provide type safety by ensuring that the input data types match the expected types, catching errors at compile time.\nFlexibility: Generics make your code more flexible, as they allow you to work with a wide range of data types without sacrificing type checking.\nCollections: Generics are commonly used when working with data structures like arrays, lists, and dictionaries that can contain elements of varying types.",
+      "isPremium": false
+    },
+    {
+      "id": 66,
+      "level": "Senior",
+      "title": "What is transpilation?",
+      "answer": "Transpilation is a process in computer programming where source code written in one programming language is converted into equivalent code in another language. Unlike compilation, which typically translates high-level code into machine code or a lower-level language, transpilation converts code from one high-level language to another.\nIn the case of TypeScript, which is a superset of JavaScript, the TypeScript code is transpiled into plain JavaScript code. This transpilation process allows developers to use TypeScript's static typing and additional features while still generating code that can be executed in any JavaScript runtime environment.",
+      "isPremium": false
+    }
+  ]
+}

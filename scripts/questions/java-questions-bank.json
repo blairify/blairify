@@ -1,0 +1,650 @@
+{
+  "totalQuestions": 92,
+  "extractedAt": "2025-12-19T14:43:23.416Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "Name some of the features of the Java Programming language?",
+      "answer": "Java is a popular, high-level programming language known for its portability, security, and ease of use. Key features include:\n\nObject-Oriented: Supports OOP principles like inheritance, polymorphism, encapsulation, and abstraction.\nPlatform Independence: Compiled into bytecode that runs on any device with the Java Virtual Machine (JVM).\nSimple Syntax: Easy to learn, especially for those familiar with C and C++, with simpler syntax.\nRobust and Secure: Strong memory management, garbage collection, exception handling, and a security manager.\nMulti-threaded: Built-in support for concurrent programming.\nHigh Performance: Optimized through just-in-time (JIT) compilation.\nDistributed: APIs for networking and creating distributed applications.\nDynamic and Extensible: Supports dynamic loading of classes.\nRich Standard Library: Comprehensive APIs for data structures, networking, I/O, and UI design.\nAutomatic Memory Management: Garbage collection to handle memory allocation and deallocation.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "Explain public static void main(String args[]) in Java.",
+      "answer": "In Java, public static void main(String[] args) is the entry point for a Java application.\n\npublic: Accessible from anywhere.\nstatic: Can be called without creating an instance.\nvoid: No return value.\nmain: Name of the method.\nString[] args: Array of command-line arguments.\n\njava\n\nCopy code\n\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "Name some ways Java is different from C++?",
+      "answer": "Memory Management:\nJava: Automatic garbage collection.\nC++: Manual memory management using pointers.\nPlatform Independence:\nJava: Compiled to bytecode, runs on JVM (\"write once, run anywhere\").\nC++: Compiled to platform-specific machine code.\nSyntax and Features:\nJava: No pointers, supports interfaces, and has a simpler syntax.\nC++: Supports pointers, multiple inheritance, and operator overloading.\nStandard Library:\nJava: Rich standard library with built-in support for networking, multithreading, and GUI development.\nC++: Standard Template Library (STL) for data structures and algorithms.\nPerformance:\nJava: Generally slower due to the JVM overhead.\nC++: Generally faster due to direct compilation to machine code.\nObject Orientation:\nJava: Purely object-oriented (except for primitives).\nC++: Supports both procedural and object-oriented programming.\nException Handling:\nJava: Built-in exception handling with try-catch-finally blocks.\nC++: Supports exception handling but less emphasized.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What are the differences between Heap and Stack Memory in Java?",
+      "answer": "Purpose:\nHeap: Used for dynamic memory allocation for objects and instances.\nStack: Used for static memory allocation, storing local variables and function call frames.\nLifetime:\nHeap: Objects persist until they are no longer referenced and garbage collected.\nStack: Variables are destroyed as soon as the function call ends.\nAccess:\nHeap: Accessed globally via object references.\nStack: Accessed locally, following LIFO (Last In, First Out) order.\nManagement:\nHeap: Managed by the garbage collector.\nStack: Managed by the function call structure.\nPerformance:\nHeap: Slower access due to dynamic memory allocation.\nStack: Faster access due to static memory allocation.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "Is Java a platform independent language?",
+      "answer": "Java is platform-independent because its code is compiled into bytecode, which can run on any device with a Java Virtual Machine (JVM). The JVM interprets the bytecode into machine code specific to the host platform, enabling the same Java program to run anywhere without modification. This \"write once, run anywhere\" capability is central to Java's design.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "Is Java a pure object oriented language?",
+      "answer": "Java is not a pure object-oriented language because it uses primitive data types (e.g., int, char, boolean) that are not objects.\nThis contrasts with pure object-oriented languages where everything is treated as an object.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "Is it possible to execute a program without main() method?",
+      "answer": "No, in standard Java applications, it is not possible to execute a program without a main() method because the JVM requires it as the entry point for execution. While older versions of Java allowed code execution via static initialization blocks without a main() method, this is no longer supported and is not recommended.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "What is the difference between equals() method and equality operator (==) in Java?",
+      "answer": "equals() method: Compares object values.\n== operator: Compares object references.\n\njava\n\nCopy code\n\nString a = new String(\"test\");\nString b = new String(\"test\");",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "What are the default values assigned to variables and instances in Java?",
+      "answer": "In Java, the default values assigned to variables and instances are:\n\nNumeric types (byte, short, int, long, float, double): 0 (or 0.0 for float and double)\nchar: '\\0000' (null character)\nboolean: false\nObject references: null",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "What is the difference between an instance and local variable in Java?",
+      "answer": "Scope:\nInstance Variable: Declared in a class but outside any method, accessible by all methods in the class.\nLocal Variable: Declared inside a method, accessible only within that method.\nLifetime:\nInstance Variable: Exists as long as the object exists.\nLocal Variable: Exists only during the execution of the method.\nDefault Values:\nInstance Variable: Initialized to default values (e.g., null, 0) if not explicitly initialized.\nLocal Variable: Must be explicitly initialized before use.\nMemory Location:\nInstance Variable: Stored in the heap.\nLocal Variable: Stored in the stack.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "What is the difference between a String, StringBuffer, and a StringBuilder?",
+      "answer": "Mutability:\nString: Immutable (cannot be changed once created).\nStringBuffer: Mutable (can be modified).\nStringBuilder: Mutable (can be modified).\nThread Safety:\nString: Thread-safe (immutable nature ensures thread safety).\nStringBuffer: Thread-safe (synchronized methods).\nStringBuilder: Not thread-safe (no synchronization).\nPerformance:\nString: Slower for concatenation operations due to immutability.\nStringBuffer: Slower than StringBuilder due to synchronization overhead.\nStringBuilder: Faster than StringBuffer for single-threaded scenarios due to lack of synchronization.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Junior",
+      "title": "What is an IO stream?",
+      "answer": "An I/O stream (Input/Output stream) is an abstraction in programming that represents a flow of data between a program and a data source or destination, such as a file, network socket, or device.\nIt provides a standardized way to perform input and output operations by reading from or writing to these sources or destinations.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Junior",
+      "title": "Why and how does Java not use pointers?",
+      "answer": "Java avoids pointers to enhance security and simplicity. Pointers can lead to unsafe memory access, increasing the risk of bugs and vulnerabilities.\nInstead, Java uses references, abstracting direct memory manipulation and preventing issues like memory leaks and buffer overflows. This ensures more secure and manageable code.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What is Object Cloning in Java?",
+      "answer": "Object cloning in Java creates an exact copy of an object using the clone() method. The object must implement the Cloneable interface to avoid CloneNotSupportedException. Cloning can be:\n\nShallow Cloning: Copies the object's fields, but not the objects referenced by those fields.\nDeep Cloning: Copies the object and all objects referenced by it.\nExample:\n\njava\n\nCopy code\n\nclass Person implements Cloneable {\n    String name;\n    int age;\n \n    public Person(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n \n    @Override\n    protected Object clone() throws CloneNotSupportedException {\n        return super.clone();\n    }\n}\n \npublic class Main {\n    public static void main(String[] args) {\n        try {\n            Person original = new Person(\"John\", 25);\n            Person clone = (Person) original.clone();\n \n            System.out.println(original.name); // John\n            System.out.println(clone.name); // John\n            System.out.println(original == clone); // false, different objects\n        } catch (CloneNotSupportedException e) {\n            e.printStackTrace();\n        }\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "Explain the difference between final, finally, and finalize in Java.",
+      "answer": "final: It is a keyword used to declare that a class cannot be subclassed, a method cannot be overridden, or a variable cannot be changed.\nfinally: It is used in a try-catch block to ensure that a block of code is executed regardless of whether an exception is thrown.\n\njava\n\nCopy code\n\ntry {\n    // Code that may throw an exception\n} catch (Exception e) {\n    // Handle exception\n} finally {\n    // Cleanup code\n}\nfinalize: It is a method that is called by the garbage collector before reclaiming an object's memory.\n\njava\n\nCopy code\n\nprotected void finalize() {\n    // Cleanup code before garbage collection\n}",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "What is Hibernate?",
+      "answer": "Hibernate is a Java-based Object-Relational Mapping (ORM) framework that simplifies database interactions by mapping Java objects to database tables.\nIt automates data persistence, reducing the need for boilerplate SQL code, and provides features like caching, lazy loading, and transaction management.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What are the main components of the JDBC API?",
+      "answer": "DriverManager: Manages a list of database drivers and establishes connections to the database.\nConnection: Represents a connection to a specific database.\nStatement: Used to execute SQL queries and return results.\nPreparedStatement: A subclass of Statement that allows precompiled queries with parameters.\nCallableStatement: Used to execute stored procedures in the database.\nResultSet: Represents the result set of a query, allowing retrieval of data.\nSQLException: Handles database access errors and other errors.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "List the steps to connect to a database in Java?",
+      "answer": "java\n\nCopy code\n\ntry {\n    // Step 1: Load the JDBC Driver\n    Class.forName(\"com.mysql.cj.jdbc.Driver\");\n \n    // Step 2: Establish a Connection\n    Connection conn = DriverManager.getConnection(\"jdbc:mysql://localhost:3306/dbname\", \"user\", \"password\");\n \n    // Step 3: Create a Statement\n    Statement stmt = conn.createStatement();\n \n    // Step 4: Execute a Query\n    ResultSet rs = stmt.executeQuery(\"SELECT * FROM tablename\");\n \n    // Step 5: Process the ResultSet\n    while (rs.next()) {\n        System.out.println(rs.getString(\"columnname\"));\n    }\n \n    // Step 6: Close the Resources\n    rs.close();\n    stmt.close();\n    conn.close();\n} catch (ClassNotFoundException | SQLException e) {\n    e.printStackTrace();\n}",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "What is JDBC Driver?",
+      "answer": "A JDBC Driver is a software component that enables Java applications to interact with a database. It translates Java calls into database-specific calls, allowing for database connectivity and operations.\nTypes:\nJDBC-ODBC Bridge Driver: Uses ODBC to connect to the database.\nNative-API Driver: Converts JDBC calls into native database API calls.\nNetwork Protocol Driver: Uses a middleware server to connect to the database.\nThin Driver: Pure Java driver that communicates directly with the database.\nExample:\n\njava\n\nCopy code\n\nConnection conn = DriverManager.getConnection(\"jdbc:mysql://localhost:3306/dbname\", \"user\", \"password\");",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "What is the difference between a servlet and a JSP (JavaServer Pages)?",
+      "answer": "Servlets are Java classes that handle requests and responses at the server-side, often used for business logic.\n\njava\n\nCopy code\n\npublic class MyServlet extends HttpServlet {\n    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\n        // Handle request\n    }\n}\n\nJSP is a technology that simplifies the creation of dynamic web pages by embedding Java code within HTML, mainly used for presentation.\n\njsp\n\nCopy code\n\n<html>\n<body>\n    <%\n        out.println(\"Hello, World!\");\n    %>\n</body>\n</html>",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "What is a Servlet?",
+      "answer": "A Servlet (short for \"Serverlet\") is a Java-based program that extends the capabilities of a web server to handle dynamic content and interact with clients (typically web browsers) using the HTTP protocol.\nServlets are a key component of Java Enterprise Edition (Java EE) and are commonly used for building web applications in Java.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What is the life-cycle of a Servlet?",
+      "answer": "The life-cycle of a servlet in Java involves three main stages:\nInitialization: The servlet is instantiated and initialized using the init() method.\nRequest Handling: The servlet processes client requests using the service() method.\nTermination: The servlet is taken out of service and destroyed using the destroy() method.\nExample:\n\njava\n\nCopy code\n\npublic class MyServlet extends HttpServlet {\n    public void init() throws ServletException {\n        // Initialization code\n    }\n \n    public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\n        // Request handling code\n    }\n \n    public void destroy() {\n        // Cleanup code\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "How do cookies work in Servlets?",
+      "answer": "Cookies help in tracking user sessions and preferences across multiple requests.\nCookies in servlets work by storing small pieces of data on the client side, which are sent with HTTP requests and responses to maintain state.\nCreating a Cookie: The server creates a cookie and sends it to the client in the HTTP response.\n\njava\n\nCopy code\n\nCookie cookie = new Cookie(\"name\", \"value\");\nresponse.addCookie(cookie);\nRetrieving a Cookie: The client stores the cookie and sends it back to the server with subsequent requests.\n\njava\n\nCopy code\n\nCookie[] cookies = request.getCookies();\nfor (Cookie c : cookies) {\n    if (c.getName().equals(\"name\")) {\n        String value = c.getValue();\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "Explain the concept of Java Generics.",
+      "answer": "Java Generics allow you to write code that works with different types while maintaining type safety. It helps in writing reusable code by defining classes, interfaces, and methods with type parameters. Generics ensure that the types are known at compile-time, reducing the risk of runtime errors.\n\njava\n\nCopy code\n\nclass Box<T> {\n    private T content;\n    public void set(T content) { this.content = content; }\n    public T get() { return content; }\n}\n \n// Usage\nBox<Integer> integerBox = new Box<>();\nintegerBox.set(123);  // Works with Integer\n// integerBox.set(\"hello\");  // Compile-time error, wrong type",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "What are the different types of inheritance in Java?",
+      "answer": "Single Inheritance: A class inherits from one superclass.\n\njava\n\nCopy code\n\nclass Animal { }\nclass Dog extends Animal { }\nMultilevel Inheritance: A class inherits from a superclass, and another class inherits from that subclass.\n\njava\n\nCopy code\n\nclass Animal { }\nclass Mammal extends Animal { }\nclass Dog extends Mammal { }\nHierarchical Inheritance: Multiple classes inherit from a single superclass.\n\njava\n\nCopy code\n\nclass Animal { }\nclass Dog extends Animal { }\nclass Cat extends Animal { }\nMultiple Inheritance (via Interfaces): A class implements multiple interfaces.\n\njava\n\nCopy code\n\ninterface CanRun { }\ninterface CanBark { }\nclass Dog implements CanRun, CanBark { }",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "What is covariant return type?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "What is runtime polymorphism?",
+      "answer": "Runtime polymorphism in Java is the ability of a method to do different things based on the object it is acting upon, determined at runtime.\nIt is achieved through method overriding, where a subclass provides a specific implementation of a method already defined in its superclass.\n\njava\n\nCopy code\n\nclass Animal {\n    void sound() {\n        System.out.println(\"Animal sound\");\n    }\n}\n \nclass Dog extends Animal {\n    void sound() {\n        System.out.println(\"Bark\");\n    }\n} \n \npublic class Main {\n    public static void main(String[] args) {\n        Animal myDog = new Dog();\n        myDog.sound(); // Outputs \"Bark\"\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "Explain the concept of constructor overloading.",
+      "answer": "Constructor overloading in Java is the practice of defining multiple constructors within a class, each with different parameter lists. This allows objects to be instantiated in different ways.\n\njava\n\nCopy code\n\npublic class Person {\n    private String name;\n    private int age;\n \n    // Constructor with no parameters\n    public Person() {\n        this.name = \"Unknown\";\n        this.age = 0;\n    }\n \n    // Constructor with one parameter\n    public Person(String name) {\n        this.name = name;\n        this.age = 0;\n    }\n \n    // Constructor with two parameters\n    public Person(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "Can a static method be overloaded in Java?",
+      "answer": "Yes, a static method can be overloaded in Java. Overloading means having multiple methods with the same name but different parameters within the same class.\n\njava\n\nCopy code\n\npublic class Example {\n    public static void print() {\n        System.out.println(\"No parameters\");\n    }\n \n    public static void print(String message) {\n        System.out.println(\"Message: \" + message);\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "What is method overloading?",
+      "answer": "Multiple methods with the same name but different parameters (different type, number, or both) within the same class. Provides flexibility and readability.\n\njava\n\nCopy code\n\npublic class MathUtil {\n    public int add(int a, int b) {\n        return a + b;\n    }\n \n    public double add(double a, double b) {\n        return a + b;\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is method overriding?",
+      "answer": "Method overriding in Java allows a subclass provides a specific implementation of a method that is already defined in its superclass.\nEnables runtime polymorphism and allows a subclass to provide a specific behavior.\n\njava\n\nCopy code\n\npublic class Animal {\n    public void sound() {\n        System.out.println(\"Animal makes a sound\");\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "What is the difference between aggregation and composition?",
+      "answer": "Aggregation and composition are both types of associations in object-oriented design that describe relationships between objects.\nAggregation is a weak association where one object (the whole) contains or uses another object (the part), but the part can exist independently of the whole. For example, a university aggregates departments, but if the university closes, the departments might still exist elsewhere.\nComposition is a strong association where the part's lifecycle is managed by the whole. The part cannot exist without the whole, and if the whole is destroyed, so is the part. For example, a house composes rooms; if the house is demolished, the rooms cease to exist.\nDifference: In aggregation, the part can exist independently of the whole, whereas in composition, the part cannot exist independently and is tightly bound to the whole's lifecycle.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "What is composition in Java?",
+      "answer": "Composition in Java is a design principle where a class is composed of one or more objects from other classes, meaning it includes objects as fields.\nThis allows for building complex types by combining simpler objects.\nExample:\n\njava\n\nCopy code\n\nclass Engine {\n    // Engine class details\n}\n \nclass Car {\n    private Engine engine;\n \n    public Car() {\n        engine = new Engine(); // Car has an Engine\n    }\n}\n\nIn this example, Car is composed of an Engine object, demonstrating composition.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What is the 'IS-A' relationship in Java OOP?",
+      "answer": "The 'IS-A' relationship in Java OOP represents inheritance, where a subclass inherits from a superclass. It indicates that an object of the subclass can be treated as an object of the superclass.\nExample:\n\njava\n\nCopy code\n\nclass Animal { } // Superclass\n \nclass Dog extends Animal { } // Dog IS-A Animal\nIn this example, Dog inherits from Animal, establishing an 'IS-A' relationship.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "Explain abstraction in Java.",
+      "answer": "Abstraction: Hiding the complex implementation details and showing only the essential features of the object.\n\njava\n\nCopy code\n\nabstract class Shape {\n    abstract void draw();\n}\n \npublic class Circle extends Shape {\n    void draw() {\n        System.out.println(\"Drawing a circle.\");\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "Explain polymorphism in Java.",
+      "answer": "Polymorphism: Ability of a single interface to represent different underlying forms (method overriding and method overloading).\n\njava\n\nCopy code\n\nAnimal myDog = new Dog();\nmyDog.eat(); // Calls Dog's implementation if overridden, otherwise Animal's.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "Explain inheritance in Java.",
+      "answer": "Inheritance: Mechanism where one class (subclass) inherits fields and methods from another class (superclass), promoting code reuse.\n\njava\n\nCopy code\n\npublic class Animal {\n    public void eat() {\n        System.out.println(\"This animal eats food.\");\n    }\n}\n \npublic class Dog extends Animal {\n    public void bark() {\n        System.out.println(\"The dog barks.\");\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Mid",
+      "title": "What is Aggregation in Java?",
+      "answer": "Aggregation in Java is a type of association representing a \"has-a\" relationship where one class contains a reference to another class, but the contained object can exist independently of the container.\nExample:\n\njava\n\nCopy code\n\nclass Engine {\n    // Engine class details\n}\n \nclass Car {\n    private Engine engine; // Aggregation relationship\n \n    public Car(Engine engine) {\n        this.engine = engine;\n    }\n}\nIn this example, Car has an Engine, but the Engine can exist independently of the Car.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Mid",
+      "title": "Explain encapsulation in Java.",
+      "answer": "Encapsulation: Bundling data (fields) and methods that operate on the data into a single unit (class). Access to the data is restricted through public methods.\n\njava\n\nCopy code\n\npublic class Person {\n    private String name;\n \n    public String getName() {\n        return name;\n    }\n \n    public void setName(String name) {\n        this.name = name;\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Mid",
+      "title": "Name the main OOP concepts in Java?",
+      "answer": "Encapsulation: Bundling data (fields) and methods that operate on the data into a single unit (class). Access to the data is restricted through public methods.\nInheritance: Mechanism where one class (subclass) inherits fields and methods from another class (superclass), promoting code reuse.\nPolymorphism: Ability of a single interface to represent different underlying forms (method overriding and method overloading).\nAbstraction: Hiding the complex implementation details and showing only the essential features of the object.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Mid",
+      "title": "What is an enum in Java?",
+      "answer": "An enum in Java is a special data type that defines a set of named constants, representing a fixed list of possible values. It is used to model a group of related constants in a type-safe manner.\nEnums can have fields, methods, and constructors, and are typically used to represent states, categories, or fixed sets of values.\n\njava\n\nCopy code\n\npublic enum Day {\n    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY\n}",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Mid",
+      "title": "Is it possible to make the main thread a daemon thread?",
+      "answer": "No, you cannot make the main thread a daemon thread in Java. The main thread is always a user thread and cannot be converted to a daemon thread.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Mid",
+      "title": "Can a single try block have multiple catch blocks in a Java program?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Mid",
+      "title": "What is the difference between the throw and throws in Java?",
+      "answer": "throw:\nPurpose: Used to explicitly throw an exception.\nUsage: Inside a method or block.\n\njava\n\nCopy code\n\nthrow new IOException(\"Error message\"); \n\nthrows:\nPurpose: Declares that a method can throw exceptions.\nUsage: In method signature.\n\njava\n\nCopy code\n\npublic void myMethod() throws IOException {\n    // Method code\n}",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Mid",
+      "title": "What is an exception in Java?",
+      "answer": "An exception is an event that occurs during the execution of a program that disrupts the normal flow of the program's instructions. When an exception occurs, the program halts and displays an error message that describes the nature of the exception.",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Mid",
+      "title": "How does an exception propagate through the code?",
+      "answer": "An exception propagates in the code by moving up the call stack. If a method throws an exception and doesn't catch it, the exception is passed to the method that called it.\nThis continues until the exception is caught by a method or causes the program to terminate if uncaught.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Mid",
+      "title": "What is the difference between a checked and unchecked exception?",
+      "answer": "Checked exceptions must be declared in a method's throws clause if not caught and are checked at compile-time, such as IOException and SQLException.\nUnchecked exceptions do not need to be declared or caught and are checked at runtime, such as NullPointerException and ArrayIndexOutOfBoundsException. In summary, checked exceptions require handling at compile-time, while handling unchecked exceptions is optional and occurs at runtime.",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Mid",
+      "title": "What is the difference between an error and an exception in Java?",
+      "answer": "Errors indicate serious problems that applications typically should not try to catch, such as OutOfMemoryError or StackOverflowError.\nExceptions represent conditions that an application might want to catch and handle, like IOException or NullPointerException.\nErrors are often unrecoverable, while exceptions can be managed using try-catch blocks.",
+      "isPremium": false
+    },
+    {
+      "id": 49,
+      "level": "Mid",
+      "title": "How does the ArrayList grow dynamically and how is this implemented internally?",
+      "answer": "The ArrayList grows dynamically by increasing its capacity when more elements are added.\nInternally, this is implemented by creating a new, larger array (50% increase in size) and copying the existing elements to it.",
+      "isPremium": false
+    },
+    {
+      "id": 50,
+      "level": "Mid",
+      "title": "What are the differences between Arrays and ArrayLists in Java?",
+      "answer": "Arrays and ArrayLists both store collections of elements in Java, but differ in key ways:\nArrays: Fixed size, more memory efficient, and faster access. Preferable for a known, unchanging number of elements.\nArrayLists: Dynamic size, easier to add or remove elements. Ideal when the collection size is unknown or changes frequently.\nExample:\n\njava\n\nCopy code\n\n// Array\nint[] arr = new int[10];\narr[0] = 1;",
+      "isPremium": false
+    },
+    {
+      "id": 51,
+      "level": "Mid",
+      "title": "Explain the difference between a HashSet and a TreeSet in Java.",
+      "answer": "HashSet is an unordered collection that uses a hash table for storage. It provides constant-time average complexity for basic operations.\nTreeSet is an ordered collection that uses a red-black tree for storage. It maintains elements in sorted order, providing guaranteed log-time complexity for basic operations. Choose HashSet for unordered collections and TreeSet when you need ordered elements.\nExample:\n\njava\n\nCopy code\n\nimport java.util.HashSet;\nimport java.util.TreeSet;",
+      "isPremium": false
+    },
+    {
+      "id": 52,
+      "level": "Mid",
+      "title": "What are the differences between HashMap and HashTable in Java?",
+      "answer": "HashMap:\nThread Safety: Not synchronized, not thread-safe.\nNull Values: Allows one null key and multiple null values.\nPerformance: Generally faster due to lack of synchronization.\nLegacy: Part of the Java Collections Framework.\nHashtable:\nThread Safety: Synchronized, thread-safe.\nNull Values: Does not allow null keys or values.\nPerformance: Generally slower due to synchronization overhead.\nExample:\n\njava\n\nCopy code\n\nHashMap<String, String> hashMap = new HashMap<>();\nhashMap.put(\"key1\", \"value1\");\nhashMap.put(null, \"value2\");\n \nHashtable<String, String> hashtable = new Hashtable<>();\nhashtable.put(\"key1\", \"value1\");\n// hashtable.put(null, \"value2\"); // Throws NullPointerException",
+      "isPremium": false
+    },
+    {
+      "id": 53,
+      "level": "Mid",
+      "title": "What is Java String Pool?",
+      "answer": "The Java String Pool is a special memory region in the heap where Java stores interned strings. When a new string literal is created, Java checks the pool first:\nIf the string exists, the reference to the existing string is returned.\nIf not, the string is added to the pool.\nThis optimization reduces memory usage and improves performance by reusing common strings.\n\njava\n\nCopy code\n\nString s1 = \"Hello\";\nString s2 = \"Hello\";\nSystem.out.println(s1 == s2); // true, both refer to the same object in the pool\n \nString s3 = new String(\"Hello\");\nSystem.out.println(s1 == s3); // false, s3 refers to a different object",
+      "isPremium": false
+    },
+    {
+      "id": 54,
+      "level": "Mid",
+      "title": "What are the advantages of Packages in Java?",
+      "answer": "Organizational: Groups related classes and interfaces, improving code structure.\nName Collision Avoidance: Prevents naming conflicts by providing a namespace.\nAccess Control: Allows control over class and method accessibility using access modifiers.\nReusability: Facilitates code reuse across projects by packaging classes into libraries.\nModularity: Enhances modularity and maintainability of the codebase.\n\njava\n\nCopy code\n\npackage com.example.myapp; // Defines a package\npublic class MyClass {\n    // Class code\n}",
+      "isPremium": false
+    },
+    {
+      "id": 55,
+      "level": "Mid",
+      "title": "What is the difference between this() and super() in Java?",
+      "answer": "In Java:\n\nthis(): Calls another constructor in the same class. Used for constructor chaining within the class.\nsuper(): Calls the constructor of the superclass. Used to initialize the parent class.\n\njava\n\nCopy code\n\npublic class Base {\n    public Base() {\n        // Superclass constructor\n    }\n}\n \npublic class Derived extends Base {\n    public Derived() {\n        super(); // Calls Base constructor\n        this.someMethod();\n    }\n    \n    public Derived(int value) {\n        this(); // Calls no-argument constructor of Derived\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 56,
+      "level": "Mid",
+      "title": "Explain the difference between a shallow copy and a deep copy of an object in Java.",
+      "answer": "A shallow copy creates a new object but copies the references of the object's fields. Changes to objects within the field will be reflected in both the original and the copy.\nA deep copy creates a new object and recursively copies all objects referenced by the original object. Changes to objects within the field won't affect the original or other copies. You can create shallow copies using copy constructors or cloning, while deep copies often require custom implementation.\n\njava\n\nCopy code\n\nclass Item {\n    String name;\n    Item(String name) {\n        this.name = name;\n    }\n    // Deep copy method\n    Item deepCopy() {\n        return new Item(this.name);\n    }\n}\n \npublic class CopyExample {\n    public static void main(String[] args) {\n        // Shallow Copy Example\n        ArrayList<Integer> originalList = new ArrayList<>();\n        originalList.add(1);\n        originalList.add(2);\n \n        // Shallow copy using clone()\n        ArrayList<Integer> shallowCopy = (ArrayList<Integer>) originalList.clone();\n        originalList.add(3);\n \n        System.out.println(\"Original List: \" + originalList);\n        System.out.println(\"Shallow Copy: \" + shallowCopy);\n \n        // Deep Copy Example\n        Item originalItem = new Item(\"Java\");\n \n        // Deep copy using deepCopy() method\n        Item deepCopyItem = originalItem.deepCopy();\n        originalItem.name = \"Python\";\n \n        System.out.println(\"Original Item: \" + originalItem.name);\n        System.out.println(\"Deep Copy Item: \" + deepCopyItem.name);\n    }\n}\n \n// Output\n// Original List: [1, 2, 3]\n// Shallow Copy: [1, 2]\n// Original Item: Python\n// Deep Copy Item: Java",
+      "isPremium": false
+    },
+    {
+      "id": 57,
+      "level": "Mid",
+      "title": "Differentiate between constructors and methods in Java?",
+      "answer": "Constructors\nConstructors are special methods used to initialize new objects. They have the same name as the class and do not have a return type. Constructors are automatically called when an object of the class is created.\nThey are used to set initial values for object attributes or perform any setup steps necessary for the object.\nMethods\nMethods define the behavior and operations that can be performed on objects of a class. They can have any valid identifier as a name and must have a return type (or void if no value is returned).\nMethods are explicitly called on objects or classes to perform actions or compute values.\nExample:\n\njava\n\nCopy code\n\nclass Example {\n    int value;",
+      "isPremium": false
+    },
+    {
+      "id": 58,
+      "level": "Mid",
+      "title": "What is JIT compiler in Java?",
+      "answer": "In Java, the JIT (Just-In-Time) compiler is a component of the JVM that improves performance by compiling bytecode into native machine code at runtime.\nThis allows the code to run faster as it is executed directly by the host CPU.",
+      "isPremium": false
+    },
+    {
+      "id": 59,
+      "level": "Mid",
+      "title": "What is classloader?",
+      "answer": "A classloader in Java is a component of the Java Virtual Machine (JVM) that dynamically loads Java classes into memory at runtime. It locates, loads, and links class files when they are needed by an application, enabling dynamic class loading during program execution.",
+      "isPremium": false
+    },
+    {
+      "id": 60,
+      "level": "Mid",
+      "title": "Explain what JDK, JRE and JVM are in Java?",
+      "answer": "JDK (Java Development Kit): A software development kit containing tools for developing Java applications, including the JRE, compiler (javac), and other tools.\nJRE (Java Runtime Environment): Provides the libraries, Java Virtual Machine (JVM), and other components to run Java applications. It does not include development tools like the compiler.\nJVM (Java Virtual Machine): An abstract machine that executes Java bytecode. It provides platform independence by running the compiled bytecode on any device with a compatible JVM.\n\ntxt\n\nCopy code\n\nJDK = JRE + Development Tools (compiler, debugger, etc.)\nJRE = JVM + Standard Libraries\nJVM = Bytecode Executor",
+      "isPremium": false
+    },
+    {
+      "id": 61,
+      "level": "Mid",
+      "title": "What is a Comparator in Java?",
+      "answer": "In Java, a Comparator is an interface used to define a custom ordering for objects. It contains the method compare(T o1, T o2), which compares two objects for order.\n\njava\n\nCopy code\n\nimport java.util.*;",
+      "isPremium": false
+    },
+    {
+      "id": 62,
+      "level": "Mid",
+      "title": "How does the new operator differ from the newInstance() method in Java?",
+      "answer": "The new operator creates a new instance of a class at compile time, while newInstance() creates a new instance at runtime using reflection.\nnewInstance() requires the class to have a no-argument constructor and can throw exceptions like InstantiationException and IllegalAccessException.",
+      "isPremium": false
+    },
+    {
+      "id": 63,
+      "level": "Mid",
+      "title": "What is the purpose of the volatile keyword in Java?",
+      "answer": "The volatile keyword in Java ensures that a variable's value is always read from and written to main memory, providing visibility and preventing caching. This guarantees that changes made by one thread are immediately visible to other threads.\n\njava\n\nCopy code\n\nprivate volatile boolean flag;",
+      "isPremium": false
+    },
+    {
+      "id": 64,
+      "level": "Mid",
+      "title": "What are the differences between interfaces and abstract classes in Java?",
+      "answer": "Methods:\nInterface: Only abstract methods (Java 8+ allows default and static methods).\nAbstract Class: Can have both abstract and concrete methods.\nInheritance:\nInterface: Multiple inheritance (a class can implement multiple interfaces).\nAbstract Class: Single inheritance (a class can extend only one abstract class).\nFields:\nInterface: Only public, static, final fields.\nAbstract Class: Can have instance variables and constructors.\nExamples:\n\njava\n\nCopy code\n\ninterface Animal {\n    void eat();\n    void sleep();\n}\n\n\njava\n\nCopy code\n\nabstract class Bird {\n    abstract void fly();\n    \n    void chirp() {\n        System.out.println(\"Chirp chirp\");\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 65,
+      "level": "Mid",
+      "title": "Why is the main method static in Java?",
+      "answer": "The main method in Java is static so it can be called without creating an instance of the class. This allows the Java runtime to invoke it as the entry point of the application without needing to instantiate the class.",
+      "isPremium": false
+    },
+    {
+      "id": 66,
+      "level": "Mid",
+      "title": "Is it possible to execute code before the main method runs?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 67,
+      "level": "Mid",
+      "title": "What is a singleton class in Java and how is it implemented?",
+      "answer": "A singleton class in Java restricts the instantiation of a class to one object. It's implemented by:\nPrivate constructor to prevent instantiation.\nPrivate static instance of the class.\nPublic static method to provide access to the instance.\nExample:\n\njava\n\nCopy code\n\npublic class Singleton {\n    private static Singleton instance;",
+      "isPremium": false
+    },
+    {
+      "id": 68,
+      "level": "Mid",
+      "title": "What is the difference between sleep() and wait() methods in Java?",
+      "answer": "sleep():\nBelongs to: Thread class.\nPurpose: Pauses the current thread for a specified time.\nSynchronization: Does not release locks.\n\njava\n\nCopy code\n\nThread.sleep(1000); // Sleeps for 1000 milliseconds \nwait():\nBelongs to: Object class.\nPurpose: Causes the current thread to wait until another thread invokes notify() or notifyAll().\nSynchronization: Releases the lock on the object.\n\njava\n\nCopy code\n\nsynchronized (obj) {\n    obj.wait(); // Waits until notified\n}",
+      "isPremium": false
+    },
+    {
+      "id": 69,
+      "level": "Mid",
+      "title": "What is final keyword in Java?",
+      "answer": "In Java, the final keyword is used to restrict modification:\n\nVariable: Cannot be reassigned.\nMethod: Cannot be overridden.\nClass: Cannot be subclassed.",
+      "isPremium": false
+    },
+    {
+      "id": 70,
+      "level": "Mid",
+      "title": "What are access modifiers in Java?",
+      "answer": "In Java, access modifiers control the visibility of classes, methods, and variables. They are:\n\npublic: Accessible from anywhere.\nprotected: Accessible within the same package and by subclasses.\ndefault (no modifier): Accessible within the same package.\nprivate: Accessible only within the declaring class.",
+      "isPremium": false
+    },
+    {
+      "id": 71,
+      "level": "Senior",
+      "title": "What is a marker interface?",
+      "answer": "A marker interface in Java is an interface with no methods or fields. It is used to signal or mark classes that have a particular property or behavior, enabling certain operations based on this marker.\nExample:\n\njava\n\nCopy code\n\npublic interface Serializable {\n    // No methods or fields\n}\n \npublic class MyClass implements Serializable {\n    // Class can be serialized\n}\nIn this example, Serializable is a marker interface indicating that MyClass can be serialized.",
+      "isPremium": false
+    },
+    {
+      "id": 72,
+      "level": "Senior",
+      "title": "What is a memory leak and how can it be caused?",
+      "answer": "A memory leak in Java occurs when objects are no longer needed but are still referenced, preventing the garbage collector from reclaiming their memory.\nCommon Causes:\nUnreleased Resources: Failing to close resources like database connections or streams.\nStatic References: Holding objects in static fields.\nLong-Lived Objects: Keeping references in collections like ArrayList or HashMap.\nInner Classes: Non-static inner classes holding references to outer class instances.\nEvent Listeners: Not removing listeners or callbacks after use.\nExample:\n\njava\n\nCopy code\n\npublic class MemoryLeak {\n    private static List<Object> list = new ArrayList<>();\n \n    public void addObject() {\n        list.add(new Object()); // Objects added to list are never removed\n    }\n}\nIn this example, objects added to the static list are never removed, causing a memory leak.",
+      "isPremium": false
+    },
+    {
+      "id": 73,
+      "level": "Senior",
+      "title": "What is the difference between static methods, static variables, and static classes in Java?",
+      "answer": "Static methods\nBelong to: Static methods belong to the class itself.\nAccess: They can be called without creating an instance of the class.\nUsage: They are used for operations that do not depend on instance variables.\nStatic Variables:\nBelong to: Static variables belong to the class itself.\nAccess: Their value is shared among all instances of the class.\nUsage: They are used for class-wide fields or constants\nStatic Classes:\nBelong to: Static classes are nested within another class.\nAccess: They can be instantiated without an instance of the outer class.\nUsage: They are used for grouping related classes, primarily for helper classes.\n\njava\n\nCopy code\n\npublic static void myMethod() { }\npublic static int myVar;\npublic static class MyStaticClass { }",
+      "isPremium": false
+    },
+    {
+      "id": 74,
+      "level": "Senior",
+      "title": "Why are string immutable in Java?",
+      "answer": "Strings in Java are immutable to enhance security, performance, and thread safety. Immutability means that once a String object is created, its value cannot be changed. Reasons:\nSecurity: Prevents modification of sensitive data (e.g., passwords).\nPerformance: Allows string pooling, saving memory.\nThread Safety: Immutable objects are inherently thread-safe, avoiding synchronization issues.\nExample:\n\njava\n\nCopy code\n\nString s1 = \"Hello\";\nString s2 = s1; // Both reference the same object\ns1 = \"World\";  // s1 now references a new object, s2 still references \"Hello\"",
+      "isPremium": false
+    },
+    {
+      "id": 75,
+      "level": "Senior",
+      "title": "What are the differences between static and non-static methods in Java?",
+      "answer": "Static methods belong to the class itself and can be called without creating an instance. Defined with the static keyword, they can only access static members. Useful for operations not dependent on instance variables.\nNon-static methods belong to instances of the class and require an instance to be called. They can access both static and non-static members and are used when operations require instance data.",
+      "isPremium": false
+    },
+    {
+      "id": 76,
+      "level": "Senior",
+      "title": "What is an iterator in Java?",
+      "answer": "An iterator in Java is an interface that allows you to traverse and manipulate the elements of a collection (like lists, sets, or maps) in a sequential manner without exposing the underlying data structure.\nIt provides methods like hasNext() to check if there are more elements, and next() to retrieve the next element in the collection.\nExample:\n\njava\n\nCopy code\n\nimport java.util.ArrayList;\nimport java.util.Iterator;\n \npublic class IteratorExample {\n    public static void main(String[] args) {\n        // Create a list of strings\n        ArrayList<String> list = new ArrayList<>();\n        list.add(\"Alice\");\n        list.add(\"Bob\");\n        list.add(\"Charlie\");\n \n        // Get an iterator for the list\n        Iterator<String> iterator = list.iterator();\n \n        // Use the iterator to traverse the list\n        while (iterator.hasNext()) {\n            String name = iterator.next();\n            System.out.println(name);\n        }\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 77,
+      "level": "Senior",
+      "title": "What is a Java Lambda Expression?",
+      "answer": "A Java Lambda Expression is a concise way to represent an anonymous function (a function without a name) that can be passed around as an argument or returned as a value.\nIt simplifies the syntax for implementing functional interfaces (interfaces with a single abstract method), enabling clearer and more concise code.\n\njava\n\nCopy code\n\n// A functional interface with a single abstract method\n@FunctionalInterface\ninterface Greeting {\n    void sayHello(String name);\n}\n \npublic class LambdaExample {\n    public static void main(String[] args) {\n        // Using a lambda expression to implement the Greeting interface\n        Greeting greeting = (name) -> System.out.println(\"Hello, \" + name);\n         \n        // Calling the method\n        greeting.sayHello(\"Alice\");\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 78,
+      "level": "Senior",
+      "title": "Explain difference between Comparable and Comparator in Java?",
+      "answer": "Comparable:\nPurpose: Defines natural ordering of objects.\nMethod: compareTo().\nUsage: Implemented by the class to be compared.\n\njava\n\nCopy code\n\npublic class MyClass implements Comparable<MyClass> {\n    public int compareTo(MyClass other) {\n        return this.field - other.field;\n    }\n}\nComparator:\nPurpose: Defines custom ordering of objects.\nMethod: compare().\nUsage: Implemented by a separate class or as an anonymous class.\n\njava\n\nCopy code\n\npublic class MyComparator implements Comparator<MyClass> {\n    public int compare(MyClass o1, MyClass o2) {\n        return o1.field - o2.field;\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 79,
+      "level": "Senior",
+      "title": "What is garbage collection?",
+      "answer": "Garbage collection in Java is the process by which the Java Virtual Machine (JVM) automatically identifies and frees up memory by removing objects that are no longer in use.\nThis helps in efficient memory management, preventing memory leaks, and ensuring that the application runs smoothly without manual intervention.\nThe JVM periodically checks for unused objects and reclaims their memory, making it available for new objects.",
+      "isPremium": false
+    },
+    {
+      "id": 80,
+      "level": "Senior",
+      "title": "What part of memory is cleaned in the garbage collection process in Java?",
+      "answer": "In Java, the heap memory is cleaned during the garbage collection process. This process identifies and removes objects that are no longer referenced or accessible by the application, freeing up memory for future object allocation.",
+      "isPremium": false
+    },
+    {
+      "id": 81,
+      "level": "Senior",
+      "title": "When does an object in Java become eligible for garbage collection?",
+      "answer": "An object in Java becomes eligible for garbage collection when it is no longer reachable from any live thread or static references.\nThis typically happens when there are no references pointing to the object, making it inaccessible and unusable by the program.",
+      "isPremium": false
+    },
+    {
+      "id": 82,
+      "level": "Senior",
+      "title": "Explain dependency injection in Java.",
+      "answer": "Dependency Injection (DI) in Java is a design pattern that allows objects to receive their dependencies from an external source rather than creating them internally. This promotes loose coupling and easier testing.\nTypes of DI:\nConstructor Injection: Dependencies are provided through the constructor.\nSetter Injection: Dependencies are provided through setter methods.\nField Injection: Dependencies are injected directly into fields.\nExample:\n\njava\n\nCopy code\n\nclass Service {\n    // Service class\n}\n \nclass Client {\n    private Service service;\n \n    // Constructor Injection\n    public Client(Service service) {\n        this.service = service;\n    }\n \n    // Setter Injection\n    public void setService(Service service) {\n        this.service = service;\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 83,
+      "level": "Senior",
+      "title": "Can a program exceed its memory limit even with a garbage collector present in Java?",
+      "answer": "Yes, a Java program can exceed its memory limit even with a garbage collector if it creates more objects than the available memory can handle or if there are memory leaks due to lingering references.",
+      "isPremium": false
+    },
+    {
+      "id": 84,
+      "level": "Senior",
+      "title": "What is a Thread in Java?",
+      "answer": "In Java, a thread is a lightweight subprocess that enables concurrent execution of code within a program. Threads allow multiple tasks to run simultaneously, improving application performance and responsiveness.\nExample:\n\njava\n\nCopy code\n\nclass MyThread extends Thread {\n    public void run() {\n        System.out.println(\"Thread is running\");\n    }\n}\n \npublic class Main {\n    public static void main(String[] args) {\n        MyThread t = new MyThread();\n        t.start(); // Starts the thread\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 85,
+      "level": "Senior",
+      "title": "What are the different methods to use threads in Java?",
+      "answer": "Extending Thread Class:\n\njava\n\nCopy code\n\nclass MyThread extends Thread {\n    public void run() {\n        // Code to execute in the thread\n    }\n}\n \nMyThread t = new MyThread();\nt.start();\nImplementing Runnable Interface:\n\njava\n\nCopy code\n\nclass MyRunnable implements Runnable {\n    public void run() {\n        // Code to execute in the thread\n    }\n}\n \nThread t = new Thread(new MyRunnable());\nt.start();\nUsing ExecutorService:\n\njava\n\nCopy code\n\nExecutorService executor = Executors.newFixedThreadPool(2);\nexecutor.submit(() -> {\n    // Code to execute in the thread\n});\nexecutor.shutdown();",
+      "isPremium": false
+    },
+    {
+      "id": 86,
+      "level": "Senior",
+      "title": "Describe the Java thread lifecycle.",
+      "answer": "The Java thread lifecycle consists of the following states:\n\nNew: Thread is created but not yet started.\nRunnable: Thread is ready to run and waiting for CPU time.\nRunning: Thread is executing.\nBlocked: Thread is waiting for a monitor lock to enter/re-enter a synchronized block/method.\nWaiting: Thread is waiting indefinitely for another thread to perform a specific action (e.g., wait()).\nTimed Waiting: Thread is waiting for another thread to perform an action for a specified waiting time (e.g., sleep(), join(timeout)).\nTerminated: Thread has finished execution.",
+      "isPremium": false
+    },
+    {
+      "id": 87,
+      "level": "Senior",
+      "title": "What is the Daemon Thread?",
+      "answer": "A Daemon Thread in Java is a low-priority thread that runs in the background to perform tasks such as garbage collection and handling idle connections.\nDaemon threads do not prevent the JVM from exiting, even if they are still running, allowing the JVM to terminate when all non-daemon (user) threads finish their execution. This makes them useful for non-critical tasks that should not block the application from quitting.\nExample:\n\njava\n\nCopy code\n\npublic class Example {\n    public static void main(String[] args) {\n        Thread daemonThread = new Thread(() -> {\n            while (true) {\n                System.out.println(\"Daemon thread running\");\n                try {\n                    Thread.sleep(500);\n                } catch (InterruptedException e) {\n                    Thread.currentThread().interrupt();\n                }\n            }\n        });\n        daemonThread.setDaemon(true);  // Set the thread as a daemon\n        daemonThread.start();\n \n        System.out.println(\"Main thread running\");\n        try {\n            Thread.sleep(800);  // Main thread sleeps for 0.8 seconds\n        } catch (InterruptedException e) {\n            Thread.currentThread().interrupt();\n        }\n        // Main thread finishes, and JVM will exit, stopping the daemon thread\n        System.out.println(\"Main thread ends\");\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 88,
+      "level": "Senior",
+      "title": "What is multithreading?",
+      "answer": "Multithreading is a programming technique that allows a single process to execute multiple threads concurrently within the same program. This enables parallel execution of tasks, improving performance and resource utilization by allowing multiple operations to run simultaneously.\nExample:\n\njava\n\nCopy code\n\npublic class MultithreadingExample {\n    public static void main(String[] args) {\n        // Creating a new thread using a lambda expression\n        Thread thread = new Thread(() -> {\n            System.out.println(\"Hello from a separate thread!\");\n        });\n    \n        // Starting the new thread\n        thread.start();\n   \n        // Main thread continues executing\n        System.out.println(\"Hello from the main thread!\");\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 89,
+      "level": "Senior",
+      "title": "Define Late Binding.",
+      "answer": "Late binding in Java, also known as dynamic binding, occurs when the method to be called is determined at runtime rather than compile-time. It allows for polymorphic behavior.\nExample:\n\njava\n\nCopy code\n\nclass Animal {\n    void sound() {\n        System.out.println(\"Animal sound\");\n    }\n}\n \nclass Dog extends Animal {\n    void sound() {\n        System.out.println(\"Bark\");\n    }\n}\n \npublic class Main {\n    public static void main(String[] args) {\n        Animal myAnimal = new Dog();\n        myAnimal.sound(); // Outputs \"Bark\"\n    }\n}\nIn this example, the sound() method is resolved at runtime based on the actual object type (Dog).",
+      "isPremium": false
+    },
+    {
+      "id": 90,
+      "level": "Senior",
+      "title": "What are the different types of Thread Priorities in Java?",
+      "answer": "In Java, thread priorities range from 1 to 10, where:\nMIN_PRIORITY: 1 (lowest priority)\nNORM_PRIORITY: 5 (default priority)\nMAX_PRIORITY: 10 (highest priority)\nThreads with higher priority are more likely to be executed sooner than threads with lower priority, though thread scheduling is ultimately determined by the JVM and the underlying operating system.\nExample:\n\njava\n\nCopy code\n\nclass MyThread extends Thread {\n    public void run() {\n        System.out.println(Thread.currentThread().getName() + \" with priority \" + Thread.currentThread().getPriority());\n    }\n}\n \npublic class Main {\n    public static void main(String[] args) {\n        MyThread t1 = new MyThread();\n        MyThread t2 = new MyThread();\n        MyThread t3 = new MyThread();\n \n        t1.setPriority(Thread.MIN_PRIORITY); // Priority 1\n        t2.setPriority(Thread.NORM_PRIORITY); // Priority 5\n        t3.setPriority(Thread.MAX_PRIORITY); // Priority 10\n \n        t1.start();\n        t2.start();\n        t3.start();\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 91,
+      "level": "Senior",
+      "title": "What is the difference between >> and >>> operators in Java?",
+      "answer": ">> (Signed Right Shift): Shifts bits to the right, preserving the sign (leftmost bit). Fills with the sign bit (0 for positive, 1 for negative).\n\njava\n\nCopy code\n\nint x = -8; // Binary: 11111000\nint y = x >> 2; // Result: 11111110 (keeps the sign)\n>>> (Unsigned Right Shift): Shifts bits to the right, ignoring the sign. Fills with zero (always).\n\njava\n\nCopy code\n\nint x = -8; // Binary: 11111000\nint y = x >>> 2; // Result: 00111110 (fills with zeros)",
+      "isPremium": false
+    },
+    {
+      "id": 92,
+      "level": "Senior",
+      "title": "What does the term Double Brace Initialization mean in Java?",
+      "answer": "Double Brace Initialization in Java is a technique for initializing collections in a concise manner.\nIt combines an instance initializer block with an anonymous inner class, allowing you to add elements to a collection at the time of creation.\nHowever, it is less commonly used due to potential memory leaks and readability issues.\n\njava\n\nCopy code\n\nList<String> list = new ArrayList<String>() {{\n    add(\"Alice\");\n    add(\"Bob\");\n    add(\"Charlie\");\n}};",
+      "isPremium": false
+    }
+  ]
+}

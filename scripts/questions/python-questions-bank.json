@@ -1,0 +1,601 @@
+{
+  "totalQuestions": 85,
+  "extractedAt": "2025-12-19T14:40:15.485Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is Python, and why is it used?",
+      "answer": "Python is a high-level, interpreted programming language known for its simplicity and readability. It is used for various purposes, including web development, data analysis, machine learning, and automation.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What are the key features of Python?",
+      "answer": "Simplicity and readability: Python has a clean, readable syntax that makes it accessible to beginners.\nInterpreted language: Python code is executed line-by-line, which makes debugging easier.\nDynamic typing: Types are checked at runtime; variables do not need explicit types.\nExtensive libraries: Python offers a rich standard library and a vast ecosystem of third-party packages.\nObject-oriented: Python supports object-oriented programming techniques with classes and inheritance.\nPortable: Python is platform-independent, running on Windows, macOS, Linux, etc.\nEmbeddable and extensible: Python can be embedded within applications as a scripting interface, and extended with C/C++.\nHigh-level data structures: Python includes built-in list, set, and dictionary data structures for quick and easy data manipulation.\nMulti-paradigm: Python supports procedural, object-oriented, and functional programming styles.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "Is Python a compiled language or an interpreted language?",
+      "answer": "Python is an interpreted language. Python code is executed by an interpreter, which converts the code into bytecode and then executes it, rather than being compiled into machine code directly.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "Is Python statically or dynamically typed?",
+      "answer": "Python is dynamically typed, meaning variable types are determined at runtime and do not need to be explicitly declared.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "Explain the differences between Python 2 and Python 3.",
+      "answer": "Python 2 is an older version of Python, while Python 3 is the latest version. Python 3 introduced several changes and improvements, including better Unicode support, print function, and division behavior.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What is PEP 8, and why is it important?",
+      "answer": "PEP 8 is the style guide for Python code, promoting readability and consistency. It covers code layout, naming conventions, and best practices. Following PEP 8 helps developers write clear, maintainable code, facilitating collaboration and reducing errors.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "Explain mutable and immutable data types in Python?",
+      "answer": "Mutable data types can be changed after creation. Examples include lists, dictionaries, and sets.\n\npython\n\nCopy code\n\nmy_list = [1, 2, 3]\nmy_list.append(4)  # my_list is now [1, 2, 3, 4]\n\nImmutable data types cannot be changed after creation. Examples include integers, floats, strings, and tuples.\n\npython\n\nCopy code\n\nmy_string = \"hello\"\nmy_string = \"world\"  # A new string object is created; the original is unchanged",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "Is Python pass by reference or pass by value?",
+      "answer": "Python uses pass-by-object-reference (or pass-by-assignment). This means functions receive a reference to the same object in memory, but whether the object is mutable or immutable determines if changes affect the original object.\nImmutable Objects (e.g., integers, strings)\n\npython\n\nCopy code\n\ndef modify_value(x):\n    x = 10  # Rebinds x to a new object\n  \na = 5\nmodify_value(a)\nprint(a)  # Output: 5\nMutable Objects (e.g., lists, dictionaries)\n\npython\n\nCopy code\n\ndef modify_list(lst):\n    lst.append(4)  # Modifies the original list\n  \nmy_list = [1, 2, 3]\nmodify_list(my_list)\nprint(my_list)  # Output: [1, 2, 3, 4]",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "How do you handle exceptions in Python?",
+      "answer": "In Python, exceptions are handled using try-except blocks. Code that may raise an exception is placed in the try block, and the except block catches and handles the exception. Optionally, finally can be used to execute code regardless of whether an exception occurred.\n\npython\n\nCopy code\n\ntry:\n    # Code that may raise an exception\nexcept SomeException as e:\n    # Handle the exception\nfinally:\n    # Code that runs regardless of an exception",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "Explain the pass statement in Python.",
+      "answer": "The pass statement in Python is a null operation; it is used as a placeholder in code blocks where a statement is syntactically required but no action is needed. It allows the code to run without errors.\n\npython\n\nCopy code\n\ndef placeholder_function():\n    pass",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "What is a break and continue in Python?",
+      "answer": "break: Used to exit a loop (for or while) immediately, skipping the remainder of the loop's body and any else block associated with the loop.\ncontinue: Skips the rest of the current loop iteration and moves directly to the next iteration, without exiting the loop.\n\npython\n\nCopy code\n\nfor i in range(10):\n    if i == 5:\n        break  # Exit loop when i is 5\n    if i % 2 == 0:\n        continue  # Skip even numbers\n    print(i)  # This will print odd numbers less than 5",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Junior",
+      "title": "How do you open and read a file in Python?",
+      "answer": "In Python, you can open and read a file using the open function and the read method.\nHere's an example:\n\npython\n\nCopy code\n\nwith open('filename.txt', 'r') as file:\n    content = file.read()\nThis opens the file in read mode ('r'), reads its content, and automatically closes the file when done.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Junior",
+      "title": "What is a docstring in Python, and why is it useful?",
+      "answer": "A docstring in Python is a string literal used to document a module, class, function, or method. It is enclosed in triple quotes and placed immediately after the definition.\nDocstrings are useful because they provide a convenient way to include documentation that can be accessed programmatically via the __doc__ attribute or with tools like help().\n\npython\n\nCopy code\n\ndef example():\n    \"\"\"This is a docstring explaining the function.\"\"\"",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Junior",
+      "title": "Explain the difference between == and is in Python.",
+      "answer": "In Python, == checks for value equality, meaning it checks if the values of two objects are equal. is checks for identity equality, meaning it checks if two objects refer to the same memory location.\n\npython\n\nCopy code\n\na = [1, 2, 3]\nb = [1, 2, 3]\nc = a\n  \na == b  # True (values are equal)\na is b  # False (different objects)\na is c  # True (same object)",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Junior",
+      "title": "What are negative indexes in Python?",
+      "answer": "Negative indexes in Python are used to access elements from the end of a sequence, such as a list or string. The index -1 refers to the last element, -2 to the second last, and so on.\n\npython\n\nCopy code\n\nmy_list = [10, 20, 30, 40]\nprint(my_list[-1])  # Output: 40\nprint(my_list[-2])  # Output: 30",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "What is scope in Python?",
+      "answer": "In Python, scope refers to the region of a program where a namespace is directly accessible. There are four levels of scope:\nLocal scope: Variables defined within a function.\nEnclosing scope: Variables in the local scope of enclosing functions, relevant in nested functions.\nGlobal scope: Variables defined at the top level of a module or declared global in a def within the file.\nBuilt-in scope: Names preassigned in the built-in names module (like open, range).\nPython follows the LEGB rule (Local, Enclosing, Global, Built-in) to resolve names when they are used.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "Explain the use of the map() function in Python.",
+      "answer": "The map() function in Python applies a given function to each item in an iterable (like a list) and returns an iterator with the results.\n\npython\n\nCopy code\n\ndef square(x):\n    return x * 2\n  \nnumbers = [1, 2, 3, 4]\nresult = map(square, numbers)\nprint(list(result))  # Output: [2, 4, 6, 8]",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is the purpose of the __init__ method in a Python class?",
+      "answer": "The __init__ method in a Python class is the constructor used to initialize an object's attributes when an instance of the class is created.\n\npython\n\nCopy code\n\nclass MyClass:\n    def __init__(self, value):\n        self.value = value\n  \nobj = MyClass(10)\nprint(obj.value)  # Output: 10",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "Explain list comprehensions in Python.",
+      "answer": "List comprehensions in Python provide a concise way to create lists using a single line of code. They consist of brackets containing an expression followed by a for loop.\n\npython\n\nCopy code\n\nsquares = [x**2 for x in range(5)]\nprint(squares)  # Output: [0, 1, 4, 9, 16]",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "What is dictionary comprehension?",
+      "answer": "Dictionary comprehension in Python is a concise way to create dictionaries using an iterable in a single readable line. It follows the format {key: value for vars in iterable}, potentially including conditionals.\nThis method offers a faster, more readable alternative to populating a dictionary through loop statements.\n\npython\n\nCopy code\n\n# Create a dictionary where keys are numbers and values are their squares\nsquares = {x: x*x for x in range(6)}\nprint(squares)  # Output: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "Explain the difference between deep copy and shallow copy in Python.",
+      "answer": "In Python, a shallow copy creates a new object but inserts references to the original objects in the collection.\nA deep copy creates a new object and recursively copies all objects found in the original, producing a completely independent clone.\n\npython\n\nCopy code\n\nimport copy\n  \noriginal = [1, [2, 3], 4]\nshallow = copy.copy(original)\ndeep = copy.deepcopy(original)\n  \noriginal[1][0] = 'changed'\n  \nprint(shallow)  # Output: [1, ['changed', 3], 4] (references original inner list)\nprint(deep)     # Output: [1, [2, 3], 4] (independent copy)",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What is the difference between Arrays and lists in Python?",
+      "answer": "Lists: Dynamic arrays that can store elements of different data types. They are part of Python's standard data types and provide methods for common operations like appending, sorting, and reversing. Lists are versatile and can be used as stacks or queues.\n\npython\n\nCopy code\n\nmy_list = [1, 'hello', 3.14]\n\nArrays: Provided by the array module, they store data more compactly and restrict to a single data type. This makes them more efficient for large arrays of numeric data where performance is a concern. Arrays are less flexible than lists but better for numerical data manipulation.\n\npython\n\nCopy code\n\nfrom array import array\nmy_array = array('i', [1, 2, 3, 4])  # Array of integers",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "What is the Global Interpreter Lock (GIL) in Python?",
+      "answer": "The Global Interpreter Lock (GIL) in Python is a mutex that allows only one thread to execute Python bytecode at a time, preventing concurrent execution in multi-threaded programs.\nIt simplifies memory management but can be a bottleneck in CPU-bound multi-threaded applications.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What is the difference between __str__ and __repr__ methods in Python?",
+      "answer": "In Python, the __str__ method returns a human-readable string representation of an object, while the __repr__ method returns an unambiguous string representation intended for developers. __str__ is used by print() and str(), whereas __repr__ is used by repr() and in the interactive interpreter.\n\npython\n\nCopy code\n\nclass MyClass:\n    def __str__(self):\n        return \"Human-readable\"\n  \n    def __repr__(self):\n        return \"Developer-readable\"\n  \nobj = MyClass()\nprint(obj)         # Output: Human-readable\nprint(repr(obj))   # Output: Developer-readable",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "What is the difference between range & xrange?",
+      "answer": "In Python 2, range generates a list containing numbers which it returns all at once, while xrange returns an iterator that generates numbers on-the-fly, which is more memory efficient for large ranges.\nIn Python 3, xrange was removed and range now behaves like xrange did in Python 2, providing a memory-efficient iterator.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "What is a lambda function in Python?",
+      "answer": "A lambda function in Python is an anonymous, inline function defined with the lambda keyword. It can have any number of arguments but only one expression. It is often used for short, throwaway functions.\n\npython\n\nCopy code\n\nsquare = lambda x: x**2\nprint(square(5))  # Output: 25",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "What is PYTHONPATH?",
+      "answer": "PYTHONPATH is an environment variable in Python that specifies a list of directories where the Python interpreter should look for modules to import, besides the default locations. It is used to extend the search path for modules, allowing users to import modules from custom locations.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "What's the difference between sort() and sorted() in Python?",
+      "answer": "sort(): A method that modifies the list it is called on in-place (i.e., it sorts the list directly and does not return anything).\nsorted(): A built-in function that creates a new list containing a sorted version of the elements passed to it and returns the new sorted list, leaving the original iterable unchanged.\n\npython\n\nCopy code\n\nmy_list = [3, 1, 4, 1, 5]\nsorted_list = sorted(my_list)  # Returns a new sorted list\nprint(sorted_list)  # Output: [1, 1, 3, 4, 5]\nprint(my_list)      # Original list remains unchanged: [3, 1, 4, 1, 5]\n  \nmy_list.sort()  # Sorts in-place\nprint(my_list)  # Output: [1, 1, 3, 4, 5]  # Original list is modified",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "What is a module in Python?",
+      "answer": "A module in Python is a file containing Python code, such as definitions and statements, which can be imported and used in other Python programs. Modules help organize and reuse code.\n\npython\n\nCopy code\n\n# my_module.py\ndef greet():\n    return \"Hello, world!\"\n  \n# main.py\nimport my_module\nprint(my_module.greet())  # Output: Hello, world!",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "What is a namespace in Python?",
+      "answer": "In Python, a namespace is a mapping where names (e.g., variable names, function names) are associated with objects. It helps in avoiding naming conflicts and allows Python to manage different identifiers across programs and libraries effectively.\nNamespaces are created at different scopes, such as local (within functions), global (within modules), and built-in (names built into Python).",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is the difference between a module and a package in python?",
+      "answer": "In Python, a module is a single file containing Python code that can include functions, classes, and variables.\nA package, on the other hand, is a directory containing one or more modules along with an __init__.py file, indicating that the directory is a Python package. This allows the organization of multiple modules into a single, hierarchical structure for easier management and access.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "What are Python libraries? Name some of them.",
+      "answer": "Python libraries are collections of pre-written code that users can include in their projects to handle common tasks without needing to write code from scratch. Libraries in Python can include modules, packages, functions, and classes which are used to enhance programming productivity by providing reliable and optimized solutions.\nSome popular Python libraries include:\nNumPy: Provides support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions.\nPandas: Offers data manipulation and analysis tools, particularly for working with structured data like tables.\nMatplotlib: A plotting library for creating static, interactive, and animated visualizations in Python.\nScikit-learn: Features various algorithms for machine learning and statistical modeling including classification, regression, clustering, and dimensionality reduction.\nTensorFlow: An end-to-end open-source platform for machine learning developed by Google, designed to work with deep learning models.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "What is a closure in Python?",
+      "answer": "A closure in Python refers to a nested function that remembers the values of the variables in its enclosing scope even if they are no longer present in memory.\nClosures allow the inner function to access those captured variables through a well-defined mechanism that keeps the variables alive.\n\npython\n\nCopy code\n\ndef outer_func(x):\n    def inner_func(y):\n        return x + y\n    return inner_func\n  \nclosure = outer_func(10)\nprint(closure(5))  # Output: 15",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What is enumerate() in Python?",
+      "answer": "In Python, enumerate() is a built-in function that takes an iterable (like a list or tuple) and returns an iterator that produces pairs of indexes and values from the iterable. This is useful for looping over something and having an automatic counter. It simplifies the process of obtaining both the index and the value simultaneously during loops.\n\npython\n\nCopy code\n\nnames = ['Alice', 'Bob', 'Charlie']\nfor index, name in enumerate(names):\n    print(index, name)\n  \n0 Alice\n1 Bob\n2 Charlie",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "Explain how to remove any element from a list efficiently?",
+      "answer": "remove(value): Removes the first occurrence of the specified value. Raises a ValueError if the value is not found.\n\npython\n\nCopy code\n\nmy_list = [1, 2, 3, 2, 4]\nmy_list.remove(2)  # Removes the first 2\nprint(my_list)  # Output: [1, 3, 2, 4]\npop(index): Removes the element at the specified index and returns it. If no index is specified, it removes and returns the last item.\n\npython\n\nCopy code\n\nmy_list = [1, 2, 3, 4]\nmy_list.pop(1)  # Removes and returns the element at index 1 (2)\nprint(my_list)  # Output: [1, 3, 4]\nBoth methods modify the list in place and are efficient for direct index or value operations. However, if removing by value and the value is not at the beginning of the list, remove() may not be as efficient since it must search through the list.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "What is the difference between del and remove on lists?",
+      "answer": "del: A Python keyword used to delete objects. When used on lists, it can remove slices or a specific element at a given index. The del statement does not return any value.\nremove(): A method of the list class that removes the first occurrence of a specific value from the list. If the value is not found, it raises a ValueError. remove() also does not return any value; it modifies the list in place.\n\npython\n\nCopy code\n\nmy_list = [1, 2, 3, 2, 4]\n  \n# Using del to remove element at index 2\ndel my_list[2]\nprint(my_list)  # Output: [1, 2, 2, 4]\n  \n# Using remove to remove the first occurrence of 2\nmy_list.remove(2)\nprint(my_list)  # Output: [1, 2, 4]",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "Does removing the first item from a Python list take the same amount of time as removing the last item?",
+      "answer": "No, removing the first item and the last item from a Python list do not take the same amount of time. Removing the last item from a list is faster because it can be done in constant time O(1) using the pop() method without any arguments.\nIn contrast, removing the first item is slower, typically taking linear time O(n), because it requires shifting all the subsequent elements in the list one position to the left to fill the gap.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Mid",
+      "title": "How to add values to a python list?",
+      "answer": "In Python, you can add values to a list using the append() method to add a single element at the end of the list or extend() to add multiple elements from another iterable.\n\npython\n\nCopy code\n\nmy_list = [1, 2, 3]\n  \n# Add a single element\nmy_list.append(4)  # my_list is now [1, 2, 3, 4]\n  \n# Add multiple elements\nmy_list.extend([5, 6, 7])  # my_list is now [1, 2, 3, 4, 5, 6, 7]",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Mid",
+      "title": "How can you insert an element into a specific position in a list?",
+      "answer": "Use insert() method to add a value at a specific position in the list:\n\npython\n\nCopy code\n\nmy_list = [1,2,3]\nmy_list.insert(0, 0)  # Inserts 0 at the index 0\nprint(my_list) # [0, 1, 2, 3]",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Mid",
+      "title": "What is a decorator in Python, and how is it used?",
+      "answer": "In Python, a decorator is a design pattern that allows you to modify the behavior of a function or class. Decorators are implemented as functions (or sometimes classes) that take a function or method as an argument and return a modified function or method.\nThey provide a powerful way to wrap additional functionality around the original object without modifying its structure. Decorators are commonly used for logging, access control, memoization, and other cross-cutting concerns.\n\npython\n\nCopy code\n\ndef my_decorator(func):\n    def wrapper():\n        print(\"Something is happening before the function is called.\")\n        func()\n        print(\"Something is happening after the function is called.\")\n    return wrapper\n    \n@my_decorator\ndef say_hello():\n    print(\"Hello!\")\n    \nsay_hello()\n  \n# Output\n# Something is happening before the function is called.\n# Hello!\n# Something is happening after the function is called.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Mid",
+      "title": "What are Iterators in Python?",
+      "answer": "In Python, iterators are objects that implement the iterator protocol, which consists of the methods __iter__() and __next__(). They allow you to iterate over iterable objects like lists, tuples, and dictionaries by repeatedly calling __next__() to retrieve the next item, until a StopIteration exception is raised to signal the end of the iteration.\n\npython\n\nCopy code\n\nmy_list = [1, 2, 3]\niterator = iter(my_list)  # Obtain an iterator\nprint(next(iterator))  # Output: 1\nprint(next(iterator))  # Output: 2\nprint(next(iterator))  # Output: 3",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Mid",
+      "title": "Explain split() and join() functions in Python?",
+      "answer": "split() is a string method used to divide a string into a list of substrings based on a specified delimiter. If no delimiter is specified, it defaults to splitting on whitespace.\njoin() is a string method used to concatenate the elements of an iterable (like a list of strings) into a single string, with a specified string as the separator.\n\npython\n\nCopy code\n\ntext = \"hello world\"\n# Split the text on space\nwords = text.split()  # Output: ['hello', 'world']\n  \n# Join words into a string with a hyphen as separator\nhyphenated = \"-\".join(words)  # Output: \"hello-world\"",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Mid",
+      "title": "What is the Python with statement used for?",
+      "answer": "The Python with statement is designed for wrapping the execution of block operations within context managers. Its primary purpose is to ensure that necessary cleanup operations, such as releasing resources like file handles or network connections, are performed automatically upon exiting the block.\nThis helps to avoid common pitfalls like leaving files open or connections undealt with due to errors or exceptions. It simplifies the management of resources by abstracting the common setup and teardown tasks into a single, concise syntax.\n\npython\n\nCopy code\n\nwith open('file.txt', 'r') as file:\n    content = file.read()\n# The file is automatically closed after this block, even if an exception occurs.",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Mid",
+      "title": "What is main function in Python?",
+      "answer": "In Python, the main function is typically defined as the entry point of a program, similar to the main function in many other programming languages. However, Python doesn't inherently require a main function; it is a convention that programmers often follow.\nTo define and invoke the main function, you usually wrap its call within a condition that checks if the script is running as the main program or being imported as a module. This is done using if __name__ == '__main__':, which ensures the main function runs only when the script is executed directly, not when imported.\n\npython\n\nCopy code\n\ndef main():\n    print(\"Hello, World!\")\n  \nif __name__ == '__main__':\n    main()",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Mid",
+      "title": "How can files be deleted in Python?",
+      "answer": "In Python, files can be deleted using the os.remove() function from the os module. This function takes the path of the file as an argument and deletes the file at that path. If the file does not exist, it raises a FileNotFoundError.\n\npython\n\nCopy code\n\nimport os\n  \n# Path to the file\nfile_path = 'example.txt'\n  \n# Delete the file\nos.remove(file_path)",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Mid",
+      "title": "What is the purpose of the *args and **kwargs in Python function definitions?",
+      "answer": "In Python, *args and **kwargs are used in function definitions to handle variable numbers of arguments. *args allows a function to accept any number of positional arguments as a tuple, while **kwargs allows it to accept any number of keyword arguments as a dictionary.\nThis makes functions more flexible in terms of the arguments they can handle.\n\npython\n\nCopy code\n\ndef function_example(*args, **kwargs):\n    print(\"Args:\", args)\n    print(\"Kwargs:\", kwargs)\n  \nfunction_example(1, 2, key1='value1', key2='value2')\n# Output: Args: (1, 2)\n#         Kwargs: {'key1': 'value1', 'key2': 'value2'}",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Mid",
+      "title": "What is the difference between / and // in Python?",
+      "answer": "/ is the division operator that performs floating-point division, returning a float even if both operands are integers.\n// is the floor division operator that performs division and then floors the result to the nearest lower integer.\n\npython\n\nCopy code\n\nprint(8 / 3)  # Output: 2.6666666666666665\nprint(8 // 3) # Output: 2",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Mid",
+      "title": "Name some debugging techniques in Python.",
+      "answer": "To debug a Python program, you can use several techniques:\nPrint Statements: Insert print statements to display values of variables at different points in the program.\nLogging: Use Python’s built-in logging module to log information, which is more flexible and robust than print statements.\nInteractive Debugger: Use the pdb module (Python Debugger), which provides features like breakpoints, stepping through code, and inspecting values.\nIDE Debuggers: Use integrated development environment (IDE) features, such as breakpoints, step execution, and variable inspection (e.g., in PyCharm, Visual Studio Code).\nExample using pdb:\n\npython\n\nCopy code\n\nimport pdb\n  \n# Example function\ndef divide(a, b):\n    pdb.set_trace()\n    return a / b\n  \n# Call the function\nprint(divide(4, 2))",
+      "isPremium": false
+    },
+    {
+      "id": 49,
+      "level": "Mid",
+      "title": "What are unit tests in Python?",
+      "answer": "Unit tests in Python are small tests that check the correctness of a specific section of code, typically a function or method, in isolation. They help ensure that individual parts of a program work as expected.\nPython’s built-in unittest framework allows developers to use classes and methods to write, organize, and run these tests.\n\npython\n\nCopy code\n\nimport unittest\n  \nclass TestMathOperations(unittest.TestCase):\n    def test_addition(self):\n        self.assertEqual(1 + 1, 2)\n  \nif __name__ == '__main__':\n    unittest.main()",
+      "isPremium": false
+    },
+    {
+      "id": 50,
+      "level": "Mid",
+      "title": "What is PIP?",
+      "answer": "PIP (Pip Installs Packages) is the package manager for Python, used to install and manage software packages written in Python. It connects to the Python Package Index (PyPI) to download and install packages, allowing for easy management of libraries and dependencies.\nPIP can also be used to upgrade, configure, and uninstall Python packages.",
+      "isPremium": false
+    },
+    {
+      "id": 51,
+      "level": "Mid",
+      "title": "Explain the logical operations in Python.",
+      "answer": "In Python, logical operations are used to combine conditional statements and return Boolean values:\nand: Returns True if both operands are true; otherwise, it returns False.\nor: Returns True if at least one of the operands is true; otherwise, it returns False.\nnot: Returns True if the operand is false, and False if the operand is true.\n\npython\n\nCopy code\n\nx = 10\ny = 20\n  \nprint(x > 5 and y < 25)  # Output: True\nprint(x > 15 or y < 25)  # Output: True\nprint(not x > 15)        # Output: True",
+      "isPremium": false
+    },
+    {
+      "id": 52,
+      "level": "Mid",
+      "title": "What is pickling and unpickling?",
+      "answer": "Pickling is the process of converting a Python object into a byte stream to save it to a file or transmit it over a network.\nUnpickling is the reverse process, where the byte stream is converted back into a Python object.\nThis is done using the pickle module in Python, which provides methods like pickle.dump() for pickling and pickle.load() for unpickling.\n\npython\n\nCopy code\n\nimport pickle\n  \n# Pickling\nobj = {'key': 'value'}\nwith open('file.pkl', 'wb') as f:\n    pickle.dump(obj, f)\n  \n# Unpickling\nwith open('file.pkl', 'rb') as f:\n    loaded_obj = pickle.load(f)\nprint(loaded_obj)  # Output: {'key': 'value'}",
+      "isPremium": false
+    },
+    {
+      "id": 53,
+      "level": "Mid",
+      "title": "What is a context manager in Python?",
+      "answer": "A context manager in Python is a construct that provides a way to allocate and release resources precisely when you want to. T\nhe most common way to implement a context manager is through the use of the with statement, which ensures that resources are properly cleaned up after use.\nContext managers are typically used for managing file I/O, locking and unlocking resources, and managing database connections.\n\npython\n\nCopy code\n\nwith open('file.txt', 'r') as file:\n    content = file.read()\n# The file is automatically closed outside of the with block.",
+      "isPremium": false
+    },
+    {
+      "id": 54,
+      "level": "Mid",
+      "title": "What are some of the differences between Lists and Tuples?",
+      "answer": "Mutability: Lists are mutable, meaning their elements can be modified after creation. Tuples are immutable; once created, their contents cannot be changed.\nSyntax: Lists are defined using square brackets [], while tuples are defined using parentheses ().\nPerformance: Tuples are generally faster than lists due to their immutability, which also makes them safer for read-only data.\nUsage: Lists are typically used for data that requires frequent modification, while tuples are preferred for fixed data sequences and can be used as keys in dictionaries due to their hashability.",
+      "isPremium": false
+    },
+    {
+      "id": 55,
+      "level": "Mid",
+      "title": "What is the difference between a Set and Dictionary?",
+      "answer": "Set: A collection that is unordered, mutable, and indexed by the elements themselves. Sets are used to store unique values and support operations like union, intersection, and difference.\n\npython\n\nCopy code\n\nmy_set = {1, 2, 3}\n\nDictionary: A collection that is unordered but indexed by unique keys and can store a corresponding value with each key. Dictionaries are mutable and are used for fast lookups, data storage, and managing relationships.\n\npython\n\nCopy code\n\nmy_dict = {'a': 1, 'b': 2, 'c': 3}",
+      "isPremium": false
+    },
+    {
+      "id": 56,
+      "level": "Mid",
+      "title": "What’s the difference between a Set and a Frozenset?",
+      "answer": "set is a mutable collection that allows you to add and remove elements after its creation.\nfrozenset is an immutable version of a set. Once created, it cannot be modified, which makes it hashable and suitable for use as keys in dictionaries or elements of other sets.\n\npython\n\nCopy code\n\ns = set([1, 2, 3])\ns.add(4)  # Modifies the set\n  \nf = frozenset([1, 2, 3])\n# f.add(4)  # Throws an AttributeError, as frozensets cannot be modified",
+      "isPremium": false
+    },
+    {
+      "id": 57,
+      "level": "Mid",
+      "title": "How can the ternary operators be used in Python?",
+      "answer": "In Python, the ternary operator allows for a concise expression of conditional logic. It's used to assign a value based on a condition in a single line. The syntax is:\n\npython\n\nCopy code\n\n# value_if_true if condition else value_if_false\n  \nx = 5\ny = 10\nresult = \"x is greater\" if x > y else \"y is greater\"\nprint(result)  # Output: \"y is greater\"",
+      "isPremium": false
+    },
+    {
+      "id": 58,
+      "level": "Mid",
+      "title": "What is the difference between return and yield keywords?",
+      "answer": "return: Used in functions to return a value back to the caller and terminate the function. Once a function executes a return statement, the function is exited and no further code in the function is executed.\nyield: Used in a function to convert it into a generator. Instead of terminating the function, yield provides a value to the code looping over the generator and pauses the function's state. It resumes execution from where it left off on subsequent calls.\n\npython\n\nCopy code\n\ndef return_example():\n    return 1\n    return 2  # This line will never be executed\n  \ndef yield_example():\n    yield 1\n    yield 2  # This line will be executed on the second call to next()\n  \n# Using return\nr = return_example()\nprint(r)  # Output: 1\n  \n# Using yield\ny = yield_example()\nprint(next(y))  # Output: 1\nprint(next(y))  # Output: 2",
+      "isPremium": false
+    },
+    {
+      "id": 59,
+      "level": "Mid",
+      "title": "What is a zip function?",
+      "answer": "The zip function in Python takes multiple iterables (like lists or tuples) and aggregates them into a single iterable of tuples, where each tuple contains elements from all the iterables at the same position. This function is useful for combining data elements together. The length of the resulting iterable is determined by the shortest input iterable.\n\npython\n\nCopy code\n\nnames = ['Alice', 'Bob', 'Charlie']\nscores = [85, 90, 95]\n  \nresult = zip(names, scores)\nprint(list(result))  # Output: [('Alice', 85), ('Bob', 90), ('Charlie', 95)]",
+      "isPremium": false
+    },
+    {
+      "id": 60,
+      "level": "Mid",
+      "title": "What is self in Python?",
+      "answer": "In Python, self refers to the instance of the class. It is used in instance methods to access variables and methods associated with the current object.\nself is not a keyword but a convention in Python class methods, acting similarly to this in other object-oriented languages.\n\npython\n\nCopy code\n\nclass MyClass:\n    def __init__(self, name):\n        self.name = name  # 'self' refers to the instance\n  \n    def greet(self):\n        return f\"Hello, {self.name}!\"\n  \nobj = MyClass(\"Alice\")\nprint(obj.greet())  # Output: Hello, Alice!",
+      "isPremium": false
+    },
+    {
+      "id": 61,
+      "level": "Mid",
+      "title": "What are access specifiers in Python?",
+      "answer": "Python doesn't have formal access specifiers like private, protected, or public found in languages like Java or C++. Instead, Python follows a convention:\nPublic: All member variables and methods are public by default, accessible from outside the class.\nProtected: By convention, names prefixed with a single underscore _ are treated as \"protected\" and are meant to be used only within the class and its subclasses.\nPrivate: Names prefixed with two underscores __ are name-mangled to incorporate the class name, making them harder (but not impossible) to access from outside the class.\n\npython\n\nCopy code\n\nclass MyClass:\n    def __init__(self):\n        self.public = \"Public\"\n        self._protected = \"Protected\"\n        self.__private = \"Private\"\n  \nobj = MyClass()\nprint(obj.public)       # Accessible\nprint(obj._protected)   # Accessible, but should be treated as protected\nprint(obj._MyClass__private)  # Accessible through name-mangling",
+      "isPremium": false
+    },
+    {
+      "id": 62,
+      "level": "Mid",
+      "title": "How is data abstraction achieved in Python?",
+      "answer": "Data abstraction in Python is achieved through the use of classes, where complex details are hidden behind class methods and attributes that provide a simpler interface.\nPython also supports the creation of abstract base classes (ABCs) using the abc module, which allows you to define methods that must be created within any child classes implemented from the abstract class. This enforces an interface and ensures a certain level of abstraction in the class design.",
+      "isPremium": false
+    },
+    {
+      "id": 63,
+      "level": "Mid",
+      "title": "What is encapsulation in Python?",
+      "answer": "Encapsulation in Python is the bundling of data (variables) and methods (functions) that operate on the data into a single unit, or class, with the aim of restricting direct access to some of the object’s components. This is typically done by using private variables and methods, which are achieved by prefixing names with double underscores (__).\nEncapsulation helps in preventing accidental modification of data, an aspect of the broader object-oriented programming principle of data hiding.\n\npython\n\nCopy code\n\nclass Car:\n    def __init__(self, make):\n        self.__make = make  # Private attribute\n  \n    def reveal_make(self):\n        return self.__make  # Public method to access private attribute\n  \nmy_car = Car(\"Toyota\")\nprint(my_car.reveal_make())  # Output: Toyota\n# print(my_car.__make)  # This will fail with an AttributeError",
+      "isPremium": false
+    },
+    {
+      "id": 64,
+      "level": "Mid",
+      "title": "What is polymorphism in Python?",
+      "answer": "Polymorphism in Python refers to the ability of different object types to be accessed through the same interface, particularly where methods have the same name but may perform different tasks.\nThis can be achieved through method overriding in subclasses or by having different classes that are not related through inheritance but share the same method names. Polymorphism allows functions to use objects of different types at different times, depending on the object type.\n\npython\n\nCopy code\n\nclass Dog:\n    def sound(self):\n        return \"Bark!\"\n  \nclass Cat:\n    def sound(self):\n        return \"Meow!\"\n  \ndef animal_sound(animal):\n    print(animal.sound())\n  \ndog = Dog()\ncat = Cat()\n  \nanimal_sound(dog)  # Output: Bark!\nanimal_sound(cat)  # Output: Meow!",
+      "isPremium": false
+    },
+    {
+      "id": 65,
+      "level": "Mid",
+      "title": "What is inheritance in Python?",
+      "answer": "Inheritance in Python is a mechanism that allows one class (known as a child or derived class) to inherit attributes and methods from another class (known as a parent or base class). This promotes code reuse and allows the child class to override or extend the functionality of the parent class.\nExample:\n\npython\n\nCopy code\n\nclass Animal:  # Base class\n    def speak(self):\n        return \"This is an animal speaking\"\n  \nclass Dog(Animal):  # Derived class\n    def speak(self):\n        return \"Bark!\"\n  \n# Usage\ndog = Dog()\nprint(dog.speak())  # Output: Bark!\nIn this example, the Dog class inherits from the Animal class. The Dog class overrides the speak method to provide specific behavior for a dog, demonstrating how inheritance allows for modifying or extending class behavior.",
+      "isPremium": false
+    },
+    {
+      "id": 66,
+      "level": "Mid",
+      "title": "Does Python support multiple inheritance?",
+      "answer": "Yes, Python supports multiple inheritance, allowing a class to inherit from more than one parent class. This feature enables a derived class to combine and extend the attributes and methods of multiple base classes.\nExample:\n\npython\n\nCopy code\n\nclass Base1:\n    def method1(self):\n        return 'Base1 method'\n  \nclass Base2:\n    def method2(self):\n        return 'Base2 method'\n  \nclass Derived(Base1, Base2):\n    pass\n  \nobj = Derived()\nprint(obj.method1())  # Output: Base1 method\nprint(obj.method2())  # Output: Base2 method\nIn this example, the Derived class inherits methods from both Base1 and Base2, demonstrating multiple inheritance.",
+      "isPremium": false
+    },
+    {
+      "id": 67,
+      "level": "Mid",
+      "title": "How can you check if a class is a child of another class?",
+      "answer": "In Python, you can check if a class is a child (subclass) of another class using the issubclass() built-in function.\nThis function takes two arguments: the class to check and the parent class, returning True if the first class is indeed a subclass of the second.\n\npython\n\nCopy code\n\nclass Parent:\n    pass\n  \nclass Child(Parent):\n    pass\n  \n# Check if Child is a subclass of Parent\nprint(issubclass(Child, Parent))  # Output: True",
+      "isPremium": false
+    },
+    {
+      "id": 68,
+      "level": "Mid",
+      "title": "How do you access parent members in the child class?",
+      "answer": "In Python, you can access members of a parent class from a child class using the super() function, which returns a temporary object of the superclass, allowing you to call its methods. This approach is commonly used, especially in complex class hierarchies, to ensure that the parent class's methods are correctly called.\n\npython\n\nCopy code\n\nclass Parent:\n    def __init__(self, value):\n        self.value = value\n  \nclass Child(Parent):\n    def __init__(self, value, child_value):\n        super().__init__(value)  # Calling the parent class's __init__ method\n        self.child_value = child_value\n  \n# Usage\nchild_instance = Child(10, 20)\nprint(child_instance.value)  # Output: 10 from the parent class",
+      "isPremium": false
+    },
+    {
+      "id": 69,
+      "level": "Mid",
+      "title": "Is it possible to call parent class without its instance creation?",
+      "answer": "Yes, it is possible to call a method from a parent class without creating an instance of that class by using the parent class's name directly, provided that the method does not require any instance-specific data (i.e., it could be a static or class method).\nHere’s how you can do it:\n\npython\n\nCopy code\n\nclass Parent:\n    @staticmethod\n    def greet():\n        print(\"Hello from Parent\")\n  \nclass Child(Parent):\n    pass\n  \n# Calling parent class method without instance creation\nParent.greet()  # Output: Hello from Parent\nIn this example, Parent.greet() is a static method that does not depend on instance data, allowing it to be called on the class itself without an instance.",
+      "isPremium": false
+    },
+    {
+      "id": 70,
+      "level": "Senior",
+      "title": "Describe memory management in Python.",
+      "answer": "Python uses automatic memory management with a combination of reference counting and a garbage collector to manage memory. Here’s a concise breakdown:\nReference Counting: Python automatically keeps track of the number of references to an object in memory. When an object’s reference count drops to zero, Python frees that memory.\nGarbage Collection: To handle cyclic references (where two or more objects reference each other), Python includes a garbage collector that periodically detects and recycles these cycles, freeing up memory.\nMemory Pools: Python uses a system of memory pools for small objects, which avoids the overhead of frequent memory allocation and deallocation by reusing previously allocated memory.\nThese mechanisms work together to efficiently manage memory, ensuring that resources are allocated and cleaned up as needed, minimizing memory leaks and fragmentation.",
+      "isPremium": false
+    },
+    {
+      "id": 71,
+      "level": "Senior",
+      "title": "What are Eggs and Wheels in Python?",
+      "answer": "In Python, Eggs and Wheels are both packaging formats used for distributing Python libraries and applications:\nEggs: An older format that was used to distribute Python packages. It includes metadata and dependencies information, allowing dynamic discovery and easy distribution of Python code. Eggs are similar to JAR files in Java but have largely been superseded by Wheels.\nWheels: A more modern, binary package format introduced to overcome some limitations of Eggs. Wheels have the .whl file extension and are designed to be faster and easier to install compared to Eggs, as they do not require building or compilation, which reduces installation complexity.",
+      "isPremium": false
+    },
+    {
+      "id": 72,
+      "level": "Senior",
+      "title": "What is the Method Resolution Order in Python?",
+      "answer": "The Method Resolution Order (MRO) in Python is the order in which base classes are searched when executing a method. In Python, MRO follows the C3 linearization algorithm. This ensures a consistent order that respects the hierarchy and the declaration order of base classes in multiple inheritance scenarios.\nFor instance, given a class definition as class D(B, C):, Python will search methods in the order of D, B, C, and then any superclass of B and C, according to their linearization. This order can be viewed by accessing the __mro__ attribute of a class, which shows the resolution order as a tuple.\n\npython\n\nCopy code\n\nclass A:\n    pass\n  \nclass B(A):\n    pass\n  \nclass C(A):\n    pass\n  \nclass D(B, C):\n    pass\n  \nprint(D.__mro__)\n# Output: (<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>)",
+      "isPremium": false
+    },
+    {
+      "id": 73,
+      "level": "Senior",
+      "title": "What are generators in Python?",
+      "answer": "Generators in Python are a type of iterable that generate items on-the-fly during iteration, using less memory than storing all items at once.\nThey are created using either a function with a yield statement or a generator expression. Generators are useful for processing large data streams efficiently, as they yield one item at a time, only when requested, which allows for better memory management and faster execution in scenarios where you don't need all generated items immediately.\n\npython\n\nCopy code\n\ndef my_generator():\n    yield 1\n    yield 2\n    yield 3\n  \ngen = my_generator()\nfor item in gen:\n    print(item)\n  \n# Output\n# 1\n# 2\n# 3",
+      "isPremium": false
+    },
+    {
+      "id": 74,
+      "level": "Senior",
+      "title": "What is the difference between staticmethod, classmethod, and instance methods in Python?",
+      "answer": "Instance methods: Take self as the first parameter and can access instance attributes and methods. Defined normally in a class.\n\npython\n\nCopy code\n\nclass MyClass:\n    def instance_method(self):\n        return \"instance method\"\n\nClass methods: Take cls as the first parameter and can access class attributes and methods. Defined with the @classmethod decorator.\n\npython\n\nCopy code\n\nclass MyClass:\n    @classmethod\n    def class_method(cls):\n        return \"class method\"\nStatic methods: Do not take self or cls as the first parameter and cannot access instance or class attributes. Defined with the @staticmethod decorator.\n\npython\n\nCopy code\n\nclass MyClass:\n    @staticmethod\n    def static_method():\n        return \"static method\"",
+      "isPremium": false
+    },
+    {
+      "id": 75,
+      "level": "Senior",
+      "title": "What is a metaclass in Python?",
+      "answer": "A metaclass in Python is a class of a class that defines how a class behaves. It can be used to control the creation and behavior of classes and their instances.\nMetaclasses are defined by inheriting from type and can override methods like __new__ and __init__ to customize class creation.\n\npython\n\nCopy code\n\nclass Meta(type):\n    def __new__(cls, name, bases, dct):\n        # Custom behavior\n        return super().__new__(cls, name, bases, dct)\n  \nclass MyClass(metaclass=Meta):\n    pass",
+      "isPremium": false
+    },
+    {
+      "id": 76,
+      "level": "Senior",
+      "title": "What is monkey patching in Python?",
+      "answer": "Monkey patching in Python refers to the dynamic modification of a class or module at runtime, allowing for changes to behavior or properties without altering the source code. This practice is used to extend or modify third-party code or to fix bugs temporarily. However, it can lead to maintenance challenges if not used carefully.\n\npython\n\nCopy code\n\nimport some_module\n  \ndef new_function():\n    return \"New behavior\"\n  \n# Replace an existing function in some_module with new_function\nsome_module.existing_function = new_function",
+      "isPremium": false
+    },
+    {
+      "id": 77,
+      "level": "Senior",
+      "title": "What are function annotations in Python?",
+      "answer": "Function annotations in Python are a syntax introduced in Python 3.0 that allows for arbitrary expressions to be associated with various parts of functions. These expressions are evaluated at compile time and have no effect on the function at runtime unless accessed. Annotations are typically used for documentation, type checking, and other third-party uses.\nThey are defined using a colon after the parameter name, followed by the expression, and can also be added after the -> symbol to annotate the return value.\n\npython\n\nCopy code\n\ndef greet(name: str) -> str:\n    return f\"Hello, {name}\"\n  \n# Accessing annotations\nprint(greet.__annotations__)\n# Output: {'name': <class 'str'>, 'return': <class 'str'>}",
+      "isPremium": false
+    },
+    {
+      "id": 78,
+      "level": "Senior",
+      "title": "How is multithreading achieved in Python?",
+      "answer": "Multithreading in Python is achieved using the threading module, which allows multiple threads to run concurrently within a single Python process.\nHowever, due to the Global Interpreter Lock (GIL), Python threads are suitable for I/O-bound tasks but not for CPU-bound tasks where true parallelism is required. For CPU-bound tasks, the multiprocessing module is preferred because it bypasses the GIL by using separate memory spaces and processes.\nExample:\n\npython\n\nCopy code\n\nimport threading\n  \ndef task():\n    print(\"Thread is running\")\n  \n# Create a thread\nthread = threading.Thread(target=task)\nthread.start()\n  \n# Wait for the thread to complete\nthread.join()\nprint(\"Thread has completed\")\nThis example demonstrates creating and starting a simple thread to run a function concurrently with the main program.",
+      "isPremium": false
+    },
+    {
+      "id": 79,
+      "level": "Senior",
+      "title": "What is the process of compilation and linking in python?",
+      "answer": "In Python, the process of compilation and linking involves several steps:\nCompilation: Python source files (.py) are compiled by the Python interpreter into bytecode, which is a low-level, platform-independent representation of your source code. This compilation is done on-the-fly as Python is an interpreted language. The bytecode is stored in .pyc files within a __pycache__ directory.\nBytecode Execution: The Python bytecode (.pyc files) is executed by the Python Virtual Machine (PVM). This is an interpretive step where the PVM reads and executes the bytecode.\nLinking: In Python, \"linking\" refers to the dynamic loading of pre-compiled code, usually written in languages like C or C++, that can be used directly by Python programs. This is commonly seen with Python extensions that provide bindings to libraries written in these languages. The linking is handled by Python’s runtime environment and does not involve user intervention.\nPython's process differs from traditional compiled languages that require explicit compilation and linking phases before execution. The Python interpreter handles these steps automatically as part of its execution cycle.",
+      "isPremium": false
+    },
+    {
+      "id": 80,
+      "level": "Senior",
+      "title": "What is a callable object in Python?",
+      "answer": "In Python, a callable object is any object that can be called like a function, meaning it implements the __call__() method. This includes functions, methods, classes, as well as instances of classes that define a __call__() method. You can check if an object is callable by using the built-in callable() function.\n\npython\n\nCopy code\n\ndef my_function():\n    return \"Hello\"\n  \nclass MyClass:\n    def __call__(self):\n        return \"Instance called\"\n  \n# Both objects are callable\nprint(callable(my_function))  # Output: True\nprint(callable(MyClass()))    # Output: True",
+      "isPremium": false
+    },
+    {
+      "id": 81,
+      "level": "Senior",
+      "title": "Which is faster, Python lists or Numpy arrays?",
+      "answer": "Numpy arrays are generally faster than Python lists for numerical operations and data manipulation. This is because Numpy arrays are stored at one continuous place in memory unlike lists, allowing for more efficient access and manipulation.\nAdditionally, Numpy is optimized for mathematical operations and utilizes operations written in C and Fortran, which are faster than Python due to their lower-level and optimized nature. This makes Numpy arrays particularly well-suited for large data sets and matrix operations where performance is critical.",
+      "isPremium": false
+    },
+    {
+      "id": 82,
+      "level": "Senior",
+      "title": "How Python is interpreted?",
+      "answer": "Python is an interpreted language, which means that Python code is executed line-by-line by an interpreter. The standard Python interpreter, CPython, reads Python code, compiles it into bytecode (a lower-level, platform-independent representation), and then executes this bytecode in the Python Virtual Machine (PVM).\nThis process happens each time a Python script is run, which distinguishes it from compiled languages where code is pre-compiled into machine code that the computer's processor directly executes.\nThis interpreted nature allows for flexibility and ease of debugging but can result in slower execution compared to compiled languages.",
+      "isPremium": false
+    },
+    {
+      "id": 83,
+      "level": "Senior",
+      "title": "What is the difference between .py and .pyc files?",
+      "answer": ".py files: These are plain-text files containing Python source code written by developers. They are the original script files you write using any text editor.\n.pyc files: These are compiled Python files which contain the bytecode compiled from .py files. The Python interpreter compiles .py files into .pyc bytecode to speed up loading times on subsequent runs. The bytecode in .pyc files is platform-independent and executed by the Python virtual machine.",
+      "isPremium": false
+    },
+    {
+      "id": 84,
+      "level": "Senior",
+      "title": "When Python program exits, why isn’t all the memory de-allocated?",
+      "answer": "When Python exits, not all memory is de-allocated immediately by the Python interpreter due to objects that may have circular references, especially in complex structures like lists and dictionaries that reference each other. Python uses a garbage collector that, by default, handles circular references by periodically detecting and freeing them, but this process might not clear all such references before the program exits.\nMoreover, some memory allocations are managed by the underlying C libraries used by Python, which may not release memory back to the operating system until the process is completely terminated. This behavior ensures that the memory management is efficient during the runtime but can appear as if not all memory is de-allocated on exit.",
+      "isPremium": false
+    },
+    {
+      "id": 85,
+      "level": "Senior",
+      "title": "Why do floating-point calculations seem inaccurate in Python?",
+      "answer": "Floating-point inaccuracies in Python stem from the way computers represent these numbers. Floating-point numbers are stored in a binary format that cannot precisely represent all decimal values.\nThis is due to the IEEE-754 standard used for floating-point arithmetic, which leads to small rounding errors in calculations. For example, numbers like 0.1 cannot be represented exactly as a finite binary fraction, resulting in minor discrepancies during computations.\nTo address scenarios where precision is critical, such as financial calculations, you can use the decimal module in Python, which provides decimal data types for accurate decimal representation and arithmetic.",
+      "isPremium": false
+    }
+  ]
+}

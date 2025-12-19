@@ -34,7 +34,7 @@ export function mapSeniorityToDifficulty(
   const mapping: Record<SeniorityLevel, DifficultyLevel> = {
     entry: "entry",
     junior: "junior",
-    mid: "middle",
+    mid: "mid",
     senior: "senior",
   };
   return mapping[seniority];
@@ -222,7 +222,7 @@ function getPassingThreshold(difficulty: DifficultyLevel): number {
   const thresholds: Record<DifficultyLevel, number> = {
     entry: 0.6,
     junior: 0.65,
-    middle: 0.7,
+    mid: 0.7,
     senior: 0.75,
   };
   return thresholds[difficulty];
@@ -386,7 +386,7 @@ export async function getUserQuestionStats(_userId: string): Promise<{
     byDifficulty: {
       entry: { attempts: 0, averageScore: 0 },
       junior: { attempts: 0, averageScore: 0 },
-      middle: { attempts: 0, averageScore: 0 },
+      mid: { attempts: 0, averageScore: 0 },
       senior: { attempts: 0, averageScore: 0 },
     },
     byTopic: {},

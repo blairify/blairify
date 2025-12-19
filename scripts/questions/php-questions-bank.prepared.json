@@ -1,0 +1,2429 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "php-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "PHP, and how does it differ",
+      "description": "What is PHP, and how does it differ from other programming languages like JavaScript or Python?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is PHP, and how does it differ from other programming languages like JavaScript or Python?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-1-ref-1",
+          "text": "PHP is a server-side scripting language designed for web development. Unlike JavaScript (a client-side language) or Python (a general-purpose language), PHP is primarily used for server-side tasks like generating dynamic web content.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The differences between single-quoted strings (')",
+      "description": "Explain the differences between single-quoted strings (') and double-quoted strings (\") in PHP.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the differences between single-quoted strings (') and double-quoted strings (\") in PHP.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-2-ref-1",
+          "text": "Single-quoted strings are literal and don't interpret variables or escape sequences except for \\\\ and \\'. Double-quoted strings interpret variables and escape sequences like \\\\n or \\\\t.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the echo, print,",
+      "description": "What is the purpose of the echo, print, and printf statements in PHP? How are they different?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the echo, print, and printf statements in PHP? How are they different?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-3-ref-1",
+          "text": "Both echo and print are used to output text in PHP. However, echo can output multiple values separated by commas, while print can only output one value and returns 1 (always). printf is used for formatted output.\n\ntypescript\n\nCopy code\n\necho \"Hello, World!\";   // Outputs without return value\nprint \"Hello, World!\";  // Outputs with a return value (1)\nprintf(\"Value is %d\", 42);  // Outputs formatted text",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The use of the ternary operator",
+      "description": "Explain the use of the ternary operator (? :) in PHP?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the use of the ternary operator (? :) in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-4-ref-1",
+          "text": "The ternary operator is a shorthand way of writing an if-else statement. It allows you to assign a value based on a condition.\n\ntypescript\n\nCopy code\n\n$status = ($age >= 18) ? \"Adult\" : \"Minor\";",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of PHP's $_GET and",
+      "description": "What is the purpose of PHP's $_GET and $_POST superglobal variables?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's $_GET and $_POST superglobal variables?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-5-ref-1",
+          "text": "$_GET is used to collect form data after submitting an HTML form with the GET method, while $_POST is used with the POST method. GET appends data to the URL, while POST sends data in the HTTP request body.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the isset() and",
+      "description": "What is the purpose of the isset() and empty() functions in PHP?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the isset() and empty() functions in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-6-ref-1",
+          "text": "isset() is used to check if a variable is set and not null, while empty() is used to check if a variable is empty (contains no data) or evaluates to false.\n\ntypescript\n\nCopy code\n\n$var = \"\";\nisset($var);  // Returns true\nempty($var);  // Returns true",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "What PHP sessions are and how",
+      "description": "Explain what PHP sessions are and how they work. How do you start and destroy a session in PHP?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain what PHP sessions are and how they work. How do you start and destroy a session in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-7-ref-1",
+          "text": "PHP sessions allow you to store data on the server for a user across multiple web pages. To start a session, use session_start(). To destroy a session, use session_destroy().",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of PHP namespaces, and",
+      "description": "What is the purpose of PHP namespaces, and how do they prevent naming conflicts?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP namespaces, and how do they prevent naming conflicts?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-8-ref-1",
+          "text": "Namespaces are used to organize code and prevent naming conflicts.\n\ntypescript\n\nCopy code\n\n// Define a namespace\nnamespace MyNamespace;\n\n// Access a class within the namespace\n$obj = new MyClass();",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "SQL injection, and how can you",
+      "description": "What is SQL injection, and how can you prevent it in PHP?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is SQL injection, and how can you prevent it in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-9-ref-1",
+          "text": "SQL injection is a security vulnerability where an attacker inserts malicious SQL queries into user inputs. To prevent it, use prepared statements and parameterized queries with libraries like PDO or MySQLi.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of PHP's include and",
+      "description": "Explain the purpose of PHP's include and require statements. How do they differ, and when should you use one over the other?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the purpose of PHP's include and require statements. How do they differ, and when should you use one over the other?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-10-ref-1",
+          "text": "Both include and require are used to include external files in PHP. The main difference is that require will cause a fatal error if the file is not found, while include will only produce a warning. Use require when the file is essential and include when it's optional.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Object-Oriented Programming (OOP) in PHP, and",
+      "description": "What is Object-Oriented Programming (OOP) in PHP, and how does it differ from procedural programming?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is Object-Oriented Programming (OOP) in PHP, and how does it differ from procedural programming?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-11-ref-1",
+          "text": "OOP is a programming paradigm that focuses on creating objects with properties and methods. In PHP, classes define objects.\n\ntypescript\n\nCopy code\n\n$obj = new MyClass();\nclass Car {\n    public $brand;\n    public function startEngine() {\n      echo \"Engine started.\";\n    }\n}\n\n$myCar = new Car();\n$myCar->brand = \"Toyota\";\n$myCar->startEngine();",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between == and ===",
+      "description": "Explain the difference between == and === in PHP for comparing values.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the difference between == and === in PHP for comparing values.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-12-ref-1",
+          "text": "== is used for loose comparison and checks if two values are equal in value, whereas === is used for strict comparison and checks if two values are equal in both value and data type.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of PHP's foreach loop,",
+      "description": "What is the purpose of PHP's foreach loop, and how does it differ from other looping constructs like for and while?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's foreach loop, and how does it differ from other looping constructs like for and while?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-13-ref-1",
+          "text": "foreach is used for iterating over arrays or other iterable objects. It simplifies the process of looping through the elements of an array compared to for or while loops. Unlike for or while, foreach doesn't require explicit index management and automatically handles the iteration.\n\ntypescript\n\nCopy code\n\n$fruits = [\"apple\", \"banana\", \"cherry\"];\n  foreach ($fruits as $fruit) {\n    echo $fruit . \"<br>\";\n}",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A PHP trait, and how does",
+      "description": "What is a PHP trait, and how does it differ from a class?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is a PHP trait, and how does it differ from a class?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-14-ref-1",
+          "text": "A trait is a reusable code block that can be used by classes in PHP. Traits are similar to classes but cannot be instantiated on their own. They are used to share methods among multiple classes without multiple inheritance conflicts.\n\ntypescript\n\nCopy code\n\ntrait Loggable {\n    public function log($message) {\n        echo \"Logging: $message\";\n    }\n}class User {\n    use Loggable;\n}",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Autoloading in PHP, and why is",
+      "description": "What is autoloading in PHP, and why is it useful?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is autoloading in PHP, and why is it useful?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-15-ref-1",
+          "text": "Autoloading is a way to automatically load PHP classes as they are needed, without manually including each class file. It helps manage dependencies and simplifies code maintenance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "What the PHP spl_autoload_register() function is",
+      "description": "Explain what the PHP spl_autoload_register() function is used for.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain what the PHP spl_autoload_register() function is used for.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-16-ref-1",
+          "text": "spl_autoload_register() is used to register a custom function as an autoloader. Autoloaders automatically load class files when they are needed.\n\ntypescript\n\nCopy code\n\nfunction myAutoloader($class) {\n    include 'classes/' . $class . '.class.php';\n}\n\nspl_autoload_register('myAutoloader');",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "PHP Magic Methods",
+      "description": "What are PHP Magic Methods?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are PHP Magic Methods?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-17-ref-1",
+          "text": "Magic Methods in PHP are predefined methods that start with double underscores (e.g., __construct()). Some commonly used magic methods include:\n__construct() and __destruct(): Constructor and destructor methods.\n__get() and __set(): Called when accessing or setting properties.\n__toString(): Used to convert an object to a string when echoed.\n__call() and __callStatic(): Handles method calls that aren't defined.\n\ntypescript\n\nCopy code\n\nclass MyClass {\n    public function __construct() {\n      echo \"Object created!\";\n    }\n}\n\n$obj = new MyClass();  // Calls the constructor (__construct)",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Composer in PHP, and how does",
+      "description": "What is Composer in PHP, and how does it simplify dependency management?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is Composer in PHP, and how does it simplify dependency management?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-18-ref-1",
+          "text": "Composer is a PHP dependency management tool that simplifies the installation and management of third-party libraries and packages. It uses a composer.json file to define dependencies and versions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the PHP \"header\"",
+      "description": "What is the purpose of the PHP \"header\" function? Provide an example of how it can be used.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the PHP \"header\" function? Provide an example of how it can be used.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-19-ref-1",
+          "text": "The \"header\" function in PHP is used to send HTTP headers to the browser, often used for setting response codes and redirects.\n\ntypescript\n\nCopy code\n\nheader(\"Location: https://www.example.com\");\nexit();",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of cookies in PHP,",
+      "description": "Explain the concept of cookies in PHP, and provide an example of how to set and retrieve cookies in a PHP script.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept of cookies in PHP, and provide an example of how to set and retrieve cookies in a PHP script.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-20-ref-1",
+          "text": "Cookies are small pieces of data stored on the client's browser. They can be used to persist user-specific information across requests.\n\ntypescript\n\nCopy code\n\n// Setting a cookie\nsetcookie(\"username\", \"John\", time() + 3600, \"/\");\n\n// Retrieving a cookie\n$username = $_COOKIE[\"username\"];",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of PHP sessions and",
+      "description": "Explain the concept of PHP sessions and cookies.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept of PHP sessions and cookies.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-21-ref-1",
+          "text": "Sessions store data on the server, while cookies store data on the client's browser. Sessions are typically used for more sensitive data, while cookies are used for data that can be stored on the client side.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the PHP \"mysqli\"",
+      "description": "What is the purpose of the PHP \"mysqli\" extension, and how does it differ from the \"mysql\" extension?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the PHP \"mysqli\" extension, and how does it differ from the \"mysql\" extension?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-22-ref-1",
+          "text": "The \"mysqli\" extension in PHP is used for MySQL database interactions and offers improved security and functionality compared to the older \"mysql\" extension, which is deprecated.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the mysqli and",
+      "description": "What is the purpose of the mysqli and PDO extensions in PHP?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the mysqli and PDO extensions in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-23-ref-1",
+          "text": "Both mysqli and PDO are used for database access in PHP. mysqli is specific to MySQL databases, while PDO is a database abstraction layer that supports multiple database systems. You might choose mysqli for MySQL-specific applications and PDO for projects requiring database portability.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The use of the $_SERVER superglobal",
+      "description": "What is the use of the $_SERVER superglobal array in PHP?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the use of the $_SERVER superglobal array in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-24-ref-1",
+          "text": "$_SERVER is an array containing information about the server and the current request. Examples of key elements include $_SERVER['HTTP_USER_AGENT'] (user agent), $_SERVER['REQUEST_METHOD'] (request method), and $_SERVER['SERVER_NAME'] (server name).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the autoload feature",
+      "description": "What is the purpose of the autoload feature in PHP, and how can it be implemented?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the autoload feature in PHP, and how can it be implemented?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-25-ref-1",
+          "text": "The autoload feature in PHP is used to automatically load classes when they are needed, helping avoid manual require or include statements. It can be implemented using the spl_autoload_register function or by using an autoloading mechanism provided by a framework like Composer.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The use of the try, catch,",
+      "description": "Explain the use of the try, catch, and finally blocks in exception handling in PHP.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the use of the try, catch, and finally blocks in exception handling in PHP.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-26-ref-1",
+          "text": "Exception handling in PHP involves the use of try, catch, and optionally, finally blocks. try encloses the code that might throw an exception, catch is used to handle exceptions, and finally is executed regardless of whether an exception was thrown or not.\n\ntypescript\n\nCopy code\n\ntry {\n    // Code that may throw an exception    $result = 10 / 0;\n} catch (Exception $e) {\n    // Handle the exception    echo \"Error: \" . $e->getMessage();\n} finally {\n    // This block will be executed no matter what    echo \"Cleanup\";\n}",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of PHP's $_SESSION variable",
+      "description": "Explain the purpose of PHP's $_SESSION variable and how it can be used for session management.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the purpose of PHP's $_SESSION variable and how it can be used for session management.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-27-ref-1",
+          "text": "$_SESSION is a superglobal array used for session management in PHP. It allows you to store and retrieve user-specific data across multiple pages or requests. Sessions are often used for tasks like user authentication and maintaining user-specific states.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The term \"PSR standards\" in PHP",
+      "description": "Explain the term \"PSR standards\" in PHP development, and why are they important?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the term \"PSR standards\" in PHP development, and why are they important?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-28-ref-1",
+          "text": "PSR (PHP-FIG Standards Recommendation) standards are a set of coding standards and guidelines developed by the PHP Framework Interoperability Group (PHP-FIG). They are important for ensuring consistency and interoperability among PHP projects and libraries. Examples include PSR-1 (Basic Coding Standard) and PSR-4 (Autoloading Standard).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of PHP's serialize() and",
+      "description": "What is the purpose of PHP's serialize() and unserialize() functions?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's serialize() and unserialize() functions?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-29-ref-1",
+          "text": "serialize() is used to convert complex data structures (objects, arrays) into a string representation, which can be stored or transmitted.\nunserialize() is used to reverse the process and recreate the original data structure. These functions are commonly used for data storage and inter-process communication.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "PHP's cURL library used for, and",
+      "description": "What is PHP's cURL library used for, and how can it be utilized in PHP scripts?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is PHP's cURL library used for, and how can it be utilized in PHP scripts?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-30-ref-1",
+          "text": "cURL is a library for making HTTP requests from PHP. It can be used to interact with remote APIs, fetch data from URLs, and perform various network-related tasks. PHP provides a curl_* set of functions for working with cURL.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "PHP's json_encode() function used for",
+      "description": "What is PHP's json_encode() function used for?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is PHP's json_encode() function used for?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-31-ref-1",
+          "text": "json_encode() is used to convert a PHP data structure (arrays or objects) into a JSON-encoded string. It's commonly used for sending data to JavaScript clients.\n\ntypescript\n\nCopy code\n\n$data = array(\"name\" => \"John\", \"age\" => 30);\n$json = json_encode($data);",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "How to securely handle user authentication",
+      "description": "Explain how to securely handle user authentication and password storage in PHP applications.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain how to securely handle user authentication and password storage in PHP applications.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-32-ref-1",
+          "text": "To securely handle user authentication and password storage:\nUse password hashing functions like password_hash() to store passwords securely.\nNever store plain text passwords in databases.\nUse session management for user authentication.\nImplement proper access control and authorization mechanisms.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "What the Singleton design pattern is",
+      "description": "Explain what the Singleton design pattern is and provide an example of how it can be implemented in PHP.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain what the Singleton design pattern is and provide an example of how it can be implemented in PHP.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-33-ref-1",
+          "text": "The Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance.\n\ntypescript\n\nCopy code\n\nclass Singleton {\n    private static $instance;\n\n    private function __construct() {\n        // Private constructor to prevent instantiation    }\n\n    public static function getInstance() {\n        if (!self::$instance) {\n            self::$instance = new self();\n        }\n        return self::$instance;\n    }\n}",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of PHP's array_map() function,",
+      "description": "What is the purpose of PHP's array_map() function, and how is it used to manipulate arrays?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's array_map() function, and how is it used to manipulate arrays?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-34-ref-1",
+          "text": "array_map() is used to apply a callback function to all elements of one or more arrays, and it returns a new array with the modified elements. It is a convenient way to transform data within an array.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "How to set up error handling",
+      "description": "Explain how to set up error handling and logging in PHP applications to aid in debugging and monitoring.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain how to set up error handling and logging in PHP applications to aid in debugging and monitoring.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-35-ref-1",
+          "text": "To set up error handling and logging:\nUse error_reporting to specify which types of errors to display and log.\nUse ini_set or php.ini to configure error reporting settings.\nImplement custom error and exception handlers for logging and handling errors gracefully.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of PHP's unset() function,",
+      "description": "What is the purpose of PHP's unset() function, and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's unset() function, and how does it work?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-36-ref-1",
+          "text": "unset() is used to destroy a variable or unset a specific element in an array. It frees up the memory associated with the variable, allowing it to be redefined or used again.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of PHP's filter_var() function",
+      "description": "Explain the purpose of PHP's filter_var() function and how it can be used for data validation and sanitization.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the purpose of PHP's filter_var() function and how it can be used for data validation and sanitization.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-37-ref-1",
+          "text": "filter_var() is used for data validation and sanitization. It can validate data against various filters (e.g., email, URL) and sanitize data (e.g., remove HTML tags).\n\ntypescript\n\nCopy code\n\n$email = 'example@example.com';if (filter_var($email, FILTER_VALIDATE_EMAIL)) {\n    echo 'Valid email address.';\n} else {\n    echo 'Invalid email address.';\n}",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of PHP's ob_start() and",
+      "description": "What is the purpose of PHP's ob_start() and ob_end_flush() functions?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's ob_start() and ob_end_flush() functions?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-38-ref-1",
+          "text": "ob_start() and ob_end_flush() are used to manage output buffering. ob_start() starts an output buffer, capturing all output until ob_end_flush() is called to send the buffered content to the browser. This can be useful for controlling when content is sent.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Closures",
+      "description": "What is a PHP closure (anonymous function), and how is it used?",
+      "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is a PHP closure (anonymous function), and how is it used?\"\n\nRequirements:\n- Closure = function + captured lexical environment\n- Practical use cases (privacy, callbacks, factories)\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript",
+        "closures"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-39-ref-1",
+          "text": "A closure, or anonymous function, is a function without a name that can be assigned to variables or passed as arguments to other functions. Closures are often used for tasks like defining callbacks or creating functions on the fly.\n\ntypescript\n\nCopy code\n\n$add = function ($a, $b) {\n    return $a + $b;\n};echo $add(2, 3); // Outputs 5",
+          "weight": 1,
+          "keyPoints": [
+            "Closure = function + captured lexical environment",
+            "Practical use cases (privacy, callbacks, factories)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the __construct method",
+      "description": "Explain the purpose of the __construct method in PHP classes and how it differs from other methods.?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the purpose of the __construct method in PHP classes and how it differs from other methods.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-40-ref-1",
+          "text": "The __construct method is a constructor in PHP classes that is automatically called when an object is created from the class. It is used for initializing object properties and setting up the object's initial state. Unlike other methods, __construct is called automatically upon object creation.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of output buffering in",
+      "description": "What is the purpose of output buffering in PHP, and how can it be enabled and disabled?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of output buffering in PHP, and how can it be enabled and disabled?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-41-ref-1",
+          "text": "Output buffering is used to capture and manipulate the output before it is sent to the browser. It can be enabled using ob_start() and disabled using ob_end_flush() or ob_end_clean(). Output buffering is useful for tasks like template rendering and capturing content to store in variables.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-42",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of dependency injection in",
+      "description": "Explain the concept of dependency injection in PHP?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept of dependency injection in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-42-ref-1",
+          "text": "Dependency injection is a design pattern where dependencies (objects or values) are injected into a class rather than created inside the class. It helps achieve loose coupling, making code more maintainable and testable. Dependency injection is essential for achieving SOLID principles in object-oriented programming.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-43",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The PHP memory_limit setting, and why",
+      "description": "What is the PHP memory_limit setting, and why is it important?",
+      "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the PHP memory_limit setting, and why is it important?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "javascript"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-43-ref-1",
+          "text": "memory_limit is a PHP configuration setting that specifies the maximum amount of memory a PHP script can consume. It's important for preventing memory-related errors and security vulnerabilities. It can be adjusted in the PHP configuration file (php.ini) or using the ini_set() function.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-questions-bank-44",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "XSS",
+      "description": "What is Cross-Site Scripting (XSS), and how can you prevent it in PHP applications?",
+      "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is Cross-Site Scripting (XSS), and how can you prevent it in PHP applications?\"\n\nRequirements:\n- Define the vulnerability and the attack vector\n- Concrete prevention/mitigation techniques\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "security"
+      ],
+      "tags": [
+        "javascript",
+        "xss",
+        "security"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "javascript"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T15:01:19.850Z",
+      "updatedAt": "2025-12-19T15:01:19.850Z",
+      "createdBy": "generated_by_ai",
+      "referenceAnswers": [
+        {
+          "id": "php-questions-bank-44-ref-1",
+          "text": "XSS is a security vulnerability where attackers inject malicious scripts into web applications, which are then executed by unsuspecting users. To prevent XSS, sanitize user input, validate and escape output, and use security libraries like OWASP's AntiSamy or HTML Purifier.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the vulnerability and the attack vector",
+            "Concrete prevention/mitigation techniques"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

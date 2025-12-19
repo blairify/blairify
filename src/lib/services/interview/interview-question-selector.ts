@@ -249,8 +249,8 @@ function matchDifficultyToSeniority(
   const difficultyMap: Record<SeniorityLevel, DifficultyLevel[]> = {
     entry: ["entry"],
     junior: ["entry", "junior"],
-    mid: ["junior", "middle"],
-    senior: ["middle", "senior"],
+    mid: ["junior", "mid"],
+    senior: ["mid", "senior"],
   };
 
   return difficultyMap[seniority]?.includes(difficulty) || false;

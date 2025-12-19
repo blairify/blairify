@@ -533,17 +533,21 @@ function TrueFalseInput({
 // Helper Functions
 // ============================================================================
 
-function getDifficultyVariant(difficulty: string) {
+function getDifficultyVariant(
+  difficulty: import("@/types/practice-question").DifficultyLevel,
+) {
   switch (difficulty) {
     case "entry":
       return "secondary";
     case "junior":
       return "default";
-    case "middle":
+    case "mid":
       return "default";
     case "senior":
       return "destructive";
-    default:
-      return "outline";
+    default: {
+      const _never: never = difficulty;
+      throw new Error(`Unhandled difficulty: ${_never}`);
+    }
   }
 }

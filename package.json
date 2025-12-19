@@ -17,7 +17,9 @@
     "fix": "pnpm exec biome check --write --formatter-enabled=true src && pnpm exec biome lint src && pnpm exec tsc --noEmit",
     "postinstall": "prisma generate",
     "prepare": "husky",
-    "seed:questions": "ts-node --project scripts/tsconfig.json scripts/seed-interview-questions.ts"
+    "seed:questions": "ts-node --project scripts/tsconfig.json scripts/seed-interview-questions.ts",
+    "import:questions": "ts-node --project scripts/tsconfig.json scripts/import-practice-library-from-json.ts",
+    "prepare:questions": "ts-node --project scripts/tsconfig.json scripts/prepare-question-bank.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -1,0 +1,342 @@
+{
+  "totalQuestions": 48,
+  "extractedAt": "2025-12-19T15:00:14.284Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is Rust, and what sets it apart from other programming languages?",
+      "answer": "Rust is a systems programming language known for its emphasis on safety, speed, and concurrency. It distinguishes itself with features like ownership, borrowing, and lifetimes, which prevent common programming errors, memory safety guarantees, and zero-cost abstractions.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "Name some key features and aspects of Rust.",
+      "answer": "Safety: Rust is designed to be memory safe. It prevents common programming bugs like null pointer dereferencing and buffer overflows by enforcing strict compile-time checks. This makes it an attractive choice for systems programming.\nOwnership and Borrowing: One of the unique features of Rust is its ownership model. It uses concepts of ownership and borrowing to manage memory. This eliminates the need for a garbage collector and also prevents many types of memory management errors.\nConcurrency: Rust's approach to memory safety naturally extends to concurrency, making it easier to write safe and concurrent code. This is particularly important in modern applications that take advantage of multi-core processors.\nPerformance: Rust provides performance comparable to C and C++. It gives programmers fine-grained control over memory management and other low-level details, making it suitable for high-performance applications.\nZero-Cost Abstractions: The language aims to provide abstractions that do not impose a runtime cost, allowing programmers to write high-level code without sacrificing performance.\nCross-platform Development: Rust supports cross-platform development, making it possible to write code that runs on a variety of operating systems and architectures.\nTooling and Ecosystem: Rust comes with Cargo, a package manager and build system, which makes it easy to manage dependencies and build projects. The Rust ecosystem is growing rapidly, with an increasing number of libraries (called \"crates\") available.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What are some limitations of Rust?",
+      "answer": "Steep Learning Curve: Complex concepts like ownership and lifetimes can be challenging for new users.\nCompile Times: Longer compile times compared to some languages.\nLesser Ecosystem Maturity: Younger ecosystem with fewer libraries than older languages.\nLimited GUI Development Tools: Fewer resources and libraries for GUI development.\nNot Ideal for Scripting: More verbose for small scripts or rapid prototyping compared to scripting languages.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "How to declare global variables in Rust?",
+      "answer": "In Rust, global variables are declared using the static or const keywords. static allows mutable or immutable variables with a fixed address in memory, while const defines immutable values.\nExample:\n\nrust\n\nCopy code\n\nstatic GLOBAL_VAR: i32 = 100; // is a mutable global variable.\nconst CONSTANT_VAR: i32 = 50; // is an immutable global constant.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "What is Rust's Crate system?",
+      "answer": "Rust's crate system is a package management tool that helps in organizing and distributing Rust libraries and executables.\nKey characteristics:\nCrate Types: There are two types of crates - binary (executables) and library crates.\nDependency Management: Crates can depend on other crates, managed through a file named Cargo.toml.\nCrate Registry: Crates are shared through a central registry, crates.io, for easy distribution and reuse.\nModularity: Crates promote modularity and reusability of code within the Rust ecosystem.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What is the difference between String and str in Rust?",
+      "answer": "In Rust, String and str are two different but closely related types that represent string data, and they serve different purposes:\nString: An owned, mutable, growable string type, allocated on the heap. Used for strings that need to be modified or owned.\nstr (&str): An immutable string slice, a view into a string. It's a borrowed reference to a string, typically used for reading or passing string data without ownership.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "Explain the Rust ownership model and the three main rules of ownership.",
+      "answer": "Rust's ownership model is a set of rules enforced at compile time by the Rust compiler, designed to manage memory and ensure memory safety without a garbage collector.\nThe model is based on three main rules:\nSingle Ownership: Each piece of data has exactly one owning variable. When the owner goes out of scope, the data is automatically deallocated.\nTransfer of Ownership (Move): Ownership can be transferred to another variable, rendering the original owner unable to access the data. This prevents multiple variables from modifying the same data simultaneously.\nBorrowing: Data can be accessed through references, either as one mutable reference or multiple immutable references, ensuring safe concurrent access and preventing data races.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "Explain ownership, borrowing, and lifetimes in Rust.",
+      "answer": "In Rust, ownership, borrowing, and lifetimes are fundamental concepts that ensure memory safety and efficient resource management without the need for a garbage collector.\nHere's an overview of each:\nOwnership: Rust's ownership system ensures that each value has a single \"owner\" responsible for deallocating it when it's no longer needed. This prevents memory leaks and data races.\nBorrowing: Borrowing allows multiple parts of code to access data without taking ownership, either through immutable borrows (read-only) or mutable borrows (read-write). Borrowing ensures data integrity and prevents data races.\nLifetimes: Lifetimes specify the scope over which references are valid. They ensure that borrowed references do not outlive the data they point to, preventing dangling references.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "What is Rust's ownership of threads and the Send and Sync traits?",
+      "answer": "Ownership and Threads: Rust uses its ownership model to ensure safe data handling across threads, preventing data races and ensuring that data is owned by only one thread at a time unless explicitly shared in a thread-safe manner.\nSend Trait: Indicates that a type can be safely transferred to another thread. Types that are Send can be moved between threads without risk of data races.\nSync Trait: Signifies that a type is safe for concurrent referencing by multiple threads. A type is Sync if a reference to it (&T) can be safely shared across threads. This ensures safe concurrent access to shared data.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "What is Rust's lifetime elision?",
+      "answer": "Rust's lifetime elision refers to a set of rules the compiler follows to infer lifetimes in function signatures, reducing the need for explicit lifetime annotations. Lifetimes specify the scope for which a reference is valid, and explicit annotations can sometimes make function signatures verbose and difficult to read.\nLifetime elision rules allow the compiler to infer lifetimes in common scenarios:\nEach Input Lifetime: Each input reference parameter gets its own lifetime.\nOutput Lifetimes: If there's exactly one input lifetime, that lifetime is assigned to all output lifetime parameters.\nMethods: For methods, if there's exactly one input lifetime parameter, it's assigned to all output lifetime parameters, and the lifetime of self is also assigned to all output lifetime parameters.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "What are Rust's modules?",
+      "answer": "Rust's modules are a way to organize code into namespaces, helping manage code organization and encapsulation.\nKey Characteristics:\nCode Organization: Modules allow grouping related functionality, making the code more organized and readable.\nEncapsulation: They support encapsulation by controlling the visibility (public/private) of items like functions, structs, and constants.\nReusability: Facilitate code reuse across different parts of a program or different programs.\nExample:\n\nrust\n\nCopy code\n\nmod sound {\n    pub mod instrument {\n        pub fn guitar() {\n            println!(\"Playing the guitar\");\n        }\n    }\n}\n \nfn main() {\n    sound::instrument::guitar(); // Accessing the guitar function in the instrument module\n}\nIn this example, sound is a module containing a nested module instrument, which has a public function guitar. The function is accessible from outside the module due to its public visibility.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Junior",
+      "title": "Explain the purpose and usage of the match expression in Rust.",
+      "answer": "In Rust, the match expression is used for pattern matching. It allows you to compare a value against a series of patterns and execute code based on the matching pattern.\nIt's especially useful for handling enums and ensuring exhaustive case handling. Each match consists of arms, each with a pattern and associated code block.\nExample:\n\nrust\n\nCopy code\n\nenum TrafficLight {\n    Red,\n    Yellow,\n    Green,\n}\n \nlet light = TrafficLight::Red;\n \nmatch light {\n    TrafficLight::Red => println!(\"Stop\"),\n    TrafficLight::Yellow => println!(\"Caution\"),\n    TrafficLight::Green => println!(\"Go\"),\n}\nIn this example, the match expression checks the state of a traffic light and prints a message accordingly.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Junior",
+      "title": "What is the borrow checker in Rust?",
+      "answer": "The borrow checker in Rust is a component of the Rust compiler that enforces the language's ownership and borrowing rules.\nIt ensures memory safety by verifying at compile time that references do not outlive the data they point to and that there are no conflicting mutable and immutable references.\nThis prevents common errors such as dangling pointers and data races, contributing to the reliability and safety of Rust programs.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Junior",
+      "title": "Explain Rust's zero-cost abstractions.",
+      "answer": "Rust's zero-cost abstractions are high-level programming constructs that do not add any runtime overhead.\nThese include features like iterators, generics, and closures, which are optimized at compile time to efficient machine code, offering the performance of low-level code while maintaining high-level expressiveness and safety.\nThis means programmers can use advanced features without incurring unexpected performance penalties.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Junior",
+      "title": "What is the Option type in Rust?",
+      "answer": "In Rust, the Option type is an enum used to represent an optional value: either a value exists (Some) or it doesn't (None). It's a powerful and safe way to handle the concept of nullability or the absence of a value, which in other languages is often represented by null or nil.\nThe Option type is defined in the standard library as follows:\n\nrust\n\nCopy code\n\nenum Option<T> {\n    Some(T),\n    None,\n}",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Junior",
+      "title": "What is a struct in Rust?",
+      "answer": "In Rust, a struct (short for \"structure\") is a custom data type that lets you name and package together multiple related values. Structs are used to create complex data types that can be passed around in your program.\nExample:\n\nrust\n\nCopy code\n\nstruct Point {\n    x: i32,\n    y: i32,\n}\n \nlet point = Point { x: 10, y: 20 };\nIn this example, Point is a struct with two fields, x and y, both of type i32. The point variable is an instance of Point, initialized with x as 10 and y as 20.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Junior",
+      "title": "What is the difference between Rust's async and await keywords?",
+      "answer": "In Rust, async and await are two keywords used in asynchronous programming, each serving a distinct purpose:\nasync: Defines an asynchronous function that returns a future, representing a value that may be computed later. The function doesn't execute until the future is awaited.\nawait: Pauses an async function until a future is resolved, allowing other tasks to run concurrently. It's used within async functions to wait for the completion of asynchronous operations.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is Rust's Result type, and how is it used for error handling?",
+      "answer": "In Rust, the Result type is an enum used for error handling. It represents a value that can either be successful (Ok) or contain an error (Err). This type is widely used for functions that can result in an error and provides a robust way to handle errors gracefully. The Result type is defined as:\n\nrust\n\nCopy code\n\nenum Result<T, E> {\n    Ok(T),\n    Err(E),\n}\nOk(T): Represents a successful outcome containing a value of type T.\nErr(E): Represents an error containing a value of type E, which is usually an error type.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "How does Rust handle exceptions and error handling compared to languages with exceptions like Java or Python?",
+      "answer": "Rust handles errors differently from exception-based languages like Java or Python:\nNo Exceptions: Rust does not use exceptions. It employs the Result and Option types for error handling.\nResult and Option Types: Result<T, E> is used for operations that can fail, and Option<T> for operations that can return a value or none.\nExplicit Handling: Errors must be explicitly handled. Rust forces the programmer to address both successful and error cases, often using pattern matching.\nError Propagation: The ? operator allows for concise error propagation in functions that return Result.\nCompile-Time Error Checking: Rust's approach ensures all errors are considered at compile time, enhancing reliability and safety.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "Explain Rust's Deref and Drop traits and their use cases.",
+      "answer": "Deref\nThe Deref trait allows custom types to be dereferenced like pointers. It's commonly used to provide a more ergonomic interface for working with smart pointers or custom data structures.\n\nrust\n\nCopy code\n\nuse std::ops::Deref;\n \nstruct MyBox<T>(T);\n \nimpl<T> MyBox<T> {\n    fn new(x: T) -> MyBox<T> {\n        MyBox(x)\n    }\n}\n \nimpl<T> Deref for MyBox<T> {\n    type Target = T;\n    fn deref(&self) -> &T {\n        &self.0\n    }\n}\n \nfn main() {\n    let x = 5;\n    let y = MyBox::new(x);\n \n    assert_eq!(5, x);\n    assert_eq!(5, *y); // Here we use Deref to access the value inside MyBox\n}\nThis example shows a custom smart pointer MyBox. By implementing Deref, MyBox can be dereferenced to access its inner value.\nDrop\nThe Drop trait defines code that is executed when a value goes out of scope. It's useful for implementing resource cleanup or finalization logic.\n\nrust\n\nCopy code\n\nstruct CustomSmartPointer {\n    data: String,\n}\n \nimpl Drop for CustomSmartPointer {\n    fn drop(&mut self) {\n        println!(\"Dropping CustomSmartPointer with data `{}`!\", self.data);\n    }\n}\n \nfn main() {\n    let c = CustomSmartPointer { data: String::from(\"my data\") };\n    println!(\"CustomSmartPointer created.\");\n    // c is automatically dropped here when it goes out of scope\n}\nIn this example, CustomSmartPointer implements the Drop trait. The drop method is called automatically when an instance of CustomSmartPointer goes out of scope, allowing for custom cleanup logic, such as releasing resources or printing a message.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "What is Rust's ownership system's impact on memory safety and concurrency?",
+      "answer": "Rust's ownership system significantly enhances memory safety and concurrency:\nMemory Safety:\nPrevents memory leaks and dangling pointers through automatic memory deallocation.\nEnsures safe memory usage with compile-time checks.\nEliminates common memory management errors, like double frees.\nConcurrency:\nPrevents data races by enforcing either multiple immutable references or a single mutable reference.\nFacilitates safe data sharing across threads with Send and Sync traits.\nProvides compile-time guarantees for concurrency, reducing runtime errors.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What is a tuple in Rust?",
+      "answer": "In Rust, a tuple is a compound data type that allows you to combine a fixed number of values, potentially of different types, into a single compound value. Tuples are useful for returning multiple values from a function or for combining related values without creating a struct.\nExample:\n\nrust\n\nCopy code\n\nlet tuple = (3, \"hello\", 4.5);\n \nlet (x, y, z) = tuple; // Destructuring the tuple\nprintln!(\"x: {}, y: {}, z: {}\", x, y, z);\nIn this example, tuple is a tuple containing an integer, a string slice, and a floating-point number. The tuple is then destructured into the variables x, y, and z, which are printed.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "What is a data race in Rust?",
+      "answer": "A data race in Rust is a type of concurrency error that occurs when two or more threads access the same memory location concurrently, and at least one of the accesses is a write. Rust's ownership and borrowing rules are designed to prevent data races by ensuring that:\nTwo or more threads cannot have mutable references to the same data simultaneously.\nIf one thread holds a mutable reference to data, no other thread can have an immutable reference to that same data.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "Explain the purpose and usage of Rust's Vec data structure.",
+      "answer": "Vec<T> in Rust is a dynamic, resizable array-like data structure for storing elements of the same type. Key points include:\nCreation and Initialization: Created with Vec::new() or initialized with vec![element1, element2, ...].\nDynamic Resizing: Automatically grows and shrinks, with methods like push to add and pop or remove to remove elements.\nAccess and Iteration: Elements accessed by index (vec[index]) or get method, and can be iterated over with loops or iterators.\nHeap Allocated: Stores elements contiguously in heap memory, providing flexibility and efficient access.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "What is the difference between a Rust function and a closure?",
+      "answer": "Function:\nNamed, defined with fn, and has an explicit type signature.\nCannot capture surrounding environment.\n\nrust\n\nCopy code\n\nfn add(a: i32, b: i32) -> i32 {\n    a + b\n}\nClosure:\nAnonymous, can capture variables from surrounding scope.\nType signatures often inferred.\n\nrust\n\nCopy code\n\nlet add = |a, b| a + b;",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "How does Rust support networking?",
+      "answer": "Rust supports networking primarily through the std::net module, which provides functionality for implementing networking applications, including handling TCP and UDP connections.\nThis module offers types for creating and managing network sockets, enabling communication over the network.\nExample: Creating a simple TCP server\n\nrust\n\nCopy code\n\nuse std::net::TcpListener;\nuse std::io::{Read, Write};\n \nfn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:7878\").unwrap();",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "How does Rust support database programming?",
+      "answer": "rust\n\nCopy code\n\n#[macro_use] extern crate diesel;\nextern crate dotenv;\n \nuse diesel::prelude::*;\nuse diesel::pg::PgConnection;\nuse dotenv::dotenv;\nuse std::env;\n \nfn establish_connection() -> PgConnection {\n    dotenv().ok();\n    let database_url = env::var(\"DATABASE_URL\")\n        .expect(\"DATABASE_URL must be set\");\n    PgConnection::establish(&database_url)\n        .expect(&format!(\"Error connecting to {}\", database_url))\n}\nRust supports database programming through external crates (libraries) that provide interfaces to various database systems. These crates offer functionality for connecting to databases, executing queries, and handling results.\nPopular crates include diesel for ORM (Object-Relational Mapping) and rusqlite for SQLite. There are also async libraries like tokio-postgres for PostgreSQL and mysql_async for MySQL, which support asynchronous operations.\nExample with diesel for PostgreSQL:\n\nrust\n\nCopy code\n\n#[macro_use] extern crate diesel;\nextern crate dotenv;\n \nuse diesel::prelude::*;\nuse diesel::pg::PgConnection;\nuse dotenv::dotenv;\nuse std::env;\n \nfn establish_connection() -> PgConnection {\n    dotenv().ok();\n    let database_url = env::var(\"DATABASE_URL\")\n        .expect(\"DATABASE_URL must be set\");\n    PgConnection::establish(&database_url)\n        .expect(&format!(\"Error connecting to {}\", database_url))\n}",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "How can you use Rust for web development?",
+      "answer": "Rust can be used for web development by utilizing its powerful ecosystem, including web frameworks and libraries. Popular web frameworks like Rocket, Actix, and Warp allow building robust backend applications. Additionally, Rust can be compiled to WebAssembly (WASM), enabling high-performance web frontends.\nExample: Simple web server using Rocket\n\nrust\n\nCopy code\n\n#[macro_use] extern crate rocket;\n \n#[get(\"/\")]\nfn index() -> &'static str {\n    \"Hello, world!\"\n}\n \n#[launch]\nfn rocket() -> _ {\n    rocket::build().mount(\"/\", routes![index])\n}",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "What is a reference in Rust?",
+      "answer": "In Rust, a reference is a type of pointer that borrows data without taking ownership of it. References allow you to access data while ensuring memory safety through Rust's borrowing rules. There are two types of references:\nImmutable References (&T): These allow read-only access to data. Multiple immutable references to the same data can exist at the same time.\nMutable References (&mut T): These allow read-write access to data. Only one mutable reference to a particular piece of data can exist in a given scope, preventing data races.\nExample:\n\nrust\n\nCopy code\n\nlet x = 5;\nlet y = &x; // Immutable reference to x\n \nlet mut z = 10;\nlet w = &mut z; // Mutable reference to z\n*w += 1; // Modifying z through its mutable reference",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "How do you perform I/O in Rust?",
+      "answer": "In Rust, I/O operations are typically performed using the std::io module. This module provides functionality for reading from and writing to streams, like files and standard input/output.\nExample: Reading from standard input and writing to standard output.\n\nrust\n\nCopy code\n\nuse std::io;\n \nfn main() {\n    let mut input = String::new();\n    println!(\"Enter some text:\");\n    io::stdin().read_line(&mut input).expect(\"Failed to read line\");\n    println!(\"You typed: {}\", input.trim());\n}",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is the Rust Rc (Reference Counting) smart pointer, and how does it work?",
+      "answer": "Rc<T> in Rust is a smart pointer for reference counting, enabling multiple ownership of a value in single-threaded scenarios:\nMechanism: Allocates a value on the heap and keeps a count of references to it. The count increases with each new clone of Rc<T> and decreases when a clone goes out of scope.\nCleanup: When the reference count reaches zero (no references remain), the value is automatically cleaned up.\nUsage: Ideal for sharing immutable data among different parts of a program, particularly in complex structures like graphs.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "Explain Rust's unsafe keyword and when it is used.",
+      "answer": "The unsafe keyword in Rust is used to bypass the compiler's safety checks, allowing low-level or potentially dangerous operations:\nUses: Commonly used for dereferencing raw pointers, calling unsafe functions (like those from C libraries), modifying mutable static variables, and implementing unsafe traits.\nWhen to Use: Necessary for interfacing with system-level libraries, performing low-level operations, or optimizing critical performance sections.\nExample:\n\nrust\n\nCopy code\n\nlet raw_pointer = &42 as *const i32;\n \nunsafe {\n    println!(\"Value: {}\", *raw_pointer); // Dereferencing a raw pointer\n}\nIn this example, unsafe is required to dereference a raw pointer, an operation that can't be checked for safety at compile time. unsafe blocks should be used cautiously, as they bypass Rust's usual safety guarantees.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "What is a conditional compilation in Rust?",
+      "answer": "Conditional compilation in Rust allows for compilation of code based on specified conditions. This is typically achieved using attributes like cfg to include or exclude code based on certain criteria, such as target platform, custom flags, or feature availability.\nThis feature enables developers to write more portable and flexible code by selectively compiling parts of the codebase.\nExample:\n\nrust\n\nCopy code\n\n#[cfg(target_os = \"linux\")]\nfn are_we_on_linux() {\n    println!(\"Running on Linux!\");\n}\n \n#[cfg(not(target_os = \"linux\"))]\nfn are_we_on_linux() {\n    println!(\"Not running on Linux.\");\n}",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What are Rust's macros?",
+      "answer": "Rust's macros are tools for metaprogramming, allowing for code generation during compile time:\nTypes: Include declarative macros (macro_rules!) for pattern matching and procedural macros for more complex operations like custom derive and DSLs.\nUse Cases: Useful for reducing repetition, automating trait implementation, and creating domain-specific languages.\nExample of a declarative macro:\n\nrust\n\nCopy code\n\nmacro_rules! say_hello {\n    () => {\n        println!(\"Hello!\");\n    };\n}\n \nfn main() {\n    say_hello!(); // Expands to println!(\"Hello!\");\n}\nIn this example, say_hello! is a simple macro that, when called, expands to a println! statement, demonstrating how macros can reduce repetition.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "What is an iterator in Rust?",
+      "answer": "An iterator in Rust is a trait that allows for iterating over a sequence of elements. It provides methods to traverse elements one at a time, enabling actions like transformation, filtering, or accumulation. Iterators are lazy, meaning they compute their items as they are needed, which can lead to performance improvements.\nExample:\n\nrust\n\nCopy code\n\nlet v = vec![1, 2, 3];\nlet mut iter = v.iter();\nwhile let Some(x) = iter.next() {\n    println!(\"{}\", x);\n}\n\nIn this example, iter is an iterator over the vector v. The while let loop uses iter.next() to access each element in sequence.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "What are Rust's slices, and how are they different from arrays?",
+      "answer": "Slices in Rust are dynamically-sized views into a collection, whereas arrays are fixed-size, owned collections.\nSlices:\nDynamic size, determined at runtime.\nBorrow data from another collection.\nSyntax: &[T] for a slice of type T.\nArrays:\nFixed size, known at compile time.\nOwn their data.\nSyntax: [T; size] for an array of type T with a fixed size.\nExample:\n\nrust\n\nCopy code\n\nlet arr = [1, 2, 3, 4, 5];\nlet slice = &arr[1..4]; // slice is of type &[i32] and includes elements 2, 3, and 4.\n\nIn this example, slice is a slice that borrows elements from the array\n\ntypescript\n\nCopy code\n\narr\nwithout copying them.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "What is the purpose of Rust's enums and how are they used?",
+      "answer": "Rust's enums are used to define a type that can represent multiple variants, ensuring type safety and allowing for expressive code through pattern matching. Each variant of an enum can contain different types and amounts of data.\nUses:\nRepresent Multiple Variants: Enums can model concepts with different forms.\nType Safety: Catch errors at compile time.\nPattern Matching: Work well with Rust's match statements for handling different variants.\nEncapsulate Data: Variants can hold diverse data.\nExample:\n\nrust\n\nCopy code\n\nenum WebEvent {\n    PageLoad,\n    PageUnload,\n    KeyPress(char),\n    Paste(String),\n    Click { x: i64, y: i64 },\n}\n \nfn inspect(event: WebEvent) {\n    match event {\n        WebEvent::PageLoad => println!(\"page loaded\"),\n        WebEvent::PageUnload => println!(\"page unloaded\"),\n        WebEvent::KeyPress(c) => println!(\"pressed '{}'\", c),\n        WebEvent::Paste(s) => println!(\"pasted \\\"{}\\\"\", s),\n        WebEvent::Click { x, y } => {\n            println!(\"clicked at x={}, y={}\", x, y);\n        },\n    }\n}\n \nlet load_event = WebEvent::PageLoad;\nlet key_event = WebEvent::KeyPress('x');\nlet click_event = WebEvent::Click { x: 20, y: 80 };\n \ninspect(load_event);\ninspect(key_event);\ninspect(click_event);\nIn this example, WebEvent is an enum with various variants representing different web events. The inspect function uses pattern matching to handle each variant differently.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Mid",
+      "title": "Explain Rust's generics.",
+      "answer": "Rust's generics enable you to write flexible, reusable code that works with many different data types. They allow you to define functions, structs, enums, and methods that can operate on multiple types while still being type safe.\nCharacteristics:\nWrite Once, Use Many: Define code that can work with different types.\nType Safety: Ensure compile-time type checking for different types.\nCode Reusability: Reduce code duplication.\nExample:\n\nrust\n\nCopy code\n\nstruct Point<T> {\n    x: T,\n    y: T,\n}\n \nfn main() {\n    let integer_point = Point { x: 5, y: 10 };\n    let float_point = Point { x: 1.0, y: 4.0 };\n}\nHere, Point<T> is a struct with generic type T. It can be used to create points with any data type, like integers or floats, while maintaining type safety.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Mid",
+      "title": "Explain Rust's trait system.",
+      "answer": "Rust's trait system allows for shared behavior between different types. Traits define a set of methods that can be implemented by types. They are similar to interfaces in other languages, providing a way to define and enforce functionality.\nCharacteristics:\nDefine Shared Behavior: Traits specify a set of methods for different types.\nType Abstraction: Enable polymorphism by abstracting over common behaviors.\nCompile-Time Safety: Ensure consistent implementation across types.\nExample:\n\nrust\n\nCopy code\n\ntrait Speak {\n    fn speak(&self) -> String;\n}\n \nstruct Dog;\nstruct Cat;\n \nimpl Speak for Dog {\n    fn speak(&self) -> String {\n        \"Woof!\".to_string()\n    }\n}\n \nimpl Speak for Cat {\n    fn speak(&self) -> String {\n        \"Meow!\".to_string()\n    }\n}\n \nfn make_some_noise(animal: &dyn Speak) {\n    println!(\"{}\", animal.speak());\n}\n \nfn main() {\n    let dog = Dog;\n    let cat = Cat;\nIn this example, the Speak trait is defined with a method speak. Both Dog and Cat structs implement this trait, providing their versions of the speak method. The function make_some_noise takes any type that implements the Speak trait, demonstrating polymorphism.",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Mid",
+      "title": "Explain the concept of \"move semantics\" in Rust and how it differs from \"borrowing.\"",
+      "answer": "Move semantics in Rust involve transferring ownership of data from one variable to another. This ensures safe memory management by preventing multiple variables from owning the same data, which eliminates data races and memory leaks.\nKey characteristics:\nOwnership Transfer: Assigning a variable to another or passing it to a function moves the ownership, making the original variable invalid.\nHeap Data: For heap-allocated data, only the pointer is moved, not the actual data.\nStack Data: Simple, stack-allocated types with the Copy trait are copied, not moved.\nAutomatic Cleanup: Resources are automatically released when the owning variable goes out of scope.\nExample:\n\nrust\n\nCopy code\n\nlet s1 = String::from(\"hello\");\nlet s2 = s1; // s1 is moved to s2\n \n// Using s1 here would result in a compile-time error",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Mid",
+      "title": "What is the purpose of Rust's \"lifetime parameters\" ('a, 'b, etc.) in function signatures?",
+      "answer": "Lifetime parameters in Rust function signatures are used to ensure memory safety by explicitly specifying how long references should be valid. They prevent dangling references and other common memory issues.\nKey Characteristics:\nReference Validity: Lifetime parameters define the scope for which a reference is valid.\nPrevent Dangling References: Ensure references do not outlive the data they point to.\nExplicit Relationships: Clarify the relationship between the lifetimes of different references, especially in functions with multiple reference parameters.\nExample:\n\nrust\n\nCopy code\n\nfn longest<'a>(x: &'a str, y: &'a str) -> &'a str {\n    if x.len() > y.len() { x } else { y }\n}\n\nHere, 'a is a lifetime parameter indicating that the return value of the function longest will live as long as the shorter of the two input string slices (x and y).",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Senior",
+      "title": "How does Rust handle concurrency?",
+      "answer": "Ownership and Types: Rust uses its ownership and type system to manage concurrent access to data, preventing data races.\nThreads: Rust provides facilities to create and manage threads safely.\nMessage Passing: Encourages a message-passing concurrency model with channels to transfer data between threads.\nShared-State Concurrency: Allows multiple threads to access data through synchronization primitives like mutexes, but in a way that prevents common pitfalls.\nAsync/Await: Supports asynchronous programming, enabling non-blocking concurrent operations.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Senior",
+      "title": "How does Rust handle memory safety without a garbage collector?",
+      "answer": "Rust ensures memory safety without a garbage collector through its unique ownership system and strict compile-time checks.\nOwnership Rules: Each piece of data has a single owner; only the owner can mutate the data.\nBorrowing Rules: Data can be borrowed immutably (read-only) or mutably (with write access), but not both at the same time.\nLifetime Tracking: Lifetimes ensure references don't outlive the data they point to, preventing dangling references.\nZero-Cost Abstractions: These rules are enforced at compile time with no runtime cost.\nSafe Memory Deallocation: When an owner goes out of scope, its data is automatically and safely deallocated.",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Senior",
+      "title": "Is Rust safe in comparison to C and C++?",
+      "answer": "Rust is often considered safer than C and C++ in several key aspects, primarily due to its design philosophy and features. Here's a comparison of Rust with C and C++ regarding safety:\nMemory Safety: Rust enforces memory safety at compile time through its ownership model, which includes features like borrow checking. This significantly reduces the risk of memory-related errors such as buffer overflows, dangling pointers, and memory leaks, which are common pitfalls in C and C++.\nConcurrency: Rust's approach to concurrency is also safer compared to C and C++. The language's ownership and type system help prevent data races, a common issue in concurrent programming. In contrast, C and C++ require careful management of threads and locks to avoid concurrency problems.\nNull Pointer Dereferencing: Rust does not have null pointers in the same way as C and C++. Instead, it uses an Option type to explicitly handle cases where a value might be None (similar to null). This reduces the chance of null pointer dereferencing errors.\nBuffer Overflows: Rust's strict type and memory safety rules make buffer overflow errors much less likely compared to C and C++, where buffer overflows are a common security vulnerability.",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Senior",
+      "title": "What is a channel in Rust?",
+      "answer": "In Rust, a channel is a way of communicating between threads by sending messages from one thread to another. Channels consist of two parts: a transmitter (Sender) and a receiver (Receiver).\nData sent by the transmitter can be asynchronously received and processed by the receiver. This is useful for safe inter-thread communication.\nExample:\n\nrust\n\nCopy code\n\nuse std::sync::mpsc;\nuse std::thread;\n \nfn main() {\n    let (tx, rx) = mpsc::channel();\n \n    thread::spawn(move || {\n        tx.send(\"Hello from another thread!\").unwrap();\n    });\n \n    let received = rx.recv().unwrap();\n    println!(\"Received: {}\", received);\n}\n\nIn this example, a channel is created using mpsc::channel(). A new thread is spawned that sends a message through the channel's transmitter (tx). The main thread receives the message with the receiver (rx) and prints it.",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Senior",
+      "title": "How is multithreading handled in Rust?",
+      "answer": "Multithreading in Rust is handled through the std::thread module, which provides a way to run code on multiple threads. Rust's ownership and type systems are designed to prevent data races, making multithreading safer and more manageable.\nExample: Creating and joining threads\n\nrust\n\nCopy code\n\nuse std::thread;\n \nfn main() {\n    let handle = thread::spawn(|| {\n        println!(\"Hello from a new thread!\");\n    });\n \n    handle.join().unwrap();\n    println!(\"Thread has finished.\");\n}\n\nIn this example, thread::spawn starts a new thread executing the closure, and handle.join() waits for the thread to finish before continuing. Rust's safety checks ensure that shared data is managed correctly across threads.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Senior",
+      "title": "What is a mutex in Rust?",
+      "answer": "In Rust, a Mutex (Mutual Exclusion) is a concurrency primitive used to protect shared data by allowing only one thread at a time to access the data. When a thread wants to access the shared data, it must first lock the mutex. This ensures exclusive access to the data, preventing data races.\nExample:\n\nrust\n\nCopy code\n\nuse std::sync::Mutex;\nuse std::thread;\n \nfn main() {\n    let counter = Mutex::new(0);\n    let mut handles = vec![];\n \n    for _ in 0..10 {\n        let counter = counter.clone();\n        let handle = thread::spawn(move || {\n            let mut num = counter.lock().unwrap();\n            *num += 1;\n        });\n        handles.push(handle);\n    }\n \n    for handle in handles {\n        handle.join().unwrap();\n    }\n \n    println!(\"Result: {}\", *counter.lock().unwrap());\n}\nIn this example, multiple threads increment a shared counter protected by a mutex. Each thread locks the mutex before modifying the counter, ensuring safe access.",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Senior",
+      "title": "What is atomic in Rust?",
+      "answer": "In Rust, an atomic type is a primitive type that can be safely shared between threads and modified using atomic operations. These operations are guaranteed to be performed without interference from other threads, ensuring data consistency and preventing race conditions.\nAtomic types in Rust include AtomicBool, AtomicIsize, AtomicUsize, and others.\nExample:\n\nrust\n\nCopy code\n\nuse std::sync::atomic::{AtomicUsize, Ordering};\nuse std::thread;\n \nfn main() {\n    let counter = AtomicUsize::new(0);\n \n    let mut handles = vec![];\n    for _ in 0..10 {\n        let counter = &counter;\n        let handle = thread::spawn(move || {\n            counter.fetch_add(1, Ordering::SeqCst);\n        });\n        handles.push(handle);\n    }\n \n    for handle in handles {\n        handle.join().unwrap();\n    }\n \n    println!(\"Counter: {}\", counter.load(Ordering::SeqCst));\n}\nIn this example, counter is an AtomicUsize incremented by multiple threads using the fetch_add method. The Ordering::SeqCst parameter ensures sequential consistency of the operations.",
+      "isPremium": false
+    }
+  ]
+}

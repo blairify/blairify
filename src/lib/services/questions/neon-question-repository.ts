@@ -38,6 +38,18 @@ interface QueryResult {
   hasMore: boolean;
 }
 
+type SeniorityTag = "entry" | "junior" | "mid" | "senior";
+
+function normalizeSeniorityTags(values: unknown): SeniorityTag[] {
+  if (!Array.isArray(values)) return [];
+
+  const allowed = new Set<SeniorityTag>(["entry", "junior", "mid", "senior"]);
+  return values
+    .filter((v) => typeof v === "string")
+    .map((v) => v.trim().toLowerCase())
+    .filter((v): v is SeniorityTag => allowed.has(v as SeniorityTag));
+}
+
 // Public API
 
 export async function getQuestionById(id: string): Promise<Question | null> {
@@ -240,11 +252,14 @@ function mapBaseFields(
     positions: row.positions ?? undefined,
     primaryTechStack: row.primaryTechStack ?? undefined,
     interviewTypes: row.interviewTypes ?? undefined,
-    seniorityLevels: row.seniorityLevels ?? undefined,
+    seniorityLevels:
+      row.seniorityLevels && row.seniorityLevels.length > 0
+        ? normalizeSeniorityTags(row.seniorityLevels)
+        : undefined,
     createdAt: row.createdAt.toISOString(),
     updatedAt: row.updatedAt.toISOString(),
     createdBy: row.createdBy,
-  } as any;
+  };
 }
 
 function mapMcqRowToQuestion(row: McqRow): MCQQuestion {
@@ -362,7 +377,7 @@ function applyOrder(questions: Question[], options: QuestionQueryOptions) {
 
   const sorted = [...questions].sort((a, b) => {
     if (orderByField === "difficulty") {
-      const order: DifficultyLevel[] = ["entry", "junior", "middle", "senior"];
+      const order: DifficultyLevel[] = ["entry", "junior", "mid", "senior"];
       const aIndex = order.indexOf(a.difficulty as DifficultyLevel);
       const bIndex = order.indexOf(b.difficulty as DifficultyLevel);
       return aIndex - bIndex;

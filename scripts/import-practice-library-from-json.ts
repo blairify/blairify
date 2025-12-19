@@ -11,7 +11,7 @@ import {
 } from "../src/practice-library-db/schema";
 
 type QuestionStatus = "draft" | "published" | "archived";
-type Difficulty = "entry" | "junior" | "middle" | "senior";
+type Difficulty = "entry" | "junior" | "mid" | "senior";
 type CompanySize = "faang" | "startup" | "enterprise";
 type CompanyType = CompanySize;
 type RoleTopic =
@@ -33,6 +33,21 @@ type InterviewType =
   | "competitive"
   | "teacher";
 type SeniorityLevel = "entry" | "junior" | "mid" | "senior";
+
+const normalizeDifficulty = (value: string): Difficulty => {
+  switch (value) {
+    case "entry":
+    case "junior":
+    case "mid":
+    case "senior":
+      return value;
+    case "middle":
+      return "mid";
+    default: {
+      throw new Error(`Unhandled difficulty: ${value}`);
+    }
+  }
+};
 
 const ensurePositions = (
   positions: PositionSlug[] | undefined,
@@ -63,6 +78,7 @@ interface JsonCompany {
 interface JsonReferenceAnswer {
   id: string;
   text: string;
+  weight?: number;
   keyPoints: string[];
 }
 
@@ -142,7 +158,7 @@ interface JsonMatchingQuestion extends JsonCoreQuestion {
 }
 
 interface JsonSystemDesignQuestion extends JsonCoreQuestion {
-  complexityLevel: "entry" | "junior" | "middle" | "senior" | null;
+  complexityLevel: "entry" | "junior" | "mid" | "senior" | "middle" | null;
   nonFunctionalRequirements: string[];
   constraints: string[];
   scalingFocus: string | null;
@@ -158,14 +174,48 @@ interface JsonBatch {
   system_design_questions: JsonSystemDesignQuestion[];
 }
 
+const parseArgs = (argv: string[]) => {
+  const args = argv.slice(2);
+  const dryRun = args.includes("--dry-run");
+  const fileArg = args.find((a) => !a.startsWith("--")) ?? null;
+
+  const usage =
+    "Usage: pnpm tsx scripts/import-practice-library-from-json.ts <path-to-json> [--dry-run]";
+
+  if (!fileArg) {
+    throw new Error(usage);
+  }
+
+  const inputPath = path.isAbsolute(fileArg)
+    ? fileArg
+    : path.resolve(process.cwd(), fileArg);
+
+  return {
+    dryRun,
+    inputPath,
+  };
+};
+
 async function main() {
+  const { dryRun, inputPath } = parseArgs(process.argv);
+  const raw = fs.readFileSync(inputPath, "utf8");
+  const data: JsonBatch = JSON.parse(raw);
+
+  if (dryRun) {
+    console.log("✅ Dry run OK (parsed JSON):", {
+      inputPath,
+      mcqQuestions: data.mcq_questions.length,
+      openQuestions: data.open_questions.length,
+      truefalseQuestions: data.truefalse_questions.length,
+      matchingQuestions: data.matching_questions.length,
+      systemDesignQuestions: data.system_design_questions.length,
+    });
+    return;
+  }
+
   if (!process.env.PRACTICE_LIBRARY_DATABASE_URL) {
     throw new Error("PRACTICE_LIBRARY_DATABASE_URL is not set");
   }
-
-  const jsonPath = path.resolve(__dirname, "..", "questions_output.json");
-  const raw = fs.readFileSync(jsonPath, "utf8");
-  const data: JsonBatch = JSON.parse(raw);
 
   const now = new Date();
 
@@ -186,7 +236,7 @@ async function main() {
           status: q.status as any,
           reviewerId: q.reviewerId ?? null,
           reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
-          difficulty: q.difficulty,
+          difficulty: normalizeDifficulty(q.difficulty),
           isDemoMode: q.isDemoMode,
           companyType: q.companyType as any,
           title: q.title,
@@ -217,7 +267,7 @@ async function main() {
           status: q.status as any,
           reviewerId: q.reviewerId ?? null,
           reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
-          difficulty: q.difficulty,
+          difficulty: normalizeDifficulty(q.difficulty),
           isDemoMode: q.isDemoMode,
           companyType: q.companyType as any,
           title: q.title,
@@ -240,6 +290,7 @@ async function main() {
             ? q.referenceAnswers.map((r) => ({
                 id: r.id,
                 text: r.text,
+                weight: r.weight ?? 1,
                 keyPoints: r.keyPoints ?? [],
               }))
             : null,
@@ -254,7 +305,7 @@ async function main() {
           status: q.status as any,
           reviewerId: q.reviewerId ?? null,
           reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
-          difficulty: q.difficulty,
+          difficulty: normalizeDifficulty(q.difficulty),
           isDemoMode: q.isDemoMode,
           companyType: q.companyType as any,
           title: q.title,
@@ -287,7 +338,7 @@ async function main() {
           status: q.status as any,
           reviewerId: q.reviewerId ?? null,
           reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
-          difficulty: q.difficulty,
+          difficulty: normalizeDifficulty(q.difficulty),
           isDemoMode: q.isDemoMode,
           companyType: q.companyType as any,
           title: q.title,
@@ -322,7 +373,7 @@ async function main() {
           status: q.status as any,
           reviewerId: q.reviewerId ?? null,
           reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
-          difficulty: q.difficulty,
+          difficulty: normalizeDifficulty(q.difficulty),
           isDemoMode: q.isDemoMode,
           companyType: q.companyType as any,
           title: q.title,
@@ -341,7 +392,9 @@ async function main() {
           createdAt: now,
           updatedAt: now,
           createdBy: "admin",
-          complexityLevel: q.complexityLevel ?? null,
+          complexityLevel: q.complexityLevel
+            ? normalizeDifficulty(q.complexityLevel)
+            : null,
           nonFunctionalRequirements: q.nonFunctionalRequirements ?? [],
           constraints: q.constraints ?? [],
           scalingFocus: q.scalingFocus ?? null,

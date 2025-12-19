@@ -14,7 +14,7 @@ export type QuestionType =
   | "code"
   | "truefalse"
   | "system-design";
-export type DifficultyLevel = "entry" | "junior" | "middle" | "senior";
+export type DifficultyLevel = "entry" | "junior" | "mid" | "senior";
 export type QuestionStatus = "draft" | "published" | "archived";
 export type CompanyType = "faang" | "startup" | "enterprise";
 export type QuestionInterviewMode =

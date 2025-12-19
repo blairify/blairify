@@ -536,7 +536,7 @@ code.hljs {
 
   --border: hsl(var(--blairify-border-200));
   --input: hsl(var(--blairify-bg-000));
-  --ring: hsl(var(--blairify-accent-main-100));
+  --ring: var(--blairify-accent-main-100);
 
   /* Chart palette */
   --chart-1: hsl(var(--blairify-accent-brand));
@@ -555,7 +555,7 @@ code.hljs {
   --sidebar-accent: hsl(var(--blairify-bg-200));
   --sidebar-accent-foreground: hsl(var(--blairify-text-200));
   --sidebar-border: hsl(var(--blairify-border-200));
-  --sidebar-ring: hsl(var(--blairify-accent-main-100));
+  --sidebar-ring: var(--blairify-accent-main-100);
 }
 
 /* ==============================
@@ -636,7 +636,7 @@ code.hljs {
 
   --border: hsl(var(--blairify-border-200));
   --input: hsl(var(--blairify-bg-100));
-  --ring: hsl(var(--blairify-accent-main-100));
+  --ring: var(--blairify-accent-main-100);
 
   /* Charts */
   --chart-1: hsl(var(--blairify-accent-brand));
@@ -652,7 +652,7 @@ code.hljs {
   --sidebar-accent: hsl(var(--blairify-bg-300));
   --sidebar-accent-foreground: hsl(var(--blairify-text-200));
   --sidebar-border: hsl(var(--blairify-border-200));
-  --sidebar-ring: hsl(var(--blairify-accent-main-100));
+  --sidebar-ring: var(--blairify-accent-main-100);
 }
 
 /* ==============================

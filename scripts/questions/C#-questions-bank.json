@@ -1,0 +1,342 @@
+{
+  "totalQuestions": 48,
+  "extractedAt": "2025-12-19T14:57:38.352Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is C#?",
+      "answer": "C# (pronounced as \"C-sharp\") is a modern, object-oriented programming language developed by Microsoft.\nIt is designed for building Windows applications and is widely used for web, desktop, mobile, and cloud-based applications.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "How is C# different from C?",
+      "answer": "The most significant difference between C# and C is that C# is an object-oriented programming language, while C is a procedural programming language.\nC# supports automatic garbage collection by the CLR, whereas C does not.\nC# primarily requires the.NET framework to execute, while C is generally considered a platform-agnostic language.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What is a constructor in C#?",
+      "answer": "A constructor is a special method that is called when an object is created. It has the same name as the class and can initialize the object’s data. You can define multiple constructors (overloading) to accept different parameters.\n\ncsharp\n\nCopy code\n\nclass Person\n{\n    public string Name;\n    public Person(string name)  // instance constructor\n    {\n        Name = name;\n    }\n}\nPerson p = new Person(\"Alice\");  // Calls the constructor and sets Name to \"Alice\"",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "Explain the difference between value types and reference types in C#.",
+      "answer": "Value types store data directly, while reference types store references to data in memory.\nValue types include primitive data types like int, float, and bool, while reference types include objects, classes, and arrays.\n\ncsharp\n\nCopy code\n\nint a = 5;\nint b = a;    // b is a copy of a\nb = 10;\n// a is still 5, because int is a value type\n  \nclass MyClass { public int X; }\nMyClass obj1 = new MyClass { X = 5 };\nMyClass obj2 = obj1;  // obj2 references the same object as obj1\nobj2.X = 10;\n// obj1.X is now 10, because obj1 and obj2 refer to the same instance",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "What is the purpose of access modifiers (e.g., public, private, protected) in C#?",
+      "answer": "Access modifiers determine the visibility and accessibility of class members (fields, methods, properties, etc.). For example:\n\npublic: The member is accessible from any code.\nprivate: The member is only accessible from within the defining class.\nprotected: The member is accessible from within the defining class and its subclasses.\n\ncsharp\n\nCopy code\n\npublic class MyClass\n{\n    public int PublicField;       // accessible everywhere\n    private int PrivateField;     // accessible only inside MyClass\n    protected int ProtectedField; // accessible in MyClass and subclasses\n    internal int InternalField;   // accessible within the same assembly\n}",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What is the difference between a class and an object?",
+      "answer": "A class in C# is a blueprint or template that defines properties (data) and methods (behavior).\nAn object (or instance) is a concrete realization of that class in memory. You declare a class with class MyClass { ... }, and you create an object with the new keyword.\nFor example:\n\ncsharp\n\nCopy code\n\nclass Car\n{\n    public string Make { get; set; }\n    public string Model { get; set; }\n}\n  \nCar myCar = new Car();   // 'Car' is a class; 'myCar' is an object (instance) of Car\nmyCar.Make = \"Toyota\";\nmyCar.Model = \"Camry\";\nHere, Car defines what a car is (properties Make and Model), and myCar is an actual object you can work with. Without an object (using new), the class alone does not occupy space or hold data.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "What does the static keyword do in C#?",
+      "answer": "The static keyword makes a member belong to the type itself rather than an instance.\nA static field or static method is shared across all instances and can be accessed without creating an object.\nA static class cannot be instantiated and can only contain static members.\nFor example:\n\ncsharp\n\nCopy code\n\npublic static class MathHelper\n{\n    public static int Add(int a, int b)\n    {\n        return a + b;\n    }\n}\n  \nint sum = MathHelper.Add(2, 3);  // Call without creating an object\nHere, Add is a static method, so you call it on the class MathHelper directly. You can also have a static constructor (a constructor with no parameters and marked static); it initializes static fields and runs only once, before the first use of the class.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "What are properties in C#?",
+      "answer": "Properties provide a way to access class data (fields) with getters and setters. They look like fields to the user but can contain logic.\nAuto-implemented properties allow you to skip writing a backing field.\n\ncsharp\n\nCopy code\n\npublic class Person\n{\n    private string name;\n  \n    public string Name\n    {\n        get { return name; }\n        set { name = value; }\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "What is an exception in C# and how are exceptions handled?",
+      "answer": "An exception is an abnormal event or error condition that occurs during the execution of a program. Exceptions can be handled using try, catch, finally, and throw keywords.\nThe try block contains the code that may throw an exception, the catch block catches and handles exceptions, and the finally block is used for cleanup code that runs regardless of whether an exception is thrown or not.\n\ncsharp\n\nCopy code\n\ntry\n{\n    int x = 10, y = 0;\n    int result = x / y;  // This throws DivideByZeroException\n}\ncatch (DivideByZeroException ex)\n{\n    Console.WriteLine(\"Cannot divide by zero: \" + ex.Message);\n}\ncatch (Exception ex)\n{\n    Console.WriteLine(\"An error occurred: \" + ex.Message);\n}\nfinally\n{\n    Console.WriteLine(\"This runs no matter what, good for cleanup.\");\n}",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "What is the var keyword in C#, and when is it used?",
+      "answer": "The var keyword is used for implicit type declaration in C#.\nIt allows the compiler to infer the data type of a variable based on its initialization value.\n\ncsharp\n\nCopy code\n\nvar name = \"John\"; // Compiler infers name as string",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "Explain the difference between readonly and const in C#.",
+      "answer": "const is used for compile-time constants, and their values cannot change.\nreadonly fields can have their values set at runtime or in constructors but cannot be changed afterward.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Junior",
+      "title": "What are arrays and lists in C#?",
+      "answer": "An array is a fixed-size, zero-based collection of elements of the same type.\n\ncsharp\n\nCopy code\n\nint[] nums = new int[5];  // Array of 5 ints, initially all 0\nnums[0] = 10;\nAn array’s size cannot change after creation. A List<T> (from System.Collections.Generic) is a dynamic array that can grow or shrink.\n\ncsharp\n\nCopy code\n\nList<int> list = new List<int> { 1, 2, 3 };\nlist.Add(4);    // list now has 4 elements\nLists provide methods like Add, Remove, Count, etc., and are more flexible. Use an array when you know the size ahead of time; use List<T> for a resizable collection.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "What is method overloading in C#?",
+      "answer": "Overloading: Defining multiple methods in the same class with the same name but different parameter lists (signatures). The compiler determines which method to call based on the arguments.\n\ncsharp\n\nCopy code\n\nvoid Print(int x) { ... }\nvoid Print(string s) { ... }\nPrint(5);    // calls Print(int)\nPrint(\"hi\"); // calls Print(string)\nOverriding: Providing a new implementation of a method in a derived class, using the override keyword. The method in the base class must be marked virtual or abstract. At runtime, the appropriate override is chosen based on the actual object type.\n\ncsharp\n\nCopy code\n\nclass Animal\n{\n    public virtual void Speak() \n    {\n        Console.WriteLine(\"Animal sound\");\n    }\n}\nclass Dog : Animal\n{\n    public override void Speak()\n    {\n        Console.WriteLine(\"Woof!\");\n    }\n}\nOverloading is compile-time (same scope), while overriding is runtime polymorphism via inheritance.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "Explain the concept of inheritance in C#.",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "Explain the concept of polymorphism in C#.",
+      "answer": "Polymorphism is one of the core principles of object-oriented programming (OOP).\nIt allows objects of different classes to be treated as objects of a common base class.\nPolymorphism enables dynamic method invocation and method overriding. For example:\n\ncsharp\n\nCopy code\n\nclass Animal\n{\n    public virtual void Speak()\n    {\n        Console.WriteLine(\"Animal makes a sound\");\n    }\n}\nclass Dog : Animal\n{\n    public override void Speak()\n    {\n        Console.WriteLine(\"Dog barks\");\n    }\n}\n  \nAnimal myPet = new Dog();\nmyPet.Speak(); // Outputs \"Dog barks\"\nHere Dog inherits Speak() from Animal but overrides it. The variable myPet is of type Animal but holds a Dog object; calling Speak() results in the Dog version. This is runtime polymorphism.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "What is an interface in C#, and how does it differ from an abstract class?",
+      "answer": "An interface defines a contract of methods and properties that a class must implement.\nAn abstract class can provide some implementation and be inherited, while an interface cannot provide any implementation and is used for multiple interface inheritance.\nExample:\n\ncsharp\n\nCopy code\n\ninterface IShape\n{\n    double GetArea(); // no implementation\n}\nabstract class Shape\n{\n    public abstract double GetArea();\n    public void Display() { Console.WriteLine(\"I am a shape\"); }\n}\nclass Circle : Shape, IShape\n{\n    public double Radius { get; set; }\n    public override double GetArea() => Math.PI * Radius * Radius;\n}\nHere Circle implements IShape and overrides the abstract GetArea from Shape. Interfaces are for “can-do” relationships; abstract classes are for “is-a” relationships with shared code.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What is the purpose of the using statement in C#?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is a nullable type in C#?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "What are the out and ref keywords used for?",
+      "answer": "Both out and ref pass arguments by reference to methods, but with differences:\n\nref: The variable must be initialized before passing. The method can read and modify it, affecting the caller’s variable.\nout: The variable does not need to be initialized before passing, but the called method must assign it before returning. Used to return additional values.\n\ncsharp\n\nCopy code\n\nvoid SquareRef(ref int x) { x = x * x; }\nvoid AssignOut(out int y) { y = 100; }\n  \nint a = 5;\nSquareRef(ref a);\nConsole.WriteLine(a); // 25\n  \nint b;\nAssignOut(out b);\nConsole.WriteLine(b); // 100",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "Explain the difference between String and StringBuilder in C# and when to use each.",
+      "answer": "string is immutable in C# – once created, it cannot be changed. Concatenating or modifying a string actually creates a new string each time.\nStringBuilder (in System.Text) is mutable, allowing efficient modifications.\n\ncsharp\n\nCopy code\n\nstring s = \"Hello\";\ns += \" World\";  // Creates a new string \"Hello World\"\n  \nvar sb = new StringBuilder(\"Hello\");\nsb.Append(\" World\");  // Modifies the existing StringBuilder\nstring result = sb.ToString();",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "What is a namespace in C#?",
+      "answer": "A namespace is a way to organize and group related classes and types in C#.\nIt helps prevent naming conflicts and provides a structured way to manage code.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What is the difference between == and .Equals()?",
+      "answer": "The == operator and the .Equals() method both compare values, but by default == checks reference equality on reference types, whereas .Equals() is a virtual method (often overridden) to check value equality.\n\ncsharp\n\nCopy code\n\nstring s1 = new string(\"hello\".ToCharArray());\nstring s2 = new string(\"hello\".ToCharArray());\nConsole.WriteLine(s1 == s2);       // True, because string overrides == to compare contents\nConsole.WriteLine(s1.Equals(s2));  // True, compares contents\n  \nobject o1 = new object();\nobject o2 = new object();\nConsole.WriteLine(o1 == o2);       // False (different instances)\nConsole.WriteLine(o1.Equals(o2));  // False (default Object.Equals is same as ==)",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "What are generics in C# and why are they useful?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "Explain what a delegate is in C# and provide an example of its usage.",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "Explain the concept of delegates and events in C#.",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "What is LINQ? Give an example of a LINQ query.",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "What is the difference between IEnumerable and IQueryable in LINQ, and when to use each?",
+      "answer": "IEnumerable represents a sequence that can be iterated over, typically used for in-memory collections. Operations on IEnumerable are executed in memory.\nIQueryable also represents a sequence but is designed for querying data sources outside of memory (like databases). It allows for query translation and execution at the data source, improving performance for large datasets.\nUse IQueryable when querying databases (e.g., with Entity Framework) and IEnumerable for in-memory collections.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "Explain async and await in C#.",
+      "answer": "The async and await keywords enable asynchronous programming.\nMark a method with async to allow await inside it. An await on a Task pauses the method until the task completes, without blocking the thread.\nThe method returns to the caller, and when the awaited work finishes, execution resumes.\n\ncsharp\n\nCopy code\n\npublic async Task<int> GetNumberAsync()\n{\n    await Task.Delay(1000);  // asynchronously wait 1 second\n    return 42;\n}\n  \npublic async Task UseAsync()\n{\n    int result = await GetNumberAsync();\n    Console.WriteLine(result);  // Prints 42 after ~1 second\n}",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "What is the role of the Common Language Runtime (CLR) in C#?",
+      "answer": "The CLR is the virtual-machine core of Microsoft .NET. It runs IL code from languages such as C#, F#, and VB.NET and supplies a managed environment that sits between your application and the OS. Key runtime services:\n\nAutomatic memory management with a garbage collector\nJIT compilation that turns IL into native machine code on the fly\nCode Access Security to enforce permission rules\nStructured exception handling for runtime errors\nType safety to prevent illegal memory access\nLanguage interoperability, letting IL from any .NET language mix freely\n\nTogether, these features simplify development and boost the reliability, security, and portability of .NET applications.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "What is garbage collection in C#?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is the difference between struct and class in C#?",
+      "answer": "Value vs. reference semantics\nstruct → value type: each assignment makes an independent copy.\nclass → reference type: assignments pass a reference to the same object.\nMemory allocation\nstruct usually lives on the stack or inside containing objects (inline).\nclass lives on the heap and is managed by the garbage collector.\nInheritance\nstruct cannot inherit from another struct or class (interfaces only).\nclass supports single inheritance plus any number of interfaces.\nNullability\nstruct cannot be null unless declared nullable (T?).\nclass variables can always be null.\nConstructors\nstruct has an implicit parameter-less ctor; you can add parameterized ctors but not your own parameter-less one.\nclass may define any number and kind of constructors.\nWhen to use\nPick a struct for small, immutable or lightweight data that should copy by value (e.g., Point, DateTime).\nPick a class for richer objects that need sharing, polymorphism, or large mutable state.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "Explain what a lambda expression is in C# and provide an example.",
+      "answer": "A lambda expression is an anonymous function used to create delegates or expression tree types. It simplifies the syntax for defining small, inline methods.\n\ncsharp\n\nCopy code\n\nFunc<int, int, int> add = (a, b) => a + b;",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "Explain the purpose of the lock statement in C# and when it should be used.",
+      "answer": "The lock statement is used for synchronization in multithreaded applications.\nIt ensures that a critical section of code can only be accessed by one thread at a time, preventing race conditions and data corruption.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What is the purpose of the yield keyword in C#?",
+      "answer": "The yield keyword is used in iterator methods to indicate that the method should return an iterator, which can be used to lazily generate a sequence of values. It simplifies the creation of custom iterators.\n\ncsharp\n\nCopy code\n\npublic IEnumerable<int> GetEvenNumbers(int max)\n{\n    for (int i = 0; i <= max; i += 2)\n    {\n        yield return i;  // yields next value to the caller\n    }\n}\n  \n// Usage:\nforeach (int n in GetEvenNumbers(10))\n{\n    Console.WriteLine(n);  // prints 0,2,4,6,8,10\n}",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "What are attributes in C#?",
+      "answer": "Attributes are used to add metadata to code elements (such as classes, methods, or properties). They are often used for code documentation and custom annotations.\n\ncsharp\n\nCopy code\n\n[Obsolete(\"This method is deprecated. Use the NewMethod instead.\")]\npublic void OldMethod() { }",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "What are extension methods in C#?",
+      "answer": "Extension methods allow you to add new methods to existing types without modifying their source code.\nThey are defined in static classes and must have a special this parameter to indicate the target type.\n\ncsharp\n\nCopy code\n\npublic static class StringExtensions\n{\n    public static string Reverse(this string input)\n    {\n        char[] charArray = input.ToCharArray();\n        Array.Reverse(charArray);\n        return new string(charArray);\n    }\n}\n  \n// Usagestring reversed = \"hello\".Reverse(); // reversed is \"olleh\"",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "Explain the differences between ArrayList and List<T> in C#.",
+      "answer": "Type safety & generics\nArrayList stores object, so every value-type item gets boxed and you must cast on retrieval.\nList<T> is generic and strongly typed (List<int>, List<string>, …); no boxing or casts.\nPerformance\nArrayList incurs boxing/unboxing for value types, extra runtime type checks, and slower lookups.\nList<T> avoids those costs and benefits from compile-time optimizations.\nAPI design\nBoth expose similar collection methods (Add, Remove, indexing), but List<T> adds generic-aware helpers such as AddRange(IEnumerable<T>), Find(Predicate<T>), ConvertAll<U>(), etc.\nLINQ extension methods work seamlessly with List<T> (no casts).\nNamespaces & era\nArrayList lives in System.Collections and dates back to .NET 1.0 (pre-generics).\nList<T> lives in System.Collections.Generic and has been the preferred choice since .NET 2.0.\nStatic type checking\nWith ArrayList, type errors surface only at runtime.\nWith List<T>, mismatched types are caught at compile time.\nWhen to use\nNearly always choose List<T> for new code - faster, safer, and LINQ-friendly.\nKeep ArrayList only for legacy interop scenarios that demand non-generic collections.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Senior",
+      "title": "What is the difference between shallow copy and deep copy of objects?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Senior",
+      "title": "Explain the concept of dependency injection (DI) in C#.",
+      "answer": "Dependency injection is a design pattern in which the dependencies of a class are provided from the outside (usually via constructor injection or property injection) rather than being created internally.\nDI promotes loose coupling, testability, and maintainability.\nHere's a simple example using the constructor injection:\n\ncsharp\n\nCopy code\n\npublic class OrderService\n{\n    private readonly IOrderRepository _orderRepository;\n    \n    public OrderService(IOrderRepository orderRepository)\n    {\n        _orderRepository = orderRepository;\n    }\n    \n    public void PlaceOrder(Order order)\n    {\n        _orderRepository.Save(order);\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Senior",
+      "title": "What are serialization and deserialization in C#?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Senior",
+      "title": "What is the dynamic keyword and what is the DLR?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Senior",
+      "title": "What is the difference between Task and Thread in C#?",
+      "answer": "Abstraction level\nThread: Raw OS thread with its own stack; you manage creation, lifetime, and synchronization.\nTask: Logical unit of work from the Task Parallel Library; scheduled by a TaskScheduler (usually the thread-pool).\nResource cost\nThread: Heavy - allocates kernel resources and memory per thread.\nTask: Light - borrows pooled threads or may run inline, so far fewer allocations.\nProgramming model\nThread: Manual start/stop, explicit Thread APIs, harder cancellation/exception handling.\nTask: async/await, continuations, built-in cancellation (CancellationToken) and aggregation of exceptions.\nTypical use\nThread: Only when you truly need a dedicated, long-lived thread (e.g., a background service loop or special thread affinity).\nTask: preferred for most asynchronous or parallel work - compose, await, and let the runtime decide how to schedule it.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Senior",
+      "title": "What does the volatile keyword do in C#?",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Senior",
+      "title": "How do you handle multithreading and avoid race conditions in C#?",
+      "answer": "C# supports multiple threading models: you can use Thread, the ThreadPool (Task, Parallel), async/await, etc. To avoid race conditions (simultaneous unsynchronized access to shared data), use synchronization primitives:\n\nlock (or Monitor.Enter): Ensures only one thread executes a critical section at a time:\n\ncsharp\n\nCopy code\n\nprivate object _lock = new object();\nint counter = 0;\npublic void Increment()\n{\n    lock (_lock)\n    {\n        counter++;\n    }\n}\nvolatile: Indicates a field may be modified by multiple threads, forcing reads/writes to main memory (useful for simple flags).\nInterlocked: Provides atomic operations like Interlocked.Increment(ref counter).\nConcurrent collections: Classes like ConcurrentDictionary, ConcurrentQueue (in System.Collections.Concurrent) handle synchronization internally. Also avoid deadlocks by always acquiring locks in a consistent order, and keep lock scope minimal. Instead of manual threading, prefer higher-level abstractions (Task, PLINQ) which handle thread-safety patterns.",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Senior",
+      "title": "What are covariance and contravariance in C#?",
+      "answer": "Covariance and contravariance describe how type conversion works for generic types and delegates:\nCovariance (out): Allows a more derived type to be used than originally specified. For example, you can assign IEnumerable<string> to IEnumerable<object> because string is derived from object. This only works for output scenarios (out type parameter).\n\ncsharp\n\nCopy code\n\nIEnumerable<string> strings = new List<string>();\nIEnumerable<object> objects = strings;  // covariant, string -> object\nContravariance (in): Allows a more general type (base type) to be used. For example, you can assign Action<object> to Action<string>, because the action that accepts object can also handle a string. This works for input parameters (in type parameter).\n\ncsharp\n\nCopy code\n\nAction<object> actObj = o => Console.WriteLine(o);\nAction<string> actStr = actObj;  // contravariant, object -> string",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Senior",
+      "title": "Explain the concept of boxing and unboxing in C#.",
+      "answer": "Boxing: wraps a value-type instance (e.g., int) inside an object (or interface) reference, allocating a copy on the heap.\n\ncsharp\n\nCopy code\n\nint x = 42;\nobject o = x;   // boxing\nUnboxing: extracts the value type from that reference, followed by a copy back to the stack.\n\ncsharp\n\nCopy code\n\nint y = (int)o; // unboxing\n\nHow to avoid the overhead\n\nPrefer generics: Use List<int>, Dictionary<int,string>, IEnumerable<T>, etc., instead of non-generic ArrayList, Hashtable, or raw object parameters.\nKeep value types as value types: Don’t up-cast to object or non-generic interface unless necessary.\nUse generic delegates / events: E.g., Action<int> rather than Action<object>.\nDesign APIs with strong typing: So callers aren’t forced to box.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Senior",
+      "title": "Explain IComparer<T> and custom sorting in C#.",
+      "answer": "To sort with custom logic, you can implement IComparer<T> and define the Compare(x,y) method.\n\ncsharp\n\nCopy code\n\npublic class AgeComparer : IComparer<Person>\n{\n    public int Compare(Person a, Person b)\n    {\n        return a.Age.CompareTo(b.Age);  // sort by age ascending\n    }\n}\n  \nvar people = new List<Person> { /* ... */ };\npeople.Sort(new AgeComparer());\nAlternatively, you can use LINQ’s OrderBy:\n\ncsharp\n\nCopy code\n\nvar sorted = people.OrderBy(p => p.Age).ToList();",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Senior",
+      "title": "What are finalizers and the IDisposable pattern?",
+      "answer": "A finalizer (destructor) is a method (~ClassName()) that the GC calls on an object before reclaiming memory. Finalizers are nondeterministic and can delay collection, so their use is generally discouraged.\nInstead, implement the IDisposable pattern for deterministic cleanup of unmanaged resources.\n\ncsharp\n\nCopy code\n\nclass ResourceHolder : IDisposable\n{\n    // Finalizer\n    ~ResourceHolder()\n    {\n        Dispose(false);\n    }\n   \n    public void Dispose()\n    {\n        Dispose(true);\n        GC.SuppressFinalize(this);  // skip finalizer if already disposed\n    }\n   \n    protected virtual void Dispose(bool disposing)\n    {\n        if (disposing)\n        {\n            // free managed resources\n        }\n        // free unmanaged resources\n    }\n}",
+      "isPremium": false
+    }
+  ]
+}
