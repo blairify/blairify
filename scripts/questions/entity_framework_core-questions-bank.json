@@ -1,0 +1,279 @@
+{
+  "totalQuestions": 39,
+  "extractedAt": "2025-12-19T17:46:34.945Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is Entity Framework Core?",
+      "answer": "Entity Framework Core is an open-source, lightweight, and cross-platform ORM framework for .NET.\nIt allows developers to interact with databases using .NET objects, abstracting away the underlying database interactions and reducing the need to write raw SQL queries.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "How does Entity Framework Core simplify data access in .NET?",
+      "answer": "EF Core simplifies data access by mapping .NET classes to database tables, allowing developers to perform database operations using LINQ (Language Integrated Query) against these objects.\nIt automates tasks such as generating SQL queries, managing database connections, and mapping results back to .NET objects. This reduces the amount of code developers need to write and makes the code more maintainable.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What are the key components of Entity Framework Core?",
+      "answer": "The key components of EF Core include:\n\nDbContext, which represents a session with the database and acts as a gateway for performing CRUD operations.\nDbSet, which represents a collection of entities of a particular type; and Entities, which are the .NET classes that map to database tables.\nLINQ to Entities is another crucial component that allows querying entities using LINQ syntax.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What is the difference between Entity Framework Core and ADO.NET?",
+      "answer": "ADO.NET is a lower-level data access technology in .NET that requires developers to write explicit SQL queries and manage database connections directly.\nEF Core provides a higher level of abstraction, automating many of these tasks and allowing developers to work with data as objects. While ADO.NET offers more control, EF Core simplifies development and reduces boilerplate code.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "Can you explain the concept of DbContext in Entity Framework Core?",
+      "answer": "The DbContext class in EF Core represents a connection to the database and acts as a container for entities.\nIt is responsible for managing entity objects during runtime, including tracking changes, performing queries, and saving data to the database.\nIt serves as the central hub for all database interactions within an application.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What is the purpose of DbSet in Entity Framework Core?",
+      "answer": "A DbSet<TEntity> in EF Core represents a collection of all entities of a particular type in the context.\nIt corresponds to a table in the database and provides methods for querying, adding, updating, and deleting entities.\nDevelopers interact with the database tables through these DbSet properties exposed by the DbContext.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "What are Entities in Entity Framework Core?",
+      "answer": "Entities in EF Core are plain old CLR objects (POCOs) that represent the data in the database.\nEach entity class typically maps to a table in the database, and its properties map to the columns of that table.\nThese classes do not need to inherit from any EF Core-specific base class, keeping them clean and focused on the data they represent.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "Explain the Code-First approach in Entity Framework Core.",
+      "answer": "In the Code-First approach, developers start by defining their domain model as C# classes (entities) and a DbContext class.\nEF Core then uses these classes to generate the database schema. Migrations are used to evolve the database as the model changes over time.\nThis approach provides full control over both the code and the database structure.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "Explain the Database-First approach in Entity Framework Core.",
+      "answer": "The Database-First approach involves starting with an existing database. EF Core then generates the entity classes and the DbContext based on the database schema.\nThis is often used when working with legacy databases or when the database design is pre-determined.\nTools within Visual Studio can automate the process of generating the model from the database.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "What is Model-First approach in Entity Framework Core?",
+      "answer": "In the Model-First approach, developers use a visual designer to create an Entity Data Model (EDM).\nFrom this visual model, EF Core can generate both the database schema and the entity classes.\nWhile less common now, it can be useful for projects where visual modeling of the data structure is a primary requirement.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "Which approach (Code-First, Database-First, Model-First) is generally considered the best?",
+      "answer": "There is no universally \"best\" approach; the choice depends on the specific project requirements and the existing infrastructure.\nCode-First is often preferred for new applications where developers have full control over the domain model and want to follow a domain-driven design approach.\nDatabase-First is suitable when working with existing databases.\nModel-First is less commonly used in modern development workflows.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Junior",
+      "title": "What is meant by migration in Entity Framework Core?",
+      "answer": "Migrations in EF Core provide a way to manage changes to the database schema over time.\nWhen the entity model changes, developers create migrations that describe the necessary database modifications.\nThese migrations can then be applied to the database to update the schema without losing existing data.\nThis ensures that the database schema stays in sync with the application's data model.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Junior",
+      "title": "What is the purpose of the DbContext.SaveChanges() method?",
+      "answer": "The SaveChanges() method in EF Core is responsible for persisting all the changes made to the tracked entities within the DbContext to the underlying database.\nThis includes inserting new entities, updating existing ones, and deleting entities that have been marked for removal.\nAll these changes are typically performed within a transaction.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Junior",
+      "title": "What are the different Entity States in Entity Framework Core?",
+      "answer": "Entities in EF Core can be in one of the following states:\n\nAdded: The entity has been added to the context but not yet saved to the database.\nModified: The entity has been retrieved from the database and has been modified.\nDeleted: The entity has been marked for deletion from the database.\nUnchanged: The entity has been retrieved from the database and has not been modified.\nDetached: The entity is not being tracked by the DbContext.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Junior",
+      "title": "What is a primary key and a foreign key in the context of Entity Framework Core?",
+      "answer": "A primary key is an attribute or a set of attributes in an entity that uniquely identifies each instance of the entity within its collection (database table). EF Core uses primary keys to track and identify entities.\nA foreign key is an attribute in one entity that references the primary key of another related entity.Foreign keys are used to establish and enforce relationships between entities in the database, and EF Core uses them to manage these relationships in the object model.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "What is Lazy Loading in Entity Framework Core, and what are its pros and cons?",
+      "answer": "Lazy loading is a feature where related entities are loaded from the database only when they are accessed for the first time through a navigation property.\nThe primary advantage is that it reduces the initial load time and memory usage by only fetching the necessary data.\nHowever, a significant drawback is the potential for the N+1 query problem, where accessing related entities for a list of primary entities can result in numerous additional database queries, leading to performance issues if not managed carefully.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What is Eager Loading in Entity Framework Core, and when would you use it?",
+      "answer": "Eager loading is a technique where related entities are loaded along with the main entity in a single query using the Include() method.\nThis avoids the N+1 query problem associated with lazy loading and is beneficial when you know you will need the related data upfront.\nBy fetching all necessary data in one go, it can improve the efficiency of data access operations.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is Explicit Loading in Entity Framework Core?",
+      "answer": "Explicit loading involves manually loading related entities at a later point in time, after the primary entity has been retrieved.\nThis can be achieved using methods like Collection(e => e.RelatedEntities).Load() for collections or Reference(e => e.RelatedEntity).Load() for single references on the DbContext.Entry(entity) object.\nIt provides more control over when and what related data is loaded.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "What is the purpose of the Include() method in Entity Framework Core?",
+      "answer": "The Include() method is used to perform eager loading of related entities in an EF Core query.\nBy specifying the navigation properties to include, developers can instruct EF Core to fetch the related data in the same database query, thus avoiding lazy loading and the potential performance issues associated with it.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "What is the difference between Include() and ThenInclude()?",
+      "answer": "Include() is used to load the first level of related entities.\nThenInclude() is used to load further levels of related entities in a navigation property that is part of an already included entity.\nFor example, if you have Order -> OrderDetails -> Product, you would use Include(o => o.OrderDetails).ThenInclude(od => od.Product) to eagerly load the product information for each order detail of each order.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "What is the purpose of the AsNoTracking() method in Entity Framework Core, and when should you use it?",
+      "answer": "The AsNoTracking() method is used to query entities without keeping track of their state in the DbContext's change tracker.\nThis improves performance, especially for read-only queries, as EF Core does not need to spend resources on tracking changes.\nIt should be used when you retrieve data only for display or processing and do not intend to update the retrieved entities within the same DbContext scope.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "How can you filter data using Entity Framework Core?",
+      "answer": "Data filtering in EF Core is primarily done using the Where() clause in LINQ queries.\nThis allows developers to specify conditions that entities must meet to be included in the query results.\nThe conditions can involve properties of the entity and can be combined using logical operators.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "How do you order data using Entity Framework Core?",
+      "answer": "Ordering of data in EF Core is achieved using the OrderBy() method for ascending order and the OrderByDescending() method for descending order in LINQ queries.\nThese methods take a lambda expression specifying the property to order by.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What are the different types of inheritance supported by Entity Framework Core?",
+      "answer": "EF Core supports three main types of inheritance mapping:\n\nTable-per-Hierarchy (TPH): Where all types in an inheritance hierarchy are mapped to a single database table with a discriminator column;\nTable-per-Type (TPT): Where each type in the hierarchy is mapped to its own table, with a table for the base type and separate tables for each derived type.\nTable-per-Concrete-Type (TPC): Where each concrete type in the hierarchy is mapped to its own table, and common properties are repeated in each table.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "How do you create a new migration in Entity Framework Core?",
+      "answer": "A new migration in EF Core is created using the Add-Migration command in the Package Manager Console within Visual Studio or by using the dotnet ef migrations add <MigrationName> command in the .NET CLI.\nThis command generates a C# code file that defines the database schema changes required to match the current state of the entity model.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "How do you apply migrations to the database in Entity Framework Core?",
+      "answer": "Migrations are applied to the database using the Update-Database command in the Package Manager Console or the dotnet ef database update command in the .NET CLI.\nEF Core keeps track of which migrations have been applied to the database using a special table (typically named __EFMigrationsHistory) and applies any pending migrations.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "What is the role of the OnModelCreating method in DbContext?",
+      "answer": "The OnModelCreating method is a virtual method in the DbContext class that is called when the model is being created.\nIt provides a place to configure the model using the Fluent API, allowing developers to define table mappings, relationships, constraints, and other model-specific configurations that cannot be easily expressed using data annotations alone.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "What are Data Annotations and Fluent API in Entity Framework Core?",
+      "answer": "Both Data Annotations and Fluent API are used to configure how EF Core maps entities to the database schema and defines relationships.\n\nData Annotations are attributes that can be applied directly to the entity classes and their properties to specify configurations like primary keys, foreign keys, and validation rules.\nFluent API provides a more powerful and flexible way to configure the model within the OnModelCreating method of the DbContext. It allows for more complex configurations and can override configurations specified by data annotations.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "What is Deferred Execution in the context of LINQ queries in Entity Framework Core?",
+      "answer": "Deferred execution means that LINQ queries in EF Core are not executed immediately when they are defined.\nInstead, the query is only executed when the results are actually needed, such as when the code iterates over the results (e.g., using a foreach loop) or when a method that forces execution is called (like ToList(), FirstOrDefault(), etc.).\nThis behavior allows for further modification of the query before it hits the database, which can be beneficial for performance but also requires understanding when the query will actually be executed to avoid unexpected behavior or performance issues.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Senior",
+      "title": "How can you improve the performance of Entity Framework Core in an application?",
+      "answer": "Performance optimization in EF Core involves several strategies.\n\nUsing AsNoTracking() for read-only queries reduces tracking overhead.\nEmploying eager loading with Include() judiciously can prevent the N+1 query problem.\nProjections using Select() to retrieve only necessary data can minimize data transfer.\nCompiled queries can improve performance for frequently executed queries.\nEnsuring proper database indexing is crucial for query speed.\nUtilizing asynchronous operations (ToListAsync(), etc.) enhances scalability.\nBatch updates and deletes can be more efficient for bulk operations.\nIt is important to consider the trade-offs between these techniques, as some might fetch more data than needed in certain scenarios.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Senior",
+      "title": "Explain the N+1 query problem in Entity Framework Core and how to avoid it.",
+      "answer": "The N+1 query problem occurs when an application executes one query to retrieve a list of primary entities, and then for each of these entities, it executes an additional query to load related data (e.g., through lazy loading).\nThis results in N+1 database calls, where N is the number of primary entities, which can severely impact performance.\nThe primary way to avoid this is by using eager loading with the Include() method to fetch all necessary related data in a single query.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Senior",
+      "title": "What are compiled queries in Entity Framework Core, and when would you use them?",
+      "answer": "Compiled queries are LINQ queries that are compiled once and then cached, allowing for faster execution on subsequent calls with different parameters.\nEF Core enhances compiled queries for improved performance by caching execution plans.\nThey are particularly useful for frequently executed queries, as they avoid the overhead of recompiling the query each time.\nCompiled queries can be created using EF.CompileQuery.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Senior",
+      "title": "How does Entity Framework Core handle concurrency?",
+      "answer": "EF Core handles concurrency primarily through optimistic concurrency.\nThis involves adding a special property (often called a row version or timestamp) to the entity, which is automatically updated whenever the entity is modified.\nWhen an update is attempted, EF Core checks if the value of this concurrency token in the database matches the value that was originally retrieved. If they don't match, it indicates that the entity has been modified by another user since it was loaded, and a DbUpdateConcurrencyException is thrown.\nThis helps prevent data loss due to concurrent updates. The [ConcurrencyCheck] attribute or Fluent API can be used to mark properties for concurrency checking.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Senior",
+      "title": "How do you use Stored Procedures with Entity Framework Core?",
+      "answer": "EF Core allows developers to execute stored procedures in several ways.\nOne common approach is to map stored procedures to methods in the DbContext using configuration. For executing stored procedures that return entities, you can use FromSqlRaw() or FromSqlInterpolated() on a DbSet.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Senior",
+      "title": "What is the EF Core change tracker, and how does it work?",
+      "answer": "The EF Core change tracker is responsible for monitoring the state of entities that have been retrieved from or added to the DbContext.\nIt keeps track of the original values of the properties and detects any changes made to these entities.\nWhen SaveChanges() is called, the change tracker examines the state of each tracked entity and generates the appropriate SQL commands (INSERT, UPDATE, DELETE) to persist these changes to the database.\nEntities can be in various states (Added, Modified, Deleted, Unchanged). Understanding the change tracker is crucial for efficient data manipulation, and disabling it with AsNoTracking() can improve performance for read-only operations.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Senior",
+      "title": "What is the purpose of the Model Snapshot in EF Core migrations?",
+      "answer": "The Model Snapshot is a C# file (typically named <YourDbContextName>ModelSnapshot.cs) that is generated in the Migrations folder when a migration is added.\nIt represents the state of your data model at the time the last migration was created.\nEF Core uses this snapshot to compare against the current state of your entity model to determine what changes need to be made when a new migration is added.\nThis helps ensure that migrations accurately reflect the changes in your model over time.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Senior",
+      "title": "When would you consider using raw SQL queries in Entity Framework Core instead of LINQ?",
+      "answer": "While LINQ provides a convenient way to query the database, there are situations where using raw SQL queries in EF Core might be necessary or beneficial.\nThis includes scenarios involving complex queries that are difficult to express using LINQ, utilizing database-specific features or functions that are not directly supported by LINQ providers, or when fine-grained performance optimization is required and writing optimized SQL directly is more effective.\nFor example, executing complex stored procedures or performing full-text searches might be better handled with raw SQL.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Senior",
+      "title": "What are shadow properties in Entity Framework Core?",
+      "answer": "Shadow properties are properties that are not explicitly defined in your entity class but are part of the EF Core model and exist in the database.\nEF Core can infer these properties based on conventions or configurations. They are often used for foreign key relationships or for audit fields like CreatedDate or LastModifiedDate that you might not want to explicitly include in your entity classes but still need in the database.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Senior",
+      "title": "How does Entity Framework Core support transactions?",
+      "answer": "EF Core supports transactions to ensure that a series of database operations are treated as a single atomic unit.\nBy default, when you call SaveChanges(), EF Core wraps all the changes within a single transaction. If any part of the operation fails, the entire transaction is rolled back, ensuring data consistency.\nBeginTransaction() method, followed by Commit() to save the changes or Rollback() to discard them.\nThis is useful for scenarios where you need to perform multiple SaveChanges() calls as part of a larger transaction or when you need to include non-EF Core database operations within the same transaction.",
+      "isPremium": false
+    }
+  ]
+}

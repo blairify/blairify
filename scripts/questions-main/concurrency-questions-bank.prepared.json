@@ -1,0 +1,1069 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "concurrency-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Concurrency",
+      "description": "What is concurrency?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is concurrency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-1-ref-1",
+          "text": "Concurrency is the ability of a system to handle multiple tasks at the same time by managing the execution of these tasks. It enhances resource utilization and requires synchronization mechanisms like locks and semaphores to manage shared resources. Concurrency is essential in systems like operating systems and databases, where simultaneous task handling is crucial.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Parallelism",
+      "description": "What is parallelism?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is parallelism?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-2-ref-1",
+          "text": "Parallelism in computing refers to the execution of multiple processes or threads simultaneously, often by using multiple processors or cores. Key aspects include: Simultaneous Execution: Tasks run at the same time, not just appearing to do so. Hardware Dependent: Typically requires multi-core processors or multiple CPUs. Efficiency: Increases computational speed and efficiency for suitable tasks. Used in High-Performance Tasks: Ideal for computationally intensive operations or large data processing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between process and thread",
+      "description": "What is the difference between process and thread?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between process and thread?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-3-ref-1",
+          "text": "Process: An independent unit of execution with its own memory space. Thread: A subset of a process that shares memory with other threads within the same process, allowing more efficient execution of parallel tasks. Key differences: Memory Allocation: Process: Has its own independent memory space. Thread: Shares memory space within its parent process. Execution: Process: Runs independently and isolated from other processes. Thread: Multiple threads within a process can run concurrently, sharing resources. Overhead: Process: More overhead due to memory, resource allocation, and management. Thread: Less overhead compared to processes. Communication: Process: Inter-process communication is complex and slower. Thread: Threads can communicate more easily and quickly due to shared memory.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between multi-programming, multi-threading, and",
+      "description": "What is the difference between multi-programming, multi-threading, and multi-processing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between multi-programming, multi-threading, and multi-processing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-4-ref-1",
+          "text": "Multi-programming is about efficiently managing multiple programs in memory. Multi-threading focuses on executing multiple threads of a single process concurrently. Multi-processing leverages multiple CPUs to perform different tasks or processes simultaneously.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The benefits of multi-threading",
+      "description": "What are the benefits of multi-threading?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of multi-threading?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-5-ref-1",
+          "text": "Improved Performance: Enables parallel execution of tasks, enhancing overall application efficiency. Better Resource Utilization: Threads share memory and resources, reducing overhead compared to processes. Enhanced Responsiveness: Allows for responsive user interfaces by handling background tasks concurrently. Faster Execution: Splits complex tasks into smaller ones for quicker completion, especially on multi-core processors. Efficient I/O Operations: Facilitates non-blocking I/O operations, allowing other threads to execute while waiting for I/O. Scalability: Takes full advantage of multi-core and multi-processor systems for improved performance. Simplified Program Structure: Helps in structuring complex programs more simply by dividing tasks into separate threads. Easy Resource Sharing: Enables straightforward sharing and communication of data within the application.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Thread priority",
+      "description": "What is thread priority?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is thread priority?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-6-ref-1",
+          "text": "Thread priority is a value assigned to threads that determines their execution order by the operating system's scheduler. Higher priority threads are given preference and executed before lower priority ones. This mechanism helps in managing the execution of tasks, ensuring critical tasks get more CPU time. However, it must be used carefully to avoid issues like thread starvation, where lower priority threads get little to no CPU time, and priority inversion, where high priority threads are delayed due to lower priority ones holding necessary resources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Context-switching",
+      "description": "What is context-switching?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is context-switching?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-7-ref-1",
+          "text": "Context-switching is a process where an operating system saves the state of a currently executing process or thread and then loads and executes another. This enables efficient multitasking by allowing the CPU to switch between tasks, especially when one is idle. However, it introduces some overhead due to the time and resources needed to save and load states. The OS's scheduler manages this process, determining the order of execution for processes or threads.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Threads communicate with each other",
+      "description": "How do threads communicate with each other?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do threads communicate with each other?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-8-ref-1",
+          "text": "Shared Memory: Utilizing common memory space for reading and writing data. Message Passing: Exchanging messages via queues or other structures. Synchronization Primitives: Using mutexes, semaphores, and condition variables to manage shared resources safely. Signals or Events: Indicating status changes or task completions. Pipes and Sockets: In more complex or networked environments, for inter-process or network communication.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Deadlock",
+      "description": "What is Deadlock?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Deadlock?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-9-ref-1",
+          "text": "Deadlock is a situation in computer systems where two or more processes or threads are unable to proceed with their execution because each is waiting for resources held by the others. This results in a standstill, with none of the involved processes able to proceed. Key characteristics of a deadlock include: Mutual Exclusion: Each resource involved is non-shareable and can only be held by one process at a time. Hold and Wait: Processes holding resources are waiting to acquire additional resources held by other processes. No Preemption: Resources cannot be forcibly taken away from a process; they must be released voluntarily. Circular Wait: There exists a circular chain of processes, each waiting for a resource held by the next member in the chain.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Starvation",
+      "description": "What is starvation?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is starvation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-10-ref-1",
+          "text": "Starvation in computing occurs when a process or thread is perpetually denied necessary resources to progress, often due to scheduling algorithms favoring other processes. Unlike deadlock, where all involved processes are stuck, in starvation, only specific processes suffer prolonged resource deprivation, leading to indefinite waiting times.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A thread pool",
+      "description": "What is a thread pool?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a thread pool?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-11-ref-1",
+          "text": "A thread pool is a collection of pre-instantiated, idle threads which stand ready to be given work. These threads are managed by a pool manager. Key aspects of a thread pool include: Efficiency: Reduces the overhead of creating and destroying threads for each task. Resource Management: Limits the number of threads running concurrently, thus managing resource usage. Improved Performance: Can improve application performance in scenarios with a high number of short-lived threads. Task Queuing: Tasks are queued and executed as threads become available. Control Over Thread Usage: Allows for fine-tuning of the number of threads, balancing system load.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "An atomic operation",
+      "description": "What is an atomic operation?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an atomic operation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-12-ref-1",
+          "text": "An atomic operation in computing is an operation that is completed in a single step from the perspective of other threads or processes. Key characteristics include: Indivisibility: Cannot be interrupted or observed as a partial operation. Consistency: Ensures data integrity by completing fully or not at all. Used in Multi-threading: Prevents race conditions in concurrent environments.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "A blocking queue",
+      "description": "What is a blocking queue?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a blocking queue?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-13-ref-1",
+          "text": "A blocking queue is a thread-safe queue that blocks or waits when a thread tries to dequeue an item from an empty queue, or when trying to enqueue items to a full queue. Key aspects include: Thread-Safe Operations: Ensures safe handling of elements in multi-threaded environments. Automatic Waiting: Threads trying to dequeue from an empty queue are blocked until items are available. Capacity Bound: Can have a maximum capacity, blocking enqueue operations when full. Producer-Consumer Scenarios: Ideal for managing tasks between producer and consumer threads.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A daemon thread",
+      "description": "What is a daemon thread?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a daemon thread?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-14-ref-1",
+          "text": "A daemon thread in computing is a low-priority thread that runs in the background to perform tasks such as garbage collection or housekeeping functions. Key characteristics include: Background Execution: Daemon threads run in the background and usually have low priority. Life Cycle: They don't prevent the program from terminating; the JVM or runtime environment exits when only daemon threads remain. Use Cases: Commonly used for routine maintenance and service tasks. Minimal Impact: Designed to have minimal impact on system resources and performance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A Mutex",
+      "description": "What is a Mutex?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Mutex?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-15-ref-1",
+          "text": "A mutex, short for \"mutual exclusion,\" is a synchronization primitive used in concurrent programming to avoid the simultaneous use of a shared resource by multiple threads. Key aspects include: Exclusive Access: Ensures only one thread can access a resource at a time. Prevents Race Conditions: Critical in preventing data corruption in multi-threaded applications. Locking Mechanism: A thread must acquire the lock of the mutex before accessing the shared resource and release it after use. Ownership: Unlike semaphores, mutexes have a concept of ownership, meaning only the thread that locked the mutex can unlock it.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "A Race Condition",
+      "description": "What is a Race Condition?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is a Race Condition?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-16-ref-1",
+          "text": "A race condition is a situation in computing where the behavior and outcome of a software program, system, or device depend on the relative timing of events, such as the order of execution of operations in a multi-threaded or distributed system. Key aspects include: Concurrent Execution: Occurs when two or more threads or processes access shared data or resources concurrently. Unpredictable Results: The final state or output becomes unpredictable and varies depending on the timing of the events. Data Corruption: Can lead to data corruption or inconsistent results if not properly managed. Need for Synchronization: Synchronization mechanisms like mutexes, locks, and semaphores are used to prevent race conditions by controlling access to shared resources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "What is meant by thread-safe.",
+      "description": "Describe what is meant by thread-safe.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe what is meant by thread-safe.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-17-ref-1",
+          "text": "Thread-safe refers to code that is written in a way that ensures safe execution by multiple threads at the same time without leading to issues like data corruption, race conditions, or unexpected behavior.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A semaphore",
+      "description": "What is a semaphore?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a semaphore?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-18-ref-1",
+          "text": "A semaphore is a synchronization mechanism used in concurrent programming to control access to shared resources by multiple processes or threads. Key aspects: Counter-Based: A semaphore maintains a counter to track the number of available resources or slots. Acquire and Release: Threads or processes must acquire the semaphore before accessing a shared resource and release it after use. Blocking Mechanism: If the semaphore's count is zero (all resources are in use), a thread attempting to acquire it will block until a resource becomes available. Signaling: When a resource is released, the semaphore increments its count, potentially unblocking a waiting thread.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Name the different types of semaphores.",
+      "description": "Name the different types of semaphores.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name the different types of semaphores.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-19-ref-1",
+          "text": "Binary Semaphore: Functions like a mutex, with a value limited to 0 or 1. It's used to control access to a single shared resource. Counting Semaphore: Has a value greater than 1, allowing multiple threads to access a finite number of identical resources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concurrency-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The Actor Model and Threading Model",
+      "description": "Compare the Actor Model and Threading Model in the context of concurrency?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Compare the Actor Model and Threading Model in the context of concurrency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "concurrency"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "data-scientist"
+      ],
+      "primaryTechStack": [
+        "concurrency"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T18:04:47.905Z",
+      "updatedAt": "2025-12-19T18:04:47.905Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "concurrency-questions-bank-20-ref-1",
+          "text": "Actor Model: Uses independent actors communicating via message passing, avoiding shared state. It's inherently more scalable and simplifies managing state and behavior in distributed systems. Threading Model: Involves multiple threads sharing memory and resources within processes, requiring explicit synchronization (like locks) to prevent conflicts. It's more suitable for tightly integrated parallel processing tasks but can be complex due to shared state management.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

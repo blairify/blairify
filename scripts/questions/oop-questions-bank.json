@@ -1,0 +1,293 @@
+{
+  "totalQuestions": 41,
+  "extractedAt": "2025-12-19T18:02:17.711Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is object-oriented programming (OOP)?",
+      "answer": "Object-oriented programming (OOP) is a programming paradigm that uses \"objects\" to design software. These objects are organized into classes, which define their properties and behaviors.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What are the core concepts of OOP?",
+      "answer": "Classes and Objects: A class is a blueprint for creating objects. An object is an instance of a class, containing data and methods to manipulate that data.\nEncapsulation: This principle involves bundling the data (attributes) and the methods (functions or procedures) that operate on the data into a single unit, i.e., class. It also involves restricting direct access to some of an object's components, which is a means of preventing accidental interference and misuse of the methods and data.\nInheritance: This allows a new class to inherit the properties and methods of an existing class. It helps in code reuse and in the creation of a hierarchical classification.\nPolymorphism: It refers to the ability of different objects to respond, each in its own way, to identical messages (or methods). This could be achieved by method overloading or overriding.\nAbstraction: This concept involves representing essential features without including background details. It helps in reducing programming complexity and effort.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What is the difference between a class and an object in OOP?",
+      "answer": "In OOP a class is a blueprint or template for creating objects; it defines a set of attributes and methods that the created objects will have. An object, on the other hand, is an instance of a class; it is created from a class and represents a specific entity with actual values assigned to its attributes.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "Why are the benefits of OOP?",
+      "answer": "Modularity for easier troubleshooting: OOP allows developers to create modules that can be used in different parts of an application or in different projects. This modularity makes it easier to troubleshoot and maintain the code, as problems can be isolated within discrete modules.\nReuse of code through inheritance: Inheritance, a key feature of OOP, allows a new class to inherit the properties and methods of an existing class. This promotes code reuse, reduces redundancy, and makes it easier to maintain and update the software.\nFlexibility through polymorphism: Polymorphism enables a single function to adapt to different contexts, meaning that different object types can be treated as interchangeable. This adds flexibility to the code, making it easier to extend and maintain.\nEffective problem-solving: OOP is effective in handling complex problems by breaking them down into smaller, more manageable parts (objects). This approach mirrors how humans naturally perceive and interact with the world, making it more intuitive for planning and problem-solving.\nEnhanced software maintenance and understanding: OOP helps in creating clear hierarchical structures, which can make the software easier to navigate and understand. It also encourages clearer programming practices, which in turn improves the maintainability of the system.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "What are the disadvantages of OOP?",
+      "answer": "Steep Learning Curve: For beginners, OOP can be complex to understand and implement effectively. Concepts like inheritance, polymorphism, and encapsulation require a good understanding of how to use classes and objects, which can be challenging for new programmers.\nPerformance Overheads: OOP often involves additional layers of abstraction, which can lead to slower performance compared to procedural programming. This is particularly noticeable in systems where speed and efficiency are crucial.\nInefficient Memory Usage: Objects in OOP can consume more memory due to encapsulation. The storage of data and methods within objects requires additional memory overhead, which can be an issue in memory-constrained environments.\nComplexity in Large Applications: While OOP can help manage complexity by breaking problems into objects, the interactions between these objects can become complicated in large-scale applications. This can make the system harder to understand and maintain.\nOver-Engineering and Design Complexity: There's a tendency in OOP to create more classes and objects than necessary, leading to over-engineering. This can add unnecessary complexity to the design, making the code harder to follow and maintain.\nRestrictive Modelling: Sometimes, the need to fit a problem into the OOP model of classes and objects can make the solution more complex than it needs to be. Not all problems lend themselves well to the OOP approach, and a different programming paradigm might offer a more straightforward solution.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What languages come under the OOP concept?",
+      "answer": "Java: A widely-used language that is purely object-oriented, where everything is treated as an object.\nC++: Offers a mix of procedural and object-oriented programming features. It extended the C programming language to include OOP features.\nPython: Known for its easy-to-read syntax, Python supports OOP, making it a popular choice for a wide range of applications.\nC# (C Sharp): Developed by Microsoft, it's a modern language that fully supports OOP and is often used for developing Windows applications.\nRuby: Known for its elegant syntax, Ruby is a purely object-oriented language where everything is an object.\nPHP: Initially a procedural language, PHP has incorporated object-oriented features over time, especially from version 5 onwards.\nSmalltalk: One of the first purely object-oriented languages and known for its influential role in the development of OOP.\nObjective-C: A language that adds OOP features to C, primarily used in Apple's macOS and iOS application ecosystems.\nSwift: Apple's modern programming language for iOS and macOS development, designed as a replacement for Objective-C with full OOP support.\nKotlin: A newer language that runs on the Java Virtual Machine (JVM) and is designed to interoperate with Java, fully supporting OOP concepts.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "What is the difference between a class and a structure (struct)?",
+      "answer": "In many programming languages, the key differences between a class and a structure (struct) are:\nAccess Modifiers: By default, members of a class are private, while members of a struct are public.\nInheritance: Classes support inheritance, allowing one class to inherit from another; structs typically do not.\nMemory Allocation: Class instances are often created on the heap, whereas struct instances are usually created on the stack.\nUsage: Classes are used for complex data structures with methods and encapsulation, while structs are better suited for simpler, passive data structures.\nSemantics: In some languages like C#, structs are value types (copied on assignment), while classes are reference types (referenced by pointers).",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "What is encapsulation?",
+      "answer": "Encapsulation in object-oriented programming is the practice of bundling data (attributes) and methods (functions) that operate on the data into a single unit, or class, while restricting direct access to some of the class's components. This achieves:\nData Hiding: Prevents external entities from directly accessing internal data.\nAccess Control: Allows controlled interaction with the object's data through public methods (getters and setters).\nModularity: Enhances maintainability by keeping changes within a class from affecting other parts of the program.\nSimplified Interface: Offers a cleaner, easier-to-use interface by exposing only necessary components.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "Give an example of encapsulation.",
+      "answer": "python\n\nCopy code\n\nclass BankAccount:\n    def __init__(self, account_number, balance):\n        self.__account_number = account_number  # Private attribute\n        self.__balance = balance  # Private attribute\n \n    def deposit(self, amount):\n        if amount > 0:\n            self.__balance += amount\n            return True\n        return False\n \n    def withdraw(self, amount):\n        if 0 < amount <= self.__balance:\n            self.__balance -= amount\n            return True\n        return False\n \n    def get_balance(self):\n        return self.__balance\n \n    def get_account_number(self):\n        return self.__account_number\nThe BankAccount class has two private attributes: __account_number and __balance. These are encapsulated as they're not directly accessible from outside the class.\nPublic methods deposit, withdraw, get_balance, and get_account_number provide controlled access to these private attributes.\ndeposit and withdraw methods manipulate the balance, but only in ways defined inside the class (e.g., you can't withdraw more than the current balance).\nget_balance and get_account_number methods allow reading the values of the private attributes but not modifying them directly.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Mid",
+      "title": "What is Inheritance?",
+      "answer": "Inheritance in object-oriented programming (OOP) is a mechanism where a new class, known as a derived or child class, inherits properties and behavior (attributes and methods) from an existing class, known as a base or parent class. This concept enables several key features:\nCode Reuse: Inheritance allows new classes to take on properties and methods of existing classes, reducing redundancy and facilitating code reuse.\nHierarchy Creation: It creates a hierarchical relationship between classes, making it easier to structure and organize complex software systems.\nExtendibility: New functionality can be added to existing code by extending base classes, making the software more scalable.\nPolymorphism Support: Inheritance supports polymorphism, allowing a single operation to behave differently on different classes in the hierarchy.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Mid",
+      "title": "Give an example of inheritance.",
+      "answer": "python\n\nCopy code\n\n# Base class\nclass Vehicle:\n    def __init__(self, brand, model):\n        self.brand = brand\n        self.model = model\n \n    def display_info(self):\n        print(f\"Vehicle Brand: {self.brand}, Model: {self.model}\")\n \n# Derived class 1\nclass Car(Vehicle):\n    def __init__(self, brand, model, car_type):\n        super().__init__(brand, model)\n        self.car_type = car_type\n \n    def display_car_info(self):\n        print(f\"Car Brand: {self.brand}, Model: {self.model}, Type: {self.car_type}\")\n \n# Derived class 2\nclass Truck(Vehicle):\n    def __init__(self, brand, model, payload_capacity):\n        super().__init__(brand, model)\n        self.payload_capacity = payload_capacity\n \n    def display_truck_info(self):\n        print(f\"Truck Brand: {self.brand}, Model: {self.model}, Payload Capacity: {self.payload_capacity}\")\n \n# Creating objects\nmy_car = Car(\"Toyota\", \"Corolla\", \"Sedan\")\nmy_truck = Truck(\"Ford\", \"F-150\", 1000)\n \n# Using methods\nmy_car.display_info()        # Inherited method\nmy_car.display_car_info()    # Extended method\nmy_truck.display_info()      # Inherited method\nmy_truck.display_truck_info()  # Extended method\n\nVehicle is the base class with properties like brand and model, and a method display_info.\nCar and Truck are derived classes that inherit from Vehicle.\nThey use super().__init__(brand, model) to call the constructor of Vehicle, ensuring they have the brand and model properties.\nEach derived class adds its own properties (car_type for Car, payload_capacity for Truck) and methods (display_car_info and display_truck_info).\nThe derived classes inherit the display_info method from Vehicle and extend the class with additional functionality.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "What is multiple inheritance?",
+      "answer": "Multiple inheritance is a feature in some object-oriented programming languages where a class can inherit characteristics (attributes and methods) from more than one parent class. This allows the derived class to combine and utilize features from all of its parent classes, leading to greater functionality and flexibility.\nHowever, it can also introduce complexity, particularly in resolving ambiguities (like the \"diamond problem\") when the same method or attribute is inherited from multiple parent classes.\nNot all programming languages support multiple inheritance due to these complexities; for example, Python supports it, while Java and C# do not.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "Give an example of multiple Inheritance.",
+      "answer": "python\n\nCopy code\n\n# Base class 1\nclass Engine:\n    def start(self):\n        print(\"Engine started\")\n \n    def stop(self):\n        print(\"Engine stopped\")\n \n# Base class 2\nclass Headlights:\n    def turn_on(self):\n        print(\"Headlights turned on\")\n \n    def turn_off(self):\n        print(\"Headlights turned off\")\n \n# Derived class with multiple inheritance\nclass Car(Engine, Headlights):\n    def change_gear(self, gear):\n        print(f\"Gear changed to {gear}\")\n \n# Creating an object of the Car class\nmy_car = Car()\n \n# Using methods from both parent classes\nmy_car.start()          # From Engine class\nmy_car.turn_on()        # From Headlights class\nmy_car.change_gear(3)   # From Car (derived) class\nEngine and Headlights are base classes with their own methods.\nCar is a derived class that inherits from both Engine and Headlights.\nThe Car class can use methods from both its parent classes (start, stop, turn_on, turn_off) and has its own method (change_gear).",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What is polymorphism?",
+      "answer": "Polymorphism is a core concept in object-oriented programming (OOP) that refers to the ability of different objects to respond in their own way to the same message, function, or method. This means that the same operation can behave differently on different classes. There are two primary types of polymorphism:\nCompile-Time Polymorphism (Method Overloading): This occurs when two or more methods in the same class have the same name but different parameters. The method to be executed is determined at compile time based on the method signature (e.g., number and type of parameters).\nRuntime Polymorphism (Method Overriding): This happens when a subclass provides a specific implementation for a method that is already defined in its parent class. Here, the method to be executed is determined at runtime, allowing for dynamic method dispatch.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "Give an example of overriding?",
+      "answer": "python\n\nCopy code\n\nclass Animal:\n    def make_sound(self):\n        print(\"This animal makes a sound\")\n \nclass Dog(Animal):\n    def make_sound(self):\n        print(\"Bark\")\n \nclass Cat(Animal):\n    def make_sound(self):\n        print(\"Meow\")\n \n# Creating objects\ndog = Dog()\ncat = Cat()\n \n# Calling the method\ndog.make_sound()  # Outputs: Bark\ncat.make_sound()  # Outputs: Meow\nAnimal is the base class with a method make_sound.\nDog and Cat are subclasses that override the make_sound method.\nWhen make_sound is called on a Dog object, it prints \"Bark\", and when called on a Cat object, it prints \"Meow\".",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "Give an example of overloading?",
+      "answer": "python\n\nCopy code\n\nclass Calculator:\n    # Method to add two numbers\n    def add(self, a, b):\n        return a + b\n \n    # Overloaded method to add three numbers\n    def add(self, a, b, c):\n        return a + b + c\n \n# Creating an object of Calculator class\ncalc = Calculator()\n \n# Calling the add method with two arguments\nprint(calc.add(2, 3))  # This would typically result in an error in Python\n \n# Calling the add method with three arguments\nprint(calc.add(2, 3, 4))\n\nThe Calculator class has two methods named add.\nThe first add method takes two parameters and adds them.\nThe second add method is an overloaded version that takes three parameters and adds them.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What is the difference between overloading and overriding?",
+      "answer": "Overloading and overriding are both forms of polymorphism in object-oriented programming, but they differ in key ways:\n\nOverloading (Compile-Time Polymorphism):\nWhat It Is: Different methods in the same class share the same name but have different parameters (type, number).\nPurpose: To handle different argument types and numbers with the same method name.\nDetermined: At compile time.\nOverriding (Runtime Polymorphism):\nWhat It Is: A subclass provides a specific implementation of a method already defined in its parent class.\nPurpose: To modify or replace a parent class method's behavior in the subclass.\nDetermined: At runtime.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "Name three operators that can’t be overloaded in C++.",
+      "answer": "In C++, there are several operators that cannot be overloaded. Three of these are:\n\nScope Resolution Operator (::): This operator is used for accessing static, constant, and enum members of a class, as well as for defining methods outside the class.\nMember Pointer Access Operator (.* and ->*): These operators are used for accessing members of a class or structure through a pointer.\nTernary Conditional Operator (?:): This operator is used to make a quick decision between two options based on a condition.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "Explain abstraction in OOP.",
+      "answer": "Abstraction in object-oriented programming (OOP) is the principle of hiding complex implementation details and exposing only the necessary and relevant features of an object. It's achieved through:\nSimplifying Complexity: Focusing on essential attributes and behaviors while ignoring non-essential details.\nDefining Interfaces: Providing clear, user-friendly ways to interact with objects.\nEmphasizing 'What' over 'How': Highlighting what an object does rather than how it does it.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "Give an example of abstraction in OOP",
+      "answer": "python\n\nCopy code\n\nclass Car:\n    def __init__(self, make, model):\n        self.make = make\n        self.model = model\n \n    def start_engine(self):\n        # Complex internal processes are abstracted away\n        print(\"Engine started\")\n \n    def stop_engine(self):\n        # Complex internal processes are abstracted away\n        print(\"Engine stopped\")\n \n    def drive(self):\n        # Complex driving mechanisms are abstracted away\n        print(\"Car is moving\")\n \n# Using the Car class\nmy_car = Car(\"Toyota\", \"Corolla\")\nmy_car.start_engine()\nmy_car.drive()\n\nThe Car class abstracts the concept of a car. It doesn't detail how the engine works or how the car moves; it just provides interfaces (start_engine, stop_engine, drive) to perform these actions.\nThe internal workings of the engine starting or the car driving are hidden from the user of the class. This is abstraction; the user interacts with the car through simple methods without needing to understand the complexities behind them.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "What is a superclass?",
+      "answer": "In object-oriented programming, a superclass (also known as a parent class or base class) is a class that is inherited by another class, known as a subclass or child class. The superclass provides properties and behaviors (methods and attributes) that are inherited by its subclasses.\nThis allows for code reuse and hierarchical class organization. Superclasses represent more general concepts, while subclasses are more specific. Subclasses can override inherited methods to provide specialized behavior.\nExample:\n\npython\n\nCopy code\n\nclass Animal:  # Superclass\n    def make_sound(self):\n        print(\"Some sound\")\n \nclass Dog(Animal):  # Subclass\n    def make_sound(self):\n        print(\"Bark\")\n \nclass Cat(Animal):  # Subclass\n    def make_sound(self):\n        print(\"Meow\")",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What is a subclass?",
+      "answer": "A subclass in object-oriented programming is a class that inherits from a superclass, gaining its properties and behaviors, while also introducing its own unique attributes and methods. It specializes and extends the functionality of the superclass.\nExample:\n\npython\n\nCopy code\n\nclass Animal:\n    def eat(self):\n        print(\"This animal eats\")\n \n    def sleep(self):\n        print(\"This animal sleeps\")\n \nclass Bird(Animal):\n    def fly(self):\n        print(\"This bird flies\")\n \nsparrow = Bird()\nsparrow.eat()  # Inherited from Animal\nsparrow.fly()  # Specific to Bird",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "What are ‘access specifiers’?",
+      "answer": "Access specifiers (also known as access modifiers) in object-oriented programming are keywords used to set the access level/visibility of classes, methods, and other members. They determine from where these members can be accessed within the code. The three most common access specifiers are:\nPublic: Members declared as public can be accessed from anywhere in the code. There is no restriction on accessing public members.\nPrivate: Members declared as private can only be accessed within the class they are declared in. They are not accessible from outside the class, making them useful for hiding the internal implementation details of the class.\nProtected: Members declared as protected can be accessed within their own class and by subclasses (derived classes). This specifier is a level between public and private, providing more flexibility for inheritance.\nJava and C++ both use these three specifiers, while Python does not enforce them strictly but has conventions to denote private and protected members.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What is an interface?",
+      "answer": "An interface in object-oriented programming is a structure that defines a contract in the form of methods without providing their implementation. It allows classes to implement the interface by providing concrete implementations of its methods.\nInterfaces are used to represent a capability or a set of actions that different classes can perform. This facilitates a form of polymorphism, where different classes can implement the same interface in unique ways.\nExample:\nFor example, consider an interface Drivable with a method drive(). Both Car and Bicycle classes can implement Drivable, but each will have a different implementation of drive(), specific to how cars and bicycles operate:\n\njava\n\nCopy code\n\ninterface Drivable {\n    void drive();\n}\n \nclass Car implements Drivable {\n    public void drive() {\n        // Car-specific driving code\n    }\n}\n \nclass Bicycle implements Drivable {\n    public void drive() {\n        // Bicycle-specific driving code\n    }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "What is coupling in OOP?",
+      "answer": "Coupling in Object-Oriented Programming (OOP) refers to how closely connected two classes or components are, indicating the level of dependency between them.\nTight Coupling: Classes are highly dependent on each other, making changes difficult and maintenance challenging due to a higher risk of bugs.\nLoose Coupling: Classes are largely independent, promoting easier maintenance, testing, and flexibility in the system.\nAchieving loose coupling often involves using interfaces, abstractions, and design principles like Dependency Inversion, leading to a more modular and robust codebase. It's generally preferable to minimize coupling for easier scalability and maintainability of software.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "What are the limitations of inheritance?",
+      "answer": "Tight Coupling: Subclasses are tightly coupled to their parent classes, meaning changes in the superclass can impact all subclasses. This can lead to maintenance challenges and fragility in the class structure.\nIncreased Complexity: Inheritance, especially multiple inheritances, can make the code more complex and harder to understand. It can lead to a complicated hierarchy which might become difficult to manage and understand.\nInappropriate Use: Not all relationships are best modeled through inheritance. Overusing inheritance for relationships that should be modeled differently (like composition) can lead to inappropriate designs.\nMethod Overriding Issues: Subclasses overriding superclass methods can lead to unexpected behavior, especially if the subclass's method does not properly match the superclass's method's intended use.\nInheritance for Reuse: Using inheritance primarily for code reuse can lead to bloated designs where subclasses inherit methods and data they don't need, violating the principle of least privilege.\nRisk of Breaking Encapsulation: Inheritance can sometimes lead to breaking encapsulation by exposing superclass's internal methods and data to subclasses.\nBase Class Dependency: Subclasses are dependent on the base class. If the base class is not stable and changes frequently, it can destabilize all the subclasses.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "Define virtual functions.",
+      "answer": "Virtual functions in object-oriented programming are functions declared in a base class with the keyword virtual and are designed to be overridden in derived classes. They enable runtime polymorphism, allowing a program to decide which function to execute at runtime based on the object type. Virtual functions ensure that the correct function is called for an object, regardless of the reference type used for function call.\nExample:\n\ncpp\n\nCopy code\n\nclass Base {\npublic:\n    virtual void show() { \n        cout << \"In Base\" << endl; \n    }\n};\n \nclass Derived : public Base {\npublic:\n    void show() override { \n        cout << \"In Derived\" << endl; \n    }\n};\n \nBase* b = new Derived();\nb->show();  // Outputs: \"In Derived\"\nIn this example, display() is a virtual function in Base, overridden in Derived. The call b->display() invokes the Derived class's display() method due to the use of virtual functions.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "What is a constructor?",
+      "answer": "A constructor is a special method in object-oriented programming used to initialize new objects of a class. It has the same name as the class and does not have a return type.\nConstructors are automatically called when an instance of a class is created. They often set initial values for the object's properties and perform any necessary setup.\nExample:\n\njava\n\nCopy code\n\npublic class Book {\n    String title;\n \n    // Constructor\n    public Book(String title) {\n        this.title = title; // Initialize the title\n    }\n}\n \n// Creating an instance of Book\nBook myBook = new Book(\"1984\");\nIn this example, the Book class has a constructor that initializes its title property when a new Book object is created.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "What is constructor chaining?",
+      "answer": "Constructor chaining in object-oriented programming is the practice of calling one constructor from another within the same class using this(), or in a subclass using super() to call a parent class constructor. This ensures efficient code reuse and proper initialization of objects.\nExample:\n\njava\n\nCopy code\n\nclass Parent {\n    Parent() {\n        System.out.println(\"Parent constructor\");\n    }\n}\n \nclass Child extends Parent {\n    Child() {\n        super();  // Calls Parent constructor\n        System.out.println(\"Child constructor\");\n    }\n \n    Child(String msg) {\n        this();  // Calls another constructor in Child\n        System.out.println(msg);\n    }\n}\n \nnew Child(\"Hello from Child\"); // Outputs Parent and Child constructors' messages followed by the message\n\nIn this example, Child(String msg) constructor first calls Child() constructor with this(), which then calls Parent constructor with super().",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "Explain the concept of composition in OOP.",
+      "answer": "Composition in Object-Oriented Programming (OOP) is a design principle where a class includes objects of other classes as its members, forming a \"has-a\" relationship.\nThis approach allows a class to combine functionalities of included objects, enhancing reusability and flexibility. In composition, the lifetime of the included objects is tied to the lifetime of the encompassing class; when the encompassing class is destroyed, so are its composed objects.\nExample:\n\njava\n\nCopy code\n\nclass Engine {\n    void start() {\n        // Engine start functionality\n    }\n}\n \nclass Car {\n    private Engine engine;\n \n    Car() {\n        engine = new Engine();  // Composition\n    }\n \n    void startCar() {\n        engine.start();  // Utilizing composed object's functionality\n    }\n}\n\n\nHere, the Car class is composed of the Engine class, and it utilizes the Engine's functionalities, demonstrating the concept of composition.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is a destructor?",
+      "answer": "A destructor in object-oriented programming is a special method automatically called when an object is destroyed or goes out of scope. It is used for cleanup, such as releasing resources or freeing memory.\nDestructors have no parameters and no return type. They serve as the opposite of constructors, which initialize objects, whereas destructors clean up after them.\nExample:\n\ncpp\n\nCopy code\n\nclass Example {\npublic:\n    Example() {\n        // Constructor code\n    }\n \n    ~Example() {\n        // Destructor code, e.g., release resources, close files\n    }\n};\n \nint main() {\n    Example ex;  // The destructor is called when 'ex' goes out of scope\n}\n\nIn this example, the Sample class has a destructor ~Sample(), which is invoked automatically when an instance of Sample is no longer in use.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "Types of constructors.",
+      "answer": "Default Constructor: Automatically called and initializes objects without any arguments.\nParameterized Constructor: Takes arguments and initializes objects with specific values.\nCopy Constructor: Creates a new object as a copy of an existing object.\nMove Constructor (C++ specific): Moves resources from a temporary object to a new object for efficiency.\nConversion Constructor (C++ specific): Allows for type conversion.\nExplicit Constructor (C++ specific): Prevents implicit conversions, declared with explicit keyword.\nNo-Arg Constructor: Similar to default but can be explicitly defined for specific actions.\nPrivate Constructor: Restricts external instantiation, typically used in design patterns like Singleton.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Senior",
+      "title": "Can you call the base class method without creating an instance?",
+      "answer": "In object-oriented programming, whether you can call a base class method without creating an instance of the class depends on the nature of the method:\nStatic Methods: If the method in the base class is a static method, you can call it without creating an instance of the class. Static methods belong to the class itself, not to any specific object instance.\nInstance Methods: If the method is an instance method (a non-static method), you generally need to create an instance of the class to call it. Instance methods require an object context to operate because they often access or modify the instance's state.\nExample:\n\njava\n\nCopy code\n\nclass BaseClass {\n    static void staticMethod() {\n        System.out.println(\"Static method called\");\n    }\n \n    void instanceMethod() {\n        System.out.println(\"Instance method called\");\n    }\n}\n \n// Calling a static method without creating an instance\nBaseClass.staticMethod();\n \n// Trying to call an instance method without creating an instance would cause a compile-time error\n// BaseClass.instanceMethod(); // This will not work\nIn this Java example, staticMethod can be called without creating an instance of BaseClass, but attempting to call instanceMethod in the same way would result in a compile-time error. To call instanceMethod, you need to create an instance of BaseClass:\n\njava\n\nCopy code\n\nBaseClass instance = new BaseClass();\ninstance.instanceMethod(); // Now this works",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Senior",
+      "title": "How is encapsulation different from data abstraction?",
+      "answer": "Encapsulation and data abstraction are both key concepts in object-oriented programming, but they serve different purposes:\nEncapsulation: It focuses on bundling data and methods that operate on the data within a class and restricting direct access to some of the object's components. The goal is to protect the internal state of an object and enforce controlled access to its data.\nData Abstraction: This involves representing complex systems with simpler, more understandable models. It emphasizes on the essential features of an object while hiding unnecessary details, typically using abstract classes or interfaces.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Senior",
+      "title": "What is an abstract class?",
+      "answer": "An abstract class in object-oriented programming is a class that cannot be instantiated and is designed to be a base class. It may contain abstract methods, which are declared without implementation and must be implemented by concrete subclasses.\nAbstract classes can also include partial implementations for some methods.\nThe primary purpose of an abstract class is to define a common interface for its subclasses, ensuring they implement specific methods. This approach prevents direct instantiation and enforces a structure for future derived classes.\nExample:\n\npython\n\nCopy code\n\nfrom abc import ABC, abstractmethod\n  \nclass Shape(ABC):\n    @abstractmethod\n    def draw(self):\n        pass\n \nclass Circle(Shape):\n    def draw(self):\n        print(\"Drawing a circle\")\n \nclass Rectangle(Shape):\n    def draw(self):\n        print(\"Drawing a rectangle\")\n \n# shape = Shape() # This would raise an error, can't instantiate an abstract class\ncircle = Circle()\ncircle.draw()  # This works fine\nIn this Python example, Shape is an abstract class with an abstract method draw(). Concrete classes Circle and Rectangle provide implementations for draw(). The Shape class cannot be instantiated, but Circle and Rectangle can be.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Senior",
+      "title": "Can you create an instance of an abstract class?",
+      "answer": "No, you cannot create an instance of an abstract class directly. An abstract class in object-oriented programming is designed to serve as a base class and to provide a template for other classes to inherit from.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Senior",
+      "title": "Differentiate between an abstract class and an interface?",
+      "answer": "Abstract Class:\nCan have both abstract methods (without implementation) and concrete methods (with implementation).\nCan hold state (instance variables).\nSubclasses extend only one abstract class using the extends keyword.\nCan have constructors.\nInterface:\nPrimarily contains abstract methods, though modern updates allow default and static methods with implementation.\nCannot hold state (instance variables), focusing only on behavior.\nClasses can implement multiple interfaces using the implements keyword.\nCannot have constructors.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Senior",
+      "title": "What is hierarchical inheritance?",
+      "answer": "Hierarchical inheritance in object-oriented programming is when a single base class (parent) is inherited by multiple derived classes (children). This creates a structure where the base class's properties and methods are shared across its various child classes, each potentially adding its own specific properties and methods.\nExample:\n\npython\n\nCopy code\n\nclass Person:\n    def __init__(self, name):\n        self.name = name\n \nclass Teacher(Person):\n    def teach(self):\n        print(f\"{self.name} is teaching\")\n \nclass Student(Person):\n    def study(self):\n        print(f\"{self.name} is studying\")\n \nclass Administrator(Person):\n    def manage(self):\n        print(f\"{self.name} is managing\")\nIn this Python example, Teacher, Student, and Administrator are all derived from the Person class, demonstrating hierarchical inheritance.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Senior",
+      "title": "What is hybrid inheritance?",
+      "answer": "Hybrid inheritance in object-oriented programming is a combination of two or more types of inheritance, such as single, multiple, multilevel, or hierarchical inheritance. It's used to design complex inheritance hierarchies that fit the needs of the problem being solved.\nHowever, hybrid inheritance can introduce complexity and should be managed carefully to avoid issues like the Diamond Problem, which arises in multiple inheritances when a class inherits from two classes that both inherit from a common base class.\nExample:\n\ntxt\n\nCopy code\n\n    A\n   / \\\n  B   C\n   \\ /\n    D\n\nIn this structure, D inherits features from both B and C, which in turn inherit from A. This hybrid structure allows D to utilize the properties and methods of both B and C, as well as those from the common ancestor A.",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Senior",
+      "title": "What is the \"diamond problem,\" and how is it resolved?",
+      "answer": "The \"diamond problem\" in object-oriented programming occurs in multiple inheritance scenarios, where a class inherits from two classes that both inherit from a common base class. This leads to ambiguity as the derived class inherits the same base class properties and methods along two paths.\nExample:\n\ntxt\n\nCopy code\n\n     A\n    / \\\n   B   C\n    \\ /\n     D\n\nResolution:\nC++ uses virtual inheritance, ensuring that the derived class inherits only one copy of the base class's properties and methods, thus avoiding duplication and ambiguity.\nJava and C# avoid this problem by not supporting multiple inheritance of classes; they allow a class to implement multiple interfaces instead.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Senior",
+      "title": "What do you understand by Garbage Collection in the OOP world?",
+      "answer": "Garbage collection in object-oriented programming (OOP) is an automatic memory management process where the runtime environment deallocates memory that is no longer in use by the program. It identifies objects that are no longer reachable and reclaims the memory they occupied, thus preventing memory leaks.\nThis process simplifies memory management for developers but can impact performance due to the resources required to identify and clean up unused objects. Garbage collection is a common feature in high-level languages like Java, Python, and C#.",
+      "isPremium": false
+    }
+  ]
+}

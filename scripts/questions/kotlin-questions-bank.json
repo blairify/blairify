@@ -1,0 +1,356 @@
+{
+  "totalQuestions": 50,
+  "extractedAt": "2025-12-19T17:35:52.180Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is Kotlin, and why is it used in Android development?",
+      "answer": "Kotlin is a statically-typed, cross-platform programming language that runs on the Java Virtual Machine (JVM).\nIt is officially supported for Android app development by Google. Kotlin offers concise syntax, null safety, and modern features, which make it safer and more expressive than Java. It's used in Android development to improve productivity and reduce common sources of errors.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What are the key features of Kotlin compared to Java?",
+      "answer": "Some key features of Kotlin compared to Java include:\nNull safety, which helps prevent null pointer exceptions.\nConcise syntax, reducing boilerplate code.\nExtension functions, allowing you to extend classes without modifying their source code.\nSmart casts, eliminating the need for explicit type casting.\nData classes for creating simple, immutable value objects.\nCoroutines for asynchronous programming.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What are nullable and non-nullable types in Kotlin?",
+      "answer": "In Kotlin, you can declare variables as nullable by appending ? to the type, e.g., var name: String? = null. Non-nullable types, on the other hand, are declared without ?, like var age: Int = 25. To work with nullable types safely, you can use the safe call operator ?. and the Elvis operator ?:.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What are inline functions in Kotlin?",
+      "answer": "Inline functions are functions that are expanded by the compiler at the call site, effectively copying their code into the calling function. This reduces the overhead of function calls, making code more efficient. Inline functions are essential for performance optimization in cases where function calls might introduce unnecessary overhead.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "Explain the difference between val and var in Kotlin.",
+      "answer": "val is used to declare immutable variables, meaning their values cannot be changed once assigned.\nvar is used for mutable variables, which can have their values reassigned.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What are data classes in Kotlin, and why are they useful?",
+      "answer": "Data classes are a feature in Kotlin that automatically generate equals, hashCode, toString, and copy methods for a class based on its properties. They are useful for creating simple, immutable data structures, reducing boilerplate code, and making code more readable.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "Explain the concept of type inference in Kotlin.",
+      "answer": "Type inference is a feature in Kotlin where the compiler can automatically deduce the data type of a variable or expression without explicit type declarations. This reduces the need for verbose type annotations, making code more concise and readable while maintaining strong static typing.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "What are higher-order functions in Kotlin?",
+      "answer": "Higher-order functions are functions that can take other functions as parameters or return them as results. You can use them to implement behaviors like map, filter, and reduce on collections.\n\ntypescript\n\nCopy code\n\nfun applyOperation(x: Int, y: Int, operation: (Int, Int) -> Int): Int {\n    return operation(x, y)\n}",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Mid",
+      "title": "Explain the concept of extension functions in Kotlin.",
+      "answer": "Extension functions allow you to add new functions to existing classes without modifying their source code. They are defined outside the class and can be called as if they were regular methods. This helps keep code clean and maintainable.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Mid",
+      "title": "What are extension properties in Kotlin, and how do they differ from extension functions?",
+      "answer": "Extension properties allow you to add properties to existing classes without modifying their source code. They are defined using extension functions with a get accessor.\nExtension functions, on the other hand, allow you to add functions to existing classes. While extension functions are invoked with parentheses, extension properties are accessed like regular properties.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Mid",
+      "title": "What are Kotlin coroutines, and how do they differ from traditional threads?",
+      "answer": "Kotlin coroutines are a way to write asynchronous, non-blocking code in a more sequential and readable manner. Unlike traditional threads, coroutines are lightweight, and they can be suspended and resumed, making it easier to manage concurrency and avoid callback hell.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "How do you handle exceptions in Kotlin?",
+      "answer": "In Kotlin, you can use try-catch blocks to handle exceptions. Unlike Java, Kotlin does not have checked exceptions. You can use the try expression to return a result or handle exceptions using catch blocks.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "What is the Kotlin Standard Library?",
+      "answer": "The Kotlin Standard Library is a collection of functions and types provided by Kotlin to simplify common programming tasks. It includes extensions for the Java Standard Library and provides additional functionality like higher-order functions, collections, and coroutine support. It's important because it enhances the productivity of Kotlin developers and encourages best practices.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "Explain sealed classes in Kotlin. When would you use them?",
+      "answer": "Sealed classes are used to represent restricted class hierarchies, meaning all subclasses must be defined in the same file. They are often used for representing data types with a limited set of possibilities, like in when expressions. For example, when modeling the status of an order, you could create a sealed class with subclasses for different order statuses.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "What is the purpose of the init block in Kotlin classes?",
+      "answer": "The init block is used to initialize properties or perform other setup code when an instance of a class is created. It's executed as part of the primary constructor and helps ensure that objects start in a consistent state.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "What is the difference between apply and also scope functions in Kotlin?",
+      "answer": "Both apply and also are scope functions in Kotlin that allow you to work with an object within a specified context. The key difference is in their return values.\napply returns the receiver object after applying changes, while also returns the same receiver object but allows you to perform additional actions without affecting the result.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "How does Kotlin support functional programming paradigms?",
+      "answer": "Kotlin supports functional programming through features like lambda expressions, higher-order functions, and immutability. These features enable developers to write concise, expressive code that emphasizes the use of pure functions and avoids mutable state.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is the Elvis operator in Kotlin, and when would you use it?",
+      "answer": "The Elvis operator (?:) is used to provide a default value when a nullable expression evaluates to null. For example, val result = nullableValue ?: defaultValue assigns defaultValue to result if nullableValue is null. It's useful for handling nullable values gracefully.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "Explain the lateinit modifier in Kotlin. When and why would you use it?",
+      "answer": "The lateinit modifier is used for properties in Kotlin that are declared as non-nullable but are initialized later (typically in a constructor). You would use it when you cannot initialize the property at the point of declaration, such as in Android development for initializing views from XML layouts.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "What is the difference between let, run, and with scope functions in Kotlin?",
+      "answer": "All three scope functions (let, run, and with) are used to operate on an object within a specified context, but they differ in how they access the object and return values. let and run take the object as a lambda argument, while with takes it as a receiver. let and run return the lambda result, while with returns the result of the lambda.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "How does Kotlin handle interoperability with Java?",
+      "answer": "Kotlin is fully interoperable with Java, allowing you to call Java code from Kotlin and vice versa. You can use Kotlin features like nullable types and extension functions seamlessly with Java code. The Kotlin compiler generates bytecode compatible with the Java Virtual Machine (JVM).",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What is the Kotlin Android Extensions plugin?",
+      "answer": "The Kotlin Android Extensions plugin simplifies Android app development by allowing you to access Views from XML layouts directly in your Kotlin code without the need for findViewById. It generates synthetic properties for XML elements, making UI-related code cleaner and more concise.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "What is the primary purpose of a companion object in Kotlin?",
+      "answer": "A companion object is used to define static members for a class. You would use it when you need to create class-level functionality or constants that are associated with the class itself rather than with instances of the class.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What is the purpose of the by lazy delegate in Kotlin?",
+      "answer": "The by lazy delegate is used to create properties with lazy initialization. The property's value is computed the first time it's accessed and cached for subsequent accesses. It's useful when you have properties that are computationally expensive to initialize or when you want to defer initialization until it's needed.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "What is a sealed interface in Kotlin?",
+      "answer": "A sealed interface is similar to a sealed class in that it restricts the inheritance hierarchy, but it allows multiple implementations. In contrast, a sealed class can have multiple subclasses but only one implementation per subclass. Sealed interfaces are useful when you want to define a set of related interfaces with a limited number of known implementations.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "Explain the in and out variance modifiers in Kotlin's type system.",
+      "answer": "in and out are used to define type variance in Kotlin. in is used for input (consumer) types, and out is used for output (producer) types. You would use in when you need to ensure that a function can accept more specific (subtypes) data. You would use out when you need to ensure that a function can produce more generic (supertypes) data.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "Explain the purpose of the suspend modifier in Kotlin and its relation to coroutines.",
+      "answer": "The suspend modifier is used to mark functions that can be paused and resumed asynchronously. It is a fundamental part of Kotlin coroutines, allowing you to write asynchronous code in a more sequential and readable manner. Suspended functions can be used within coroutine scopes and other suspending functions.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "What is a Kotlin data class and when would you use it in your code?",
+      "answer": "A Kotlin data class is a concise way to declare a class that is primarily used to store data. It automatically generates equals, hashCode, toString, and copy methods based on the class's properties. Data classes are typically used for modeling immutable data structures where identity and behavior are less important than the actual data.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "How does Kotlin handle default arguments in function declarations?",
+      "answer": "Kotlin allows you to specify default values for function parameters, eliminating the need to provide all arguments when calling a function. When you call the function, you can choose to omit any parameters with default values, and the default values will be used instead.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "How does Kotlin handle concurrency and multithreading, and what are some advantages of using Kotlin for concurrent programming?",
+      "answer": "Kotlin provides first-class support for concurrency through coroutines, which offer a more straightforward and safer way to write asynchronous code compared to traditional multithreading approaches. Coroutines allow developers to write asynchronous code sequentially, avoiding callback hell and common concurrency issues.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is the let extension function, and how would you use it in practice?",
+      "answer": "The let extension function is used to execute a lambda expression on a non-null object. It is often used for performing operations on non-null values, ensuring that the lambda block is only executed when the object is not null.\n\ntypescript\n\nCopy code\n\nval result = nullableValue?.let { /* perform operations on non-null value */ }",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "Explain the concept of smart casts in Kotlin. How do they improve type safety?",
+      "answer": "Smart casts are a feature in Kotlin that automatically cast a variable to a more specific type when certain conditions are met. For example, after checking that an object is not null and is of a certain type, Kotlin allows you to access its properties and methods without explicit type casting, improving type safety.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "What is the purpose of the crossinline modifier in Kotlin? When and why would you use it in a lambda expression?",
+      "answer": "The crossinline modifier is used in lambda expressions to indicate that the lambda cannot perform non-local returns. This means that you cannot use return to exit the enclosing function from within a crossinline lambda. It's used when you want to ensure that the lambda does not affect control flow in unexpected ways, such as inlining within higher-order functions or suspending functions.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What is the difference between primary constructors and secondary constructors in Kotlin?",
+      "answer": "A primary constructor is defined within the class header and is used to initialize properties of the class.\nA secondary constructor is defined using the constructor keyword and can be used to provide alternative ways to initialize a class.\nSecondary constructors must delegate to the primary constructor using the this keyword or another secondary constructor.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "What are property accessors in Kotlin, and how do you customize them using custom getters and setters?",
+      "answer": "Property accessors allow you to control how properties are accessed and modified. You can customize them using custom getters and setters. A custom getter is defined with get() and allows you to compute the property's value dynamically. A custom setter is defined with set() and lets you add custom logic when a property is assigned a new value.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "Explain the differences between listOf, mutableListOf, and arrayListOf in Kotlin.",
+      "answer": "listOf creates an immutable list, while mutableListOf creates a mutable list. arrayListOf creates a resizable array-backed list. You would choose one over the other based on whether you need an immutable, mutable, or dynamically sized list. Immutable lists are useful when you don't want the list to be modified after creation, while mutable lists are for cases where you need to modify the list's contents.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "Explain the difference between let, also, apply, run, and with scope functions in Kotlin.",
+      "answer": "These scope functions have different use cases:\nlet: Used to execute a lambda on an object and return a result. Typically used for transformation.\nalso: Used for additional actions on an object and returns the same object.\napply: Used to initialize or configure an object and returns the same object.\nrun: Similar to apply, but returns the result of the lambda.\nwith: Non-extension function version of run.\nThe choice depends on whether you need to return the object itself or a result, and whether you're working with extensions or not.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Mid",
+      "title": "What are the benefits of using Kotlin for Android app development compared to Java?",
+      "answer": "Kotlin offers several advantages for Android development:\nConcise syntax and reduced boilerplate code.\nNull safety, reducing null pointer exceptions.\nImproved support for functional programming.\nSeamless interoperability with Java.\nCoroutines for asynchronous programming.\nEnhanced type inference.\nA more expressive and readable language.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Mid",
+      "title": "Explain the \"single expression\" rule for functions in Kotlin.",
+      "answer": "In Kotlin, if a function has only one expression in its body, you can omit the braces {} and specify the expression directly after the = sign. This feature allows for more concise function definitions, making code cleaner and more readable.",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Mid",
+      "title": "What is the purpose of the when expression in Kotlin, and how does it differ from a switch statement in Java?",
+      "answer": "The when expression in Kotlin is used for conditional branching similar to a switch statement in Java. However, it offers more flexibility and power. It allows you to match values, execute code blocks, and return values, making it a versatile tool for various conditional expressions.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Mid",
+      "title": "What is the @JvmOverloads annotation, and how does it affect function overloading in Kotlin when targeting the JVM?",
+      "answer": "The @JvmOverloads annotation is used to generate overloaded Java methods for Kotlin functions that have default parameter values. It helps maintain compatibility with Java code that calls those functions by generating multiple overloaded Java methods with different parameter combinations.",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Mid",
+      "title": "Explain the differences between the first, firstOrNull, single, and singleOrNull.",
+      "answer": "These functions are used for different purposes when working with collections:\nfirst: Returns the first element that matches a given predicate. Throws an exception if no match is found.\nfirstOrNull: Returns the first element that matches a given predicate or null if no match is found.\nsingle: Returns the single element that matches a given predicate. Throws an exception if there is not exactly one match.\nsingleOrNull: Returns the single element that matches a given predicate or null if there is not exactly one match.\nYou would choose one based on whether you expect zero, one, or multiple matches and whether you want to handle potential exceptions.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Mid",
+      "title": "Explain how Kotlin handles default arguments in function declarations.",
+      "answer": "Kotlin allows you to specify default values for function parameters. When you call the function, you can choose to omit any parameters with default values, and the default values will be used instead. This feature improves code readability and simplifies function calls by reducing the need for multiple overloaded functions with different parameter sets.",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Senior",
+      "title": "Explain the term \"coroutine context\" in Kotlin. How does it affect coroutine execution?",
+      "answer": "The coroutine context is a set of elements that define the behavior of a coroutine, such as its dispatcher, job, and exception handler. It affects how the coroutine is scheduled and executed.\nFor example, you can specify a coroutine context to run a coroutine on a specific thread or define a custom error handler.",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Senior",
+      "title": "What is a suspending function in Kotlin, and how does it differ from a regular function?",
+      "answer": "A suspending function is a function that can be paused and resumed, allowing for asynchronous, non-blocking code execution. It is marked with the suspend keyword. Unlike regular functions, suspending functions can be used within coroutine scopes and other suspending functions, making them suitable for asynchronous tasks like network requests.",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Senior",
+      "title": "What is the difference between a top-level function and a member function in Kotlin?",
+      "answer": "Top-level functions are functions defined outside of any class or object declaration, making them globally accessible. Member functions, on the other hand, are defined within a class or object and are associated with instances of that class or object. Member functions have access to the properties and state of the class or object they belong to, while top-level functions do not.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Senior",
+      "title": "What is the purpose of the @JvmStatic annotation in Kotlin, and when would you use it?",
+      "answer": "The @JvmStatic annotation is used to indicate that a Kotlin function should be treated as a static method when compiled to Java bytecode. You would use it when you need to expose a Kotlin function as a static method for compatibility with Java code that expects static methods.",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Senior",
+      "title": "Explain the differences between sealed classes and abstract classes in Kotlin. When would you use one over the other?",
+      "answer": "sealed classes are used to define a limited set of subclasses that must be defined in the same file. They are often used for representing data types with a finite set of possibilities.\nabstract classes, on the other hand, are used to define common behavior and can have both abstract and concrete methods.\nYou would use sealed classes when you want a closed set of subclasses with known implementations and abstract classes when you need to define common behavior but expect different implementations.",
+      "isPremium": false
+    },
+    {
+      "id": 49,
+      "level": "Senior",
+      "title": "Explain the purpose of the tailrec modifier in Kotlin.",
+      "answer": "The tailrec modifier is used to indicate that a function is tail-recursive. Tail recursion is a technique where a function calls itself as its last operation. Using tailrec allows the compiler to optimize the recursion, reducing the risk of stack overflow errors for deep recursive calls. You would use it when implementing recursive algorithms that meet the tail-recursive criteria.",
+      "isPremium": false
+    },
+    {
+      "id": 50,
+      "level": "Senior",
+      "title": "What is the difference between infix functions and regular functions in Kotlin, and when would you use an infix function?",
+      "answer": "Infix functions are a type of extension function that can be called without using dot notation or parentheses. They are defined using the infix modifier. Infix functions are typically used to create more readable, DSL-like code for certain operations, such as mathematical or boolean operations.",
+      "isPremium": false
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "totalQuestions": 20,
+  "extractedAt": "2025-12-19T18:04:47.905Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is concurrency?",
+      "answer": "Concurrency is the ability of a system to handle multiple tasks at the same time by managing the execution of these tasks. It enhances resource utilization and requires synchronization mechanisms like locks and semaphores to manage shared resources.\nConcurrency is essential in systems like operating systems and databases, where simultaneous task handling is crucial.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What is parallelism?",
+      "answer": "Parallelism in computing refers to the execution of multiple processes or threads simultaneously, often by using multiple processors or cores. Key aspects include:\nSimultaneous Execution: Tasks run at the same time, not just appearing to do so.\nHardware Dependent: Typically requires multi-core processors or multiple CPUs.\nEfficiency: Increases computational speed and efficiency for suitable tasks.\nUsed in High-Performance Tasks: Ideal for computationally intensive operations or large data processing.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What is the difference between process and thread?",
+      "answer": "Process: An independent unit of execution with its own memory space.\nThread: A subset of a process that shares memory with other threads within the same process, allowing more efficient execution of parallel tasks.\nKey differences:\nMemory Allocation:\nProcess: Has its own independent memory space.\nThread: Shares memory space within its parent process.\nExecution:\nProcess: Runs independently and isolated from other processes.\nThread: Multiple threads within a process can run concurrently, sharing resources.\nOverhead:\nProcess: More overhead due to memory, resource allocation, and management.\nThread: Less overhead compared to processes.\nCommunication:\nProcess: Inter-process communication is complex and slower.\nThread: Threads can communicate more easily and quickly due to shared memory.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What is the difference between multi-programming, multi-threading, and multi-processing?",
+      "answer": "Multi-programming is about efficiently managing multiple programs in memory.\nMulti-threading focuses on executing multiple threads of a single process concurrently.\nMulti-processing leverages multiple CPUs to perform different tasks or processes simultaneously.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "What are the benefits of multi-threading?",
+      "answer": "Improved Performance: Enables parallel execution of tasks, enhancing overall application efficiency.\nBetter Resource Utilization: Threads share memory and resources, reducing overhead compared to processes.\nEnhanced Responsiveness: Allows for responsive user interfaces by handling background tasks concurrently.\nFaster Execution: Splits complex tasks into smaller ones for quicker completion, especially on multi-core processors.\nEfficient I/O Operations: Facilitates non-blocking I/O operations, allowing other threads to execute while waiting for I/O.\nScalability: Takes full advantage of multi-core and multi-processor systems for improved performance.\nSimplified Program Structure: Helps in structuring complex programs more simply by dividing tasks into separate threads.\nEasy Resource Sharing: Enables straightforward sharing and communication of data within the application.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What is thread priority?",
+      "answer": "Thread priority is a value assigned to threads that determines their execution order by the operating system's scheduler. Higher priority threads are given preference and executed before lower priority ones.\nThis mechanism helps in managing the execution of tasks, ensuring critical tasks get more CPU time.\nHowever, it must be used carefully to avoid issues like thread starvation, where lower priority threads get little to no CPU time, and priority inversion, where high priority threads are delayed due to lower priority ones holding necessary resources.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "What is context-switching?",
+      "answer": "Context-switching is a process where an operating system saves the state of a currently executing process or thread and then loads and executes another. This enables efficient multitasking by allowing the CPU to switch between tasks, especially when one is idle.\nHowever, it introduces some overhead due to the time and resources needed to save and load states. The OS's scheduler manages this process, determining the order of execution for processes or threads.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Mid",
+      "title": "How do threads communicate with each other?",
+      "answer": "Shared Memory: Utilizing common memory space for reading and writing data.\nMessage Passing: Exchanging messages via queues or other structures.\nSynchronization Primitives: Using mutexes, semaphores, and condition variables to manage shared resources safely.\nSignals or Events: Indicating status changes or task completions.\nPipes and Sockets: In more complex or networked environments, for inter-process or network communication.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Mid",
+      "title": "What is Deadlock?",
+      "answer": "Deadlock is a situation in computer systems where two or more processes or threads are unable to proceed with their execution because each is waiting for resources held by the others. This results in a standstill, with none of the involved processes able to proceed.\nKey characteristics of a deadlock include:\nMutual Exclusion: Each resource involved is non-shareable and can only be held by one process at a time.\nHold and Wait: Processes holding resources are waiting to acquire additional resources held by other processes.\nNo Preemption: Resources cannot be forcibly taken away from a process; they must be released voluntarily.\nCircular Wait: There exists a circular chain of processes, each waiting for a resource held by the next member in the chain.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Mid",
+      "title": "What is starvation?",
+      "answer": "Starvation in computing occurs when a process or thread is perpetually denied necessary resources to progress, often due to scheduling algorithms favoring other processes.\nUnlike deadlock, where all involved processes are stuck, in starvation, only specific processes suffer prolonged resource deprivation, leading to indefinite waiting times.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Mid",
+      "title": "What is a thread pool?",
+      "answer": "A thread pool is a collection of pre-instantiated, idle threads which stand ready to be given work. These threads are managed by a pool manager. Key aspects of a thread pool include:\nEfficiency: Reduces the overhead of creating and destroying threads for each task.\nResource Management: Limits the number of threads running concurrently, thus managing resource usage.\nImproved Performance: Can improve application performance in scenarios with a high number of short-lived threads.\nTask Queuing: Tasks are queued and executed as threads become available.\nControl Over Thread Usage: Allows for fine-tuning of the number of threads, balancing system load.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "What is an atomic operation?",
+      "answer": "An atomic operation in computing is an operation that is completed in a single step from the perspective of other threads or processes. Key characteristics include:\nIndivisibility: Cannot be interrupted or observed as a partial operation.\nConsistency: Ensures data integrity by completing fully or not at all.\nUsed in Multi-threading: Prevents race conditions in concurrent environments.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "What is a blocking queue?",
+      "answer": "A blocking queue is a thread-safe queue that blocks or waits when a thread tries to dequeue an item from an empty queue, or when trying to enqueue items to a full queue. Key aspects include:\nThread-Safe Operations: Ensures safe handling of elements in multi-threaded environments.\nAutomatic Waiting: Threads trying to dequeue from an empty queue are blocked until items are available.\nCapacity Bound: Can have a maximum capacity, blocking enqueue operations when full.\nProducer-Consumer Scenarios: Ideal for managing tasks between producer and consumer threads.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What is a daemon thread?",
+      "answer": "A daemon thread in computing is a low-priority thread that runs in the background to perform tasks such as garbage collection or housekeeping functions. Key characteristics include:\nBackground Execution: Daemon threads run in the background and usually have low priority.\nLife Cycle: They don't prevent the program from terminating; the JVM or runtime environment exits when only daemon threads remain.\nUse Cases: Commonly used for routine maintenance and service tasks.\nMinimal Impact: Designed to have minimal impact on system resources and performance.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "What is a Mutex?",
+      "answer": "A mutex, short for \"mutual exclusion,\" is a synchronization primitive used in concurrent programming to avoid the simultaneous use of a shared resource by multiple threads.\nKey aspects include:\nExclusive Access: Ensures only one thread can access a resource at a time.\nPrevents Race Conditions: Critical in preventing data corruption in multi-threaded applications.\nLocking Mechanism: A thread must acquire the lock of the mutex before accessing the shared resource and release it after use.\nOwnership: Unlike semaphores, mutexes have a concept of ownership, meaning only the thread that locked the mutex can unlock it.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Senior",
+      "title": "What is a Race Condition?",
+      "answer": "A race condition is a situation in computing where the behavior and outcome of a software program, system, or device depend on the relative timing of events, such as the order of execution of operations in a multi-threaded or distributed system.\nKey aspects include:\nConcurrent Execution: Occurs when two or more threads or processes access shared data or resources concurrently.\nUnpredictable Results: The final state or output becomes unpredictable and varies depending on the timing of the events.\nData Corruption: Can lead to data corruption or inconsistent results if not properly managed.\nNeed for Synchronization: Synchronization mechanisms like mutexes, locks, and semaphores are used to prevent race conditions by controlling access to shared resources.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Senior",
+      "title": "Describe what is meant by thread-safe.",
+      "answer": "Thread-safe refers to code that is written in a way that ensures safe execution by multiple threads at the same time without leading to issues like data corruption, race conditions, or unexpected behavior.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Senior",
+      "title": "What is a semaphore?",
+      "answer": "A semaphore is a synchronization mechanism used in concurrent programming to control access to shared resources by multiple processes or threads.\nKey aspects:\nCounter-Based: A semaphore maintains a counter to track the number of available resources or slots.\nAcquire and Release: Threads or processes must acquire the semaphore before accessing a shared resource and release it after use.\nBlocking Mechanism: If the semaphore's count is zero (all resources are in use), a thread attempting to acquire it will block until a resource becomes available.\nSignaling: When a resource is released, the semaphore increments its count, potentially unblocking a waiting thread.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Senior",
+      "title": "Name the different types of semaphores.",
+      "answer": "Binary Semaphore: Functions like a mutex, with a value limited to 0 or 1. It's used to control access to a single shared resource.\nCounting Semaphore: Has a value greater than 1, allowing multiple threads to access a finite number of identical resources.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Senior",
+      "title": "Compare the Actor Model and Threading Model in the context of concurrency?",
+      "answer": "Actor Model: Uses independent actors communicating via message passing, avoiding shared state. It's inherently more scalable and simplifies managing state and behavior in distributed systems.\nThreading Model: Involves multiple threads sharing memory and resources within processes, requiring explicit synchronization (like locks) to prevent conflicts. It's more suitable for tightly integrated parallel processing tasks but can be complex due to shared state management.",
+      "isPremium": false
+    }
+  ]
+}

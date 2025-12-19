@@ -1,0 +1,265 @@
+{
+  "totalQuestions": 37,
+  "extractedAt": "2025-12-19T17:43:43.908Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is GraphQL?",
+      "answer": "GraphQL is an open-source query language and runtime for APIs. GraphQL allows you to define a schema that describes your data, and clients can then use that schema to request exactly the data they need, in a single round-trip to the server.\nIt provides a more efficient, powerful, and flexible alternative to the traditional REST API.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "Explain the basic components of a GraphQL schema.",
+      "answer": "A GraphQL schema consists of several key components:\nTypes: Define the objects and their fields in your data. Example: User type with fields id, name, email.\nFields: Attributes of types that specify the data you can query.\nScalar Types: Basic data types like Int, String, Boolean, without sub-fields.\nQuery Type: Defines read operations and entry points for querying the data.\nMutation Type: Specifies write operations for modifying data.\nSubscription Type: Allows real-time updates through specified events.\nEnums: Special scalar type restricted to a predefined set of values.\nInterfaces and Unions: Define fields that multiple types must include (interfaces) or allow for more dynamic schemas (unions).\nInput Types: Specify complex objects as inputs for queries and mutations.\nDirectives: Modify the execution of queries and mutations, like @include or @skip.\nThe schema, defined using the GraphQL Schema Definition Language (SDL), acts as a contract between the server and client, outlining how data can be accessed and manipulated.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What is a schema in GraphQL, and how is it defined?",
+      "answer": "A schema in GraphQL is a blueprint that defines the data that can be queried, the relationships between the data, and the operations that can be performed on the data. It's defined using the GraphQL Schema Definition Language (SDL), which is a type system that allows you to describe the structure of your API.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What is a GraphQL query?",
+      "answer": "A GraphQL query is a request to read specific data from a GraphQL server. It allows clients to precisely specify what data they need. Key features include:\nSelective Data Fetching: Clients can request exactly what they need, avoiding over-fetching or under-fetching.\nHierarchical and Strongly Typed: Queries reflect the structure and relationships in the data model, and are validated against the GraphQL schema for correctness.\nField-Level Requests: Clients can query specific fields on objects.\nNested Objects: Ability to fetch complex data structures in a single request.\nSingle Endpoint: All data requests are sent through a single API endpoint.\nExample:\n\ngraphql\n\nCopy code\n\nquery {\n  user(id: \"1\") {\n    name\n    email\n    posts {\n      title\n    }\n  }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "What is a GraphQL mutation?",
+      "answer": "A GraphQL mutation is used for modifying data on the server, such as creating, updating, or deleting records. Key aspects include:\nWrite Operations: Specifically for INSERT, UPDATE, or DELETE actions.\nReturn Values: Can return data to provide the new state of an object after the mutation.\nSequential Execution: Executed in order, ensuring data consistency.\nSchema-Defined: Mutations are defined in the GraphQL schema with specified inputs and return types.\nStrongly Typed: Inputs and outputs are strictly validated against the schema.\nExample:\n\ngraphql\n\nCopy code\n\nmutation {\n  addUser(name: \"John Doe\", email: \"john@example.com\") {\n    id\n    name\n    email\n  }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What are fields in GraphQL?",
+      "answer": "In GraphQL, fields are the basic building blocks used to request and represent data in a query or mutation. Fields are used to specify what data you want to retrieve or manipulate from the server. Fields can be nested within each other to create a hierarchical structure that matches the shape of the data you need.\nExample:\n\ngraphql\n\nCopy code\n\n{\n  user(id: 123) {\n    name\n    email\n  }\n}\nIn this query, name and email are fields requested on the user object.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "What are field aliases in GraphQL?",
+      "answer": "You can use aliases to rename fields in the response to avoid naming conflicts or to provide a different name in the client's schema.\nExample:\n\ngraphql\n\nCopy code\n\n{\n  user(id: 123) {\n    full_name: name\n    user_email: email\n  }\n}\nHere, aliases full_name and user_email are used to rename the fields in the response.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "How are variables used in GraphQL?",
+      "answer": "Variables are used to pass dynamic values into a GraphQL query or mutation.\nExample:\n\ngraphql\n\nCopy code\n\nquery GetUserProfile($userId: ID!) {\n  user(id: $userId) {\n    name\n    email\n    posts {\n      title\n      body\n    }\n  }\n}\nIn this example the variable userId is being passed in as a parameter to make the query more reusable.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "Explain GraphQL types.",
+      "answer": "GraphQL has a type system that defines the structure and relationships of the data in the API. Types can be scalar types (like strings or integers) or object types (which represent more complex data structures).\nExample:\n\ngraphql\n\nCopy code\n\ntype User {\n  id: ID\n  name: String\n  email: String\n}",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Mid",
+      "title": "What is a GraphQL resolver?",
+      "answer": "A GraphQL resolver is a function that resolves the value for a specific field in a schema. It acts as a bridge between the GraphQL server and the data source, executing the logic necessary to return the requested data. Resolvers are defined for each field and can handle data retrieval, computation, or interacting with various backends.\nExample:\n\ngraphql\n\nCopy code\n\nconst resolvers = {\n  Query: {\n    posts: () => {\n      // Logic to fetch and return a list of posts\n      return database.getPosts();\n    }\n  }\n};",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Mid",
+      "title": "Explain the difference between a GraphQL query and a resolver function.",
+      "answer": "A GraphQL query is a request from the client specifying the data it wants. A resolver function is a server-side function responsible for fetching the requested data. Resolvers are associated with specific fields in the schema and determine how data is retrieved.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "How does GraphQL handle over-fetching and under-fetching of data compared to REST?",
+      "answer": "GraphQL allows clients to specify exactly which fields they need, preventing over-fetching and under-fetching of data. Clients define the structure of the response, reducing the need for multiple API endpoints.\nThis is apposed to REST APIs where it is typically the server which dicates the shape of the response, and hence too much or too little data can be requested.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "What is the query execution engine?",
+      "answer": "The query execution engine in GraphQL processes and responds to incoming queries.\nIt starts by parsing and validating the query against the schema to ensure structural correctness.\nThen, it executes the query by invoking resolver functions for each field, which fetch or compute the necessary data.\nFinally, it assembles the data into a response that mirrors the query's structure, efficiently addressing the specific data requirements of the client.\nThis process allows GraphQL to dynamically fulfill requests without over-fetching or under-fetching data, unlike traditional REST APIs.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "Explain the main differences between REST and GraphQL?",
+      "answer": "Data retrieval: REST APIs typically expose a fixed set of endpoints, each of which returns a fixed set of data. In contrast, GraphQL APIs allow clients to specify exactly what data they need, using a single flexible endpoint.\nData manipulation: In a REST API, data is typically manipulated using HTTP verbs such as POST, PUT, PATCH, and DELETE, with each verb corresponding to a specific type of operation. In a GraphQL API, data is manipulated using mutations, which can be thought of as a generalization of these HTTP verbs.\nData structure: REST APIs are resource-oriented, which means that they organize data into resources that can be accessed using URLs. In contrast, GraphQL APIs organize data into a graph-like structure, which allows for more complex relationships between data.\nClient-server relationship: In a REST API, the client has a passive role and relies on the server to provide the necessary resources. In contrast, in a GraphQL API, the client has an active role and can request exactly the data it needs, which can reduce overfetching and underfetching of data.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "Can you have multiple queries in a single GraphQL request?",
+      "answer": "Yes, you can include multiple queries in a single GraphQL request, which allows for efficient data retrieval in one network call. Each query within the request is executed independently and the results are returned in a combined JSON object. It's important to use aliases when querying the same field with different arguments.\nExample:\n\ngraphql\n\nCopy code\n\nquery CombinedQuery {\n  user(id: \"1\") {\n    name\n    email\n  }\n  latestPosts(limit: 3) {\n    title\n  }\n}\nIn this example, the request fetches both user information and the latest posts in a single query.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "Explain middleware in the context of GraphQL.",
+      "answer": "In the context of GraphQL, middleware refers to a layer of software that sits between the GraphQL server and the resolver functions. It provides a way to modify, enhance, or manage the processing of requests and responses in the GraphQL execution flow. Key aspects of middleware in GraphQL include:\nRequest Processing: Middleware can intercept and process requests before they reach the resolver functions.\nResponse Transformation: Middleware can also modify or augment the response from resolver functions before it's sent back to the client.\nResolver Wrapping: Middleware often wraps around resolver functions, allowing you to execute code before and/or after the resolver logic.\nModular Architecture: By encapsulating specific functionalities in middleware, it promotes a modular and maintainable codebase.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "How do you implement a GraphQL client and server?",
+      "answer": "Setting Up the Server:\nDefine Schema: Start by defining a GraphQL schema using the Schema Definition Language (SDL).\nCreate Resolvers: Implement resolver functions for each field in your types. Resolvers are responsible for fetching or computing the data for that field.\nGraphQL Server Library: Use a GraphQL server library compatible with your programming environment (like Apollo Server for JavaScript, Graphene for Python, etc.).\nServer Setup: Integrate the GraphQL server with a web server framework if necessary (like Express.js for Node.js), and configure the server to handle requests to the GraphQL endpoint.\nBuilding the Client:\nGraphQL Client Library: Choose a GraphQL client library that fits your application's tech stack (like Apollo Client for JavaScript, Relay, or even a simple fetch/AJAX for smaller projects).\nQuery and Mutation Requests: Write GraphQL queries and mutations in your client application to request or manipulate data.\nData Fetching: Use the client library to send these queries and mutations to your GraphQL server, usually over HTTP.\nHandling Responses: Process the responses returned by the server in your client application.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is introspection in GraphQL, and how is it useful?",
+      "answer": "Introspection in GraphQL is a feature that allows clients to query a GraphQL server for information about its schema. It's a part of the GraphQL specification, making it consistent across different implementations.\nUses of Introspection:\nAutomatic Documentation: Tools can automatically generate up-to-date documentation of the GraphQL API.\nDynamic Query Building: Client applications can dynamically construct queries and mutations based on the available schema.\nSchema Validation: It enables client-side validation and type checking of queries before they are sent to the server.\nCode Generation: Tools can generate client-side code for various languages and frameworks, using the schema details.\nEnhancing IDE Features: Introspection powers features like auto-completion and error highlighting in GraphQL IDEs.\nManaging Schema Evolution: Helps in understanding and managing changes in the schema over time.\nConsiderations:\nPerformance: Frequent introspection queries can impact performance, especially for large schemas.\nSecurity: Exposing schema details can pose security concerns, and it's often restricted or disabled in production environments.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "How do you implement authentication and authorization in GraphQL?",
+      "answer": "Authentication:\nTypically handled outside GraphQL, often using HTTP Authorization headers with tokens (like JWT).\nThe server validates the token and attaches user information to the context accessible in resolvers.\nExample:\n\ngraphql\n\nCopy code\n\nAuthorization: Bearer your_jwt_token\nAuthorization:\nImplemented in resolvers, where you check the user's roles or permissions (from the context) before processing the request.\nCan also use GraphQL directives for declarative authorization rules in the schema, or Role-Based Access Control (RBAC) for finer control.\nExample:\n\ngraphql\n\nCopy code\n\nQuery: {\n  sensitiveData: (parent, args, context) => {\n    if (!context.user || context.user.role !== 'admin') {\n      throw new Error",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "How do you handle file uploads in GraphQL?",
+      "answer": "Handling file uploads in GraphQL can be a bit challenging since GraphQL itself is not designed to handle binary data, which is typical in file uploads. However, it can be accomplished using a few different methods.\n\nUse a Base64 Encoded String:\nYou can convert the file into a Base64 encoded string and send it as a regular string field in your GraphQL mutation. However, this method is not very efficient for large files.\nUse a Separate REST Endpoint for File Uploads:\nYou can create a separate REST API endpoint just for handling file uploads. Once the file is uploaded, the REST endpoint can return a URL or an ID of the stored file.\nMultipart Request Specification (GraphQL Multipart Request Spec):\nThis is a more efficient way to handle file uploads in GraphQL. It involves using a multipart/form-data request which is a standard way to upload files over HTTP. This specification allows you to map parts of the request to variables defined in your GraphQL query or mutation.\nUse an External File Storage Service:\nAnother approach is to upload the file directly to an external file storage service like AWS S3, Azure Blob Storage, or Google Cloud Storage. After uploading, these services usually provide a URL for the uploaded file. You can then pass this URL as a string in your GraphQL mutation or query.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "What are GraphQL fragments?",
+      "answer": "GraphQL fragments are reusable pieces of query logic that can be shared between multiple queries or within a single query to avoid repetition. They allow you to define a set of fields that you want to retrieve from one or more types, and then include this set wherever needed. Fragments make your queries more maintainable and readable, especially when dealing with complex data structures.\nExample:\n\ngraphql\n\nCopy code\n\nfragment userInfo on User {\n  id\n  name\n  email\n}\n \nquery getUser {\n  user(id: \"1\") {\n    ...userInfo\n  }\n}\nIn this example, the userInfo fragment is defined to include the id, name, and email fields of a User. It is then reused in the getUser query.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "How are errors handled in GraphQL?",
+      "answer": "Errors in GraphQL can be handled by returning an error object from the resolver for a particular field.\nA successful GraphQL query is supposed to return a JSON object with a root field called \"data\". If the request fails or partially fails (e.g. because the user requesting the data doesn’t have the right access permissions), a second root field called \"errors\" is added to the response:\n\ngraphql\n\nCopy code\n\n{\n  \"data\": {\n    \"user\": null\n  },\n  \"errors\": [\n    {\n      \"message\": \"User not found\",\n      \"locations\": [\n        {\n          \"line\": 3,\n          \"column\": 5\n        }\n      ],\n      \"path\": [\"user\"]\n    }\n  ]\n}",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "How do you implement custom error handling in GraphQL?",
+      "answer": "To implement custom error handling in GraphQL:\nCreate custom error classes in your server code, extending from the base Error class with additional properties as needed.\nIn your GraphQL resolvers, include logic to throw these custom errors under specific conditions, like validation failures or access denials.\nUtilize a custom error formatting function in your GraphQL server setup to catch and format these errors before they are sent in the response.\nOptionally, extend your GraphQL schema to include error types, allowing clients to query error details explicitly.\nEnsure your client-side GraphQL handling logic is equipped to parse and respond to these custom error formats.\nExample:\n\ngraphql\n\nCopy code\n\n// Custom Error Class\nclass ValidationError extends Error {\n  constructor(field, message) {\n    super(message);\n    this.code = 'VALIDATION_ERROR';\n    this.field = field;\n  }\n}\n \n// In a Resolver\nresolver: (parent, args, context) => {\n  if (!args.email.includes('@')) {\n    throw new ValidationError('email', 'Email is invalid.');\n  }\n  // Further logic...\n}\n \n// Error Formatting Function\nconst server = new ApolloServer({\n  // ... other settings ...\n  formatError: (error) => {\n    if (error.originalError instanceof ValidationError) {\n      return { \n        message: error.message, \n        code: error.originalError.code,\n        field: error.originalError.field\n      };\n    }\n    return error;\n  },\n});\nValidationError class is created for input validation errors, and the Apollo Server's formatError function is used to format these errors in the GraphQL response.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What is the difference between Relay and Apollo in the context of GraphQL?",
+      "answer": "Relay and Apollo are both GraphQL client libraries, but with different focuses:\n\nRelay:\nOptimized for performance, especially in complex React applications.\nUses a compiler for GraphQL queries, emphasizing build-time optimizations.\nImposes strict conventions on GraphQL queries and schema design.\nBest suited for large-scale applications with sophisticated data requirements.\nApollo:\nKnown for flexibility and ease of use across various JavaScript frameworks.\nOffers a comprehensive feature set including caching, state management, and subscriptions.\nAllows incremental adoption, making it easier to integrate into existing projects.\nHas a large community and is more accessible, suitable for a wide range of applications.\nKey Differences:\nRelay is more performance-focused and convention-driven, ideal for complex React projects, while Apollo offers greater flexibility and a broader feature set, catering to diverse needs and frameworks.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "What is a GraphQL subscription?",
+      "answer": "A GraphQL subscription is a feature in GraphQL that enables the client to receive real-time updates from the server. Unlike queries and mutations that follow a request-response cycle, subscriptions maintain a persistent connection to the server (commonly using WebSocket protocol). This allows the server to push updates to the client as soon as events happen. Subscriptions are particularly useful in scenarios where data changes frequently and the client needs to be immediately informed about these changes, such as in chat applications, live feeds, or real-time notifications.\nThe implementation of subscriptions involves:\nClient Subscription Request: The client sends a subscription request to the server, specifying the data it wants to receive updates about.\nPersistent Connection: The server establishes and maintains a persistent connection with the client.\nEvent-Triggered Updates: When an event occurs that changes the subscribed data, the server pushes these updates to the client through the open connection.\nExample:\n\ngraphql\n\nCopy code\n\nsubscription {\n  messageAdded {\n    id\n    content\n    sender\n  }\n}",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "What is the difference between GraphQL subscriptions and WebSocket communication?",
+      "answer": "GraphQL subscriptions\nA feature specific to GraphQL for real-time data updates, where clients define the exact data they need updates for using GraphQL's query language.\nThey're commonly implemented over WebSockets but are higher-level and specific to GraphQL's data handling.\nWebSockets\nAre a general-purpose protocol providing a persistent, two-way communication channel between client and server.\nThey're used for a wide range of real-time features across various applications, not limited to GraphQL, and can transmit any type of data.\nKey difference\nLies in their scope and usage: GraphQL subscriptions are tailored for real-time updates within GraphQL applications, while WebSockets are a more flexible, lower-level technology suitable for various types of real-time communication beyond GraphQL.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Senior",
+      "title": "How do you handle pagination in GraphQL?",
+      "answer": "Offset-Based Pagination\nConcept: Similar to traditional pagination in SQL databases, it uses a combination of limit and offset parameters. limit specifies the number of items to return, and offset specifies the number of items to skip before starting to return the items.\nImplementation: The GraphQL query includes arguments for limit and offset. The server responds with the specified slice of the dataset.\nExample:\n\ngraphql\n\nCopy code\n\nquery {\n  posts(limit: 10, offset: 20) {\n    id\n    title\n  }\n}\n\nCursor-Based Pagination\nConcept: More suited for real-time data and large datasets, it works by returning a pointer (cursor) to a specific item in the dataset. The client uses this cursor to request the next set of items.\nImplementation: The GraphQL query includes an argument for the cursor (often the ID of the last item retrieved) and a limit. The server responds with the data and a new cursor for the next query.\nExample:\n\ngraphql\n\nCopy code\n\nquery {\n  posts(first: 10, after: \"cursorToken\") {\n    edges {\n      node {\n        id\n        title\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n    }\n  }\n}\nConsiderations:\nOffset-Based is simpler and more familiar but less efficient for large datasets as it requires counting over large numbers of rows.\nCursor-Based is more complex but efficient for large, real-time datasets. It also helps in avoiding issues like skipping or double-fetching items in a changing dataset.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Senior",
+      "title": "How do you handle versioning and backward compatibility in GraphQL?",
+      "answer": "In GraphQL, versioning and backward compatibility are managed differently than in REST APIs, focusing on schema evolution rather than versioned endpoints:\nAdditive Changes: Prefer adding new fields or types to the schema without removing existing ones, allowing clients to adapt gradually.\nDeprecation Strategy: Use the @deprecated directive to mark fields or types that will be removed or changed, guiding clients to updated usages.\nField Aliases for Renaming: Introduce new fields with desired names and deprecate old ones, maintaining backward compatibility.\nNon-breaking Changes: Emphasize changes that don't break existing queries, like adding fields or new types.\nDocumentation and Monitoring: Keep documentation up-to-date and monitor schema usage to inform deprecation and change strategies.\nExample: If renaming a field getUser to getUserById, add getUserById as a new field and deprecate getUser:\n\ngraphql\n\nCopy code\n\ngetUser(id: ID!): User @deprecated(reason: \"Use getUserById\")\ngetUserById(id: ID!): User\nThis approach ensures existing queries remain functional while guiding clients towards new schema elements.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Senior",
+      "title": "Name security concerns in GraphQL and ways to resolve them?",
+      "answer": "Injection Attacks: Malicious queries can exploit vulnerabilities in your GraphQL API, similar to SQL injection in traditional databases.\nMitigation: Validate and sanitize inputs. Use prepared statements and parameterized queries when interacting with databases.\nExcessive Resource Consumption (Query Depth and Complexity): Complex or deeply nested queries can overwhelm the server, leading to performance issues or Denial of Service (DoS).\nMitigation: Implement query depth limiting and complexity analysis to restrict overly complex queries. Use pagination to limit large sets of data.\nRate Limiting: Without proper rate limiting, clients can make too many requests in a short time, leading to server overload.\nMitigation: Implement rate limiting to control the number of requests a client can make within a certain timeframe.\nUnauthorized Access: Unprotected endpoints or insufficient authentication and authorization checks can lead to unauthorized access.\nMitigation: Implement strong authentication and authorization checks. Ensure that every query or mutation passes through authentication middleware.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Senior",
+      "title": "Explain GraphQL directives.",
+      "answer": "GraphQL directives are markers used in GraphQL queries, mutations, or schema definitions to modify execution behavior. There are two main types:\nExecution Directives: Used in queries and mutations, such as @include and @skip, to conditionally include or skip fields based on arguments.\nSchema Directives: Used in schema definitions to modify schema interpretation or add metadata. Custom schema directives can implement functionality like field formatting or authorization checks.\nFor example, the @include directive in a query can conditionally include a field:\n\ngraphql\n\nCopy code\n\nquery getUser($userId: ID!, $includeEmail: Boolean!) {\n  user(id: $userId) {\n    name\n    email @include(if: $includeEmail)\n  }\n}\n\nHere, the email field is included in the response only if $includeEmail is true. Directives provide a versatile way to dynamically adjust GraphQL operations and schemas.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Senior",
+      "title": "Name some common GraphQL caching strategies.",
+      "answer": "Caching in GraphQL can be challenging due to the dynamic and flexible nature of its queries. However, there are several common strategies for implementing caching in a GraphQL environment:\nIn-Memory Caching on the Client Side: Tools like Apollo Client maintain a normalized in-memory cache of query results.\nPersistent Caching on the Client Side: This involves storing query results in persistent storage like LocalStorage or IndexedDB in web applications.\nCache at the Resolver Level: Implement caching within resolver functions on the server side. Resolvers can check a cache store (like Redis or Memcached) before performing expensive operations like database reads.\nHTTP Caching: Although GraphQL typically uses POST requests which are not cached by default, you can implement HTTP caching for idempotent queries sent via GET requests.\nQuery Result Caching on the Server Side: Cache the results of entire queries on the server. This approach is more complex as it requires understanding the specifics of each query and handling cache invalidation effectively.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Senior",
+      "title": "Explain the concept of batching and dataloading in GraphQL.",
+      "answer": "Batching and Dataloading in GraphQL are performance optimization techniques:\nBatching: This involves combining multiple GraphQL queries into a single network request. It reduces network overhead by processing multiple queries together, instead of handling them as separate requests.\nDataloading: A server-side solution to the N+1 query problem, Dataloading batches and caches similar data requests within a single query execution. Utilizing tools like DataLoader, it consolidates data fetching for repeated requests into a single database or API call and caches the results to avoid redundant data retrieval.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Senior",
+      "title": "What are some common strategies for handling concurrency in GraphQL?",
+      "answer": "Handling concurrency in GraphQL involves strategies to manage simultaneous operations, ensuring efficient and reliable performance under load. Here are some common approaches:\nBatching Requests:\nGroup multiple GraphQL queries into a single HTTP request. This reduces the overhead of multiple network calls and can improve server performance.\nData Loader Pattern:\nUtilize tools like Facebook's DataLoader to batch and cache database requests. DataLoader consolidates requests for the same data made during a single query execution, reducing the number of database hits.\nAsynchronous Resolvers:\nImplement resolvers as asynchronous functions. This allows the server to handle other tasks while waiting for data fetches or other IO operations to complete, improving overall throughput.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Senior",
+      "title": "How do you handle long-running queries or mutations in GraphQL?",
+      "answer": "Handling long-running queries or mutations in GraphQL can be challenging due to the nature of HTTP connections and the expectation of immediate responses in GraphQL. However, there are strategies to manage this:\n\nAsynchronous Processing:\nImplement asynchronous processing for operations that take a long time. This involves returning an immediate response (like a task ID) to the client, while the server continues processing in the background.\nClients can periodically poll with the task ID to check if the operation is complete.\nWebSockets or Subscriptions:\nUse WebSockets or GraphQL subscriptions to maintain a persistent connection between the client and server.\nAfter initiating a long-running operation, the server can push updates to the client over this connection as they become available.\nBatch Processing and Pagination:\nBreak down large operations into smaller batches and use pagination to progressively fetch or process data.\nThis avoids overwhelming both the server and client with large volumes of data at once.\nOptimize Resolver Logic:\nOptimize the resolver logic to ensure maximum efficiency. This might include optimizing database queries, caching frequently accessed data, or using more efficient algorithms.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Senior",
+      "title": "Discuss federated schemas and microservices architecture in GraphQL.",
+      "answer": "Federated schemas and microservices architecture in GraphQL allow for scalable and maintainable systems:\nFederated Schemas: This approach divides the GraphQL schema across multiple services. Each service defines a portion of the schema and uses Apollo Federation directives to indicate how these parts combine. A Gateway then aggregates these individual schemas into one cohesive GraphQL API.\nMicroservices Architecture: It involves developing software as a collection of small, independent services, each responsible for specific business functionality. These services communicate through well-defined APIs.\nWhen combined, GraphQL federation and microservices enable decoupled development, where teams work independently on different services. The Gateway in GraphQL federation provides a unified API layer, simplifying client interaction and abstracting the complexity of underlying services. This setup enhances performance, scalability, and manageability of large-scale, distributed systems.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Senior",
+      "title": "How do you handle schema stitching with Apollo Server?",
+      "answer": "Schema stitching with Apollo Server is streamlined through Apollo Federation, which allows you to merge multiple GraphQL schemas from different services into one unified schema. Here's a brief guide:\n\nCreate Federated Schemas: In each microservice, define a GraphQL schema with Apollo Federation directives like @key, @extends, @external, and @requires.\nSet Up an Apollo Gateway: Configure an Apollo Gateway instance that knows about your federated services. This gateway stitches the individual schemas together.\n\ngraphql\n\nCopy code\n\nconst { ApolloServer } = require('apollo-server');\nconst { ApolloGateway } = require('@apollo/gateway');\nRun the Gateway Server: The Apollo Server with the gateway configuration acts as the unified access point for the combined schema.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Senior",
+      "title": "How do you address the \"N+1 query\" problem in GraphQL?",
+      "answer": "To address the \"N+1 query\" problem in GraphQL:\nUse DataLoader: DataLoader batches and caches individual data requests, reducing the number of database calls for each item in a list.\nImplement Query Batching: Modify backend data fetching to allow batch queries, fetching all required data in a single database call.\nOptimize Schema Design: Design your GraphQL schema to minimize deeply nested queries that exacerbate the N+1 issue.\nOptimize Resolvers: Write efficient resolvers that fetch only necessary data and avoid triggering new database queries for each subfield.\nMonitor and Analyze: Utilize monitoring tools to identify and optimize costly queries.\nExample with DataLoader:\n\ngraphql\n\nCopy code\n\n// Batch loading function\nconst batchFunction = keys => myDatabase.batchGetUsers(keys);\nconst userLoader = new DataLoader(batchFunction);\n \n// In GraphQL resolver\nuser: (parent, args, context) => context.userLoader.load(parent.userId)\nIn this example, DataLoader combines multiple requests into a single batch, significantly reducing database calls.",
+      "isPremium": false
+    }
+  ]
+}

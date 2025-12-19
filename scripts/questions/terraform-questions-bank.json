@@ -1,0 +1,370 @@
+{
+  "totalQuestions": 52,
+  "extractedAt": "2025-12-19T17:56:58.179Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is Terraform?",
+      "answer": "Terraform is an open-source tool by HashiCorp for infrastructure as code (IaC). It enables users to define and manage data center infrastructure using a high-level configuration language.\nTerraform automates the creation, modification, and maintenance of infrastructure in various environments like public clouds, ensuring consistency and reproducibility.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What are the key features of Terraform?",
+      "answer": "Infrastructure as Code: Allows defining infrastructure with configuration files for consistency and repeatability.\nDeclarative Syntax (HCL): Uses HashiCorp Configuration Language, which is human-readable and writable, for resource declaration.\nProvider Ecosystem: Supports numerous providers, enabling management of a wide range of cloud services and platforms.\nState Management: Tracks and manages the state of infrastructure, ensuring alignment between configuration and real-world resources.\nModularity: Offers modules for reusable, composable, and shareable infrastructure definitions.\nChange Automation and Orchestration: Automates the process of applying changes to the infrastructure in a safe, incremental manner.\nPlan and Apply Workflow: Allows previewing of changes before applying them, enhancing predictability and safety.\nMulti-Cloud Deployment: Capable of managing resources across different cloud providers from a single configuration.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "Define IAC.",
+      "answer": "Infrastructure as Code (IaC) is a method of managing and provisioning computing infrastructure through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.\nIt enables automation, consistency, and version control in infrastructure management.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What are the most useful Terraform commands?",
+      "answer": "terraform init: Initializes a Terraform working directory, setting up the environment.\nterraform plan: Shows a preview of the changes that Terraform will make to your infrastructure.\nterraform apply: Applies the changes to reach the desired state of the infrastructure.\nterraform destroy: Removes all resources managed by Terraform.\nterraform fmt: Automatically formats Terraform code to a standard layout.\nterraform validate: Checks for syntax errors and inconsistencies in the configuration files.\nterraform refresh: Updates the local state file to match the actual state of the infrastructure.\nterraform output: Displays output variables.\nterraform import: Brings existing infrastructure under Terraform management.\nterraform workspace: Manages and switches between multiple workspaces for different environments.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "Does Terraform support multi-provider deployments?",
+      "answer": "Yes, Terraform supports multi-provider deployments. It allows you to manage a wide range of resources across different cloud providers and services within a single configuration, enabling complex, multi-cloud infrastructure management.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "Define null resource in Terraform.",
+      "answer": "In Terraform, a null_resource is a special resource type that does nothing and has no inherent behavior. It is used as a workaround for scenarios where you need to execute logic that doesn't fit into the standard resource model, often in conjunction with provisioners for running scripts or triggering actions indirectly.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "How does Terraform differ from other infrastructure as code tools like Ansible or Puppet?",
+      "answer": "Terraform specializes in infrastructure provisioning with a declarative approach, focusing on creating and managing cloud infrastructure.\nAnsible and Puppet are more geared towards configuration management and software deployment on existing systems, often using a procedural style.\nTerraform is cloud-agnostic, whereas Ansible and Puppet are more closely tied to specific environments.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "Explain the concept of a Terraform Provider.",
+      "answer": "A Terraform Provider is responsible for managing the lifecycle of a specific cloud or infrastructure resource. Providers communicate with the API of a service (e.g., AWS, Azure) to create, read, update, and delete resources.\nThey are defined in Terraform configuration files and linked to specific resource types using the \"resource\" block.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "Explain Terraform's plan and apply phases.",
+      "answer": "The terraform plan command inspects the current state, the desired state, and the configuration to generate an execution plan showing what actions will be taken.\nThe terraform apply command then executes this plan, making changes to the infrastructure to align it with the desired state.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "How do you manage secrets and sensitive data in Terraform?",
+      "answer": "In Terraform, secrets and sensitive data are managed using environment variables, the sensitive attribute in variables, and secure secret storage solutions like HashiCorp Vault.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Mid",
+      "title": "What is a Terraform State file?",
+      "answer": "The Terraform State file (.tfstate) is a JSON file that keeps track of the current state of your infrastructure. It stores resource mappings and their configuration.\nIt's crucial for Terraform to manage and update resources correctly, as it uses this file to understand what resources are currently deployed.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "What is a remote backend in Terraform?",
+      "answer": "In Terraform, a remote backend is used to store the state file in a remote, shared location, which is essential for team collaboration. It supports features like state locking and versioning, ensuring safe and synchronized operations among team members.\nPopular remote backends include services like AWS S3, Azure Blob Storage, Google Cloud Storage, and Terraform Cloud.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "How do you handle infrastructure updates or changes without causing downtime?",
+      "answer": "To handle infrastructure updates without causing downtime, use Terraform's blue-green deployment strategy, where you spin up a new, updated version of your infrastructure (green) alongside the old version (blue). After testing and ensuring the new version is running smoothly, traffic is gradually shifted from the old to the new version. This approach minimizes downtime and risk during updates.\nTerraform also supports rolling updates through resource replacement and the use of immutable infrastructure. Proper planning and testing are essential to avoid downtime.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What are Terraform Modules?",
+      "answer": "Terraform Modules are reusable, self-contained units of configuration that help organize and encapsulate infrastructure components.\nThey promote code reuse, maintainability, and separation of concerns, making it easier to manage and scale complex infrastructure.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "Explain the remote state feature in Terraform.",
+      "answer": "Remote state allows teams to store and share the Terraform state file in a central location (e.g., AWS S3, HashiCorp Terraform Cloud) to collaborate on infrastructure projects. It enables concurrent collaboration and prevents state file conflicts.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "How do you version control your Terraform configurations?",
+      "answer": "Terraform configurations should be stored in version control systems (e.g., Git). Each change to the infrastructure should be tracked and documented through commits, and branching strategies like GitFlow can help manage different environments (e.g., development, staging, production).",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "Describe a challenging problem you faced while working with Terraform and how you solved it.",
+      "answer": "Share a specific problem you encountered, explain your approach to troubleshooting, and detail how you ultimately resolved it. Demonstrating your problem-solving skills can set you apart in the interview.\nExample: Managing Diverse AWS VPCs and Peering Connections\nIn a previous project, I was responsible for managing the networking infrastructure for a large AWS environment. The challenge arose when we needed to set up and manage Virtual Private Clouds (VPCs) across multiple AWS accounts and regions while establishing peering connections between them. This required creating VPCs, subnets, route tables, and peering connections in a scalable and repeatable way. The specific steps included:\nModular Configuration: I started by designing a modular Terraform configuration. Each module represented a VPC, with associated subnets, route tables, and security groups. The modularity allowed for easy reuse across different AWS accounts and regions.\nVariable-driven Configuration: I used variables to make the configuration highly parameterized. This allowed me to define VPC-specific details, such as IP address ranges, route tables, and peering connections, as inputs when instantiating the modules. This approach made the configuration flexible and adaptable to different VPC requirements.\nTerraform Workspaces: To manage environments across different AWS accounts and regions, I leveraged Terraform workspaces. Each workspace corresponded to a specific AWS account and region combination. This approach allowed us to maintain a single codebase while creating distinct environments with minimal code duplication.\nDynamic Peering Connections: Creating peering connections dynamically presented a unique challenge. I designed a solution where the Terraform configuration would create a peering connection only if a specific variable was set. This allowed us to define peering connections where needed and avoid unnecessary complexity in cases where no peering was required.\nSecure Communication: As peering connections involved cross-account communication, security was a paramount concern. I made use of AWS Identity and Access Management (IAM) roles and policies to ensure secure communication between VPCs while following best practices for least privilege access.\nTesting and Continuous Integration: To ensure the configuration worked as expected, I implemented automated testing using Terratest and integrated it into our CI/CD pipeline. This enabled us to catch issues early and validate that our Terraform configurations were creating the expected infrastructure.\nDocumentation and Collaboration: Proper documentation was crucial to ensure that the team could understand and collaborate effectively on the configuration. I maintained detailed README files and provided guidelines for team members on how to use the Terraform code for different scenarios.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is the Terraform remote backend?",
+      "answer": "The Terraform remote backend is a way to store the Terraform state file remotely, typically in a shared storage service like AWS S3 or Azure Blob Storage.\nIt's crucial for collaboration among team members and for maintaining a consistent, shared state.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "Explain the difference between provisioners and null_resource in Terraform.",
+      "answer": "Provisioners in Terraform execute scripts on local or remote machines for tasks like bootstrapping or configuration.\nnull_resource is a placeholder for triggering actions unrelated to actual resource creation, often used in conjunction with provisioners to handle specific scenarios or dependencies not directly supported by Terraform's resource model.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "What are data sources in Terraform, and how are they used?",
+      "answer": "Data sources allow Terraform to query and retrieve information from external sources, such as AWS, Azure, or other APIs. They are useful for obtaining data that needs to be used as input in your configurations, like information about existing resources.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "How do you manage dependencies between resources in Terraform?",
+      "answer": "Terraform automatically manages dependencies between resources based on the order they are declared in the configuration file.\nHowever, you can use depends_on and count attributes to control and express explicit dependencies.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What are Sentinel policies?",
+      "answer": "Sentinel policies in the context of HashiCorp products, like Terraform, are a set of rules used for policy-as-code. They provide a framework to enforce fine-grained, logic-based policies on Terraform configurations, states, and plans, ensuring that only compliant infrastructure changes are applied.\nSentinel policies enable automated enforcement of organizational standards and best practices for security, compliance, and operational efficiency.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "Provide a few examples where Sentinel policies can be used?",
+      "answer": "Enforcing Minimum Instance Sizes: Ensuring that cloud instances (like AWS EC2, Azure VMs) are not below a certain size to meet performance standards.\nRestricting Cloud Regions: Limiting resource deployment to specific cloud regions for compliance with data residency laws.\nLimiting Resource Costs: Preventing the creation of resources that exceed a certain cost threshold to control cloud expenses.\nMandatory Tags: Requiring specific tags on resources for better resource management and cost allocation.\nRestricting Provider Usage: Limiting the use of certain cloud providers or services not approved for use.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What are the different levels of Sentinel enforcement?",
+      "answer": "Advisory (Soft-Mandatory): Policies at this level are not strictly enforced. A violation triggers a warning, but it doesn't prevent the Terraform run. It's useful for recommendations or guidelines.\nMandatory (Hard-Mandatory): Violations of these policies result in the prevention of the Terraform plan or apply. This level is used for critical rules that must be enforced.\nSoft-Mandatory with Override: Policies are enforced, but certain privileged users can override the policy failure. This level balances strict enforcement with flexibility for exceptions.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "Explain how you can implement a custom provider in Terraform.",
+      "answer": "Creating a custom provider in Terraform typically involves building a Go-based provider plugin that interacts with the target API.\nYou need to implement the provider's resource and data source operations according to the HashiCorp SDK guidelines.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "What is the Terraform Registry?",
+      "answer": "The Terraform Registry is a platform for sharing and discovering Terraform modules and providers. It provides a centralized location for finding pre-built infrastructure modules, which can save time and promote best practices.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "How do you manage different environments (e.g., dev, staging, production) using Terraform?",
+      "answer": "To manage different environments like development, staging, and production in Terraform, you typically use one of the following approaches:\nWorkspaces: Terraform workspaces allow you to use the same configuration for multiple environments by changing state files based on the workspace. This approach is simple but can lead to configuration drift if not carefully managed.\nModule Reuse: Define the infrastructure as modules and reuse these modules with different parameters for each environment. This method involves separate directories or configuration files for each environment, where the environment-specific values are defined.\nVariable Files: Use variable files to define environment-specific settings. You can have a common Terraform configuration and switch between different variable files when applying configurations for different environments.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "Explain the concept of Terraform Workspaces.",
+      "answer": "Terraform Workspaces allow you to create multiple isolated environments from a single configuration.\nThis can be useful for managing separate development, staging, and production environments with the same codebase.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "Explain how you can automate the deployment of Terraform configurations using CI/CD pipelines.",
+      "answer": "Integrating Terraform into CI/CD pipelines involves using tools like Jenkins, CircleCI, or GitLab CI/CD to automatically run terraform init, terraform plan, and terraform apply based on code changes.\nThis ensures that infrastructure updates are made as part of your software development process.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "Discuss the differences between count and for_each in Terraform when working with resource blocks.",
+      "answer": "count is used to create multiple instances of a resource with a fixed count.\nfor_each allows you to create dynamic instances based on a map or set of values. for_each is more flexible and suitable for situations where the number of instances may vary.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "Discuss the advantages and disadvantages of using HCL (HashiCorp Configuration Language) for defining infrastructure as code.",
+      "answer": "Advantages of HCL:\nReadability: HCL is human-readable and writable, making it easier to understand and maintain.\nStructured: Offers a structured approach to defining infrastructure, improving clarity and organization.\nIntegration: Well-integrated with other HashiCorp tools, enhancing toolchain compatibility.\nDisadvantages of HCL:\nSpecificity: Primarily used with HashiCorp products, limiting its versatility compared to more universal languages like JSON or YAML.\nLearning Curve: Requires learning a new syntax if not familiar with HCL, adding to onboarding time for new users.\nFlexibility: Less flexible for complex logic compared to general-purpose programming languages.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "What is Terraform Core?",
+      "answer": "Terraform Core is the main part of Terraform, a command-line application that performs the primary functions of Terraform. It reads Terraform configurations, maintains the state, and interacts with providers to manage resources.\nTerraform Core is responsible for parsing and executing Terraform scripts, planning and applying infrastructure changes, and maintaining the state of managed resources.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "Give the terraform configuration for creating a single EC2 instance on AWS.",
+      "answer": "hcl\n\nCopy code\n\nprovider \"aws\" {\n  region = \"us-west-2\"\n}\n \nresource \"aws_instance\" \"example\" {\n  ami           = \"ami-0c55b159cbfafe1f0\"  # Replace with a valid AMI for your region\n  instance_type = \"t2.micro\"\n \n  tags = {\n    Name = \"ExampleInstance\"\n  }\n}\n\nThe provider block initializes the AWS provider and sets the region where the resources will be created.\nThe resource block defines an EC2 instance.\nami specifies the Amazon Machine Image ID.\ninstance_type sets the type of instance (in this case, t2.micro).\ntags are used to assign a name to the instance.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What is the Terraform refresh command?",
+      "answer": "Terraform refresh is used to update the state file with the real-world state of resources.\nYou might use it when resources are changed outside of Terraform, and you need to ensure that your state accurately reflects the actual infrastructure.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "What is Terraform Cloud?",
+      "answer": "Terraform Cloud is a HashiCorp-hosted service that provides advanced features and collaboration tools for teams working with Terraform. It offers remote execution of Terraform runs in a consistent environment, along with features like workspace management, version control integration, team access controls, and a private module registry.\nTerraform Cloud helps in automating the Terraform workflow, providing a secure and scalable platform for managing infrastructure as code, especially beneficial for teams and larger organizations.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "Explain the concept of Terraform destroy and discuss best practices for handling resource destruction.",
+      "answer": "The terraform destroy command is used in Terraform to remove all resources in the Terraform state. This command deprovisions resources managed by Terraform according to the configurations defined.\nBest practices include:\nCareful planning\nEnsuring backups or data preservation\nHaving proper approvals and safeguards in place, especially in production environments.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "Differentiate between Terraform and Cloudformation.",
+      "answer": "Terraform is an open-source, cloud-agnostic tool supporting multiple cloud providers with a human-readable HashiCorp Configuration Language (HCL). It maintains external state files for tracking.\nCloudFormation is AWS-specific, using JSON or YAML, with state managed implicitly within AWS. Terraform is suitable for multi-cloud environments, while CloudFormation is integrated within the AWS ecosystem.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Mid",
+      "title": "What is the Resource Graph in Terraform?",
+      "answer": "In Terraform, the Resource Graph is a visual representation of all the resources defined in the configuration and their interdependencies. It shows how different resources are related and the order in which Terraform will create, update, or destroy them.\nThis graph is used internally by Terraform to optimize the provisioning process and ensure that dependencies are correctly resolved, allowing Terraform to safely parallelize operations where possible.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Mid",
+      "title": "Discuss the \"destroy-before-create\" approach in Terraform and when it is useful.",
+      "answer": "The destroy-before-create approach in Terraform is used when updating a resource requires its destruction and recreation, rather than in-place updates. It's useful for resources that don't support changes to certain attributes post-creation, necessitating a destroy and recreate cycle for updates.\nThis can be useful when making significant changes to an infrastructure, but it should be used cautiously in production environments to avoid downtime.",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Mid",
+      "title": "What is a tainted resource?",
+      "answer": "A tainted resource in Terraform is a resource that has been marked as not functioning correctly or safely. Terraform will destroy and recreate this resource on the next apply, rather than attempting to update it in place.\nTainting a resource is a way to force Terraform to replace a problematic resource with a new one.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Mid",
+      "title": "Explain the concept of \"Terraform plan output\" and how it can be saved and shared with the team.",
+      "answer": "A Terraform plan output is a detailed report of the proposed changes that will occur when you run terraform apply.\nIt can be saved using terraform plan -out=[filename] and shared with the team for review and collaboration.",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Mid",
+      "title": "Explain how you can manage the lifecycle of a Terraform resource with the lifecycle block.",
+      "answer": "In Terraform, the lifecycle block within a resource configuration is used to manage the resource's lifecycle behavior. Key directives in this block include:\ncreate_before_destroy: When set to true, this ensures that a new resource is created before the old one is destroyed during updates. This is particularly useful for minimizing downtime.\nprevent_destroy: When set to true, this prevents the resource from being destroyed. This is a safety measure to protect critical resources from accidental deletion.\nignore_changes: This directive is used to specify a list of attributes that Terraform should ignore when performing updates. It's useful for properties that are managed outside of Terraform.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Senior",
+      "title": "What is Terraform state locking, and why is it important in a multi-user environment?",
+      "answer": "Terraform state locking prevents concurrent writes to the state file by different users or processes, ensuring data integrity.\nIt's crucial in a multi-user environment to prevent conflicts and data corruption.",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Senior",
+      "title": "What is the best practice for handling Terraform state locking and concurrency in a team environment?",
+      "answer": "In a team environment, best practices for handling Terraform state locking and concurrency include:\nUse Remote State Backends: Utilize remote state backends like AWS S3, Azure Blob Storage, or Terraform Cloud that support state locking. This prevents multiple users from applying changes simultaneously, reducing the risk of state corruption.\nAutomate State Management: Integrate Terraform runs into a CI/CD pipeline. This centralizes and automates the execution of Terraform commands, reducing manual errors and ensuring orderly application of changes.\nAccess Control: Implement access control policies on the state backend and CI/CD system to restrict who can apply changes to the infrastructure.\nCode Review Process: Enforce a code review process for Terraform configurations. This ensures changes are reviewed and tested before being applied, reducing the likelihood of conflicts or errors.",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Senior",
+      "title": "Explain the concept of remote-exec and local-exec provisioners in Terraform.",
+      "answer": "remote-exec and local-exec are provisioners used to execute scripts either on the local machine (local-exec) or on a remote resource (remote-exec).\nlocal-exec: Executes a command on the local machine running Terraform. It's often used for tasks that need to be performed locally, like updating configuration files or triggering local scripts after a resource is provisioned.\nremote-exec: Executes a script on a remote resource, such as a newly created server. It requires SSH or WinRM access to the resource and is commonly used for initial setup tasks on the remote machine, like installing software or configuring settings.",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Senior",
+      "title": "How do you handle resource drift or changes that were made outside of Terraform?",
+      "answer": "Use terraform refresh: This updates the Terraform state to match the current state of the resources in the real world. However, it does not modify the infrastructure.\nPerform Regular Audits: Regularly audit your infrastructure and Terraform configurations to identify and rectify drifts.\nReconcile Drift: If drift is detected, update the Terraform configuration to match the actual state, or apply changes to the infrastructure to align it with the Terraform state.\nImplement Policy as Code: Use tools like Sentinel (with Terraform Cloud) to enforce policies, preventing unauthorized changes outside of Terraform.\nEducate Team Members: Ensure all team members understand the importance of making changes through Terraform to maintain state consistency.\nVersion Control: Use version control for Terraform configurations to track changes and facilitate rollback if needed.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Senior",
+      "title": "Explain what a Terraform provider and a Terraform provisioner are, and how they differ in their use cases.",
+      "answer": "A Terraform provider is a plugin that manages the API interactions for a particular infrastructure platform.\nA provisioner, on the other hand, is used to execute tasks or scripts on a resource after creation, often used for configuration or initialization tasks.\nProviders are used to create and manage resources, while provisioners are for configuring those resources.",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Senior",
+      "title": "How do you ensure idempotence in Terraform configurations, and why is it important?",
+      "answer": "Idempotence means that running the same Terraform configuration multiple times should result in the same infrastructure state. You ensure idempotence by specifying desired states and making sure your configurations don't have side effects. It's crucial for safe and predictable infrastructure management.",
+      "isPremium": false
+    },
+    {
+      "id": 49,
+      "level": "Senior",
+      "title": "How does Terraform manage resource dependencies, and what is the role of the Terraform graph in this process?",
+      "answer": "Terraform analyzes the dependencies between resources by creating a resource graph.\nThis graph is used to determine the order in which resources are created or updated to ensure that dependencies are satisfied and resources are provisioned in the correct sequence.",
+      "isPremium": false
+    },
+    {
+      "id": 50,
+      "level": "Senior",
+      "title": "Can Terraform be used for on-prem infrastructure?",
+      "answer": "Yes, Terraform can be used for managing on-premises infrastructure. It supports various on-prem technologies through its extensive provider ecosystem, enabling the management of physical servers, private clouds, network devices, and more, alongside cloud infrastructure.",
+      "isPremium": false
+    },
+    {
+      "id": 51,
+      "level": "Senior",
+      "title": "What is Terragrunt?",
+      "answer": "Terragrunt is a thin wrapper for Terraform that provides extra tools for working with multiple Terraform modules, enhancing and maintaining Terraform configurations.\nIt helps with DRY (Don't Repeat Yourself) configurations, remote state management, and automating repetitive tasks like environment scaffolding. Terragrunt is designed to make it easier to use Terraform at scale, especially in larger projects with complex setups.",
+      "isPremium": false
+    },
+    {
+      "id": 52,
+      "level": "Senior",
+      "title": "How does Terraform ensure the idempotency of resource provisioning?",
+      "answer": "Terraform ensures idempotency in resource provisioning by using a state management system and a declarative configuration model. It compares the desired state defined in the configuration with the current state in the state file, only making changes if necessary.\nThis approach ensures that repeated applications of the same configuration yield the same infrastructure state, avoiding unintended changes.",
+      "isPremium": false
+    }
+  ]
+}

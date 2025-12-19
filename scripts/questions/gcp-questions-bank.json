@@ -1,0 +1,356 @@
+{
+  "totalQuestions": 50,
+  "extractedAt": "2025-12-19T17:52:48.985Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "Explain the key services offered by Google Cloud Platform (GCP).",
+      "answer": "GCP provides a comprehensive set of cloud services, including computing, storage, databases, machine learning, networking, and more. Some core services include Compute Engine, Cloud Storage, BigQuery, Pub/Sub, Kubernetes Engine, and Cloud Functions.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "Explain the difference between Google Cloud Platform (GCP), Amazon Web Services (AWS), and Microsoft Azure.",
+      "answer": "GCP, AWS, and Azure are major cloud service providers. The key differences lie in their service offerings, pricing models, and global infrastructure. GCP focuses on data analytics and machine learning, emphasizing its data capabilities. AWS is known for its extensive service portfolio, while Azure is integrated with Microsoft products and services.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What is Google Cloud Functions, and when would you use it?",
+      "answer": "Google Cloud Functions is a serverless compute service that lets you run code in response to various events. You'd use it for building small, single-purpose functions that are triggered by events like HTTP requests, Cloud Pub/Sub messages, or changes in Cloud Storage.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "Explain the concept of Google Cloud Functions Triggers and how they work.",
+      "answer": "Google Cloud Functions can be triggered by various events such as HTTP requests, Cloud Pub/Sub messages, or changes in Cloud Storage. Triggers define the event source that invokes the function. For example, an HTTP trigger is invoked when an HTTP request is received.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "Describe a scenario where you would use Google Cloud Endpoints.",
+      "answer": "Google Cloud Endpoints is used for building, deploying, and managing APIs on GCP. It's particularly useful when you want to create RESTful APIs for your applications and need features like authentication, monitoring, and logging.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "Explain the concept of serverless computing in GCP.",
+      "answer": "Serverless computing in GCP refers to the use of services like Google Cloud Functions or Cloud Run, where you write and deploy code without managing the underlying infrastructure. These services automatically scale based on demand and charge you only for the resources used.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "Explain how you can implement load balancing in GCP.",
+      "answer": "GCP offers various load balancing options, including HTTP(S) Load Balancing for web traffic, Network Load Balancing for TCP/UDP traffic, and Internal Load Balancing for internal services. These load balancers distribute incoming traffic across multiple backend instances to ensure high availability and scalability.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "What is Cloud Shell in GCP, and why is it useful for developers?",
+      "answer": "Cloud Shell is a web-based, interactive shell environment provided by GCP. It allows developers to access a command-line interface with pre-installed tools for managing GCP resources without the need for local installations. It's useful for quick tasks and development tasks on the go.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "How can you ensure data redundancy and high availability in Google Cloud Storage?",
+      "answer": "To ensure data redundancy and high availability in Google Cloud Storage, you can enable multi-region storage for critical data, which replicates data across multiple geographic locations. Additionally, you can use versioning and object lifecycle management for data durability and retention.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "Explain the benefits of using Google Cloud Firestore as a NoSQL database in GCP.",
+      "answer": "Google Cloud Firestore is a scalable NoSQL database that offers real-time data synchronization, automatic scaling, and offline support for mobile and web applications. It's suitable for applications that require low-latency, responsive data access and real-time updates.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Mid",
+      "title": "What is Google Kubernetes Engine (GKE), and how does it differ from Kubernetes?",
+      "answer": "GKE is Google's managed Kubernetes service. It simplifies the deployment and management of containerized applications on Kubernetes. It automates tasks like node provisioning, cluster scaling, and updates, making it easier to run Kubernetes workloads in a GCP environment.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "Explain the concept of Virtual Private Cloud (VPC) in GCP.",
+      "answer": "A Virtual Private Cloud (VPC) is a logically isolated network within GCP that allows you to control and configure networking settings, such as IP address ranges, subnets, and firewall rules. VPCs are used to securely connect and isolate resources within your cloud environment.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "What is the difference between a regional and zonal resource in GCP?",
+      "answer": "A regional resource is available across multiple zones within a GCP region, providing redundancy and high availability. In contrast, a zonal resource is specific to a single zone and may not be as fault-tolerant. For critical services, it's advisable to use regional resources.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "Explain the purpose of Cloud Identity and Access Management (IAM) in GCP.",
+      "answer": "IAM in GCP is used to manage permissions and access control for resources. It defines who (identities) can do what (roles) on which resources. It helps enforce the principle of least privilege and ensures security in the cloud environment.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "How do you transfer data into Google Cloud Storage?",
+      "answer": "You can transfer data into Google Cloud Storage using various methods, including the Cloud Storage Console, gsutil command-line tool, Cloud Storage Transfer Service, and third-party tools like Storage Transfer Service.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "What is BigQuery, and how does it differ from traditional databases?",
+      "answer": "BigQuery is a fully managed, serverless, and highly scalable data warehouse offered by GCP. It's designed for analyzing large datasets using SQL-like queries. Unlike traditional databases, it doesn't require infrastructure management, and it can handle massive amounts of data with ease.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "Explain the concept of Google Cloud Pub/Sub.",
+      "answer": "Cloud Pub/Sub is a messaging service that allows decoupled and asynchronous communication between applications. It enables event-driven architecture by allowing publishers to send messages to topics and subscribers to receive those messages. It's commonly used for building scalable and reliable microservices.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "How can you ensure high availability and disaster recovery in GCP?",
+      "answer": "Achieving high availability involves strategies like using regional resources, load balancing, and redundant deployments. Disaster recovery can be ensured through data replication, automated backups, and well-defined recovery processes.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "What is the Cloud Deployment Manager in GCP, and how is it used?",
+      "answer": "Cloud Deployment Manager is an infrastructure as code (IAC) tool in GCP. It allows you to define and deploy cloud resources using configuration files (e.g., YAML or Python). With it, you can create, update, or delete resources in a consistent and repeatable manner.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "What is Identity Platform in GCP, and why is it important for application security?",
+      "answer": "Identity Platform is a fully managed authentication and user management service in GCP. It provides features like multi-factor authentication (MFA), social identity providers, and user profile storage. It's essential for securing user access to your applications and services.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "How can you monitor and troubleshoot performance issues in a Google Cloud application?",
+      "answer": "GCP offers tools like Stackdriver Monitoring and Logging to monitor and troubleshoot application performance. You can set up custom alerts, view logs, and analyze metrics to identify and resolve performance issues.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What is Google Cloud Composer, and when would you use it?",
+      "answer": "Google Cloud Composer is a managed workflow automation tool built on Apache Airflow. It allows you to create, schedule, and monitor complex workflows in the cloud. You'd use it for orchestrating tasks and data pipelines.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "How does GCP handle data security and compliance?",
+      "answer": "GCP has a range of security and compliance features, including encryption at rest and in transit, identity and access management (IAM), auditing and monitoring with Cloud Audit Logs and Stackdriver, and compliance certifications like SOC 2 and ISO 27001. Customers can also set up their own security controls and compliance policies.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What is Google Cloud Storage Nearline and how is it different from Coldline storage?",
+      "answer": "Google Cloud Storage Nearline and Coldline are storage classes optimized for archival data. Nearline offers faster access times compared to Coldline but at a slightly higher cost per retrieval. Use Nearline when you need quicker access to your archived data.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "Explain how you can achieve automatic scaling in Google App Engine.",
+      "answer": "In Google App Engine, automatic scaling is achieved by defining minimum and maximum instances for your application. App Engine will automatically adjust the number of instances based on incoming traffic to meet the specified requirements.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "What is Google Cloud Bigtable, and in what scenarios is it a suitable choice for data storage?",
+      "answer": "Google Cloud Bigtable is a NoSQL database designed for high-throughput, low-latency workloads. It's a good choice for applications requiring fast and scalable storage, such as time-series data, IoT, or analytics.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "What are GCP's recommendations for optimizing costs in a cloud environment?",
+      "answer": "GCP provides several recommendations for cost optimization, including rightsizing VM instances, setting up budget alerts, utilizing sustained use discounts, and using preemptible instances for fault-tolerant workloads.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "Describe the differences between Google Cloud Spanner and Google Cloud Bigtable.",
+      "answer": "Google Cloud Spanner is a globally distributed, strongly consistent, relational database service, while Google Cloud Bigtable is a NoSQL, wide-column store. Spanner is suitable for transactional applications, while Bigtable is designed for high-throughput, read-heavy workloads.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "How does Google Cloud Monitoring differ from Google Cloud Logging, and when would you use each one?",
+      "answer": "Google Cloud Monitoring focuses on collecting and analyzing performance metrics, while Google Cloud Logging deals with log data generated by applications and services. You'd use Monitoring for real-time insights into system performance and Logging for debugging and auditing purposes.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "Explain what Google Cloud Datastore is and how it differs from other database systems.",
+      "answer": "Google Cloud Datastore is a NoSQL database that provides a highly scalable, fully managed, and schemaless data storage solution. It differs from traditional relational databases by offering automatic scaling, a simpler data model, and a focus on high availability.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "Explain the concept of a service account in GCP and its role in security.",
+      "answer": "A service account is an identity associated with an application or service within GCP. It plays a crucial role in security by allowing you to grant permissions to resources and services while keeping the credentials separate from user accounts, enhancing security and access control.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "What is Google Cloud CDN, and why is it important for web applications?",
+      "answer": "Google Cloud CDN (Content Delivery Network) is a globally distributed network of servers that accelerates content delivery, reducing latency and improving user experience. It's important for web applications as it helps serve content quickly to users around the world.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "What is Google Cloud Memorystore, and when is it used for caching?",
+      "answer": "Google Cloud Memorystore is a managed in-memory data store service based on Redis. It's used for caching to improve application performance by storing frequently accessed data in memory, reducing the need to fetch it from a primary data source.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "Explain the advantages of using Infrastructure as Code (IAC) tools like Terraform or Deployment Manager in GCP.",
+      "answer": "IAC tools like Terraform or Deployment Manager allow you to define and manage cloud resources using code, enabling version control, repeatability, and automation. This ensures consistency, reduces human errors, and makes infrastructure provisioning and management more efficient.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "Explain the concept of a GCP project and its significance in resource management.",
+      "answer": "A GCP project is a container for organizing and managing resources. It acts as a billing and access boundary, allowing you to control who has access to the resources within the project. Projects help with resource isolation, budgeting, and access control.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "What is Cloud Run in GCP, and when is it a suitable choice for deploying applications?",
+      "answer": "Cloud Run is a serverless platform for running containerized applications. It's suitable for applications with varying traffic and resource needs, as it automatically scales up and down to handle incoming requests, making it cost-effective and scalable.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "Explain the advantages of using Google Cloud's multi-region and dual-region storage options.",
+      "answer": "Multi-region and dual-region storage options in Google Cloud Storage offer improved data redundancy and availability. Multi-region storage replicates data across multiple geographic regions for high availability, while dual-region storage provides redundancy in two specific regions for data durability and low-latency access.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Mid",
+      "title": "What is Google Cloud Data Catalog, and how can it help in data governance and discovery?",
+      "answer": "Google Cloud Data Catalog is a fully managed metadata management and data discovery service. It helps organizations catalog, discover, and manage their data assets, making it easier to find and understand data across the organization, improving data governance and compliance.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Mid",
+      "title": "What is the Google Cloud IoT Core, and how can it be utilized for building scalable IoT solutions?",
+      "answer": "Google Cloud IoT Core is a fully managed service for securely connecting and managing IoT devices. It can be used to build scalable IoT solutions by providing device management, authentication, and integration with other GCP services for data processing and analysis.",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Mid",
+      "title": "Explain the concept of GCP's Cloud Audit Logs and their role in compliance and security.",
+      "answer": "GCP's Cloud Audit Logs provide a record of all API operations performed in a GCP project. They play a crucial role in compliance and security by allowing organizations to track and audit actions performed on their resources, helping to identify and investigate security incidents.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Mid",
+      "title": "How can you optimize the cost of running virtual machines (VMs) in Google Compute Engine?",
+      "answer": "To optimize VM costs in Google Compute Engine, you can use strategies such as rightsizing VM instances to match workload requirements, leveraging sustained use discounts, and implementing automatic scaling to adjust resources based on demand.",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Mid",
+      "title": "What is the Google Cloud SDK, and how can it be useful for developers working with GCP resources?",
+      "answer": "The Google Cloud SDK is a set of command-line tools for managing GCP resources and services. It's useful for developers to interact with GCP resources, deploy applications, and automate tasks from the command line or in scripts.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Senior",
+      "title": "Explain the significance of Google Cloud AutoML.",
+      "answer": "Google Cloud AutoML is a suite of machine learning tools that allows developers with limited ML expertise to build custom machine learning models. It automates tasks like data preprocessing, model training, and hyperparameter tuning, making it easier to leverage machine learning in your applications.",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Senior",
+      "title": "What are Google Cloud Dataflow and Apache Beam, and how do they relate?",
+      "answer": "Google Cloud Dataflow is a fully managed stream and batch data processing service. Apache Beam is an open-source unified programming model for data processing, and Google Cloud Dataflow is based on it. You can use Beam to write portable data processing pipelines that can run on Dataflow or other supported runners.",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Senior",
+      "title": "Explain the concept of VPC Peering in GCP and its use cases.",
+      "answer": "VPC Peering in GCP allows you to establish private connectivity between Virtual Private Clouds (VPCs) in different projects or organizations. It's useful for sharing resources or data securely between VPCs without using the public internet.",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Senior",
+      "title": "What is Google Cloud's Anthos, and how does it enable hybrid and multi-cloud deployments?",
+      "answer": "Google Cloud's Anthos is a platform for managing applications across hybrid and multi-cloud environments. It allows organizations to build, deploy, and manage applications consistently across on-premises and cloud environments, providing flexibility and simplifying operations.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Senior",
+      "title": "Explain the purpose of Cloud Armor in GCP.",
+      "answer": "Cloud Armor is a security service in GCP that provides Distributed Denial of Service (DDoS) protection and web application firewall (WAF) capabilities. It helps protect your applications and services from online threats and attacks.",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Senior",
+      "title": "What is Google Cloud AI Platform, and how can it be used for machine learning projects?",
+      "answer": "Google Cloud AI Platform is a managed service that helps developers and data scientists build, train, and deploy machine learning models at scale. It provides tools and infrastructure for end-to-end machine learning workflows, including data preparation, model training, and deployment as APIs.",
+      "isPremium": false
+    },
+    {
+      "id": 49,
+      "level": "Senior",
+      "title": "Explain how Google Cloud Interconnect works and when you might use it.",
+      "answer": "Google Cloud Interconnect provides private, high-speed connectivity between your on-premises network and GCP. You'd use it when you require dedicated and reliable network connections, such as for hybrid cloud deployments or high-throughput workloads.",
+      "isPremium": false
+    },
+    {
+      "id": 50,
+      "level": "Senior",
+      "title": "How do you manage secrets and sensitive information securely in a GCP application?",
+      "answer": "To manage secrets securely in GCP, you can use Cloud Key Management Service (KMS) to encrypt and decrypt sensitive data, Google Secret Manager to store and manage secrets, and Identity-Aware Proxy (IAP) for controlling access to resources based on identity and context.",
+      "isPremium": false
+    }
+  ]
+}

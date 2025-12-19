@@ -1,0 +1,654 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "caching-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Caching",
+      "description": "What is caching?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is caching?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-1-ref-1",
+          "text": "Caching is a technique in computing where frequently accessed data or computations are temporarily stored in a cache, a fast storage area. This process speeds up data retrieval, reduces the load on the original data source, and improves overall system efficiency. Caches can be memory-based, disk-based, or web-based, and they use policies like \"Least Recently Used\" (LRU) to manage stored data. While caching enhances performance, it also adds complexity, especially in maintaining data consistency and cache invalidation.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Name some common tools used for",
+      "description": "Name some common tools used for caching?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some common tools used for caching?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-2-ref-1",
+          "text": "Memcached: An in-memory caching system widely used for speeding up dynamic web applications by alleviating database load. Redis: An advanced key-value store known for its versatility. It's often used as a caching solution and supports data structures like strings, hashes, lists, and sets. Varnish: A web application accelerator, often used as a reverse proxy, specifically designed for caching HTTP requests to reduce the load on web servers. CDN (Content Delivery Network): Services like Cloudflare, Akamai, and AWS CloudFront cache content closer to users geographically to decrease load times for websites and online content. Browser Caching: Modern web browsers like Chrome, Firefox, and Safari use their own caching mechanisms to store web page resources locally to speed up reloads. Nginx: Often used as a reverse proxy and load balancer, Nginx also provides effective caching for web content.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "A cache key and how is",
+      "description": "What is a cache key and how is it used?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a cache key and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-3-ref-1",
+          "text": "A cache key is a unique identifier used to store and retrieve data in a cache. It's a quick way to locate specific data within the cache, significantly faster than fetching it from the original source. Cache keys are associated with data, manage data expiration, and ensure consistency across cache operations. They may also include namespaces for organization.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A cache miss",
+      "description": "What is a cache miss?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a cache miss?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-4-ref-1",
+          "text": "A cache miss occurs when the data requested by a system is not found in the cache. This necessitates fetching the data from the slower, original data source, such as a hard drive or a remote server. Cache misses are significant in caching systems because they determine the effectiveness of the cache. A high rate of cache misses can indicate that the caching strategy is not optimally configured, leading to slower access times and reduced overall system performance. In contrast, a cache hit, where the data is found in the cache, results in faster data retrieval and improved efficiency.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Cache invalidation",
+      "description": "What is cache invalidation?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is cache invalidation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-5-ref-1",
+          "text": "Cache invalidation is the process of removing or marking as outdated the data in a cache to prevent the use of stale or incorrect information. It's essential for maintaining data accuracy and consistency between the cache and the original data source. Key strategies include time-based invalidation, where data expires after a set period, and event-based invalidation, triggered by updates in the data source. Maintaining this balance is challenging but crucial for effective caching, ensuring users always receive the most current data without impacting system performance significantly.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Name some cache invalidation strategies.",
+      "description": "Name some cache invalidation strategies.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some cache invalidation strategies.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-6-ref-1",
+          "text": "Time-Based Expiration (TTL): Automatically invalidates cache items after a set time interval. Change-Based Invalidation: Triggers invalidation in response to updates or deletions in the data store for high consistency. Least Recently Used (LRU): Invalidates items not accessed for the longest time. Write-Through Strategy: Updates the cache simultaneously with every data store update, ensuring immediate consistency. Manual Invalidation: Involves manually clearing cache entries, used in complex or specific scenarios. Versioning: Uses version numbers to invalidate outdated cached data when underlying data changes. Tag-Based Invalidation: Invalidates groups of cache entries based on shared tags, useful for bulk updates.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The impact of cache size on",
+      "description": "Describe the impact of cache size on performance.?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Describe the impact of cache size on performance.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-7-ref-1",
+          "text": "Higher Hit Rate: Larger caches increase the likelihood of data being found in the cache, leading to faster access times. Reduced Primary Storage Load: More data in the cache means fewer accesses to slower primary storage, improving overall performance. Diminishing Returns: Increasing cache size beyond a certain point may not significantly improve performance, as frequently accessed data is often a small subset. Increased Resource Usage: Larger caches consume more memory or disk space, which can be a concern in resource-limited environments. Potentially Longer Search Time: In some systems, larger caches might lead to longer times to search within the cache. Cost Considerations: Larger caches, especially with faster storage technologies, can be more expensive. Overheads in Distributed Systems: In distributed caching, larger caches might increase the complexity and overhead of maintaining coherence and synchronization.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Name some common scenarios when caching",
+      "description": "Name some common scenarios when caching should be used.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some common scenarios when caching should be used.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-8-ref-1",
+          "text": "Caching is particularly beneficial in scenarios where performance and efficiency are crucial and where data access patterns justify its use. Some common scenarios where caching should be used include: Web Content Delivery: Caching static content like HTML pages, images, and style sheets in web applications to speed up page load times for users. Database Queries: Caching results of frequently executed and computationally expensive database queries to reduce database load and improve response times. API Caching: Storing responses from slow or rate-limited external APIs to reduce latency and dependence on third-party services. Session Storage: Caching user session data in web applications to provide a faster and more responsive user experience. Computational Intensive Calculations: Caching the results of complex calculations that don't need to be computed every time, like scientific computations or financial simulations. Content Delivery Networks (CDNs): Using CDNs to cache content geographically closer to the user, reducing latency for global applications. Load Balancing: In distributed systems, caching frequently accessed data to balance the load across servers and prevent bottlenecks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "List the steps involved in implementing",
+      "description": "List the steps involved in implementing a basic cache system.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"List the steps involved in implementing a basic cache system.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-9-ref-1",
+          "text": "Define Cache Structure: Choose a data structure for the cache (e.g., array, hash table). Set Cache Size: Determine the maximum number of items the cache can hold. Choose Eviction Policy: Decide how to handle evictions when the cache is full (e.g., LRU, LFU, FIFO). Implement Cache Operations: Create functions for cache lookup, insertion, deletion, and update. Initialize Cache: Set up an empty cache with the specified size and data structure. Handle Cache Hits and Misses: Check if data is in the cache (hit) or fetch it from the source (miss). Eviction Handling: Apply the eviction policy when adding new items to a full cache. Cache Expiration/Invalidation: Manage data expiration or invalidation. Test and Monitor: Ensure proper functioning, and monitor cache performance. Integrate into Application: Integrate the cache system into your application code. Performance Tuning: Optimize cache size and policies based on real-world usage. Error Handling: Implement error handling for cache operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Some common cache writing strategies",
+      "description": "What are some common cache writing strategies?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some common cache writing strategies?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-10-ref-1",
+          "text": "Write-Through: Data is written to both the cache and the data store simultaneously, ensuring consistency but slower writes. Write-Around: Data is written directly to the data store, bypassing the cache, reducing cache pollution but causing potential cache misses. Write-Back (Write-Behind): Data is first written to the cache and later to the data store, offering faster writes but with a risk of data loss if the cache fails before syncing. Read-Through: Data not in the cache is fetched from the data store, cached, and then served, ensuring only requested data is cached but potentially slowing the first access. Lazy Loading: Data is loaded into the cache only when it is first requested, avoiding unnecessary data in the cache but slowing initial access. Eager Loading: Data is preloaded into the cache based on predicted need, reducing cache misses but possibly using more resources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Cache replacement",
+      "description": "What is cache replacement?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is cache replacement?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-11-ref-1",
+          "text": "Cache replacement is the process of removing items from a cache when it's full to make room for new items. It's crucial for maintaining cache efficiency, as it determines which data stays in the limited cache space. Common cache replacement strategies include: Least Recently Used (LRU): Removes the least recently accessed items first. First In, First Out (FIFO): Evicts items in the order they were added. Least Frequently Used (LFU): Discards items that are accessed least frequently. Random Replacement: Randomly selects items for eviction.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Name situations when to use different",
+      "description": "Name situations when to use different replacement strategies?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name situations when to use different replacement strategies?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-12-ref-1",
+          "text": "Least Recently Used (LRU): Use Case: Ideal for applications with a strong \"recency\" pattern, where recently accessed data is likely to be accessed again soon. Common in web browsers and database query caching. First In, First Out (FIFO): Use Case: Suitable for situations where the data access pattern is very sequential or when the age of the data is a deciding factor for its relevance. It's simple and predictable, used in scenarios where recency or frequency is not a major concern. Least Frequently Used (LFU): Use Case: Best for applications where some data is accessed far more frequently than others, such as in content delivery networks (CDNs) or recommendation systems, where popular items are requested more often. Random Replacement: Use Case: Useful in environments where the access pattern is highly unpredictable or when the overhead of tracking usage or frequency is not desirable. This can be seen in certain low-resource environments or when a simple implementation is needed.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caching-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You handle cache synchronization in a",
+      "description": "How would you handle cache synchronization in a distributed environment?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How would you handle cache synchronization in a distributed environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:49:58.917Z",
+      "updatedAt": "2025-12-19T17:49:58.917Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "caching-questions-bank-13-ref-1",
+          "text": "Handling cache synchronization in a distributed environment involves ensuring data consistency across multiple cache instances. Key strategies include: Centralized Cache: All nodes use a single cache source, simplifying synchronization but risking bottlenecks and single points of failure. Distributed Cache with Data Partitioning: Sharding data across different cache nodes, balancing scale and complexity. Cache Invalidation Mechanism: Using a publish-subscribe model for invalidating stale cache entries, ensuring consistency but potentially introducing latency. Read-Through and Write-Through/Write-Behind Caching: Automating synchronization with data store, trading off between immediate consistency and write performance. Versioning: Attaching version numbers to data items for conflict resolution, adding overhead but aiding in determining the most recent data version. Conflict Resolution Policies: Defining policies for handling data discrepancies across nodes, essential for eventual consistency models. Time to Live (TTL): Setting expiration times for cache entries to prevent stale data, simple but may not suit strong consistency needs. Regular Cache Refresh: Periodically updating cache from the data store, ensuring up-to-date data at the cost of increased load.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

@@ -448,7 +448,7 @@ export function ConfigureContent() {
         return;
       }
 
-      updateConfig("technologies", [tech]);
+      updateConfig("technologies", [...selected, tech]);
     };
 
     return (

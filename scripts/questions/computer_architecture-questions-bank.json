@@ -1,0 +1,363 @@
+{
+  "totalQuestions": 51,
+  "extractedAt": "2025-12-19T18:01:35.918Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is computer architecture?",
+      "answer": "Computer architecture refers to the design and organization of the core components of a computer system, including the central processing unit (CPU), memory, and the system's interconnections. It encompasses the rules and methods that describe the functionality, organization, and implementation of computer systems.\nKey aspects include processor design, memory management, data representation, and instruction set architecture. It determines how hardware and software interact to deliver the functional requirements of a computer, influencing aspects like processing speed, power consumption, and cost.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What are the three categories of computer architecture?",
+      "answer": "System Design: This includes the hardware components within a system, such as data processors, memory controllers, and direct memory access.\nInstruction Set Architecture (ISA): This defines the machine code that a processor can execute, as well as the native commands and functions of the processor.\nMicroarchitecture: This deals with the design of the processor's internal architecture, including data paths, pipelines, and control logic, influencing how it implements the ISA.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What is the Von Neumann architecture, and how does it differ from Harvard architecture?",
+      "answer": "The Von Neumann architecture is a computer architecture that stores program instructions and data in a single memory unit. It uses a single bus for both instruction and data fetching.\nIn contrast, Harvard architecture separates instruction and data memory, typically using separate buses. This separation allows for simultaneous instruction fetch and data access, potentially improving performance.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What are some of the components of a microprocessor?",
+      "answer": "Arithmetic Logic Unit (ALU): Performs arithmetic and logical operations.\nControl Unit (CU): Directs the operation of the processor, managing and coordinating its components.\nRegisters: Small, fast storage locations for temporary data or instructions.\nCache Memory: A small-sized type of volatile computer memory that provides high-speed data access to a processor.\nBuses: Act as communication systems that transfer data between components inside or outside of a microprocessor.\nClock: Controls the timing of all computer operations.\nInstruction Decoder: Interprets and converts instructions into signals for the ALU or other components.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "Explain the main differences between a CPU and a GPU?",
+      "answer": "A CPU (Central Processing Unit) and a GPU (Graphics Processing Unit) are both types of processors, but they are designed for different tasks:\n\nCPU (Central Processing Unit):\nGenerally optimized for sequential processing and tasks that require complex decision-making.\nWell-suited for tasks like general-purpose computing, system management, and executing single-threaded applications.\nTypically consists of fewer but more powerful cores.\nGPU (Graphics Processing Unit):\nOptimized for parallel processing and tasks that involve large amounts of data parallelism, such as rendering graphics, image processing, and machine learning.\nExcel in tasks that can be divided into many smaller tasks that can be processed simultaneously.\nComprised of a larger number of less powerful cores compared to CPUs, allowing for highly parallel computation.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What is the purpose of the CPU cache in computer architecture.",
+      "answer": "The CPU cache is a small, high-speed memory unit located between the CPU and main memory. It stores frequently accessed data and instructions to reduce the time it takes to fetch them from slower main memory.\nThe cache improves performance by reducing memory access latency and increasing the CPU's effective speed.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "What is a cache miss?",
+      "answer": "A cache miss is an event in computer systems where the data requested by the CPU is not found in the cache memory. When this happens, the system must fetch the data from a slower tier of memory, typically the main RAM, leading to longer access times and reduced performance.\nCache misses are significant in performance tuning and cache design considerations.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "Explain the concept of cache coherence in multiprocessor systems.",
+      "answer": "Cache coherence refers to the consistency of data stored in different caches in a multiprocessor system. Maintaining cache coherence is crucial to ensure that all processors see a consistent view of memory.\nTechniques like invalidation-based and update-based protocols (e.g., MESI) are used to achieve cache coherence by tracking and propagating changes to shared data.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "Explain compile time and run time.",
+      "answer": "Compile Time refers to the phase in which source code written in a programming language is converted by a compiler into machine code. During compile time, the compiler performs tasks like syntax analysis, semantic analysis, and code optimization.\nErrors such as syntax errors and type mismatches are detected at this stage.\nRun Time, on the other hand, is the phase when the compiled program is executed by a computer. It involves actual operation executions, memory management, and error handling that occurs while the application runs.\nRuntime errors can include exceptions like division by zero or accessing invalid memory locations.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "What is MESI?",
+      "answer": "MESI is a cache coherence protocol used in multiprocessor systems. It stands for \"Modified, Exclusive, Shared, Invalid,\" which are the four states a cache line can be in.\nThe protocol ensures that multiple caches storing copies of the same data remain consistent, and it optimizes performance by reducing the need to write data back to main memory.\nEach state indicates the status of the data in the cache line and controls the read/write operations to that data:\nModified: The cache line is only in the current cache and has been changed from the value in main memory (dirty). This cache is responsible for updating the main memory.\nExclusive: The cache line is only in the current cache and matches main memory (clean).\nShared: The cache line may be stored in other caches of the system and matches main memory.\nInvalid: The cache line is invalid or empty.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "What is volatile memory and provide some examples?",
+      "answer": "Volatile memory is a type of computer memory that requires power to maintain the stored information. When the power is turned off, the data stored in volatile memory is lost. This type of memory is primarily used for temporary data storage while the device is powered on.\nExamples of volatile memory include:\nRandom Access Memory (RAM): Used in computers and smartphones to store data that the CPU needs quick access to while operating.\nCache Memory: Found within CPUs or allocated on RAM, used to speed up access to frequently used data.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Junior",
+      "title": "What is non-volatile memory and provide some examples?",
+      "answer": "Non-volatile memory is a type of computer memory that retains data even when the device is powered off. It is used for long-term storage of data in electronic devices.\nExamples of non-volatile memory include:\nSolid State Drives (SSD): Used in computers and servers for fast data access and storage.\nHard Disk Drives (HDD): Magnetic storage used for bulk data storage in personal computers and servers.\nFlash Memory: Common in USB flash drives, memory cards, and as storage in smartphones and tablets.\nROM (Read-Only Memory): Stores firmware and system software that are rarely changed.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Junior",
+      "title": "What is a virtual machine?",
+      "answer": "A virtual machine (VM) is a software-based emulation of a physical computer, running an operating system and applications just like a physical computer.\nIt operates within a host system, using virtualized hardware resources managed by a hypervisor, which enables multiple VMs to share the same physical hardware securely and efficiently.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Junior",
+      "title": "Explain the concept of pipelining in computer architecture.",
+      "answer": "Pipelining in computer architecture is a technique where multiple instruction phases are overlapped in execution. It's analogous to an assembly line in a factory: just as each stage in an assembly line works on a different car at the same time, each stage in a pipeline processes a different instruction or data stream simultaneously.\nThis leads to more efficient use of the processor, as it reduces the time to complete an instruction and increases the overall throughput of the system. The main stages in a typical instruction pipeline include fetching the instruction, decoding it, executing it, and writing back the results.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Junior",
+      "title": "What are the different types of interrupts in a microprocessor system?",
+      "answer": "Maskable Interrupts: These can be enabled or disabled by the processor. They are used for routine tasks and can be ignored or delayed.\nNon-Maskable Interrupts (NMI): These cannot be disabled. They are used for urgent tasks, like hardware failures.\nExternal Interrupts: Originated from external sources, such as I/O devices. They signal events like input ready or output complete.\nInternal Interrupts: Generated within the processor, like arithmetic overflow, division by zero, or illegal instruction.\nSoftware Interrupts: Triggered by executing a specific instruction, typically used for system calls in an operating system.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "What are the different hazards?",
+      "answer": "In computer architecture, hazards refer to conditions that can occur within the pipeline of a processor that prevent the next instruction in the instruction stream from executing during its designated clock cycle. There are three primary types of hazards:\nStructural Hazards: Arise from resource conflicts when the hardware cannot support all possible combinations of instructions simultaneously.\nData Hazards: Occur when instructions that are pipelined are waiting for data to be computed or retrieved. They are subdivided into:\nRead After Write (RAW): A dependency where a subsequent instruction requires data from a previous instruction.\nWrite After Read (WAR): Occurs when an instruction requires a resource that a previous instruction is using to produce a result.\nWrite After Write (WAW): Happens when two instructions that write to the same location are queued concurrently.\nControl Hazards: Occur due to the pipelining of branches and other instructions that alter the program counter. They are typically handled by mechanisms like branch prediction.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What is a snooping protocol?",
+      "answer": "A snooping protocol is a method used in multiprocessor computer architectures to maintain cache coherency, ensuring that all caches in the system reflect the same view of memory. In a snooping protocol, each cache controller monitors (or \"snoops\") the data traffic on a shared bus to determine if other caches have copies of a block of memory that it wants to read or write.\nWhen a processor writes data, the snooping mechanism checks if that data is stored in another processor's cache and updates or invalidates the corresponding entries, maintaining data consistency across all caches. This protocol is commonly used in bus-based shared memory systems.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is the easiest way to determine cache locations in which to store memory blocks?",
+      "answer": "The easiest way to determine cache locations for storing memory blocks is through a technique called \"Direct Mapping.\" In direct mapping, each block of main memory maps to exactly one cache line. The specific cache line is determined using a simple formula: (Block address modulo number of cache blocks).\nThis straightforward method ensures a unique and consistent cache location for each memory block, making the determination process efficient and easy to implement.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "Mention what are the different types of fields that are part of an instruction?",
+      "answer": "An instruction in computer architecture typically consists of several fields, each serving a specific purpose in the instruction's execution:\nOpcode (Operation Code): Specifies the operation to be performed (like add, subtract, load, store).\nSource Operands: Identify the registers or memory locations where the input data for the operation can be found.\nDestination Operand: Indicates where the result of the operation should be stored.\nImmediate Value: A constant value or a literal that is part of the instruction itself.\nAddressing Mode: Specifies how to calculate the effective address of the operand if it is in memory.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "Explain the difference between RISC and CISC architectures.",
+      "answer": "RISC (Reduced Instruction Set Computer) architectures use a smaller set of simple and fixed-length instructions, optimizing for simplicity and execution speed.\nCISC (Complex Instruction Set Computer) architectures, on the other hand, have a larger set of complex and variable-length instructions, aiming to reduce the number of instructions needed to perform a task.\nRISC architectures typically have a simpler and more streamlined pipeline design, while CISC architectures can perform more complex operations in a single instruction.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "What is branch prediction in computer architecture.",
+      "answer": "Branch prediction is a technique used in computer processors to guess the outcome of a conditional branch instruction before it is executed. Its purpose is to improve the flow in the instruction pipeline.\nThe processor predicts whether the branch will be taken or not taken and continues execution according to this prediction. If the prediction is correct, this results in improved performance; if incorrect, the pre-fetched and pre-executed instructions are discarded, and the pipeline is corrected, which can cause a delay.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "Explain the concept of out-of-order execution in modern CPUs.",
+      "answer": "Out-of-order execution is a CPU design technique that allows instructions to be executed in a different order than they were originally fetched.\nIt improves instruction-level parallelism by enabling the CPU to execute independent instructions simultaneously, even if they are not in sequential order. This technique can help utilize the CPU's execution units more efficiently.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "Explain the concept of multi-core processors in computer architecture.",
+      "answer": "Multi-core processors contain multiple CPU cores on a single chip. Each core can execute instructions independently, allowing for parallel processing of tasks.\nMulti-core processors improve system performance by enabling better utilization of CPU resources and enhancing the execution of multi-threaded software.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What is the purpose of the memory management unit (MMU) in computer architecture.",
+      "answer": "The MMU is responsible for translating virtual addresses used by programs into physical addresses in memory. It enables virtual memory, which provides the illusion of a larger address space than physically available RAM.\nThe MMU helps manage memory allocation, protection, and isolation between processes.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "What is speculative execution in CPU architecture.",
+      "answer": "Speculative execution is a technique used by modern CPUs to execute instructions before it is certain they will be needed. It helps improve performance by keeping the CPU busy and reducing the impact of instruction dependencies and stalls.\nHowever, speculative execution can also introduce security vulnerabilities, as seen in the Spectre and Meltdown exploits.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "Explain the concept of a branch target buffer (BTB) in the context of instruction fetching.",
+      "answer": "A branch target buffer (BTB) is a cache-like structure that stores the target addresses of recently executed branch instructions. It helps improve CPU performance by predicting the target address of branches, reducing the delay caused by branch instruction execution.\nWhen the BTB prediction is correct, the CPU can fetch and execute instructions efficiently.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "What is the role of a memory hierarchy in computer architecture?",
+      "answer": "A memory hierarchy consists of multiple levels of memory with varying speeds and sizes. The primary purpose is to provide a trade-off between speed and storage capacity.\nFast, but small, caches are placed closer to the CPU to reduce access times, while slower, but larger, main memory and secondary storage provide additional storage capacity.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "Explain the concept of instruction-level parallelism (ILP) in CPUs.",
+      "answer": "Instruction-level parallelism (ILP) is the ability of a CPU to execute multiple instructions simultaneously. There are two main types of ILP: data-level parallelism (DLP) and control-level parallelism (CLP).\nDLP involves executing multiple data operations in parallel, while CLP involves executing multiple control instructions in parallel. Achieving ILP faces challenges like instruction dependencies, branch prediction, and hardware constraints.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "What is the role of the memory controller in computer architecture?",
+      "answer": "The memory controller is responsible for managing data transfer between the CPU and RAM. It controls memory access, coordinates read and write operations, and handles memory requests from the CPU.\nThe memory controller also manages the timing and performance of memory operations.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "Explain the concept of vector processing in CPU architecture.",
+      "answer": "Vector processing involves performing the same operation on multiple data elements simultaneously. It differs from scalar processing, which operates on individual data elements one at a time.\nVector processing is advantageous for tasks that involve repetitive mathematical operations on large datasets, as it can significantly improve processing speed through parallelism.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is the role of the microarchitecture in CPU design?",
+      "answer": "The microarchitecture, also known as the CPU's internal architecture, defines how the CPU is implemented at the hardware level. It includes details about pipelines, caches, registers, and other internal components.\nThe instruction set architecture (ISA) defines the CPU's external interface, specifying the instructions and their behavior that software can use to interact with the CPU.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "What is the purpose of the memory hierarchy's write-back and write-through policies?",
+      "answer": "Write-back and write-through are cache management policies. Write-back caches write data to the cache first and later update main memory, improving performance but potentially causing data inconsistency in case of crashes.\nWrite-through caches write data to both the cache and main memory simultaneously, ensuring data consistency but potentially impacting performance.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "What is the concept of memory latency?",
+      "answer": "Memory latency refers to the delay or time it takes for the CPU to access data from memory. High memory latency can lead to performance bottlenecks, as the CPU spends more time waiting for data to be fetched. Techniques like caching and out-of-order execution are used to mitigate the impact of memory latency.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What is a virtual memory on a computer?",
+      "answer": "Virtual memory is a memory management capability of an operating system (OS) that uses hardware and software to allow a computer to compensate for physical memory shortages, by temporarily transferring data from random access memory (RAM) to disk storage.\nThis process creates an illusion to users of a very large (main) memory. It enables a computer to run larger applications or multiple applications simultaneously without relying solely on physical memory in the system.\nVirtual memory combines the computer's RAM with temporary space on the hard disk. When RAM runs low, virtual memory moves data to a space called a paging file or swap space, allowing the system's RAM to focus on running applications, thus enhancing the overall efficiency and performance.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "What are the two hardware methods to establish a priority?",
+      "answer": "Daisy Chaining: This method assigns priority based on the physical position of devices on a daisy chain. The closer a device is to the CPU in the chain, the higher its priority.\nParallel Priority Interrupt: In this method, each device is connected to a common bus through its own interrupt line. Priority is established by the hardware, often using a priority encoder, which selects the highest-priority request among all the interrupting devices.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Senior",
+      "title": "Explain the role of a TLB (Translation Lookaside Buffer) in virtual memory systems.",
+      "answer": "A TLB is a hardware cache that stores recently used virtual-to-physical address mappings. It speeds up address translation by allowing the CPU to access frequently used translations directly from the TLB, reducing the need to access the page table in main memory.\nTLBs are crucial for efficient virtual memory management.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Senior",
+      "title": "What is the purpose of SIMD (Single Instruction, Multiple Data) processing in computer architecture?",
+      "answer": "SIMD processing allows a single instruction to operate on multiple data elements simultaneously. It is commonly used in applications that require parallel processing of data, such as multimedia processing, scientific simulations, and graphics rendering, where the same operation is performed on multiple data elements.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Senior",
+      "title": "What is the difference between synchronous and asynchronous processor architectures?",
+      "answer": "Synchronous processor architectures follow a clock signal, executing instructions at specific clock cycles. Asynchronous architectures do not rely on a fixed clock signal and execute instructions when their dependencies are met.\nSynchronous architectures are more common but may have performance limitations, while asynchronous architectures offer potential power and performance benefits.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Senior",
+      "title": "What is DMA?",
+      "answer": "Direct Memory Access (DMA) is a feature in computer systems that allows certain hardware subsystems to access main system memory (RAM) independently of the central processing unit (CPU).\nThis capability enables peripherals like disk drive controllers and network cards to transfer data to or from the memory without burdening the CPU with these operations.",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Senior",
+      "title": "Explain what is horizontal micro code?",
+      "answer": "Horizontal microcode is a type of microcode used in computer processors, where each microinstruction contains control bits that directly correspond to various control signals of the processor. In horizontal microcoding, microinstructions are wide, with many bits, each controlling specific parts of the CPU's hardware in parallel.\nThis allows for detailed and complex control of the CPU's functionality on a cycle-by-cycle basis, enabling efficient and finely tuned processor operations.\nHowever, the complexity and size of horizontal microcode can make it more challenging to write and maintain compared to vertical microcode.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Senior",
+      "title": "Explain what is vertical micro code?",
+      "answer": "Vertical microcode is a type of microcode used in computer processors, where each microinstruction is relatively compact and typically represents higher-level operations. In vertical microcoding, a microinstruction contains a smaller number of bits, each of which acts as a field that specifies more complex operations or sequences of operations.\nThis approach requires decoding the microinstruction into more detailed control signals for the processor's hardware. Vertical microcode is generally more space-efficient than horizontal microcode, but it can be less efficient in terms of execution speed due to the additional decoding step.",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Senior",
+      "title": "What are the types of micro-operations?",
+      "answer": "Register Transfer Micro-operations: Involve transferring data between registers.\nArithmetic Micro-operations: Perform arithmetic operations on numeric data stored in registers, such as addition, subtraction, increment, and decrement.\nLogic Micro-operations: Execute bitwise logical operations like AND, OR, XOR, and NOT on bit patterns in the registers.\nShift Micro-operations: Move the bits within a register to the left or right, used in tasks like alignment and multiplication/division by powers of two.\nInput/Output Micro-operations: Facilitate data transfer between I/O devices and the central processing unit or memory.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Senior",
+      "title": "What is the difference between little-endian and big-endian byte ordering in computer memory storage?",
+      "answer": "Little-endian byte ordering stores the least significant byte of a data word at the lowest memory address, while big-endian byte ordering stores the most significant byte at the lowest memory address.\nThe choice of byte ordering affects how data is stored and retrieved in multi-byte data types and can impact data interchange between systems with different byte orders.",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Senior",
+      "title": "Explain the concept of superscalar architecture in CPUs.",
+      "answer": "Superscalar architecture allows a CPU to issue and execute multiple instructions simultaneously in a single clock cycle, taking advantage of instruction-level parallelism.\nScalar architecture processes one instruction at a time, while VLIW (Very Long Instruction Word) architecture schedules multiple instructions in advance but without dynamic reordering like superscalar processors.",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Senior",
+      "title": "Explain the role of an arithmetic logic unit (ALU) in a CPU.",
+      "answer": "The ALU is responsible for performing arithmetic and logic operations on data. It can perform operations such as addition, subtraction, multiplication, division, bitwise operations, and comparisons.\nThe ALU plays a central role in program execution by executing the core computational operations required by instructions.",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Senior",
+      "title": "What is the role of an instruction cache (I-cache) and a data cache (D-cache) in a CPU?",
+      "answer": "The instruction cache (I-cache) stores instructions fetched from memory, while the data cache (D-cache) stores data accessed by the program. Both caches reduce memory access latency by providing faster access to frequently used data and instructions.\nCaches operate on the principle of locality, where recently accessed items are likely to be accessed again.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Senior",
+      "title": "Can you name some of the common rules of assembly language?",
+      "answer": "Common rules of assembly language, which vary slightly depending on the specific assembly language and processor architecture, typically include:\nSyntax: Every instruction generally consists of an opcode (operation code) and zero or more operands.\nLabels: Used to mark positions within code, commonly for jump instructions and data declarations.\nComments: Marked by specific characters (like ; or #), they are used for adding explanations or annotations, and are ignored by the assembler.\nDirectives: Special instructions that direct the assembler to perform specific tasks during the assembly process, like defining constants or reserving space.\nData Definitions: Instructions for defining variable data and initializing memory spaces.\nInstruction Constraints: Certain instructions only work with specific registers or memory types.\nAddressing Modes: Different ways to specify operands, like immediate, register, or indirect addressing.",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Senior",
+      "title": "What are the five stages in a DLX pipeline?",
+      "answer": "The five stages in a DLX pipeline, a classic RISC (Reduced Instruction Set Computer) pipeline, are:\nIF (Instruction Fetch): Retrieves the next instruction from memory.\nID (Instruction Decode and Register Fetch): Decodes the fetched instruction and reads the necessary registers.\nEX (Execution or Address Calculation): Executes the instruction or calculates the address for memory operations.\nMEM (Memory Access): Reads from or writes to memory (for load/store instructions).\nWB (Write Back): Writes the results back to the register file.",
+      "isPremium": false
+    },
+    {
+      "id": 49,
+      "level": "Senior",
+      "title": "What are flip-flops?",
+      "answer": "Flip-flops are basic digital memory circuitry units used in electronics and computer systems. They are bistable devices, meaning they have two stable states, which can store a binary value of either 0 or 1.\nFlip-flops are capable of maintaining a binary state until it is changed by an input signal, making them foundational elements in building memory and data storage devices.\nThey are used to store state information and form the basic building blocks for registers, counters, and other complex memory-related components in digital systems.",
+      "isPremium": false
+    },
+    {
+      "id": 50,
+      "level": "Senior",
+      "title": "What are latches?",
+      "answer": "Latches are basic electronic devices used in digital circuits, functioning as a form of temporary storage. They are capable of holding one bit of information and maintaining that state until it is changed by an external signal. Latches operate on the principle of feedback, where the output is looped back to the input to maintain the state.\nThey are used in various applications for storing data, creating delay circuits, and stabilizing volatile signals. There are different types of latches, such as the D-latch and the SR-latch, each with its specific operational characteristics and uses.",
+      "isPremium": false
+    },
+    {
+      "id": 51,
+      "level": "Senior",
+      "title": "What is the difference between latches and flip-flops?",
+      "answer": "The main difference between latches and flip-flops lies in their operating mechanisms and how they handle data:\nLatches: These are level-triggered devices, meaning they are sensitive to the input signals as long as they are active (high or low). A latch can change its output state as long as the control signal (like a clock) is in a particular state.\nFlip-Flops: These are edge-triggered devices, meaning they change their state only at specific moments, typically on the rising or falling edge of a control signal (like a clock pulse). Flip-flops are more suitable for synchronous circuits where changes occur in alignment with a clock signal.",
+      "isPremium": false
+    }
+  ]
+}

@@ -1,0 +1,1230 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "cdn-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A CDN",
+      "description": "What is a CDN?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a CDN?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-1-ref-1",
+          "text": "A Content Delivery Network (CDN) is a system of distributed servers that delivers web content, such as web pages, videos, images, and other types of web assets, to users based on their geographic location, the origin of the webpage, and a content delivery server. The primary goal of a CDN is to improve access to web content by reducing latency, which is the time taken for a web page or file to be delivered to a user's device.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Name some advantages of a CDN.",
+      "description": "Name some advantages of a CDN.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some advantages of a CDN.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-2-ref-1",
+          "text": "Faster Load Times: Reduces website and content loading time. Reduced Bandwidth Costs: Decreases data load on the origin server, cutting bandwidth expenses. High Availability and Redundancy: Ensures content availability even during high traffic or server failures. Enhanced User Experience: Improves overall responsiveness and user interaction. Scalability: Effectively handles traffic spikes and large-scale content delivery. Improved Security: Offers features like DDoS protection and SSL/TLS encryption. Global Reach: Delivers content efficiently worldwide, minimizing geographic latency. Load Balancing: Distributes traffic evenly across servers, preventing overload. SEO Benefits: Faster sites potentially achieve better search engine rankings. Lower Server Load: Eases the burden on the origin server, enhancing performance and reducing maintenance needs.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Name some disadvantages of a CDN.",
+      "description": "Name some disadvantages of a CDN.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some disadvantages of a CDN.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-3-ref-1",
+          "text": "Cost: Can be expensive, especially for large-scale deployments. Complex Setup: Requires technical know-how for proper configuration. Limited Control: Dependence on a third-party provider reduces direct control over server and caching settings. Security Concerns: Potential risks with storing sensitive data on external servers. Performance Variability: Inconsistent performance based on provider quality and geographic factors. Cache Invalidation Issues: Difficulty in ensuring updated content replaces outdated cached versions. Provider Dependence: Reliance on the CDN's stability and uptime. Geographical Limitations: Effectiveness varies in regions with fewer servers. Content Management Overheads: Increased effort to manage and synchronize content. SEO Implications: Possible negative impact on search engine optimization if not properly managed.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Briefly explain how a CDN works.",
+      "description": "Briefly explain how a CDN works.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Briefly explain how a CDN works.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-4-ref-1",
+          "text": "A Content Delivery Network (CDN) enhances the speed and efficiency of content delivery over the internet. It works by: Distributing Servers Globally: Placing multiple servers at different geographic locations. Redirecting User Requests: When a user requests content (like a web page or image), the request is redirected to the nearest server. Delivering Cached Content: The closest server responds with the cached content, reducing the data delivery time. Fetching and Storing New Content: If the content isn't on the nearest server, it's retrieved from the origin server and cached for future requests.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Name some applications of a CDN.",
+      "description": "Name some applications of a CDN.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some applications of a CDN.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-5-ref-1",
+          "text": "Web Content Delivery: Speeding up the loading of web pages by caching HTML files, stylesheets, JavaScript, and images. Video Streaming: Reducing buffering and improving the quality of video streaming services. Software Distribution: Facilitating faster downloads of software, updates, and patches. E-commerce Platforms: Enhancing the performance and user experience of online shopping sites, especially during high traffic periods. Online Gaming: Reducing latency and improving the speed of game content delivery for a better gaming experience. Media and Advertising: Efficient delivery of media content and advertisements to various geographical locations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Es caching work in a CDN.",
+      "description": "How does caching work in a CDN.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does caching work in a CDN.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-6-ref-1",
+          "text": "Initial Content Fetch: Content is initially retrieved from the origin server upon the first request. Caching on Edge Servers: This content is cached on CDN's edge servers, located closer to users. Serving Cached Content: Subsequent user requests are fulfilled from the nearest edge server's cache, reducing load times. Time-to-Live (TTL): Cached content has a set TTL, determining how long it's stored before being refreshed from the origin server. Cache Invalidation: Content can be manually removed or updated in the cache as needed. Optimization: The CDN may optimize content for faster delivery, like compressing files.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es TTL mean",
+      "description": "What does TTL mean?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does TTL mean?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-7-ref-1",
+          "text": "TTL, or \"Time to Live,\" is a setting that determines how long a piece of information remains valid or stored. In networking, it refers to the lifespan of data packets, decreasing with each hop in the network until they are discarded. In DNS systems, it dictates how long DNS records are cached before a fresh query is made. In caching systems, like CDNs, it specifies how long content stays in the cache before being refreshed or removed. Essentially, TTL helps balance data freshness with resource usage.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Es cache hit ratio mean",
+      "description": "What does cache hit ratio mean?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does cache hit ratio mean?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-8-ref-1",
+          "text": "Cache hit ratio in computing refers to the percentage of requested data that is served from the cache, rather than directly from the original data source. It's a measure of the effectiveness of the cache system. Higher ratios indicate more efficient caching, leading to faster data retrieval and reduced load on the primary data source.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Cache invalidation",
+      "description": "What is cache invalidation?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is cache invalidation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-9-ref-1",
+          "text": "Cache invalidation is the process of removing or marking as outdated the cached data. This is necessary when the original data has changed, ensuring that users don't receive stale or incorrect information. Invalidation can be challenging in distributed systems, as it must ensure that all cache locations are updated or cleared simultaneously.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Edge servers",
+      "description": "What are edge servers?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are edge servers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-10-ref-1",
+          "text": "Edge servers are computing nodes located close to the end-users, designed to deliver content and services with reduced latency and improved performance by processing data closer to where it is generated or consumed. They are commonly used in distributed networks and content delivery systems.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The benefits of edge servers",
+      "description": "Describe the benefits of edge servers?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the benefits of edge servers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-11-ref-1",
+          "text": "Proximity to Users: Located geographically closer to end-users, reducing latency and improving response times. Network Efficiency: Part of a larger network, they handle local requests, reducing the load on central servers and improving overall network performance. Content Caching: Store frequently accessed content like web pages, videos, and images, enabling faster delivery directly from a nearby server.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Name some applications of edge servers.",
+      "description": "Name some applications of edge servers.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some applications of edge servers.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-12-ref-1",
+          "text": "CDNs: Commonly used in CDNs for quicker content delivery. Load Balancing: Distribute network traffic to prevent bottlenecks. Bandwidth Savings: Reduce the amount of data transferred over long distances, lowering bandwidth costs. Security: Offer an additional layer of protection by filtering traffic and mitigating threats like DDoS attacks. IoT and Mobile Support: Process and analyze data locally for real-time applications like autonomous vehicles or smart city technologies. Localized Services: Deliver region-specific content and services efficiently.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Name some popular CDN providers",
+      "description": "Name some popular CDN providers?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some popular CDN providers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-13-ref-1",
+          "text": "Akamai Technologies: Extensive network, advanced security services. Cloudflare: User-friendly, integrated security services, strong web security focus. Amazon CloudFront: Seamless integration with AWS services. Fastly: High-performance edge computing, real-time updates, streaming support. KeyCDN: Cost-effective, pay-as-you-go pricing, suits small to medium businesses. MaxCDN (StackPath): Ease of use, comprehensive web services suite. CDN77: Transparent pricing, strong data security, high bandwidth. Microsoft Azure CDN: Integration with Azure services, tailored for Microsoft applications. Google Cloud CDN: Integration with Google Cloud, advanced analytics, machine learning features. Limelight Networks: Specializes in video and media content delivery, robust content management tools.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You measure the performance of a",
+      "description": "How do you measure the performance of a CDN?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you measure the performance of a CDN?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-14-ref-1",
+          "text": "Latency: Time taken for a request to reach the CDN and for the response to reach the user. Content Load Time: How long it takes for the content to fully load in a user's browser. Availability/Uptime: The percentage of time the CDN is operational without outages. Cache Hit Ratio: Percentage of requests served from the CDN's cache. Throughput: Amount of data transferred over time, indicating the CDN's capacity. Error Rate: Number of failed requests or errors during content delivery. Geographical Performance: Performance consistency across different geographic locations. Bandwidth Usage: Monitoring of traffic patterns and peak usage times. Page Load Time: Overall time for a web page to fully load on a user's device. Time to First Byte (TTFB): Time from the user's request to the first byte received by the browser. End User Experience Monitoring: Real or simulated user interactions to gauge user experience. Security Performance: Effectiveness in protecting against attacks and handling secure connections.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es a CDN distribute content across",
+      "description": "How does a CDN distribute content across different geographic locations?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does a CDN distribute content across different geographic locations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-15-ref-1",
+          "text": "A Content Delivery Network (CDN) distributes content across different geographic locations using the following steps: Global Network of Servers: CDNs have servers in various data centers worldwide, storing cached content. Content Replication: Content is replicated across these servers, including web pages, images, and videos. DNS Resolution: When a user requests content, the CDN uses DNS to identify their location. Routing to Nearest Server: The user's request is directed to the closest server (in terms of network latency) that has the requested content. Load Balancing: CDNs distribute user requests across multiple servers to prevent overload. Handling Dynamic and Static Content: CDNs efficiently deliver both static (like images) and dynamic (like user-specific pages) content. Content Updating and Cache Management: CDNs update cached content when the original content changes, prioritizing frequently accessed content. Reduced Latency: Serving content from a nearby server reduces latency and speeds up content delivery. Scalability and Reliability: CDNs can manage traffic spikes and maintain high availability by rerouting requests if needed. Security: CDNs enhance security by distributing load and mitigating attacks like DDoS.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Es DNS play a role in",
+      "description": "How does DNS play a role in CDN functionality?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does DNS play a role in CDN functionality?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-16-ref-1",
+          "text": "DNS (Domain Name System) plays a key role in CDN (Content Delivery Network) functionality by directing user requests to the optimal server, thus enhancing content delivery: Domain Name Resolution: When a user accesses a website, the browser contacts a DNS server to translate the domain name into an IP address. CDN Integration: Websites using a CDN have their DNS configurations point to the CDN's DNS servers. Geolocation and Server Selection: The CDN's DNS server determines the user's location and selects the nearest or most suitable edge server in the CDN network. Routing User Requests: The CDN DNS responds with the IP address of the chosen edge server, ensuring the user connects to the optimal server location. Load Balancing: The CDN DNS considers server load and health to evenly distribute traffic and prevent overloading. Improved Performance: By routing users to the closest or best-performing server, DNS reduces latency and speeds up content delivery. Handling Traffic Spikes and Failover: The CDN can redistribute traffic during high traffic times and reroute requests in case of server outages, ensuring continuous availability.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The role of HTTP/2 and HTTP/3",
+      "description": "Explain the role of HTTP/2 and HTTP/3 in CDN performance.?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the role of HTTP/2 and HTTP/3 in CDN performance.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-17-ref-1",
+          "text": "HTTP/2 and HTTP/3 significantly enhance CDN performance through the following features: HTTP/2 Multiplexing: Allows multiple requests and responses over a single TCP connection, reducing latency. Header Compression: Reduces the size of header data, speeding up data transmission. Server Push: Anticipates resource needs and sends them in advance, reducing load times. Stream Prioritization: Prioritizes critical resources, ensuring they load faster for a better user experience. HTTP/3 QUIC Protocol: Operates over UDP, reducing connection establishment time and improving congestion control. Improved Latency: Especially beneficial in unstable network conditions, enhancing content delivery speed. Enhanced Security: Integrates TLS 1.3 for faster and more secure connections. Connection Migration: Maintains connections even with IP address changes, useful for mobile users.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The architecture of a typical CDN.",
+      "description": "Describe the architecture of a typical CDN.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the architecture of a typical CDN.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-18-ref-1",
+          "text": "The architecture of a typical Content Delivery Network (CDN) includes several key components designed to optimize content delivery: Origin Server: The primary source of the website's content. Edge Servers (or Nodes): Distributed globally to cache and serve content to users from locations closer to them. Points of Presence (PoPs): Clusters of edge servers in various geographic locations, ensuring local users receive content quickly. DNS Resolution: Directs user requests to the nearest or most optimal edge server for efficient routing. Load Balancers: Evenly distribute user requests among edge servers to prevent overload. Caching Mechanisms: Temporarily store content on edge servers to reduce load on the origin server. Content Replication: Ensures content is duplicated from the origin to edge servers, either actively or passively. Network Layer: Connects edge servers, PoPs, and the origin server, optimizing data routing. Control Layer: Manages content distribution and delivery, including security and analytics. Security Features: Protects against cyber threats with tools like DDoS protection and SSL/TLS encryption. APIs and Administration Tools: Allow for management and configuration of CDN settings.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Es load balancing work in the",
+      "description": "How does load balancing work in the context of CDNs?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does load balancing work in the context of CDNs?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-19-ref-1",
+          "text": "In CDNs, load balancing distributes network traffic across multiple servers to ensure efficient data delivery, prevent server overload, and maintain high availability and reliability. It routes user requests to the optimal server, often the one geographically closest to the user, enhancing performance and reducing latency.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Discuss common security practices in CDN",
+      "description": "Discuss common security practices in CDN operations.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss common security practices in CDN operations.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "cybersecurity"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-20-ref-1",
+          "text": "DDoS Protection: Using the network to absorb and mitigate Distributed Denial of Service attacks. TLS/SSL Encryption: Securing data in transit to protect against interception. Web Application Firewall (WAF): Filtering web traffic to guard against common threats and vulnerabilities. Access Control: Implementing measures like IP whitelisting and authentication to restrict resource access. Caching Policies: Ensuring sensitive data is not unintentionally cached. Origin Shielding: Adding an extra layer of servers to protect the origin server and reduce load. Regular Updates: Keeping systems and software updated with the latest security patches. Rate Limiting: Controlling the rate of user requests to prevent abuse. Monitoring and Analytics: Continuously monitoring for and responding to suspicious activities. Content Protection: Using methods like token authentication and geo-blocking to control content access.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es anycast routing benefit a CDN",
+      "description": "How does anycast routing benefit a CDN?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does anycast routing benefit a CDN?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-21-ref-1",
+          "text": "Anycast routing benefits a CDN (Content Delivery Network) by: Reducing Latency: Directs user requests to the nearest server, decreasing data travel time. Balancing Load: Evenly distributes traffic across multiple servers, preventing congestion. Enhancing Reliability: Provides redundancy, rerouting traffic if a server fails. Mitigating DDoS Attacks: Disperses traffic across the network, making it harder to overwhelm a single point. Simplifying DNS Management: Allows multiple servers to share the same IP address for easier management. Optimizing Traffic Routing: Dynamically routes traffic for efficiency based on network conditions and server performance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Es a CDN contribute to web",
+      "description": "How does a CDN contribute to web optimization techniques like minification, compression, and image optimization?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does a CDN contribute to web optimization techniques like minification, compression, and image optimization?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-22-ref-1",
+          "text": "Minification: Automatically reduces the size of JavaScript, CSS, and HTML files by removing unnecessary characters. Compression: Employs techniques like GZIP to decrease file sizes before transmission, speeding up download times. Image Optimization: Dynamically adjusts image format, quality, and size based on the user's device and browser, improving efficiency and load times.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdn-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "How a CDN can manage a",
+      "description": "Describe how a CDN can manage a sudden increases in traffic?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe how a CDN can manage a sudden increases in traffic?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "cdn"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "cdn"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:56:22.978Z",
+      "updatedAt": "2025-12-19T17:56:22.978Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "cdn-questions-bank-23-ref-1",
+          "text": "Distributed Network: Utilizes a global network of edge servers to distribute and absorb increased traffic loads. Load Balancing: Evenly spreads traffic across multiple servers to prevent overloading and maintain smooth operation. Caching: Serves most requests from cached content on edge servers, reducing the load on the origin server. Elastic Scalability: Automatically adjusts capacity to meet the demands of traffic spikes. Anycast Routing: Routes user requests to the nearest available server, optimizing load distribution. Preemptive Content Distribution: Proactively pushes content to edge servers in anticipation of high-traffic events. Real-Time Analytics: Monitors traffic flow for immediate response to changing traffic patterns. DDoS Protection: Includes security measures to differentiate between legitimate traffic surges and attacks. Content Prioritization: Prioritizes critical content delivery during extreme traffic conditions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

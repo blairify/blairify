@@ -1,0 +1,2006 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "graphql-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "GraphQL",
+      "description": "What is GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-1-ref-1",
+          "text": "GraphQL is an open-source query language and runtime for APIs. GraphQL allows you to define a schema that describes your data, and clients can then use that schema to request exactly the data they need, in a single round-trip to the server. It provides a more efficient, powerful, and flexible alternative to the traditional REST API.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The basic components of a GraphQL",
+      "description": "Explain the basic components of a GraphQL schema.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the basic components of a GraphQL schema.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-2-ref-1",
+          "text": "A GraphQL schema consists of several key components: Types: Define the objects and their fields in your data. Example: User type with fields id, name, email. Fields: Attributes of types that specify the data you can query. Scalar Types: Basic data types like Int, String, Boolean, without sub-fields. Query Type: Defines read operations and entry points for querying the data. Mutation Type: Specifies write operations for modifying data. Subscription Type: Allows real-time updates through specified events. Enums: Special scalar type restricted to a predefined set of values. Interfaces and Unions: Define fields that multiple types must include (interfaces) or allow for more dynamic schemas (unions). Input Types: Specify complex objects as inputs for queries and mutations. Directives: Modify the execution of queries and mutations, like @include or @skip. The schema, defined using the GraphQL Schema Definition Language (SDL), acts as a contract between the server and client, outlining how data can be accessed and manipulated.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "A schema in GraphQL, and how",
+      "description": "What is a schema in GraphQL, and how is it defined?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a schema in GraphQL, and how is it defined?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-3-ref-1",
+          "text": "A schema in GraphQL is a blueprint that defines the data that can be queried, the relationships between the data, and the operations that can be performed on the data. It's defined using the GraphQL Schema Definition Language (SDL), which is a type system that allows you to describe the structure of your API.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A GraphQL query",
+      "description": "What is a GraphQL query?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a GraphQL query?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-4-ref-1",
+          "text": "A GraphQL query is a request to read specific data from a GraphQL server. It allows clients to precisely specify what data they need. Key features include: Selective Data Fetching: Clients can request exactly what they need, avoiding over-fetching or under-fetching. Hierarchical and Strongly Typed: Queries reflect the structure and relationships in the data model, and are validated against the GraphQL schema for correctness. Field-Level Requests: Clients can query specific fields on objects. Nested Objects: Ability to fetch complex data structures in a single request. Single Endpoint: All data requests are sent through a single API endpoint. Example: graphql query { user(id: \"1\") { name email posts { title } } }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A GraphQL mutation",
+      "description": "What is a GraphQL mutation?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a GraphQL mutation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-5-ref-1",
+          "text": "A GraphQL mutation is used for modifying data on the server, such as creating, updating, or deleting records. Key aspects include: Write Operations: Specifically for INSERT, UPDATE, or DELETE actions. Return Values: Can return data to provide the new state of an object after the mutation. Sequential Execution: Executed in order, ensuring data consistency. Schema-Defined: Mutations are defined in the GraphQL schema with specified inputs and return types. Strongly Typed: Inputs and outputs are strictly validated against the schema. Example: graphql mutation { addUser(name: \"John Doe\", email: \"john@example.com\") { id name email } }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Fields in GraphQL",
+      "description": "What are fields in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are fields in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-6-ref-1",
+          "text": "In GraphQL, fields are the basic building blocks used to request and represent data in a query or mutation. Fields are used to specify what data you want to retrieve or manipulate from the server. Fields can be nested within each other to create a hierarchical structure that matches the shape of the data you need. Example: graphql { user(id: 123) { name email } } In this query, name and email are fields requested on the user object.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Field aliases in GraphQL",
+      "description": "What are field aliases in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are field aliases in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-7-ref-1",
+          "text": "You can use aliases to rename fields in the response to avoid naming conflicts or to provide a different name in the client's schema. Example: graphql { user(id: 123) { full_name: name user_email: email } } Here, aliases full_name and user_email are used to rename the fields in the response.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Variables used in GraphQL",
+      "description": "How are variables used in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How are variables used in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-8-ref-1",
+          "text": "Variables are used to pass dynamic values into a GraphQL query or mutation. Example: graphql query GetUserProfile($userId: ID!) { user(id: $userId) { name email posts { title body } } } In this example the variable userId is being passed in as a parameter to make the query more reusable.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "GraphQL types.",
+      "description": "Explain GraphQL types.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain GraphQL types.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-9-ref-1",
+          "text": "GraphQL has a type system that defines the structure and relationships of the data in the API. Types can be scalar types (like strings or integers) or object types (which represent more complex data structures). Example: graphql type User { id: ID name: String email: String }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "A GraphQL resolver",
+      "description": "What is a GraphQL resolver?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a GraphQL resolver?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-10-ref-1",
+          "text": "A GraphQL resolver is a function that resolves the value for a specific field in a schema. It acts as a bridge between the GraphQL server and the data source, executing the logic necessary to return the requested data. Resolvers are defined for each field and can handle data retrieval, computation, or interacting with various backends. Example: graphql const resolvers = { Query: { posts: () => { // Logic to fetch and return a list of posts return database.getPosts(); } } };",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between a GraphQL query",
+      "description": "Explain the difference between a GraphQL query and a resolver function.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between a GraphQL query and a resolver function.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-11-ref-1",
+          "text": "A GraphQL query is a request from the client specifying the data it wants. A resolver function is a server-side function responsible for fetching the requested data. Resolvers are associated with specific fields in the schema and determine how data is retrieved.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es GraphQL handle over-fetching and under-fetching",
+      "description": "How does GraphQL handle over-fetching and under-fetching of data compared to REST?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does GraphQL handle over-fetching and under-fetching of data compared to REST?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-12-ref-1",
+          "text": "GraphQL allows clients to specify exactly which fields they need, preventing over-fetching and under-fetching of data. Clients define the structure of the response, reducing the need for multiple API endpoints. This is apposed to REST APIs where it is typically the server which dicates the shape of the response, and hence too much or too little data can be requested.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The query execution engine",
+      "description": "What is the query execution engine?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the query execution engine?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-13-ref-1",
+          "text": "The query execution engine in GraphQL processes and responds to incoming queries. It starts by parsing and validating the query against the schema to ensure structural correctness. Then, it executes the query by invoking resolver functions for each field, which fetch or compute the necessary data. Finally, it assembles the data into a response that mirrors the query's structure, efficiently addressing the specific data requirements of the client. This process allows GraphQL to dynamically fulfill requests without over-fetching or under-fetching data, unlike traditional REST APIs.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The main differences between REST and",
+      "description": "Explain the main differences between REST and GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the main differences between REST and GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-14-ref-1",
+          "text": "Data retrieval: REST APIs typically expose a fixed set of endpoints, each of which returns a fixed set of data. In contrast, GraphQL APIs allow clients to specify exactly what data they need, using a single flexible endpoint. Data manipulation: In a REST API, data is typically manipulated using HTTP verbs such as POST, PUT, PATCH, and DELETE, with each verb corresponding to a specific type of operation. In a GraphQL API, data is manipulated using mutations, which can be thought of as a generalization of these HTTP verbs. Data structure: REST APIs are resource-oriented, which means that they organize data into resources that can be accessed using URLs. In contrast, GraphQL APIs organize data into a graph-like structure, which allows for more complex relationships between data. Client-server relationship: In a REST API, the client has a passive role and relies on the server to provide the necessary resources. In contrast, in a GraphQL API, the client has an active role and can request exactly the data it needs, which can reduce overfetching and underfetching of data.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Can you have multiple queries in",
+      "description": "Can you have multiple queries in a single GraphQL request?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you have multiple queries in a single GraphQL request?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-15-ref-1",
+          "text": "Yes, you can include multiple queries in a single GraphQL request, which allows for efficient data retrieval in one network call. Each query within the request is executed independently and the results are returned in a combined JSON object. It's important to use aliases when querying the same field with different arguments. Example: graphql query CombinedQuery { user(id: \"1\") { name email } latestPosts(limit: 3) { title } } In this example, the request fetches both user information and the latest posts in a single query.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Middleware in the context of GraphQL.",
+      "description": "Explain middleware in the context of GraphQL.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain middleware in the context of GraphQL.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-16-ref-1",
+          "text": "In the context of GraphQL, middleware refers to a layer of software that sits between the GraphQL server and the resolver functions. It provides a way to modify, enhance, or manage the processing of requests and responses in the GraphQL execution flow. Key aspects of middleware in GraphQL include: Request Processing: Middleware can intercept and process requests before they reach the resolver functions. Response Transformation: Middleware can also modify or augment the response from resolver functions before it's sent back to the client. Resolver Wrapping: Middleware often wraps around resolver functions, allowing you to execute code before and/or after the resolver logic. Modular Architecture: By encapsulating specific functionalities in middleware, it promotes a modular and maintainable codebase.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You implement a GraphQL client and",
+      "description": "How do you implement a GraphQL client and server?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you implement a GraphQL client and server?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-17-ref-1",
+          "text": "Setting Up the Server: Define Schema: Start by defining a GraphQL schema using the Schema Definition Language (SDL). Create Resolvers: Implement resolver functions for each field in your types. Resolvers are responsible for fetching or computing the data for that field. GraphQL Server Library: Use a GraphQL server library compatible with your programming environment (like Apollo Server for JavaScript, Graphene for Python, etc.). Server Setup: Integrate the GraphQL server with a web server framework if necessary (like Express.js for Node.js), and configure the server to handle requests to the GraphQL endpoint. Building the Client: GraphQL Client Library: Choose a GraphQL client library that fits your application's tech stack (like Apollo Client for JavaScript, Relay, or even a simple fetch/AJAX for smaller projects). Query and Mutation Requests: Write GraphQL queries and mutations in your client application to request or manipulate data. Data Fetching: Use the client library to send these queries and mutations to your GraphQL server, usually over HTTP. Handling Responses: Process the responses returned by the server in your client application.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Introspection in GraphQL, and how is",
+      "description": "What is introspection in GraphQL, and how is it useful?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is introspection in GraphQL, and how is it useful?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-18-ref-1",
+          "text": "Introspection in GraphQL is a feature that allows clients to query a GraphQL server for information about its schema. It's a part of the GraphQL specification, making it consistent across different implementations. Uses of Introspection: Automatic Documentation: Tools can automatically generate up-to-date documentation of the GraphQL API. Dynamic Query Building: Client applications can dynamically construct queries and mutations based on the available schema. Schema Validation: It enables client-side validation and type checking of queries before they are sent to the server. Code Generation: Tools can generate client-side code for various languages and frameworks, using the schema details. Enhancing IDE Features: Introspection powers features like auto-completion and error highlighting in GraphQL IDEs. Managing Schema Evolution: Helps in understanding and managing changes in the schema over time. Considerations: Performance: Frequent introspection queries can impact performance, especially for large schemas. Security: Exposing schema details can pose security concerns, and it's often restricted or disabled in production environments.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You implement authentication and authorization in",
+      "description": "How do you implement authentication and authorization in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you implement authentication and authorization in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-19-ref-1",
+          "text": "Authentication: Typically handled outside GraphQL, often using HTTP Authorization headers with tokens (like JWT). The server validates the token and attaches user information to the context accessible in resolvers. Example: graphql Authorization: Bearer your_jwt_token Authorization: Implemented in resolvers, where you check the user's roles or permissions (from the context) before processing the request. Can also use GraphQL directives for declarative authorization rules in the schema, or Role-Based Access Control (RBAC) for finer control. Example: graphql Query: { sensitiveData: (parent, args, context) => { if (!context.user || context.user.role !== 'admin') { throw new Error",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You handle file uploads in GraphQL",
+      "description": "How do you handle file uploads in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle file uploads in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-20-ref-1",
+          "text": "Handling file uploads in GraphQL can be a bit challenging since GraphQL itself is not designed to handle binary data, which is typical in file uploads. However, it can be accomplished using a few different methods. Use a Base64 Encoded String: You can convert the file into a Base64 encoded string and send it as a regular string field in your GraphQL mutation. However, this method is not very efficient for large files. Use a Separate REST Endpoint for File Uploads: You can create a separate REST API endpoint just for handling file uploads. Once the file is uploaded, the REST endpoint can return a URL or an ID of the stored file. Multipart Request Specification (GraphQL Multipart Request Spec): This is a more efficient way to handle file uploads in GraphQL. It involves using a multipart/form-data request which is a standard way to upload files over HTTP. This specification allows you to map parts of the request to variables defined in your GraphQL query or mutation. Use an External File Storage Service: Another approach is to upload the file directly to an external file storage service like AWS S3, Azure Blob Storage, or Google Cloud Storage. After uploading, these services usually provide a URL for the uploaded file. You can then pass this URL as a string in your GraphQL mutation or query.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "GraphQL fragments",
+      "description": "What are GraphQL fragments?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are GraphQL fragments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-21-ref-1",
+          "text": "GraphQL fragments are reusable pieces of query logic that can be shared between multiple queries or within a single query to avoid repetition. They allow you to define a set of fields that you want to retrieve from one or more types, and then include this set wherever needed. Fragments make your queries more maintainable and readable, especially when dealing with complex data structures. Example: graphql fragment userInfo on User { id name email } query getUser { user(id: \"1\") { ...userInfo } } In this example, the userInfo fragment is defined to include the id, name, and email fields of a User. It is then reused in the getUser query.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Errors handled in GraphQL",
+      "description": "How are errors handled in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How are errors handled in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-22-ref-1",
+          "text": "Errors in GraphQL can be handled by returning an error object from the resolver for a particular field. A successful GraphQL query is supposed to return a JSON object with a root field called \"data\". If the request fails or partially fails (e.g. because the user requesting the data doesn’t have the right access permissions), a second root field called \"errors\" is added to the response: graphql { \"data\": { \"user\": null }, \"errors\": [ { \"message\": \"User not found\", \"locations\": [ { \"line\": 3, \"column\": 5 } ], \"path\": [\"user\"] } ] }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You implement custom error handling in",
+      "description": "How do you implement custom error handling in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you implement custom error handling in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-23-ref-1",
+          "text": "To implement custom error handling in GraphQL: Create custom error classes in your server code, extending from the base Error class with additional properties as needed. In your GraphQL resolvers, include logic to throw these custom errors under specific conditions, like validation failures or access denials. Utilize a custom error formatting function in your GraphQL server setup to catch and format these errors before they are sent in the response. Optionally, extend your GraphQL schema to include error types, allowing clients to query error details explicitly. Ensure your client-side GraphQL handling logic is equipped to parse and respond to these custom error formats. Example: graphql // Custom Error Class class ValidationError extends Error { constructor(field, message) { super(message); this.code = 'VALIDATION_ERROR'; this.field = field; } } // In a Resolver resolver: (parent, args, context) => { if (!args.email.includes('@')) { throw new ValidationError('email', 'Email is invalid.'); } // Further logic... } // Error Formatting Function const server = new ApolloServer({ // ... other settings ... formatError: (error) => { if (error.originalError instanceof ValidationError) { return { message: error.message, code: error.originalError.code, field: error.originalError.field }; } return error; }, }); ValidationError class is created for input validation errors, and the Apollo Server's formatError function is used to format these errors in the GraphQL response.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between Relay and Apollo",
+      "description": "What is the difference between Relay and Apollo in the context of GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Relay and Apollo in the context of GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-24-ref-1",
+          "text": "Relay and Apollo are both GraphQL client libraries, but with different focuses: Relay: Optimized for performance, especially in complex React applications. Uses a compiler for GraphQL queries, emphasizing build-time optimizations. Imposes strict conventions on GraphQL queries and schema design. Best suited for large-scale applications with sophisticated data requirements. Apollo: Known for flexibility and ease of use across various JavaScript frameworks. Offers a comprehensive feature set including caching, state management, and subscriptions. Allows incremental adoption, making it easier to integrate into existing projects. Has a large community and is more accessible, suitable for a wide range of applications. Key Differences: Relay is more performance-focused and convention-driven, ideal for complex React projects, while Apollo offers greater flexibility and a broader feature set, catering to diverse needs and frameworks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "A GraphQL subscription",
+      "description": "What is a GraphQL subscription?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a GraphQL subscription?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-25-ref-1",
+          "text": "A GraphQL subscription is a feature in GraphQL that enables the client to receive real-time updates from the server. Unlike queries and mutations that follow a request-response cycle, subscriptions maintain a persistent connection to the server (commonly using WebSocket protocol). This allows the server to push updates to the client as soon as events happen. Subscriptions are particularly useful in scenarios where data changes frequently and the client needs to be immediately informed about these changes, such as in chat applications, live feeds, or real-time notifications. The implementation of subscriptions involves: Client Subscription Request: The client sends a subscription request to the server, specifying the data it wants to receive updates about. Persistent Connection: The server establishes and maintains a persistent connection with the client. Event-Triggered Updates: When an event occurs that changes the subscribed data, the server pushes these updates to the client through the open connection. Example: graphql subscription { messageAdded { id content sender } }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between GraphQL subscriptions and",
+      "description": "What is the difference between GraphQL subscriptions and WebSocket communication?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between GraphQL subscriptions and WebSocket communication?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-26-ref-1",
+          "text": "GraphQL subscriptions A feature specific to GraphQL for real-time data updates, where clients define the exact data they need updates for using GraphQL's query language. They're commonly implemented over WebSockets but are higher-level and specific to GraphQL's data handling. WebSockets Are a general-purpose protocol providing a persistent, two-way communication channel between client and server. They're used for a wide range of real-time features across various applications, not limited to GraphQL, and can transmit any type of data. Key difference Lies in their scope and usage: GraphQL subscriptions are tailored for real-time updates within GraphQL applications, while WebSockets are a more flexible, lower-level technology suitable for various types of real-time communication beyond GraphQL.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "You handle pagination in GraphQL",
+      "description": "How do you handle pagination in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle pagination in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-27-ref-1",
+          "text": "Offset-Based Pagination Concept: Similar to traditional pagination in SQL databases, it uses a combination of limit and offset parameters. limit specifies the number of items to return, and offset specifies the number of items to skip before starting to return the items. Implementation: The GraphQL query includes arguments for limit and offset. The server responds with the specified slice of the dataset. Example: graphql query { posts(limit: 10, offset: 20) { id title } } Cursor-Based Pagination Concept: More suited for real-time data and large datasets, it works by returning a pointer (cursor) to a specific item in the dataset. The client uses this cursor to request the next set of items. Implementation: The GraphQL query includes an argument for the cursor (often the ID of the last item retrieved) and a limit. The server responds with the data and a new cursor for the next query. Example: graphql query { posts(first: 10, after: \"cursorToken\") { edges { node { id title } cursor } pageInfo { hasNextPage } } } Considerations: Offset-Based is simpler and more familiar but less efficient for large datasets as it requires counting over large numbers of rows. Cursor-Based is more complex but efficient for large, real-time datasets. It also helps in avoiding issues like skipping or double-fetching items in a changing dataset.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You handle versioning and backward compatibility",
+      "description": "How do you handle versioning and backward compatibility in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle versioning and backward compatibility in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-28-ref-1",
+          "text": "In GraphQL, versioning and backward compatibility are managed differently than in REST APIs, focusing on schema evolution rather than versioned endpoints: Additive Changes: Prefer adding new fields or types to the schema without removing existing ones, allowing clients to adapt gradually. Deprecation Strategy: Use the @deprecated directive to mark fields or types that will be removed or changed, guiding clients to updated usages. Field Aliases for Renaming: Introduce new fields with desired names and deprecate old ones, maintaining backward compatibility. Non-breaking Changes: Emphasize changes that don't break existing queries, like adding fields or new types. Documentation and Monitoring: Keep documentation up-to-date and monitor schema usage to inform deprecation and change strategies. Example: If renaming a field getUser to getUserById, add getUserById as a new field and deprecate getUser: graphql getUser(id: ID!): User @deprecated(reason: \"Use getUserById\") getUserById(id: ID!): User This approach ensures existing queries remain functional while guiding clients towards new schema elements.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Name security concerns in GraphQL and",
+      "description": "Name security concerns in GraphQL and ways to resolve them?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name security concerns in GraphQL and ways to resolve them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-29-ref-1",
+          "text": "Injection Attacks: Malicious queries can exploit vulnerabilities in your GraphQL API, similar to SQL injection in traditional databases. Mitigation: Validate and sanitize inputs. Use prepared statements and parameterized queries when interacting with databases. Excessive Resource Consumption (Query Depth and Complexity): Complex or deeply nested queries can overwhelm the server, leading to performance issues or Denial of Service (DoS). Mitigation: Implement query depth limiting and complexity analysis to restrict overly complex queries. Use pagination to limit large sets of data. Rate Limiting: Without proper rate limiting, clients can make too many requests in a short time, leading to server overload. Mitigation: Implement rate limiting to control the number of requests a client can make within a certain timeframe. Unauthorized Access: Unprotected endpoints or insufficient authentication and authorization checks can lead to unauthorized access. Mitigation: Implement strong authentication and authorization checks. Ensure that every query or mutation passes through authentication middleware.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "GraphQL directives.",
+      "description": "Explain GraphQL directives.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain GraphQL directives.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-30-ref-1",
+          "text": "GraphQL directives are markers used in GraphQL queries, mutations, or schema definitions to modify execution behavior. There are two main types: Execution Directives: Used in queries and mutations, such as @include and @skip, to conditionally include or skip fields based on arguments. Schema Directives: Used in schema definitions to modify schema interpretation or add metadata. Custom schema directives can implement functionality like field formatting or authorization checks. For example, the @include directive in a query can conditionally include a field: graphql query getUser($userId: ID!, $includeEmail: Boolean!) { user(id: $userId) { name email @include(if: $includeEmail) } } Here, the email field is included in the response only if $includeEmail is true. Directives provide a versatile way to dynamically adjust GraphQL operations and schemas.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Name some common GraphQL caching strategies.",
+      "description": "Name some common GraphQL caching strategies.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some common GraphQL caching strategies.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-31-ref-1",
+          "text": "Caching in GraphQL can be challenging due to the dynamic and flexible nature of its queries. However, there are several common strategies for implementing caching in a GraphQL environment: In-Memory Caching on the Client Side: Tools like Apollo Client maintain a normalized in-memory cache of query results. Persistent Caching on the Client Side: This involves storing query results in persistent storage like LocalStorage or IndexedDB in web applications. Cache at the Resolver Level: Implement caching within resolver functions on the server side. Resolvers can check a cache store (like Redis or Memcached) before performing expensive operations like database reads. HTTP Caching: Although GraphQL typically uses POST requests which are not cached by default, you can implement HTTP caching for idempotent queries sent via GET requests. Query Result Caching on the Server Side: Cache the results of entire queries on the server. This approach is more complex as it requires understanding the specifics of each query and handling cache invalidation effectively.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of batching and dataloading",
+      "description": "Explain the concept of batching and dataloading in GraphQL.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of batching and dataloading in GraphQL.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-32-ref-1",
+          "text": "Batching and Dataloading in GraphQL are performance optimization techniques: Batching: This involves combining multiple GraphQL queries into a single network request. It reduces network overhead by processing multiple queries together, instead of handling them as separate requests. Dataloading: A server-side solution to the N+1 query problem, Dataloading batches and caches similar data requests within a single query execution. Utilizing tools like DataLoader, it consolidates data fetching for repeated requests into a single database or API call and caches the results to avoid redundant data retrieval.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Some common strategies for handling concurrency",
+      "description": "What are some common strategies for handling concurrency in GraphQL?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What are some common strategies for handling concurrency in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-33-ref-1",
+          "text": "Handling concurrency in GraphQL involves strategies to manage simultaneous operations, ensuring efficient and reliable performance under load. Here are some common approaches: Batching Requests: Group multiple GraphQL queries into a single HTTP request. This reduces the overhead of multiple network calls and can improve server performance. Data Loader Pattern: Utilize tools like Facebook's DataLoader to batch and cache database requests. DataLoader consolidates requests for the same data made during a single query execution, reducing the number of database hits. Asynchronous Resolvers: Implement resolvers as asynchronous functions. This allows the server to handle other tasks while waiting for data fetches or other IO operations to complete, improving overall throughput.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You handle long-running queries or mutations",
+      "description": "How do you handle long-running queries or mutations in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle long-running queries or mutations in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-34-ref-1",
+          "text": "Handling long-running queries or mutations in GraphQL can be challenging due to the nature of HTTP connections and the expectation of immediate responses in GraphQL. However, there are strategies to manage this: Asynchronous Processing: Implement asynchronous processing for operations that take a long time. This involves returning an immediate response (like a task ID) to the client, while the server continues processing in the background. Clients can periodically poll with the task ID to check if the operation is complete. WebSockets or Subscriptions: Use WebSockets or GraphQL subscriptions to maintain a persistent connection between the client and server. After initiating a long-running operation, the server can push updates to the client over this connection as they become available. Batch Processing and Pagination: Break down large operations into smaller batches and use pagination to progressively fetch or process data. This avoids overwhelming both the server and client with large volumes of data at once. Optimize Resolver Logic: Optimize the resolver logic to ensure maximum efficiency. This might include optimizing database queries, caching frequently accessed data, or using more efficient algorithms.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Discuss federated schemas and microservices architecture",
+      "description": "Discuss federated schemas and microservices architecture in GraphQL.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss federated schemas and microservices architecture in GraphQL.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-35-ref-1",
+          "text": "Federated schemas and microservices architecture in GraphQL allow for scalable and maintainable systems: Federated Schemas: This approach divides the GraphQL schema across multiple services. Each service defines a portion of the schema and uses Apollo Federation directives to indicate how these parts combine. A Gateway then aggregates these individual schemas into one cohesive GraphQL API. Microservices Architecture: It involves developing software as a collection of small, independent services, each responsible for specific business functionality. These services communicate through well-defined APIs. When combined, GraphQL federation and microservices enable decoupled development, where teams work independently on different services. The Gateway in GraphQL federation provides a unified API layer, simplifying client interaction and abstracting the complexity of underlying services. This setup enhances performance, scalability, and manageability of large-scale, distributed systems.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "You handle schema stitching with Apollo",
+      "description": "How do you handle schema stitching with Apollo Server?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle schema stitching with Apollo Server?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-36-ref-1",
+          "text": "Schema stitching with Apollo Server is streamlined through Apollo Federation, which allows you to merge multiple GraphQL schemas from different services into one unified schema. Here's a brief guide: Create Federated Schemas: In each microservice, define a GraphQL schema with Apollo Federation directives like @key, @extends, @external, and @requires. Set Up an Apollo Gateway: Configure an Apollo Gateway instance that knows about your federated services. This gateway stitches the individual schemas together. graphql const { ApolloServer } = require('apollo-server'); const { ApolloGateway } = require('@apollo/gateway'); Run the Gateway Server: The Apollo Server with the gateway configuration acts as the unified access point for the combined schema.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You address the \"N+1 query\" problem",
+      "description": "How do you address the \"N+1 query\" problem in GraphQL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you address the \"N+1 query\" problem in GraphQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "graphql"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "graphql"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:43.908Z",
+      "updatedAt": "2025-12-19T17:43:43.908Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "graphql-questions-bank-37-ref-1",
+          "text": "To address the \"N+1 query\" problem in GraphQL: Use DataLoader: DataLoader batches and caches individual data requests, reducing the number of database calls for each item in a list. Implement Query Batching: Modify backend data fetching to allow batch queries, fetching all required data in a single database call. Optimize Schema Design: Design your GraphQL schema to minimize deeply nested queries that exacerbate the N+1 issue. Optimize Resolvers: Write efficient resolvers that fetch only necessary data and avoid triggering new database queries for each subfield. Monitor and Analyze: Utilize monitoring tools to identify and optimize costly queries. Example with DataLoader: graphql // Batch loading function const batchFunction = keys => myDatabase.batchGetUsers(keys); const userLoader = new DataLoader(batchFunction); // In GraphQL resolver user: (parent, args, context) => context.userLoader.load(parent.userId) In this example, DataLoader combines multiple requests into a single batch, significantly reducing database calls.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

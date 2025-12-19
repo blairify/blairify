@@ -1,0 +1,2230 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "c-sharp-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "C#",
+      "description": "What is C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-1-ref-1",
+          "text": "C# (pronounced as \"C-sharp\") is a modern, object-oriented programming language developed by Microsoft. It is designed for building Windows applications and is widely used for web, desktop, mobile, and cloud-based applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "C# different from C",
+      "description": "How is C# different from C?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How is C# different from C?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-2-ref-1",
+          "text": "The most significant difference between C# and C is that C# is an object-oriented programming language, while C is a procedural programming language. C# supports automatic garbage collection by the CLR, whereas C does not. C# primarily requires the.NET framework to execute, while C is generally considered a platform-agnostic language.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A constructor in C#",
+      "description": "What is a constructor in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a constructor in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-3-ref-1",
+          "text": "A constructor is a special method that is called when an object is created. It has the same name as the class and can initialize the object’s data. You can define multiple constructors (overloading) to accept different parameters. csharp class Person { public string Name; public Person(string name) // instance constructor { Name = name; } } Person p = new Person(\"Alice\"); // Calls the constructor and sets Name to \"Alice\"",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between value types and",
+      "description": "Explain the difference between value types and reference types in C#.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between value types and reference types in C#.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-4-ref-1",
+          "text": "Value types store data directly, while reference types store references to data in memory. Value types include primitive data types like int, float, and bool, while reference types include objects, classes, and arrays. csharp int a = 5; int b = a; // b is a copy of a b = 10; // a is still 5, because int is a value type class MyClass { public int X; } MyClass obj1 = new MyClass { X = 5 }; MyClass obj2 = obj1; // obj2 references the same object as obj1 obj2.X = 10; // obj1.X is now 10, because obj1 and obj2 refer to the same instance",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of access modifiers (e.g.,",
+      "description": "What is the purpose of access modifiers (e.g., public, private, protected) in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of access modifiers (e.g., public, private, protected) in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-5-ref-1",
+          "text": "Access modifiers determine the visibility and accessibility of class members (fields, methods, properties, etc.). For example: public: The member is accessible from any code. private: The member is only accessible from within the defining class. protected: The member is accessible from within the defining class and its subclasses. csharp public class MyClass { public int PublicField; // accessible everywhere private int PrivateField; // accessible only inside MyClass protected int ProtectedField; // accessible in MyClass and subclasses internal int InternalField; // accessible within the same assembly }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between a class and",
+      "description": "What is the difference between a class and an object?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a class and an object?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-6-ref-1",
+          "text": "A class in C# is a blueprint or template that defines properties (data) and methods (behavior). An object (or instance) is a concrete realization of that class in memory. You declare a class with class MyClass { ... }, and you create an object with the new keyword. For example: csharp class Car { public string Make { get; set; } public string Model { get; set; } } Car myCar = new Car(); // 'Car' is a class; 'myCar' is an object (instance) of Car myCar.Make = \"Toyota\"; myCar.Model = \"Camry\"; Here, Car defines what a car is (properties Make and Model), and myCar is an actual object you can work with. Without an object (using new), the class alone does not occupy space or hold data.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Es the static keyword do in",
+      "description": "What does the static keyword do in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does the static keyword do in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-7-ref-1",
+          "text": "The static keyword makes a member belong to the type itself rather than an instance. A static field or static method is shared across all instances and can be accessed without creating an object. A static class cannot be instantiated and can only contain static members. For example: csharp public static class MathHelper { public static int Add(int a, int b) { return a + b; } } int sum = MathHelper.Add(2, 3); // Call without creating an object Here, Add is a static method, so you call it on the class MathHelper directly. You can also have a static constructor (a constructor with no parameters and marked static); it initializes static fields and runs only once, before the first use of the class.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Properties in C#",
+      "description": "What are properties in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are properties in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-8-ref-1",
+          "text": "Properties provide a way to access class data (fields) with getters and setters. They look like fields to the user but can contain logic. Auto-implemented properties allow you to skip writing a backing field. csharp public class Person { private string name; public string Name { get { return name; } set { name = value; } } }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "An exception in C# and how",
+      "description": "What is an exception in C# and how are exceptions handled?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an exception in C# and how are exceptions handled?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-9-ref-1",
+          "text": "An exception is an abnormal event or error condition that occurs during the execution of a program. Exceptions can be handled using try, catch, finally, and throw keywords. The try block contains the code that may throw an exception, the catch block catches and handles exceptions, and the finally block is used for cleanup code that runs regardless of whether an exception is thrown or not. csharp try { int x = 10, y = 0; int result = x / y; // This throws DivideByZeroException } catch (DivideByZeroException ex) { Console.WriteLine(\"Cannot divide by zero: \" + ex.Message); } catch (Exception ex) { Console.WriteLine(\"An error occurred: \" + ex.Message); } finally { Console.WriteLine(\"This runs no matter what, good for cleanup.\"); }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The var keyword in C#, and",
+      "description": "What is the var keyword in C#, and when is it used?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the var keyword in C#, and when is it used?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "scope"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-10-ref-1",
+          "text": "The var keyword is used for implicit type declaration in C#. It allows the compiler to infer the data type of a variable based on its initialization value. csharp var name = \"John\"; // Compiler infers name as string",
+          "weight": 1,
+          "keyPoints": [
+            "Function scope vs block scope",
+            "`var` vs `let`/`const` behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between readonly and const",
+      "description": "Explain the difference between readonly and const in C#.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between readonly and const in C#.?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "scope"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-11-ref-1",
+          "text": "const is used for compile-time constants, and their values cannot change. readonly fields can have their values set at runtime or in constructors but cannot be changed afterward.",
+          "weight": 1,
+          "keyPoints": [
+            "Function scope vs block scope",
+            "`var` vs `let`/`const` behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Arrays and lists in C#",
+      "description": "What are arrays and lists in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are arrays and lists in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-12-ref-1",
+          "text": "An array is a fixed-size, zero-based collection of elements of the same type. csharp int[] nums = new int[5]; // Array of 5 ints, initially all 0 nums[0] = 10; An array’s size cannot change after creation. A List<T> (from System.Collections.Generic) is a dynamic array that can grow or shrink. csharp List<int> list = new List<int> { 1, 2, 3 }; list.Add(4); // list now has 4 elements Lists provide methods like Add, Remove, Count, etc., and are more flexible. Use an array when you know the size ahead of time; use List<T> for a resizable collection.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Method overloading in C#",
+      "description": "What is method overloading in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is method overloading in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-13-ref-1",
+          "text": "Overloading: Defining multiple methods in the same class with the same name but different parameter lists (signatures). The compiler determines which method to call based on the arguments. csharp void Print(int x) { ... } void Print(string s) { ... } Print(5); // calls Print(int) Print(\"hi\"); // calls Print(string) Overriding: Providing a new implementation of a method in a derived class, using the override keyword. The method in the base class must be marked virtual or abstract. At runtime, the appropriate override is chosen based on the actual object type. csharp class Animal { public virtual void Speak() { Console.WriteLine(\"Animal sound\"); } } class Dog : Animal { public override void Speak() { Console.WriteLine(\"Woof!\"); } } Overloading is compile-time (same scope), while overriding is runtime polymorphism via inheritance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of inheritance in C#.",
+      "description": "Explain the concept of inheritance in C#.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of inheritance in C#.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of polymorphism in C#.",
+      "description": "Explain the concept of polymorphism in C#.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of polymorphism in C#.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-15-ref-1",
+          "text": "Polymorphism is one of the core principles of object-oriented programming (OOP). It allows objects of different classes to be treated as objects of a common base class. Polymorphism enables dynamic method invocation and method overriding. For example: csharp class Animal { public virtual void Speak() { Console.WriteLine(\"Animal makes a sound\"); } } class Dog : Animal { public override void Speak() { Console.WriteLine(\"Dog barks\"); } } Animal myPet = new Dog(); myPet.Speak(); // Outputs \"Dog barks\" Here Dog inherits Speak() from Animal but overrides it. The variable myPet is of type Animal but holds a Dog object; calling Speak() results in the Dog version. This is runtime polymorphism.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "An interface in C#, and how",
+      "description": "What is an interface in C#, and how does it differ from an abstract class?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an interface in C#, and how does it differ from an abstract class?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-16-ref-1",
+          "text": "An interface defines a contract of methods and properties that a class must implement. An abstract class can provide some implementation and be inherited, while an interface cannot provide any implementation and is used for multiple interface inheritance. Example: csharp interface IShape { double GetArea(); // no implementation } abstract class Shape { public abstract double GetArea(); public void Display() { Console.WriteLine(\"I am a shape\"); } } class Circle : Shape, IShape { public double Radius { get; set; } public override double GetArea() => Math.PI * Radius * Radius; } Here Circle implements IShape and overrides the abstract GetArea from Shape. Interfaces are for “can-do” relationships; abstract classes are for “is-a” relationships with shared code.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the using statement",
+      "description": "What is the purpose of the using statement in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the using statement in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A nullable type in C#",
+      "description": "What is a nullable type in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a nullable type in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The out and ref keywords used",
+      "description": "What are the out and ref keywords used for?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the out and ref keywords used for?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-19-ref-1",
+          "text": "Both out and ref pass arguments by reference to methods, but with differences: ref: The variable must be initialized before passing. The method can read and modify it, affecting the caller’s variable. out: The variable does not need to be initialized before passing, but the called method must assign it before returning. Used to return additional values. csharp void SquareRef(ref int x) { x = x * x; } void AssignOut(out int y) { y = 100; } int a = 5; SquareRef(ref a); Console.WriteLine(a); // 25 int b; AssignOut(out b); Console.WriteLine(b); // 100",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between String and StringBuilder",
+      "description": "Explain the difference between String and StringBuilder in C# and when to use each.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between String and StringBuilder in C# and when to use each.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-20-ref-1",
+          "text": "string is immutable in C# – once created, it cannot be changed. Concatenating or modifying a string actually creates a new string each time. StringBuilder (in System.Text) is mutable, allowing efficient modifications. csharp string s = \"Hello\"; s += \" World\"; // Creates a new string \"Hello World\" var sb = new StringBuilder(\"Hello\"); sb.Append(\" World\"); // Modifies the existing StringBuilder string result = sb.ToString();",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A namespace in C#",
+      "description": "What is a namespace in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a namespace in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-21-ref-1",
+          "text": "A namespace is a way to organize and group related classes and types in C#. It helps prevent naming conflicts and provides a structured way to manage code.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between == and .Equals()",
+      "description": "What is the difference between == and .Equals()?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between == and .Equals()?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-22-ref-1",
+          "text": "The == operator and the .Equals() method both compare values, but by default == checks reference equality on reference types, whereas .Equals() is a virtual method (often overridden) to check value equality. csharp string s1 = new string(\"hello\".ToCharArray()); string s2 = new string(\"hello\".ToCharArray()); Console.WriteLine(s1 == s2); // True, because string overrides == to compare contents Console.WriteLine(s1.Equals(s2)); // True, compares contents object o1 = new object(); object o2 = new object(); Console.WriteLine(o1 == o2); // False (different instances) Console.WriteLine(o1.Equals(o2)); // False (default Object.Equals is same as ==)",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Generics in C# and why are",
+      "description": "What are generics in C# and why are they useful?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are generics in C# and why are they useful?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "What a delegate is in C#",
+      "description": "Explain what a delegate is in C# and provide an example of its usage.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a delegate is in C# and provide an example of its usage.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of delegates and events",
+      "description": "Explain the concept of delegates and events in C#.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of delegates and events in C#.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "LINQ? Give an example of a",
+      "description": "What is LINQ? Give an example of a LINQ query.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is LINQ? Give an example of a LINQ query.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between IEnumerable and IQueryable",
+      "description": "What is the difference between IEnumerable and IQueryable in LINQ, and when to use each?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between IEnumerable and IQueryable in LINQ, and when to use each?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-27-ref-1",
+          "text": "IEnumerable represents a sequence that can be iterated over, typically used for in-memory collections. Operations on IEnumerable are executed in memory. IQueryable also represents a sequence but is designed for querying data sources outside of memory (like databases). It allows for query translation and execution at the data source, improving performance for large datasets. Use IQueryable when querying databases (e.g., with Entity Framework) and IEnumerable for in-memory collections.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Async and await in C#.",
+      "description": "Explain async and await in C#.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain async and await in C#.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-28-ref-1",
+          "text": "The async and await keywords enable asynchronous programming. Mark a method with async to allow await inside it. An await on a Task pauses the method until the task completes, without blocking the thread. The method returns to the caller, and when the awaited work finishes, execution resumes. csharp public async Task<int> GetNumberAsync() { await Task.Delay(1000); // asynchronously wait 1 second return 42; } public async Task UseAsync() { int result = await GetNumberAsync(); Console.WriteLine(result); // Prints 42 after ~1 second }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The role of the Common Language",
+      "description": "What is the role of the Common Language Runtime (CLR) in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the Common Language Runtime (CLR) in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-29-ref-1",
+          "text": "The CLR is the virtual-machine core of Microsoft .NET. It runs IL code from languages such as C#, F#, and VB.NET and supplies a managed environment that sits between your application and the OS. Key runtime services: Automatic memory management with a garbage collector JIT compilation that turns IL into native machine code on the fly Code Access Security to enforce permission rules Structured exception handling for runtime errors Type safety to prevent illegal memory access Language interoperability, letting IL from any .NET language mix freely Together, these features simplify development and boost the reliability, security, and portability of .NET applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Garbage collection in C#",
+      "description": "What is garbage collection in C#?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is garbage collection in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between struct and class",
+      "description": "What is the difference between struct and class in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between struct and class in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-31-ref-1",
+          "text": "Value vs. reference semantics struct → value type: each assignment makes an independent copy. class → reference type: assignments pass a reference to the same object. Memory allocation struct usually lives on the stack or inside containing objects (inline). class lives on the heap and is managed by the garbage collector. Inheritance struct cannot inherit from another struct or class (interfaces only). class supports single inheritance plus any number of interfaces. Nullability struct cannot be null unless declared nullable (T?). class variables can always be null. Constructors struct has an implicit parameter-less ctor; you can add parameterized ctors but not your own parameter-less one. class may define any number and kind of constructors. When to use Pick a struct for small, immutable or lightweight data that should copy by value (e.g., Point, DateTime). Pick a class for richer objects that need sharing, polymorphism, or large mutable state.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "What a lambda expression is in",
+      "description": "Explain what a lambda expression is in C# and provide an example.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a lambda expression is in C# and provide an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-32-ref-1",
+          "text": "A lambda expression is an anonymous function used to create delegates or expression tree types. It simplifies the syntax for defining small, inline methods. csharp Func<int, int, int> add = (a, b) => a + b;",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the lock statement",
+      "description": "Explain the purpose of the lock statement in C# and when it should be used.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the lock statement in C# and when it should be used.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-33-ref-1",
+          "text": "The lock statement is used for synchronization in multithreaded applications. It ensures that a critical section of code can only be accessed by one thread at a time, preventing race conditions and data corruption.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the yield keyword",
+      "description": "What is the purpose of the yield keyword in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the yield keyword in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-34-ref-1",
+          "text": "The yield keyword is used in iterator methods to indicate that the method should return an iterator, which can be used to lazily generate a sequence of values. It simplifies the creation of custom iterators. csharp public IEnumerable<int> GetEvenNumbers(int max) { for (int i = 0; i <= max; i += 2) { yield return i; // yields next value to the caller } } // Usage: foreach (int n in GetEvenNumbers(10)) { Console.WriteLine(n); // prints 0,2,4,6,8,10 }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Attributes in C#",
+      "description": "What are attributes in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are attributes in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-35-ref-1",
+          "text": "Attributes are used to add metadata to code elements (such as classes, methods, or properties). They are often used for code documentation and custom annotations. csharp [Obsolete(\"This method is deprecated. Use the NewMethod instead.\")] public void OldMethod() { }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Extension methods in C#",
+      "description": "What are extension methods in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are extension methods in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-36-ref-1",
+          "text": "Extension methods allow you to add new methods to existing types without modifying their source code. They are defined in static classes and must have a special this parameter to indicate the target type. csharp public static class StringExtensions { public static string Reverse(this string input) { char[] charArray = input.ToCharArray(); Array.Reverse(charArray); return new string(charArray); } } // Usagestring reversed = \"hello\".Reverse(); // reversed is \"olleh\"",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The differences between ArrayList and List<T>",
+      "description": "Explain the differences between ArrayList and List<T> in C#.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between ArrayList and List<T> in C#.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-37-ref-1",
+          "text": "Type safety & generics ArrayList stores object, so every value-type item gets boxed and you must cast on retrieval. List<T> is generic and strongly typed (List<int>, List<string>, …); no boxing or casts. Performance ArrayList incurs boxing/unboxing for value types, extra runtime type checks, and slower lookups. List<T> avoids those costs and benefits from compile-time optimizations. API design Both expose similar collection methods (Add, Remove, indexing), but List<T> adds generic-aware helpers such as AddRange(IEnumerable<T>), Find(Predicate<T>), ConvertAll<U>(), etc. LINQ extension methods work seamlessly with List<T> (no casts). Namespaces & era ArrayList lives in System.Collections and dates back to .NET 1.0 (pre-generics). List<T> lives in System.Collections.Generic and has been the preferred choice since .NET 2.0. Static type checking With ArrayList, type errors surface only at runtime. With List<T>, mismatched types are caught at compile time. When to use Nearly always choose List<T> for new code - faster, safer, and LINQ-friendly. Keep ArrayList only for legacy interop scenarios that demand non-generic collections.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between shallow copy and",
+      "description": "What is the difference between shallow copy and deep copy of objects?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between shallow copy and deep copy of objects?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of dependency injection (DI)",
+      "description": "Explain the concept of dependency injection (DI) in C#.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of dependency injection (DI) in C#.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-39-ref-1",
+          "text": "Dependency injection is a design pattern in which the dependencies of a class are provided from the outside (usually via constructor injection or property injection) rather than being created internally. DI promotes loose coupling, testability, and maintainability. Here's a simple example using the constructor injection: csharp public class OrderService { private readonly IOrderRepository _orderRepository; public OrderService(IOrderRepository orderRepository) { _orderRepository = orderRepository; } public void PlaceOrder(Order order) { _orderRepository.Save(order); } }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Serialization and deserialization in C#",
+      "description": "What are serialization and deserialization in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are serialization and deserialization in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The dynamic keyword and what is",
+      "description": "What is the dynamic keyword and what is the DLR?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the dynamic keyword and what is the DLR?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-42",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between Task and Thread",
+      "description": "What is the difference between Task and Thread in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Task and Thread in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-42-ref-1",
+          "text": "Abstraction level Thread: Raw OS thread with its own stack; you manage creation, lifetime, and synchronization. Task: Logical unit of work from the Task Parallel Library; scheduled by a TaskScheduler (usually the thread-pool). Resource cost Thread: Heavy - allocates kernel resources and memory per thread. Task: Light - borrows pooled threads or may run inline, so far fewer allocations. Programming model Thread: Manual start/stop, explicit Thread APIs, harder cancellation/exception handling. Task: async/await, continuations, built-in cancellation (CancellationToken) and aggregation of exceptions. Typical use Thread: Only when you truly need a dedicated, long-lived thread (e.g., a background service loop or special thread affinity). Task: preferred for most asynchronous or parallel work - compose, await, and let the runtime decide how to schedule it.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-43",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es the volatile keyword do in",
+      "description": "What does the volatile keyword do in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does the volatile keyword do in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
+    },
+    {
+      "id": "c-sharp-questions-bank-44",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You handle multithreading and avoid race",
+      "description": "How do you handle multithreading and avoid race conditions in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle multithreading and avoid race conditions in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-44-ref-1",
+          "text": "C# supports multiple threading models: you can use Thread, the ThreadPool (Task, Parallel), async/await, etc. To avoid race conditions (simultaneous unsynchronized access to shared data), use synchronization primitives: lock (or Monitor.Enter): Ensures only one thread executes a critical section at a time: csharp private object _lock = new object(); int counter = 0; public void Increment() { lock (_lock) { counter++; } } volatile: Indicates a field may be modified by multiple threads, forcing reads/writes to main memory (useful for simple flags). Interlocked: Provides atomic operations like Interlocked.Increment(ref counter). Concurrent collections: Classes like ConcurrentDictionary, ConcurrentQueue (in System.Collections.Concurrent) handle synchronization internally. Also avoid deadlocks by always acquiring locks in a consistent order, and keep lock scope minimal. Instead of manual threading, prefer higher-level abstractions (Task, PLINQ) which handle thread-safety patterns.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-45",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Covariance and contravariance in C#",
+      "description": "What are covariance and contravariance in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are covariance and contravariance in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-45-ref-1",
+          "text": "Covariance and contravariance describe how type conversion works for generic types and delegates: Covariance (out): Allows a more derived type to be used than originally specified. For example, you can assign IEnumerable<string> to IEnumerable<object> because string is derived from object. This only works for output scenarios (out type parameter). csharp IEnumerable<string> strings = new List<string>(); IEnumerable<object> objects = strings; // covariant, string -> object Contravariance (in): Allows a more general type (base type) to be used. For example, you can assign Action<object> to Action<string>, because the action that accepts object can also handle a string. This works for input parameters (in type parameter). csharp Action<object> actObj = o => Console.WriteLine(o); Action<string> actStr = actObj; // contravariant, object -> string",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-46",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of boxing and unboxing",
+      "description": "Explain the concept of boxing and unboxing in C#.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of boxing and unboxing in C#.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-46-ref-1",
+          "text": "Boxing: wraps a value-type instance (e.g., int) inside an object (or interface) reference, allocating a copy on the heap. csharp int x = 42; object o = x; // boxing Unboxing: extracts the value type from that reference, followed by a copy back to the stack. csharp int y = (int)o; // unboxing How to avoid the overhead Prefer generics: Use List<int>, Dictionary<int,string>, IEnumerable<T>, etc., instead of non-generic ArrayList, Hashtable, or raw object parameters. Keep value types as value types: Don’t up-cast to object or non-generic interface unless necessary. Use generic delegates / events: E.g., Action<int> rather than Action<object>. Design APIs with strong typing: So callers aren’t forced to box.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-47",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "IComparer<T> and custom sorting in C#.",
+      "description": "Explain IComparer<T> and custom sorting in C#.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain IComparer<T> and custom sorting in C#.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-47-ref-1",
+          "text": "To sort with custom logic, you can implement IComparer<T> and define the Compare(x,y) method. csharp public class AgeComparer : IComparer<Person> { public int Compare(Person a, Person b) { return a.Age.CompareTo(b.Age); // sort by age ascending } } var people = new List<Person> { /* ... */ }; people.Sort(new AgeComparer()); Alternatively, you can use LINQ’s OrderBy: csharp var sorted = people.OrderBy(p => p.Age).ToList();",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-sharp-questions-bank-48",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Finalizers and the IDisposable pattern",
+      "description": "What are finalizers and the IDisposable pattern?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are finalizers and the IDisposable pattern?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T14:57:38.352Z",
+      "updatedAt": "2025-12-19T14:57:38.352Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "c-sharp-questions-bank-48-ref-1",
+          "text": "A finalizer (destructor) is a method (~ClassName()) that the GC calls on an object before reclaiming memory. Finalizers are nondeterministic and can delay collection, so their use is generally discouraged. Instead, implement the IDisposable pattern for deterministic cleanup of unmanaged resources. csharp class ResourceHolder : IDisposable { // Finalizer ~ResourceHolder() { Dispose(false); } public void Dispose() { Dispose(true); GC.SuppressFinalize(this); // skip finalizer if already disposed } protected virtual void Dispose(bool disposing) { if (disposing) { // free managed resources } // free unmanaged resources } }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

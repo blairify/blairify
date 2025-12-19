@@ -1,0 +1,97 @@
+{
+  "totalQuestions": 13,
+  "extractedAt": "2025-12-19T17:49:58.917Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is caching?",
+      "answer": "Caching is a technique in computing where frequently accessed data or computations are temporarily stored in a cache, a fast storage area. This process speeds up data retrieval, reduces the load on the original data source, and improves overall system efficiency.\nCaches can be memory-based, disk-based, or web-based, and they use policies like \"Least Recently Used\" (LRU) to manage stored data. While caching enhances performance, it also adds complexity, especially in maintaining data consistency and cache invalidation.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "Name some common tools used for caching?",
+      "answer": "Memcached: An in-memory caching system widely used for speeding up dynamic web applications by alleviating database load.\nRedis: An advanced key-value store known for its versatility. It's often used as a caching solution and supports data structures like strings, hashes, lists, and sets.\nVarnish: A web application accelerator, often used as a reverse proxy, specifically designed for caching HTTP requests to reduce the load on web servers.\nCDN (Content Delivery Network): Services like Cloudflare, Akamai, and AWS CloudFront cache content closer to users geographically to decrease load times for websites and online content.\nBrowser Caching: Modern web browsers like Chrome, Firefox, and Safari use their own caching mechanisms to store web page resources locally to speed up reloads.\nNginx: Often used as a reverse proxy and load balancer, Nginx also provides effective caching for web content.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What is a cache key and how is it used?",
+      "answer": "A cache key is a unique identifier used to store and retrieve data in a cache. It's a quick way to locate specific data within the cache, significantly faster than fetching it from the original source. Cache keys are associated with data, manage data expiration, and ensure consistency across cache operations. They may also include namespaces for organization.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What is a cache miss?",
+      "answer": "A cache miss occurs when the data requested by a system is not found in the cache. This necessitates fetching the data from the slower, original data source, such as a hard drive or a remote server. Cache misses are significant in caching systems because they determine the effectiveness of the cache.\nA high rate of cache misses can indicate that the caching strategy is not optimally configured, leading to slower access times and reduced overall system performance. In contrast, a cache hit, where the data is found in the cache, results in faster data retrieval and improved efficiency.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "What is cache invalidation?",
+      "answer": "Cache invalidation is the process of removing or marking as outdated the data in a cache to prevent the use of stale or incorrect information. It's essential for maintaining data accuracy and consistency between the cache and the original data source.\nKey strategies include time-based invalidation, where data expires after a set period, and event-based invalidation, triggered by updates in the data source.\nMaintaining this balance is challenging but crucial for effective caching, ensuring users always receive the most current data without impacting system performance significantly.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Mid",
+      "title": "Name some cache invalidation strategies.",
+      "answer": "Time-Based Expiration (TTL): Automatically invalidates cache items after a set time interval.\nChange-Based Invalidation: Triggers invalidation in response to updates or deletions in the data store for high consistency.\nLeast Recently Used (LRU): Invalidates items not accessed for the longest time.\nWrite-Through Strategy: Updates the cache simultaneously with every data store update, ensuring immediate consistency.\nManual Invalidation: Involves manually clearing cache entries, used in complex or specific scenarios.\nVersioning: Uses version numbers to invalidate outdated cached data when underlying data changes.\nTag-Based Invalidation: Invalidates groups of cache entries based on shared tags, useful for bulk updates.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Mid",
+      "title": "Describe the impact of cache size on performance.",
+      "answer": "Higher Hit Rate: Larger caches increase the likelihood of data being found in the cache, leading to faster access times.\nReduced Primary Storage Load: More data in the cache means fewer accesses to slower primary storage, improving overall performance.\nDiminishing Returns: Increasing cache size beyond a certain point may not significantly improve performance, as frequently accessed data is often a small subset.\nIncreased Resource Usage: Larger caches consume more memory or disk space, which can be a concern in resource-limited environments.\nPotentially Longer Search Time: In some systems, larger caches might lead to longer times to search within the cache.\nCost Considerations: Larger caches, especially with faster storage technologies, can be more expensive.\nOverheads in Distributed Systems: In distributed caching, larger caches might increase the complexity and overhead of maintaining coherence and synchronization.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Mid",
+      "title": "Name some common scenarios when caching should be used.",
+      "answer": "Caching is particularly beneficial in scenarios where performance and efficiency are crucial and where data access patterns justify its use. Some common scenarios where caching should be used include:\nWeb Content Delivery: Caching static content like HTML pages, images, and style sheets in web applications to speed up page load times for users.\nDatabase Queries: Caching results of frequently executed and computationally expensive database queries to reduce database load and improve response times.\nAPI Caching: Storing responses from slow or rate-limited external APIs to reduce latency and dependence on third-party services.\nSession Storage: Caching user session data in web applications to provide a faster and more responsive user experience.\nComputational Intensive Calculations: Caching the results of complex calculations that don't need to be computed every time, like scientific computations or financial simulations.\nContent Delivery Networks (CDNs): Using CDNs to cache content geographically closer to the user, reducing latency for global applications.\nLoad Balancing: In distributed systems, caching frequently accessed data to balance the load across servers and prevent bottlenecks.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Mid",
+      "title": "List the steps involved in implementing a basic cache system.",
+      "answer": "Define Cache Structure: Choose a data structure for the cache (e.g., array, hash table).\nSet Cache Size: Determine the maximum number of items the cache can hold.\nChoose Eviction Policy: Decide how to handle evictions when the cache is full (e.g., LRU, LFU, FIFO).\nImplement Cache Operations: Create functions for cache lookup, insertion, deletion, and update.\nInitialize Cache: Set up an empty cache with the specified size and data structure.\nHandle Cache Hits and Misses: Check if data is in the cache (hit) or fetch it from the source (miss).\nEviction Handling: Apply the eviction policy when adding new items to a full cache.\nCache Expiration/Invalidation: Manage data expiration or invalidation.\nTest and Monitor: Ensure proper functioning, and monitor cache performance.\nIntegrate into Application: Integrate the cache system into your application code.\nPerformance Tuning: Optimize cache size and policies based on real-world usage.\nError Handling: Implement error handling for cache operations.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Mid",
+      "title": "What are some common cache writing strategies?",
+      "answer": "Write-Through: Data is written to both the cache and the data store simultaneously, ensuring consistency but slower writes.\nWrite-Around: Data is written directly to the data store, bypassing the cache, reducing cache pollution but causing potential cache misses.\nWrite-Back (Write-Behind): Data is first written to the cache and later to the data store, offering faster writes but with a risk of data loss if the cache fails before syncing.\nRead-Through: Data not in the cache is fetched from the data store, cached, and then served, ensuring only requested data is cached but potentially slowing the first access.\nLazy Loading: Data is loaded into the cache only when it is first requested, avoiding unnecessary data in the cache but slowing initial access.\nEager Loading: Data is preloaded into the cache based on predicted need, reducing cache misses but possibly using more resources.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Senior",
+      "title": "What is cache replacement?",
+      "answer": "Cache replacement is the process of removing items from a cache when it's full to make room for new items. It's crucial for maintaining cache efficiency, as it determines which data stays in the limited cache space. Common cache replacement strategies include:\nLeast Recently Used (LRU): Removes the least recently accessed items first.\nFirst In, First Out (FIFO): Evicts items in the order they were added.\nLeast Frequently Used (LFU): Discards items that are accessed least frequently.\nRandom Replacement: Randomly selects items for eviction.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Senior",
+      "title": "Name situations when to use different replacement strategies?",
+      "answer": "Least Recently Used (LRU):\nUse Case: Ideal for applications with a strong \"recency\" pattern, where recently accessed data is likely to be accessed again soon. Common in web browsers and database query caching.\nFirst In, First Out (FIFO):\nUse Case: Suitable for situations where the data access pattern is very sequential or when the age of the data is a deciding factor for its relevance. It's simple and predictable, used in scenarios where recency or frequency is not a major concern.\nLeast Frequently Used (LFU):\nUse Case: Best for applications where some data is accessed far more frequently than others, such as in content delivery networks (CDNs) or recommendation systems, where popular items are requested more often.\nRandom Replacement:\nUse Case: Useful in environments where the access pattern is highly unpredictable or when the overhead of tracking usage or frequency is not desirable. This can be seen in certain low-resource environments or when a simple implementation is needed.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Senior",
+      "title": "How would you handle cache synchronization in a distributed environment?",
+      "answer": "Handling cache synchronization in a distributed environment involves ensuring data consistency across multiple cache instances. Key strategies include:\nCentralized Cache: All nodes use a single cache source, simplifying synchronization but risking bottlenecks and single points of failure.\nDistributed Cache with Data Partitioning: Sharding data across different cache nodes, balancing scale and complexity.\nCache Invalidation Mechanism: Using a publish-subscribe model for invalidating stale cache entries, ensuring consistency but potentially introducing latency.\nRead-Through and Write-Through/Write-Behind Caching: Automating synchronization with data store, trading off between immediate consistency and write performance.\nVersioning: Attaching version numbers to data items for conflict resolution, adding overhead but aiding in determining the most recent data version.\nConflict Resolution Policies: Defining policies for handling data discrepancies across nodes, essential for eventual consistency models.\nTime to Live (TTL): Setting expiration times for cache entries to prevent stale data, simple but may not suit strong consistency needs.\nRegular Cache Refresh: Periodically updating cache from the data store, ensuring up-to-date data at the cost of increased load.",
+      "isPremium": false
+    }
+  ]
+}

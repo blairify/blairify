@@ -1,0 +1,1810 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "software-testing-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Software testing, and why is it",
+      "description": "What is software testing, and why is it important?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is software testing, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-1-ref-1",
+          "text": "Software testing is the process of evaluating a software application to identify defects or issues before it is released to users. It is crucial because it helps ensure the software's reliability, functionality, and performance, which, in turn, improves user satisfaction and avoids costly post-release fixes.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The different levels/types of software testing",
+      "description": "What are the different levels/types of software testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the different levels/types of software testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-2-ref-1",
+          "text": "There are various types of software testing, including: Unit Testing: It tests individual components or functions in isolation. Integration Testing: It checks the interactions between integrated components. System Testing: It evaluates the entire system's functionality. Acceptance Testing: It verifies if the software meets user and business requirements. Performance Testing: It assesses the system's speed, scalability, and resource usage. Security Testing: It focuses on identifying vulnerabilities and securing the software. Regression Testing: It ensures that new changes do not break existing functionality.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Unit testing",
+      "description": "What is unit testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is unit testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-3-ref-1",
+          "text": "Unit Testing is a software testing technique where individual units or components of a software application are tested in isolation to ensure that they work as expected. A unit typically refers to the smallest testable part of an application, such as a function, method, or class. The goal of unit testing is to validate that each unit of code performs its intended function correctly.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Integration testing",
+      "description": "What is integration testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is integration testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-4-ref-1",
+          "text": "Integration Testing is a software testing technique that focuses on verifying the interactions and interfaces between different components, modules, or services of a software application to ensure they work together as expected. Unlike unit tests, which test individual units of code in isolation, integration tests evaluate how these units collaborate and integrate with each other. Integration testing helps identify issues that may arise when components interact, such as communication problems, data flow issues, and compatibility concerns.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between black-box and white-box",
+      "description": "What is the difference between black-box and white-box testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between black-box and white-box testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-5-ref-1",
+          "text": "Black-box Testing: This testing method examines the software's functionality without knowledge of its internal code. Testers focus on inputs and expected outputs. Examples include functional and acceptance testing. White-box Testing: In white-box testing, the internal code structure is known and tested. Testers assess paths, branches, and code coverage. Examples include unit and code coverage testing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of test-driven development (TDD).",
+      "description": "Explain the concept of test-driven development (TDD).?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of test-driven development (TDD).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-6-ref-1",
+          "text": "Test-driven development is a development methodology where developers write tests before writing the actual code. The process involves the following steps: Write a failing test case for the desired functionality. Implement the code to make the test case pass. Refactor the code to improve it while ensuring that all tests continue to pass.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A test plan, and what does",
+      "description": "What is a test plan, and what does it include?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a test plan, and what does it include?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-7-ref-1",
+          "text": "A test plan is a document that outlines the scope, objectives, and approach for testing a software application. It typically includes: Objectives and scope of testing Test strategies and methodologies Test environment and tools Test schedules and timelines Resource allocation Test cases, scripts, and scenarios Risk assessment and mitigation plans Exit criteria for testing phases",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You prioritize test cases in a",
+      "description": "How do you prioritize test cases in a test suite?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you prioritize test cases in a test suite?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-8-ref-1",
+          "text": "Test case prioritization is essential to focus testing efforts effectively. It can be done based on factors like: Criticality of functionality Frequency of use Complexity of the test case Dependencies between test cases Risk associated with the feature being tested",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between verification and validation",
+      "description": "What is the difference between verification and validation in software testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between verification and validation in software testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-9-ref-1",
+          "text": "Verification: Verification ensures that the software is built correctly by checking if it adheres to its design specifications and requirements. It focuses on static analysis and reviews. Validation: Validation confirms that the software meets the user's actual needs and expectations. It involves dynamic testing and is often done through user acceptance testing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of a test case",
+      "description": "Explain the concept of a test case and give an example.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of a test case and give an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-10-ref-1",
+          "text": "A test case is a specific set of inputs, conditions, and expected outcomes designed to test a particular aspect of the software. For example, for a login functionality in a web application, a test case might be: Test Case Name: Verify Successful Login Test Steps: Launch the application. Enter valid username and password. Click the \"Login\" button.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of test automation, and",
+      "description": "What is the purpose of test automation, and when is it suitable to automate tests?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of test automation, and when is it suitable to automate tests?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-11-ref-1",
+          "text": "Test automation aims to streamline and accelerate the testing process by using automated scripts and tools. It is suitable for: Repetitive test cases Regression testing Large-scale or complex projects Test cases that require frequent execution Ensuring quick feedback in continuous integration/continuous delivery (CI/CD) pipelines",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between smoke testing and",
+      "description": "What is the difference between smoke testing and sanity testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between smoke testing and sanity testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-12-ref-1",
+          "text": "Smoke Testing: It is a preliminary test to check if the major functionalities of the software are working correctly. It is usually performed after a new build to determine whether it's stable enough for more in-depth testing. Sanity Testing: This is a focused and narrow test to verify specific areas or features after code changes or bug fixes. It ensures that the recent changes haven't adversely affected related functionalities.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The importance of boundary value analysis",
+      "description": "What is the importance of boundary value analysis in testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the importance of boundary value analysis in testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-13-ref-1",
+          "text": "Boundary value analysis is important because it helps identify defects at the edges of input domains. This is where many software issues occur, and testing these boundaries can often reveal critical problems. For example, if a system accepts input values between 1 and 100, boundary value analysis would test values like 1, 100, and values just below and above those boundaries, such as 0, 101, and 99.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of test coverage.",
+      "description": "Explain the concept of test coverage.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of test coverage.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-14-ref-1",
+          "text": "Test coverage measures the extent to which a test suite exercises the software's code and functionalities. It is used to determine how much of the code has been tested and which parts need additional testing. Test coverage can include statement coverage (lines of code executed), branch coverage (decision points taken), and path coverage (all possible code paths).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of test environment and",
+      "description": "Explain the concept of test environment and test data.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of test environment and test data.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-15-ref-1",
+          "text": "Test Environment: A test environment is a setup that mimics the production environment where testing occurs. It includes hardware, software, network configurations, and other components necessary for testing. Ensuring the test environment is representative of the production environment is crucial for accurate testing. Test Data: Test data are the inputs provided to a software system for testing purposes. It includes both valid and invalid data, edge cases, and boundary values. Proper test data ensures thorough testing coverage.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The advantages and disadvantages of manual",
+      "description": "What are the advantages and disadvantages of manual testing vs. automated testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages and disadvantages of manual testing vs. automated testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-16-ref-1",
+          "text": "Manual Testing Advantages: Suitable for exploratory testing and usability assessment. Cost-effective for small-scale or one-time testing. Better for ad-hoc testing and subjective evaluation. Manual Testing Disadvantages: Time-consuming and error-prone for repetitive tests. Limited scalability for large and complex projects. Difficult to simulate concurrent user loads. Automated Testing Advantages: Faster execution and repeatability of tests. Ideal for regression testing and continuous integration. Simulates large user loads and data sets efficiently. Automated Testing Disadvantages: Initial setup and maintenance can be time-consuming. Not suitable for usability and exploratory testing. May require skilled automation engineers.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You handle the situation when a",
+      "description": "How do you handle the situation when a critical defect is found just before the software release?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle the situation when a critical defect is found just before the software release?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-17-ref-1",
+          "text": "When a critical defect is discovered late in the release cycle, the following steps are typically taken: Report the defect immediately: Notify the development and management teams of the issue. Evaluate the impact: Assess how the defect affects the system and the potential risks. Determine the fix: Work with developers to prioritize and fix the issue as quickly as possible. Re-test: Verify that the fix is effective and does not introduce new defects. Update stakeholders: Keep all relevant parties informed about the status and impact on the release timeline.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "System testing",
+      "description": "What is system testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is system testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-18-ref-1",
+          "text": "System Testing is a level of software testing where the entire software system, composed of multiple integrated components or modules, is tested as a whole to ensure that it meets the specified requirements and functions correctly. This type of testing evaluates the system's compliance with its design and functional requirements and assesses its overall performance, reliability, and behavior in a real or simulated production environment.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between positive testing and",
+      "description": "What is the difference between positive testing and negative testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between positive testing and negative testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-19-ref-1",
+          "text": "Positive Testing: Positive testing involves testing scenarios where valid inputs are provided to the software, and it is expected to produce correct, expected results. Negative Testing: Negative testing, on the other hand, focuses on testing scenarios where invalid or unexpected inputs are provided. It aims to uncover how the software handles errors, edge cases, and unexpected conditions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Acceptance testing",
+      "description": "What is acceptance testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is acceptance testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-20-ref-1",
+          "text": "Acceptance Testing is a software testing technique used to determine whether a software application meets the specified business requirements and is ready for deployment and use by end-users or stakeholders. It focuses on validating that the software system behaves as expected from the perspective of the users and stakeholders, ensuring that it meets their needs and is acceptable for release.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of exploratory testing.",
+      "description": "Explain the concept of exploratory testing.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of exploratory testing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-21-ref-1",
+          "text": "Exploratory testing is a dynamic and unscripted approach to testing where testers simultaneously design and execute test cases based on their exploration of the software. Testers use their domain knowledge, experience, and creativity to uncover defects, risks, and usability issues that scripted tests might miss.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Test automation framework, and why is",
+      "description": "What is test automation framework, and why is it important in test automation?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is test automation framework, and why is it important in test automation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-22-ref-1",
+          "text": "A test automation framework is a set of guidelines, practices, and tools that provide a structured approach to automate test cases. It helps in managing and maintaining automated tests efficiently. The importance of a test automation framework includes: Standardization of test automation practices Reusability of code and test scripts Simplified test script maintenance Enhanced test scalability and reliability",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You handle flaky or intermittent test",
+      "description": "How do you handle flaky or intermittent test failures in an automated test suite?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle flaky or intermittent test failures in an automated test suite?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-23-ref-1",
+          "text": "Flaky or intermittent test failures can be challenging but should be addressed systematically: Investigate the root cause: Identify why the test is failing inconsistently. Rerun the test: Repeatedly run the failing test to determine if it's genuinely flaky. Stabilize the environment: Ensure test environments are consistent and reliable. Use explicit waits: Implement explicit waits in automation scripts to account for timing issues. Mark known flaky tests: Document tests known to be flaky and monitor them closely.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of load testing and",
+      "description": "Explain the concept of load testing and stress testing. How are they different?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of load testing and stress testing. How are they different?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-24-ref-1",
+          "text": "Load Testing: Load testing is the process of evaluating a system's performance under expected load conditions. It helps determine whether the system can handle its expected user load without performance degradation. Stress Testing: Stress testing goes beyond load testing by pushing the system beyond its expected limits. It aims to identify the breaking points and potential failures under extreme conditions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A test strategy, and how does",
+      "description": "What is a test strategy, and how does it differ from a test plan?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a test strategy, and how does it differ from a test plan?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-25-ref-1",
+          "text": "A test strategy is a high-level document that outlines the overall approach and objectives for testing a project. It defines the testing scope, resources, timelines, and test levels or types to be used. A test plan, on the other hand, is a more detailed document that provides specific information on how testing will be conducted. It includes detailed test cases, schedules, and responsibilities, often derived from the test strategy.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of a test script,",
+      "description": "What is the purpose of a test script, and how does it differ from a test case?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of a test script, and how does it differ from a test case?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-26-ref-1",
+          "text": "A test script is a set of instructions, often written in a scripting language, that automates the execution of a test case. It defines the actions to be taken, input values, and expected outcomes for automated testing. A test case, as previously explained, is a detailed description of a specific test scenario, including inputs and expected results, which can be executed manually or automated using test scripts.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Performance testing",
+      "description": "What is performance testing?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is performance testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-27-ref-1",
+          "text": "Performance Testing is a software testing technique used to evaluate and measure the performance, scalability, and responsiveness of a software application or system under various conditions. The primary goal of performance testing is to ensure that the application can handle the expected load and provide a satisfactory user experience without performance bottlenecks, crashes, or degradation in response times. Performance testing helps identify performance-related issues, such as slow response times, resource utilization problems, and scalability limitations, and allows for optimization and tuning of the software.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Can you explain the difference between",
+      "description": "Can you explain the difference between static and dynamic testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the difference between static and dynamic testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-28-ref-1",
+          "text": "Static Testing: It is a technique that evaluates code and documents without executing the program. Examples include code reviews, inspections, and walkthroughs. Static testing aims to find issues early in the development process. Dynamic Testing: This involves executing the software to observe its behavior during runtime. Examples include unit testing, system testing, and performance testing. Dynamic testing focuses on verifying the actual functionality and performance of the software.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between functional testing and",
+      "description": "What is the difference between functional testing and non-functional testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between functional testing and non-functional testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-29-ref-1",
+          "text": "Functional Testing: This type of testing evaluates whether the software's functions and features work as intended. It verifies if the software meets the specified functional requirements. Non-functional Testing: Non-functional testing focuses on the software's performance, reliability, and user experience. It includes aspects like scalability, load testing, security testing, and usability testing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A test driver and a test",
+      "description": "What is a test driver and a test stub in integration testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a test driver and a test stub in integration testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-30-ref-1",
+          "text": "A test driver is a component or module used in integration testing to simulate the lower-level modules or components that have not yet been developed. It provides input data and control to the module being tested. A test stub is a component or module used in integration testing to simulate the higher-level modules or components that the module being tested interacts with. It provides a simplified, placeholder implementation of these components.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of test harness and",
+      "description": "Explain the concept of test harness and its purpose.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of test harness and its purpose.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-31-ref-1",
+          "text": "A test harness is a set of tools, libraries, and software components used to automate and facilitate the execution of test cases. Its purpose is to set up the testing environment, feed inputs to the software, execute tests, and capture the results automatically. Test harnesses are often used in automated testing to streamline the testing process.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of ad-hoc testing. When",
+      "description": "Explain the concept of ad-hoc testing. When and why is it used?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of ad-hoc testing. When and why is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-32-ref-1",
+          "text": "Ad-hoc testing is an informal, unstructured testing approach where testers explore the software without predefined test cases or plans. It is typically used in the following scenarios: To discover defects quickly, especially when time is limited. For exploratory testing to assess usability and uncover unexpected issues. In situations where formal test cases may not exist or are incomplete.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Security testing",
+      "description": "What is security testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is security testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "cybersecurity"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-33-ref-1",
+          "text": "Security Testing is a software testing technique that focuses on evaluating the security of a software application or system to identify vulnerabilities, weaknesses, and potential threats that could compromise the confidentiality, integrity, and availability of data and resources. The primary goal of security testing is to uncover security-related issues and help organizations protect their systems from various security threats, including unauthorized access, data breaches, and malicious attacks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-testing-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Regression testing, and why is it",
+      "description": "What is regression testing, and why is it important?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is regression testing, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "software-testing"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "data-scientist"
+      ],
+      "primaryTechStack": [
+        "software-testing"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:06.097Z",
+      "updatedAt": "2025-12-19T18:05:06.097Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "software-testing-questions-bank-34-ref-1",
+          "text": "Regression testing is the process of retesting a software application after changes or new features have been added to ensure that existing functionalities have not been adversely affected. It's important because it helps catch unintended side effects of code modifications and ensures that the software remains stable and reliable over time.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

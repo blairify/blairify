@@ -1,0 +1,237 @@
+{
+  "totalQuestions": 33,
+  "extractedAt": "2025-12-19T17:44:50.006Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is the .NET Framework?",
+      "answer": "The .NET Framework is a comprehensive software development platform created by Microsoft.\nIt provides a runtime environment called the Common Language Runtime (CLR) and a rich set of class libraries, supporting multiple programming languages like C#, VB .NET, and F# for building various applications on Windows and other platforms with .NET Core and later versions.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What are the key components of the .NET Framework?",
+      "answer": "The two main components are:\n\nCommon Language Runtime (CLR), which manages the execution of .NET applications by providing services like memory management and security.\n.NET Class Library (BCL), a vast collection of pre-built classes, interfaces, and types offering a wide range of functionalities.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "Explain the difference between value types and reference types in .NET.",
+      "answer": "Value types (e.g., int, bool, struct) store their actual data directly in memory, typically on the stack. Each variable holds its own copy of the data.\nReference types (e.g., class, string, array) store a reference (memory address) to the actual data, which is located on the heap. Multiple variables can point to the same data in memory.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What is managed code in .NET?",
+      "answer": "Managed code is code that is executed under the control of the Common Language Runtime (CLR). The CLR provides services such as automatic memory management (garbage collection), type safety, and exception handling.Languages like C# and VB .NET compile to managed code.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "Explain boxing and unboxing in .NET.",
+      "answer": "Boxing is the implicit conversion of a value type to a reference type (specifically, to an object or an interface). The value type is copied onto the heap.\nUnboxing is the explicit conversion of a reference type back to a value type. It involves checking the type and copying the value from the heap back to the stack.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What is garbage collection in .NET?",
+      "answer": "Garbage collection is an automatic memory management process performed by the CLR.\nIt periodically identifies and reclaims memory occupied by objects that are no longer referenced by the application, thus preventing memory leaks.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "What is the difference between String and StringBuilder in C#?",
+      "answer": "String objects are immutable, meaning their value cannot be changed after creation. Any operation that seems to modify a string actually creates a new String object.\nStringBuilder is mutable, allowing modifications to the string without creating a new object each time, making it more efficient for frequent string manipulations.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "What are the main principles of Object-Oriented Programming (OOP)?",
+      "answer": "The four main principles are:\n\nEncapsulation: Encapsulation is the principle of bundling data (attributes or properties) and the methods that operate on that data into a single unit, or class. It also involves hiding the internal implementation details of an object and controlling access to its data.\nAbstraction: Abstraction is the principle of showing only the essential or relevant information to the user while hiding the complex underlying details. It focuses on what an object does rather than how it achieves it, often using abstract classes and interfaces.\nInheritance: Inheritance is a mechanism that allows a new class (derived or child class) to inherit properties and behaviors (methods) from an existing class (base or parent class). This promotes code reusability and helps in establishing hierarchical relationships between classes.C# supports single inheritance for classes but multiple inheritance for interfaces.\nPolymorphism: Polymorphism, meaning \"many forms,\" enables objects of different classes to respond to the same method call in their own specific way. This can be achieved through method overriding and method overloading.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "Explain assemblies in .NET.",
+      "answer": "An assembly is a compiled unit of code (.exe for applications, .dll for libraries) that contains Intermediate Language (IL), metadata (manifest), and resources. It's the basic unit of deployment, versioning, and security in .NET.\nAssemblies can be private (application-specific) or shared (stored in the Global Assembly Cache - GAC).",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "What are namespaces in .NET?",
+      "answer": "Namespaces provide a hierarchical way to organize code elements like classes and interfaces, preventing naming conflicts and improving code readability and maintainability.\nThey act as logical containers for related types.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "What are delegates in .NET?",
+      "answer": "A delegate is a type-safe function pointer that represents a reference to a method with a specific signature (return type and parameters).\nDelegates allow you to treat methods as objects, enabling them to be passed as arguments to other methods.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "What is the Common Language Runtime (CLR)?",
+      "answer": "The CLR is the virtual machine component of the .NET Framework that manages the execution of .NET applications. It provides services like memory management, security, and exception handling.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "What is Just-In-Time (JIT) compilation?",
+      "answer": "JIT compilation is a process where the Common Language Runtime (CLR) converts the Intermediate Language (IL) code of a .NET assembly into native machine code at runtime, just before it's executed.\nThis allows for platform independence while achieving efficient execution.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What is Microsoft Intermediate Language (MSIL)?",
+      "answer": "MSIL (also known as CIL - Common Intermediate Language) is a platform-agnostic set of instructions that.NET languages compile to. It's then translated to native code by the JIT compiler when the application is run.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "Explain generics in .NET and their benefits.",
+      "answer": "Generics allow you to define type-safe data structures and algorithms without specifying the exact data type at compile time.\nType parameters are used as placeholders, and the actual type is specified when the generic type or method is used.\nBenefits include improved type safety, code reusability, and better performance (by avoiding boxing/unboxing for value types).",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "How does exception handling work in .NET?",
+      "answer": "Exception handling in .NET uses try blocks to enclose code that might throw an exception. catch blocks are used to handle specific types of exceptions that occur in the try block.\nThe optional finally block contains code that is guaranteed to execute regardless of whether an exception occurred or was caught, often used for cleanup operations.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What is LINQ and how is it used?",
+      "answer": "LINQ (Language Integrated Query) provides a unified syntax within C# to query data from various sources like collections, databases, and XML.\nIt uses a set of extension methods to perform operations like filtering, sorting, and selecting data directly in the code, improving readability and type safety.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is the difference between IEnumerable and IQueryable in LINQ, and when to use each?",
+      "answer": "IEnumerable represents a sequence that can be iterated over, typically used for in-memory collections. Operations on IEnumerable are executed in memory.\nIQueryable also represents a sequence but is designed for querying data sources outside of memory (like databases). It allows for query translation and execution at the data source, improving performance for large datasets.\nUse IQueryable when querying databases (e.g., with Entity Framework) and IEnumerable for in-memory collections.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "What is dependency injection (DI) and its benefits?",
+      "answer": "Dependency Injection is a design pattern where a class receives its dependencies from an external source rather than creating them itself.\nThis promotes loose coupling, improves testability (by allowing the use of mock objects), increases code reusability, and enhances maintainability.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "Explain the differences between .NET Framework, .NET Core, and .NET 5+ (.NET 6, 7, 8 etc.).",
+      "answer": ".NET Framework was the original Windows-only implementation.\n.NET Core was a cross-platform, open-source version optimized for modern workloads.\n.NET 5 and later versions represent a unification of these, aiming for a single platform for all .NET development needs, with ongoing improvements in performance and cross-platform capabilities.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "How do you optimize performance in .NET applications?",
+      "answer": "Performance optimization involves various techniques such as choosing the right data structures, minimizing boxing and unboxing, using StringBuilder for string manipulation, leveraging asynchronous programming, optimizing database queries (indexing, stored procedures), implementing caching, and profiling the application to identify bottlenecks.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "Describe common design patterns used in .NET.",
+      "answer": "Common design patterns include creational patterns like Singleton and Factory, structural patterns like Adapter and Decorator, and behavioral patterns like Observer and Strategy.\nArchitectural patterns like MVC are also widely used, especially in ASP .NET Core.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "How do you handle concurrency and multithreading in .NET?",
+      "answer": ".NET provides several ways to handle concurrency, including the Thread class, the Thread Pool, the Task and async/await pattern, the Parallel class for parallel execution, and thread-safe collections in the System.Collections.Concurrent namespace.\nProper synchronization mechanisms like locks are crucial to avoid race conditions and deadlocks.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Senior",
+      "title": "What is reflection in .NET and when would you use it?",
+      "answer": "Reflection allows you to inspect and manipulate types, objects, and assemblies at runtime. It's used for scenarios like plugin architectures, ORMs, and DI containers.\nDrawbacks include performance overhead due to runtime type checking, loss of compile-time safety, and potential security concerns if not used carefully.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Senior",
+      "title": "How do you ensure security in .NET applications?",
+      "answer": "Security involves authentication and authorization, input validation to prevent injection attacks (like SQL injection), encoding output to prevent XSS, using anti-forgery tokens for CSRF, secure configuration management, data encryption (in transit and at rest), and regular security audits.\nStaying updated with OWASP Top 10 is crucial.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Senior",
+      "title": "Explain microservices architecture in the context of .NET.",
+      "answer": "Microservices architecture structures an application as a collection of small, independent services communicating over a network.\nBenefits include improved scalability, maintainability, fault isolation, and technology diversity.\nChallenges involve increased complexity in deployment and management, inter-service communication overhead, and the need for robust monitoring.\nASP.NET Core is often used to build.NET microservices.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Senior",
+      "title": "Describe different approaches to caching in .NET applications and when to use each.",
+      "answer": "Common caching approaches include:\nIn-memory caching: Fastest, for single-server scenarios.\nDistributed caching: For scalable, multi-server applications.\nClient-side caching: HTTP caching, browser storage for static content.\nContent Delivery Networks (CDNs): For globally distributed static content.\nThe choice depends on data volatility, access patterns, and scalability requirements.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Senior",
+      "title": "What is the difference between await AsyncMethod() and AsyncMethod().Result?",
+      "answer": "await AsyncMethod() is the preferred way to handle asynchronous operations. It pauses the execution of the current async method without blocking the calling thread, allowing it to perform other work. Once the AsyncMethod completes, the execution resumes.\nAsyncMethod().Result blocks the calling thread until the asynchronous operation completes, which can lead to deadlocks in certain scenarios and should generally be avoided in UI applications or request processing pipelines.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Senior",
+      "title": "What are code contracts in .NET?",
+      "answer": "Code contracts provide a way to specify preconditions, postconditions, and object invariants in your code. They help in documenting assumptions, validating inputs and outputs, and improving code reliability by enabling static and runtime checking of these contracts.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Senior",
+      "title": "What is the role of the BackgroundWorker class in multithreaded programming?",
+      "answer": "The BackgroundWorker class provides a convenient way to perform operations on a separate thread without blocking the user interface (UI) thread in Windows Forms or WPF applications.\nIt simplifies tasks like progress reporting and cancellation.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Senior",
+      "title": "How does the Task Parallel Library (TPL) improve parallel programming?",
+      "answer": "The TPL simplifies parallel programming by providing abstractions like Task and Parallel for executing operations concurrently.\nIt handles task scheduling, load balancing, and synchronization, making it easier to write efficient and scalable parallel code.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Senior",
+      "title": "Explain the concept of marshaling in .NET.",
+      "answer": "Marshaling is the process of converting data between managed (.NET) and unmanaged (outside the CLR, e.g., COM, Win32 API) memory.\nIt's necessary when interacting with unmanaged code from a .NET application.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Senior",
+      "title": "When would you use the Duplex WCF service?",
+      "answer": "A Duplex WCF service is used when you need two-way communication between the client and the server, allowing the server to initiate calls back to the client (callbacks).\nThis is useful for scenarios like event notifications or real-time updates where the server needs to push data to the client.",
+      "isPremium": false
+    }
+  ]
+}

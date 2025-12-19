@@ -1,0 +1,167 @@
+{
+  "totalQuestions": 23,
+  "extractedAt": "2025-12-19T18:05:32.118Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is functional programming, and how does it differ from imperative programming?",
+      "answer": "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions. It differs from imperative programming in that it avoids changing state and mutable data, emphasizing immutability and pure functions.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What are pure functions, and why are they important in functional programming?",
+      "answer": "Pure functions are functions that always produce the same output for the same input and have no side effects. They are important in functional programming because they make code more predictable, testable, and parallelizable.\nExample in Haskell:\n\ntypescript\n\nCopy code\n\nadd :: Int -> Int -> Int\nadd x y = x + y\n\nmain :: IO ()\nmain = do\n  let result = add 3 5\n  putStrLn (\"The result is: \" ++ show result)\nIn this example, we call the add function with the arguments 3 and 5, and it returns 8. The code is predictable, and the function is pure, making it easy to reason about and test.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "Explain the concept of immutability in functional programming.",
+      "answer": "Immutability means that once a data structure is created, it cannot be changed. Instead, any modification creates a new data structure. Immutability ensures that data remains unchanged, simplifying reasoning about code.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What is a higher-order function, and can you provide an example of one?",
+      "answer": "A higher-order function is a function that takes one or more functions as arguments or returns a function as a result. An example is the map function in Python or JavaScript, which takes a function and a list and applies the function to each element of the list, returning a new list.\n\ntypescript\n\nCopy code\n\n# Define a function to square a number\ndef square(x):\n    return x ** 2\n\n# Create a list of numbers\nnumbers = [1, 2, 3, 4, 5]\n\n# Use the map function to square each number in the list\nsquared_numbers = map(square, numbers)\n\n# Convert the result back to a list (map returns an iterable)\nsquared_numbers_list = list(squared_numbers)\n\n# Print the original and squared numbersprint(\"Original numbers:\", numbers)\nprint(\"Squared numbers:\", squared_numbers_list)",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "Explain the concept of closures in functional programming.",
+      "answer": "A closure is a function that \"closes over\" its lexical scope, capturing variables from the surrounding environment. Closures allow functions to maintain state across multiple calls, often used in functional programming for encapsulation.\n\ntypescript\n\nCopy code\n\n-- Create a function that takes an argument 'x'\nmakeIncrementer :: Int -> (Int -> Int)\nmakeIncrementer x = \\y -> x + y\n\nmain :: IO ()\nmain = do\n    let add5 = makeIncrementer 5 -- create a closure\n    putStrLn \"Result of adding 5 to 7:\"\n    print (add5 7) -- The 'add5' function captures 'x' from the lexical scope",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What is lazy evaluation, and how does it relate to functional programming?",
+      "answer": "Lazy evaluation is an evaluation strategy where expressions are only evaluated when their values are actually needed. It's related to functional programming because it allows for more efficient and expressive code by avoiding unnecessary computations.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Mid",
+      "title": "What is currying, and how can it be used in functional programming?",
+      "answer": "Currying is the process of transforming a function that takes multiple arguments into a series of functions that each take a single argument. It's used in functional programming to create reusable and composable functions.\nExample of currying in Haskell:\n\ntypescript\n\nCopy code\n\n-- Define a function that takes two arguments and adds them\nadd :: Int -> Int -> Int\nadd x y = x + y\n\nmain :: IO ()\nmain = do\n  let addFive = add 5 -- Partial application, creating a new function\n  putStrLn \"Result of adding 5 to 7:\"\n  print (addFive 7) -- Curried function application",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Mid",
+      "title": "What is function composition, and why is it important in functional programming?",
+      "answer": "Function composition is the process of combining two or more functions to produce a new function. It's important in functional programming because it allows you to build complex operations from simpler, composable functions.\nExample in Haskell:\n\ntypescript\n\nCopy code\n\n-- Define two functions\naddTwo :: Int -> Int\naddTwo x = x + 2\n\nsquare :: Int -> Int\nsquare x = x * x\n\n-- Compose the two functions to create a new function\naddTwoAndSquare :: Int -> Int\naddTwoAndSquare = square . addTwo\n\nmain :: IO ()\nmain = do\n  putStrLn \"Result of composing addTwo and square for 5:\"\n  print (addTwoAndSquare 5) -- Composed function",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Mid",
+      "title": "What are some advantages of functional programming languages, and when would you choose to use one?",
+      "answer": "Functional programming languages offer advantages like immutability, easy parallelism, and concise, expressive code. You might choose to use a functional programming language when dealing with complex data transformations, distributed systems, or when you want to emphasize purity and immutability.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Mid",
+      "title": "Explain the concept of referential transparency in functional programming.",
+      "answer": "Referential transparency means that a function's output is solely determined by its input, and it has no side effects. It allows for easy reasoning about code and makes it possible to substitute function calls with their results.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Mid",
+      "title": "What is tail recursion, and why is it important in functional programming?",
+      "answer": "Tail recursion is a form of recursion where the recursive call is the last operation in a function. It's important because it allows the compiler or interpreter to optimize the recursion, preventing stack overflow errors and making recursive algorithms more efficient.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "What are algebraic data types (ADTs) in functional programming, and how do they differ from primitive data types?",
+      "answer": "Algebraic data types are composite data types created by combining existing types using constructors. They differ from primitive data types in that they allow you to define more complex data structures, like lists, trees, and custom data structures.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "Explain pattern matching in functional programming and provide an example.",
+      "answer": "Pattern matching is a way to destructure data and match it against predefined patterns. For example, in Haskell, you can use pattern matching to extract elements from a list or match on different cases in a function definition.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What is the map function, and how is it used in functional programming?",
+      "answer": "The map function is a higher-order function that applies a given function to each element of a collection (e.g., a list) and returns a new collection containing the results. It's a fundamental operation in functional programming for transforming data.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "What is the \"fold\" (or \"reduce\") function in functional programming, and how is it used?",
+      "answer": "The \"fold\" or \"reduce\" function is used to combine elements of a collection into a single value. It takes an associative binary function, an initial accumulator value, and applies the function to each element in the collection, accumulating a result.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "Discuss the advantages of immutability in functional programming and provide an example of a situation where immutability is crucial.",
+      "answer": "Immutability prevents data from being changed after creation, ensuring data integrity and thread safety. An example where immutability is crucial is in concurrent programming, where shared data should not be modified to avoid race conditions.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What is the filter function in functional programming, and how does it work?",
+      "answer": "The filter function is used to create a new collection by selecting elements from an existing collection that satisfy a given predicate (a function that returns true or false). It's commonly used to filter data based on certain criteria.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "Explain the concept of category theory and its relevance in functional programming.",
+      "answer": "Category theory is a branch of mathematics that studies abstract structures and their relationships. In functional programming, category theory provides a formal framework for understanding and reasoning about functional abstractions like functors, monads, and natural transformations.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Senior",
+      "title": "Discuss the benefits of using the \"Maybe\" or \"Option\" type in functional programming and provide an example of how it prevents null or undefined errors.",
+      "answer": "The \"Maybe\" or \"Option\" type represents the presence or absence of a value. It prevents null or undefined errors by forcing developers to handle the absence case explicitly. For example, in Haskell:\n\ntypescript\n\nCopy code\n\ndata Maybe a = Nothing | Just a\n\nsafeDivide :: Int -> Int -> Maybe Int\nsafeDivide _ 0 = Nothing\nsafeDivide x y = Just (x `div` y)",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Senior",
+      "title": "Explain monads in functional programming and provide an example.",
+      "answer": "A monad is a design pattern used in functional programming to encapsulate computation with additional context. Examples include the Maybe monad for handling optional values or the IO monad for managing side effects.\n\ntypescript\n\nCopy code\n\n-- Define a function that divides two numbers, but handles division by zero\nsafeDivision :: Double -> Double -> Maybe Double\nsafeDivision _ 0 = Nothing -- Division by zero returns Nothing\nsafeDivision x y = Just (x / y) -- Division with a valid divisor returns Just result\n\nmain :: IO ()\nmain = do\n  putStrLn \"Enter the numerator:\"\n  numeratorStr <- getLine\n  putStrLn \"Enter the denominator:\"\n  denominatorStr <- getLine\n\n  -- Parse input as Double values\n  let maybeNumerator = readMaybe numeratorStr :: Maybe Double\n      maybeDenominator = readMaybe denominatorStr :: Maybe Double\n\n  -- Perform safe division using the Maybe monad\n  let result = do\n        numerator <- maybeNumerator\n        denominator <- maybeDenominator\n        safeDivision numerator denominator\n\n  -- Display the result or an error message\n  case result of\n    Just r -> putStrLn (\"Result of division: \" ++ show r)\n    Nothing -> putStrLn \"Error: Division by zero or invalid input.\"\n\nimport Text.Read (readMaybe)",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Senior",
+      "title": "What is a monad transformer, and how is it used in functional programming?",
+      "answer": "A monad transformer is a type that transforms one monad into another while preserving their combined behavior. They are used in functional programming to combine the effects of multiple monads, such as combining the Maybe monad with the IO monad to handle optional and input/output operations.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Senior",
+      "title": "Discuss the principles of referential transparency and equational reasoning in functional programming.",
+      "answer": "Referential transparency means that you can replace a function call with its result without changing the program's behavior. Equational reasoning allows you to reason about code by applying algebraic laws, making code more predictable and testable.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Senior",
+      "title": "Explain the concept of higher-kinded types (HKTs) in functional programming and provide an example.",
+      "answer": "Higher-kinded types are type constructors that operate on type constructors. In languages like Scala and Haskell, HKTs enable the creation of generic data structures that work with various types. An example is the \"Functor\" type class in Haskell.",
+      "isPremium": false
+    }
+  ]
+}

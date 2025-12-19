@@ -1,0 +1,2552 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "linux-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between a process and",
+      "description": "Explain the difference between a process and a thread in Linux.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between a process and a thread in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-1-ref-1",
+          "text": "In Linux, a process is an independent program that has its own memory space, file descriptors, and resources. A thread, on the other hand, is a lightweight execution unit within a process that shares the same memory space and resources as the parent process. Threads are used for concurrent execution within a single process.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the fork() system",
+      "description": "What is the purpose of the fork() system call?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the fork() system call?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-2-ref-1",
+          "text": "The fork() system call is used to create a new process, which is a copy of the calling process. It is often used in Unix-like operating systems, including Linux, to enable parallel execution and process creation.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You check the status of a",
+      "description": "How do you check the status of a Linux service or daemon?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you check the status of a Linux service or daemon?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-3-ref-1",
+          "text": "You can use the systemctl command to check the status of a service in systemd-based Linux distributions. For example, to check the status of the Apache web server: systemctl status apache2",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the /etc/passwd and",
+      "description": "Explain the purpose of the /etc/passwd and /etc/shadow files in Linux.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the /etc/passwd and /etc/shadow files in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-4-ref-1",
+          "text": "The /etc/passwd file contains user account information, such as usernames, user IDs (UIDs), group IDs (GIDs), home directories, and login shells. The /etc/shadow file, on the other hand, stores the encrypted password hashes for user accounts. It is more secure than storing passwords in plain text as it prevents unauthorized access to password information.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the lsof command",
+      "description": "What is the purpose of the lsof command in Linux?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the lsof command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-5-ref-1",
+          "text": "The lsof command is used to list open files and the processes that have them open. It provides detailed information about which files, directories, or network sockets are currently in use by running processes. For example, to list all open files and sockets: lsof",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the ping command",
+      "description": "Explain the purpose of the ping command in Linux?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the ping command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-6-ref-1",
+          "text": "The ping command is used to test network connectivity by sending ICMP echo request packets to a remote host and waiting for ICMP echo reply packets. It can help diagnose network issues and measure network latency. For example: ping google.com",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A shell in Linux, and why",
+      "description": "What is a shell in Linux, and why is it important?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a shell in Linux, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-7-ref-1",
+          "text": "A shell is a command-line interface that allows users to interact with the Linux operating system. It interprets user commands and executes them. It's important because it provides a way to control and manage the system, automate tasks through scripting, and perform various system-related operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the ps command",
+      "description": "Explain the purpose of the ps command in Linux and how it can be used to view process information.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the ps command in Linux and how it can be used to view process information.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-8-ref-1",
+          "text": "The ps command is used to list currently running processes on a Linux system. It provides information about process IDs (PIDs), parent PIDs, CPU and memory usage, and more. For example, to list all processes running in the current shell: ps aux",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "How you can check the system's",
+      "description": "Explain how you can check the system's current IP address and network configuration in Linux.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can check the system's current IP address and network configuration in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-9-ref-1",
+          "text": "You can use the ifconfig or ip command to check the system's current IP address and network configuration. For example: ifconfig Or, using ip: ip addr show",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The role of the init process",
+      "description": "What is the role of the init process in Linux, and how does it relate to systemd?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the init process in Linux, and how does it relate to systemd?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-10-ref-1",
+          "text": "The init process is the first process started by the Linux kernel and has process ID 1. It is responsible for initializing the system and starting other processes, including system services. In many modern Linux distributions, init has been replaced by systemd, which is a more advanced init system that manages system services, dependencies, and parallelization of startup tasks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "What the sudo command is used",
+      "description": "Explain what the sudo command is used for in Linux.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what the sudo command is used for in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-11-ref-1",
+          "text": "The sudo command is used to temporarily elevate the user's privileges to perform administrative tasks. It allows authorized users to execute commands as the superuser or another user, as specified in the configuration. This helps enhance system security by limiting the use of privileged commands to authorized users.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the PATH environment",
+      "description": "What is the purpose of the PATH environment variable in Linux, and how is it used?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the PATH environment variable in Linux, and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-12-ref-1",
+          "text": "The PATH environment variable is a list of directories where the shell looks for executable files when a command is entered. It allows you to run programs without specifying their full paths. To display the current PATH variable, you can use the echo command: echo $PATH",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the iptables command",
+      "description": "Explain the purpose of the iptables command in Linux, and how can it be used to configure firewall rules?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the iptables command in Linux, and how can it be used to configure firewall rules?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-13-ref-1",
+          "text": "iptables is a command-line tool for configuring the Linux kernel's firewall (Netfilter). It is used to define rules for packet filtering, network address translation (NAT), and packet mangling. For example, to allow incoming SSH traffic while blocking all other incoming traffic, you can use: iptables -A INPUT -p tcp --dport 22 -j ACCEPT iptables -A INPUT -j DROP",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the chmod command",
+      "description": "What is the purpose of the chmod command in Linux, and how do you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the chmod command in Linux, and how do you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-14-ref-1",
+          "text": "The chmod command is used to change the permissions of files and directories in Linux. It allows you to control who can read, write, and execute a file or directory. You can use it with symbolic or octal notation. For example, to give read and write permissions to the owner of a file, you can use: chmod u+rw filename",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between hard links and",
+      "description": "Explain the difference between hard links and symbolic links in Linux.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between hard links and symbolic links in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-15-ref-1",
+          "text": "Hard links and symbolic links are both used to create references to files, but they work differently. A hard link is essentially a reference to the same inode (file data structure) as the original file, while a symbolic link is a separate file that points to the target file's path. If you delete the original file, hard links will still reference its data, while symbolic links will become broken. To create a symlink to a file, you can use the ln command with the -s option, like this: ln -s /path/to/target /path/to/symlink",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the grep command",
+      "description": "Explain the purpose of the grep command in Linux.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the grep command in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-16-ref-1",
+          "text": "The grep command is used for searching text within files or streams of text. It allows you to specify a pattern or regular expression, and it will display lines that match that pattern. It's often used for text processing, log analysis, and data extraction.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A Linux shell and why are",
+      "description": "What is a Linux shell and why are there different shells available?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Linux shell and why are there different shells available?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-17-ref-1",
+          "text": "A Linux shell is a command-line interface that allows users to interact with the operating system. Different shells offer different features and scripting capabilities. Some popular Linux shells include Bash, Zsh, Fish, and Dash. Users can choose a shell based on their preferences and requirements.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of process scheduling in",
+      "description": "Explain the concept of process scheduling in Linux. What scheduling algorithms are commonly used, and how do they differ?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of process scheduling in Linux. What scheduling algorithms are commonly used, and how do they differ?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-18-ref-1",
+          "text": "Process scheduling in Linux involves determining which process gets access to the CPU and for how long. Common scheduling algorithms include the Completely Fair Scheduler (CFS), Round Robin, and Priority Scheduling. They differ in how they prioritize processes, allocate CPU time, and handle different types of workloads.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "A Linux kernel module, and why",
+      "description": "What is a Linux kernel module, and why are they used?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Linux kernel module, and why are they used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-19-ref-1",
+          "text": "A kernel module is a piece of code that can be loaded and unloaded into the Linux kernel at runtime. They are used to add functionality to the kernel without the need to recompile or reboot the system. For example, you might load a kernel module to add support for a specific hardware device or enable a specific feature that wasn't compiled into the kernel initially.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the cron and",
+      "description": "What is the purpose of the cron and at commands in Linux, and how do they differ in scheduling tasks?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the cron and at commands in Linux, and how do they differ in scheduling tasks?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-20-ref-1",
+          "text": "Both cron and at are used for scheduling tasks in Linux. cron is a daemon that runs scheduled tasks at specified intervals, while at schedules tasks to run once at a specific time. For example, you can use cron to run a backup script daily at midnight and at to schedule a one-time task to run at 3:00 PM today.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The role of the ldconfig command",
+      "description": "Explain the role of the ldconfig command in Linux?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the ldconfig command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-21-ref-1",
+          "text": "The ldconfig command is used to update the shared library cache, which contains information about the shared libraries available on the system. It is important because it helps the system locate shared libraries at runtime, allowing programs to run successfully without needing to specify the library's full path.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the df and",
+      "description": "What is the purpose of the df and du commands in Linux? How do they differ?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the df and du commands in Linux? How do they differ?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-22-ref-1",
+          "text": "The df command displays disk space usage for mounted filesystems, providing information about total disk space, used space, and available space. On the other hand, the du command is used to calculate disk usage of files and directories, showing how much space they occupy.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of the Linux runlevel.",
+      "description": "Explain the concept of the Linux runlevel. What are runlevels, and how do they relate to system states?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of the Linux runlevel. What are runlevels, and how do they relate to system states?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-23-ref-1",
+          "text": "Runlevels in Linux represent different system states, and they determine which services and processes are started or stopped. Common runlevels include 0 (halt), 1 (single-user mode), 3 (multi-user mode with networking), and 5 (multi-user mode with a graphical interface). The default runlevel is usually specified in the /etc/inittab or managed by systemd.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the /etc/fstab file",
+      "description": "What is the purpose of the /etc/fstab file in Linux?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the /etc/fstab file in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-24-ref-1",
+          "text": "The /etc/fstab file contains information about disk drives and partitions, including their mount points and options. It is used by the mount command to automatically mount filesystems at system startup. You can edit it to configure which filesystems should be mounted and how they should be mounted, which is important for system stability and functionality.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The differences between a hard link",
+      "description": "Explain the differences between a hard link and a soft link (symlink).?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between a hard link and a soft link (symlink).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-25-ref-1",
+          "text": "Hard links point directly to the data blocks of a file, while symlinks point to the file's path. Hard links cannot cross filesystems, while symlinks can. Choose a hard link when you need multiple directory entries for the same data blocks (e.g., saving disk space), and choose a symlink when you need a reference to a file or directory at a different location.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the top command",
+      "description": "Explain the purpose of the top command in Linux.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the top command in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-26-ref-1",
+          "text": "The top command provides real-time information about system performance, including CPU and memory usage, running processes, and system uptime. It continuously updates this data, allowing users to monitor system health and identify resource-intensive processes.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the ldd command",
+      "description": "Explain the purpose of the ldd command in Linux and how it is used to check library dependencies for an executable.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the ldd command in Linux and how it is used to check library dependencies for an executable.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-27-ref-1",
+          "text": "The ldd command is used to display the shared library dependencies of an executable binary. It shows which dynamic libraries are linked to the program. For example, to check the dependencies of the ls command: ldd /bin/ls",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The role of the Linux swap",
+      "description": "Explain the role of the Linux swap space. What is it used for, and how can you manage it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the Linux swap space. What is it used for, and how can you manage it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-28-ref-1",
+          "text": "Swap space is a designated area on a disk that the Linux kernel uses as virtual memory when physical RAM is exhausted. It allows the system to continue running by moving less-used data from RAM to the swap space. You can manage swap space using tools like swapon and swapoff to enable or disable swap devices or files.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the /usr and",
+      "description": "What is the purpose of the /usr and /var directories in Linux? How do they differ from /bin and /etc?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the /usr and /var directories in Linux? How do they differ from /bin and /etc?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux",
+        "scope"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-29-ref-1",
+          "text": "The /usr directory contains user-specific data and programs, while the /var directory contains variable data, such as logs, spool files, and cached files. In contrast, /bin contains essential binary files, and /etc contains system configuration files. Understanding these directory hierarchies is important for managing the file system and system administration tasks.",
+          "weight": 1,
+          "keyPoints": [
+            "Function scope vs block scope",
+            "`var` vs `let`/`const` behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the systemd init",
+      "description": "What is the purpose of the systemd init system in modern Linux distributions?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the systemd init system in modern Linux distributions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-30-ref-1",
+          "text": "systemd is a modern init system used in many Linux distributions. It manages the system's startup and services. It differs from traditional SysV init by providing parallelization, dependency management, and better service control. systemd uses unit files (.service) to define and manage services.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The Linux file permissions system (e.g.,",
+      "description": "Explain the Linux file permissions system (e.g., chmod, chown, chgrp). How do you change file permissions, ownership, and group?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Linux file permissions system (e.g., chmod, chown, chgrp). How do you change file permissions, ownership, and group?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-31-ref-1",
+          "text": "In Linux, file permissions are represented using the chmod command for changing permissions, chown for changing ownership, and chgrp for changing the group of a file. For example, to give read and write permissions to the owner of a file: chmod u+rw filename To change the ownership of a file: chown newowner:newgroup filename",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "What a Linux process tree is",
+      "description": "Explain what a Linux process tree is and how you can visualize it using tools like pstree and htop.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a Linux process tree is and how you can visualize it using tools like pstree and htop.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-32-ref-1",
+          "text": "A process tree is a hierarchical representation of processes on a Linux system, with the init process (PID 1) at the root. Tools like pstree and htop can visualize this tree, showing parent-child relationships between processes, making it easier to understand how processes are related and organized.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of process priority and",
+      "description": "Explain the concept of process priority and how the nice and renice commands are used to adjust process priority in Linux.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of process priority and how the nice and renice commands are used to adjust process priority in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-33-ref-1",
+          "text": "Process priority determines how much CPU time a process receives. The nice command sets a process's priority when it's launched, while renice allows you to change the priority of an existing process. Lower values of priority (higher niceness) mean lower priority, and higher values mean higher priority. For example: nice -n 10 myprocess renice -n 5 -p 1234",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the /dev directory",
+      "description": "Explain the purpose of the /dev directory in Linux, and how does it relate to device files and device drivers?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the /dev directory in Linux, and how does it relate to device files and device drivers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-34-ref-1",
+          "text": "The /dev directory contains special device files that represent and provide access to hardware devices. These device files are used by device drivers and applications to interact with hardware. For example, /dev/sda represents the first SCSI or SATA hard disk, and /dev/ttyS0 represents the first serial port.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the LD_LIBRARY_PATH environment",
+      "description": "What is the purpose of the LD_LIBRARY_PATH environment variable in Linux, and how can it be used?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the LD_LIBRARY_PATH environment variable in Linux, and how can it be used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-35-ref-1",
+          "text": "The LD_LIBRARY_PATH environment variable specifies directories where the dynamic linker should search for shared libraries before the standard library directories. It can be used to temporarily modify the library search path for testing or running programs with custom libraries. However, it should be used with caution, as it can lead to library conflicts.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the strace command",
+      "description": "What is the purpose of the strace command in Linux?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the strace command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-36-ref-1",
+          "text": "The strace command is used to trace system calls and signals made by a process. It provides insights into the behavior of a program, helping diagnose issues, analyze performance, and debug problems. For example, to trace system calls for a process with PID 1234: strace -p 1234",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the ssh command",
+      "description": "Explain the purpose of the ssh command in Linux?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the ssh command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-37-ref-1",
+          "text": "The ssh (Secure Shell) command is used for secure remote access to other systems over a network. It encrypts the communication between the client and the server, providing secure login and data transfer. To connect to a remote server, you can use: ssh username@remote-host",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the nohup command",
+      "description": "What is the purpose of the nohup command in Linux?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the nohup command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-38-ref-1",
+          "text": "The nohup (no hang-up) command is used to run a process that continues running even after the user logs out or the terminal is closed. It detaches the process from the terminal and prevents it from receiving the hang-up (SIGHUP) signal. For example: nohup ./myprocess &",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The mount command in Linux",
+      "description": "What is the mount command in Linux?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the mount command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-39-ref-1",
+          "text": "The mount command is used to attach filesystems to the directory tree, making them accessible to the system and users. For example, to mount a USB drive to the /mnt directory: mount /dev/sdb1 /mnt",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "What a Linux runlevel is, and",
+      "description": "Explain what a Linux runlevel is, and how does it determine the state of the system and which services are started at boot?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a Linux runlevel is, and how does it determine the state of the system and which services are started at boot?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-40-ref-1",
+          "text": "A runlevel in Linux represents a specific state or mode of the system. Each runlevel is associated with a set of services to start or stop. The default runlevel determines the system's state at boot. For example, runlevel 3 is often used for multi-user mode with networking, while runlevel 5 includes a graphical interface.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Can you explain what Linux namespaces",
+      "description": "Can you explain what Linux namespaces and cgroups are, and how they are used for process isolation and resource management?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain what Linux namespaces and cgroups are, and how they are used for process isolation and resource management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-41-ref-1",
+          "text": "Linux namespaces and cgroups are features that provide process isolation and resource management. Namespaces isolate various aspects of a process's view of the system, such as its filesystem or network stack, while cgroups allow you to control and limit resource usage (CPU, memory, I/O) for groups of processes. These features are essential for containerization technologies like Docker and Kubernetes.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-42",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the /proc filesystem",
+      "description": "What is the purpose of the /proc filesystem in Linux?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the /proc filesystem in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-42-ref-1",
+          "text": "The /proc filesystem is a virtual filesystem that provides real-time information about the running processes and kernel parameters. It exposes a structured directory tree where each directory and file represents a process or kernel parameter. It is commonly used for process monitoring and debugging.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-43",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the Linux tar",
+      "description": "What is the purpose of the Linux tar command, and how do you create and extract tarball files?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the Linux tar command, and how do you create and extract tarball files?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-43-ref-1",
+          "text": "The tar command is used for creating and extracting tarball archives. It can compress files and directories, making it a common choice for creating backup files. To create a tarball, you can use: tar -cvf archive.tar files_or_directories To extract a tarball: tar -xvf archive.tar",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-44",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the rsync command",
+      "description": "What is the purpose of the rsync command in Linux, and how can it be used for efficient file synchronization?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the rsync command in Linux, and how can it be used for efficient file synchronization?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-44-ref-1",
+          "text": "rsync is a powerful command-line tool used for file synchronization and data transfer between directories or systems. It efficiently transfers only the differences between files, making it useful for backups and data replication. For example, to synchronize files from a local directory to a remote server over SSH: rsync -avz /local/path/ user@remote:/remote/path/",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-45",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The role of the initramfs (initial",
+      "description": "What is the role of the initramfs (initial RAM filesystem) in the Linux boot process, and why is it necessary?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the initramfs (initial RAM filesystem) in the Linux boot process, and why is it necessary?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-45-ref-1",
+          "text": "The initramfs is an initial filesystem that is loaded into memory during the Linux boot process before the root filesystem is mounted. It contains essential drivers and tools required to initialize hardware, load the root filesystem, and complete the boot process. It is necessary because it ensures that the kernel can access the root filesystem, especially in cases involving complex storage configurations or encrypted disks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-46",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the /sbin and",
+      "description": "What is the purpose of the /sbin and /usr/sbin directories in Linux? Why are some system utilities located there instead of /bin or /usr/bin?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the purpose of the /sbin and /usr/sbin directories in Linux? Why are some system utilities located there instead of /bin or /usr/bin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-46-ref-1",
+          "text": "The /sbin and /usr/sbin directories contain system executables and administrative commands that are typically used by the root user for system maintenance and recovery. These utilities are separated from /bin and /usr/bin to ensure that essential system tools are available even if /usr is mounted separately or unavailable.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-47",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The role of the /boot partition",
+      "description": "Explain the role of the /boot partition in Linux. Why is it separate from the root filesystem, and what does it typically contain?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the /boot partition in Linux. Why is it separate from the root filesystem, and what does it typically contain?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-47-ref-1",
+          "text": "The /boot partition in Linux typically contains bootloader configuration files, kernel images, and initial ramdisk (initramfs) files. It is separate from the root filesystem to ensure that essential boot files are available even if the root filesystem becomes corrupted or encrypted. The /boot partition is critical for the system's initial boot process.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-questions-bank-48",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the sysctl command",
+      "description": "What is the purpose of the sysctl command in Linux?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the sysctl command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "linux"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "linux"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:59:07.909Z",
+      "updatedAt": "2025-12-19T17:59:07.909Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "linux-questions-bank-48-ref-1",
+          "text": "The sysctl command is used to view and modify kernel parameters and their values at runtime. It provides a way to adjust various aspects of the kernel and system behavior. To view a kernel parameter, you can use: sysctl parameter_name To change a parameter temporarily: sysctl -w parameter_name=new_value",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

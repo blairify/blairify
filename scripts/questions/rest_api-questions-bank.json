@@ -1,0 +1,76 @@
+{
+  "totalQuestions": 10,
+  "extractedAt": "2025-12-19T17:42:49.767Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "Fetch All User Ages",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "Fetch All Restaurant Names",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "Fetch & Filter Movie Ratings",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Mid",
+      "title": "Fetch Highest‑Rated Hotel Name",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Mid",
+      "title": "Find Songs From Search Term",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Mid",
+      "title": "Average Product Price By Category",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Mid",
+      "title": "Count Active Users By Region",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Senior",
+      "title": "Total Likes for User",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Senior",
+      "title": "Total Article Likes for Author",
+      "answer": null,
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Senior",
+      "title": "Count Keyword Occurrences in Comments",
+      "answer": null,
+      "isPremium": false
+    }
+  ]
+}

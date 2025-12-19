@@ -1,0 +1,2396 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "networks-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The OSI model, and why is",
+      "description": "What is the OSI model, and why is it important in networking?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the OSI model, and why is it important in networking?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "data-scientist"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-1-ref-1",
+          "text": "The OSI (Open Systems Interconnection) model is a conceptual framework used to understand how network protocols and communication work. It's important because it standardizes networking concepts into seven layers, making it easier to discuss and design networks. The layers are: Physical layer: Responsible for the physical connection between devices. Data Link layer: Responsible for creating a link between devices and error-free data transfer. Network layer: Responsible for routing data packets between devices. Transport layer: Responsible for the reliable delivery of data between devices. Session layer: Responsible for establishing, maintaining, and terminating communication sessions between devices. Presentation layer: Responsible for formatting and converting data for use by the application layer. Application layer: Responsible for providing an interface for applications to access the network.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between TCP and UDP.",
+      "description": "Explain the difference between TCP and UDP.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between TCP and UDP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-2-ref-1",
+          "text": "TCP (Transmission Control Protocol) is a connection-oriented protocol that ensures reliable, ordered, and error-checked delivery of data. UDP (User Datagram Protocol) is connectionless and provides faster but less reliable data transfer. UDP is commonly used in applications where speed is crucial, and data loss can be tolerated, such as video streaming and online gaming.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A network topology",
+      "description": "What is a network topology?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a network topology?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-3-ref-1",
+          "text": "A network topology refers to the physical or logical layout of a computer network, including the arrangement of devices and the connections between them.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Name some common network topologies",
+      "description": "Name some common network topologies?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some common network topologies?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-4-ref-1",
+          "text": "Bus: In a bus topology, all devices are connected to a single central cable, called the bus. Data is transmitted along the bus and all devices receive it, but only the device for which the data is intended processes it. Star: In a star topology, each device is connected to a central hub or switch. Data is transmitted from the source device to the hub, which then forwards it to the intended destination device. Ring: In a ring topology, each device is connected to two other devices, creating a circular network. Data is transmitted around the ring in one direction and passes through each device until it reaches its destination. Mesh: In a mesh topology, each device has a direct connection to every other device in the network. This allows multiple paths for data to travel, making the network more robust and resistant to failure. Tree: In a tree topology, the network is connected in a hierarchical manner, with a root node connected to one or more intermediary nodes, which are in turn connected to leaf nodes. Hybrid: It's a combination of two or more topologies",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "A network protocol",
+      "description": "What is a network protocol?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a network protocol?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-5-ref-1",
+          "text": "A protocol is a set of rules and standards that govern the communication between devices in a network. It defines the format of the data being transmitted, as well as the procedures for establishing, maintaining, and ending communication between devices.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Name some common network protocols",
+      "description": "Name some common network protocols?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some common network protocols?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-6-ref-1",
+          "text": "Internet Protocol (IP): This is a network layer protocol that is responsible for routing data packets between devices on a network. Transmission Control Protocol (TCP): This is a transport layer protocol that is responsible for ensuring that data is delivered reliably and in the correct order between devices. Simple Mail Transfer Protocol (SMTP): This is an application layer protocol used for sending and receiving email messages. File Transfer Protocol (FTP): This is an application layer protocol used for transferring files between devices on a network. Hypertext Transfer Protocol (HTTP): This is an application layer protocol used for transferring data over the World Wide Web. Secure Socket Layer (SSL) and Transport Layer Security (TLS): These are cryptographic protocols used to secure network communications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of an IP address",
+      "description": "What is the purpose of an IP address and a MAC address?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of an IP address and a MAC address?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-7-ref-1",
+          "text": "An IP address (Internet Protocol address) is used for network layer routing and identifies a device on a network. It is necessary for devices to communicate across different networks. A MAC address (Media Access Control address) is used for data link layer communication within a local network (e.g., Ethernet). It is a unique hardware address assigned to network interfaces.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "A MAC address table, and how",
+      "description": "What is a MAC address table, and how does it work in a network switch?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a MAC address table, and how does it work in a network switch?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-8-ref-1",
+          "text": "A MAC address table (also known as a MAC address forwarding table) is used by network switches to map MAC addresses to physical switch ports. It helps the switch determine where to forward data frames based on destination MAC addresses.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The subnet mask, and how does",
+      "description": "What is the subnet mask, and how does it relate to IP addressing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the subnet mask, and how does it relate to IP addressing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-9-ref-1",
+          "text": "A subnet mask is used to divide an IP address into network and host portions. It determines which part of an IP address represents the network and which part represents the host. For example, in the IP address 192.168.1.10 with a subnet mask of 255.255.255.0, the first three octets (192.168.1) represent the network, and the last octet (10) represents the host.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of NAT (Network Address",
+      "description": "Explain the purpose of NAT (Network Address Translation).?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of NAT (Network Address Translation).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-10-ref-1",
+          "text": "NAT is used to map private IP addresses within a local network to a single public IP address for outgoing internet traffic. It helps conserve public IP addresses and provides a level of security by hiding internal network structure from external networks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "DNS (Domain Name System), and how",
+      "description": "What is DNS (Domain Name System), and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is DNS (Domain Name System), and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-11-ref-1",
+          "text": "DNS translates human-readable domain names (e.g., www.example.com) into IP addresses that computers can understand. It does this by maintaining a distributed database of domain names and their corresponding IP addresses. When you enter a URL in a web browser, DNS servers resolve it to the associated IP address, enabling the browser to fetch the web page.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of firewalls in network",
+      "description": "What is the purpose of firewalls in network security?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of firewalls in network security?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "cybersecurity"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-12-ref-1",
+          "text": "Firewalls are used to filter network traffic, allowing or blocking traffic based on predefined security rules. They act as a barrier between a trusted internal network and untrusted external networks (like the internet) to protect against unauthorized access, malware, and other threats.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between symmetric and asymmetric",
+      "description": "What is the difference between symmetric and asymmetric encryption?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between symmetric and asymmetric encryption?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "cybersecurity"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-13-ref-1",
+          "text": "Symmetric encryption uses the same key for both encryption and decryption, while asymmetric encryption uses a pair of public and private keys. Symmetric encryption is faster but requires secure key exchange. Asymmetric encryption is more secure for key exchange but is slower.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The role of routers in a",
+      "description": "Explain the role of routers in a network.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of routers in a network.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-14-ref-1",
+          "text": "Routers are network devices that determine the best path for data packets to travel between different networks. They operate at the network layer (Layer 3) of the OSI model and use routing tables to make decisions about forwarding packets to their destination.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "DHCP (Dynamic Host Configuration Protocol), and",
+      "description": "What is DHCP (Dynamic Host Configuration Protocol), and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is DHCP (Dynamic Host Configuration Protocol), and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-15-ref-1",
+          "text": "DHCP is a network protocol used to automatically assign IP addresses and configuration settings (e.g., subnet mask, gateway) to devices on a network. DHCP servers lease IP addresses to devices for a specific duration. When a device joins a network, it can request an IP address and related settings from the DHCP server.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of a switch in",
+      "description": "What is the purpose of a switch in a network, and how does it differ from a hub?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of a switch in a network, and how does it differ from a hub?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-16-ref-1",
+          "text": "A switch is a network device that operates at the data link layer (Layer 2) of the OSI model and uses MAC addresses to forward data packets to their intended destination. It is more intelligent than a hub, which simply broadcasts data to all connected devices, making switches more efficient and secure.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of VLANs (Virtual LANs)",
+      "description": "Explain the concept of VLANs (Virtual LANs) and their use in network segmentation.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of VLANs (Virtual LANs) and their use in network segmentation.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-17-ref-1",
+          "text": "VLANs are logical segments within a physical network that allow devices to be grouped together, even if they are not physically connected to the same switch. VLANs are used for network segmentation, improving network security, and isolating traffic for better performance and management.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "BGP (Border Gateway Protocol), and why",
+      "description": "What is BGP (Border Gateway Protocol), and why is it important in internet routing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is BGP (Border Gateway Protocol), and why is it important in internet routing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-18-ref-1",
+          "text": "BGP is an exterior gateway protocol used to route traffic between different autonomous systems (ASes) on the internet. It's crucial for maintaining internet routing tables, making routing decisions, and ensuring the efficient flow of data between networks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of Quality of Service",
+      "description": "Explain the concept of Quality of Service (QoS) in networking and its role in prioritizing network traffic.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Quality of Service (QoS) in networking and its role in prioritizing network traffic.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-19-ref-1",
+          "text": "QoS is a set of technologies and policies used to prioritize certain types of network traffic to ensure reliable and predictable performance. It assigns priorities to data packets based on factors like application, service level agreements (SLAs), and network conditions to manage bandwidth and reduce latency.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A VPN (Virtual Private Network), and",
+      "description": "What is a VPN (Virtual Private Network), and how does it provide secure communication over untrusted networks like the internet?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a VPN (Virtual Private Network), and how does it provide secure communication over untrusted networks like the internet?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-20-ref-1",
+          "text": "A VPN creates an encrypted and secure communication tunnel over an untrusted network, such as the internet. It allows remote users or branch offices to securely connect to a private network, ensuring data confidentiality and integrity.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Latency in networking, and how does",
+      "description": "What is latency in networking, and how does it affect network performance?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is latency in networking, and how does it affect network performance?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-21-ref-1",
+          "text": "Latency is the time it takes for data to travel from the source to the destination in a network. It can be affected by factors like distance, network congestion, and processing delays. High latency can lead to slow network performance and delays in data transfer.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of subnetting and its",
+      "description": "Explain the concept of subnetting and its benefits in IP address management.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of subnetting and its benefits in IP address management.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-22-ref-1",
+          "text": "Subnetting is the process of dividing a larger IP network into smaller, more manageable subnetworks or subnets. It helps improve network efficiency, security, and IP address allocation by segmenting a network into smaller, logical units.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "ARP (Address Resolution Protocol), and how",
+      "description": "What is ARP (Address Resolution Protocol), and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is ARP (Address Resolution Protocol), and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-23-ref-1",
+          "text": "ARP is a protocol used to map an IP address to its corresponding MAC address on a local network. When a device wants to communicate with another device in the same network, it uses ARP to discover the MAC address associated with the destination IP address.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Streams and datagrams",
+      "description": "What are streams and datagrams?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are streams and datagrams?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-24-ref-1",
+          "text": "Streams: A stream is a continuous flow of data that is transmitted between devices as a sequence of bytes. The data is transmitted in the order it was generated and it is guaranteed to be delivered in that order. E.g. Transmission Control Protocol (TCP) Datagrams: A datagram is a self-contained packet of data that is transmitted between devices. Each datagram contains its own header information, which includes the destination address, and is treated as a separate unit of data. The User Datagram Protocol (UDP) uses a datagram-based approach to data transfer, where data is divided into packets, each of which is sent independently to the receiver. There is no guarantee that the packets will be delivered in the order they were sent, and it's up to the application to handle any out-of-order packets.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Modulation",
+      "description": "What is modulation?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is modulation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-25-ref-1",
+          "text": "Modulation is a technique used in telecommunications to convert a baseband signal (a low-frequency signal) into a higher-frequency signal that can be transmitted over a channel, such as a cable or wireless link while preserving the information content of the baseband signal.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Name some modulation techniques",
+      "description": "Name some modulation techniques?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some modulation techniques?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-26-ref-1",
+          "text": "Amplitude modulation (AM): The amplitude (or strength) of the carrier signal is varied in proportion to the baseband signal. Frequency modulation (FM): The frequency of the carrier signal is varied in proportion to the baseband signal. Phase modulation (PM): The phase of the carrier signal is varied in proportion to the baseband signal.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Framing",
+      "description": "What is framing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is framing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-27-ref-1",
+          "text": "Framing in networks refers to the process of dividing a stream of data into smaller, manageable units called frames before they are transmitted over a network. The frames are used to provide a structure for the data and to add control information, such as error detection and correction codes, that can be used to ensure the integrity of the data as it is transmitted. There are several types of framing techniques, including: bit stuffing and byte stuffing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Some error detection methods in the",
+      "description": "Describe some error detection methods in the link layer?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe some error detection methods in the link layer?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-28-ref-1",
+          "text": "Error detection in networks refers to the process of identifying errors that occur in the transmission of data over a network. These errors can occur due to various reasons such as noise, interference, or hardware failure. Techniques include: Parity Checksum Cyclic Redundancy Check (CRC)",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The differences between Parity, Checksum, and",
+      "description": "Explain the differences between Parity, Checksum, and Cyclic Redundancy Check (CRC)?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between Parity, Checksum, and Cyclic Redundancy Check (CRC)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-29-ref-1",
+          "text": "Parity: A parity bit is added to each data unit (byte, word, etc.) to ensure that the number of 1's in the unit is even or odd. If an error occurs, the parity bit will no longer match the data unit, indicating that an error has occurred. Checksum: A checksum is a value calculated from the data in the packet. The sender and receiver both calculate the checksum of the packet, and if the values do not match, an error is assumed to have occurred. Cyclic Redundancy Check (CRC): A more robust error detection method than parity and checksum. A polynomial division is performed on the data unit with a pre-agreed upon divisor and the remainder is appended to the data unit to form the code word. The receiver performs the same polynomial division and if the remainder is not zero, an error is assumed to have occurred.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of BGP (Border Gateway",
+      "description": "Explain the concept of BGP (Border Gateway Protocol) route aggregation and its benefits in reducing the size of internet routing tables.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of BGP (Border Gateway Protocol) route aggregation and its benefits in reducing the size of internet routing tables.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-30-ref-1",
+          "text": "BGP route aggregation involves summarizing multiple IP prefixes into a single, more specific prefix to reduce the size of BGP routing tables. It helps improve routing table scalability and reduces the memory and processing overhead on routers.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Execution model",
+      "description": "Explain the concept of network latency and jitter, and how do they impact real-time applications like VoIP and video conferencing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of network latency and jitter, and how do they impact real-time applications like VoIP and video conferencing?\" Requirements: - Answer directly: JS is executed by an engine that compiles/JITs internally - Explain interpreted vs compiled as a spectrum in modern engines - Mention parse -> bytecode -> JIT optimization (high level) - Practical implication: performance varies, warm-up/optimization Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Answer directly: JS is executed by an engine that compiles/JITs internally; Explain interpreted vs compiled as a spectrum in modern engines; Mention parse -> bytecode -> JIT optimization (high level); Practical implication: performance varies, warm-up/optimization. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-31-ref-1",
+          "text": "Network latency is the delay in the transmission of data packets, while jitter is the variation in latency over time. Both latency and jitter can negatively impact real-time applications by causing delays, poor call quality, and synchronization issues.",
+          "weight": 1,
+          "keyPoints": [
+            "Answer directly: JS is executed by an engine that compiles/JITs internally",
+            "Explain interpreted vs compiled as a spectrum in modern engines",
+            "Mention parse -> bytecode -> JIT optimization (high level)",
+            "Practical implication: performance varies, warm-up/optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "MPLS (Multiprotocol Label Switching), and how",
+      "description": "What is MPLS (Multiprotocol Label Switching), and how does it enhance the efficiency of packet forwarding in IP networks?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is MPLS (Multiprotocol Label Switching), and how does it enhance the efficiency of packet forwarding in IP networks?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-32-ref-1",
+          "text": "MPLS is a protocol used for high-performance packet forwarding in IP networks. It assigns labels to packets, allowing routers to make forwarding decisions based on labels rather than complex IP header lookups. MPLS enhances network efficiency, scalability, and quality of service (QoS).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of load balancing algorithms",
+      "description": "Explain the purpose of load balancing algorithms in a network and provide examples of different load balancing algorithms.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of load balancing algorithms in a network and provide examples of different load balancing algorithms.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-33-ref-1",
+          "text": "Load balancing algorithms distribute network traffic among multiple servers to optimize resource utilization and improve performance. Examples of load balancing algorithms include Round Robin, Least Connections, and Weighted Least Connections.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of DNSSEC (DNS Security",
+      "description": "Explain the purpose of DNSSEC (DNS Security Extensions) and how it enhances the security of the Domain Name System.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of DNSSEC (DNS Security Extensions) and how it enhances the security of the Domain Name System.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "cybersecurity"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-34-ref-1",
+          "text": "DNSSEC is a suite of extensions to DNS that adds cryptographic authentication to DNS responses. It helps prevent DNS spoofing and cache poisoning attacks by ensuring the authenticity and integrity of DNS data.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of ICMP (Internet Control",
+      "description": "What is the purpose of ICMP (Internet Control Message Protocol), and can you provide some examples of ICMP messages?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of ICMP (Internet Control Message Protocol), and can you provide some examples of ICMP messages?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-35-ref-1",
+          "text": "ICMP is used to send error messages and operational information about network conditions. Examples of ICMP messages include \"Ping\" (Echo Request and Echo Reply), \"Destination Unreachable,\" and \"Time Exceeded.\"",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of NAT traversal and",
+      "description": "Explain the concept of NAT traversal and its importance in peer-to-peer communication.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of NAT traversal and its importance in peer-to-peer communication.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-36-ref-1",
+          "text": "NAT traversal is the process of establishing a direct network connection between devices located behind Network Address Translation (NAT) routers. It's crucial for peer-to-peer communication because it allows devices to communicate without relying on port forwarding or third-party servers.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of a proxy server,",
+      "description": "What is the purpose of a proxy server, and how does it enhance security and privacy in network communication?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of a proxy server, and how does it enhance security and privacy in network communication?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-37-ref-1",
+          "text": "A proxy server acts as an intermediary between a client and a target server. It enhances security and privacy by hiding the client's IP address, filtering and caching content, and providing additional security features such as content filtering and access control.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concepts of DNS load balancing",
+      "description": "Explain the concepts of DNS load balancing and anycast, and how they can improve the availability and performance of internet services.?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concepts of DNS load balancing and anycast, and how they can improve the availability and performance of internet services.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-38-ref-1",
+          "text": "DNS load balancing distributes incoming DNS queries across multiple server instances to distribute the load and improve service availability and responsiveness. Anycast is a routing technique where the same IP address is advertised from multiple locations, allowing traffic to be directed to the nearest server. Both techniques enhance service availability and performance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of an IDS (Intrusion",
+      "description": "What is the purpose of an IDS (Intrusion Detection System) in network security, and how does it differ from an IPS (Intrusion Prevention System)?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the purpose of an IDS (Intrusion Detection System) in network security, and how does it differ from an IPS (Intrusion Prevention System)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "cybersecurity"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-39-ref-1",
+          "text": "An IDS is used to detect and alert on suspicious activities or potential security threats within a network. An IPS goes a step further by actively blocking or preventing malicious traffic. While an IDS is passive, an IPS is proactive in protecting the network.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of SDN (Software-Defined Networking)",
+      "description": "Explain the concept of SDN (Software-Defined Networking) and its benefits in network management and automation.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of SDN (Software-Defined Networking) and its benefits in network management and automation.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-40-ref-1",
+          "text": "SDN is an approach that separates the control plane (which determines network traffic routing) from the data plane (which forwards packets). It centralizes network control, making it easier to manage and automate network configurations, optimize traffic, and respond to changing network demands.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A DDoS (Distributed Denial of Service)",
+      "description": "What is a DDoS (Distributed Denial of Service) attack, and what are some strategies to mitigate its effects on a network?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a DDoS (Distributed Denial of Service) attack, and what are some strategies to mitigate its effects on a network?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-41-ref-1",
+          "text": "A DDoS attack is an attempt to overwhelm a network or service by flooding it with a massive amount of traffic from multiple sources. Strategies to mitigate DDoS attacks include traffic filtering, rate limiting, content distribution networks (CDNs), and employing specialized DDoS mitigation services.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-42",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of VLAN trunking and",
+      "description": "Explain the concept of VLAN trunking and how it allows multiple VLANs to traverse a single network link.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of VLAN trunking and how it allows multiple VLANs to traverse a single network link.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-42-ref-1",
+          "text": "VLAN trunking is a technique that allows multiple VLANs to share a single network link (usually between switches). It adds a VLAN tag to Ethernet frames to identify which VLAN the frame belongs to, enabling traffic from different VLANs to coexist on the same physical link.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-43",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The advantages and disadvantages of using",
+      "description": "What are the advantages and disadvantages of using IPv6 compared to IPv4, and why is IPv6 adoption important?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages and disadvantages of using IPv6 compared to IPv4, and why is IPv6 adoption important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-43-ref-1",
+          "text": "IPv6 offers a vastly larger address space, improved security features, and simplified network configuration compared to IPv4. However, IPv6 adoption faces challenges in transitioning from IPv4, as many networks still predominantly use IPv4. Adoption is important to address the depletion of IPv4 addresses and ensure the continued growth of the internet.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-44",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of Q-in-Q (also known",
+      "description": "Explain the concept of Q-in-Q (also known as VLAN stacking) and its use in network virtualization and provider networks.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Q-in-Q (also known as VLAN stacking) and its use in network virtualization and provider networks.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-44-ref-1",
+          "text": "Q-in-Q is a technique that adds an additional VLAN tag to Ethernet frames. It's used in network virtualization and provider networks to encapsulate customer VLANs within service provider VLANs, enabling isolation and segmentation of customer traffic.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks-questions-bank-45",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of HSRP (Hot Standby",
+      "description": "What is the purpose of HSRP (Hot Standby Router Protocol) and VRRP (Virtual Router Redundancy Protocol), and how do they enhance network reliability?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the purpose of HSRP (Hot Standby Router Protocol) and VRRP (Virtual Router Redundancy Protocol), and how do they enhance network reliability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "networks"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "networks"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T18:00:40.805Z",
+      "updatedAt": "2025-12-19T18:00:40.805Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "networks-questions-bank-45-ref-1",
+          "text": "HSRP and VRRP are protocols used to provide high availability and redundancy in networks by allowing multiple routers to share a virtual IP address. If one router fails, another can take over, ensuring uninterrupted network connectivity.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

@@ -1,0 +1,342 @@
+{
+  "totalQuestions": 48,
+  "extractedAt": "2025-12-19T17:59:07.909Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "Explain the difference between a process and a thread in Linux.",
+      "answer": "In Linux, a process is an independent program that has its own memory space, file descriptors, and resources. A thread, on the other hand, is a lightweight execution unit within a process that shares the same memory space and resources as the parent process. Threads are used for concurrent execution within a single process.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What is the purpose of the fork() system call?",
+      "answer": "The fork() system call is used to create a new process, which is a copy of the calling process. It is often used in Unix-like operating systems, including Linux, to enable parallel execution and process creation.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "How do you check the status of a Linux service or daemon?",
+      "answer": "You can use the systemctl command to check the status of a service in systemd-based Linux distributions. For example, to check the status of the Apache web server:\n\ntypescript\n\nCopy code\n\nsystemctl status apache2",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "Explain the purpose of the /etc/passwd and /etc/shadow files in Linux.",
+      "answer": "The /etc/passwd file contains user account information, such as usernames, user IDs (UIDs), group IDs (GIDs), home directories, and login shells. The /etc/shadow file, on the other hand, stores the encrypted password hashes for user accounts. It is more secure than storing passwords in plain text as it prevents unauthorized access to password information.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "What is the purpose of the lsof command in Linux?",
+      "answer": "The lsof command is used to list open files and the processes that have them open. It provides detailed information about which files, directories, or network sockets are currently in use by running processes. For example, to list all open files and sockets:\n\ntypescript\n\nCopy code\n\nlsof",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "Explain the purpose of the ping command in Linux?",
+      "answer": "The ping command is used to test network connectivity by sending ICMP echo request packets to a remote host and waiting for ICMP echo reply packets. It can help diagnose network issues and measure network latency. For example:\n\ntypescript\n\nCopy code\n\nping google.com",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "What is a shell in Linux, and why is it important?",
+      "answer": "A shell is a command-line interface that allows users to interact with the Linux operating system. It interprets user commands and executes them. It's important because it provides a way to control and manage the system, automate tasks through scripting, and perform various system-related operations.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "Explain the purpose of the ps command in Linux and how it can be used to view process information.",
+      "answer": "The ps command is used to list currently running processes on a Linux system. It provides information about process IDs (PIDs), parent PIDs, CPU and memory usage, and more. For example, to list all processes running in the current shell:\n\ntypescript\n\nCopy code\n\nps aux",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "Explain how you can check the system's current IP address and network configuration in Linux.",
+      "answer": "You can use the ifconfig or ip command to check the system's current IP address and network configuration. For example:\n\ntypescript\n\nCopy code\n\nifconfig\nOr, using ip:\n\ntypescript\n\nCopy code\n\nip addr show",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "What is the role of the init process in Linux, and how does it relate to systemd?",
+      "answer": "The init process is the first process started by the Linux kernel and has process ID 1. It is responsible for initializing the system and starting other processes, including system services.\nIn many modern Linux distributions, init has been replaced by systemd, which is a more advanced init system that manages system services, dependencies, and parallelization of startup tasks.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "Explain what the sudo command is used for in Linux.",
+      "answer": "The sudo command is used to temporarily elevate the user's privileges to perform administrative tasks. It allows authorized users to execute commands as the superuser or another user, as specified in the configuration. This helps enhance system security by limiting the use of privileged commands to authorized users.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Junior",
+      "title": "What is the purpose of the PATH environment variable in Linux, and how is it used?",
+      "answer": "The PATH environment variable is a list of directories where the shell looks for executable files when a command is entered. It allows you to run programs without specifying their full paths. To display the current PATH variable, you can use the echo command:\n\ntypescript\n\nCopy code\n\necho $PATH",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "Explain the purpose of the iptables command in Linux, and how can it be used to configure firewall rules?",
+      "answer": "iptables is a command-line tool for configuring the Linux kernel's firewall (Netfilter). It is used to define rules for packet filtering, network address translation (NAT), and packet mangling. For example, to allow incoming SSH traffic while blocking all other incoming traffic, you can use:\n\ntypescript\n\nCopy code\n\niptables -A INPUT -p tcp --dport 22 -j ACCEPT\niptables -A INPUT -j DROP",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What is the purpose of the chmod command in Linux, and how do you use it?",
+      "answer": "The chmod command is used to change the permissions of files and directories in Linux. It allows you to control who can read, write, and execute a file or directory. You can use it with symbolic or octal notation.\nFor example, to give read and write permissions to the owner of a file, you can use:\n\ntypescript\n\nCopy code\n\nchmod u+rw filename",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "Explain the difference between hard links and symbolic links in Linux.",
+      "answer": "Hard links and symbolic links are both used to create references to files, but they work differently. A hard link is essentially a reference to the same inode (file data structure) as the original file, while a symbolic link is a separate file that points to the target file's path. If you delete the original file, hard links will still reference its data, while symbolic links will become broken.\nTo create a symlink to a file, you can use the ln command with the -s option, like this:\n\ntypescript\n\nCopy code\n\nln -s /path/to/target /path/to/symlink",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "Explain the purpose of the grep command in Linux.",
+      "answer": "The grep command is used for searching text within files or streams of text. It allows you to specify a pattern or regular expression, and it will display lines that match that pattern. It's often used for text processing, log analysis, and data extraction.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What is a Linux shell and why are there different shells available?",
+      "answer": "A Linux shell is a command-line interface that allows users to interact with the operating system. Different shells offer different features and scripting capabilities.\nSome popular Linux shells include Bash, Zsh, Fish, and Dash. Users can choose a shell based on their preferences and requirements.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "Explain the concept of process scheduling in Linux. What scheduling algorithms are commonly used, and how do they differ?",
+      "answer": "Process scheduling in Linux involves determining which process gets access to the CPU and for how long. Common scheduling algorithms include the Completely Fair Scheduler (CFS), Round Robin, and Priority Scheduling. They differ in how they prioritize processes, allocate CPU time, and handle different types of workloads.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "What is a Linux kernel module, and why are they used?",
+      "answer": "A kernel module is a piece of code that can be loaded and unloaded into the Linux kernel at runtime. They are used to add functionality to the kernel without the need to recompile or reboot the system.\nFor example, you might load a kernel module to add support for a specific hardware device or enable a specific feature that wasn't compiled into the kernel initially.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "What is the purpose of the cron and at commands in Linux, and how do they differ in scheduling tasks?",
+      "answer": "Both cron and at are used for scheduling tasks in Linux. cron is a daemon that runs scheduled tasks at specified intervals, while at schedules tasks to run once at a specific time. For example, you can use cron to run a backup script daily at midnight and at to schedule a one-time task to run at 3:00 PM today.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "Explain the role of the ldconfig command in Linux?",
+      "answer": "The ldconfig command is used to update the shared library cache, which contains information about the shared libraries available on the system. It is important because it helps the system locate shared libraries at runtime, allowing programs to run successfully without needing to specify the library's full path.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What is the purpose of the df and du commands in Linux? How do they differ?",
+      "answer": "The df command displays disk space usage for mounted filesystems, providing information about total disk space, used space, and available space. On the other hand, the du command is used to calculate disk usage of files and directories, showing how much space they occupy.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "Explain the concept of the Linux runlevel. What are runlevels, and how do they relate to system states?",
+      "answer": "Runlevels in Linux represent different system states, and they determine which services and processes are started or stopped. Common runlevels include 0 (halt), 1 (single-user mode), 3 (multi-user mode with networking), and 5 (multi-user mode with a graphical interface). The default runlevel is usually specified in the /etc/inittab or managed by systemd.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What is the purpose of the /etc/fstab file in Linux?",
+      "answer": "The /etc/fstab file contains information about disk drives and partitions, including their mount points and options. It is used by the mount command to automatically mount filesystems at system startup. You can edit it to configure which filesystems should be mounted and how they should be mounted, which is important for system stability and functionality.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "Explain the differences between a hard link and a soft link (symlink).",
+      "answer": "Hard links point directly to the data blocks of a file, while symlinks point to the file's path. Hard links cannot cross filesystems, while symlinks can.\nChoose a hard link when you need multiple directory entries for the same data blocks (e.g., saving disk space), and choose a symlink when you need a reference to a file or directory at a different location.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "Explain the purpose of the top command in Linux.",
+      "answer": "The top command provides real-time information about system performance, including CPU and memory usage, running processes, and system uptime. It continuously updates this data, allowing users to monitor system health and identify resource-intensive processes.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "Explain the purpose of the ldd command in Linux and how it is used to check library dependencies for an executable.",
+      "answer": "The ldd command is used to display the shared library dependencies of an executable binary. It shows which dynamic libraries are linked to the program. For example, to check the dependencies of the ls command:\n\ntypescript\n\nCopy code\n\nldd /bin/ls",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "Explain the role of the Linux swap space. What is it used for, and how can you manage it?",
+      "answer": "Swap space is a designated area on a disk that the Linux kernel uses as virtual memory when physical RAM is exhausted. It allows the system to continue running by moving less-used data from RAM to the swap space. You can manage swap space using tools like swapon and swapoff to enable or disable swap devices or files.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "What is the purpose of the /usr and /var directories in Linux? How do they differ from /bin and /etc?",
+      "answer": "The /usr directory contains user-specific data and programs, while the /var directory contains variable data, such as logs, spool files, and cached files. In contrast, /bin contains essential binary files, and /etc contains system configuration files. Understanding these directory hierarchies is important for managing the file system and system administration tasks.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "What is the purpose of the systemd init system in modern Linux distributions?",
+      "answer": "systemd is a modern init system used in many Linux distributions. It manages the system's startup and services. It differs from traditional SysV init by providing parallelization, dependency management, and better service control. systemd uses unit files (.service) to define and manage services.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "Explain the Linux file permissions system (e.g., chmod, chown, chgrp). How do you change file permissions, ownership, and group?",
+      "answer": "In Linux, file permissions are represented using the chmod command for changing permissions, chown for changing ownership, and chgrp for changing the group of a file. For example, to give read and write permissions to the owner of a file:\n\ntypescript\n\nCopy code\n\nchmod u+rw filename\nTo change the ownership of a file:\n\ntypescript\n\nCopy code\n\nchown newowner:newgroup filename",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "Explain what a Linux process tree is and how you can visualize it using tools like pstree and htop.",
+      "answer": "A process tree is a hierarchical representation of processes on a Linux system, with the init process (PID 1) at the root. Tools like pstree and htop can visualize this tree, showing parent-child relationships between processes, making it easier to understand how processes are related and organized.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "Explain the concept of process priority and how the nice and renice commands are used to adjust process priority in Linux.",
+      "answer": "Process priority determines how much CPU time a process receives. The nice command sets a process's priority when it's launched, while renice allows you to change the priority of an existing process. Lower values of priority (higher niceness) mean lower priority, and higher values mean higher priority. For example:\n\ntypescript\n\nCopy code\n\nnice -n 10 myprocess\nrenice -n 5 -p 1234",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "Explain the purpose of the /dev directory in Linux, and how does it relate to device files and device drivers?",
+      "answer": "The /dev directory contains special device files that represent and provide access to hardware devices. These device files are used by device drivers and applications to interact with hardware.\nFor example, /dev/sda represents the first SCSI or SATA hard disk, and /dev/ttyS0 represents the first serial port.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "What is the purpose of the LD_LIBRARY_PATH environment variable in Linux, and how can it be used?",
+      "answer": "The LD_LIBRARY_PATH environment variable specifies directories where the dynamic linker should search for shared libraries before the standard library directories. It can be used to temporarily modify the library search path for testing or running programs with custom libraries. However, it should be used with caution, as it can lead to library conflicts.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "What is the purpose of the strace command in Linux?",
+      "answer": "The strace command is used to trace system calls and signals made by a process. It provides insights into the behavior of a program, helping diagnose issues, analyze performance, and debug problems. For example, to trace system calls for a process with PID 1234:\n\ntypescript\n\nCopy code\n\nstrace -p 1234",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "Explain the purpose of the ssh command in Linux?",
+      "answer": "The ssh (Secure Shell) command is used for secure remote access to other systems over a network. It encrypts the communication between the client and the server, providing secure login and data transfer. To connect to a remote server, you can use:\n\ntypescript\n\nCopy code\n\nssh username@remote-host",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Mid",
+      "title": "What is the purpose of the nohup command in Linux?",
+      "answer": "The nohup (no hang-up) command is used to run a process that continues running even after the user logs out or the terminal is closed. It detaches the process from the terminal and prevents it from receiving the hang-up (SIGHUP) signal. For example:\n\ntypescript\n\nCopy code\n\nnohup ./myprocess &",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Mid",
+      "title": "What is the mount command in Linux?",
+      "answer": "The mount command is used to attach filesystems to the directory tree, making them accessible to the system and users. For example, to mount a USB drive to the /mnt directory:\n\ntypescript\n\nCopy code\n\nmount /dev/sdb1 /mnt",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Senior",
+      "title": "Explain what a Linux runlevel is, and how does it determine the state of the system and which services are started at boot?",
+      "answer": "A runlevel in Linux represents a specific state or mode of the system. Each runlevel is associated with a set of services to start or stop. The default runlevel determines the system's state at boot. For example, runlevel 3 is often used for multi-user mode with networking, while runlevel 5 includes a graphical interface.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Senior",
+      "title": "Can you explain what Linux namespaces and cgroups are, and how they are used for process isolation and resource management?",
+      "answer": "Linux namespaces and cgroups are features that provide process isolation and resource management. Namespaces isolate various aspects of a process's view of the system, such as its filesystem or network stack, while cgroups allow you to control and limit resource usage (CPU, memory, I/O) for groups of processes. These features are essential for containerization technologies like Docker and Kubernetes.",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Senior",
+      "title": "What is the purpose of the /proc filesystem in Linux?",
+      "answer": "The /proc filesystem is a virtual filesystem that provides real-time information about the running processes and kernel parameters. It exposes a structured directory tree where each directory and file represents a process or kernel parameter. It is commonly used for process monitoring and debugging.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Senior",
+      "title": "What is the purpose of the Linux tar command, and how do you create and extract tarball files?",
+      "answer": "The tar command is used for creating and extracting tarball archives. It can compress files and directories, making it a common choice for creating backup files. To create a tarball, you can use:\n\ntypescript\n\nCopy code\n\ntar -cvf archive.tar files_or_directories\nTo extract a tarball:\n\ntypescript\n\nCopy code\n\ntar -xvf archive.tar",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Senior",
+      "title": "What is the purpose of the rsync command in Linux, and how can it be used for efficient file synchronization?",
+      "answer": "rsync is a powerful command-line tool used for file synchronization and data transfer between directories or systems. It efficiently transfers only the differences between files, making it useful for backups and data replication. For example, to synchronize files from a local directory to a remote server over SSH:\n\ntypescript\n\nCopy code\n\nrsync -avz /local/path/ user@remote:/remote/path/",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Senior",
+      "title": "What is the role of the initramfs (initial RAM filesystem) in the Linux boot process, and why is it necessary?",
+      "answer": "The initramfs is an initial filesystem that is loaded into memory during the Linux boot process before the root filesystem is mounted. It contains essential drivers and tools required to initialize hardware, load the root filesystem, and complete the boot process. It is necessary because it ensures that the kernel can access the root filesystem, especially in cases involving complex storage configurations or encrypted disks.",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Senior",
+      "title": "What is the purpose of the /sbin and /usr/sbin directories in Linux? Why are some system utilities located there instead of /bin or /usr/bin?",
+      "answer": "The /sbin and /usr/sbin directories contain system executables and administrative commands that are typically used by the root user for system maintenance and recovery. These utilities are separated from /bin and /usr/bin to ensure that essential system tools are available even if /usr is mounted separately or unavailable.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Senior",
+      "title": "Explain the role of the /boot partition in Linux. Why is it separate from the root filesystem, and what does it typically contain?",
+      "answer": "The /boot partition in Linux typically contains bootloader configuration files, kernel images, and initial ramdisk (initramfs) files. It is separate from the root filesystem to ensure that essential boot files are available even if the root filesystem becomes corrupted or encrypted. The /boot partition is critical for the system's initial boot process.",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Senior",
+      "title": "What is the purpose of the sysctl command in Linux?",
+      "answer": "The sysctl command is used to view and modify kernel parameters and their values at runtime. It provides a way to adjust various aspects of the kernel and system behavior. To view a kernel parameter, you can use:\n\ntypescript\n\nCopy code\n\nsysctl parameter_name\nTo change a parameter temporarily:\n\ntypescript\n\nCopy code\n\nsysctl -w parameter_name=new_value",
+      "isPremium": false
+    }
+  ]
+}

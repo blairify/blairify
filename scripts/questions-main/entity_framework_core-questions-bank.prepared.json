@@ -1,0 +1,2082 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "entity-framework-core-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Entity Framework Core",
+      "description": "What is Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-1-ref-1",
+          "text": "Entity Framework Core is an open-source, lightweight, and cross-platform ORM framework for .NET. It allows developers to interact with databases using .NET objects, abstracting away the underlying database interactions and reducing the need to write raw SQL queries.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es Entity Framework Core simplify data",
+      "description": "How does Entity Framework Core simplify data access in .NET?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Entity Framework Core simplify data access in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-2-ref-1",
+          "text": "EF Core simplifies data access by mapping .NET classes to database tables, allowing developers to perform database operations using LINQ (Language Integrated Query) against these objects. It automates tasks such as generating SQL queries, managing database connections, and mapping results back to .NET objects. This reduces the amount of code developers need to write and makes the code more maintainable.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The key components of Entity Framework",
+      "description": "What are the key components of Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key components of Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-3-ref-1",
+          "text": "The key components of EF Core include: DbContext, which represents a session with the database and acts as a gateway for performing CRUD operations. DbSet, which represents a collection of entities of a particular type; and Entities, which are the .NET classes that map to database tables. LINQ to Entities is another crucial component that allows querying entities using LINQ syntax.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between Entity Framework Core",
+      "description": "What is the difference between Entity Framework Core and ADO.NET?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Entity Framework Core and ADO.NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-4-ref-1",
+          "text": "ADO.NET is a lower-level data access technology in .NET that requires developers to write explicit SQL queries and manage database connections directly. EF Core provides a higher level of abstraction, automating many of these tasks and allowing developers to work with data as objects. While ADO.NET offers more control, EF Core simplifies development and reduces boilerplate code.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Can you explain the concept of",
+      "description": "Can you explain the concept of DbContext in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the concept of DbContext in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-5-ref-1",
+          "text": "The DbContext class in EF Core represents a connection to the database and acts as a container for entities. It is responsible for managing entity objects during runtime, including tracking changes, performing queries, and saving data to the database. It serves as the central hub for all database interactions within an application.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of DbSet in Entity",
+      "description": "What is the purpose of DbSet in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of DbSet in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-6-ref-1",
+          "text": "A DbSet<TEntity> in EF Core represents a collection of all entities of a particular type in the context. It corresponds to a table in the database and provides methods for querying, adding, updating, and deleting entities. Developers interact with the database tables through these DbSet properties exposed by the DbContext.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Entities in Entity Framework Core",
+      "description": "What are Entities in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Entities in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-7-ref-1",
+          "text": "Entities in EF Core are plain old CLR objects (POCOs) that represent the data in the database. Each entity class typically maps to a table in the database, and its properties map to the columns of that table. These classes do not need to inherit from any EF Core-specific base class, keeping them clean and focused on the data they represent.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The Code-First approach in Entity Framework",
+      "description": "Explain the Code-First approach in Entity Framework Core.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Code-First approach in Entity Framework Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-8-ref-1",
+          "text": "In the Code-First approach, developers start by defining their domain model as C# classes (entities) and a DbContext class. EF Core then uses these classes to generate the database schema. Migrations are used to evolve the database as the model changes over time. This approach provides full control over both the code and the database structure.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The Database-First approach in Entity Framework",
+      "description": "Explain the Database-First approach in Entity Framework Core.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Database-First approach in Entity Framework Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-9-ref-1",
+          "text": "The Database-First approach involves starting with an existing database. EF Core then generates the entity classes and the DbContext based on the database schema. This is often used when working with legacy databases or when the database design is pre-determined. Tools within Visual Studio can automate the process of generating the model from the database.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Model-First approach in Entity Framework Core",
+      "description": "What is Model-First approach in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Model-First approach in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "data-scientist"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-10-ref-1",
+          "text": "In the Model-First approach, developers use a visual designer to create an Entity Data Model (EDM). From this visual model, EF Core can generate both the database schema and the entity classes. While less common now, it can be useful for projects where visual modeling of the data structure is a primary requirement.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Approach (Code-First, Database-First, Model-First) is generally",
+      "description": "Which approach (Code-First, Database-First, Model-First) is generally considered the best?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Which approach (Code-First, Database-First, Model-First) is generally considered the best?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-11-ref-1",
+          "text": "There is no universally \"best\" approach; the choice depends on the specific project requirements and the existing infrastructure. Code-First is often preferred for new applications where developers have full control over the domain model and want to follow a domain-driven design approach. Database-First is suitable when working with existing databases. Model-First is less commonly used in modern development workflows.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Meant by migration in Entity Framework",
+      "description": "What is meant by migration in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is meant by migration in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-12-ref-1",
+          "text": "Migrations in EF Core provide a way to manage changes to the database schema over time. When the entity model changes, developers create migrations that describe the necessary database modifications. These migrations can then be applied to the database to update the schema without losing existing data. This ensures that the database schema stays in sync with the application's data model.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the DbContext.SaveChanges() method",
+      "description": "What is the purpose of the DbContext.SaveChanges() method?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the DbContext.SaveChanges() method?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-13-ref-1",
+          "text": "The SaveChanges() method in EF Core is responsible for persisting all the changes made to the tracked entities within the DbContext to the underlying database. This includes inserting new entities, updating existing ones, and deleting entities that have been marked for removal. All these changes are typically performed within a transaction.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The different Entity States in Entity",
+      "description": "What are the different Entity States in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the different Entity States in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-14-ref-1",
+          "text": "Entities in EF Core can be in one of the following states: Added: The entity has been added to the context but not yet saved to the database. Modified: The entity has been retrieved from the database and has been modified. Deleted: The entity has been marked for deletion from the database. Unchanged: The entity has been retrieved from the database and has not been modified. Detached: The entity is not being tracked by the DbContext.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A primary key and a foreign",
+      "description": "What is a primary key and a foreign key in the context of Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a primary key and a foreign key in the context of Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-15-ref-1",
+          "text": "A primary key is an attribute or a set of attributes in an entity that uniquely identifies each instance of the entity within its collection (database table). EF Core uses primary keys to track and identify entities. A foreign key is an attribute in one entity that references the primary key of another related entity.Foreign keys are used to establish and enforce relationships between entities in the database, and EF Core uses them to manage these relationships in the object model.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Lazy Loading in Entity Framework Core,",
+      "description": "What is Lazy Loading in Entity Framework Core, and what are its pros and cons?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Lazy Loading in Entity Framework Core, and what are its pros and cons?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-16-ref-1",
+          "text": "Lazy loading is a feature where related entities are loaded from the database only when they are accessed for the first time through a navigation property. The primary advantage is that it reduces the initial load time and memory usage by only fetching the necessary data. However, a significant drawback is the potential for the N+1 query problem, where accessing related entities for a list of primary entities can result in numerous additional database queries, leading to performance issues if not managed carefully.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Eager Loading in Entity Framework Core,",
+      "description": "What is Eager Loading in Entity Framework Core, and when would you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Eager Loading in Entity Framework Core, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-17-ref-1",
+          "text": "Eager loading is a technique where related entities are loaded along with the main entity in a single query using the Include() method. This avoids the N+1 query problem associated with lazy loading and is beneficial when you know you will need the related data upfront. By fetching all necessary data in one go, it can improve the efficiency of data access operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Explicit Loading in Entity Framework Core",
+      "description": "What is Explicit Loading in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Explicit Loading in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-18-ref-1",
+          "text": "Explicit loading involves manually loading related entities at a later point in time, after the primary entity has been retrieved. This can be achieved using methods like Collection(e => e.RelatedEntities).Load() for collections or Reference(e => e.RelatedEntity).Load() for single references on the DbContext.Entry(entity) object. It provides more control over when and what related data is loaded.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the Include() method",
+      "description": "What is the purpose of the Include() method in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the Include() method in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-19-ref-1",
+          "text": "The Include() method is used to perform eager loading of related entities in an EF Core query. By specifying the navigation properties to include, developers can instruct EF Core to fetch the related data in the same database query, thus avoiding lazy loading and the potential performance issues associated with it.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between Include() and ThenInclude()",
+      "description": "What is the difference between Include() and ThenInclude()?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Include() and ThenInclude()?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-20-ref-1",
+          "text": "Include() is used to load the first level of related entities. ThenInclude() is used to load further levels of related entities in a navigation property that is part of an already included entity. For example, if you have Order -> OrderDetails -> Product, you would use Include(o => o.OrderDetails).ThenInclude(od => od.Product) to eagerly load the product information for each order detail of each order.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the AsNoTracking() method",
+      "description": "What is the purpose of the AsNoTracking() method in Entity Framework Core, and when should you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the AsNoTracking() method in Entity Framework Core, and when should you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-21-ref-1",
+          "text": "The AsNoTracking() method is used to query entities without keeping track of their state in the DbContext's change tracker. This improves performance, especially for read-only queries, as EF Core does not need to spend resources on tracking changes. It should be used when you retrieve data only for display or processing and do not intend to update the retrieved entities within the same DbContext scope.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You filter data using Entity Framework",
+      "description": "How can you filter data using Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you filter data using Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-22-ref-1",
+          "text": "Data filtering in EF Core is primarily done using the Where() clause in LINQ queries. This allows developers to specify conditions that entities must meet to be included in the query results. The conditions can involve properties of the entity and can be combined using logical operators.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You order data using Entity Framework",
+      "description": "How do you order data using Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you order data using Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-23-ref-1",
+          "text": "Ordering of data in EF Core is achieved using the OrderBy() method for ascending order and the OrderByDescending() method for descending order in LINQ queries. These methods take a lambda expression specifying the property to order by.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The different types of inheritance supported",
+      "description": "What are the different types of inheritance supported by Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the different types of inheritance supported by Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-24-ref-1",
+          "text": "EF Core supports three main types of inheritance mapping: Table-per-Hierarchy (TPH): Where all types in an inheritance hierarchy are mapped to a single database table with a discriminator column; Table-per-Type (TPT): Where each type in the hierarchy is mapped to its own table, with a table for the base type and separate tables for each derived type. Table-per-Concrete-Type (TPC): Where each concrete type in the hierarchy is mapped to its own table, and common properties are repeated in each table.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You create a new migration in",
+      "description": "How do you create a new migration in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you create a new migration in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-25-ref-1",
+          "text": "A new migration in EF Core is created using the Add-Migration command in the Package Manager Console within Visual Studio or by using the dotnet ef migrations add <MigrationName> command in the .NET CLI. This command generates a C# code file that defines the database schema changes required to match the current state of the entity model.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You apply migrations to the database",
+      "description": "How do you apply migrations to the database in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you apply migrations to the database in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-26-ref-1",
+          "text": "Migrations are applied to the database using the Update-Database command in the Package Manager Console or the dotnet ef database update command in the .NET CLI. EF Core keeps track of which migrations have been applied to the database using a special table (typically named __EFMigrationsHistory) and applies any pending migrations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The role of the OnModelCreating method",
+      "description": "What is the role of the OnModelCreating method in DbContext?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the OnModelCreating method in DbContext?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-27-ref-1",
+          "text": "The OnModelCreating method is a virtual method in the DbContext class that is called when the model is being created. It provides a place to configure the model using the Fluent API, allowing developers to define table mappings, relationships, constraints, and other model-specific configurations that cannot be easily expressed using data annotations alone.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Data Annotations and Fluent API in",
+      "description": "What are Data Annotations and Fluent API in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Data Annotations and Fluent API in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-28-ref-1",
+          "text": "Both Data Annotations and Fluent API are used to configure how EF Core maps entities to the database schema and defines relationships. Data Annotations are attributes that can be applied directly to the entity classes and their properties to specify configurations like primary keys, foreign keys, and validation rules. Fluent API provides a more powerful and flexible way to configure the model within the OnModelCreating method of the DbContext. It allows for more complex configurations and can override configurations specified by data annotations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Deferred Execution in the context of",
+      "description": "What is Deferred Execution in the context of LINQ queries in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Deferred Execution in the context of LINQ queries in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-29-ref-1",
+          "text": "Deferred execution means that LINQ queries in EF Core are not executed immediately when they are defined. Instead, the query is only executed when the results are actually needed, such as when the code iterates over the results (e.g., using a foreach loop) or when a method that forces execution is called (like ToList(), FirstOrDefault(), etc.). This behavior allows for further modification of the query before it hits the database, which can be beneficial for performance but also requires understanding when the query will actually be executed to avoid unexpected behavior or performance issues.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "You improve the performance of Entity",
+      "description": "How can you improve the performance of Entity Framework Core in an application?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How can you improve the performance of Entity Framework Core in an application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-30-ref-1",
+          "text": "Performance optimization in EF Core involves several strategies. Using AsNoTracking() for read-only queries reduces tracking overhead. Employing eager loading with Include() judiciously can prevent the N+1 query problem. Projections using Select() to retrieve only necessary data can minimize data transfer. Compiled queries can improve performance for frequently executed queries. Ensuring proper database indexing is crucial for query speed. Utilizing asynchronous operations (ToListAsync(), etc.) enhances scalability. Batch updates and deletes can be more efficient for bulk operations. It is important to consider the trade-offs between these techniques, as some might fetch more data than needed in certain scenarios.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The N+1 query problem in Entity",
+      "description": "Explain the N+1 query problem in Entity Framework Core and how to avoid it.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the N+1 query problem in Entity Framework Core and how to avoid it.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-31-ref-1",
+          "text": "The N+1 query problem occurs when an application executes one query to retrieve a list of primary entities, and then for each of these entities, it executes an additional query to load related data (e.g., through lazy loading). This results in N+1 database calls, where N is the number of primary entities, which can severely impact performance. The primary way to avoid this is by using eager loading with the Include() method to fetch all necessary related data in a single query.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Execution model",
+      "description": "What are compiled queries in Entity Framework Core, and when would you use them?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are compiled queries in Entity Framework Core, and when would you use them?\" Requirements: - Answer directly: JS is executed by an engine that compiles/JITs internally - Explain interpreted vs compiled as a spectrum in modern engines - Mention parse -> bytecode -> JIT optimization (high level) - Practical implication: performance varies, warm-up/optimization Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Answer directly: JS is executed by an engine that compiles/JITs internally; Explain interpreted vs compiled as a spectrum in modern engines; Mention parse -> bytecode -> JIT optimization (high level); Practical implication: performance varies, warm-up/optimization. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-32-ref-1",
+          "text": "Compiled queries are LINQ queries that are compiled once and then cached, allowing for faster execution on subsequent calls with different parameters. EF Core enhances compiled queries for improved performance by caching execution plans. They are particularly useful for frequently executed queries, as they avoid the overhead of recompiling the query each time. Compiled queries can be created using EF.CompileQuery.",
+          "weight": 1,
+          "keyPoints": [
+            "Answer directly: JS is executed by an engine that compiles/JITs internally",
+            "Explain interpreted vs compiled as a spectrum in modern engines",
+            "Mention parse -> bytecode -> JIT optimization (high level)",
+            "Practical implication: performance varies, warm-up/optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es Entity Framework Core handle concurrency",
+      "description": "How does Entity Framework Core handle concurrency?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Entity Framework Core handle concurrency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-33-ref-1",
+          "text": "EF Core handles concurrency primarily through optimistic concurrency. This involves adding a special property (often called a row version or timestamp) to the entity, which is automatically updated whenever the entity is modified. When an update is attempted, EF Core checks if the value of this concurrency token in the database matches the value that was originally retrieved. If they don't match, it indicates that the entity has been modified by another user since it was loaded, and a DbUpdateConcurrencyException is thrown. This helps prevent data loss due to concurrent updates. The [ConcurrencyCheck] attribute or Fluent API can be used to mark properties for concurrency checking.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You use Stored Procedures with Entity",
+      "description": "How do you use Stored Procedures with Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you use Stored Procedures with Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-34-ref-1",
+          "text": "EF Core allows developers to execute stored procedures in several ways. One common approach is to map stored procedures to methods in the DbContext using configuration. For executing stored procedures that return entities, you can use FromSqlRaw() or FromSqlInterpolated() on a DbSet.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The EF Core change tracker, and",
+      "description": "What is the EF Core change tracker, and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the EF Core change tracker, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-35-ref-1",
+          "text": "The EF Core change tracker is responsible for monitoring the state of entities that have been retrieved from or added to the DbContext. It keeps track of the original values of the properties and detects any changes made to these entities. When SaveChanges() is called, the change tracker examines the state of each tracked entity and generates the appropriate SQL commands (INSERT, UPDATE, DELETE) to persist these changes to the database. Entities can be in various states (Added, Modified, Deleted, Unchanged). Understanding the change tracker is crucial for efficient data manipulation, and disabling it with AsNoTracking() can improve performance for read-only operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the Model Snapshot",
+      "description": "What is the purpose of the Model Snapshot in EF Core migrations?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the Model Snapshot in EF Core migrations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "data-scientist"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-36-ref-1",
+          "text": "The Model Snapshot is a C# file (typically named <YourDbContextName>ModelSnapshot.cs) that is generated in the Migrations folder when a migration is added. It represents the state of your data model at the time the last migration was created. EF Core uses this snapshot to compare against the current state of your entity model to determine what changes need to be made when a new migration is added. This helps ensure that migrations accurately reflect the changes in your model over time.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You consider using raw SQL queries",
+      "description": "When would you consider using raw SQL queries in Entity Framework Core instead of LINQ?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"When would you consider using raw SQL queries in Entity Framework Core instead of LINQ?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-37-ref-1",
+          "text": "While LINQ provides a convenient way to query the database, there are situations where using raw SQL queries in EF Core might be necessary or beneficial. This includes scenarios involving complex queries that are difficult to express using LINQ, utilizing database-specific features or functions that are not directly supported by LINQ providers, or when fine-grained performance optimization is required and writing optimized SQL directly is more effective. For example, executing complex stored procedures or performing full-text searches might be better handled with raw SQL.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Shadow properties in Entity Framework Core",
+      "description": "What are shadow properties in Entity Framework Core?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are shadow properties in Entity Framework Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-38-ref-1",
+          "text": "Shadow properties are properties that are not explicitly defined in your entity class but are part of the EF Core model and exist in the database. EF Core can infer these properties based on conventions or configurations. They are often used for foreign key relationships or for audit fields like CreatedDate or LastModifiedDate that you might not want to explicitly include in your entity classes but still need in the database.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entity-framework-core-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es Entity Framework Core support transactions",
+      "description": "How does Entity Framework Core support transactions?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Entity Framework Core support transactions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "entity-framework-core"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "entity-framework-core"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:46:34.945Z",
+      "updatedAt": "2025-12-19T17:46:34.945Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "entity-framework-core-questions-bank-39-ref-1",
+          "text": "EF Core supports transactions to ensure that a series of database operations are treated as a single atomic unit. By default, when you call SaveChanges(), EF Core wraps all the changes within a single transaction. If any part of the operation fails, the entire transaction is rolled back, ensuring data consistency. BeginTransaction() method, followed by Commit() to save the changes or Rollback() to discard them. This is useful for scenarios where you need to perform multiple SaveChanges() calls as part of a larger transaction or when you need to include non-EF Core database operations within the same transaction.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

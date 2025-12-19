@@ -1,0 +1,328 @@
+{
+  "totalQuestions": 46,
+  "extractedAt": "2025-12-19T17:54:45.712Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is Docker?",
+      "answer": "Docker is a platform for developing, shipping, and running applications inside containers. Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package.\nThis ensures that the application will run on any other Linux machine regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What is containerization?",
+      "answer": "Containerization is a technology that encapsulates an application and its dependencies into a 'container'. This allows the application to run consistently across different computing environments.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What is a container?",
+      "answer": "A container is a lightweight, standalone executable package that includes everything needed to run a piece of software: code, runtime, system tools, libraries, and settings.\nContainers ensure consistency across multiple environments, from development to testing and production, by encapsulating an application and its dependencies into a single, portable unit.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What is a hypervisor?",
+      "answer": "A hypervisor is software that creates and runs virtual machines (VMs). It allows multiple VMs, each with their own operating system, to share a single physical host's hardware resources.\nThere are two types:\nType 1 (bare-metal): runs directly on the host's hardware.\nType 2 (hosted): runs on a conventional operating system.\nHypervisors are essential in virtualization, enabling efficient resource utilization and isolation between different VMs.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "Explain the differences between containerization and virtualization.",
+      "answer": "Containerization involves packaging applications with their dependencies in containers, sharing the host's OS kernel. It's lightweight, offers quick startup, and efficient resource use. Ideal for consistent deployment environments.\nVirtualization creates full virtual machines with separate OS instances on a hypervisor. It's resource-intensive but provides stronger isolation and security. Suitable for running different OSs and applications needing full isolation.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "Explain the main components of Docker architecture.",
+      "answer": "Docker Daemon: The background service running on the host that manages building, running, and distributing Docker containers.\nDocker Client: The command-line interface that allows users to interact with the Docker Daemon.\nDocker Images: Read-only templates used to build containers.\nDocker Containers: Runnable instances of Docker images.\nDocker Registries: Storage and distribution systems for Docker images, with Docker Hub being the most common public registry.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "Name some advantages of using Docker.",
+      "answer": "Portability: Containers run consistently across different environments.\nEfficiency: Lightweight compared to virtual machines, saving system resources.\nIsolation: Containers are isolated, reducing conflicts between applications.\nScalability: Easy to scale and distribute containerized applications.\nRapid Deployment: Quick to build and deploy applications.\nVersion Control and Reusability: Facilitates version control and reuse of container images.\nSimplified Configuration: Simplifies the setup and configuration of applications.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "Name some disadvantages of using Docker.",
+      "answer": "Security Concerns: Containers share the host OS kernel, potentially leading to security vulnerabilities.\nComplexity: Managing and orchestrating numerous containers can be complex.\nPersistent Storage: Managing data persistence for containers can be challenging.\nPerformance Overhead: Some performance overhead, especially in high-density environments.\nCompatibility: Not all applications are suitable for containerization.\nLearning Curve: Requires learning new tools and concepts.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "Describe a Docker container’s lifecycle.",
+      "answer": "Creation: A container is created from an image using docker create or docker run.\nRunning: It enters a running state with docker start or during creation with docker run.\nPausing: Containers can be paused and unpaused, freezing and unfreezing processes.\nStopping: The container is stopped using docker stop, which sends a stop signal followed by a kill signal if the container doesn't stop gracefully.\nRestarting: A stopped container can be restarted with docker restart.\nDeletion: The container is removed from the system with docker rm.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "Name the essential Docker commands and what they do.",
+      "answer": "docker run: Creates and starts a container from an image.\ndocker build: Builds an image from a Dockerfile.\ndocker pull: Pulls an image from a registry.\ndocker push: Pushes an image to a registry.\ndocker images: Lists all local images.\ndocker ps: Lists running containers (add -a to include stopped containers).\ndocker stop: Stops a running container.\ndocker start: Starts a stopped container.\ndocker rm: Removes one or more containers.\ndocker rmi: Removes one or more images.\ndocker exec: Executes a command in a running container.\ndocker logs: Fetches logs of a container.\ndocker compose: Manages multi-container applications.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "What is a Dockerfile, and how is it used in Docker?",
+      "answer": "A Dockerfile is a text file that contains instructions for building a Docker image. It specifies the base image, dependencies, environment settings, and commands to run.\nDocker images are created from Dockerfiles using the docker build command.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Junior",
+      "title": "Explain the difference between a Docker image and a Docker container.",
+      "answer": "A Docker image is a lightweight, standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, environment variables, and config files. It's a read-only template.\nA Docker container is a runnable instance of a Docker image. When an image is run, it exists in memory and has a writable layer over the image for storing application state. Containers are isolated environments, but share the OS kernel and, where appropriate, binaries and libraries.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Junior",
+      "title": "How can you share Docker images with others?",
+      "answer": "Docker images can be shared by pushing them to a Docker registry like Docker Hub or a private registry.\nOther users can then pull these images to their own systems using the docker pull command.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What is the purpose of Docker Compose?",
+      "answer": "Docker Compose is a tool for defining and running multi-container Docker applications. It uses a YAML file (docker-compose.yml) to configure the application's services, allowing you to orchestrate and manage multiple containers as a single service.\nThis simplifies the process of deploying complex applications that require multiple interconnected containers.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "What are Docker volumes?",
+      "answer": "Docker volumes are storage areas attached to containers, used for managing persistent data. They are important because:\nData Persistence: Data in volumes survives container restarts and removals, ensuring data isn't lost.\nData Sharing: Volumes can be shared and reused among multiple containers.\nIndependent Lifecycle: Volumes have a lifecycle independent of the container, allowing data to persist beyond the life of a container.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "What is container orchestration?",
+      "answer": "Container orchestration is the automated management of containerized applications, including deployment, scaling, load balancing, and self-healing. It is essential in modern application deployment to ensure high availability, scalability, and efficient resource utilization in dynamic container environments.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What is Docker Swarm?",
+      "answer": "Docker Swarm is a container orchestration tool built into Docker. It allows you to manage a cluster of Docker hosts as a single virtual system, automating the deployment, scaling, and networking of containers.\nSwarm is designed for easy setup and integrates seamlessly with Docker's ecosystem.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is Kubernetes?",
+      "answer": "Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts.\nIt provides a framework to run distributed systems resiliently, handling scaling and failover for your application, providing deployment patterns, and more.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "Explain the difference between Docker and Kubernetes.",
+      "answer": "Docker is a platform for developing, shipping, and running applications in containers. It focuses on containerization and the efficient creation and deployment of containers.\nKubernetes, is an orchestration system for managing containerized applications across a cluster of nodes. It handles scaling, load balancing, and deployment patterns of containers, typically those created by Docker.\nThe key difference is that Docker is about creating and managing individual containers, while Kubernetes is about managing groups of containers at scale.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "What are Docker labels?",
+      "answer": "Docker labels are key-value pairs used to add metadata to Docker objects like images, containers, volumes, and networks.\nThey are used for organizing, filtering, and managing Docker objects, aiding in identification and categorization.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "How do you ensure security in Docker containers?",
+      "answer": "To ensure security in Docker containers:\nUse official or verified images from trusted registries.\nKeep images and containers updated with security patches.\nConfigure least privilege user access to containers.\nImplement network segmentation and firewall rules.\nRegularly scan containers and images for vulnerabilities.\nAvoid storing sensitive data in containers.\nUse security tools and best practices for container orchestration.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "Explain the concept of Docker image layers. How do they impact image size and build efficiency?",
+      "answer": "Docker images are composed of multiple layers, each representing a set of changes to the image. Layers are cached and shared among images, which makes builds more efficient.\nWhen a change is made in a layer, only that layer and subsequent layers need to be rebuilt. This helps reduce image size and speeds up image builds.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "What is Docker Hub?",
+      "answer": "Docker Hub is a cloud-based registry service where users can discover, share, and store Docker images. It provides a centralized repository of public and private images.\nDocker images can be pushed to Docker Hub for sharing with others and pulled from it to use in your environment.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "Explain the purpose of Docker health checks and how can they be configured in a Dockerfile?",
+      "answer": "Docker health checks are used to determine the health status of a containerized application. They help in monitoring container health and automatically restarting containers that are in an unhealthy state.\nHealth checks can be configured in a Dockerfile using the HEALTHCHECK instruction and specifying a command or script that determines container health.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "Name some best practices when creating a Dockerfile.",
+      "answer": "Use Official Base Images: Start with official, verified base images from Docker Hub.\nMinimize Layers: Combine related commands into single layers to reduce the image size.\nUse Multi-Stage Builds: Separate the build environment from the runtime environment to minimize the final image size.\nSpecify Versions: Pin versions of base images and packages to ensure consistency and prevent unexpected changes.\nLeverage Build Cache: Order Dockerfile instructions to maximize layer caching for faster builds.\nAvoid Storing Sensitive Data: Don't include sensitive data or credentials directly in the Dockerfile or image.\nOptimize for Readability and Maintenance: Write clear, commented Dockerfiles for easier maintenance and understanding.\nUse .dockerignore: Exclude unnecessary files and directories to minimize the build context.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "Can you provide an example of a docker-compose.yml file?",
+      "answer": "yaml\n\nCopy code\n\nversion: '3'\nservices:\n  web:\n    image: nginx:latest\n    ports:\n      - \"80:80\"\n  db:\n    image: postgres:latest\n    environment:\n      POSTGRES_PASSWORD: example\nThis file defines two services: web, using the latest Nginx image, and db, using the latest Postgres image. The Nginx service exposes port 80, and the Postgres service sets a default password.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "Explain the key concepts of Docker Swarm mode.",
+      "answer": "Docker Swarm is a native clustering and orchestration tool for Docker. Key concepts include:\nNodes: Individual machines (physical or virtual) that join the swarm, categorized as \"managers\" (orchestrate and manage the swarm) or \"workers\" (run swarm services).\nServices and Tasks: A service defines the desired state of container instances in the swarm. Each instance, or task, is a single container.\nLoad Balancing: Swarm automatically balances service tasks across nodes for optimal resource utilization.\nScaling: Services can be scaled up or down to adjust the number of replicas of a given task.\nRolling Updates: Swarm supports rolling updates to services, allowing for zero-downtime deployments.\nNetworking: Swarm provides networking features to connect services within the swarm securely.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "What are Docker secrets and how can you use them?",
+      "answer": "Docker secrets are used to securely manage sensitive data like passwords or API keys in containers. They enhance security by preventing exposure of sensitive data.\nYou can use Docker secrets in a service by creating secrets and referencing them in the docker-compose.yml or Docker Swarm service configuration.\nExample:\n\nyaml\n\nCopy code\n\n// docker-compose.yaml\nversion: '3.1'\nservices:\n  db:\n    image: mysql:latest\n    environment:\n      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_password\n    secrets:\n      - db_password\nsecrets:\n  db_password:\n    file: ./db_password.txt",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "What is the purpose of the COPY instruction in a Dockerfile?",
+      "answer": "The COPY instruction is used to copy files from the host system into the image's filesystem. It's commonly used for adding application code and resources to the image.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "What is the purpose of the EXPOSE instruction in a Dockerfile, and how is it different from port mapping (using -p) when running containers?",
+      "answer": "The EXPOSE instruction in a Dockerfile documents the ports that a container application listens on. It doesn't actually publish the ports to the host.\nPort mapping (-p option) is used at runtime to map container ports to host ports, allowing external access to the container's services.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is Docker Desktop, and how does it differ from Docker Engine?",
+      "answer": "Docker Desktop is an application for MacOS and Windows that includes Docker Engine, a user-friendly interface, and additional features like Kubernetes integration and GUI-based management tools.\nDocker Engine is the core part of Docker, the runtime that builds and runs containers.\nThe key difference is that Docker Desktop offers an integrated, easy-to-use environment with additional tools, while Docker Engine is the underlying technology that runs the containers.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "Explain Docker's concept of a Dockerfile context.",
+      "answer": "The Dockerfile context is the set of files and directories that are sent to the Docker daemon during image building.\nIt includes the Dockerfile itself and all files specified in COPY or ADD instructions. Managing it efficiently is important because a large context can slow down image builds and result in larger image sizes.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "Explain the difference between Docker's CMD and ENTRYPOINT instructions in a Dockerfile.",
+      "answer": "In a Dockerfile, CMD and ENTRYPOINT both specify commands to be executed when a Docker container starts, but they serve different purposes:\nCMD: Sets default command and/or parameters, which can be overwritten from the command line when the container is run.\nENTRYPOINT: Configures a container with a command that does not get overwritten unless you explicitly use the --entrypoint flag. Parameters passed to docker run append to the ENTRYPOINT.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What is Docker's \"attach\" mode, and how does it allow you to interact with running containers?",
+      "answer": "Docker's \"attach\" mode allows you to interact with the input and output of a running container.\nYou can use the docker attach command followed by the container's name or ID to attach to a running container.\nThis allows you to view its standard input, output, and error streams and interact with the container's console.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "Explain how Docker container logs can be managed and viewed.",
+      "answer": "Docker container logs can be managed and viewed using various commands and options, including:\ndocker logs: To view container logs.\ndocker logs -f: To follow (stream) logs in real-time.\ndocker logs --tail: To limit the number of lines displayed.\nLogging drivers: To configure log output to various destinations, such as files or remote services.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Senior",
+      "title": "What is Docker image layer caching?",
+      "answer": "Docker image layer caching is a mechanism that allows Docker to reuse cached layers during image builds to improve efficiency.\nBy ordering instructions in your Dockerfile efficiently and placing frequently changing instructions toward the end, you can take advantage of caching and avoid unnecessary rebuilds, thus speeding up image builds.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Senior",
+      "title": "Explain the concept of Docker image version pinning.",
+      "answer": "Docker image version pinning involves specifying a specific image tag (e.g., myapp:v1.0) in your deployment configuration. It is important in a production environment to ensure consistent and predictable deployments.\nBy pinning to a specific version, you avoid unintentional updates and ensure that containers always use the same image version.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Senior",
+      "title": "Explain how Docker networking works.",
+      "answer": "Docker networking enables containers to communicate with each other and the external world. It uses network drivers to manage networking:\nBridge Network: Default network for containers, allowing communication among them on the same host.\nHost Network: Containers use the host's network directly, facilitating external communication.\nOverlay Network: Enables communication among containers across different hosts, used in Docker Swarm.\nCustom Networks: Users can create custom networks for specific requirements.\nContainers communicate internally through these networks and externally via mapped ports on the host machine.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Senior",
+      "title": "Can you describe the difference between bridge and overlay networks?",
+      "answer": "In Docker, bridge and overlay networks are different types of network drivers:\nBridge Network: The default network driver for Docker. It creates a private internal network for containers on the same Docker host, allowing them to communicate with each other. External access is managed through port mapping.\nOverlay Network: Used in multi-host Docker Swarm environments. It allows containers running on different Docker hosts to communicate with each other as if they were on the same host, facilitating communication across a cluster of Docker nodes.",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Senior",
+      "title": "Explain Docker's copy-on-write (CoW) file system.",
+      "answer": "Docker's copy-on-write (CoW) file system is a strategy where Docker containers share the same image layers until a container modifies them. When a file or directory from an image layer is changed, it's copied (written) to the container's writable layer, leaving the original image layer unchanged.\nThis approach optimizes storage space and resource usage, as multiple containers can share the same base image without duplicating data, only diverging when changes occur.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Senior",
+      "title": "Explain the purpose of Dockerfile multistage builds.",
+      "answer": "Dockerfile multistage builds allow building lighter, more efficient Docker images by using multiple stages in a single Dockerfile. Each stage can use a different base image and include only the files necessary for that stage. The final stage can copy artifacts from previous stages, discarding everything else.\nThis results in smaller final images by reducing layers and minimizing the footprint of runtime images, especially useful for compiled languages or when separating build-time dependencies from runtime dependencies.",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Senior",
+      "title": "How do you ensure high availability in a Docker Swarm cluster?",
+      "answer": "To ensure high availability in a Docker Swarm cluster:\nReplicate Services: Run multiple replicas of services across different nodes.\nUse Multiple Manager Nodes: Have multiple manager nodes for fault tolerance.\nDistribute Nodes Geographically: Spread nodes across different physical locations.\nRegularly Update and Backup: Keep the system updated and back up Swarm's state.\nMonitor Health: Implement health checks and monitoring for automatic handling of failed containers or nodes.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Senior",
+      "title": "What are the advantages of using Docker containers in a microservices architecture?",
+      "answer": "Isolation: Each microservice runs in a separate container, ensuring isolated environments.\nScalability: Containers can be quickly started, stopped, and replicated, aiding in easy scaling of services.\nConsistency: Containers provide consistent environments across different stages of development, testing, and production.\nEfficiency: Containers are lightweight, use resources efficiently, and reduce overhead compared to virtual machines.\nPortability: Containers can run on any system that supports Docker, simplifying deployment across different platforms.\nRapid Deployment: Faster deployment and restart times enhance development and operational agility.",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Senior",
+      "title": "How can you monitor Docker containers and troubleshoot issues?",
+      "answer": "To monitor Docker containers and troubleshoot issues, you can:\nUse the docker stats command for real-time container performance metrics.\nImplement logging drivers to capture container logs for analysis.\nUtilize Docker's built-in health checks to monitor container status.\nEmploy external monitoring tools like Prometheus or cAdvisor for more comprehensive insights.\nDebug issues using the docker logs command to access container logs.",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Senior",
+      "title": "What is a Docker Namespace?",
+      "answer": "A Docker Namespace is a feature that provides isolation for Docker containers. It allows each container to have a separate view of the operating system, including its processes, network interfaces, users, and file systems.\nNamespaces ensure that activities in one container do not affect other containers or the host system, thereby enhancing security and stability.",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Senior",
+      "title": "What is the difference between docker volumes and bind mounts?",
+      "answer": "Docker volumes are managed by Docker and are stored in a part of the host filesystem managed by Docker (/var/lib/docker/volumes/ by default). They're completely managed and isolated from the host filesystem.\nBind mounts, on the other hand, can be stored anywhere on the host system. They might be used for sensitive files like system libraries or configuration files. They directly reflect the filesystem of the host, meaning changes to a bind mount are immediately reflected on the host, and vice versa.",
+      "isPremium": false
+    }
+  ]
+}

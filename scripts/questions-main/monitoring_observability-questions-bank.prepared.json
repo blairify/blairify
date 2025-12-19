@@ -1,0 +1,1016 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "monitoring-observability-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Monitoring and why is it important",
+      "description": "What is monitoring and why is it important in a DevOps/SRE context?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is monitoring and why is it important in a DevOps/SRE context?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "devops"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-1-ref-1",
+          "text": "Continuous data collection of metrics and logs to track system health and performance. Early issue detection (e.g. error spikes, resource exhaustion) so teams can intervene before users are affected. DevOps/SRE visibility that underpins proactive incident response and meets reliability goals, acting as the system’s “eyes” to spot and address deviations quickly.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Metrics, logs, and traces, and how",
+      "description": "What are metrics, logs, and traces, and how does each help you understand a system?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are metrics, logs, and traces, and how does each help you understand a system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-2-ref-1",
+          "text": "Metrics: Time‑series numbers (e.g., CPU load, request rate, memory usage) that reveal performance trends and resource utilization. Logs: Timestamped event records (e.g. errors, user actions) that provide detailed context for debugging specific issues. Traces: End‑to‑end request maps showing how a transaction flows across services, pinpointing latency or failures in a distributed system. Together, metrics for health, logs for context, and traces for request lifecycles, they form the three pillars of observability, offering a complete view of system behavior.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Prometheus and how would you use",
+      "description": "What is Prometheus and how would you use it for monitoring an application?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Prometheus and how would you use it for monitoring an application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "devops"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-3-ref-1",
+          "text": "Open‑source toolkit with a time‑series database and the PromQL query language. Metric collection by scraping HTTP endpoints (e.g. /metrics) on instrumented targets, using exporters for OS stats, databases, and more. Deployment involves running a Prometheus server, configuring exporters, and authoring PromQL‑based alert rules (e.g., 95th‑percentile request_latency_seconds over 5 m). Alerting via Alertmanager, which sends notifications when rule conditions are met. Visualization & storage: Efficiently store and retain metrics, then visualize them (commonly with Grafana) to monitor application and infrastructure health.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Es Grafana support observability, and how",
+      "description": "How does Grafana support observability, and how would you use it to monitor a system?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Grafana support observability, and how would you use it to monitor a system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "devops"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-4-ref-1",
+          "text": "Open‑source dashboarding tool for visualizing metrics, logs, and traces from multiple data sources (e.g., Prometheus, Elasticsearch). Data‑source agnostic: connect Grafana to your metrics backend, then build reusable dashboards with graphs, gauges, tables, heatmaps, and more, all updating in real time. Alerts on panels: define threshold‑based or PromQL‑based alerts on any graph to notify via email, Slack, PagerDuty, etc. Templating & variables: use dashboard variables (e.g., service, environment) to filter panels dynamically, enabling one dashboard to serve many contexts. Central observability hub: correlate multiple metrics streams and logs in a single view for live monitoring and post‑incident analysis, speeding up root‑cause identification and response.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Datadog, and what are some of",
+      "description": "What is Datadog, and what are some of its key features for monitoring and observability?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Datadog, and what are some of its key features for monitoring and observability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "devops"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-5-ref-1",
+          "text": "Cloud‑SaaS observability: Datadog unifies infrastructure monitoring, APM, log management, and synthetic uptime checks in one platform. Broad integrations: A single agent auto‑collects metrics and events from AWS, Docker, Kubernetes, and hundreds more. Interactive dashboards: Combine hosts’ CPU/memory stats, distributed traces, and centralized logs, tagged by host, service, or environment, for real‑time correlation. APM & tracing: End‑to‑end request tracking across microservices pinpoints slow or failing components. Monitors & alerts: Define custom monitors on any metric, trace, or log query to trigger notifications via email, Slack, PagerDuty, etc.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between monitoring and observability",
+      "description": "What is the difference between monitoring and observability?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between monitoring and observability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "devops"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-6-ref-1",
+          "text": "Monitoring is the active collection of predefined metrics and logs to track system health and trigger alerts when thresholds (e.g. CPU usage, error rates) are crossed. Observability is a property of the system, achieved by emitting rich telemetry (metrics, logs, and traces), that lets you probe its internal state and debug even novel failures. In short, monitoring tells you what is wrong right now, while observability lets you ask why it’s wrong. A highly observable system makes monitoring far more effective by providing the context needed to diagnose issues.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between black-box and white-box",
+      "description": "What is the difference between black-box and white-box monitoring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between black-box and white-box monitoring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "devops"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-7-ref-1",
+          "text": "Black‑box monitoring treats the system as an opaque box and checks only external symptoms, e.g. pinging an HTTP endpoint or running synthetic user transactions (uptime or end‑to‑end tests). It tells you “the system isn’t working” from the user’s perspective. White‑box monitoring instruments the internals, collecting metrics like function‑call latencies, memory usage, queue depths via a Prometheus client, plus logs and distributed traces. It spots hidden issues (e.g., rising memory before a crash). In practice, black‑box confirms user‑facing availability; white‑box reveals internal health and root causes. A robust strategy combines both: external checks for uptime and internal observability for early warning and detailed diagnostics.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "What distributed tracing is and how",
+      "description": "Explain what distributed tracing is and how it can help in a microservices environment.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what distributed tracing is and how it can help in a microservices environment.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-8-ref-1",
+          "text": "Distributed tracing tags each incoming request with a unique trace ID and records a “span” (a timed, metadata‑rich segment) in every service or component that handles it. Spans stitch together into a complete trace showing the exact path—and duration—of operations across microservices (e.g., Service A → Service B → Database C). By visualizing where time is spent or where failures occur, it exposes bottlenecks and error points that siloed logs or metrics can’t reveal alone. In essence, distributed tracing turns scattered service logs into a coherent end‑to‑end view of every request, making it indispensable for diagnosing latency and errors in complex, distributed architectures.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es Prometheus collect metrics from applications",
+      "description": "How does Prometheus collect metrics from applications?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Prometheus collect metrics from applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-9-ref-1",
+          "text": "Pull-based collection: Prometheus periodically scrapes HTTP endpoints (usually /metrics) to fetch the latest values. Client libraries: In your application, use a Prometheus client library to define and expose metrics (counters, gauges, histograms) at /metrics. Exporters: For systems without native Prometheus support, run an exporter (e.g., node_exporter, mysql_exporter, redis_exporter). Exporters poll or query their target’s stats and expose them on /metrics in Prometheus’ text format. Storage & querying: Once scraped, Prometheus stores metrics in its time‑series database. You can then use PromQL to query data and define alerting rules based on those metrics. Exporters bridge any gaps between Prometheus and external systems by translating native stats into a Prometheus‑compatible format for scraping.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Grafana dashboards can use template variables.",
+      "description": "Grafana dashboards can use template variables. How do template variables work, and why are they useful in building dashboards?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Grafana dashboards can use template variables. How do template variables work, and why are they useful in building dashboards?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-10-ref-1",
+          "text": "What they are: Dashboard‑level placeholders (e.g., $hostname, $datacenter) you define once. How they’re populated: You supply a static list or run a data‑source query (e.g., “SHOW TAG VALUES ON metrics WITH KEY = 'host'”) to fill the dropdown. How you use them: Reference variables in panel queries (e.g. rate(http_requests_total{host=\"$hostname\"}[5m])) so panels update automatically when a user picks a different value. Why they matter: One dashboard can serve any host, service, or environment, no need to clone dashboards. Viewers simply select from dropdowns to slice data (e.g., CPU usage for Host A vs. Host B, production vs. staging). Result: Interactive, maintainable dashboards that avoid duplication and support multi‑tenant or multi‑environment views with a single template.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You set up alerts in Datadog,",
+      "description": "How do you set up alerts in Datadog, and what types of monitors does it support for alerting?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you set up alerts in Datadog, and what types of monitors does it support for alerting?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-11-ref-1",
+          "text": "Metric monitors: Trigger on numeric metrics (e.g., “CPU > 90% for 5 m”) with static thresholds or Datadog’s anomaly/outlier detection for dynamic baselines. Log monitors: Watch for log patterns or message volumes (e.g., a specific error appearing more than N times in 10 m). APM (trace) monitors: Alert on distributed‑trace metrics, such as a spike in HTTP 500 errors or service latency exceeding a percentile over a time window. Synthetics monitors: Raise alerts when synthetic tests fail (HTTP pings, API checks, or full user‑journey simulations). Event monitors: Notify based on custom or system events (e.g., deployment notifications, specific event‑stream messages).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You define Service Level Indicators (SLIs)",
+      "description": "How do you define Service Level Indicators (SLIs) and Service Level Objectives (SLOs) for a service, and how do they relate to SLAs and error budgets?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you define Service Level Indicators (SLIs) and Service Level Objectives (SLOs) for a service, and how do they relate to SLAs and error budgets?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-12-ref-1",
+          "text": "SLI (Service Level Indicator): A metric that reflects service health (e.g., 99th‑percentile response time, request success rate, uptime percentage). SLO (Service Level Objective): A target for an SLI over a time window (e.g., 99.9% of requests succeed over 30 days). Internal teams use SLOs to align on reliability goals. SLA (Service Level Agreement): A formal, often legal, commitment to customers, typically mirroring an SLO (e.g., 99.5% uptime per month) and specifying penalties or credits if breached. Error Budget: The allowable shortfall from an SLO (e.g., 0.1% failure equals ~43 minutes downtime/month). It guides risk decisions, if you exhaust half your budget early, you might halt risky deployments and prioritize fixes.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Strategies do you use to avoid",
+      "description": "What strategies do you use to avoid alert fatigue and ensure alerts are actionable?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What strategies do you use to avoid alert fatigue and ensure alerts are actionable?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-13-ref-1",
+          "text": "Threshold tuning: Fire alerts only on user‑impacting symptoms (e.g., sustained error‑rate spikes, not transient CPU blips). Signal correlation: Require multiple indicators, like high CPU + increased latency, before alerting to reduce false positives. Deduplication & grouping: Bundle related alerts into a single incident to avoid repeated pages for the same root cause. Actionable runbooks: Attach clear, concise remediation steps so on‑call engineers know exactly what to do. Regular review & pruning: After incidents, identify noisy or useless alerts and adjust or retire them. Rate limits & delays: Suppress alerts that self‑resolve quickly (e.g., wait 5 minutes before paging) or cap repeat notifications. Fatigue metrics: Monitor alert volume and on‑call interrupt frequency to spot and address alert overload. By keeping alerts tightly scoped, correlated, and actionable, with ongoing maintenance, you ensure every page signals a real, user‑impacting problem and minimizes burnout.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You implement a monitoring strategy for",
+      "description": "How would you implement a monitoring strategy for a Kubernetes-based (containerized) environment?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How would you implement a monitoring strategy for a Kubernetes-based (containerized) environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "devops"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-14-ref-1",
+          "text": "Monitoring Kubernetes demands multi‑layer visibility across dynamic resources, clusters, nodes, pods, and apps. Use Prometheus (with the Operator or metrics‑server) for auto‑discovery and scraping: run node_exporter on each node and instrument applications via client libraries or sidecars. Centralize logs with an EFK/ELK stack or cloud logging, deploying a DaemonSet (e.g., Fluentd or Logstash) to collect pod stdout/stderr. Add distributed tracing (Jaeger or service‑mesh tracing) to follow requests across microservices. Create Grafana dashboards for cluster health (API‑server latency, etcd performance) and app performance (error rates, latency), and set alerts for infra failures (node down, crash loops) and service SLO breaches. Leverage Kubernetes labels and annotations to filter and group metrics, logs, and traces by service, deployment, or environment. This combination ensures end‑to‑end observability in a highly dynamic containerized infrastructure.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Challenges might you encounter when using",
+      "description": "What challenges might you encounter when using Prometheus at scale, and how can you address them?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What challenges might you encounter when using Prometheus at scale, and how can you address them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-15-ref-1",
+          "text": "High cardinality: Thousands of unique label combinations or per‑user/request metrics can overwhelm Prometheus’s memory and CPU. Mitigate by pruning labels, aggregating values, and using recording rules to precompute heavy queries. Retention & long‑term storage: The local TSDB isn’t ideal for multi‑year data or guaranteed durability. Integrate remote stores or use Thanos/Cortex to offload old data to object storage and provide cross‑server querying. High availability: A single Prometheus instance is a SPOF. Run at least two replicas scraping the same targets and put Alertmanager in HA mode to avoid gaps during outages. Federation & sharding: For very large environments, either federate a central Prometheus to scrape regional instances (compartmentalizing load) or shard scraping by domain/service across multiple servers to balance resource use. By controlling cardinality, adding remote durable storage, replicating for HA, and distributing scrape workloads via federation or sharding, you keep Prometheus performant and reliable at scale.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "As the number of dashboards and",
+      "description": "As the number of dashboards and users grows, how do you manage Grafana to keep it organized and effective for a large team?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"As the number of dashboards and users grows, how do you manage Grafana to keep it organized and effective for a large team?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-16-ref-1",
+          "text": "Organize & Name: Group dashboards into folders (by team, application, infra vs. app) and use consistent naming so everything’s easy to find. Access Control: Apply RBAC so users only see or edit dashboards relevant to their role or team. Dashboards as Code: Export dashboards as JSON and manage them via provisioning or Terraform, track changes in Git for peer review and rollback. Reusable Components: Create and share library panels or templates so common visualizations live in one place and updates propagate everywhere. Regular Cleanup: Periodically audit and delete stale or duplicate dashboards to prevent sprawl. Stakeholder Alignment: Work with dev teams and SREs to surface the most critical metrics, build concise summary dashboards for leadership and detailed views for on‑call engineers.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Using Datadog in a large-scale environment",
+      "description": "Using Datadog in a large-scale environment can become expensive. How can you optimize your use of Datadog to control costs without losing visibility?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Using Datadog in a large-scale environment can become expensive. How can you optimize your use of Datadog to control costs without losing visibility?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-17-ref-1",
+          "text": "Log ingestion control: Use sampling or exclusion filters (e.g., drop debug logs or dev‑environment logs) via processing pipelines so only essential logs are indexed. Trace sampling: Don’t collect 100% of traces, apply fixed or intelligent sampling to reduce volume while preserving visibility. Custom metric cardinality: Avoid high‑cardinality tags (like user IDs); aggregate before sending and use roll‑ups to downsample over time. Retention tuning: Shorten detailed‑data retention windows or lower resolution after an initial period. Host‑agent optimization: Only run the Datadog agent on critical hosts, remove it from ephemeral or low‑value instances. Hybrid tooling: Offload less critical telemetry to open‑source solutions (e.g. Prometheus) and reserve Datadog for business‑critical metrics. Tagging & scoping: Precisely tag data so dashboards and alerts focus on key services, preventing unnecessary metric or log ingestion.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You need to design a complete",
+      "description": "You need to design a complete observability platform for an organization from scratch. What components and practices would you include to ensure metrics, logs, and traces are all covered effectively?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"You need to design a complete observability platform for an organization from scratch. What components and practices would you include to ensure metrics, logs, and traces are all covered effectively?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "devops",
+        "product"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-18-ref-1",
+          "text": "Metrics: Deploy a scalable TSDB (e.g., Prometheus or hosted service) to scrape infrastructure (nodes, containers, network) and application metrics (RPS, latencies, queue depths). Layer in Thanos/Cortex for HA and long‑term retention. Logs: Centralize via ELK or a cloud logging service. Ship logs with Fluent Bit/Fluentd or sidecars, index for fast search, and apply retention policies per compliance. Tracing: Instrument services with OpenTelemetry SDKs and collect spans in Jaeger, Tempo, or an APM provider. Ensure trace context flows through all microservices. Visualization & Correlation: Use Grafana (or similar) to dashboard metrics, query logs, and display trace waterfalls in one UI. Enable cross‑links so alerts and dashboards jump to relevant logs or traces. Alerting: Tie Prometheus Alertmanager to metric‑based alerts, and leverage log‑ or trace‑based monitors (e.g., ElastAlert or native APM alerts) for error patterns and latency violations. Standards & SLOs: Adopt consistent tagging/instrumentation (via OpenTelemetry) so all telemetry shares common labels. Build SLO dashboards tracking SLIs against objectives and maintain an error‑budget workflow. Access Control & Multi‑Tenancy: Organize data by teams or environments using RBAC, separate indices or tenancy, and enforce dashboard permissions. Governance & Maintenance: Treat dashboards as code (Git‑backed provisioning), periodically audit for relevance, and ensure ownership for each component (metrics, logs, traces).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Emerging trends or technologies in monitoring",
+      "description": "What emerging trends or technologies in monitoring and observability are you excited about or planning to implement?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What emerging trends or technologies in monitoring and observability are you excited about or planning to implement?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "monitoring-observability"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "devops"
+      ],
+      "primaryTechStack": [
+        "monitoring-observability"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:57:54.038Z",
+      "updatedAt": "2025-12-19T17:57:54.038Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "monitoring-observability-questions-bank-19-ref-1",
+          "text": "OpenTelemetry Standardization: A vendor‑neutral SDK for traces, metrics, and logs that lets you instrument once and route telemetry to any backend, creating a common “lingua franca” for observability. AIOps & ML‑Driven Monitoring: Machine‑learning‑powered tools that detect anomalies and forecast incidents beyond static thresholds, reducing alert noise and catching subtle issues early. eBPF‑Based Insights: Kernel‑level instrumentation (via tools like Pixie or Cilium) that provides low‑overhead visibility into networking, application performance, and system calls, often without code changes. Converged Observability Platforms: Suites that natively cover metrics, logs, traces, synthetics, and real‑user monitoring under one pane, simplifying toolchains and correlating data across pillars. Shift‑Left Telemetry: Embedding observability into CI/CD and test environments, automatic canary analysis and early performance feedback ensure new releases meet SLOs before production. Open‑Source Stacks Evolving: Projects like Grafana’s “LGTM” stack (Loki, Grafana, Tempo, Mimir) offer integrated, end‑to‑end observability with community‑driven innovation. Advanced Visualization & Correlation: Rich UIs that link traces, logs, and topology maps, helping engineers trace failures through service dependencies and drill down seamlessly during incidents. Together, these trends make observability more standardized, intelligent, and integrated, so teams can collect, analyze, and act on telemetry faster and more reliably.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

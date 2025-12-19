@@ -1,0 +1,181 @@
+{
+  "totalQuestions": 25,
+  "extractedAt": "2025-12-19T17:51:19.394Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is a message queue and why would you use one in a modern system?",
+      "answer": "A message queue lets one component (the producer) drop messages into a buffer that another component (the consumer) processes later at its own pace.\nBy decoupling sender and receiver, it smooths traffic spikes, isolates microservices for independent scaling or failure, and boosts reliability through retries and persistence when services are down.\nIn cloud and microservice architectures, this asynchronous messaging ensures resilient, flexible data exchange.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "How does asynchronous messaging via queues differ from synchronous communication (like direct API calls)?",
+      "answer": "In synchronous calls (e.g., HTTP), the caller waits - blocking - until a downstream service responds, so slow or unavailable services stall the operation.\nWith asynchronous queues, the producer hands off a message to a broker and moves on immediately; consumers process messages later, enabling independent scaling, fault tolerance, and burst buffering at the cost of added complexity (state tracking, idempotency) and eventual consistency.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "Can you explain the difference between point-to-point messaging and publish-subscribe messaging?",
+      "answer": "Point‑to‑point messaging sends messages to a designated queue, multiple consumers may listen, but each message is delivered to exactly one (think of a work queue for load‑balanced tasks).\nPublish‑subscribe uses topics (or exchanges) so every subscriber gets its own copy of each message, making it perfect for broadcasting events or notifications (e.g., triggering different actions in various systems).\nIn short, queues enable one‑to‑one, competing‑consumer workflows, while topics support one‑to‑many message distribution.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What are producers, consumers, and brokers in the context of message queues?",
+      "answer": "Producers (or publishers) create messages and send them to a queue or topic.\nConsumers (or subscribers) pull and process those messages.\nThe broker (message‑queue server) stores messages, enforces delivery semantics (e.g., guarantees, routing) and mediates between producers and consumers.\nIn systems like RabbitMQ or Kafka, clients connect to the broker, producers send messages into it and consumers fetch them, decoupling senders from receivers.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "What does it mean for a message queue to guarantee durability or persistence of messages?",
+      "answer": "Durability ensures messages survive broker failures by persisting them to disk or replicating them so they remain available after restarts.\nBy declaring queues as durable and marking messages persistent, you guard against data loss, which is vital for critical workflows like financial transactions.\nThough disk I/O or replication adds overhead compared to fast, in‑memory (transient) messaging, durability markedly boosts system reliability.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What are at-least-once, at-most-once, and exactly-once delivery semantics in messaging?",
+      "answer": "At‑most‑once delivers a message zero or one time with no retries, fast but prone to loss.\nAt‑least‑once retries until the consumer acknowledges, guaranteed delivery but may produce duplicates.\nExactly‑once ensures a single delivery with no loss or duplicates, but demands idempotent operations or transactional coordination (e.g., Kafka’s idempotent producers + transactional API), so most systems default to at‑least‑once and rely on consumer‑side deduplication.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "Why are message queues useful for decoupling and what is an example use case in a DevOps/SRE context?",
+      "answer": "By decoupling senders from receivers, message queues let each component scale or fail independently, improving system robustness.\nFor example, in a continuous deployment pipeline (DevOps scenario), you might have a build service produce messages about new artifacts or tests to run, and multiple workers consume those to perform deployments or run tests asynchronously.\nIn an SRE context, queues are also used for rate smoothing – if one part of the system gets a burst of traffic, a queue can buffer these requests, preventing overload downstream and allowing graceful processing over time. Overall, they enable more robust and maintainable architectures by isolating components.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Mid",
+      "title": "How does Apache Kafka differ from a traditional message broker like RabbitMQ?",
+      "answer": "Kafka\n\nApache Kafka is a distributed streaming platform that persists ordered logs across partitioned topics, offering high throughput, horizontal scalability, and consumer‑managed offsets for replayable event streams and data pipelines.\nKafka’s strength lies in sequential disk writes, fault‑tolerant logs, and long‑term retention, ideal for high‑volume event streaming and history replay.\n\nRabbitMQ\n\nRabbitMQ is a broker implementing AMQP with exchanges, queues, and flexible routing, delivering discrete messages push‑style with per‑message acknowledgments, retries, and RPC support.\nRabbitMQ excels at immediate delivery, complex routing patterns, and integration workflows—perfect for task queues and request/response.\n\nChoose Kafka for durable, replayable streaming; choose RabbitMQ for feature‑rich, flexible messaging.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Mid",
+      "title": "Explain how consumer groups work in Kafka and why they are important.",
+      "answer": "In Kafka, a consumer group is a set of consumers sharing a topic’s workload: each partition is assigned to exactly one consumer in the group, enabling parallel processing and horizontal scaling. If a consumer fails, Kafka rebalances its partitions to other group members, ensuring continuous progress.\nThe group tracks a collective offset per partition, providing Kafka’s ordering guarantee. Multiple groups can independently consume the same topic (broadcast), while within a group each message goes to only one consumer (competing‑consumer), making Kafka both scalable and fault‑tolerant for streaming applications.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Mid",
+      "title": "In RabbitMQ, what is an exchange and how does it route messages to queues?",
+      "answer": "Producers publish messages to an exchange, not directly to queues, and the exchange routes them based on the message’s routing key and its own type/rules:\n\nDirect: Delivers to queues whose binding key exactly matches the routing key (one‑to‑one).\nFanout: Broadcasts to all bound queues, ignoring routing keys.\nTopic: Uses wildcard patterns on routing keys (e.g., “logs.error”) to route to matching queues.\nHeaders: Routes based on header attributes instead of keys.\n\nExchanges let you flexibly direct messages to one or many queues e.g. a topic exchange can broadcast categorized logs to multiple services.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Mid",
+      "title": "How does AWS SQS ensure message delivery, and what are the differences between standard SQS and SQS FIFO queues?",
+      "answer": "Amazon SQS is a fully managed, highly durable queue service that redundantly stores messages across Availability Zones. It offers at‑least‑once delivery, so consumers must handle potential duplicates, and relies on visibility timeouts to hide received messages until they’re processed (or reappear for redelivery if not deleted in time). There are two queue types:\n\nStandard: virtually unlimited throughput, at‑least‑once delivery, best‑effort ordering (messages may arrive out of order).\nFIFO: guarantees first‑in, first‑out ordering and exactly‑once processing via deduplication IDs, with lower throughput and use of message group IDs to enable parallelism while preserving order.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "What is Google Cloud Pub/Sub and how does it handle message delivery and subscriber models?",
+      "answer": "Google Cloud Pub/Sub is a fully managed, scalable pub/sub service for asynchronous messaging. Producers publish to topics, and consumers subscribe via:\n\nPull: your application explicitly fetches and acknowledges messages, giving you control over flow and batching.\nPush: Pub/Sub issues HTTP requests to your endpoint like a webhook, and you acknowledge by returning a success code.\n\nBy default, Pub/Sub uses at‑least‑once delivery, messages persist across zones and retry until acknowledged, so duplicates can occur. Ordering keys let you enforce in‑order delivery per key. Behind the scenes, it auto‑scales and load‑balances deliveries across subscribers. To achieve exactly‑once semantics, you must handle deduplication or idempotency downstream.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "How would you monitor the health and performance of a message queue system in production?",
+      "answer": "Queue Depth: Track the number of enqueued messages. A steady growth signals slow or down consumers.\nThroughput & Lag: Measure messages in/out per second and, in Kafka, consumer lag (latest offset minus consumed offset) to spot backlogs.\nProcessing Latency: Record how long messages wait in the queue and how long consumers take to process them, key for identifying bottlenecks.\nError & Dead‑Letter Rates: Monitor failed deliveries and DLQ volumes to catch bugs or poison messages early.\nBroker Health: Keep an eye on broker CPU, memory, disk I/O (and network I/O for log‑based systems) plus internal metrics (e.g., Kafka JMX, RabbitMQ socket/channel counts).\nAlerting & Synthetic Tests: Define alerts for thresholds (e.g., queue length, no active consumers, high error rates) and periodically publish/consume test messages to verify end‑to‑end flow.\nTooling: Use Prometheus/Grafana (ingesting JMX or management‑API metrics) or vendor dashboards to collect, visualize, and alert on all of the above.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What is a dead-letter queue (DLQ) and how is it used in message systems?",
+      "answer": "A dead‑letter queue (DLQ) is a safety‑net queue for messages that can’t be delivered or processed, preventing system stalls or data loss.\nMessages are routed to a DLQ when they exceed retry limits, are malformed, or hit TTL/queue‑size limits.\nFor example, SQS can forward messages after a max‑receive count, and RabbitMQ can dead‑letter rejected or expired messages via exchanges.\nTeams then inspect DLQs to debug or requeue fixed messages, isolating problematic traffic and boosting overall reliability.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "How do you handle a situation where producers are much faster than consumers (backpressure)?",
+      "answer": "Rate limiting: Throttle producers when queue depth exceeds thresholds—either in‑app (producers poll queue length) or via broker backpressure signals.\nScale consumers: Spin up more consumer processes or, in Kafka, add instances to a consumer group (as partitions allow).\nPartition or shard: Distribute messages across multiple queues or Kafka partitions so more consumers can work in parallel.\nBoost throughput: Batch messages, tune broker settings (e.g., Kafka’s batch size/linger), or add broker resources (nodes, faster disks).\nBackpressure protocols: Use frameworks like Reactive Streams where consumers signal their capacity upstream.\nOverflow storage: Redirect excess traffic to secondary queues or external storage for later processing if brokers can’t expand.\nRoot‑cause analysis: Distinguish spikes from chronic load—apply auto‑scaling and capacity planning or re‑architect if needed.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "What does it mean for a consumer to be idempotent, and why is that important in at-least-once delivery systems?",
+      "answer": "An idempotent consumer produces the same outcome no matter how many times it processes a message—duplicate deliveries have no extra side effects (e.g., double charges or repeated records). This is essential in at‑least‑once systems (like most queues and Kafka), where retries or lost acknowledgments can lead to repeated messages. To implement idempotency, consumers typically:\n\nTrack processed message IDs (in a cache or database) and skip repeats.\nUse deduplication caches keyed by unique message IDs.\nPerform inherently idempotent operations (e.g., UPSERTs or setting values rather than incrementing).\n\nBy handling duplicates safely, idempotent consumers underpin exactly‑once semantics and ensure system correctness in distributed messaging environments.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Senior",
+      "title": "How does Kafka achieve exactly-once processing semantics?",
+      "answer": "Kafka achieves exactly‑once processing via two key features:\n\nIdempotent producers When enabled, producers tag each message with a sequence number so that broker retries don’t create duplicates in a partition.\nTransactions Producers and consumers can wrap their reads and writes in a transaction—using Kafka’s transactional API and read‑committed isolation—to ensure that a group of operations either all succeed or all fail. For example, a Kafka Streams app can atomically consume from one topic and produce to another, guaranteeing one output per input even if failures trigger retries.\n\nEnd‑to‑end exactly‑once requires:\n\nIdempotent producers.\nTransactional reads/writes with read‑committed consumers.\nIdempotent or transactional handling in downstream systems (e.g., using UPSERTs in a database) so that consumer‑side retries don’t cause duplicate side effects.\n\nAlone, Kafka’s broker still delivers at‑least‑once—these client‑side mechanisms are what make exactly‑once semantics possible.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Senior",
+      "title": "How would you design a highly available message queue system across multiple data centers (e.g., active-active or active-passive)?",
+      "answer": "Active‑Passive (Disaster Recovery): Maintain a primary cluster in DC A and a standby in DC B, replicating via Kafka MirrorMaker or RabbitMQ shovel/federation. Clients fail over to B if A fails. Simpler to implement but incurs replication lag and non‑instant failover.\nActive‑Active (Geo‑Distributed): Run clusters in both DCs with cross‑cluster replication (e.g., Kafka’s MirrorMaker, RabbitMQ federation). Each site handles local traffic for resilience and throughput. You trade off consistency—potential duplicates or out‑of‑order delivery—against availability.\nQuorum‑based Replication: Use consensus (e.g., Apache Pulsar or Kafka’s multi‑region tools) so writes require acknowledgments from nodes in multiple DCs before confirming to producers. This gives strong cross‑site durability but adds write latency.\nKey considerations: network latency/bandwidth, CAP trade‑offs (consistency vs. availability during partitions), and intelligent client routing (to nearest or healthy cluster). In practice, many opt for automated active‑passive failover or active‑active with eventual consistency.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Senior",
+      "title": "Can you explain Kafka’s internal architecture, specifically how it uses partitions, replicas, and what roles ZooKeeper (or KRaft) play?",
+      "answer": "Kafka organizes data into topics split across one or more partitions—each an ordered, append‑only log. Partitions are replicated across brokers: one leader handles all producer writes while followers mirror its log. If the leader fails, an in‑sync follower is elected, ensuring redundancy. Your durability guarantees come from configuring the replication factor and how many in‑sync replicas must acknowledge a write.\nCluster metadata (brokers, topics, partitions, leaders) was once managed by ZooKeeper for leader elections and membership. Newer Kafka versions use KRaft, a built‑in Raft‑based consensus layer, eliminating the external ZooKeeper dependency and improving metadata scalability.\nIn practice, producers append to leader logs, followers replicate them, and consumers read messages by offset. Combined, partitioning for parallelism, replication for fault tolerance, and coordinated metadata via ZooKeeper or KRaft, Kafka achieves its signature high throughput, resilience, and scalability.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Senior",
+      "title": "RabbitMQ clustering: how does RabbitMQ achieve high availability?",
+      "answer": "Default clustering: Queues live on the node where they’re declared; other nodes merely route to it. If that node fails, the queue is unavailable.\nClassic mirrored queues: You specify mirrors on other nodes; every publish, consume, and ack is replicated. If the primary dies, a mirror is promoted—no data loss but extra disk and network I/O.\nQuorum queues: Use a Raft‑based log replicated across a quorum of nodes. Writes require majority acknowledgement, offering stronger durability, simpler failover handling, and resilience to partitions.\nClient failover: Applications should be configured to reconnect to any healthy node.\n\nBoth mirrored and quorum queues replicate data to keep queues available and intact when nodes fail, ensuring high availability in RabbitMQ clusters.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Senior",
+      "title": "What is backpressure in messaging systems, and how might Kafka or other systems handle it at a protocol level?",
+      "answer": "Backpressure lets a system prevent overload by signaling when consumers can’t keep up, rather than letting queues grow unbounded. Different systems implement it as follows:\n\nKafka (pull‑based):\nConsumers fetch at their own pace, so producers can append until retention limits.\nBrokers apply implicit backpressure via memory pressure: if the producer’s buffer.memory or broker queues fill up, send() blocks or errors, signaling the producer to slow down.\nRabbitMQ (push‑based, AMQP):\nPrefetch (consumer credit): limits unacknowledged messages per consumer, once reached, the broker pauses deliveries until acks arrive.\nBroker flow control: if queues grow too large, RabbitMQ throttles or blocks producers at the TCP/channel level until consumers catch up.\nOther protocols:\nReactive Streams/Akka: explicit demand signaling, consumers request N items, and producers must not exceed that.\nCloud Pub/Sub (push): slows delivery when subscribers return errors, effectively invoking backpressure.\n\nAcross all systems, backpressure can be proactive (signaling producers to slow) or reactive (throttling or, as a last resort, dropping/offloading messages). Proper handling means configuring clients to respect these signals, e.g., tuning Kafka producer buffer limits and handling QueueFullException, or setting appropriate RabbitMQ prefetch counts, to maintain stability and avoid resource exhaustion.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Senior",
+      "title": "When dealing with millions of messages per minute, what considerations and optimizations would you apply to a message queue system?",
+      "answer": "Partitioning & Sharding: Split topics or queues across many partitions or shards so multiple brokers and consumers can process in parallel.\nCluster Scaling: Horizontally add broker nodes (e.g., more Kafka brokers or federated/sharded RabbitMQ nodes) to distribute load and avoid single‑node bottlenecks.\nHardware & Networking: Use SSD/NVMe drives for fast I/O, ample RAM for caching, and high‑bandwidth networking (10 GbE+) to support heavy disk and cluster traffic.\nBatching & Compression: Group messages into batches (tune Kafka’s batch.size and linger.ms; use RabbitMQ’s async publisher confirms) and enable compression to lower per‑message overhead and reduce wire/disk usage.\nAck Optimization: Reduce fsync or ack‑flush frequency, tune Kafka’s replication/acks settings and RabbitMQ’s prefetch and bulk acknowledgments, to minimize disk and network stalls.\nClient Tuning: Configure producers for async I/O and multiple in‑flight requests; tune consumer fetch sizes and parallel message handling to maximize throughput.\nMonitoring & Auto‑Scaling: Continuously track metrics (lag, queue depth, broker resource use) and automatically scale consumer pools based on thresholds, with back‑off or alternative buffering strategies if overwhelmed.\nTiered Architectures: Use an ingest buffer (e.g., Kafka) feeding multiple downstream pipelines, or adopt systems like Pulsar that separate storage (BookKeeper) from brokers to improve scale and flexibility.\n\nBy combining horizontal scaling, tuned batching/acks, robust hardware, and proactive monitoring with well‑architected pipelines, you ensure your messaging layer meets extreme throughput demands without single‑point failures.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Senior",
+      "title": "How do you decide between using a managed cloud messaging service (like AWS SQS or Google Pub/Sub) versus running your own (like Kafka or RabbitMQ) for a production system?",
+      "answer": "Managed Services (e.g., SQS, Pub/Sub, Azure Service Bus)\n\nPros: Zero server ops—provider handles scaling, patching, and fault tolerance; seamless bursts; built‑in durability; tight cloud integration (e.g., SQS→Lambda, Pub/Sub→Cloud Functions).\nCons: Limited customization (filtering, ordering, internals); vendor lock‑in; per‑request/data pricing can get expensive at scale.\n\nSelf‑Managed (e.g., Kafka, RabbitMQ, ActiveMQ)\n\nPros: Total configuration control—choose versions, plugins, retention policies, cluster topologies; deploy hybrid or cloud‑agnostic.\nCons: Full operational burden—installing, monitoring, upgrading, scaling; requires deep expertise to maintain HA and troubleshoot under load.\n\nCloud‑Managed OSS (e.g., Amazon MSK, CloudAMQP)\n\nPros: Provider‑managed infrastructure with familiar Kafka/RabbitMQ APIs and feature sets.\nCons: Higher costs; may lag on new versions or advanced features.\n\nDecision Factors:\n\nScale & Throughput: Simple queues at moderate volume → managed service; large, replayable event streams → self‑managed Kafka.\nTeam Expertise & Ops Capacity: Limited ops resources → managed; strong DevOps/Kafka team → self‑hosted.\nFeature Needs: Need ordering, filtering, replay → choose a system that natively supports them.\nLatency, SLAs & Cost: Balance performance requirements against pricing models and operational overhead.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Senior",
+      "title": "What are some security best practices for message queue systems (like Kafka, RabbitMQ, etc.)?",
+      "answer": "Authentication: Require producers and consumers to prove their identity.\nKafka: Enable SASL (e.g., SCRAM, OAuth) or mTLS.\nRabbitMQ: Use built‑in credentials or integrate with LDAP/OAuth.\nCloud services: Rely on IAM roles or managed credentials.\nAuthorization: Grant only the permissions each client needs.\nKafka: Use ACLs to control publish/consume access per topic.\nRabbitMQ: Leverage vhosts and user permissions on exchanges/queues.\nPrinciple of least privilege: Restrict actions to the bare minimum.\nEncryption in Transit: Always use TLS/SSL for broker‑client connections to prevent eavesdropping.\nEncryption at Rest: Secure on‑disk data with disk‑ or log‑level encryption (either broker‑native or via managed‑service defaults).\nNetwork Security:\nIsolate brokers on private networks or behind firewalls/security groups.\nRestrict access to application servers only; separate prod and non‑prod environments.\nMonitoring & Auditing:\nLog authentication/authorization events (e.g., Kafka auth failures, RabbitMQ audit logs).\nUse IDS/IPS and regularly review credentials and permissions.\nPatch Management:\nKeep broker software up to date—apply security patches promptly.\nFor managed services, monitor provider advisories and recommended configurations.\n\nBy enforcing strong authN/authZ, encrypting data in flight and at rest, locking down network access, auditing activity, and staying patched, you protect your messaging layer from unauthorized access and data breaches.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Senior",
+      "title": "What is a poison message and how should one handle it in a messaging system?",
+      "answer": "A poison message is one that a consumer can’t process—bad format or content that always fails—and if retried indefinitely it can crash or block the consumer. Common handling strategies:\n\nDead‑Letter Queue: After N failed attempts, automatically move the message to a DLQ to unblock normal processing.\nError‑Handling Logic: Catch processing exceptions; decide to nack (requeue or dead‑letter) or ack&drop based on failure type.\nAutomated Retries with Backoff: Retry transient failures (e.g., temporary DB outage) with exponential backoff, then DLQ after X attempts.\nValidation Upstream: Enforce schemas (Avro/JSON schema) at the producer to reject malformed messages before they enter the queue.\nAlerting & Analysis: Trigger alerts when messages hit the DLQ, inspect payloads to diagnose producer bugs or unexpected inputs, and improve the system to prevent future occurrences.\n\nThese patterns ensure that one bad message doesn’t halt the entire pipeline, isolating failures for later review while keeping the rest of the system flowing.",
+      "isPremium": false
+    }
+  ]
+}

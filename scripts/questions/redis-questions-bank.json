@@ -1,0 +1,636 @@
+{
+  "totalQuestions": 90,
+  "extractedAt": "2025-12-19T17:49:57.993Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is Redis?",
+      "answer": "Redis is an open-source, in-memory data structure store that can be used as a database, cache, message broker, and streaming engine.\nIt supports various abstract data structures such as strings, hashes, lists, sets, sorted sets, bitmaps, hyperloglogs, geospatial indexes, and streams.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What are the key features of Redis?",
+      "answer": "In-Memory Storage: Data is stored in memory for fast read/write operations.\nData Structures: Supports strings, lists, sets, sorted sets, hashes, bitmaps, etc.\nPersistence: Options for RDB snapshots and AOF logging.\nReplication: Master-slave replication for high availability.\nPub/Sub: Built-in publish-subscribe messaging.\nClustering: Automatic partitioning across multiple nodes.\nTransactions: Support for atomic execution of commands.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "Why would you use Redis over a traditional relational database?",
+      "answer": "Performance: Redis operates in-memory, providing sub-millisecond latency for reads/writes, ideal for caching and real-time applications.\nData Structures: Offers rich data types like lists and sets for efficient operations without complex queries.\nScalability: Easier horizontal scaling with clustering and replication compared to relational DB sharding.\nUse Cases: Better for caching, session management, pub/sub, where relational features like ACID transactions are not strictly needed.\nSimplicity: No schema required, flexible for rapidly changing data models.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "What is the primary use case for Redis?",
+      "answer": "The primary use case for Redis is as a high-performance cache to speed up data access in applications by storing frequently accessed data in memory.\nIt reduces load on backend databases and improves response times for web applications, APIs, and real-time systems.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "How does Redis differ from Memcached?",
+      "answer": "Data Structures: Redis supports complex types like lists, sets; Memcached only key-value strings.\nPersistence: Redis offers persistence options; Memcached is purely in-memory without persistence.\nReplication: Redis supports master-slave replication; Memcached does not natively.\nFeatures: Redis has pub/sub, transactions, Lua scripting; Memcached is simpler for basic caching.\nEviction: Both support LRU, but Redis has more policies.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "What data types does Redis support?",
+      "answer": "Strings: Simple key-value pairs.\nLists: Ordered collections of strings.\nSets: Unordered unique collections.\nSorted Sets: Sets with scores for ordering.\nHashes: Key-value maps.\nBitmaps: For bit-level operations.\nHyperLogLogs: For cardinality estimation.\nGeospatial Indexes: For location-based data.\nStreams: For log-like data.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "Explain Redis strings and their common use cases.",
+      "answer": "Redis strings are binary-safe strings that can hold up to 512MB of data, including text, serialized objects, or counters.\nUse Cases: Caching HTML fragments, storing user sessions, implementing counters with INCR/DECR.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "What are Redis lists and how are they used?",
+      "answer": "Redis lists are ordered collections of strings, implemented as linked lists, allowing efficient insertions/removals from both ends.\nUsage: Queues (LPUSH/RPOP), stacks (LPUSH/LPOP), recent items lists, task queues.\n\npython\n\nCopy code\n\nimport redis\n  \nr = redis.Redis(decode_responses=True)\n  \nkey = \"tasks\"\n  \n# Producer – enqueue three jobs in one call\nr.rpush(key, \"resize:img1\", \"resize:img2\", \"resize:img3\")\n  \n# Consumer – FIFO blocking loop\nwhile (job := r.blpop(key, 0)):   # 0 = wait indefinitely\n    print(\"Processing\", job[1])",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Junior",
+      "title": "Describe Redis sets and when to use them.",
+      "answer": "Redis sets are unordered collections of unique strings, supporting operations like unions, intersections, differences.\nWhen to Use: Tagging systems, unique visitor tracking, friend lists where order doesn't matter and duplicates are avoided.\n\npython\n\nCopy code\n\nimport redis\nr = redis.Redis(decode_responses=True)\n  \n# define two follow-sets\nr.sadd(\"user:42:follows\", \"alice\", \"bob\", \"dora\")\nr.sadd(\"user:17:follows\", \"bob\", \"carl\", \"dora\", \"ellen\")\n  \n# who do both users follow?\nmutual = r.sinter(\"user:42:follows\", \"user:17:follows\")\nprint(\"Mutual follows:\", mutual)         # {'bob', 'dora'}\n  \n# quick membership test\nprint(\"alice in user-17’s list?\", r.sismember(\"user:17:follows\", \"alice\"))  # False",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Junior",
+      "title": "What are sorted sets in Redis?",
+      "answer": "Sorted sets are sets where each element has an associated floating-point score, maintaining order by score.\nThey allow efficient range queries, ranking, and leaderboard implementations.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Junior",
+      "title": "Explain hashes in Redis.",
+      "answer": "Hashes are maps between string fields and string values, suitable for storing objects with multiple attributes.\nThey are memory-efficient for small objects compared to using separate keys.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Junior",
+      "title": "What is a Redis key and how are keys managed?",
+      "answer": "A Redis key is a unique identifier for data, binary-safe strings up to 512MB.\nManagement: Use DEL to delete, EXPIRE/TTL for expiration, KEYS/SCAN for listing (SCAN preferred for large DBs). Namespaces via colon separators like user:123.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Junior",
+      "title": "What is the default port for Redis?",
+      "answer": "The default port for Redis is 6379.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Junior",
+      "title": "How does Redis handle expiration of keys?",
+      "answer": "Redis handles key expiration using EXPIRE/PEXPIRE for seconds/milliseconds, or EXPIREAT/PEXPIREAT for timestamps.\nExpired keys are deleted lazily during access or actively via background process.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Junior",
+      "title": "What is the TTL command in Redis?",
+      "answer": "TTL returns the remaining time to live of a key in seconds; -2 if not exist, -1 if no expiration.\nPTTL for milliseconds.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Junior",
+      "title": "What is Redis persistence?",
+      "answer": "Redis persistence saves in-memory data to disk to prevent loss on restart or crash.\nMethods: RDB (point-in-time snapshots) and AOF (append-only log of operations).",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Junior",
+      "title": "Explain RDB (Redis Database) snapshotting.",
+      "answer": "RDB creates point-in-time snapshots of the dataset at intervals or on command (SAVE/BGSAVE).\nCompact binary file, good for backups; loaded on startup.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Junior",
+      "title": "What is AOF (Append Only File) in Redis?",
+      "answer": "AOF logs every write operation in a file, allowing reconstruction of dataset by replaying commands.\nMore durable than RDB; can be fsynced every second or on every write.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "What are the differences between RDB and AOF persistence?",
+      "answer": "Format: RDB is compact binary snapshot; AOF is log of commands.\nDurability: AOF more durable with frequent fsync; RDB can lose data since last snapshot.\nSize: RDB smaller; AOF larger but can be rewritten.\nRecovery Time: RDB faster to load; AOF slower as commands are replayed.\nOverhead: RDB forks process for snapshot; AOF appends continuously.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "When would you choose RDB over AOF?",
+      "answer": "Choose RDB for large datasets where compact backups are needed, faster restarts, and some data loss is acceptable (e.g., caching).\nSuitable when durability is not critical, and performance overhead should be minimal.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "How can you configure persistence in Redis?",
+      "answer": "Edit redis.conf: For RDB, set save <seconds> <changes> like save 60 10000.\nFor AOF, set appendonly yes, appendfsync everysec, auto-aof-rewrite-percentage 100.\nCan use CONFIG SET at runtime, but persist with CONFIG REWRITE.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What is Redis replication?",
+      "answer": "Redis replication creates exact copies of data from a master instance to slave instances for scalability and failover.\nAsynchronous by default, supports read scaling and data redundancy.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "Explain master-slave replication in Redis.",
+      "answer": "Master handles writes, slaves replicate data asynchronously via full sync (RDB) then partial (command propagation).\nSlaves can serve reads, chain replication (slave of slave).",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "How do you set up replication in Redis?",
+      "answer": "On slave, run SLAVEOF master_ip master_port or set replicaof in config.\nMaster auto-detects slaves; monitor with INFO replication.\nFor auth, set masterauth on slave if master requires password.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "What is the role of the SLAVEOF command?",
+      "answer": "SLAVEOF host port makes the instance a slave of the specified master.\nSLAVEOF NO ONE promotes slave to master.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "What happens during replication failover?",
+      "answer": "Manual: Promote slave with SLAVEOF NO ONE, redirect clients.\nWith Sentinel: Automatic detection, election of new master, reconfiguration.\nData loss possible if async replication not caught up.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "What is Redis Sentinel?",
+      "answer": "Redis Sentinel is a system for monitoring, notifications, and automatic failover in replication setups.\nRuns as separate processes, provides high availability.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "How does Redis Sentinel provide high availability?",
+      "answer": "Monitors master/slaves, detects failures via pings and quorum.\nOn failure, elects slave as new master, reconfigures others, notifies clients.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "What are the components of Redis Sentinel?",
+      "answer": "Sentinel Processes: Multiple instances for fault tolerance.\nConfiguration: sentinel.conf with monitored masters.\nPub/Sub: For coordination between Sentinels.\nQuorum: Agreement threshold for failover.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "How do you configure Redis Sentinel?",
+      "answer": "Create sentinel.conf: sentinel monitor mymaster ip port quorum.\nSet down-after-milliseconds, failover-timeout, etc.\nRun redis-sentinel /path/to/sentinel.conf on multiple nodes.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is Pub/Sub messaging in Redis?",
+      "answer": "Pub/Sub is a messaging paradigm where publishers send messages to channels, subscribers receive them.\nFire-and-forget, no persistence, supports patterns with PSUBSCRIBE.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "Explain how publish and subscribe works in Redis.",
+      "answer": "Subscribe: SUBSCRIBE channel - client enters sub mode, receives messages.\nPublish: PUBLISH channel message - sends to all subscribers.\nUnsubscribe: UNSUBSCRIBE channel.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "What are the limitations of Redis Pub/Sub?",
+      "answer": "No Persistence: Messages lost if subscriber offline.\nFire-and-Forget: No acknowledgments or retries.\nMemory Usage: Queues messages for slow subscribers, can OOM.\nNo Clustering Support: In cluster, pub/sub limited to node.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What are Redis transactions?",
+      "answer": "Transactions group commands to execute atomically using MULTI/EXEC.\nNot fully ACID; atomic but no rollback on failure.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Mid",
+      "title": "How do MULTI and EXEC work in Redis?",
+      "answer": "MULTI starts transaction, queues commands.\nEXEC executes all queued commands atomically, returns results.\nDISCARD cancels transaction.\n\npython\n\nCopy code\n\nimport redis\n  \nr = redis.Redis(host=\"localhost\", port=6379, decode_responses=True)\n  \n# ---------- Successful transaction ----------\npipe = r.pipeline()          # pipeline defaults to MULTI/EXEC mode\npipe.set(\"greeting\", \"hi\")\npipe.incr(\"visit_count\")\nresults = pipe.execute()     # -> [\"OK\", 1]\nprint(\"EXEC results:\", results)\n  \n# ---------- Cancelling a transaction ----------\npipe = r.pipeline()\npipe.set(\"greeting\", \"bye\")\n  \n# …some runtime check fails, so abort:\npipe.reset()                 # equivalent to DISCARD\nprint(\"Transaction discarded; greeting is still:\", r.get(\"greeting\"))",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "What is the WATCH command and optimistic locking in Redis?",
+      "answer": "WATCH keys monitors for changes before transaction.\nIf changed, EXEC fails; enables check-and-set (CAS) for optimistic locking.\nUNWATCH to stop monitoring.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "What are Lua scripts in Redis?",
+      "answer": "Lua scripts are server-side scripts executed atomically in Redis.\nAccess Redis commands via lua libraries like redis.call.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Mid",
+      "title": "How can you execute Lua scripts in Redis?",
+      "answer": "Use EVAL script numkeys key [key ...] arg [arg ...].\nFor caching, use SCRIPT LOAD script, then EVALSHA sha1 numkeys ....",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Mid",
+      "title": "What are the benefits of using Lua scripts in Redis?",
+      "answer": "Atomicity: Executes as single command, no interleaving.\nReduced Latency: Fewer network roundtrips for complex operations.\nReusability: Load once, execute multiple times with EVALSHA.\nConsistency: Logic centralized on server.",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Mid",
+      "title": "What is pipelining in Redis?",
+      "answer": "Pipelining sends multiple commands without waiting for responses, reducing roundtrip latency.\nClient buffers commands, server processes sequentially.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Mid",
+      "title": "How does pipelining improve performance?",
+      "answer": "Reduces network latency by batching commands, minimizing RTT per command.\nIdeal for bulk operations, can increase throughput significantly.",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Mid",
+      "title": "What are some common Redis commands for strings?",
+      "answer": "SET key value - set string.\nGET key - get string.\nINCR/DECR key - increment/decrement integer.\nAPPEND key value - append to string.\nSTRLEN key - length of string.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Mid",
+      "title": "What are common commands for lists in Redis?",
+      "answer": "LPUSH/RPUSH key value - push left/right.\nLPOP/RPOP key - pop left/right.\nLLEN key - length.\nLRANGE key start stop - get range.\nLREM key count value - remove elements.",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Mid",
+      "title": "Explain commands for sets in Redis.",
+      "answer": "SADD key member - add member.\nSREM key member - remove member.\nSMEMBERS key - get all members.\nSINTER key1 key2 - intersection.\nSUNION key1 key2 - union.\nSCARD key - cardinality.",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Mid",
+      "title": "What commands are used for sorted sets?",
+      "answer": "ZADD key score member - add with score.\nZREM key member - remove.\nZRANGE key start stop - range by index.\nZREVRANGE key start stop - reverse range.\nZRANK key member - rank of member.\nZSCORE key member - score of member.",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Mid",
+      "title": "What is the role of the CONFIG command in Redis?",
+      "answer": "CONFIG GET param - retrieve configuration values.\nCONFIG SET param value - set runtime configuration.\nCONFIG REWRITE - update config file with current settings.\nCONFIG RESETSTAT - reset statistics.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Mid",
+      "title": "How does Redis handle memory management?",
+      "answer": "Uses malloc for allocation, supports jemalloc for better performance.\nmaxmemory limits usage, eviction policies remove keys when full.\nLazy free for large objects to avoid blocking.",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Mid",
+      "title": "What is the maxmemory configuration in Redis?",
+      "answer": "maxmemory sets maximum memory Redis can use, in bytes (e.g., maxmemory 1gb).\nWhen reached, applies eviction policy or returns errors on writes.",
+      "isPremium": false
+    },
+    {
+      "id": 49,
+      "level": "Mid",
+      "title": "Explain eviction policies in Redis.",
+      "answer": "Policies define key removal when maxmemory reached.\nSet via maxmemory-policy: volatile-lru, allkeys-lru, etc.\nApproximates LRU with sampling.",
+      "isPremium": false
+    },
+    {
+      "id": 50,
+      "level": "Mid",
+      "title": "What are the different eviction policies available?",
+      "answer": "noeviction: Return errors.\nallkeys-lru: Evict LRU from all.\nvolatile-lru: LRU from expirable.\nallkeys-random: Random from all.\nvolatile-random: Random from expirable.\nvolatile-ttl: Shortest TTL.\nallkeys-lfu: Least frequently used.\nvolatile-lfu: LFU from expirable.",
+      "isPremium": false
+    },
+    {
+      "id": 51,
+      "level": "Mid",
+      "title": "How does Redis handle out-of-memory situations?",
+      "answer": "If maxmemory set, evicts keys per policy.\nWithout maxmemory, uses system memory until OOM killer or crash.\nRecommend setting maxmemory slightly below available.",
+      "isPremium": false
+    },
+    {
+      "id": 52,
+      "level": "Mid",
+      "title": "What is Redis clustering?",
+      "answer": "Redis Cluster distributes data across multiple nodes using hash slots for horizontal scaling.\nProvides high availability with replication, automatic failover.",
+      "isPremium": false
+    },
+    {
+      "id": 53,
+      "level": "Mid",
+      "title": "Explain how Redis Cluster works.",
+      "answer": "Data sharded into 16384 hash slots, each node responsible for subset.\nClients redirect to correct node via MOVED/ASK.\nReplication per shard for HA, automatic failover.",
+      "isPremium": false
+    },
+    {
+      "id": 54,
+      "level": "Mid",
+      "title": "What is slot hashing in Redis Cluster?",
+      "answer": "Keys hashed with CRC16 modulo 16384 to assign to slots.\nHash tags {tag} hash only inside braces for co-location.",
+      "isPremium": false
+    },
+    {
+      "id": 55,
+      "level": "Mid",
+      "title": "How many hash slots are there in Redis Cluster?",
+      "answer": "There are 16384 hash slots in Redis Cluster.",
+      "isPremium": false
+    },
+    {
+      "id": 56,
+      "level": "Senior",
+      "title": "What is resharding in Redis Cluster?",
+      "answer": "Resharding moves hash slots between nodes for balancing or scaling.\nUse redis-cli --cluster reshard, migrates keys live.",
+      "isPremium": false
+    },
+    {
+      "id": 57,
+      "level": "Senior",
+      "title": "How do you add or remove nodes in a Redis Cluster?",
+      "answer": "Add: redis-cli --cluster add-node new_ip:port existing_ip:port.\nReshard slots to new node.\nRemove: Reshard slots away, then redis-cli --cluster del-node host:port node_id.",
+      "isPremium": false
+    },
+    {
+      "id": 58,
+      "level": "Senior",
+      "title": "What is the difference between replication and clustering in Redis?",
+      "answer": "Replication: Copies data for redundancy/reads, single shard.\nClustering: Shards data across nodes, includes replication per shard.\nClustering for scale-out, replication for HA.",
+      "isPremium": false
+    },
+    {
+      "id": 59,
+      "level": "Senior",
+      "title": "How does Redis ensure data consistency in a cluster?",
+      "answer": "Async replication, eventual consistency.\nWAIT command for synchronous replication to N slaves.\nDuring failover, possible data loss if not synced.",
+      "isPremium": false
+    },
+    {
+      "id": 60,
+      "level": "Senior",
+      "title": "What are Redis modules?",
+      "answer": "Modules extend Redis with new commands/data types via dynamic loading.\nLoad with loadmodule in config or MODULE LOAD.\nExamples: RediSearch, RedisGraph.",
+      "isPremium": false
+    },
+    {
+      "id": 61,
+      "level": "Senior",
+      "title": "What is Redis Streams?",
+      "answer": "Streams are append-only logs for time-series or message queues.\nSupport consumer groups, persistent messages.",
+      "isPremium": false
+    },
+    {
+      "id": 62,
+      "level": "Senior",
+      "title": "How do Redis Streams differ from Pub/Sub?",
+      "answer": "Persistence: Streams persist messages; Pub/Sub does not.\nConsumer Groups: Streams have groups for load balancing/acks; Pub/Sub broadcast only.\nHistory: Streams allow reading past messages; Pub/Sub real-time only.",
+      "isPremium": false
+    },
+    {
+      "id": 63,
+      "level": "Senior",
+      "title": "What are consumer groups in Redis Streams?",
+      "answer": "Groups allow multiple consumers to process messages in parallel, like Kafka topics.\nXGROUP CREATE, XREADGROUP for reading/acking.\nTracks pending entries, allows claiming.",
+      "isPremium": false
+    },
+    {
+      "id": 64,
+      "level": "Senior",
+      "title": "How can you enable SSL/TLS in Redis?",
+      "answer": "Set tls-port, tls-cert-file, tls-key-file, tls-ca-cert-file in config.\nClients use redis-cli --tls or library support.\nOptional mutual auth with tls-auth-clients.",
+      "isPremium": false
+    },
+    {
+      "id": 65,
+      "level": "Senior",
+      "title": "How does Redis handle concurrency?",
+      "answer": "Single-threaded event loop, commands atomic.\nConcurrency via multiple clients, non-blocking I/O.\nModules can use threads, but core is single-threaded.",
+      "isPremium": false
+    },
+    {
+      "id": 66,
+      "level": "Senior",
+      "title": "What is the threading model in Redis?",
+      "answer": "Primarily single-threaded for command execution.\nBackground threads for I/O, persistence, eviction.\nRedis 6+ has I/O threading for reads/writes.",
+      "isPremium": false
+    },
+    {
+      "id": 67,
+      "level": "Senior",
+      "title": "Explain the event loop in Redis.",
+      "answer": "Uses libevent or epoll for non-blocking I/O.\nSingle loop processes client commands, timers, background tasks.\nHandles connections, reads, executes, writes responses.",
+      "isPremium": false
+    },
+    {
+      "id": 68,
+      "level": "Senior",
+      "title": "How does Redis support geospatial data?",
+      "answer": "Uses sorted sets with geohash scores for locations.\nCommands like GEOADD, GEORADIUS for queries.",
+      "isPremium": false
+    },
+    {
+      "id": 69,
+      "level": "Senior",
+      "title": "What commands are used for geospatial operations?",
+      "answer": "GEOADD key lon lat member - add point.\nGEORADIUS key lon lat radius unit - members in radius.\nGEODIST key member1 member2 unit - distance.\nGEOHASH key member - geohash string.\nGEOPOS key member - get coordinates.",
+      "isPremium": false
+    },
+    {
+      "id": 70,
+      "level": "Senior",
+      "title": "What is Bitmap in Redis and its use cases?",
+      "answer": "Bitmaps are string operations for bit arrays.\nUse Cases: User online status, bloom filters, analytics (unique users).\nCommands: SETBIT, GETBIT, BITCOUNT, BITOP.",
+      "isPremium": false
+    },
+    {
+      "id": 71,
+      "level": "Senior",
+      "title": "What are common use cases for Redis as a cache?",
+      "answer": "Database query results, API responses, session data.\nFull page caching, computed values.\nWith expiration for invalidation.",
+      "isPremium": false
+    },
+    {
+      "id": 72,
+      "level": "Senior",
+      "title": "How can Redis be used as a session store?",
+      "answer": "Store session data as hashes or strings with user ID as key.\nSet expiration for auto-cleanup.\nScalable with clustering, fast access.",
+      "isPremium": false
+    },
+    {
+      "id": 73,
+      "level": "Senior",
+      "title": "Explain using Redis for rate limiting.",
+      "answer": "Use counters with INCR and EXPIRE for sliding window.\nLua scripts for atomic checks.\nKey per user/IP, increment and check threshold.",
+      "isPremium": false
+    },
+    {
+      "id": 74,
+      "level": "Senior",
+      "title": "What is leaderboards implementation using Redis?",
+      "answer": "Use sorted sets with scores as ranks.\nZADD for updates, ZREVRANGE for top scores.\nZRANK for position.",
+      "isPremium": false
+    },
+    {
+      "id": 75,
+      "level": "Senior",
+      "title": "How can Redis be used for real-time analytics?",
+      "answer": "Counters for metrics, sets for uniques, streams for events.\nHyperLogLog for cardinality, bitmaps for cohorts.\nPub/Sub for real-time updates.",
+      "isPremium": false
+    },
+    {
+      "id": 76,
+      "level": "Senior",
+      "title": "What are the limitations of Redis?",
+      "answer": "Memory Bound: Dataset must fit in memory.\nSingle-Threaded: CPU bound for heavy ops.\nEventual Consistency: In replication/cluster.\nNo Joins/Queries: Not for complex relations.\nPersistence Trade-offs: RDB loss, AOF overhead.",
+      "isPremium": false
+    },
+    {
+      "id": 77,
+      "level": "Senior",
+      "title": "How does Redis handle data durability?",
+      "answer": "RDB snapshots at intervals, AOF logs every write.\nCombine both for better durability.\nfsync policies control disk writes.",
+      "isPremium": false
+    },
+    {
+      "id": 78,
+      "level": "Senior",
+      "title": "Explain failover mechanisms in detail.",
+      "answer": "Sentinel: Monitors, quorum for failure, elects slave, promotes, reconfigures.\nCluster: Per shard, similar election via gossip.\nManual: SLAVEOF NO ONE on slave.\nPossible data loss, clients must handle redirects.",
+      "isPremium": false
+    },
+    {
+      "id": 79,
+      "level": "Senior",
+      "title": "How does quorum work in Redis Sentinel?",
+      "answer": "Quorum is min Sentinels agreeing on failure to start failover.\nSet in sentinel monitor line, recommend majority.\nPrevents split-brain.",
+      "isPremium": false
+    },
+    {
+      "id": 80,
+      "level": "Senior",
+      "title": "What are multi-data center considerations for Redis?",
+      "answer": "Replication: Async across DCs, latency issues.\nClustering: Not recommended over WAN, use CRDB for geo-replication.\nFailover: Manual or custom for cross-DC.\nConsistency: Eventual, use WAIT for stronger.",
+      "isPremium": false
+    },
+    {
+      "id": 81,
+      "level": "Senior",
+      "title": "How can you scale Redis horizontally?",
+      "answer": "Use clustering for sharding.\nAdd nodes, reshard slots.\nReplication for read scaling.",
+      "isPremium": false
+    },
+    {
+      "id": 82,
+      "level": "Senior",
+      "title": "What is sharding in the context of Redis?",
+      "answer": "Sharding partitions data across instances using hash slots.\nClient-side or cluster mode handles routing.",
+      "isPremium": false
+    },
+    {
+      "id": 83,
+      "level": "Senior",
+      "title": "Explain consistent hashing in Redis.",
+      "answer": "Redis Cluster uses hash slots, not pure consistent hashing.\nSlots assigned to nodes, reshard minimizes movement.\nSimilar to consistent hashing in reducing rehash on node changes.",
+      "isPremium": false
+    },
+    {
+      "id": 84,
+      "level": "Senior",
+      "title": "What are the trade-offs between consistency and availability in Redis?",
+      "answer": "CP in CAP for single node, AP in cluster with async rep.\nTrade consistency for availability during partitions.\nWAIT for stronger consistency, but reduces availability.",
+      "isPremium": false
+    },
+    {
+      "id": 85,
+      "level": "Senior",
+      "title": "How does Redis support atomic operations?",
+      "answer": "Single commands atomic due to single-thread.\nMULTI/EXEC for multi-command atomicity.\nLua scripts execute atomically.",
+      "isPremium": false
+    },
+    {
+      "id": 86,
+      "level": "Senior",
+      "title": "How can you backup and restore Redis data?",
+      "answer": "Backup: Copy RDB/AOF files, or use BGSAVE.\nRestore: Start Redis with RDB/AOF in dir, or load AOF.\nFor cluster, backup per node.",
+      "isPremium": false
+    },
+    {
+      "id": 87,
+      "level": "Senior",
+      "title": "How does Redis handle network partitions?",
+      "answer": "In cluster, minority side unavailable, majority continues.\nSentinel uses quorum to avoid split-brain.\nFavors availability over consistency.",
+      "isPremium": false
+    },
+    {
+      "id": 88,
+      "level": "Senior",
+      "title": "What are some anti-patterns when using Redis?",
+      "answer": "Large Keys: Avoid big lists/sets, split them.\nKEYS Command: Blocking, use SCAN.\nNo Expiration: Leads to memory leaks.\nRelational Modeling: Not for joins, denormalize.\nIgnoring Persistence: Risk data loss.",
+      "isPremium": false
+    },
+    {
+      "id": 89,
+      "level": "Senior",
+      "title": "Explain using Redis for distributed locks.",
+      "answer": "Use SET key value NX PX ttl for acquire.\nLua script for release if value matches.\nRenew lock with watchdog.",
+      "isPremium": false
+    },
+    {
+      "id": 90,
+      "level": "Senior",
+      "title": "What is Redlock algorithm?",
+      "answer": "Distributed lock using multiple independent Redis instances.\nAcquire lock on majority (N/2+1), with TTL.\nHandles failures better than single instance.",
+      "isPremium": false
+    }
+  ]
+}

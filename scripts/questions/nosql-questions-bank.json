@@ -1,0 +1,335 @@
+{
+  "totalQuestions": 47,
+  "extractedAt": "2025-12-19T17:49:13.586Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is NoSQL?",
+      "answer": "NoSQL (Not Only SQL), refers to a category of database management systems that differ from traditional relational database systems (RDBMS) in several significant ways.\nThese systems are designed to handle a wide variety of data models, including key-value, document, columnar, and graph formats.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "What are the key characteristics of NoSQL?",
+      "answer": "Schema Flexibility: Dynamic schema for unstructured data, allowing changes without affecting existing data.\nScalability: Designed to scale out by distributing data across multiple servers, ideal for large-scale data processing.\nHigh Performance: Optimized for specific data models and access patterns, offering efficient operations like key-value lookups and document retrievals.\nData Model Variety: Supports a range of data models including document, key-value, columnar, and graph.\nDistributed Nature: Built for distributed environments, spreading data across multiple machines for resilience.\nHigh Availability: Techniques like replication and partitioning ensure high availability and fault tolerance.\nNon-Relational: Uses various models other than the traditional relational one, avoiding fixed table schemas and join operations.\nEase of Development: Simplified management and more natural data models for developers.\nBig Data Support: Suitable for big data applications due to their capacity to handle large volumes of data efficiently.\nMulti-Model Support: Some systems support different data models within the same database engine.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What are the main differences between NoSQL and traditional relational databases?",
+      "answer": "Data Model: Relational databases use structured, table-based models; NoSQL uses varied models like key-value, document, columnar, and graph.\nSchema Flexibility: Relational databases require a fixed schema; NoSQL offers schema flexibility.\nScalability: Relational databases traditionally scale vertically (enhancing a single server); NoSQL is designed for horizontal scalability (across many servers).\nQuery Language: SQL is used in relational databases; NoSQL employs various querying languages and APIs.\nTransaction Support: Relational databases support strong ACID properties; NoSQL may have weaker consistency models for better performance.\nConsistency and Reliability: Relational databases focus on strong consistency; NoSQL emphasizes high availability and partition tolerance.\nUse Cases: Relational databases are ideal for complex queries and transactional integrity; NoSQL is better for large, diverse data sets and scalable applications.\nData Integrity: Relational databases enforce data integrity with constraints; NoSQL relies more on application-level data integrity.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "Explain the CAP theorem in the context of NoSQL databases.",
+      "answer": "The CAP theorem, in the context of NoSQL databases, states that a distributed database system can only simultaneously provide two out of the following three properties:\nConsistency: Every read receives the most recent write or an error.\nAvailability: Every request receives a response, without guarantee of it containing the most recent write.\nPartition Tolerance: The system continues to operate despite network partitions.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "What does it mean for a NoSQL database to be \"AP,\" \"CP,\" or \"CA\"?",
+      "answer": "AP (Availability and Partition Tolerance): The system prioritizes availability and partition tolerance, meaning it remains operational and accessible despite network failures, but may not always provide the most recent data (consistency can be compromised).\nCP (Consistency and Partition Tolerance): The system ensures data consistency and operates despite partitions, but may sacrifice availability (not all requests are guaranteed a response).\nCA (Consistency and Availability): This combination is less common in distributed systems, as it implies the system maintains data consistency and availability but may not handle network partitions effectively. In practice, a true CA system is hard to achieve in a distributed environment.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "Explain the BASE acronym in NoSQL databases.",
+      "answer": "BASE stands for Basically Available, Soft state, Eventually consistent\nBasically Available: The system guarantees availability in terms of being able to perform read and write operations.\nSoft State: The state of the system may change over time, even without input, due to eventual consistency.\nEventual Consistency: The system will become consistent over time, given that no new updates are made to the data.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "How does BASE differ from the ACID properties of relational databases?",
+      "answer": "BASE, used in NoSQL databases, differs from ACID properties of relational databases in the following ways:\nACID (Atomicity, Consistency, Isolation, Durability): Ensures reliable transactions, data integrity, and consistency in every state.\nBASE (Basically Available, Soft State, Eventual Consistency): Focuses on high availability and tolerance to network partitions, with eventual consistency over immediate data accuracy.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "What are the common types of NoSQL databases?",
+      "answer": "Document-Oriented: Stores data in document-like structures (e.g., JSON, XML). Example: MongoDB.\nKey-Value Stores: Simple, uses key-value pairs for storage. Example: Redis.\nColumn-Family Stores: Stores data in columns rather than rows. Example: Cassandra.\nGraph Databases: Designed for data represented as graphs. Example: Neo4j.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Mid",
+      "title": "When would you choose one type of NoSQL databases over another?",
+      "answer": "Document-Oriented: When dealing with semi-structured data or JSON documents, and needing flexible schemas.\nKey-Value Stores: For simple, high-speed operations on large amounts of data with simple access patterns.\nColumn-Family Stores: When handling large datasets with column-oriented queries, suitable for analytics and time-series data.\nGraph Databases: Ideal for interconnected data and complex relationships, like social networks or recommendation engines.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Mid",
+      "title": "Explain the characteristics and use cases of a document-oriented NoSQL database.",
+      "answer": "Characteristics:\nStore data in document formats like JSON or XML.\nSchema-flexible, allowing varied and nested data structures.\nIndex and query capabilities based on document attributes.\nUse Cases:\nHandling semi-structured or unstructured data.\nApplications requiring rapid development and iteration.\nContent management systems, e-commerce applications, and situations where each record can be unique.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Mid",
+      "title": "Explain the characteristics and use cases of a Key-Value Stores NoSQL database.",
+      "answer": "Characteristics of Key-Value Stores NoSQL Database:\nSimple Data Model: Data is stored as key-value pairs, where a unique key is associated with a value.\nHigh Performance: Optimized for quick retrieval and storage, offering fast read/write operations.\nScalability: Easily scalable, often used for distributed storage systems.\nLimited Query Capabilities: Typically, they support basic operations like get, put, and delete based on keys.\nUse Cases:\nSession Storage: Ideal for storing user session data in web applications.\nCaching: Frequently used for high-speed caching solutions.\nReal-Time Recommendations: Used in scenarios requiring quick data access, like real-time recommendation engines.\nUser Profiles and Preferences: Suitable for storing and retrieving user-specific information.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "Explain the characteristics and use cases of a Column-Family Stores NoSQL database.",
+      "answer": "Characteristics of Column-Family Stores NoSQL Database:\nColumn-Oriented Storage: Data is stored in columns instead of rows, optimizing for read/write of specific data subsets.\nScalability: Highly scalable for large datasets and distributed systems.\nFlexible Schema: Allows variation in columns across different rows.\nEfficient Queries: Optimized for queries over large datasets and aggregation operations.\nUse Cases:\nBig Data Analytics: Suitable for handling and analyzing large volumes of data.\nTime-Series Data: Ideal for time-stamped data like IoT data, financial data, or event logging.\nContent Management Systems: Useful for managing content with variable attributes.\nRecommendation Engines: Efficient for processing user behavior and preferences for recommendations.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "Explain the characteristics and use cases of a Graph Databases NoSQL database.",
+      "answer": "Characteristics of Graph Databases NoSQL Database:\nGraph Structure: Data is stored as nodes (entities), edges (relationships), and properties.\nRelationship-First Approach: Optimized for handling complex relationships and network structures.\nFlexible Schema: Adaptable to various data models, accommodating evolving structures.\nEfficient Relationship Queries: Excellent for traversing and querying interconnected data.\nUse Cases:\nSocial Networks: Ideal for managing complex and dynamic social connections.\nRecommendation Systems: Effective in suggesting content based on user relationships and preferences.\nFraud Detection: Useful in detecting patterns and relationships indicative of fraudulent activities.\nNetwork and IT Operations: Applicable for mapping and analyzing network topologies and dependencies.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "Explain the concept of eventual consistency in distributed NoSQL databases.",
+      "answer": "Eventual consistency in distributed NoSQL databases refers to a model where database updates are propagated across nodes over time, meaning all nodes will eventually hold the same data, but not necessarily immediately.\nThis approach improves availability and performance at the cost of immediate data consistency.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "How does eventual consistency differ from strong consistency?",
+      "answer": "Eventual consistency allows for temporary data inconsistencies across nodes, resolving over time for better availability and performance.\nStrong consistency ensures data is immediately consistent across all nodes, prioritizing accuracy but potentially reducing performance and availability.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "Discuss the challenges of data modeling in NoSQL databases compared to relational databases. How do you approach data modeling in a NoSQL context?",
+      "answer": "Schema Flexibility: NoSQL's schema-less nature requires a different approach to structuring data, often needing more planning to ensure efficient access and scalability.\nData Relationships: Without built-in relational integrity, managing data relationships in NoSQL can be complex, often requiring application-level handling.\nQuery Complexity: NoSQL databases lack the standardized query language and complex join capabilities of SQL, making some query operations more challenging.\nData Consistency: Ensuring data consistency across distributed systems (in eventual consistency models) is more challenging compared to the ACID properties of relational databases.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What is a composite key in NoSQL databases, and why might you use it in data modelling?",
+      "answer": "A \"composite key\" in NoSQL databases is a key formed by combining two or more attributes to create a unique identifier for each record. It is used in data modeling to efficiently access and query data, particularly in scenarios where data is organized by more than one attribute, enhancing query performance and enabling more complex data relationships.\nFor example, in an e-commerce application, a composite key might include a product's category and SKU to ensure uniqueness across categories.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is the difference between sharding and replication in NoSQL databases?",
+      "answer": "Sharding is the practice of horizontally partitioning data across multiple servers or nodes to distribute the load and improve scalability.\nReplication, on the other hand, involves creating copies of data on multiple nodes to enhance fault tolerance and availability.\nYou would use sharding for improving read and write scalability and replication for ensuring data redundancy and high availability.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "Explain the concept of consistent hashing in the context of distributed NoSQL databases.",
+      "answer": "Consistent Hashing is a technique used to distribute data evenly across multiple nodes or partitions in a distributed database. It ensures that when a node is added or removed, only a minimal amount of data needs to be relocated.\nConsistent Hashing is important for load balancing and maintaining data distribution in a dynamic and scalable environment.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "Name some consistent hashing techniques.",
+      "answer": "Ring-Based Hashing: Data is mapped onto a ring-like space, and each node in the system is responsible for a segment of the ring.\nVirtual Nodes: Introduces virtual replicas of nodes in the hash space to distribute load more evenly and handle node failures efficiently.\nConsistent Hashing with Bounded Loads: A variation that balances load across nodes while maintaining the benefits of consistent hashing.\nJump Consistent Hashing: A stateless, scalable hashing algorithm that provides a good distribution of keys and minimal movement when nodes join or leave.\nRendezvous (HRW) Hashing: Determines node assignments based on highest scores calculated using a hash function, offering simplicity and effectiveness in load distribution.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "Discuss the challenges and strategies for handling data consistency in distributed NoSQL databases.",
+      "answer": "Challenges:\nEventual Consistency: Ensuring eventual data uniformity across nodes can lead to temporary data discrepancies.\nNetwork Partitions: Handling data operations during network failures or splits is complex.\nConcurrency Control: Managing simultaneous data operations without traditional locking mechanisms.\nStrategies:\nConsistency Levels: Implementing tunable consistency levels (e.g., strong, eventual) based on application requirements.\nVersioning and Conflict Resolution: Using data versioning to manage conflicts in data updates.\nRead and Write Quorums: Setting quorum policies for read and write operations to balance consistency and availability.\nData Replication Strategies: Employing replication techniques to enhance consistency and fault tolerance.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "Explain the concept of tombstones in NoSQL databases.",
+      "answer": "Tombstones in NoSQL databases are markers indicating that a data record has been deleted or updated.\nThey are used to manage data consistency across distributed systems, ensuring that deleted or updated items are properly replicated and old data is not resurrected during synchronization or recovery processes.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "What are the advantages and disadvantages of using a distributed NoSQL database like Apache HBase for large-scale data storage?",
+      "answer": "Advantages:\nScalability: Efficiently scales to handle large volumes of data.\nHigh Throughput: Supports high read/write speeds, ideal for big data applications.\nFlexible Schema: Column-family oriented, accommodating evolving data structures.\nDisadvantages:\nComplexity: Can be complex to set up and manage.\nLimited Querying: Lacks the sophisticated querying capabilities of traditional RDBMS.\nConsistency Trade-offs: Emphasizes availability and partition tolerance, which can lead to eventual consistency challenges.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "What is polyglot persistence in the context of NoSQL databases.",
+      "answer": "Polyglot persistence refers to the practice of using multiple NoSQL databases within the same application to store different types of data optimally. Each database is chosen based on its strengths and suitability for specific data models and access patterns.\nThis approach allows applications to benefit from the best features of various databases while avoiding the limitations of a one-size-fits-all solution.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Mid",
+      "title": "What is document-level locking in NoSQL databases.",
+      "answer": "Document-level locking in NoSQL databases is a mechanism that locks individual documents during transactions to prevent concurrent modifications, ensuring data integrity and consistency. This granular approach allows multiple operations to occur in parallel while avoiding conflicts and data corruption.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Mid",
+      "title": "What are secondary indexes in NoSQL databases?",
+      "answer": "Secondary indexes in NoSQL databases are additional indexes created on non-primary key attributes, allowing efficient querying and retrieval of data based on those attributes. They enhance search performance on fields other than the primary key.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Mid",
+      "title": "What are point-in-time backups in NoSQL databases?",
+      "answer": "Point-in-time backups in NoSQL databases are snapshots of the database's state at a specific moment.\nThese backups allow for data recovery up to the exact time the backup was taken, providing a means to restore data in case of corruption, loss, or other issues.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Mid",
+      "title": "Explain the concept of normalization in NoSQL databases.",
+      "answer": "Normalization in NoSQL databases involves organizing data to reduce redundancy and improve data integrity. Although less common compared to relational databases, it can be used in NoSQL to optimize data structure, enhance consistency, and minimize duplication.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "Explain the concept of denormalization in NoSQL databases.",
+      "answer": "Denormalization in NoSQL databases refers to the practice of intentionally combining data from multiple tables into a single, larger table.\nThis reduces the need for complex joins, improving read performance and scalability, but can increase data redundancy and storage requirements.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "Explain the concept of schemaless databases in the context of NoSQL.",
+      "answer": "Schemaless databases in the context of NoSQL refer to systems where the data can be stored without a predefined schema. This means the structure of data can vary from one record to another, providing flexibility to accommodate different types of data and allowing modifications without affecting the entire database.",
+      "isPremium": false
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What is write amplification in the context of NoSQL databases?",
+      "answer": "Write amplification in NoSQL databases refers to the phenomenon where the amount of data physically written to storage is significantly more than the logical data size being written.\nThis occurs due to database background processes like compaction and replication, impacting storage efficiency and write performance.\nTechniques to mitigate write amplification include batch processing, write-ahead logs, and compaction strategies.",
+      "isPremium": false
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "Explain the concept of geo-replication in NoSQL databases.",
+      "answer": "Geo-replication in NoSQL databases is the practice of replicating data across multiple geographical locations. This enhances data availability and durability, reduces latency for globally distributed users, and provides disaster recovery capabilities.",
+      "isPremium": false
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "Explain the concept of offline-first applications and how NoSQL databases can support them.",
+      "answer": "Offline-first applications are designed to work seamlessly both online and offline, with data synchronization when connectivity is restored.\nNoSQL databases can support offline-first applications by:\nLocal Data Storage: Embedding within the application to store data locally, enabling functionality without internet connectivity.\nData Synchronization: Efficiently syncing local data with the server once online, handling conflicts and data merging.\nFlexible Data Models: Adapting to varied data structures, useful for changes during offline use.\nScalability and Performance: Providing quick data access and updates for a responsive user experience in offline mode.\nConflict Resolution: Managing concurrent updates and data inconsistencies between offline and online states.",
+      "isPremium": false
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "What is batch processing, and how can NoSQL databases support it?",
+      "answer": "Batch processing refers to executing a series of data-processing jobs or tasks simultaneously or sequentially without manual intervention.\nNoSQL databases support batch processing by efficiently handling large volumes of data, providing capabilities for bulk data import/export, and offering features to process and analyze big data sets in batches, thus enhancing performance and throughput.",
+      "isPremium": false
+    },
+    {
+      "id": 35,
+      "level": "Senior",
+      "title": "Explain the principles of event sourcing and CQRS (Command Query Responsibility Segregation) and how they relate to NoSQL databases.",
+      "answer": "Event Sourcing: This principle involves storing changes to application state as a sequence of events. In NoSQL databases, it enables efficient event logging and replaying these events to reconstruct application state.\nCQRS (Command Query Responsibility Segregation): CQRS separates read and write operations into different interfaces. This complements NoSQL's scalability and performance, allowing optimized models for reading and writing, and can be particularly effective in event-sourced systems.",
+      "isPremium": false
+    },
+    {
+      "id": 36,
+      "level": "Senior",
+      "title": "What is a Bloom filter?",
+      "answer": "A Bloom filter is a probabilistic data structure used to test whether an element is a member of a set. It provides fast membership tests but may produce false positives.\nIn NoSQL databases, Bloom filters are used for optimizing data access.\nFor example, they can be used to quickly determine whether a requested item exists in a distributed cache or in a large dataset without retrieving the entire data.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Senior",
+      "title": "What are graph traversal and graph algorithms in the context of graph databases?",
+      "answer": "In the context of graph databases, graph traversal refers to the process of visiting nodes (vertices) and edges in a graph, typically to search or analyze data.\nGraph algorithms are complex computations performed on graphs, like finding shortest paths, detecting cycles, or identifying network centrality, used to extract insights and relationships from graph-structured data.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Senior",
+      "title": "Name some popular graph algorithms.",
+      "answer": "Dijkstra's Algorithm: Finds the shortest path between nodes in a graph.\nBreadth-First Search (BFS): Explores the graph level by level to find the shortest path or traverse the graph.\nDepth-First Search (DFS): Explores as far as possible along each branch before backtracking, used in pathfinding and ordering.\nA* Algorithm: Used for pathfinding and graph traversal, optimizing for the shortest possible path.\nPageRank: Google's algorithm for ranking web pages in search results based on link structures.\nKruskal’s and Prim’s Algorithms: Used for finding the Minimum Spanning Tree (MST) of a graph.\nBellman-Ford Algorithm: Computes shortest paths from a single source vertex to all other vertices in a weighted graph.\nFloyd-Warshall Algorithm: Finds shortest paths between all pairs of vertices in a graph.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Senior",
+      "title": "Explain the concept of compensating transactions in NoSQL databases.",
+      "answer": "Compensating transactions in NoSQL databases are operations designed to undo or mitigate the effects of a previous transaction, particularly in systems that don't support traditional rollback mechanisms.\nThey are used to maintain data integrity in the event of partial transaction failures or in distributed environments where ACID transactions are not feasible.",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Senior",
+      "title": "Explain the leader-follower replication model in NoSQL databases.",
+      "answer": "The leader-follower replication model in NoSQL databases involves designating one node as the \"leader\" for handling write operations, while \"followers\" replicate these changes. Read operations can be distributed across leader and followers.\nThis model ensures data consistency and high availability.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Senior",
+      "title": "Explain the concept of read-your-writes consistency in NoSQL databases.",
+      "answer": "Read-your-writes consistency in NoSQL databases ensures that a client reading data immediately after it writes will see the latest write.\nThis consistency model guarantees that updates made by a client are immediately visible to subsequent read operations by the same client.",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Senior",
+      "title": "Explain the concept of distributed locking in NoSQL databases.",
+      "answer": "Distributed locking in NoSQL databases is a mechanism used to manage access to shared resources in a distributed environment. When multiple nodes or processes need to modify the same data, a distributed lock ensures that only one node can make changes at a time, preventing conflicts and data inconsistencies.\nHere's how it typically works:\nAcquiring a Lock: When a node wants to modify a shared resource, it requests a lock. If the lock is available, the node acquires it, preventing other nodes from making conflicting changes.\nPerforming Operations: With the lock acquired, the node can safely perform its operations on the shared resource.\nReleasing the Lock: Once the operations are completed, the lock is released, making it available for other nodes.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Senior",
+      "title": "What is materialized view in NoSQL databases?",
+      "answer": "A materialized view in NoSQL databases is a precomputed data set derived from a primary data source, stored for quick query access. It represents a snapshot of the data at a specific point in time, optimized for certain types of queries, improving performance by reducing the need for on-the-fly computation.\nFor example, in a social media application, a materialized view can store the total number of likes on each user's post, allowing for quick retrieval of this information without aggregating data each time.",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Senior",
+      "title": "What is data lineage tracking, and why is it important in NoSQL databases?",
+      "answer": "Data lineage tracking in NoSQL databases involves documenting the flow and transformations of data. It's important for ensuring transparency, maintaining data quality, complying with regulations, aiding in debugging, and conducting impact analysis.\nThis process is crucial for understanding the history and evolution of data within the database.",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Senior",
+      "title": "Discuss the advantages and disadvantages of using NoSQL databases for time-series data storage.",
+      "answer": "Advantages:\nScalability: Handles large volumes of data efficiently.\nHigh Performance: Fast read/write capabilities, suitable for high-frequency data.\nSchema Flexibility: Adapts to varying data structures common in time-series data.\nDisadvantages:\nComplex Queries: Limited compared to SQL databases, especially for complex aggregations.\nData Consistency: Some NoSQL databases offer eventual consistency, which can be a drawback for time-sensitive data.\nMaintenance Overhead: Can require more management and tuning compared to traditional databases.",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Senior",
+      "title": "Name some NoSQL databases suitable for time-series data.",
+      "answer": "For time-series data, databases specifically designed to handle time-stamped information are most suitable. These include:\nInfluxDB: Optimized for high write loads and data retrieval efficiency in time-series data.\nTimescaleDB: An extension of PostgreSQL, it combines the reliability and powerful query capabilities of SQL with time-series data optimization.\nPrometheus: Popular in monitoring and alerting, particularly in systems and network monitoring.\nGraphite: Useful for storing and tracking the performance of computer systems.\nApache Cassandra: With time-series data modeling, it offers scalability and high availability.\nKdb+: Known for its high performance in financial time-series databases.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Senior",
+      "title": "Explain the concept of linearizability in distributed systems and how it relates to data consistency in NoSQL databases.",
+      "answer": "Linearizability in distributed systems is a consistency model ensuring that operations (like reads and writes) on a NoSQL database appear instantaneous and in a specific sequence. It guarantees that every read reflects the most recent write.\nAchieving linearizability in NoSQL databases involves balancing data consistency with system performance and availability, often leading to trade-offs as per the CAP theorem.",
+      "isPremium": false
+    }
+  ]
+}

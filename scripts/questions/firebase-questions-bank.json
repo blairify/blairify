@@ -1,0 +1,216 @@
+{
+  "totalQuestions": 30,
+  "extractedAt": "2025-12-19T17:44:36.878Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Junior",
+      "title": "What is Firebase, and how does it work?",
+      "answer": "Firebase is a mobile and web application development platform that offers a wide range of services. It includes real-time database, authentication, cloud functions, cloud storage, hosting, and more. Firebase allows developers to build applications faster by providing backend services without the need to manage servers.",
+      "isPremium": false
+    },
+    {
+      "id": 2,
+      "level": "Junior",
+      "title": "Explain the differences between the Realtime Database and Firestore in Firebase.",
+      "answer": "The Realtime Database is a NoSQL, JSON-based database that stores data in a single large JSON tree. Firestore, on the other hand, is a more scalable, multi-region database that organizes data into collections and documents. Firestore supports more complex querying and is generally recommended for new projects due to its flexibility and scalability.",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "level": "Junior",
+      "title": "What is Firebase Authentication, and how does it work?",
+      "answer": "Firebase Authentication is a service that provides ready-to-use, secure user authentication for Firebase applications. It supports various authentication methods, including email/password, social login (Google, Facebook, etc.), and custom authentication. It handles user sign-up, login, and account management, ensuring a secure and seamless user experience.",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "level": "Junior",
+      "title": "Explain the Firebase security rules and how they work.",
+      "answer": "Firebase security rules are a set of declarative JSON rules that define who has access to data in your Firebase project. These rules can be customized to enforce data security, ensuring that only authorized users can read or write data. They are evaluated on the Firebase servers before any data operation is allowed.",
+      "isPremium": false
+    },
+    {
+      "id": 5,
+      "level": "Junior",
+      "title": "How can you handle authentication in a Firebase app with multiple providers?",
+      "answer": "You can use Firebase Authentication to allow users to sign in with multiple providers. Firebase provides easy-to-use methods to link multiple authentication providers to a single user account. For instance, a user can link their email/password login to their Google or Facebook account, providing a seamless login experience.",
+      "isPremium": false
+    },
+    {
+      "id": 6,
+      "level": "Junior",
+      "title": "Explain the Firebase Realtime Database's data synchronization and offline support.",
+      "answer": "Firebase Realtime Database offers real-time data synchronization, which means that any changes to the data are immediately reflected to all connected clients. It also provides offline support, allowing the app to continue working with cached data even when the device is offline. Once the device is back online, Firebase syncs the changes to the server.",
+      "isPremium": false
+    },
+    {
+      "id": 7,
+      "level": "Junior",
+      "title": "What are Firebase Cloud Functions, and why are they useful?",
+      "answer": "Firebase Cloud Functions are serverless, event-driven functions that can be triggered by various Firebase services, HTTP requests, or external services. They are useful for automating tasks, data processing, and integrating third-party APIs into your Firebase project. You can use them to extend the functionality of your app without managing servers.",
+      "isPremium": false
+    },
+    {
+      "id": 8,
+      "level": "Junior",
+      "title": "Explain Firebase Hosting and its benefits.",
+      "answer": "Firebase Hosting is a web hosting service that allows you to deploy web applications quickly and securely. It offers SSL support, automatic content delivery through a Content Delivery Network (CDN), and seamless integration with other Firebase services. Hosting is ideal for hosting web applications, single-page apps, and static content.",
+      "isPremium": false
+    },
+    {
+      "id": 9,
+      "level": "Mid",
+      "title": "How can you secure sensitive data in Firebase, especially in Realtime Database or Firestore?",
+      "answer": "Sensitive data should be secured using Firebase security rules. You can specify who can read and write data based on user authentication or other conditions. Additionally, Firebase provides serverless Cloud Functions, which can be used to implement further validation and data protection logic before data is stored or retrieved.",
+      "isPremium": false
+    },
+    {
+      "id": 10,
+      "level": "Mid",
+      "title": "Describe a Firebase project you've worked on, and the challenges you faced.",
+      "answer": "Example Project Description: I was part of a team that developed a real-time collaborative note-taking application, similar to Google Docs, using Firebase as the backend for data storage and synchronization. The app allowed multiple users to create, edit, and share notes in real-time.\nChallenges Faced:\nReal-Time Data Synchronization: The primary challenge was implementing real-time data synchronization among multiple users. When one user made changes to a note, it had to be immediately reflected on the screens of all other users collaborating on the same note. This required implementing Firebase Realtime Database effectively.Solution: We leveraged Firebase's real-time synchronization features, especially the built-in event listeners, to instantly update the content across all connected clients. Additionally, we used Firebase security rules to ensure data integrity and access control.\nConcurrency Control and Conflict Resolution: With multiple users simultaneously editing the same note, conflicts and synchronization issues could occur. For instance, if two users edited the same section of a note simultaneously, the app needed a strategy to resolve these conflicts without data loss.Solution: We implemented custom conflict resolution logic that determined which user's changes took precedence in the event of conflicts. We used Firebase's transaction capabilities to atomically update the data while maintaining consistency.\nData Security and Access Control: Ensuring that users could only access and edit the notes they were authorized to was crucial. We needed to enforce stringent security rules to prevent unauthorized access to notes.Solution: We defined complex Firebase security rules that took into account user roles and access permissions. These rules ensured that only the appropriate users had read and write access to specific notes. We implemented user authentication and user roles for fine-grained access control.\nScalability: As the application gained more users, we encountered performance and scalability challenges. Ensuring that the app continued to perform well under increasing loads was a priority.Solution: We optimized the database structure and query patterns to enhance performance. We also used Firebase's scalability features, such as sharding and distributed data storage, to ensure the app could handle increasing user numbers.\nOffline Access: Providing offline access to notes was essential. We needed to ensure that users could continue working on their notes even without an internet connection.Solution: We used Firebase's offline capabilities, allowing the app to store a local cache of data. When users were offline, they could create, edit, and delete notes, and the changes would be automatically synchronized when they regained connectivity.\nIn the end, the project was a success, and the collaborative note-taking app became a valuable tool for users who needed to work together on documents in real-time. Addressing these challenges with Firebase as the backend played a critical role in the project's success.",
+      "isPremium": false
+    },
+    {
+      "id": 11,
+      "level": "Mid",
+      "title": "How does Firebase handle data synchronization and conflicts in a multi-user environment?",
+      "answer": "Firebase uses a real-time synchronization approach, and conflicts are typically resolved based on \"last write wins.\" If two users try to update the same data simultaneously, Firebase will choose the latest write as the winning update. To handle conflicts more intelligently, you can implement custom logic in your code, such as using transaction operations in the Realtime Database or Firestore.",
+      "isPremium": false
+    },
+    {
+      "id": 12,
+      "level": "Mid",
+      "title": "What are Firebase Cloud Firestore listeners, and why are they useful?",
+      "answer": "Firebase Cloud Firestore listeners are used to listen for real-time updates to a document or a query. They allow developers to receive updates whenever the data changes, making it easy to keep the UI up to date. This is particularly useful for building real-time features in applications like chat apps or collaborative tools.",
+      "isPremium": false
+    },
+    {
+      "id": 13,
+      "level": "Mid",
+      "title": "Explain the Firebase Cloud Messaging (FCM) service.",
+      "answer": "Firebase Cloud Messaging is a cloud solution for messages on iOS, Android, and web applications. It allows you to send notifications, data messages, and messages to specific devices or topics. It's often used for push notifications, in-app messaging, and remote configuration updates.",
+      "isPremium": false
+    },
+    {
+      "id": 14,
+      "level": "Mid",
+      "title": "What is Firebase Test Lab, and how can it benefit the app development process?",
+      "answer": "Firebase Test Lab is a cloud-based app testing infrastructure that allows you to run automated tests on a wide range of real devices hosted in the cloud. It can benefit the app development process by helping you identify and fix issues, compatibility problems, and performance bottlenecks across various devices and Android OS versions.",
+      "isPremium": false
+    },
+    {
+      "id": 15,
+      "level": "Mid",
+      "title": "Explain Firebase Analytics and its importance in app development.",
+      "answer": "Firebase Analytics is a free app measurement solution that provides insights into user behavior and app performance. It helps developers understand how users interact with their apps, track user demographics, and measure the effectiveness of marketing campaigns. It's valuable for making data-driven decisions to improve the app.",
+      "isPremium": false
+    },
+    {
+      "id": 16,
+      "level": "Mid",
+      "title": "Can you describe the process of deploying a Firebase app to production?",
+      "answer": "Deploying a Firebase app to production typically involves the following steps:\nSet up Firebase Hosting for your web app.\nUse the Firebase CLI to initialize the project and link it to your Firebase account.\nBuild your app for production, and deploy it using the Firebase CLI with the firebase deploy command.\nConfigure custom domains, SSL, and CDN settings if needed.\nContinuously monitor and maintain your production app to ensure reliability and performance.",
+      "isPremium": false
+    },
+    {
+      "id": 17,
+      "level": "Mid",
+      "title": "What is Firebase Crashlytics, and how can it help in identifying and resolving app crashes?",
+      "answer": "Firebase Crashlytics is a crash reporting and analysis tool that helps developers identify and prioritize app crashes. It provides detailed crash reports, including stack traces, device information, and user impact data. This information helps developers pinpoint the root causes of crashes, prioritize them based on impact, and resolve issues more efficiently.",
+      "isPremium": false
+    },
+    {
+      "id": 18,
+      "level": "Mid",
+      "title": "What is Firebase Cloud Storage, and how does it differ from Firebase Realtime Database and Firestore?",
+      "answer": "Firebase Cloud Storage is a service for storing and serving user-generated content, such as images, videos, and other binary data. Unlike Firebase Realtime Database and Firestore, which store structured JSON data, Firebase Cloud Storage is designed for unstructured, large binary files. It's ideal for use cases like image and file uploads.",
+      "isPremium": false
+    },
+    {
+      "id": 19,
+      "level": "Mid",
+      "title": "Explain how Firebase Hosting can be integrated with a custom domain.",
+      "answer": "Integrating Firebase Hosting with a custom domain involves the following steps:\nIn your Firebase project settings, go to the Hosting tab.\nAdd your custom domain, which will generate DNS configuration settings.\nUpdate your domain's DNS records with the provided settings.\nWait for DNS propagation to complete.\nVerify the domain in Firebase Hosting.\nDeploy your app to the custom domain with the Firebase CLI.",
+      "isPremium": false
+    },
+    {
+      "id": 20,
+      "level": "Mid",
+      "title": "Explain the concept of \"cold start\" in the context of Firebase Cloud Functions and how it can impact application performance.",
+      "answer": "A \"cold start\" refers to the initial execution of a Firebase Cloud Function when it's invoked after a period of inactivity. During a cold start, the function's runtime environment needs to be initialized, which can lead to increased execution time. It can impact application performance when functions are invoked infrequently, as users may experience delayed responses. To mitigate this, consider optimizing your code and using warm-up techniques to keep functions active.",
+      "isPremium": false
+    },
+    {
+      "id": 21,
+      "level": "Mid",
+      "title": "Explain Firebase Machine Learning Kit and how it can be integrated into Firebase applications.",
+      "answer": "Firebase Machine Learning Kit allows you to integrate machine learning models into your Firebase applications. It can be used for tasks like text recognition, image labeling, and language translation. You can integrate these ML features by adding the respective ML Kit SDKs to your project and leveraging pre-trained models or building custom models.",
+      "isPremium": false
+    },
+    {
+      "id": 22,
+      "level": "Mid",
+      "title": "What are Firebase in-app messaging and Firebase Cloud Messaging (FCM), and how do they differ in their use cases?",
+      "answer": "Firebase in-app messaging is used for delivering personalized messages within the app, such as promotional offers or feature announcements.\nFirebase Cloud Messaging (FCM), on the other hand, is primarily for sending push notifications to users, even when the app is not open. Both services can enhance user engagement, but they have different use cases and delivery mechanisms.",
+      "isPremium": false
+    },
+    {
+      "id": 23,
+      "level": "Mid",
+      "title": "Can you describe Firebase Remote Config and how it can be used to remotely control app features?",
+      "answer": "Firebase Remote Config is a cloud service that allows you to change the behavior and appearance of your app without requiring an app update. You can use it to remotely control app features, content, and appearance. It's particularly useful for A/B testing, gradual feature rollouts, and making dynamic adjustments without the need for code changes.",
+      "isPremium": false
+    },
+    {
+      "id": 24,
+      "level": "Mid",
+      "title": "How can Firebase Firestore be used to model complex relationships between data entities in a database?",
+      "answer": "Firebase Firestore allows you to model complex relationships between data entities by using collections and documents. You can structure data hierarchically and use references (document IDs or subcollections) to establish relationships between entities. This enables you to create rich, nested data structures that fit the specific needs of your app.",
+      "isPremium": false
+    },
+    {
+      "id": 25,
+      "level": "Senior",
+      "title": "How can you optimize the performance of a Firebase Realtime Database or Firestore?",
+      "answer": "To optimize performance, you can:\nUse database indexing for efficient queries.\nLimit the amount of data you retrieve with queries.\nImplement offline data persistence to reduce network calls.\nUse caching strategies to minimize unnecessary data retrieval.\nConsider denormalization when structuring your data to reduce complex queries.",
+      "isPremium": false
+    },
+    {
+      "id": 26,
+      "level": "Senior",
+      "title": "What are the security best practices for Firebase applications?",
+      "answer": "Security best practices include:\nImplementing proper Firebase security rules.\nUsing Firebase Authentication to handle user access control.\nStoring sensitive data securely, such as using encryption for data at rest.\nRegularly reviewing and updating security rules to adapt to changes in your app's requirements.",
+      "isPremium": false
+    },
+    {
+      "id": 27,
+      "level": "Senior",
+      "title": "Explain how Firebase handles user authentication sessions and tokens.",
+      "answer": "Firebase Authentication issues JSON Web Tokens (JWT) to authenticated users. These tokens contain user information and are signed by Firebase. Firebase clients store these tokens and present them with each request. Firebase servers validate the token's signature, ensuring the user's identity and permissions. Sessions are managed by Firebase, and users remain authenticated until they sign out or their token expires.",
+      "isPremium": false
+    },
+    {
+      "id": 28,
+      "level": "Senior",
+      "title": "Can you describe Firebase Predictions and its role in app development?",
+      "answer": "Firebase Predictions is a machine learning-based feature that helps developers understand user behavior and create targeted user experiences. It analyzes user data, such as app usage patterns, and predicts user actions. This information can be used to automate personalized notifications, content recommendations, and more.",
+      "isPremium": false
+    },
+    {
+      "id": 29,
+      "level": "Senior",
+      "title": "Explain the benefits of using Firebase as a backend for mobile applications compared to traditional server-side solutions.",
+      "answer": "Firebase offers several benefits compared to traditional server-side solutions:\nRapid development: Firebase provides ready-to-use services, reducing development time.\nScalability: Firebase scales automatically to handle traffic.\nReal-time updates: Real-time Database and Firestore offer real-time data synchronization.\nServerless: No need to manage servers, reducing operational overhead.\nAuthentication: Firebase Authentication simplifies user management.\nBuilt-in analytics: Firebase provides built-in tools for understanding user behavior.",
+      "isPremium": false
+    },
+    {
+      "id": 30,
+      "level": "Senior",
+      "title": "What are some common challenges when using Firebase for large-scale applications, and how can they be addressed?",
+      "answer": "Common challenges in large-scale applications using Firebase include managing data security, optimizing database performance, handling complex queries, and ensuring efficient usage of resources.\nThese challenges can be addressed through thorough planning, careful database structuring, fine-tuning security rules, using Firebase performance monitoring, and, when necessary, leveraging other Google Cloud services for scaling and complex processing.",
+      "isPremium": false
+    }
+  ]
+}
