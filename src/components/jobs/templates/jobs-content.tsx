@@ -79,9 +79,10 @@ const ROLE_OPTIONS = [
   "fullstack",
   "devops",
   "mobile",
+  "data-engineer",
   "data-scientist",
   "cybersecurity",
-  "product-manager",
+  "product",
 ] as const;
 
 type RoleOption = (typeof ROLE_OPTIONS)[number];
@@ -131,11 +132,13 @@ function getRoleLabel(role: RoleOption) {
       return "DevOps";
     case "mobile":
       return "Mobile";
+    case "data-engineer":
+      return "Data Engineer";
     case "data-scientist":
       return "Data Scientist";
     case "cybersecurity":
       return "Cybersecurity";
-    case "product-manager":
+    case "product":
       return "Product Manager";
     default: {
       const _never: never = role;

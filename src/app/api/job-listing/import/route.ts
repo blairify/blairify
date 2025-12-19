@@ -6,10 +6,10 @@ type PositionValue =
   | "fullstack"
   | "devops"
   | "mobile"
-  | "data"
+  | "data-engineer"
   | "data-scientist"
   | "cybersecurity"
-  | "product-manager";
+  | "product";
 
 type SeniorityValue = "entry" | "junior" | "mid" | "senior";
 
@@ -125,12 +125,12 @@ function extractTechnologies(text: string): string[] {
 function inferPositionFromText(text: string): PositionValue | undefined {
   const t = text.toLowerCase();
 
-  if (/(product manager|pm\b)/.test(t)) return "product-manager";
+  if (/(product manager|pm\b)/.test(t)) return "product";
   if (/(cybersecurity|security engineer|appsec|infosec)/.test(t))
     return "cybersecurity";
   if (/(data scientist|ml engineer|machine learning)/.test(t))
     return "data-scientist";
-  if (/(data engineer|analytics engineer)/.test(t)) return "data";
+  if (/(data engineer|analytics engineer)/.test(t)) return "data-engineer";
   if (/(ios|android|mobile developer|react native|flutter)/.test(t))
     return "mobile";
   if (/(devops|site reliability|sre\b|platform engineer)/.test(t))

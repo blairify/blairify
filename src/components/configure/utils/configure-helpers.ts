@@ -1,5 +1,9 @@
 import type { InterviewConfig } from "./types";
 
+function isTechRequired(position: string): boolean {
+  return position !== "product";
+}
+
 /**
  * Validates if the interview configuration is complete
  */
@@ -7,6 +11,7 @@ export function isConfigComplete(config: InterviewConfig): boolean {
   return !!(
     config.position &&
     config.seniority &&
+    (!isTechRequired(config.position) || config.technologies.length > 0) &&
     (config.companyProfile || config.specificCompany) &&
     config.interviewMode
   );
@@ -25,8 +30,10 @@ export function canGoNext(
     case 1:
       return config.seniority !== "";
     case 2:
-      return config.companyProfile !== "" || config.specificCompany !== "";
+      return !isTechRequired(config.position) || config.technologies.length > 0;
     case 3:
+      return config.companyProfile !== "" || config.specificCompany !== "";
+    case 4:
       return config.interviewMode !== "";
     default:
       return false;
@@ -40,6 +47,7 @@ export function canStartInterview(config: InterviewConfig): boolean {
   return !!(
     config.position &&
     config.seniority &&
+    (!isTechRequired(config.position) || config.technologies.length > 0) &&
     (config.companyProfile || config.specificCompany) &&
     config.interviewMode &&
     config.interviewType

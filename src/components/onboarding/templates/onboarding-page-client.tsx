@@ -42,10 +42,10 @@ const ROLE_OPTIONS = [
   "fullstack",
   "devops",
   "mobile",
-  "data",
+  "data-engineer",
   "data-scientist",
   "cybersecurity",
-  "product-manager",
+  "product",
 ] as const;
 
 const EXPERIENCE_OPTIONS = ["entry", "junior", "mid", "senior"] as const;
@@ -62,13 +62,13 @@ function getRoleLabel(role: (typeof ROLE_OPTIONS)[number]) {
       return "DevOps";
     case "mobile":
       return "Mobile";
-    case "data":
+    case "data-engineer":
       return "Data";
     case "data-scientist":
       return "Data Scientist";
     case "cybersecurity":
       return "Cybersecurity";
-    case "product-manager":
+    case "product":
       return "Product Manager";
     default: {
       const _never: never = role;
@@ -111,13 +111,13 @@ function normalizeRole(value: string): (typeof ROLE_OPTIONS)[number] | "" {
     case "Mobile Developer":
       return "mobile";
     case "Data Engineer":
-      return "data";
+      return "data-engineer";
     case "Data Scientist":
       return "data-scientist";
     case "Cybersecurity Engineer":
       return "cybersecurity";
     case "Product Manager":
-      return "product-manager";
+      return "product";
     default:
       return "";
   }
@@ -447,30 +447,7 @@ export function OnboardingPageClient({
     const interviewMode: InterviewMode = "practice";
     const interviewType: InterviewType = "technical";
 
-    const position = (() => {
-      switch (role) {
-        case "frontend":
-          return "Frontend Engineer";
-        case "backend":
-          return "Backend Engineer";
-        case "fullstack":
-          return "Full Stack Engineer";
-        case "devops":
-          return "DevOps Engineer";
-        case "mobile":
-          return "Mobile Engineer";
-        case "data":
-          return "Data Engineer";
-        case "data-scientist":
-          return "Data Scientist";
-        case "cybersecurity":
-          return "Cybersecurity Engineer";
-        case "product-manager":
-          return "Product Manager";
-        default:
-          return "Software Engineer";
-      }
-    })();
+    const position = role || "frontend";
 
     const config: InterviewConfig = {
       position,

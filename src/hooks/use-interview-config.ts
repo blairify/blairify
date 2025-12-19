@@ -4,7 +4,7 @@ import type { InterviewConfig } from "../components/interview/types";
 
 export function useInterviewConfig() {
   const [config, setConfig] = useState<InterviewConfig>({
-    position: "Frontend Engineer",
+    position: "frontend",
     seniority: "mid",
     technologies: [],
     companyProfile: "faang",

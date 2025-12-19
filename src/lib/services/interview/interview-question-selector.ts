@@ -332,16 +332,34 @@ function matchCategoryToInterviewType(
  * Match question tech stack to interview requirements
  */
 function matchTechStack(question: Question, technologies: string[]): boolean {
-  const questionTech = [...(question.primaryTechStack || [])].map((t) =>
-    t.toLowerCase(),
+  const canonicalize = (value: string): string => {
+    const trimmed = value.trim().toLowerCase();
+    switch (trimmed) {
+      case "golang":
+        return "go";
+      case "c#":
+      case "csharp":
+        return "csharp";
+      case "js":
+        return "javascript";
+      case "ts":
+        return "typescript";
+      default:
+        return trimmed;
+    }
+  };
+
+  const questionTech = new Set(
+    [...(question.primaryTechStack || [])]
+      .filter(Boolean)
+      .map((t) => canonicalize(String(t))),
   );
 
-  const requiredTech = technologies.map((t) => t.toLowerCase());
+  const requiredTech = technologies
+    .filter(Boolean)
+    .map((t) => canonicalize(String(t)));
 
-  // Check if any required tech is in question's tech stack
-  return requiredTech.some((tech) =>
-    questionTech.some((qTech) => qTech.includes(tech) || tech.includes(qTech)),
-  );
+  return requiredTech.some((tech) => questionTech.has(tech));
 }
 
 /**

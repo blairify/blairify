@@ -1,9 +1,26 @@
 "use client";
 
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Shield } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import {
+  SiAmazon,
+  SiCss3,
+  SiDocker,
+  SiGo,
+  SiGooglecloud,
+  SiHtml5,
+  SiJavascript,
+  SiKubernetes,
+  SiPhp,
+  SiPython,
+  SiReact,
+  SiRust,
+  SiSharp,
+  SiTerraform,
+  SiTypescript,
+} from "react-icons/si";
 import { toast } from "sonner";
 import { Typography } from "@/components/common/atoms/typography";
 import {
@@ -62,11 +79,15 @@ export function ConfigureContent() {
   const allowedSeniorityValues = new Set(SENIORITY_LEVELS.map((s) => s.value));
   const allowedCompanyProfiles = new Set(COMPANY_PROFILES.map((p) => p.value));
 
+  const isTechRequired = (position: string) => position !== "product";
+
   const getFirstIncompleteStep = (next: InterviewConfig) => {
     if (!next.position) return 0;
     if (!next.seniority) return 1;
-    if (!next.companyProfile && !next.specificCompany) return 2;
-    return 3;
+    if (isTechRequired(next.position) && next.technologies.length === 0)
+      return 2;
+    if (!next.companyProfile && !next.specificCompany) return 3;
+    return 4;
   };
 
   const importFromJobListingUrl = async () => {
@@ -182,7 +203,7 @@ export function ConfigureContent() {
     );
 
     const domainConfig: DomainInterviewConfig = {
-      position: config.position || "Frontend Engineer",
+      position: config.position || "frontend",
       seniority: (config.seniority || "mid") as SeniorityLevel,
       technologies: config.technologies || [],
       companyProfile: config.companyProfile || "",
@@ -329,6 +350,128 @@ export function ConfigureContent() {
               </div>
             ))}
           </RadioGroup>
+        </div>
+      </div>
+    );
+  }
+
+  function renderTechnologiesStep() {
+    if (!isTechRequired(config.position)) {
+      return (
+        <div className="space-y-3">
+          <Typography.BodyBold>Tech</Typography.BodyBold>
+          <Typography.CaptionMedium className="text-muted-foreground">
+            Not required for this role.
+          </Typography.CaptionMedium>
+        </div>
+      );
+    }
+
+    const techChoices = (() => {
+      switch (config.position) {
+        case "frontend":
+          return [
+            { value: "react", label: "React", icon: SiReact },
+            { value: "typescript", label: "TypeScript", icon: SiTypescript },
+            { value: "javascript", label: "JavaScript", icon: SiJavascript },
+            { value: "html", label: "HTML", icon: SiHtml5 },
+            { value: "css", label: "CSS", icon: SiCss3 },
+          ] as const;
+        case "backend":
+          return [
+            { value: "java", label: "Java", icon: SiAmazon },
+            { value: "python", label: "Python", icon: SiPython },
+            { value: "go", label: "Go", icon: SiGo },
+            { value: "csharp", label: "C#", icon: SiSharp },
+            { value: "typescript", label: "TypeScript", icon: SiTypescript },
+            { value: "javascript", label: "JavaScript", icon: SiJavascript },
+            { value: "rust", label: "Rust", icon: SiRust },
+            { value: "php", label: "PHP", icon: SiPhp },
+          ] as const;
+        case "fullstack":
+          return [
+            { value: "react", label: "React", icon: SiReact },
+            { value: "typescript", label: "TypeScript", icon: SiTypescript },
+            { value: "javascript", label: "JavaScript", icon: SiJavascript },
+            { value: "html", label: "HTML", icon: SiHtml5 },
+            { value: "css", label: "CSS", icon: SiCss3 },
+            { value: "java", label: "Java", icon: SiAmazon },
+            { value: "python", label: "Python", icon: SiPython },
+            { value: "go", label: "Go", icon: SiGo },
+            { value: "csharp", label: "C#", icon: SiSharp },
+            { value: "rust", label: "Rust", icon: SiRust },
+            { value: "php", label: "PHP", icon: SiPhp },
+          ] as const;
+        case "devops":
+          return [
+            { value: "docker", label: "Docker", icon: SiDocker },
+            { value: "kubernetes", label: "Kubernetes", icon: SiKubernetes },
+            { value: "terraform", label: "Terraform", icon: SiTerraform },
+            { value: "aws", label: "AWS", icon: SiAmazon },
+            { value: "gcp", label: "GCP", icon: SiGooglecloud },
+            { value: "azure", label: "Azure", icon: SiGooglecloud },
+          ] as const;
+        case "mobile":
+          return [
+            { value: "swift", label: "Swift", icon: SiReact },
+            { value: "kotlin", label: "Kotlin", icon: SiTypescript },
+          ] as const;
+        case "data-engineer":
+          return [
+            { value: "python", label: "Python", icon: SiPython },
+            { value: "sql", label: "SQL", icon: SiTypescript },
+            { value: "java", label: "Java", icon: SiAmazon },
+            { value: "go", label: "Go", icon: SiGo },
+          ] as const;
+        case "data-scientist":
+          return [
+            { value: "python", label: "Python", icon: SiPython },
+          ] as const;
+        case "cybersecurity":
+          return [
+            { value: "security", label: "Security", icon: Shield },
+          ] as const;
+        default: {
+          const _never: never = config.position as never;
+          throw new Error(`Unhandled position in tech choices: ${_never}`);
+        }
+      }
+    })();
+
+    const selected = new Set(config.technologies);
+    const toggleTechnology = (tech: string) => {
+      if (selected.has(tech)) {
+        updateConfig(
+          "technologies",
+          config.technologies.filter((t) => t !== tech),
+        );
+        return;
+      }
+
+      updateConfig("technologies", [tech]);
+    };
+
+    return (
+      <div className="space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-1">
+          {techChoices.map((tech) => (
+            <Card
+              key={tech.value}
+              className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
+                selected.has(tech.value)
+                  ? "ring-2 ring-primary bg-primary/10"
+                  : "border-border"
+              }`}
+              onClick={() => toggleTechnology(tech.value)}
+            >
+              <CardContent className="flex flex-row items-center gap-2">
+                <tech.icon className="size-6 text-primary flex-shrink-0" />
+                <div className="flex-1">
+                  <Typography.BodyBold>{tech.label}</Typography.BodyBold>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     );
@@ -513,8 +656,10 @@ export function ConfigureContent() {
       case 1:
         return renderExperienceStep();
       case 2:
-        return renderCompanyStep();
+        return renderTechnologiesStep();
       case 3:
+        return renderCompanyStep();
+      case 4:
         return renderModeStep();
       default:
         return null;

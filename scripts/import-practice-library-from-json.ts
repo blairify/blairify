@@ -10,18 +10,60 @@ import {
   systemDesignQuestions,
 } from "../src/practice-library-db/schema";
 
+type QuestionStatus = "draft" | "published" | "archived";
+type Difficulty = "entry" | "junior" | "middle" | "senior";
+type CompanySize = "faang" | "startup" | "enterprise";
+type CompanyType = CompanySize;
+type RoleTopic =
+  | "frontend"
+  | "backend"
+  | "fullstack"
+  | "devops"
+  | "mobile"
+  | "data-engineer"
+  | "data-scientist"
+  | "cybersecurity"
+  | "product";
+type PositionSlug = RoleTopic;
+type InterviewType =
+  | "regular"
+  | "practice"
+  | "flash"
+  | "play"
+  | "competitive"
+  | "teacher";
+type SeniorityLevel = "entry" | "junior" | "mid" | "senior";
+
+const ensurePositions = (
+  positions: PositionSlug[] | undefined,
+  topic: RoleTopic,
+): PositionSlug[] => {
+  const next = new Set(positions ?? []);
+  if (topic === "frontend" || topic === "backend") {
+    next.add("fullstack");
+  }
+  return Array.from(next);
+};
+
+const ensureInterviewTypes = (
+  seniorityLevels: SeniorityLevel[] | undefined,
+): InterviewType[] => {
+  const base: InterviewType[] = ["regular", "practice", "flash", "teacher"];
+  const hasSenior = seniorityLevels?.includes("senior");
+  return hasSenior ? [...base, "competitive"] : base;
+};
+
 interface JsonCompany {
   name: string;
   logo: string;
-  size?: string[];
+  size: CompanySize[];
   description: string;
 }
 
 interface JsonReferenceAnswer {
   id: string;
   text: string;
-  weight: number;
-  keyPoints?: string[];
+  keyPoints: string[];
 }
 
 interface JsonMatchingPair {
@@ -46,19 +88,19 @@ interface JsonSystemDesignChart {
 
 interface JsonCoreQuestion {
   id: string;
-  status: string;
+  status: QuestionStatus;
   reviewerId: string | null;
   reviewedAt: string | null;
 
-  difficulty: "entry" | "junior" | "middle" | "senior";
+  difficulty: Difficulty;
   isDemoMode: boolean;
-  companyType: "faang" | "startup" | "enterprise";
+  companyType: CompanyType;
 
   title: string;
   description: string;
   prompt: string;
 
-  topic: string;
+  topic: RoleTopic;
   subtopics: string[];
   tags: string[];
   estimatedTimeMinutes: number;
@@ -66,11 +108,11 @@ interface JsonCoreQuestion {
   aiEvaluationHint: string | null;
 
   companies: JsonCompany[] | null;
-  positions: string[];
+  positions: PositionSlug[];
   primaryTechStack: string[];
 
-  interviewTypes: string[];
-  seniorityLevels: string[];
+  interviewTypes: InterviewType[];
+  seniorityLevels: SeniorityLevel[];
 
   createdAt: string;
   updatedAt: string;
@@ -156,13 +198,13 @@ async function main() {
           estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
           aiEvaluationHint: q.aiEvaluationHint ?? null,
           companies: q.companies ?? null,
-          positions: q.positions ?? [],
+          positions: ensurePositions(q.positions, q.topic),
           primaryTechStack: q.primaryTechStack ?? [],
-          interviewTypes: (q.interviewTypes ?? []) as any,
+          interviewTypes: ensureInterviewTypes(q.seniorityLevels),
           seniorityLevels: q.seniorityLevels ?? [],
           createdAt: now,
           updatedAt: now,
-          createdBy: "generated_by_ai",
+          createdBy: "admin",
           correctAnswerText: q.correctAnswerText,
         })),
       );
@@ -187,18 +229,17 @@ async function main() {
           estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
           aiEvaluationHint: q.aiEvaluationHint ?? null,
           companies: q.companies ?? null,
-          positions: q.positions ?? [],
+          positions: ensurePositions(q.positions, q.topic),
           primaryTechStack: q.primaryTechStack ?? [],
-          interviewTypes: (q.interviewTypes ?? []) as any,
+          interviewTypes: ensureInterviewTypes(q.seniorityLevels),
           seniorityLevels: q.seniorityLevels ?? [],
           createdAt: now,
           updatedAt: now,
-          createdBy: "generated_by_ai",
+          createdBy: "admin",
           referenceAnswers: q.referenceAnswers
             ? q.referenceAnswers.map((r) => ({
                 id: r.id,
                 text: r.text,
-                weight: r.weight,
                 keyPoints: r.keyPoints ?? [],
               }))
             : null,
@@ -225,13 +266,13 @@ async function main() {
           estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
           aiEvaluationHint: q.aiEvaluationHint ?? null,
           companies: q.companies ?? null,
-          positions: q.positions ?? [],
+          positions: ensurePositions(q.positions, q.topic),
           primaryTechStack: q.primaryTechStack ?? [],
-          interviewTypes: (q.interviewTypes ?? []) as any,
+          interviewTypes: ensureInterviewTypes(q.seniorityLevels),
           seniorityLevels: q.seniorityLevels ?? [],
           createdAt: now,
           updatedAt: now,
-          createdBy: "generated_by_ai",
+          createdBy: "admin",
           correctAnswer: q.correctAnswer,
           explanation: q.explanation,
           trickinessLevel: q.trickinessLevel ?? null,
@@ -258,13 +299,13 @@ async function main() {
           estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
           aiEvaluationHint: q.aiEvaluationHint ?? null,
           companies: q.companies ?? null,
-          positions: q.positions ?? [],
+          positions: ensurePositions(q.positions, q.topic),
           primaryTechStack: q.primaryTechStack ?? [],
-          interviewTypes: (q.interviewTypes ?? []) as any,
+          interviewTypes: ensureInterviewTypes(q.seniorityLevels),
           seniorityLevels: q.seniorityLevels ?? [],
           createdAt: now,
           updatedAt: now,
-          createdBy: "generated_by_ai",
+          createdBy: "admin",
           shuffleLeft: q.shuffleLeft ?? null,
           shuffleRight: q.shuffleRight ?? null,
           minPairs: q.minPairs ?? null,
@@ -293,13 +334,13 @@ async function main() {
           estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
           aiEvaluationHint: q.aiEvaluationHint ?? null,
           companies: q.companies ?? null,
-          positions: q.positions ?? [],
+          positions: ensurePositions(q.positions, q.topic),
           primaryTechStack: q.primaryTechStack ?? [],
-          interviewTypes: (q.interviewTypes ?? []) as any,
+          interviewTypes: ensureInterviewTypes(q.seniorityLevels),
           seniorityLevels: q.seniorityLevels ?? [],
           createdAt: now,
           updatedAt: now,
-          createdBy: "generated_by_ai",
+          createdBy: "admin",
           complexityLevel: q.complexityLevel ?? null,
           nonFunctionalRequirements: q.nonFunctionalRequirements ?? [],
           constraints: q.constraints ?? [],

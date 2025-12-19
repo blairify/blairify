@@ -82,6 +82,12 @@ export const CONFIGURE_STEPS: ConfigStep[] = [
     icon: Target,
   },
   {
+    id: "technologies",
+    title: "Technologies",
+    description: "Pick your tech stack",
+    icon: Target,
+  },
+  {
     id: "company",
     title: "Company",
     description: "Pick your target",
@@ -170,7 +176,7 @@ export const POSITIONS = [
     icon: Smartphone,
   },
   {
-    value: "data",
+    value: "data-engineer",
     label: "Data Engineer",
     icon: Database,
   },
@@ -185,7 +191,7 @@ export const POSITIONS = [
     icon: Shield,
   },
   {
-    value: "product-manager",
+    value: "product",
     label: "Product Manager",
     icon: ClipboardList,
   },

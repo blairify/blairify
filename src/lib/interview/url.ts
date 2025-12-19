@@ -63,7 +63,7 @@ export function parseInterviewConfigFromSearchParams(
   const interviewType = parseInterviewType(params.get("interviewType"));
 
   return {
-    position: params.get("position") || "Frontend Engineer",
+    position: params.get("position") || "frontend",
     seniority,
     technologies,
     companyProfile: params.get("companyProfile") || "",
