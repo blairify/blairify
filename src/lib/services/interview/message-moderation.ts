@@ -58,13 +58,13 @@ const PROFANITY_PATTERNS: RegExp[] = [
 
 const DISALLOWED_TOPIC_PATTERNS: RegExp[] = [
   // Political topics
-  /\b(trump|biden|obama|clinton|republican|democrat|conservative|liberal|politics|political|election|vote|voting|government|congress|senate|president|politician|capitalism|socialism|communism|fascism|nazi|hitler|stalin|mao|dictator|dictatorship|regime|revolution|coup|protest|riot|blm|black lives matter|antifa|proud boys|qanon|conspiracy|deep state|illuminati|freemason)\b/i,
+  /\b(trump|biden|obama|clinton|republican|democrat|conservative|liberal|politics|political|election|government|congress|senate|president|politician|capitalism|socialism|communism|fascism|nazi|hitler|stalin|mao|dictator|dictatorship|regime|coup|protest|riot|blm|black lives matter|antifa|proud boys|qanon|conspiracy|deep state|illuminati|freemason)\b/i,
 
   // Religious topics
   /\b(god|jesus|christ|christian|christianity|muslim|islam|islamic|jew|jewish|judaism|hindu|hinduism|buddhist|buddhism|religion|religious|church|mosque|synagogue|temple|bible|quran|torah|prayer|pray|faith|belief|atheist|agnostic|satan|devil|hell|heaven|prophet|muhammad|allah|buddha|shiva|vishnu|brahma|karma|reincarnation|afterlife|soul|spirit|holy|sacred|blessed|cursed|sin|sinner|salvation|redemption|missionary|evangelist|fundamentalist|extremist|radical|sect|cult)\b/i,
 
   // Sensitive personal topics
-  /\b(suicide|kill myself|end my life|self harm|cutting|depression|anxiety|mental health|therapy|therapist|psychiatrist|medication|antidepressant|bipolar|schizophrenia|ptsd|trauma|domestic violence|sexual assault|rape|harassment|discrimination|racism|sexism|homophobia|transphobia|xenophobia|hate crime|bullying|stalking|addiction|alcoholism|drug abuse|overdose|rehab)\b/i,
+  /\b(suicide|kill myself|end my life|self harm|cutting|depression|anxiety|mental health|antidepressant|bipolar|schizophrenia|ptsd|trauma|domestic violence|sexual assault|rape|harassment|racism|sexism|homophobia|transphobia|xenophobia|hate crime|bullying|alcoholism|drug abuse|overdose|rehab)\b/i,
 
   // Inappropriate personal questions
   /\b(how old are you|what's your age|where do you live|what's your address|phone number|social security|ssn|personal information|private life)\b/i,
@@ -82,7 +82,6 @@ const DISALLOWED_TOPIC_PATTERNS: RegExp[] = [
 
 const INAPPROPRIATE_BEHAVIOR_PATTERNS: RegExp[] = [
   anyToken([
-    "kill",
     "murder",
     "die",
     "death",
@@ -152,28 +151,23 @@ const INAPPROPRIATE_BEHAVIOR_PATTERNS: RegExp[] = [
     "sexual",
     "fuck me",
     "sleep with",
-    "naked",
     "nude",
-    "strip",
     "undress",
     "masturbate",
     "orgasm",
     "climax",
     "horny",
     "aroused",
-    "turned on",
     "grope",
     "fondle",
   ]),
   wholeWord("ass"),
   anyToken([
     "stupid",
-    "dumb",
     "idiot",
     "moron",
     "retard",
     "pathetic",
-    "ignorant",
     "shut up",
     "fuck you",
     "screw you",
