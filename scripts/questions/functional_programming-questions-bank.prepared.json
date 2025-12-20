@@ -6,7 +6,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Functional programming, and how does it",
@@ -54,14 +53,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-2",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Pure functions, and why are they",
@@ -109,14 +108,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-3",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of immutability in functional",
@@ -165,14 +164,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-4",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "A higher-order function, and can you",
@@ -220,14 +219,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-5",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Closures",
@@ -277,14 +276,14 @@
             "Practical use cases (privacy, callbacks, factories)"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "functional-programming-questions-bank-6",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Lazy evaluation, and how does it",
@@ -332,14 +331,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-7",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Currying, and how can it be",
@@ -387,14 +386,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-8",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Function composition, and why is it",
@@ -442,14 +441,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-9",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Some advantages of functional programming languages,",
@@ -497,14 +496,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-10",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of referential transparency in",
@@ -553,14 +552,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-11",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Tail recursion, and why is it",
@@ -609,14 +608,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-12",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Algebraic data types (ADTs) in functional",
@@ -665,14 +664,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-13",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Pattern matching in functional programming and",
@@ -721,14 +720,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-14",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The map function, and how is",
@@ -776,14 +775,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-15",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The \"fold\" (or \"reduce\") function in",
@@ -831,14 +830,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-16",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Discuss the advantages of immutability in",
@@ -886,14 +885,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-17",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The filter function in functional programming,",
@@ -941,14 +940,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-18",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of category theory and",
@@ -997,14 +996,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-19",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Discuss the benefits of using the",
@@ -1052,14 +1051,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-20",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Monads in functional programming and provide",
@@ -1108,14 +1107,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-21",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "A monad transformer, and how is",
@@ -1164,14 +1163,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-22",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Discuss the principles of referential transparency",
@@ -1219,14 +1218,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "functional-programming-questions-bank-23",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of higher-kinded types (HKTs)",
@@ -1275,7 +1274,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     }
   ],
   "truefalse_questions": [],

@@ -6,7 +6,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "React Native, and how does it",
@@ -54,14 +53,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-2",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of Redux in a",
@@ -109,14 +108,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-3",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The difference between React Native and",
@@ -164,14 +163,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-4",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You handle navigation in a React",
@@ -219,14 +218,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-5",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of props and state",
@@ -274,14 +273,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-6",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The advantages and disadvantages of using",
@@ -329,14 +328,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-7",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You optimize the performance of a",
@@ -385,14 +384,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "reactnative-questions-bank-8",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Can you explain the concept of",
@@ -440,14 +439,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-9",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Some key differences between React Native",
@@ -495,14 +494,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-10",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "DOM",
@@ -551,14 +550,14 @@
             "Give a practical example"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "reactnative-questions-bank-11",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The purpose of the StyleSheet component",
@@ -606,14 +605,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-12",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of AsyncStorage in React",
@@ -661,14 +660,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-13",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You handle platform-specific code in a",
@@ -716,14 +715,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-14",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "HOCs (Higher-Order Components) in React Native,",
@@ -771,14 +770,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-15",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of conditional rendering in",
@@ -826,14 +825,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-16",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Redux Thunk, and why would you",
@@ -881,14 +880,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-17",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "You optimize images for a React",
@@ -937,14 +936,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "reactnative-questions-bank-18",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "How you can handle deep linking",
@@ -992,14 +991,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-19",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of the FlatList component",
@@ -1047,14 +1046,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-20",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of \"props drilling\" in",
@@ -1102,14 +1101,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-21",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The purpose of the useEffect hook",
@@ -1157,14 +1156,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-22",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of the TouchableOpacity component",
@@ -1212,14 +1211,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-23",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of navigation stacks and",
@@ -1267,14 +1266,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-24",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Redux Saga, and why might you",
@@ -1322,14 +1321,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-25",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You handle screen orientation changes in",
@@ -1377,14 +1376,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-26",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of error boundaries in",
@@ -1432,14 +1431,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-27",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The key considerations when optimizing the",
@@ -1488,14 +1487,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "reactnative-questions-bank-28",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Can you explain the concept of",
@@ -1543,14 +1542,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-29",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "React Native Hooks, and how do",
@@ -1598,14 +1597,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-30",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The purpose of the key prop",
@@ -1653,14 +1652,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-31",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of the react-native-vector-icons library",
@@ -1708,14 +1707,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-32",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The purpose of the react-native-paper library",
@@ -1763,14 +1762,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-33",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The purpose of the React Native",
@@ -1818,14 +1817,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-34",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The benefits of using TypeScript with",
@@ -1873,14 +1872,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-35",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of Native Modules in",
@@ -1928,14 +1927,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-36",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The benefits of using Fastlane in",
@@ -1983,14 +1982,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-37",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of \"debugging in production\"",
@@ -2038,14 +2037,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-38",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of \"offline-first\" development in",
@@ -2093,14 +2092,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-39",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The purpose of the \"PermissionsAndroid\" module",
@@ -2148,14 +2147,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-40",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of \"CodePush\" in React",
@@ -2203,14 +2202,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-41",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of NavigationOptions in React",
@@ -2258,14 +2257,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-42",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The \"SafeAreaView\" component in React Native.",
@@ -2313,14 +2312,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-43",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of Babel and its",
@@ -2368,14 +2367,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-44",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of ref in React",
@@ -2423,14 +2422,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-45",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You ensure your React Native application",
@@ -2479,14 +2478,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "reactnative-questions-bank-46",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You optimize the startup time of",
@@ -2534,14 +2533,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-47",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of WebView in React",
@@ -2589,14 +2588,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-48",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "How you can handle offline data",
@@ -2644,14 +2643,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-49",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of React Native CLI",
@@ -2699,14 +2698,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "reactnative-questions-bank-50",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "How you can handle internationalization (i18n)",
@@ -2754,7 +2753,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     }
   ],
   "truefalse_questions": [],

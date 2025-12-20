@@ -6,7 +6,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "DevOps, and why is it important",
@@ -51,14 +50,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-2",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The CI/CD pipeline.",
@@ -105,14 +104,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-3",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Some popular CI/CD tools, and can",
@@ -158,14 +157,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-4",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Infrastructure as Code (IaC), and how",
@@ -210,14 +209,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-5",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The difference between Docker and Kubernetes.",
@@ -263,14 +262,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-6",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Discuss the importance of version control",
@@ -315,14 +314,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-7",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Git, and why is it essential",
@@ -367,14 +366,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-8",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "DevOps Principles, and how do they",
@@ -419,14 +418,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-9",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You handle security in a DevOps",
@@ -473,14 +472,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-10",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "A situation where you had to",
@@ -525,14 +524,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-11",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You ensure that your team maintains",
@@ -577,14 +576,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-12",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Can you explain Blue-Green deployments and",
@@ -630,14 +629,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-13",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of \"Blue-Green\" and \"Canary\"",
@@ -682,14 +681,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-14",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The difference between a container and",
@@ -735,14 +734,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-15",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of \"Immutable Infrastructure\".",
@@ -789,14 +788,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-16",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You handle database schema changes in",
@@ -842,14 +841,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-17",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of a Git commit",
@@ -893,14 +892,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-18",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of \"Infrastructure as Code\"",
@@ -946,14 +945,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-19",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "A Docker Compose file, and how",
@@ -1000,14 +999,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-20",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You monitor the health and performance",
@@ -1053,14 +1052,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "dev-ops-questions-bank-21",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of \"Infrastructure as Code\"",
@@ -1106,14 +1105,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-22",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You handle secrets and sensitive information",
@@ -1159,14 +1158,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-23",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The \"Git branching strategy\" known as",
@@ -1211,14 +1210,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-24",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The role of monitoring and alerting",
@@ -1263,14 +1262,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-25",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You ensure compliance and security in",
@@ -1317,14 +1316,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-26",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "this keyword",
@@ -1376,14 +1375,14 @@
             "`bind`/`call`/`apply` can set `this`"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "dev-ops-questions-bank-27",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "You manage dependencies and ensure version",
@@ -1427,14 +1426,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-28",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You handle backward compatibility when deploying",
@@ -1478,14 +1477,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-29",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of a Dockerfile in",
@@ -1531,14 +1530,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-30",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The difference between a CI server",
@@ -1582,14 +1581,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-31",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of \"Chaos Engineering\" in",
@@ -1635,14 +1634,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-32",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "\"GitOps,\" and how does it differ",
@@ -1687,14 +1686,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-33",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Discuss the importance of automated testing",
@@ -1740,14 +1739,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-34",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "A Docker image and how is",
@@ -1793,14 +1792,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-35",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Serverless computing and Function-as-a-Service (FaaS)? How",
@@ -1845,14 +1844,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-36",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Git LFS (Large File Storage), and",
@@ -1897,14 +1896,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-37",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Discuss the concept of Feature Flags",
@@ -1950,14 +1949,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-38",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You handle rollbacks in a CI/CD",
@@ -2003,14 +2002,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-39",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "You ensure that your DevOps pipeline",
@@ -2056,14 +2055,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-40",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You handle and maintain environment configurations",
@@ -2111,14 +2110,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "dev-ops-questions-bank-41",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Discuss the Cattle vs. Pets analogy",
@@ -2163,14 +2162,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-42",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The principles of the Four Key",
@@ -2216,14 +2215,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-43",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You ensure high availability and fault",
@@ -2268,14 +2267,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-44",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The Principle of Least Privilege and",
@@ -2323,14 +2322,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-45",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The benefits of containerization and when",
@@ -2376,14 +2375,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-46",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of \"Git branching strategies\"",
@@ -2428,14 +2427,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-47",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of \"shift-left testing\" in",
@@ -2480,14 +2479,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-48",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The principles of the \"Three Ways\"",
@@ -2533,14 +2532,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-49",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The main principles of the Twelve-Factor",
@@ -2587,14 +2586,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-50",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Blue-Ocean CI/CD in Jenkins, and how",
@@ -2640,14 +2639,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "dev-ops-questions-bank-51",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The key differences between Git and",
@@ -2692,7 +2691,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     }
   ],
   "truefalse_questions": [],

@@ -6,7 +6,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "What AWS is and its core",
@@ -57,14 +56,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-2",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The advantages of using AWS over",
@@ -114,14 +113,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-3",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The difference between horizontal scaling and",
@@ -171,14 +170,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-4",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The Amazon DynamoDB database and how",
@@ -228,14 +227,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-5",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The Amazon Web Services (AWS) Shared",
@@ -287,14 +286,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-6",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "What AWS Lambda is and its",
@@ -345,14 +344,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-7",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "What AWS EC2 is and its",
@@ -403,14 +402,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-8",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The difference between EC2 and Lambda,",
@@ -460,14 +459,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-9",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Auto Scaling, and how does it",
@@ -517,14 +516,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-10",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Es Amazon S3 achieve high availability",
@@ -575,14 +574,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-11",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You ensure the security of data",
@@ -633,14 +632,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-12",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "A CDN (Content Delivery Network).",
@@ -690,14 +689,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-13",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Amazon Elastic Load Balancing (ELB), and",
@@ -747,14 +746,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-14",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "AWS Lambda@Edge, and what are its",
@@ -804,14 +803,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-15",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Amazon SQS (Simple Queue Service), and",
@@ -861,14 +860,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-16",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Amazon RDS (Relational Database Service), and",
@@ -918,14 +917,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-17",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The difference between Amazon RDS and",
@@ -976,14 +975,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-18",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The use of Amazon CloudWatch and",
@@ -1034,14 +1033,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-19",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "AWS Identity and Access Management (IAM),",
@@ -1092,14 +1091,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-20",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The difference between IAM roles and",
@@ -1151,14 +1150,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-21",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Amazon ECS (Elastic Container Service), and",
@@ -1209,14 +1208,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-22",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of Amazon Aurora, and",
@@ -1267,14 +1266,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-23",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "AWS Lambda Layers and how they",
@@ -1326,14 +1325,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-24",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Amazon Redshift, and how does it",
@@ -1383,14 +1382,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-25",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The different storage classes in Amazon",
@@ -1441,14 +1440,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-26",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Amazon Polly, and how does it",
@@ -1499,14 +1498,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-27",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Amazon Elastic Beanstalk, and how does",
@@ -1557,14 +1556,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-28",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The AWS Well-Architected Framework, and why",
@@ -1614,14 +1613,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-29",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "What Amazon Cognito is and its",
@@ -1673,14 +1672,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-30",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The AWS Well-Architected Framework and its",
@@ -1731,14 +1730,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-31",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "AWS Availability Zones, and why are",
@@ -1789,14 +1788,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-32",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of AWS CloudTrail and",
@@ -1847,14 +1846,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-33",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Amazon Route 53, and how does",
@@ -1905,14 +1904,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-34",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The benefits of using Amazon Lambda",
@@ -1964,14 +1963,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-35",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The AWS Lambda execution environment and",
@@ -2022,14 +2021,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-36",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Es AWS handle disaster recovery, and",
@@ -2079,14 +2078,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-37",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of serverless computing in",
@@ -2137,14 +2136,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-38",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You manage secrets and sensitive information",
@@ -2195,14 +2194,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-39",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "CORS",
@@ -2256,14 +2255,14 @@
             "Concrete prevention/mitigation techniques"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "aws-questions-bank-40",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You optimize costs when using AWS",
@@ -2313,14 +2312,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-41",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "A situation where you had to",
@@ -2371,14 +2370,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-42",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "You secure data in transit and",
@@ -2429,14 +2428,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-43",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "AWS Elasticache, and when would you",
@@ -2486,14 +2485,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-44",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "AWS Step Functions, and how does",
@@ -2543,14 +2542,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-45",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Amazon Kinesis, and how can it",
@@ -2600,14 +2599,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-46",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Es AWS handle data replication and",
@@ -2658,14 +2657,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-47",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "What a VPC (Virtual Private Cloud)",
@@ -2716,14 +2715,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-48",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The Amazon Elastic File System (EFS),",
@@ -2773,14 +2772,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-49",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Amazon CloudFront, and how does it",
@@ -2831,14 +2830,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-50",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "What AWS CloudFormation is and its",
@@ -2889,14 +2888,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-51",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of Amazon Elastic MapReduce",
@@ -2947,14 +2946,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-52",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You handle security and compliance in",
@@ -3005,14 +3004,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-53",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of AWS Glue and",
@@ -3063,7 +3062,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     }
   ],
   "truefalse_questions": [],

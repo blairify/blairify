@@ -6,7 +6,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "PHP, and how does it differ",
@@ -55,14 +54,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-2",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The differences between single-quoted strings (')",
@@ -112,14 +111,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-3",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The purpose of the echo, print,",
@@ -168,14 +167,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-4",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The use of the ternary operator",
@@ -225,14 +224,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-5",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of PHP's $_GET and",
@@ -281,14 +280,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-6",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The purpose of the isset() and",
@@ -337,14 +336,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-7",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "What PHP sessions are and how",
@@ -395,14 +394,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-8",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of PHP namespaces, and",
@@ -451,14 +450,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-9",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "SQL injection, and how can you",
@@ -509,14 +508,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-10",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of PHP's include and",
@@ -566,14 +565,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-11",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Object-Oriented Programming (OOP) in PHP, and",
@@ -622,14 +621,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-12",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The difference between == and ===",
@@ -679,14 +678,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-13",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of PHP's foreach loop,",
@@ -735,14 +734,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-14",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "A PHP trait, and how does",
@@ -792,14 +791,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-15",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Autoloading in PHP, and why is",
@@ -848,14 +847,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-16",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "What the PHP spl_autoload_register() function is",
@@ -905,14 +904,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-17",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "PHP Magic Methods",
@@ -961,14 +960,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-18",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Composer in PHP, and how does",
@@ -1017,14 +1016,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-19",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of the PHP \"header\"",
@@ -1073,14 +1072,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-20",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of cookies in PHP,",
@@ -1131,14 +1130,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-21",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of PHP sessions and",
@@ -1189,14 +1188,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-22",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of the PHP \"mysqli\"",
@@ -1246,14 +1245,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-23",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The purpose of the mysqli and",
@@ -1303,14 +1302,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-24",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The use of the $_SERVER superglobal",
@@ -1359,14 +1358,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-25",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of the autoload feature",
@@ -1415,14 +1414,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-26",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The use of the try, catch,",
@@ -1472,14 +1471,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-27",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The purpose of PHP's $_SESSION variable",
@@ -1530,14 +1529,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-28",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The term \"PSR standards\" in PHP",
@@ -1587,14 +1586,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-29",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The purpose of PHP's serialize() and",
@@ -1643,14 +1642,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-30",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "PHP's cURL library used for, and",
@@ -1699,14 +1698,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-31",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "PHP's json_encode() function used for",
@@ -1755,14 +1754,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-32",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "How to securely handle user authentication",
@@ -1814,14 +1813,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-33",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "What the Singleton design pattern is",
@@ -1871,14 +1870,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-34",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of PHP's array_map() function,",
@@ -1927,14 +1926,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-35",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "How to set up error handling",
@@ -1986,14 +1985,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-36",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The purpose of PHP's unset() function,",
@@ -2042,14 +2041,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-37",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of PHP's filter_var() function",
@@ -2099,14 +2098,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-38",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The purpose of PHP's ob_start() and",
@@ -2155,14 +2154,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-39",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Closures",
@@ -2212,14 +2211,14 @@
             "Practical use cases (privacy, callbacks, factories)"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "php-questions-bank-40",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of the __construct method",
@@ -2269,14 +2268,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-41",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The purpose of output buffering in",
@@ -2325,14 +2324,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-42",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of dependency injection in",
@@ -2383,14 +2382,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-43",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The PHP memory_limit setting, and why",
@@ -2439,14 +2438,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "php-questions-bank-44",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "XSS",
@@ -2499,7 +2498,8 @@
             "Concrete prevention/mitigation techniques"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     }
   ],
   "truefalse_questions": [],

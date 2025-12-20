@@ -768,7 +768,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "scope & declarations",
@@ -822,7 +822,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "this keyword",
@@ -878,7 +878,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Imports and Exports",
@@ -933,7 +933,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The difference between function declaration and",
@@ -988,7 +988,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The main differences between arrow and",
@@ -1042,7 +1042,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "closures",
@@ -1096,7 +1096,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "closures",
@@ -1149,7 +1149,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "closures",
@@ -1256,7 +1256,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Synchronous vs asynchronous programming.",
@@ -1308,7 +1308,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept clearly and relate it",
@@ -1363,7 +1363,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept clearly and relate it",
@@ -1418,7 +1418,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept clearly and relate it",
@@ -1474,7 +1474,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept clearly and relate it",
@@ -1529,7 +1529,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept clearly and relate it",
@@ -1584,7 +1584,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "event propagation",
@@ -1639,7 +1639,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "event propagation",
@@ -1693,7 +1693,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "event propagation",
@@ -1802,7 +1802,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "this keyword",
@@ -1857,7 +1857,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The difference between a shallow and",
@@ -2128,7 +2128,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Pass by reference and pass by",
@@ -2180,7 +2180,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Is JavaScript pass by reference or",
@@ -2235,7 +2235,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The difference between double (==) and",
@@ -2290,7 +2290,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "AJAX, and how does it work",
@@ -2346,7 +2346,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "this keyword",
@@ -2400,7 +2400,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "A first class function",
@@ -2452,7 +2452,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "A first-order function",
@@ -2504,7 +2504,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "A higher-order function",
@@ -2556,7 +2556,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "A pure function",
@@ -2662,7 +2662,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You compare Object and Map",
@@ -2717,7 +2717,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept and how it affects",
@@ -2770,7 +2769,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept and how it affects",
@@ -2877,7 +2876,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept clearly and relate it",
@@ -2932,7 +2931,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You determine two values same or",
@@ -2986,7 +2985,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "this keyword",
@@ -3040,7 +3039,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "this keyword",
@@ -3095,7 +3094,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "this keyword",
@@ -3151,7 +3150,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Type coercion",
@@ -3205,7 +3204,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Object.freeze",
@@ -3313,7 +3312,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Polyfill",
@@ -3365,7 +3364,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "ArrayBuffer",
@@ -3419,7 +3417,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "event delegation",
@@ -3473,7 +3470,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept clearly and relate it",
@@ -3529,7 +3526,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "hoisting",
@@ -3582,7 +3579,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "A Temporal Dead Zone",
@@ -3635,7 +3631,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Obfuscation",
@@ -3688,7 +3683,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "JavaScript treated as single-threaded",
@@ -3742,7 +3737,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "What triggers it, why it is",
@@ -3796,7 +3790,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "What triggers it, why it is",
@@ -3849,7 +3842,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "WeakSet in JavaScript.",
@@ -3904,7 +3896,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of currying",
@@ -3957,7 +3948,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "prototypes",
@@ -4011,7 +4002,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of prototypal inheritance in",
@@ -4065,7 +4055,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "A generator function",
@@ -4119,7 +4108,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Heaps related to JavaScript",
@@ -4172,7 +4160,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Es JavaScript get executed in the",
@@ -4226,7 +4213,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+      
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Some of the differences between the",

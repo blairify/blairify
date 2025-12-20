@@ -824,9 +824,17 @@ const normalizeOpenQuestion = (
   const { tags, subtopics } = classifyFromQuestion(question, { baseTags: opts.baseTags });
   const keyPoints = keyPointsFromQuestion(question, tags);
 
-  const nextDifficulty = opts.autoDifficulty
-    ? assessDifficulty({ question, tags })
-    : normalizeDifficulty(q.difficulty);
+  const nextDifficulty = (() => {
+    if (opts.autoDifficulty) {
+      return assessDifficulty({ question, tags });
+    }
+
+    if (q.difficulty) {
+      return normalizeDifficulty(q.difficulty);
+    }
+
+    return assessDifficulty({ question, tags });
+  })();
 
   const refAnswers = q.referenceAnswers
     ? q.referenceAnswers.map((r, idx) => ({

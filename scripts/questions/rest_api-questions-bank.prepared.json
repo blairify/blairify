@@ -7,11 +7,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Fetch All User Ages",
       "description": "Fetch All User Ages?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch All User Ages?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -40,14 +36,14 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
       "createdAt": "2025-12-19T17:42:49.767Z",
       "updatedAt": "2025-12-19T17:42:49.767Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "rest-api-questions-bank-2",
@@ -55,11 +51,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "Fetch All Restaurant Names",
       "description": "Fetch All Restaurant Names?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch All Restaurant Names?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -88,14 +80,14 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
       "createdAt": "2025-12-19T17:42:49.767Z",
       "updatedAt": "2025-12-19T17:42:49.767Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "rest-api-questions-bank-3",
@@ -103,11 +95,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Fetch & Filter Movie Ratings",
       "description": "Fetch & Filter Movie Ratings?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch & Filter Movie Ratings?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -136,14 +124,14 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
       "createdAt": "2025-12-19T17:42:49.767Z",
       "updatedAt": "2025-12-19T17:42:49.767Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "rest-api-questions-bank-4",
@@ -151,11 +139,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Fetch Highest‑Rated Hotel Name",
       "description": "Fetch Highest‑Rated Hotel Name?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch Highest‑Rated Hotel Name?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -184,14 +168,14 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
       "createdAt": "2025-12-19T17:42:49.767Z",
       "updatedAt": "2025-12-19T17:42:49.767Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "rest-api-questions-bank-5",
@@ -199,11 +183,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "Find Songs From Search Term",
       "description": "Find Songs From Search Term?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Find Songs From Search Term?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -232,14 +212,14 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
       "createdAt": "2025-12-19T17:42:49.767Z",
       "updatedAt": "2025-12-19T17:42:49.767Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "rest-api-questions-bank-6",
@@ -247,11 +227,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Average Product Price By Category",
       "description": "Average Product Price By Category?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Average Product Price By Category?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -280,14 +256,14 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
       "createdAt": "2025-12-19T17:42:49.767Z",
       "updatedAt": "2025-12-19T17:42:49.767Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "rest-api-questions-bank-7",
@@ -295,11 +271,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Count Active Users By Region",
       "description": "Count Active Users By Region?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Count Active Users By Region?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -328,14 +300,14 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
       "createdAt": "2025-12-19T17:42:49.767Z",
       "updatedAt": "2025-12-19T17:42:49.767Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "rest-api-questions-bank-8",
@@ -343,11 +315,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "Total Likes for User",
       "description": "Total Likes for User?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Total Likes for User?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -376,14 +344,14 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
       "createdAt": "2025-12-19T17:42:49.767Z",
       "updatedAt": "2025-12-19T17:42:49.767Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "rest-api-questions-bank-9",
@@ -391,11 +359,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Total Article Likes for Author",
       "description": "Total Article Likes for Author?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Total Article Likes for Author?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -425,14 +389,14 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
       "createdAt": "2025-12-19T17:42:49.767Z",
       "updatedAt": "2025-12-19T17:42:49.767Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "rest-api-questions-bank-10",
@@ -440,11 +404,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "Count Keyword Occurrences in Comments",
       "description": "Count Keyword Occurrences in Comments?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Count Keyword Occurrences in Comments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -473,14 +433,14 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
       "createdAt": "2025-12-19T17:42:49.767Z",
       "updatedAt": "2025-12-19T17:42:49.767Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     }
   ],
   "truefalse_questions": [],

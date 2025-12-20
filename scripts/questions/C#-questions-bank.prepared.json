@@ -6,7 +6,6 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "C#",
@@ -50,14 +49,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-2",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "C# different from C",
@@ -101,14 +100,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-3",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "A constructor in C#",
@@ -152,14 +151,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-4",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The difference between value types and",
@@ -204,14 +203,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-5",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The purpose of access modifiers (e.g.,",
@@ -255,14 +254,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-6",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The difference between a class and",
@@ -306,14 +305,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-7",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Es the static keyword do in",
@@ -357,14 +356,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-8",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Properties in C#",
@@ -408,14 +407,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-9",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "An exception in C# and how",
@@ -459,14 +458,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-10",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The var keyword in C#, and",
@@ -511,14 +510,14 @@
             "`var` vs `let`/`const` behavior"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-11",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The difference between readonly and const",
@@ -564,14 +563,14 @@
             "`var` vs `let`/`const` behavior"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-12",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Arrays and lists in C#",
@@ -615,14 +614,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-13",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Method overloading in C#",
@@ -666,14 +665,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-14",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The concept of inheritance in C#.",
@@ -707,14 +706,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-15",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of polymorphism in C#.",
@@ -759,14 +758,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-16",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "An interface in C#, and how",
@@ -810,14 +809,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-17",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The purpose of the using statement",
@@ -850,14 +849,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-18",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "A nullable type in C#",
@@ -890,14 +889,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-19",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The out and ref keywords used",
@@ -941,14 +940,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-20",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The difference between String and StringBuilder",
@@ -993,14 +992,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-21",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "A namespace in C#",
@@ -1044,14 +1043,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-22",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The difference between == and .Equals()",
@@ -1095,14 +1094,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-23",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Generics in C# and why are",
@@ -1135,14 +1134,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-24",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "What a delegate is in C#",
@@ -1176,14 +1175,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-25",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of delegates and events",
@@ -1217,14 +1216,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-26",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "LINQ? Give an example of a",
@@ -1258,14 +1257,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-27",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The difference between IEnumerable and IQueryable",
@@ -1310,14 +1309,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-28",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Async and await in C#.",
@@ -1362,14 +1361,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-29",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The role of the Common Language",
@@ -1413,14 +1412,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-30",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Garbage collection in C#",
@@ -1454,14 +1453,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "mid"
     },
     {
       "id": "c-sharp-questions-bank-31",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The difference between struct and class",
@@ -1505,14 +1504,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-32",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "What a lambda expression is in",
@@ -1557,14 +1556,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-33",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The purpose of the lock statement",
@@ -1609,14 +1608,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-34",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The purpose of the yield keyword",
@@ -1660,14 +1659,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-35",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Attributes in C#",
@@ -1711,14 +1710,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-36",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Extension methods in C#",
@@ -1762,14 +1761,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-37",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The differences between ArrayList and List<T>",
@@ -1814,14 +1813,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-38",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The difference between shallow copy and",
@@ -1854,14 +1853,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-39",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The concept of dependency injection (DI)",
@@ -1907,14 +1906,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-40",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Serialization and deserialization in C#",
@@ -1947,14 +1946,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-41",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "The dynamic keyword and what is",
@@ -1987,14 +1986,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-42",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The difference between Task and Thread",
@@ -2038,14 +2037,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-43",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Es the volatile keyword do in",
@@ -2078,14 +2077,14 @@
       "createdAt": "2025-12-19T14:57:38.352Z",
       "updatedAt": "2025-12-19T14:57:38.352Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-44",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "You handle multithreading and avoid race",
@@ -2129,14 +2128,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-45",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Covariance and contravariance in C#",
@@ -2180,14 +2179,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-46",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "The concept of boxing and unboxing",
@@ -2232,14 +2231,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-47",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "IComparer<T> and custom sorting in C#.",
@@ -2284,14 +2283,14 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "c-sharp-questions-bank-48",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Finalizers and the IDisposable pattern",
@@ -2335,7 +2334,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     }
   ],
   "truefalse_questions": [],

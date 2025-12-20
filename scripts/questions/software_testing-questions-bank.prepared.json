@@ -7,11 +7,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Software testing, and why is it",
       "description": "What is software testing, and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is software testing, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -40,7 +36,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -58,7 +53,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-2",
@@ -66,11 +62,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The different levels/types of software testing",
       "description": "What are the different levels/types of software testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the different levels/types of software testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -99,7 +91,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -117,7 +108,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-3",
@@ -125,11 +117,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "Unit testing",
       "description": "What is unit testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is unit testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -158,7 +146,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -176,7 +163,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-4",
@@ -184,11 +172,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Integration testing",
       "description": "What is integration testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is integration testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -217,7 +201,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -235,7 +218,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-5",
@@ -243,11 +227,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The difference between black-box and white-box",
       "description": "What is the difference between black-box and white-box testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between black-box and white-box testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -276,7 +256,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -294,7 +273,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-6",
@@ -302,11 +282,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The concept of test-driven development (TDD).",
       "description": "Explain the concept of test-driven development (TDD).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of test-driven development (TDD).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -336,7 +312,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -354,7 +329,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-7",
@@ -362,11 +338,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "A test plan, and what does",
       "description": "What is a test plan, and what does it include?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a test plan, and what does it include?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -395,7 +367,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -413,7 +384,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-8",
@@ -421,11 +393,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "You prioritize test cases in a",
       "description": "How do you prioritize test cases in a test suite?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you prioritize test cases in a test suite?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -454,7 +422,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -472,7 +439,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-9",
@@ -480,11 +448,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The difference between verification and validation",
       "description": "What is the difference between verification and validation in software testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between verification and validation in software testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -513,7 +477,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -531,7 +494,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-10",
@@ -539,11 +503,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The concept of a test case",
       "description": "Explain the concept of a test case and give an example.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of a test case and give an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -573,7 +533,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -591,7 +550,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-11",
@@ -599,11 +559,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The purpose of test automation, and",
       "description": "What is the purpose of test automation, and when is it suitable to automate tests?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of test automation, and when is it suitable to automate tests?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -633,7 +589,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -651,7 +606,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-12",
@@ -659,11 +615,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The difference between smoke testing and",
       "description": "What is the difference between smoke testing and sanity testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between smoke testing and sanity testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -692,7 +644,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -710,7 +661,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-13",
@@ -718,11 +670,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The importance of boundary value analysis",
       "description": "What is the importance of boundary value analysis in testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the importance of boundary value analysis in testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -751,7 +699,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -769,7 +716,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-14",
@@ -777,11 +725,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The concept of test coverage.",
       "description": "Explain the concept of test coverage.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of test coverage.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -811,7 +755,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -829,7 +772,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-15",
@@ -837,11 +781,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The concept of test environment and",
       "description": "Explain the concept of test environment and test data.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of test environment and test data.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -871,7 +811,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -889,7 +828,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-16",
@@ -897,11 +837,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The advantages and disadvantages of manual",
       "description": "What are the advantages and disadvantages of manual testing vs. automated testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages and disadvantages of manual testing vs. automated testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -930,7 +866,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -948,7 +883,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-17",
@@ -956,11 +892,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "You handle the situation when a",
       "description": "How do you handle the situation when a critical defect is found just before the software release?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle the situation when a critical defect is found just before the software release?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -989,7 +921,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1007,7 +938,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-18",
@@ -1015,11 +947,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "System testing",
       "description": "What is system testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is system testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1048,7 +976,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1066,7 +993,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-19",
@@ -1074,11 +1002,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The difference between positive testing and",
       "description": "What is the difference between positive testing and negative testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between positive testing and negative testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1107,7 +1031,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1125,7 +1048,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-20",
@@ -1133,11 +1057,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Acceptance testing",
       "description": "What is acceptance testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is acceptance testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1166,7 +1086,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1184,7 +1103,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-21",
@@ -1192,11 +1112,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The concept of exploratory testing.",
       "description": "Explain the concept of exploratory testing.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of exploratory testing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1226,7 +1142,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1244,7 +1159,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-22",
@@ -1252,11 +1168,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "Test automation framework, and why is",
       "description": "What is test automation framework, and why is it important in test automation?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is test automation framework, and why is it important in test automation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1285,7 +1197,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1303,7 +1214,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-23",
@@ -1311,11 +1223,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "You handle flaky or intermittent test",
       "description": "How do you handle flaky or intermittent test failures in an automated test suite?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle flaky or intermittent test failures in an automated test suite?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1345,7 +1253,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1363,7 +1270,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-24",
@@ -1371,11 +1279,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The concept of load testing and",
       "description": "Explain the concept of load testing and stress testing. How are they different?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of load testing and stress testing. How are they different?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1405,7 +1309,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1423,7 +1326,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-25",
@@ -1431,11 +1335,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "A test strategy, and how does",
       "description": "What is a test strategy, and how does it differ from a test plan?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a test strategy, and how does it differ from a test plan?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1464,7 +1364,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1482,7 +1381,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-26",
@@ -1490,11 +1390,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The purpose of a test script,",
       "description": "What is the purpose of a test script, and how does it differ from a test case?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of a test script, and how does it differ from a test case?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1523,7 +1419,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1541,7 +1436,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-27",
@@ -1549,11 +1445,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Performance testing",
       "description": "What is performance testing?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is performance testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1601,7 +1493,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "software-testing-questions-bank-28",
@@ -1609,11 +1502,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "Can you explain the difference between",
       "description": "Can you explain the difference between static and dynamic testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the difference between static and dynamic testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1643,7 +1532,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1661,7 +1549,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-29",
@@ -1669,11 +1558,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The difference between functional testing and",
       "description": "What is the difference between functional testing and non-functional testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between functional testing and non-functional testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1702,7 +1587,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1720,7 +1604,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-30",
@@ -1728,11 +1613,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "A test driver and a test",
       "description": "What is a test driver and a test stub in integration testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a test driver and a test stub in integration testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1761,7 +1642,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1779,7 +1659,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-31",
@@ -1787,11 +1668,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The concept of test harness and",
       "description": "Explain the concept of test harness and its purpose.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of test harness and its purpose.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1821,7 +1698,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1839,7 +1715,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-32",
@@ -1847,11 +1724,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The concept of ad-hoc testing. When",
       "description": "Explain the concept of ad-hoc testing. When and why is it used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of ad-hoc testing. When and why is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1881,7 +1754,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1899,7 +1771,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-33",
@@ -1907,11 +1780,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Security testing",
       "description": "What is security testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is security testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1941,7 +1810,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1959,7 +1827,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "software-testing-questions-bank-34",
@@ -1967,11 +1836,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "Regression testing, and why is it",
       "description": "What is regression testing, and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is regression testing, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2000,7 +1865,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2018,7 +1882,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     }
   ],
   "truefalse_questions": [],

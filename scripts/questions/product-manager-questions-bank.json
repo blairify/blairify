@@ -6,186 +6,356 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "entry",
       "isDemoMode": false,
-      "companyType": ["faang", "startup", "enterprise"],
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Role of a PRD",
       "description": "What is a Product Requirements Document (PRD) and how does it guide an agile team?",
       "prompt": "You are evaluating an entry-level product manager candidate. Answer the question: \"What is a Product Requirements Document (PRD) and how does it guide an agile team?\" Requirements: - Define the artifact in your own words - Outline essential sections - Describe how it aligns engineering + design - Mention a pitfall when PRDs go wrong. Style: - Clear, structured, concise - Prefer bullet lists for sections - Avoid buzzwords without substance.",
       "topic": "product",
-      "subtopics": ["discovery", "documentation"],
-      "tags": ["product", "prd"],
+      "subtopics": [
+        "discovery",
+        "documentation"
+      ],
+      "tags": [
+        "product",
+        "prd"
+      ],
       "estimatedTimeMinutes": 8,
       "aiEvaluationHint": "Look for definition, key sections (context, goals, scope, success metrics), how it guides cross-functional teams, and a pitfall (e.g., outdated docs).",
       "companies": null,
-      "positions": ["product"],
-      "primaryTechStack": ["product"],
-      "interviewTypes": ["regular", "practice", "flash", "teacher"],
-      "seniorityLevels": ["entry", "junior"],
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior"
+      ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
-      "referenceAnswers": [{
-        "id": "product-questions-bank-1-ref-1",
-        "text": "A PRD captures the user problem, goal, scope, requirements, and success metrics so every discipline knows why we are building something. Typical sections include context, personas, problem statement, success metrics, functional requirements, non-functional constraints, open questions, and rollout plan. In agile teams it keeps designers, engineers, and QA aligned while sprints are executed. A common pitfall is treating the PRD as static—when discovery insights change but the PRD doesn't, teams build the wrong thing.",
-        "weight": 1,
-        "keyPoints": ["Define PRD in own words", "List critical sections", "Describe alignment role", "Mention pitfall"]
-      }]
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-1-ref-1",
+          "text": "A PRD captures the user problem, goal, scope, requirements, and success metrics so every discipline knows why we are building something. Typical sections include context, personas, problem statement, success metrics, functional requirements, non-functional constraints, open questions, and rollout plan. In agile teams it keeps designers, engineers, and QA aligned while sprints are executed. A common pitfall is treating the PRD as static—when discovery insights change but the PRD doesn't, teams build the wrong thing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define PRD in own words",
+            "List critical sections",
+            "Describe alignment role",
+            "Mention pitfall"
+          ]
+        }
+      ]
     },
     {
       "id": "product-questions-bank-2",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
-      "companyType": ["faang", "startup", "enterprise"],
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Prioritization frameworks",
       "description": "How do you apply prioritization frameworks like RICE or MoSCoW when roadmap resources are constrained?",
       "prompt": "You are evaluating a junior product manager candidate. Answer the question: \"How do you apply prioritization frameworks like RICE or MoSCoW when roadmap resources are constrained?\" Requirements: - Outline at least one framework formula - Describe data inputs - Explain how you communicate trade-offs - Share a pitfall when stakeholders game the process. Style: structured, concise, use short lists when possible.",
       "topic": "product",
-      "subtopics": ["prioritization"],
-      "tags": ["product", "prioritization", "rice"],
+      "subtopics": [
+        "prioritization"
+      ],
+      "tags": [
+        "product",
+        "prioritization",
+        "rice"
+      ],
       "estimatedTimeMinutes": 9,
       "aiEvaluationHint": "Expect mention of Reach * Impact * Confidence / Effort or MoSCoW buckets, discussion of inputs, stakeholder alignment, and pitfalls (inflated scoring).",
       "companies": null,
-      "positions": ["product"],
-      "primaryTechStack": ["product"],
-      "interviewTypes": ["regular", "practice", "flash", "teacher"],
-      "seniorityLevels": ["entry", "junior", "mid"],
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
-      "referenceAnswers": [{
-        "id": "product-questions-bank-2-ref-1",
-        "text": "RICE multiplies Reach, Impact, and Confidence, then divides by Effort to produce a comparable score. Each input needs real data: weekly active users, expected lift, confidence bands, and engineering t-shirt sizes converted to person-weeks. After ranking, I discuss the portfolio with design/engineering leads to verify assumptions and communicate the top picks plus what falls below the cut line. A pitfall is letting stakeholders inflate Reach or Impact to force their projects up the list, so I require sources for each assumption and publish the scoring sheet for transparency.",
-        "weight": 1,
-        "keyPoints": ["Explain framework", "Call out inputs", "Describe communication", "Note pitfall"]
-      }]
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-2-ref-1",
+          "text": "RICE multiplies Reach, Impact, and Confidence, then divides by Effort to produce a comparable score. Each input needs real data: weekly active users, expected lift, confidence bands, and engineering t-shirt sizes converted to person-weeks. After ranking, I discuss the portfolio with design/engineering leads to verify assumptions and communicate the top picks plus what falls below the cut line. A pitfall is letting stakeholders inflate Reach or Impact to force their projects up the list, so I require sources for each assumption and publish the scoring sheet for transparency.",
+          "weight": 1,
+          "keyPoints": [
+            "Explain framework",
+            "Call out inputs",
+            "Describe communication",
+            "Note pitfall"
+          ]
+        }
+      ]
     },
     {
       "id": "product-questions-bank-3",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
-      "companyType": ["faang", "startup", "enterprise"],
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "North Star metrics",
       "description": "How do you define and maintain a North Star metric for a mature product?",
       "prompt": "You are evaluating a mid-level product manager candidate. Answer the question: \"How do you define and maintain a North Star metric for a mature product?\" Requirements: - Describe selection criteria - Show how sub-metrics ladder up - Explain governance cadence - Mention what happens when the metric stops correlating with value. Style: crisp, outcome-focused.",
       "topic": "product",
-      "subtopics": ["analytics", "strategy"],
-      "tags": ["north-star", "metrics"],
+      "subtopics": [
+        "analytics",
+        "strategy"
+      ],
+      "tags": [
+        "north-star",
+        "metrics"
+      ],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Look for user value focus, hierarchy of metrics, review cadence with stakeholders, and plan for recalibration.",
       "companies": null,
-      "positions": ["product"],
-      "primaryTechStack": ["product"],
-      "interviewTypes": ["regular", "practice", "flash", "teacher", "competitive"],
-      "seniorityLevels": ["junior", "mid"],
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
-      "referenceAnswers": [{
-        "id": "product-questions-bank-3-ref-1",
-        "text": "A North Star metric represents long-term user value and is stable enough to guide teams. I ensure it captures both engagement and value (e.g., \"weekly teams that complete a collaborative session\" instead of \"MAU\"). Supporting metrics such as activation, retention, monetization, and quality ladder up via a scorecard reviewed monthly with analytics and functional leads. When experiments show the metric no longer correlates with revenue or satisfaction, we run a retrospective, test candidate replacements, and socialize the change before resetting OKRs. Without this governance the org optimizes vanity metrics.",
-        "weight": 1,
-        "keyPoints": ["Define selection criteria", "Explain metric tree", "Describe cadence", "Handle misalignment"]
-      }]
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-3-ref-1",
+          "text": "A North Star metric represents long-term user value and is stable enough to guide teams. I ensure it captures both engagement and value (e.g., \"weekly teams that complete a collaborative session\" instead of \"MAU\"). Supporting metrics such as activation, retention, monetization, and quality ladder up via a scorecard reviewed monthly with analytics and functional leads. When experiments show the metric no longer correlates with revenue or satisfaction, we run a retrospective, test candidate replacements, and socialize the change before resetting OKRs. Without this governance the org optimizes vanity metrics.",
+          "weight": 1,
+          "keyPoints": [
+            "Define selection criteria",
+            "Explain metric tree",
+            "Describe cadence",
+            "Handle misalignment"
+          ]
+        }
+      ]
     },
     {
       "id": "product-questions-bank-4",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
-      "companyType": ["faang", "startup", "enterprise"],
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Handling conflicting stakeholder requests",
       "description": "Describe how you handle conflicting requests from Sales and Customer Success without derailing roadmap focus.",
       "prompt": "You are evaluating a mid-level product manager candidate. Answer the question: \"Describe how you handle conflicting requests from Sales and Customer Success without derailing roadmap focus.\" Requirements: - Provide a concrete escalation process - Show how you use data to arbitrate - Explain how you prevent churned trust. Style: narrative with a mini case study.",
       "topic": "product",
-      "subtopics": ["stakeholder-management"],
-      "tags": ["stakeholders", "roadmap"],
+      "subtopics": [
+        "stakeholder-management"
+      ],
+      "tags": [
+        "stakeholders",
+        "roadmap"
+      ],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect prioritization via impact data, creation of shared artifacts, communication loops, and preserving relationships.",
       "companies": null,
-      "positions": ["product"],
-      "primaryTechStack": ["product"],
-      "interviewTypes": ["regular", "practice", "flash", "teacher", "competitive"],
-      "seniorityLevels": ["junior", "mid"],
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
-      "referenceAnswers": [{
-        "id": "product-questions-bank-4-ref-1",
-        "text": "I gather the requests, quantify the user impact (pipeline at risk, ARR retention, NRR expansion), and map them to roadmap themes. If both cannot fit, I run a short decision doc summarizing data, options, and trade-offs, then convene Sales, CS, and Eng leadership for a call. We commit to one path, document the rationale, and share it in the GTM newsletter. To prevent trust erosion I also schedule follow-ups showing progress or re-evaluating when assumptions change. The key is transparent data, documented decisions, and predictable revisit cadences.",
-        "weight": 1,
-        "keyPoints": ["Escalation process", "Use of data", "Trust preservation"]
-      }]
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-4-ref-1",
+          "text": "I gather the requests, quantify the user impact (pipeline at risk, ARR retention, NRR expansion), and map them to roadmap themes. If both cannot fit, I run a short decision doc summarizing data, options, and trade-offs, then convene Sales, CS, and Eng leadership for a call. We commit to one path, document the rationale, and share it in the GTM newsletter. To prevent trust erosion I also schedule follow-ups showing progress or re-evaluating when assumptions change. The key is transparent data, documented decisions, and predictable revisit cadences.",
+          "weight": 1,
+          "keyPoints": [
+            "Escalation process",
+            "Use of data",
+            "Trust preservation"
+          ]
+        }
+      ]
     },
     {
       "id": "product-questions-bank-5",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
-      "companyType": ["faang", "startup", "enterprise"],
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Platform vs feature bets",
       "description": "How do you balance investment between platform initiatives and near-term feature bets when leading a multi-product portfolio?",
       "prompt": "You are evaluating a senior product leader. Answer the question: \"How do you balance investment between platform initiatives and near-term feature bets when leading a multi-product portfolio?\" Requirements: - Describe portfolio segmentation - Explain capital allocation guardrails - Share how you measure ROI across time horizons - Highlight a risk mitigation tactic. Style: strategic, metric-oriented.",
       "topic": "product",
-      "subtopics": ["portfolio", "strategy"],
-      "tags": ["portfolio", "strategy"],
+      "subtopics": [
+        "portfolio",
+        "strategy"
+      ],
+      "tags": [
+        "portfolio",
+        "strategy"
+      ],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect mention of horizon planning, percentage investment bands, ROI tracking, and mitigation tactics like stage gates.",
       "companies": null,
-      "positions": ["product"],
-      "primaryTechStack": ["product"],
-      "interviewTypes": ["regular", "practice", "flash", "teacher", "competitive"],
-      "seniorityLevels": ["mid", "senior"],
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
-      "referenceAnswers": [{
-        "id": "product-questions-bank-5-ref-1",
-        "text": "I segment the portfolio into Horizons 1/2/3 and set guardrails such as 55% core feature work, 30% platform/scale, 15% explorations. Platform initiatives require stage gates tied to developer productivity metrics or infra savings, while feature bets tie to revenue or engagement OKRs. Quarterly I run an ROI review comparing committed benefits vs. realized metrics and shift capacity accordingly. To mitigate risk I build kill criteria and dual-track discovery so that if a platform bet stalls we already have validated feature work to backfill.",
-        "weight": 1,
-        "keyPoints": ["Portfolio segmentation", "Allocation guardrails", "ROI measurement", "Risk mitigation"]
-      }]
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-5-ref-1",
+          "text": "I segment the portfolio into Horizons 1/2/3 and set guardrails such as 55% core feature work, 30% platform/scale, 15% explorations. Platform initiatives require stage gates tied to developer productivity metrics or infra savings, while feature bets tie to revenue or engagement OKRs. Quarterly I run an ROI review comparing committed benefits vs. realized metrics and shift capacity accordingly. To mitigate risk I build kill criteria and dual-track discovery so that if a platform bet stalls we already have validated feature work to backfill.",
+          "weight": 1,
+          "keyPoints": [
+            "Portfolio segmentation",
+            "Allocation guardrails",
+            "ROI measurement",
+            "Risk mitigation"
+          ]
+        }
+      ]
     },
     {
       "id": "product-questions-bank-6",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
-      "companyType": ["faang", "startup", "enterprise"],
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Org design for scaling PM teams",
       "description": "When should you introduce a product operations function, and how does it change PM rituals?",
       "prompt": "You are evaluating a senior product leader. Answer the question: \"When should you introduce a product operations function, and how does it change PM rituals?\" Requirements: - Define trigger signals - Outline scope for prod ops - Explain how cadences/rituals evolve - Mention a metric to prove impact. Style: executive-level but concrete.",
       "topic": "product",
-      "subtopics": ["org-design"],
-      "tags": ["product-ops", "org-design"],
+      "subtopics": [
+        "org-design"
+      ],
+      "tags": [
+        "product-ops",
+        "org-design"
+      ],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect headcount/coordination triggers, responsibilities for product ops, changes to rituals, and measurement like planning accuracy.",
       "companies": null,
-      "positions": ["product"],
-      "primaryTechStack": ["product"],
-      "interviewTypes": ["regular", "practice", "flash", "teacher", "competitive"],
-      "seniorityLevels": ["mid", "senior"],
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
-      "referenceAnswers": [{
-        "id": "product-questions-bank-6-ref-1",
-        "text": "I introduce product operations when PM headcount passes ~10, launch volume outpaces existing tooling, or we see inconsistent rituals across squads. Product ops owns tooling, launch readiness, experiment hygiene, and centralized insights. After the function launches we standardize quarterly planning templates, introduce shared launch checklists, and run weekly analytics office hours. Success is measured through faster PRD-to-launch cycle time, forecast accuracy, and PM time reclaimed for discovery. Without this, PMs spend half their week chasing status updates instead of talking to customers.",
-        "weight": 1,
-        "keyPoints": ["Trigger signals", "Scope", "Ritual changes", "Impact metric"]
-      }]
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-6-ref-1",
+          "text": "I introduce product operations when PM headcount passes ~10, launch volume outpaces existing tooling, or we see inconsistent rituals across squads. Product ops owns tooling, launch readiness, experiment hygiene, and centralized insights. After the function launches we standardize quarterly planning templates, introduce shared launch checklists, and run weekly analytics office hours. Success is measured through faster PRD-to-launch cycle time, forecast accuracy, and PM time reclaimed for discovery. Without this, PMs spend half their week chasing status updates instead of talking to customers.",
+          "weight": 1,
+          "keyPoints": [
+            "Trigger signals",
+            "Scope",
+            "Ritual changes",
+            "Impact metric"
+          ]
+        }
+      ]
     }
   ],
   "truefalse_questions": [],

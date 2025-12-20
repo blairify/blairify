@@ -6,12 +6,11 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "entry",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "DOM",
       "description": "What is a Product Requirements Document (PRD) and how does it guide an agile team?",
-      "prompt": "You are evaluating a entry-level candidate. Answer the question: \"What is a Product Requirements Document (PRD) and how does it guide an agile team?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Product Requirements Document (PRD) and how does it guide an agile team?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "product",
       "subtopics": [
         "dom"
@@ -19,7 +18,7 @@
       "tags": [
         "dom"
       ],
-      "estimatedTimeMinutes": 5,
+      "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
       "companies": null,
       "positions": [
@@ -35,8 +34,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
-        "junior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
@@ -51,14 +50,14 @@
             "Give a practical example"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "product-questions-bank-2",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You apply prioritization frameworks like RICE",
@@ -102,25 +101,25 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "product-questions-bank-3",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "You define and maintain a North",
       "description": "How do you define and maintain a North Star metric for a mature product?",
-      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you define and maintain a North Star metric for a mature product?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you define and maintain a North Star metric for a mature product?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "product",
       "subtopics": [
         "language-fundamentals"
       ],
       "tags": [],
-      "estimatedTimeMinutes": 10,
+      "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
       "positions": [
@@ -137,8 +136,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
@@ -154,25 +153,25 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "product-questions-bank-4",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
       "isDemoMode": false,
       "companyType": "faang",
       "title": "How you handle conflicting requests from",
       "description": "Describe how you handle conflicting requests from Sales and Customer Success without derailing roadmap focus.?",
-      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Describe how you handle conflicting requests from Sales and Customer Success without derailing roadmap focus.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe how you handle conflicting requests from Sales and Customer Success without derailing roadmap focus.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "product",
       "subtopics": [
         "language-fundamentals"
       ],
       "tags": [],
-      "estimatedTimeMinutes": 10,
+      "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
       "positions": [
@@ -189,8 +188,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
@@ -206,25 +205,25 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "product-questions-bank-5",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
       "companyType": "startup",
       "title": "You balance investment between platform initiatives",
       "description": "How do you balance investment between platform initiatives and near-term feature bets when leading a multi-product portfolio?",
-      "prompt": "You are evaluating a senior-level candidate. Answer the question: \"How do you balance investment between platform initiatives and near-term feature bets when leading a multi-product portfolio?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you balance investment between platform initiatives and near-term feature bets when leading a multi-product portfolio?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "product",
       "subtopics": [
         "language-fundamentals"
       ],
       "tags": [],
-      "estimatedTimeMinutes": 12,
+      "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
       "positions": [
@@ -241,7 +240,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
@@ -257,25 +257,25 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "product-questions-bank-6",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "senior",
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": "enterprise",
       "title": "You introduce a product operations function,",
       "description": "When should you introduce a product operations function, and how does it change PM rituals?",
-      "prompt": "You are evaluating a senior-level candidate. Answer the question: \"When should you introduce a product operations function, and how does it change PM rituals?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"When should you introduce a product operations function, and how does it change PM rituals?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "product",
       "subtopics": [
         "language-fundamentals"
       ],
       "tags": [],
-      "estimatedTimeMinutes": 12,
+      "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
       "positions": [
@@ -292,7 +292,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
@@ -308,7 +309,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     }
   ],
   "truefalse_questions": [],

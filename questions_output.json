@@ -138,7 +138,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Debugging a slow single-page application (SPA)",
@@ -205,7 +205,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Accessibility considerations for forms",
@@ -272,7 +272,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "State management in large React apps",
@@ -816,7 +816,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Choosing a Database for User Data",
@@ -882,7 +882,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Handling Authentication in a REST API",
@@ -949,7 +949,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Improving Backend API Performance",
@@ -1017,7 +1017,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Logging Best Practices in Backend Applications",
@@ -1490,7 +1490,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Debugging a CORS error in a fullstack application",
@@ -1561,7 +1561,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Handling user authentication in a modern fullstack application",
@@ -1630,7 +1630,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Improving frontend performance by optimizing API calls",
@@ -2045,7 +2045,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Integrating third-party APIs in a fullstack application",
@@ -2246,7 +2246,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Debugging a Failing Deployment Pipeline",
@@ -2313,7 +2313,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Choosing Between Containers and Virtual Machines",
@@ -2379,7 +2379,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Responding to a Sudden Traffic Spike",
@@ -2907,7 +2907,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Debugging a Slow List View in Android",
@@ -2975,7 +2975,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "State Management in Flutter Apps",
@@ -3030,7 +3030,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Implementing Offline Support in a Mobile App",
@@ -3098,7 +3098,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Ensuring Accessibility in Mobile Applications",
@@ -3166,7 +3166,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Handling Push Notifications Across Platforms",
@@ -3226,7 +3226,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Diagnosing Memory Leaks in iOS Applications",
@@ -3284,7 +3284,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "mid",
+
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Securing Sensitive Data Storage on Mobile Devices",
@@ -3560,7 +3560,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Choosing Storage Formats: Parquet vs. CSV",
@@ -3630,7 +3630,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Building a Reliable Data Pipeline: Dealing with Late-Arriving Data",
@@ -3698,7 +3698,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Ensuring Data Quality in a Data Lake",
@@ -4234,7 +4234,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Handling missing data in a dataset",
@@ -4297,7 +4297,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Evaluating model performance beyond accuracy",
@@ -4361,7 +4361,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Approach to exploratory data analysis (EDA)",
@@ -4880,7 +4880,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Mitigating Phishing Attacks",
@@ -4943,7 +4943,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "The Role of Firewalls in Network Security",
@@ -5003,7 +5003,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Detecting and Responding to Malware Infections",
@@ -5438,7 +5438,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "faang",
       "title": "Prioritizing Features with Limited Resources",
@@ -5504,7 +5504,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "startup",
       "title": "Measuring Product Success After Launch",
@@ -5570,7 +5570,7 @@
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-      "difficulty": "junior",
+
       "isDemoMode": false,
       "companyType": "enterprise",
       "title": "Handling Conflicting Stakeholder Requests",
