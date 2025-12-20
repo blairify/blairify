@@ -1,3 +1,10 @@
+import type {
+  CompanyProfileValue,
+  JobContext,
+  PositionValue,
+  SeniorityValue,
+} from "@/types/global";
+
 /**
  * Core interview types and interfaces
  * Shared across the entire interview system
@@ -12,24 +19,19 @@ export interface Message {
   isFollowUp?: boolean;
 }
 
-export interface InterviewConfig {
-  position: string;
-  seniority: SeniorityLevel;
+export interface InterviewConfig extends JobContext {
+  position: PositionValue;
+  seniority: SeniorityValue;
   technologies: string[];
-  companyProfile: string;
+  companyProfile: CompanyProfileValue;
   specificCompany?: string;
   interviewMode: InterviewMode;
   interviewType: InterviewType;
   duration: string;
   isDemoMode: boolean;
-  // Job-specific context fields
   contextType?: string;
   jobId?: string;
   company?: string;
-  jobDescription?: string;
-  jobRequirements?: string;
-  jobLocation?: string;
-  jobType?: string;
 }
 
 export interface InterviewSession {
@@ -98,7 +100,7 @@ export interface ResponseAnalysis {
 }
 
 // Enums and Union Types
-export type SeniorityLevel = "entry" | "junior" | "mid" | "senior";
+export type SeniorityLevel = SeniorityValue;
 export type InterviewMode =
   | "regular" // 8 questions, standard pace
   | "practice" // 5 questions, untimed, learning-focused

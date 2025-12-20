@@ -3,7 +3,7 @@
 import { ArrowLeft, ArrowRight, Shield } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   SiAmazon,
   SiCss3,
@@ -29,6 +29,7 @@ import {
   isConfigComplete as checkIsConfigComplete,
 } from "@/components/configure/utils/configure-helpers";
 import type { InterviewConfig } from "@/components/configure/utils/types";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -42,6 +43,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
+import { Textarea } from "@/components/ui/textarea";
 import {
   COMPANY_PROFILES,
   CONFIGURE_SPECIFIC_COMPANIES,
@@ -57,6 +59,36 @@ import {
   type InterviewType,
   type SeniorityLevel,
 } from "@/lib/interview";
+import {
+  analyzeJobText,
+  htmlToPlainText,
+  MAX_JOB_TEXT_LENGTH,
+  normalizeJobText,
+} from "@/lib/job-parsing";
+import {
+  type ParsedSection,
+  parseJobDescription,
+} from "@/lib/parse-job-descrpition";
+import type { CompanyProfileValue, PositionValue } from "@/types/global";
+
+const DETECTED_TECH_TO_VALUE: Record<string, string> = {
+  React: "react",
+  "Next.js": "react",
+  TypeScript: "typescript",
+  JavaScript: "javascript",
+  Java: "java",
+  Python: "python",
+  Go: "go",
+  Kotlin: "kotlin",
+  Rust: "rust",
+  PHP: "php",
+  Docker: "docker",
+  Kubernetes: "kubernetes",
+  Terraform: "terraform",
+  AWS: "aws",
+  GCP: "gcp",
+  Azure: "azure",
+};
 
 export function ConfigureContent() {
   const router = useRouter();
@@ -70,10 +102,14 @@ export function ConfigureContent() {
     interviewMode: "",
     interviewType: "technical",
     duration: "30",
+    company: "",
+    jobDescription: "",
+    jobRequirements: "",
+    contextType: "",
   });
 
-  const [jobListingUrl, setJobListingUrl] = useState("");
-  const [isImportingJob, setIsImportingJob] = useState(false);
+  const [jobDescriptionInput, setJobDescriptionInput] = useState("");
+  const [isAnalyzingDescription, setIsAnalyzingDescription] = useState(false);
 
   const allowedPositionValues = new Set(POSITIONS.map((p) => p.value));
   const allowedSeniorityValues = new Set(SENIORITY_LEVELS.map((s) => s.value));
@@ -90,111 +126,6 @@ export function ConfigureContent() {
     return 4;
   };
 
-  const importFromJobListingUrl = async () => {
-    const url = jobListingUrl.trim();
-    if (!url) {
-      toast.error("Job listing URL required");
-      return;
-    }
-
-    setIsImportingJob(true);
-
-    try {
-      const params = new URLSearchParams({ url });
-      const res = await fetch(`/api/job-listing/import?${params.toString()}`);
-      const data = (await res.json()) as
-        | {
-            success: true;
-            data?: {
-              position?: string;
-              seniority?: string;
-              technologies: string[];
-              company?: string;
-              companyProfile?: string;
-              title?: string;
-            };
-          }
-        | { success: false; error?: string };
-
-      if (!res.ok || !data.success) {
-        toast.error("Failed to import", {
-          description:
-            "error" in data && data.error ? data.error : "Please try again.",
-        });
-        return;
-      }
-
-      const imported = data.data;
-      if (!imported) {
-        toast.error("Import failed", { description: "Empty response." });
-        return;
-      }
-
-      const mergedTechnologies = [
-        ...new Set([...config.technologies, ...(imported.technologies ?? [])]),
-      ];
-
-      const position =
-        imported.position && allowedPositionValues.has(imported.position)
-          ? imported.position
-          : config.position;
-
-      const seniority =
-        imported.seniority && allowedSeniorityValues.has(imported.seniority)
-          ? imported.seniority
-          : config.seniority;
-
-      const companyProfile =
-        imported.companyProfile &&
-        allowedCompanyProfiles.has(imported.companyProfile)
-          ? imported.companyProfile
-          : config.companyProfile;
-
-      const normalizedImportedCompany = imported.company
-        ? imported.company.trim().toLowerCase()
-        : "";
-
-      const specificCompany = normalizedImportedCompany
-        ? (CONFIGURE_SPECIFIC_COMPANIES.find((c) => {
-            const normalizedLabel = c.label.trim().toLowerCase();
-            if (normalizedLabel === normalizedImportedCompany) return true;
-            return normalizedImportedCompany.includes(normalizedLabel);
-          })?.value ?? config.specificCompany)
-        : config.specificCompany;
-
-      const finalCompanyProfile = specificCompany
-        ? "faang"
-        : companyProfile || "generic";
-
-      const nextConfig: InterviewConfig = {
-        ...config,
-        position,
-        seniority,
-        companyProfile: finalCompanyProfile,
-        specificCompany,
-        technologies: mergedTechnologies,
-      };
-
-      setConfig(nextConfig);
-      setCurrentStep(getFirstIncompleteStep(nextConfig));
-
-      if (imported.title) {
-        toast.success("Imported from job listing", {
-          description: imported.title,
-        });
-      } else {
-        toast.success("Imported from job listing");
-      }
-    } catch (error) {
-      console.error("Failed to import job listing:", error);
-      toast.error("Failed to import", {
-        description: error instanceof Error ? error.message : "Unknown error",
-      });
-    } finally {
-      setIsImportingJob(false);
-    }
-  };
-
   const handleStartInterview = () => {
     if (!canStartInterview(config)) return;
 
@@ -203,23 +134,23 @@ export function ConfigureContent() {
     );
 
     const domainConfig: DomainInterviewConfig = {
-      position: config.position || "frontend",
+      position: (config.position || "frontend") as PositionValue,
       seniority: (config.seniority || "mid") as SeniorityLevel,
       technologies: config.technologies || [],
-      companyProfile: config.companyProfile || "",
+      companyProfile: (config.companyProfile ||
+        "generic") as CompanyProfileValue,
       specificCompany: config.specificCompany || undefined,
-      company: selectedCompanyMeta?.label || undefined,
+      company: config.company || selectedCompanyMeta?.label || undefined,
       interviewMode: (config.interviewMode || "regular") as InterviewMode,
       interviewType: (config.interviewType || "technical") as InterviewType,
       duration: config.duration || "30",
       isDemoMode: false,
-      // No job-specific context in configure flow
-      contextType: undefined,
-      jobId: undefined,
-      jobDescription: undefined,
-      jobRequirements: undefined,
-      jobLocation: undefined,
-      jobType: undefined,
+      contextType: config.contextType || undefined,
+      jobId: config.jobId || undefined,
+      jobDescription: config.jobDescription || undefined,
+      jobRequirements: config.jobRequirements || undefined,
+      jobLocation: config.jobLocation || undefined,
+      jobType: config.jobType || undefined,
     };
 
     const urlParams = buildSearchParamsFromInterviewConfig(domainConfig);
@@ -252,35 +183,239 @@ export function ConfigureContent() {
     }));
   };
 
+  const jobRequirementsPreview = useMemo(() => {
+    if (!config.jobRequirements) return [];
+    return config.jobRequirements
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .slice(0, 4);
+  }, [config.jobRequirements]);
+
+  const detectedTechnologies = useMemo(() => {
+    if (!config.technologies.length) return [];
+    return config.technologies.slice(0, 6);
+  }, [config.technologies]);
+
+  const handleAnalyzeJobDescription = async () => {
+    const rawText = jobDescriptionInput.trim();
+    if (!rawText) {
+      toast.error("Job description required", {
+        description: "Paste the job text before analyzing.",
+      });
+      return;
+    }
+
+    setIsAnalyzingDescription(true);
+    try {
+      const normalizedPlain = normalizeJobText(htmlToPlainText(rawText));
+      if (!normalizedPlain) {
+        toast.error("Invalid description", {
+          description: "Unable to parse the provided job text.",
+        });
+        return;
+      }
+
+      const analysis = analyzeJobText({
+        title: undefined,
+        body: normalizedPlain,
+      });
+
+      const mappedTechnologies = analysis.technologies
+        .map((label) => DETECTED_TECH_TO_VALUE[label])
+        .filter(Boolean) as string[];
+
+      const mergedTechnologies = [
+        ...new Set([...config.technologies, ...mappedTechnologies]),
+      ];
+
+      const inferredPosition =
+        analysis.position && allowedPositionValues.has(analysis.position)
+          ? analysis.position
+          : config.position;
+      const inferredSeniority = analysis.seniority || config.seniority;
+      const inferredProfile =
+        analysis.companyProfile &&
+        allowedCompanyProfiles.has(analysis.companyProfile)
+          ? analysis.companyProfile
+          : config.companyProfile;
+
+      const normalizedCompany = analysis.company
+        ? analysis.company.trim().toLowerCase()
+        : "";
+
+      const nextSpecificCompany = normalizedCompany
+        ? (CONFIGURE_SPECIFIC_COMPANIES.find((candidate) => {
+            const normalizedLabel = candidate.label.trim().toLowerCase();
+            if (normalizedLabel === normalizedCompany) return true;
+            return normalizedCompany.includes(normalizedLabel);
+          })?.value ?? config.specificCompany)
+        : config.specificCompany;
+
+      const finalCompanyProfile = nextSpecificCompany
+        ? "faang"
+        : inferredProfile || "generic";
+
+      const parsed = parseJobDescription(rawText);
+      const requirementLines = parsed.sections
+        .filter((section: ParsedSection) =>
+          /requirement|qualification|responsibilit/i.test(section.title),
+        )
+        .flatMap((section: ParsedSection) => section.content);
+
+      const requirementSummary = requirementLines.join("\n");
+
+      const nextConfig: InterviewConfig = {
+        ...config,
+        position: inferredPosition,
+        seniority: inferredSeniority,
+        companyProfile: finalCompanyProfile,
+        specificCompany: nextSpecificCompany,
+        technologies: mergedTechnologies,
+        company: analysis.company || config.company || "",
+        jobDescription: normalizedPlain,
+        jobRequirements: requirementSummary || config.jobRequirements || "",
+        contextType: "job-specific",
+      };
+
+      setConfig(nextConfig);
+      setCurrentStep(getFirstIncompleteStep(nextConfig));
+      setJobDescriptionInput(normalizedPlain);
+      toast.success("Job description analyzed");
+    } catch (error) {
+      console.error("Failed to analyze job description:", error);
+      toast.error("Failed to analyze description", {
+        description: error instanceof Error ? error.message : "Unknown error",
+      });
+    } finally {
+      setIsAnalyzingDescription(false);
+    }
+  };
+
+  const handleClearJobContext = () => {
+    setConfig((previous) => ({
+      ...previous,
+      company: "",
+      companyProfile: "",
+      specificCompany: "",
+      jobDescription: "",
+      jobRequirements: "",
+      contextType: "",
+    }));
+    setJobDescriptionInput("");
+    toast.info("Cleared job-specific context");
+  };
+
   function renderPositionStep() {
     return (
       <div className="space-y-8">
-        <div className="space-y-2 ">
-          <Label htmlFor="job-listing-url">Job listing URL (optional)</Label>
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <Input
-              id="job-listing-url"
-              placeholder="Paste a job URL (LinkedIn, Greenhouse, Lever, etc.)"
-              value={jobListingUrl}
-              onChange={(e) => setJobListingUrl(e.target.value)}
-              autoCapitalize="none"
-              autoCorrect="off"
-              inputMode="url"
-              disabled={isImportingJob}
-              className="h-10"
-            />
-            <Button
-              type="button"
-              onClick={importFromJobListingUrl}
-              disabled={isImportingJob || !jobListingUrl.trim()}
-              className="shrink-0"
-            >
-              {isImportingJob ? "Importing..." : "Import"}
-            </Button>
-          </div>
-        </div>
+        <div className="space-y-3">
+          {/* <Label htmlFor="job-description">
+            Paste or drop the job description
+          </Label>
+          <Textarea
+            id="job-description"
+            value={jobDescriptionInput}
+            onChange={(event) => {
+              const nextValue = event.target.value.slice(
+                0,
+                MAX_JOB_TEXT_LENGTH,
+              );
+              setJobDescriptionInput(nextValue);
+            }}
+            placeholder="Paste the full job description (HTML or plain text)"
+            disabled={isAnalyzingDescription}
+            className="min-h-[180px]"
+          /> */}
+          {/* <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="text-xs text-muted-foreground">
+              {jobDescriptionInput.length}/{MAX_JOB_TEXT_LENGTH} characters
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Button
+                type="button"
+                onClick={handleAnalyzeJobDescription}
+                disabled={isAnalyzingDescription || !jobDescriptionInput.trim()}
+              >
+                {isAnalyzingDescription
+                  ? "Analyzing..."
+                  : "Analyze description"}
+              </Button>
+              {config.jobDescription && (
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleClearJobContext}
+                  disabled={isAnalyzingDescription}
+                >
+                  Clear job context
+                </Button>
+              )}
+            </div>
+          </div> */}
 
-        <Separator />
+          {config.jobDescription && (
+            <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4 space-y-4">
+              <Typography.BodyBold>Detected job context</Typography.BodyBold>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-2">
+                  <Typography.CaptionMedium className="text-muted-foreground">
+                    Company
+                  </Typography.CaptionMedium>
+                  <Typography.BodyBold>
+                    {config.company || "Unknown company"}
+                  </Typography.BodyBold>
+                  {config.specificCompany && (
+                    <Typography.CaptionMedium className="text-muted-foreground">
+                      Mapped to {config.specificCompany.toUpperCase()} interview
+                      profile
+                    </Typography.CaptionMedium>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  <Typography.CaptionMedium className="text-muted-foreground">
+                    Suggested seniority
+                  </Typography.CaptionMedium>
+                  <Typography.BodyBold className="capitalize">
+                    {config.seniority || "Not detected"}
+                  </Typography.BodyBold>
+                </div>
+              </div>
+
+              {detectedTechnologies.length > 0 && (
+                <div className="space-y-2">
+                  <Typography.CaptionMedium className="text-muted-foreground">
+                    Key technologies
+                  </Typography.CaptionMedium>
+                  <div className="flex flex-wrap gap-2">
+                    {detectedTechnologies.map((tech) => (
+                      <Badge
+                        key={tech}
+                        variant="secondary"
+                        className="uppercase"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {jobRequirementsPreview.length > 0 && (
+                <div className="space-y-2">
+                  <Typography.CaptionMedium className="text-muted-foreground">
+                    Requirements sample
+                  </Typography.CaptionMedium>
+                  <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">
+                    {jobRequirementsPreview.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-1">
           {POSITIONS.map((position) => {

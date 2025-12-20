@@ -1,39 +1,25 @@
-import { NextResponse } from "next/server";
-import {
-  normalizeCompanyProfileValue,
-  normalizePositionValue,
-  normalizeSeniorityValue,
-} from "@/lib/utils/interview-normalizers";
 import type {
   CompanyProfileValue,
   PositionValue,
   SeniorityValue,
 } from "@/types/global";
 
-interface ImportJobListingResponse {
-  success: boolean;
-  data?: {
-    position?: PositionValue;
-    seniority: SeniorityValue;
-    technologies: string[];
-    company?: string;
-    companyProfile?: CompanyProfileValue;
-    title?: string;
-    sourceUrl: string;
-  };
-  error?: string;
+const MAX_JOB_TEXT_LENGTH = 50_000;
+
+interface AnalyzeJobParams {
+  title?: string | null;
+  body: string;
 }
 
-function isHttpUrl(value: string): boolean {
-  try {
-    const url = new URL(value);
-    return url.protocol === "http:" || url.protocol === "https:";
-  } catch {
-    return false;
-  }
+export interface JobAnalysisResult {
+  technologies: string[];
+  position?: PositionValue;
+  seniority: SeniorityValue;
+  company?: string;
+  companyProfile: CompanyProfileValue;
 }
 
-function htmlToText(html: string): string {
+export function htmlToPlainText(html: string): string {
   return html
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
@@ -47,10 +33,15 @@ function htmlToText(html: string): string {
     .trim();
 }
 
-function getTitleFromHtml(html: string): string | undefined {
-  const match = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-  const title = match?.[1]?.replace(/\s+/g, " ").trim();
-  return title || undefined;
+export function normalizeJobText(raw: string): string {
+  return String(raw)
+    .replace(/\r\n/g, "\n")
+    .replace(/\t+/g, " ")
+    .replace(/\u00A0/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/[ \t]{2,}/g, " ")
+    .trim()
+    .slice(0, MAX_JOB_TEXT_LENGTH);
 }
 
 function extractTechnologies(text: string): string[] {
@@ -215,7 +206,7 @@ function inferCompanyProfile(text: string): CompanyProfileValue {
   return "generic";
 }
 
-function inferCompanyFromTitle(title?: string): string | undefined {
+function inferCompanyFromTitle(title?: string | null): string | undefined {
   if (!title) return undefined;
 
   const cleaned = title.replace(/\s+/g, " ").trim();
@@ -235,76 +226,29 @@ function inferCompanyFromTitle(title?: string): string | undefined {
   return undefined;
 }
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const urlParam = searchParams.get("url")?.trim();
+export function analyzeJobText({
+  title,
+  body,
+}: AnalyzeJobParams): JobAnalysisResult {
+  const combined = `${title ?? ""} ${body}`
+    .trim()
+    .slice(0, MAX_JOB_TEXT_LENGTH);
 
-  if (!urlParam) {
-    return NextResponse.json<ImportJobListingResponse>(
-      { success: false, error: "Missing 'url' query param" },
-      { status: 400 },
-    );
-  }
+  const technologies = extractTechnologies(combined);
+  const position =
+    (title ? inferPositionFromText(title) : undefined) ??
+    inferPositionFromText(combined);
+  const seniority = inferSeniority(title ?? undefined, combined);
+  const company = inferCompanyFromTitle(title);
+  const companyProfile = inferCompanyProfile(combined);
 
-  if (!isHttpUrl(urlParam)) {
-    return NextResponse.json<ImportJobListingResponse>(
-      { success: false, error: "Invalid URL" },
-      { status: 400 },
-    );
-  }
-
-  try {
-    const res = await fetch(urlParam, {
-      headers: {
-        "user-agent":
-          "Mozilla/5.0 (compatible; BlairifyBot/1.0; +https://blairify.com)",
-        accept: "text/html,application/xhtml+xml",
-      },
-      redirect: "follow",
-    });
-
-    if (!res.ok) {
-      return NextResponse.json<ImportJobListingResponse>(
-        { success: false, error: `Failed to fetch URL: ${res.status}` },
-        { status: 400 },
-      );
-    }
-
-    const html = await res.text();
-    const title = getTitleFromHtml(html);
-    const text = htmlToText(html).slice(0, 50_000);
-
-    const combined = `${title ?? ""} ${text}`.trim();
-
-    const technologies = extractTechnologies(combined);
-    const position =
-      (title ? inferPositionFromText(title) : undefined) ??
-      inferPositionFromText(combined);
-    const seniority = inferSeniority(title, combined);
-    const company = inferCompanyFromTitle(title);
-    const companyProfile = inferCompanyProfile(combined);
-
-    return NextResponse.json<ImportJobListingResponse>({
-      success: true,
-      data: {
-        technologies,
-        position: position ? normalizePositionValue(position) : undefined,
-        seniority: normalizeSeniorityValue(seniority),
-        company,
-        companyProfile: normalizeCompanyProfileValue(companyProfile),
-        title,
-        sourceUrl: urlParam,
-      },
-    });
-  } catch (error) {
-    console.error("API /job-listing/import error:", error);
-
-    return NextResponse.json<ImportJobListingResponse>(
-      {
-        success: false,
-        error: error instanceof Error ? error.message : "Unknown error",
-      },
-      { status: 500 },
-    );
-  }
+  return {
+    technologies,
+    position,
+    seniority,
+    company,
+    companyProfile,
+  };
 }
+
+export { MAX_JOB_TEXT_LENGTH };

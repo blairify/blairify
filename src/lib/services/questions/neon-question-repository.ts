@@ -356,7 +356,13 @@ function mapSystemDesignRowToQuestion(row: SystemDesignRow): Question {
 // Helpers
 
 function buildWhereClauses<
-  T extends { status: any; topic: any; difficulty: any; positions?: any; tags?: any },
+  T extends {
+    status: any;
+    topic: any;
+    difficulty: any;
+    positions?: any;
+    tags?: any;
+  },
 >(table: T, filters: BaseFilters) {
   const clauses = [eq(table.status, filters.status)];
 
@@ -369,9 +375,7 @@ function buildWhereClauses<
   }
 
   if (filters.position && "positions" in table && table.positions) {
-    clauses.push(
-      sql`${table.positions} @> ARRAY[${filters.position}]::text[]`,
-    );
+    clauses.push(sql`${table.positions} @> ARRAY[${filters.position}]::text[]`);
   }
 
   if (filters.tag && "tags" in table && table.tags) {

@@ -240,6 +240,12 @@ service cloud.firestore {
       allow update, delete: if isSignedIn() && isAdmin(); // Only admins can modify/delete
     }
 
+    // ===== SURVEYS =====
+    match /surveys/{surveyId} {
+      allow create: if isSignedIn();
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+    
     // ===== DEFAULT DENY =====
     match /{document=**} {
       allow read, write: if false;

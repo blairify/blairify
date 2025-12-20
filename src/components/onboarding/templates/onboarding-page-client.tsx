@@ -28,6 +28,10 @@ import {
 } from "@/lib/interview";
 import type { UserData } from "@/lib/services/auth/auth";
 import { cookieUtils } from "@/lib/utils/cookies";
+import {
+  normalizeCompanyProfileValue,
+  normalizePositionValue,
+} from "@/lib/utils/interview-normalizers";
 import type { Job } from "@/lib/validators";
 import { useAuth } from "@/providers/auth-provider";
 import type { UserPreferences } from "@/types/firestore";
@@ -447,13 +451,13 @@ export function OnboardingPageClient({
     const interviewMode: InterviewMode = "practice";
     const interviewType: InterviewType = "technical";
 
-    const position = role || "frontend";
+    const position = normalizePositionValue(role);
 
     const config: InterviewConfig = {
       position,
       seniority,
       technologies: [],
-      companyProfile: "",
+      companyProfile: normalizeCompanyProfileValue(undefined),
       specificCompany: undefined,
       interviewMode,
       interviewType,
@@ -519,10 +523,10 @@ export function OnboardingPageClient({
     const interviewType: InterviewType = "technical";
 
     const config: InterviewConfig = {
-      position: job.title || "Software Engineer",
+      position: normalizePositionValue(job.title),
       seniority,
       technologies: [],
-      companyProfile: "",
+      companyProfile: normalizeCompanyProfileValue(job.companyProfile),
       specificCompany: undefined,
       interviewMode,
       interviewType,

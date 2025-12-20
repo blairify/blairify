@@ -57,6 +57,10 @@ import {
   type SeniorityLevel,
 } from "@/lib/interview";
 import { cn } from "@/lib/utils";
+import {
+  normalizeCompanyProfileValue,
+  normalizePositionValue,
+} from "@/lib/utils/interview-normalizers";
 import type { Job } from "@/lib/validators";
 import { useAuth } from "@/providers/auth-provider";
 
@@ -352,18 +356,22 @@ export function JobsContent() {
     if (!selectedJob) return;
 
     try {
+      const position = normalizePositionValue(selectedJob.title);
       const seniority: SeniorityLevel =
         (selectedJob.seniorityLevel?.toLowerCase() ||
           selectedJob.level?.toLowerCase() ||
           "mid") as SeniorityLevel;
+      const companyProfile = normalizeCompanyProfileValue(
+        selectedJob.companyProfile,
+      );
       const interviewMode: InterviewMode = "practice";
       const interviewType: InterviewType = "technical";
 
       const domainConfig: DomainInterviewConfig = {
-        position: selectedJob.title || "Software Engineer",
+        position,
         seniority,
         technologies: [],
-        companyProfile: "",
+        companyProfile,
         specificCompany: undefined,
         interviewMode,
         interviewType,

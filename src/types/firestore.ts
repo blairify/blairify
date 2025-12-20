@@ -30,6 +30,7 @@ export interface UserProfile {
   badgesUnlocked?: string[];
   totalInterviews?: number;
   averageScore?: number;
+  postInterviewSurveyCompleted?: boolean;
 
   // Preferences
   preferences: UserPreferences;

@@ -1,3 +1,7 @@
+import {
+  normalizeCompanyProfileValue,
+  normalizePositionValue,
+} from "@/lib/utils/interview-normalizers";
 import type {
   InterviewConfig,
   InterviewMode,
@@ -61,12 +65,16 @@ export function parseInterviewConfigFromSearchParams(
   const interviewMode = parseInterviewMode(params.get("interviewMode"));
   const seniority = parseSeniority(params.get("seniority"));
   const interviewType = parseInterviewType(params.get("interviewType"));
+  const position = normalizePositionValue(params.get("position"));
+  const companyProfile = normalizeCompanyProfileValue(
+    params.get("companyProfile"),
+  );
 
   return {
-    position: params.get("position") || "frontend",
+    position,
     seniority,
     technologies,
-    companyProfile: params.get("companyProfile") || "",
+    companyProfile,
     specificCompany: params.get("specificCompany") || undefined,
     interviewMode,
     interviewType,
