@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Monitoring and why is it important",
       "description": "What is monitoring and why is it important in a DevOps/SRE context?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is monitoring and why is it important in a DevOps/SRE context?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -37,8 +41,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:54.038Z",
       "updatedAt": "2025-12-19T17:57:54.038Z",
@@ -55,7 +59,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "monitoring-observability-questions-bank-2",
@@ -63,7 +67,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Metrics, logs, and traces, and how",
       "description": "What are metrics, logs, and traces, and how does each help you understand a system?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are metrics, logs, and traces, and how does each help you understand a system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -119,7 +127,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Prometheus and how would you use",
       "description": "What is Prometheus and how would you use it for monitoring an application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Prometheus and how would you use it for monitoring an application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -150,8 +162,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:54.038Z",
       "updatedAt": "2025-12-19T17:57:54.038Z",
@@ -168,7 +180,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "monitoring-observability-questions-bank-4",
@@ -176,7 +188,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es Grafana support observability, and how",
       "description": "How does Grafana support observability, and how would you use it to monitor a system?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Grafana support observability, and how would you use it to monitor a system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -206,8 +222,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:57:54.038Z",
       "updatedAt": "2025-12-19T17:57:54.038Z",
@@ -224,7 +240,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "monitoring-observability-questions-bank-5",
@@ -232,7 +248,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Datadog, and what are some of",
       "description": "What is Datadog, and what are some of its key features for monitoring and observability?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Datadog, and what are some of its key features for monitoring and observability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -262,8 +282,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:57:54.038Z",
       "updatedAt": "2025-12-19T17:57:54.038Z",
@@ -280,7 +300,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "monitoring-observability-questions-bank-6",
@@ -288,7 +308,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between monitoring and observability",
       "description": "What is the difference between monitoring and observability?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between monitoring and observability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -344,7 +368,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between black-box and white-box",
       "description": "What is the difference between black-box and white-box monitoring?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between black-box and white-box monitoring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -374,8 +402,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:54.038Z",
       "updatedAt": "2025-12-19T17:57:54.038Z",
@@ -392,7 +420,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "monitoring-observability-questions-bank-8",
@@ -400,7 +428,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "What distributed tracing is and how",
       "description": "Explain what distributed tracing is and how it can help in a microservices environment.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what distributed tracing is and how it can help in a microservices environment.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -431,8 +463,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:57:54.038Z",
       "updatedAt": "2025-12-19T17:57:54.038Z",
@@ -449,7 +481,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "monitoring-observability-questions-bank-9",
@@ -457,7 +489,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es Prometheus collect metrics from applications",
       "description": "How does Prometheus collect metrics from applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Prometheus collect metrics from applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -514,7 +550,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Grafana dashboards can use template variables.",
       "description": "Grafana dashboards can use template variables. How do template variables work, and why are they useful in building dashboards?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Grafana dashboards can use template variables. How do template variables work, and why are they useful in building dashboards?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -570,7 +610,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You set up alerts in Datadog,",
       "description": "How do you set up alerts in Datadog, and what types of monitors does it support for alerting?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you set up alerts in Datadog, and what types of monitors does it support for alerting?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -626,7 +670,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You define Service Level Indicators (SLIs)",
       "description": "How do you define Service Level Indicators (SLIs) and Service Level Objectives (SLOs) for a service, and how do they relate to SLAs and error budgets?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you define Service Level Indicators (SLIs) and Service Level Objectives (SLOs) for a service, and how do they relate to SLAs and error budgets?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -657,8 +705,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:57:54.038Z",
       "updatedAt": "2025-12-19T17:57:54.038Z",
@@ -675,7 +723,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "monitoring-observability-questions-bank-13",
@@ -683,7 +731,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Strategies do you use to avoid",
       "description": "What strategies do you use to avoid alert fatigue and ensure alerts are actionable?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What strategies do you use to avoid alert fatigue and ensure alerts are actionable?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -739,7 +791,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You implement a monitoring strategy for",
       "description": "How would you implement a monitoring strategy for a Kubernetes-based (containerized) environment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How would you implement a monitoring strategy for a Kubernetes-based (containerized) environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -770,8 +826,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:57:54.038Z",
       "updatedAt": "2025-12-19T17:57:54.038Z",
@@ -788,7 +844,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "monitoring-observability-questions-bank-15",
@@ -796,7 +852,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Challenges might you encounter when using",
       "description": "What challenges might you encounter when using Prometheus at scale, and how can you address them?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What challenges might you encounter when using Prometheus at scale, and how can you address them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -852,7 +912,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "As the number of dashboards and",
       "description": "As the number of dashboards and users grows, how do you manage Grafana to keep it organized and effective for a large team?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"As the number of dashboards and users grows, how do you manage Grafana to keep it organized and effective for a large team?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -908,7 +972,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Using Datadog in a large-scale environment",
       "description": "Using Datadog in a large-scale environment can become expensive. How can you optimize your use of Datadog to control costs without losing visibility?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Using Datadog in a large-scale environment can become expensive. How can you optimize your use of Datadog to control costs without losing visibility?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -939,8 +1007,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:57:54.038Z",
       "updatedAt": "2025-12-19T17:57:54.038Z",
@@ -957,7 +1025,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "monitoring-observability-questions-bank-18",
@@ -965,7 +1033,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You need to design a complete",
       "description": "You need to design a complete observability platform for an organization from scratch. What components and practices would you include to ensure metrics, logs, and traces are all covered effectively?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"You need to design a complete observability platform for an organization from scratch. What components and practices would you include to ensure metrics, logs, and traces are all covered effectively?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1023,7 +1095,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Emerging trends or technologies in monitoring",
       "description": "What emerging trends or technologies in monitoring and observability are you excited about or planning to implement?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What emerging trends or technologies in monitoring and observability are you excited about or planning to implement?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1053,8 +1129,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:57:54.038Z",
       "updatedAt": "2025-12-19T17:57:54.038Z",
@@ -1071,7 +1147,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     }
   ],
   "truefalse_questions": [],

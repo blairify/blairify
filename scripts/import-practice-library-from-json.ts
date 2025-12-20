@@ -230,178 +230,193 @@ async function main() {
     if (!hasAny) return;
 
     if (data.mcq_questions.length > 0) {
-      await tx.insert(mcqQuestions).values(
-        data.mcq_questions.map((q) => ({
-          id: q.id,
-          status: q.status as any,
-          reviewerId: q.reviewerId ?? null,
-          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
-          difficulty: normalizeDifficulty(q.difficulty),
-          isDemoMode: q.isDemoMode,
-          companyType: q.companyType as any,
-          title: q.title,
-          description: q.description,
-          prompt: q.prompt,
-          topic: q.topic,
-          subtopics: q.subtopics ?? [],
-          tags: q.tags ?? [],
-          estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
-          aiEvaluationHint: q.aiEvaluationHint ?? null,
-          companies: q.companies ?? null,
-          positions: ensurePositions(q.positions, q.topic),
-          primaryTechStack: q.primaryTechStack ?? [],
-          interviewTypes: ensureInterviewTypes(q.seniorityLevels),
-          seniorityLevels: q.seniorityLevels ?? [],
-          createdAt: now,
-          updatedAt: now,
-          createdBy: "admin",
-          correctAnswerText: q.correctAnswerText,
-        })),
-      );
+      await tx
+        .insert(mcqQuestions)
+        .values(
+          data.mcq_questions.map((q) => ({
+            id: q.id,
+            status: q.status as any,
+            reviewerId: q.reviewerId ?? null,
+            reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
+            difficulty: normalizeDifficulty(q.difficulty),
+            isDemoMode: q.isDemoMode,
+            companyType: q.companyType as any,
+            title: q.title,
+            description: q.description,
+            prompt: q.prompt,
+            topic: q.topic,
+            subtopics: q.subtopics ?? [],
+            tags: q.tags ?? [],
+            estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
+            aiEvaluationHint: q.aiEvaluationHint ?? null,
+            companies: q.companies ?? null,
+            positions: ensurePositions(q.positions, q.topic),
+            primaryTechStack: q.primaryTechStack ?? [],
+            interviewTypes: ensureInterviewTypes(q.seniorityLevels),
+            seniorityLevels: q.seniorityLevels ?? [],
+            createdAt: now,
+            updatedAt: now,
+            createdBy: "admin",
+            correctAnswerText: q.correctAnswerText,
+          })),
+        )
+        .onConflictDoNothing();
     }
 
     if (data.open_questions.length > 0) {
-      await tx.insert(openQuestions).values(
-        data.open_questions.map((q) => ({
-          id: q.id,
-          status: q.status as any,
-          reviewerId: q.reviewerId ?? null,
-          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
-          difficulty: normalizeDifficulty(q.difficulty),
-          isDemoMode: q.isDemoMode,
-          companyType: q.companyType as any,
-          title: q.title,
-          description: q.description,
-          prompt: q.prompt,
-          topic: q.topic,
-          subtopics: q.subtopics ?? [],
-          tags: q.tags ?? [],
-          estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
-          aiEvaluationHint: q.aiEvaluationHint ?? null,
-          companies: q.companies ?? null,
-          positions: ensurePositions(q.positions, q.topic),
-          primaryTechStack: q.primaryTechStack ?? [],
-          interviewTypes: ensureInterviewTypes(q.seniorityLevels),
-          seniorityLevels: q.seniorityLevels ?? [],
-          createdAt: now,
-          updatedAt: now,
-          createdBy: "admin",
-          referenceAnswers: q.referenceAnswers
-            ? q.referenceAnswers.map((r) => ({
-                id: r.id,
-                text: r.text,
-                weight: r.weight ?? 1,
-                keyPoints: r.keyPoints ?? [],
-              }))
-            : null,
-        })),
-      );
+      await tx
+        .insert(openQuestions)
+        .values(
+          data.open_questions.map((q) => ({
+            id: q.id,
+            status: q.status as any,
+            reviewerId: q.reviewerId ?? null,
+            reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
+            difficulty: normalizeDifficulty(q.difficulty),
+            isDemoMode: q.isDemoMode,
+            companyType: q.companyType as any,
+            title: q.title,
+            description: q.description,
+            prompt: q.prompt,
+            topic: q.topic,
+            subtopics: q.subtopics ?? [],
+            tags: q.tags ?? [],
+            estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
+            aiEvaluationHint: q.aiEvaluationHint ?? null,
+            companies: q.companies ?? null,
+            positions: ensurePositions(q.positions, q.topic),
+            primaryTechStack: q.primaryTechStack ?? [],
+            interviewTypes: ensureInterviewTypes(q.seniorityLevels),
+            seniorityLevels: q.seniorityLevels ?? [],
+            createdAt: now,
+            updatedAt: now,
+            createdBy: "admin",
+            referenceAnswers: q.referenceAnswers
+              ? q.referenceAnswers.map((r) => ({
+                  id: r.id,
+                  text: r.text,
+                  weight: r.weight ?? 1,
+                  keyPoints: r.keyPoints ?? [],
+                }))
+              : null,
+          })),
+        )
+        .onConflictDoNothing();
     }
 
     if (data.truefalse_questions.length > 0) {
-      await tx.insert(truefalseQuestions).values(
-        data.truefalse_questions.map((q) => ({
-          id: q.id,
-          status: q.status as any,
-          reviewerId: q.reviewerId ?? null,
-          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
-          difficulty: normalizeDifficulty(q.difficulty),
-          isDemoMode: q.isDemoMode,
-          companyType: q.companyType as any,
-          title: q.title,
-          description: q.description,
-          prompt: q.prompt,
-          topic: q.topic,
-          subtopics: q.subtopics ?? [],
-          tags: q.tags ?? [],
-          estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
-          aiEvaluationHint: q.aiEvaluationHint ?? null,
-          companies: q.companies ?? null,
-          positions: ensurePositions(q.positions, q.topic),
-          primaryTechStack: q.primaryTechStack ?? [],
-          interviewTypes: ensureInterviewTypes(q.seniorityLevels),
-          seniorityLevels: q.seniorityLevels ?? [],
-          createdAt: now,
-          updatedAt: now,
-          createdBy: "admin",
-          correctAnswer: q.correctAnswer,
-          explanation: q.explanation,
-          trickinessLevel: q.trickinessLevel ?? null,
-        })),
-      );
+      await tx
+        .insert(truefalseQuestions)
+        .values(
+          data.truefalse_questions.map((q) => ({
+            id: q.id,
+            status: q.status as any,
+            reviewerId: q.reviewerId ?? null,
+            reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
+            difficulty: normalizeDifficulty(q.difficulty),
+            isDemoMode: q.isDemoMode,
+            companyType: q.companyType as any,
+            title: q.title,
+            description: q.description,
+            prompt: q.prompt,
+            topic: q.topic,
+            subtopics: q.subtopics ?? [],
+            tags: q.tags ?? [],
+            estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
+            aiEvaluationHint: q.aiEvaluationHint ?? null,
+            companies: q.companies ?? null,
+            positions: ensurePositions(q.positions, q.topic),
+            primaryTechStack: q.primaryTechStack ?? [],
+            interviewTypes: ensureInterviewTypes(q.seniorityLevels),
+            seniorityLevels: q.seniorityLevels ?? [],
+            createdAt: now,
+            updatedAt: now,
+            createdBy: "admin",
+            correctAnswer: q.correctAnswer,
+            explanation: q.explanation,
+            trickinessLevel: q.trickinessLevel ?? null,
+          })),
+        )
+        .onConflictDoNothing();
     }
 
     if (data.matching_questions.length > 0) {
-      await tx.insert(matchingQuestions).values(
-        data.matching_questions.map((q) => ({
-          id: q.id,
-          status: q.status as any,
-          reviewerId: q.reviewerId ?? null,
-          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
-          difficulty: normalizeDifficulty(q.difficulty),
-          isDemoMode: q.isDemoMode,
-          companyType: q.companyType as any,
-          title: q.title,
-          description: q.description,
-          prompt: q.prompt,
-          topic: q.topic,
-          subtopics: q.subtopics ?? [],
-          tags: q.tags ?? [],
-          estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
-          aiEvaluationHint: q.aiEvaluationHint ?? null,
-          companies: q.companies ?? null,
-          positions: ensurePositions(q.positions, q.topic),
-          primaryTechStack: q.primaryTechStack ?? [],
-          interviewTypes: ensureInterviewTypes(q.seniorityLevels),
-          seniorityLevels: q.seniorityLevels ?? [],
-          createdAt: now,
-          updatedAt: now,
-          createdBy: "admin",
-          shuffleLeft: q.shuffleLeft ?? null,
-          shuffleRight: q.shuffleRight ?? null,
-          minPairs: q.minPairs ?? null,
-          maxPairs: q.maxPairs ?? null,
-          pairs: (q.pairs ?? null) as any,
-        })),
-      );
+      await tx
+        .insert(matchingQuestions)
+        .values(
+          data.matching_questions.map((q) => ({
+            id: q.id,
+            status: q.status as any,
+            reviewerId: q.reviewerId ?? null,
+            reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
+            difficulty: normalizeDifficulty(q.difficulty),
+            isDemoMode: q.isDemoMode,
+            companyType: q.companyType as any,
+            title: q.title,
+            description: q.description,
+            prompt: q.prompt,
+            topic: q.topic,
+            subtopics: q.subtopics ?? [],
+            tags: q.tags ?? [],
+            estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
+            aiEvaluationHint: q.aiEvaluationHint ?? null,
+            companies: q.companies ?? null,
+            positions: ensurePositions(q.positions, q.topic),
+            primaryTechStack: q.primaryTechStack ?? [],
+            interviewTypes: ensureInterviewTypes(q.seniorityLevels),
+            seniorityLevels: q.seniorityLevels ?? [],
+            createdAt: now,
+            updatedAt: now,
+            createdBy: "admin",
+            shuffleLeft: q.shuffleLeft ?? null,
+            shuffleRight: q.shuffleRight ?? null,
+            minPairs: q.minPairs ?? null,
+            maxPairs: q.maxPairs ?? null,
+            pairs: (q.pairs ?? null) as any,
+          })),
+        )
+        .onConflictDoNothing();
     }
 
     if (data.system_design_questions.length > 0) {
-      await tx.insert(systemDesignQuestions).values(
-        data.system_design_questions.map((q) => ({
-          id: q.id,
-          status: q.status as any,
-          reviewerId: q.reviewerId ?? null,
-          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
-          difficulty: normalizeDifficulty(q.difficulty),
-          isDemoMode: q.isDemoMode,
-          companyType: q.companyType as any,
-          title: q.title,
-          description: q.description,
-          prompt: q.prompt,
-          topic: q.topic,
-          subtopics: q.subtopics ?? [],
-          tags: q.tags ?? [],
-          estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
-          aiEvaluationHint: q.aiEvaluationHint ?? null,
-          companies: q.companies ?? null,
-          positions: ensurePositions(q.positions, q.topic),
-          primaryTechStack: q.primaryTechStack ?? [],
-          interviewTypes: ensureInterviewTypes(q.seniorityLevels),
-          seniorityLevels: q.seniorityLevels ?? [],
-          createdAt: now,
-          updatedAt: now,
-          createdBy: "admin",
-          complexityLevel: q.complexityLevel
-            ? normalizeDifficulty(q.complexityLevel)
-            : null,
-          nonFunctionalRequirements: q.nonFunctionalRequirements ?? [],
-          constraints: q.constraints ?? [],
-          scalingFocus: q.scalingFocus ?? null,
-          hints: q.hints ?? [],
-          charts: (q.charts ?? null) as any,
-        })),
-      );
+      await tx
+        .insert(systemDesignQuestions)
+        .values(
+          data.system_design_questions.map((q) => ({
+            id: q.id,
+            status: q.status as any,
+            reviewerId: q.reviewerId ?? null,
+            reviewedAt: q.reviewedAt ? new Date(q.reviewedAt) : null,
+            difficulty: normalizeDifficulty(q.difficulty),
+            isDemoMode: q.isDemoMode,
+            companyType: q.companyType as any,
+            title: q.title,
+            description: q.description,
+            prompt: q.prompt,
+            topic: q.topic,
+            subtopics: q.subtopics ?? [],
+            tags: q.tags ?? [],
+            estimatedTimeMinutes: q.estimatedTimeMinutes ?? 0,
+            aiEvaluationHint: q.aiEvaluationHint ?? null,
+            companies: q.companies ?? null,
+            positions: ensurePositions(q.positions, q.topic),
+            primaryTechStack: q.primaryTechStack ?? [],
+            interviewTypes: ensureInterviewTypes(q.seniorityLevels),
+            seniorityLevels: q.seniorityLevels ?? [],
+            createdAt: now,
+            updatedAt: now,
+            createdBy: "admin",
+            complexityLevel: q.complexityLevel
+              ? normalizeDifficulty(q.complexityLevel)
+              : null,
+            nonFunctionalRequirements: q.nonFunctionalRequirements ?? [],
+            constraints: q.constraints ?? [],
+            scalingFocus: q.scalingFocus ?? null,
+            hints: q.hints ?? [],
+            charts: (q.charts ?? null) as any,
+          })),
+        )
+        .onConflictDoNothing();
     }
   });
 
@@ -416,5 +431,8 @@ async function main() {
 
 main().catch((err) => {
   console.error("❌ Import failed:", err);
+  if (err instanceof Error && "cause" in err) {
+    console.error("cause:", (err as any).cause);
+  }
   process.exit(1);
 });

@@ -31,6 +31,23 @@ function getQuestionsBaseUrl(explicitBaseUrl?: string) {
   return "http://localhost:3000";
 }
 
+function canonicalizeTech(value: string): string {
+  const trimmed = value.trim().toLowerCase();
+  switch (trimmed) {
+    case "golang":
+      return "go";
+    case "c#":
+    case "csharp":
+      return "csharp";
+    case "js":
+      return "javascript";
+    case "ts":
+      return "typescript";
+    default:
+      return trimmed;
+  }
+}
+
 /**
  * Add question to recently used cache
  */
@@ -76,8 +93,11 @@ export async function getRelevantQuestionsForInterview(
 
     // Use position as canonical role topic for filtering
     if (config.position) {
-      params.set("topic", config.position);
       params.set("position", config.position);
+    }
+
+    if (config.technologies.length === 1) {
+      params.set("tag", canonicalizeTech(config.technologies[0]));
     }
 
     const response = await fetch(
@@ -103,17 +123,12 @@ export async function getRelevantQuestionsForInterview(
         return false;
       }
 
-      // Match difficulty to seniority
-      const difficultyMatch = matchDifficultyToSeniority(
-        q.difficulty,
-        config.seniority,
-      );
+      const difficultyMatch = matchQuestionToSeniority(q, config.seniority);
 
       // Match topic to interview type
-      const categoryMatch = matchCategoryToInterviewType(
-        q.topic,
-        config.interviewType,
-      );
+      const categoryMatch = config.position
+        ? matchCategoryToInterviewTypeForRoleSelection(config.interviewType)
+        : matchCategoryToInterviewType(q.topic, config.interviewType);
 
       // Match tech stack if specified
       const techStackMatch =
@@ -121,13 +136,59 @@ export async function getRelevantQuestionsForInterview(
         matchTechStack(q, config.technologies);
 
       // Enforce role/topic match when position is specified
-      const roleMatch =
-        !config.position ||
-        q.topic === config.position ||
-        (q.positions ?? []).includes(config.position);
+      const roleMatch = !config.position
+        ? true
+        : (q.positions ?? []).includes(config.position);
 
       return difficultyMatch && categoryMatch && techStackMatch && roleMatch;
     });
+
+    if (relevantQuestions.length === 0) {
+      const stats = allQuestions.reduce(
+        (acc, q) => {
+          const recentlyUsed = wasRecentlyUsed(q.id || "");
+          const difficultyMatch = matchQuestionToSeniority(q, config.seniority);
+          const categoryMatch = config.position
+            ? matchCategoryToInterviewTypeForRoleSelection(config.interviewType)
+            : matchCategoryToInterviewType(q.topic, config.interviewType);
+          const techStackMatch =
+            config.technologies.length === 0 ||
+            matchTechStack(q, config.technologies);
+          const roleMatch = !config.position
+            ? true
+            : (q.positions ?? []).includes(config.position);
+
+          if (recentlyUsed) acc.recentlyUsed += 1;
+          if (difficultyMatch) acc.difficultyMatch += 1;
+          if (categoryMatch) acc.categoryMatch += 1;
+          if (techStackMatch) acc.techStackMatch += 1;
+          if (roleMatch) acc.roleMatch += 1;
+          if (difficultyMatch && categoryMatch && techStackMatch && roleMatch)
+            acc.fullMatch += 1;
+
+          return acc;
+        },
+        {
+          totalFetched: allQuestions.length,
+          recentlyUsed: 0,
+          difficultyMatch: 0,
+          categoryMatch: 0,
+          techStackMatch: 0,
+          roleMatch: 0,
+          fullMatch: 0,
+        },
+      );
+
+      console.log("🧪 Question filter breakdown:", {
+        stats,
+        config: {
+          position: config.position,
+          seniority: config.seniority,
+          interviewType: config.interviewType,
+          technologies: config.technologies,
+        },
+      });
+    }
 
     // Shuffle with timestamp-based seed for better randomization
     const shuffled = shuffleWithSeed(relevantQuestions, Date.now());
@@ -179,8 +240,11 @@ export async function getRandomQuestionForInterview(
     });
 
     if (config.position) {
-      params.set("topic", config.position);
       params.set("position", config.position);
+    }
+
+    if (config.technologies.length === 1) {
+      params.set("tag", canonicalizeTech(config.technologies[0]));
     }
 
     const response = await fetch(
@@ -206,22 +270,17 @@ export async function getRandomQuestionForInterview(
 
     // Filter by relevance
     const relevantQuestions = availableQuestions.filter((q: Question) => {
-      const difficultyMatch = matchDifficultyToSeniority(
-        q.difficulty,
-        config.seniority,
-      );
-      const categoryMatch = matchCategoryToInterviewType(
-        q.topic,
-        config.interviewType,
-      );
+      const difficultyMatch = matchQuestionToSeniority(q, config.seniority);
+      const categoryMatch = config.position
+        ? matchCategoryToInterviewTypeForRoleSelection(config.interviewType)
+        : matchCategoryToInterviewType(q.topic, config.interviewType);
       const techStackMatch =
         config.technologies.length === 0 ||
         matchTechStack(q, config.technologies);
 
-      const roleMatch =
-        !config.position ||
-        q.topic === config.position ||
-        (q.positions ?? []).includes(config.position);
+      const roleMatch = !config.position
+        ? true
+        : (q.positions ?? []).includes(config.position);
 
       return difficultyMatch && categoryMatch && techStackMatch && roleMatch;
     });
@@ -247,13 +306,42 @@ function matchDifficultyToSeniority(
   seniority: SeniorityLevel,
 ): boolean {
   const difficultyMap: Record<SeniorityLevel, DifficultyLevel[]> = {
-    entry: ["entry"],
-    junior: ["entry", "junior"],
-    mid: ["junior", "mid"],
-    senior: ["mid", "senior"],
+    entry: ["entry", "junior"],
+    junior: ["junior", "mid"],
+    mid: ["mid", "senior"],
+    senior: ["senior", "mid"],
   };
 
   return difficultyMap[seniority]?.includes(difficulty) || false;
+}
+
+function getAcceptedSeniorityLevels(
+  seniority: SeniorityLevel,
+): Array<"entry" | "junior" | "mid" | "senior"> {
+  switch (seniority) {
+    case "entry":
+      return ["entry", "junior"];
+    case "junior":
+      return ["junior", "mid"];
+    case "mid":
+      return ["mid", "senior"];
+    case "senior":
+      return ["senior", "mid"];
+    default: {
+      const _never: never = seniority;
+      throw new Error(`Unhandled seniority: ${_never}`);
+    }
+  }
+}
+
+function matchQuestionToSeniority(q: Question, seniority: SeniorityLevel) {
+  const accepted = getAcceptedSeniorityLevels(seniority);
+  const declared = q.seniorityLevels;
+  if (declared && declared.length > 0) {
+    return declared.some((level) => accepted.includes(level));
+  }
+
+  return matchDifficultyToSeniority(q.difficulty, seniority);
 }
 
 /**
@@ -328,6 +416,23 @@ function matchCategoryToInterviewType(
   return categoryMap[interviewType].includes(category);
 }
 
+function matchCategoryToInterviewTypeForRoleSelection(
+  interviewType: InterviewType,
+): boolean {
+  switch (interviewType) {
+    case "technical":
+    case "coding":
+    case "system-design":
+      return true;
+    case "bullet":
+      return false;
+    default: {
+      const _never: never = interviewType;
+      throw new Error(`Unhandled interviewType: ${_never}`);
+    }
+  }
+}
+
 /**
  * Match question tech stack to interview requirements
  */
@@ -350,7 +455,11 @@ function matchTechStack(question: Question, technologies: string[]): boolean {
   };
 
   const questionTech = new Set(
-    [...(question.primaryTechStack || [])]
+    [
+      ...(question.primaryTechStack ?? []),
+      ...(question.tags ?? []),
+      ...(question.subtopics ?? []),
+    ]
       .filter(Boolean)
       .map((t) => canonicalize(String(t))),
   );

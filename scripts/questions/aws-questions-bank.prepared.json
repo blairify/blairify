@@ -153,8 +153,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
@@ -171,7 +171,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "aws-questions-bank-4",
@@ -729,8 +729,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
@@ -747,7 +747,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "aws-questions-bank-14",
@@ -2239,8 +2239,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
@@ -2256,7 +2256,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-40",
@@ -2525,8 +2525,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
@@ -2543,7 +2543,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "aws-questions-bank-45",
@@ -2640,8 +2640,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
@@ -2658,7 +2658,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "aws-questions-bank-47",
@@ -2813,8 +2813,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
@@ -2831,7 +2831,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "aws-questions-bank-50",

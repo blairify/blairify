@@ -7,11 +7,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "What AWS is and its core",
       "description": "Explain what AWS is and its core services.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS is and its core services.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -43,7 +39,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -61,7 +56,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-2",
@@ -69,11 +65,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The advantages of using AWS over",
       "description": "What are the advantages of using AWS over traditional on-premises infrastructure?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages of using AWS over traditional on-premises infrastructure?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -104,7 +96,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -122,7 +113,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-3",
@@ -130,11 +122,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The difference between horizontal scaling and",
       "description": "What is the difference between horizontal scaling and vertical scaling in AWS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between horizontal scaling and vertical scaling in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -165,7 +153,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -183,7 +170,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-4",
@@ -191,11 +179,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The Amazon DynamoDB database and how",
       "description": "What is the Amazon DynamoDB database and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Amazon DynamoDB database and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -226,7 +210,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -244,7 +227,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-5",
@@ -252,11 +236,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The Amazon Web Services (AWS) Shared",
       "description": "What is the Amazon Web Services (AWS) Shared Responsibility Model?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Amazon Web Services (AWS) Shared Responsibility Model?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -289,7 +269,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -307,7 +286,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-6",
@@ -315,11 +295,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "What AWS Lambda is and its",
       "description": "Explain what AWS Lambda is and its use cases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS Lambda is and its use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -351,7 +327,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -369,7 +344,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-7",
@@ -377,11 +353,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "What AWS EC2 is and its",
       "description": "Explain what AWS EC2 is and its use cases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS EC2 is and its use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -413,7 +385,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -431,7 +402,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-8",
@@ -439,11 +411,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The difference between EC2 and Lambda,",
       "description": "What is the difference between EC2 and Lambda, and when would you choose one over the other for a specific use case?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between EC2 and Lambda, and when would you choose one over the other for a specific use case?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -474,7 +442,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -492,7 +459,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-9",
@@ -500,11 +468,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "Auto Scaling, and how does it",
       "description": "What is Auto Scaling, and how does it work in AWS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Auto Scaling, and how does it work in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -535,7 +499,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -553,7 +516,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-10",
@@ -561,11 +525,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Es Amazon S3 achieve high availability",
       "description": "How does Amazon S3 achieve high availability and durability?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Amazon S3 achieve high availability and durability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -597,7 +557,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -615,7 +574,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-11",
@@ -623,11 +583,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "You ensure the security of data",
       "description": "How do you ensure the security of data stored in Amazon S3 buckets?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure the security of data stored in Amazon S3 buckets?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -659,7 +615,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -677,7 +632,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-12",
@@ -685,11 +641,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "A CDN (Content Delivery Network).",
       "description": "What is a CDN (Content Delivery Network).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a CDN (Content Delivery Network).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -720,7 +672,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -738,7 +689,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-13",
@@ -746,11 +698,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Amazon Elastic Load Balancing (ELB), and",
       "description": "What is Amazon Elastic Load Balancing (ELB), and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Elastic Load Balancing (ELB), and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -781,7 +729,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -799,7 +746,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-14",
@@ -807,11 +755,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "AWS Lambda@Edge, and what are its",
       "description": "What is AWS Lambda@Edge, and what are its use cases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Lambda@Edge, and what are its use cases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -842,7 +786,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -860,7 +803,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-15",
@@ -868,11 +812,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Amazon SQS (Simple Queue Service), and",
       "description": "What is Amazon SQS (Simple Queue Service), and how does it differ from Amazon SNS (Simple Notification Service)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon SQS (Simple Queue Service), and how does it differ from Amazon SNS (Simple Notification Service)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -903,7 +843,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -921,7 +860,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-16",
@@ -929,11 +869,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Amazon RDS (Relational Database Service), and",
       "description": "What is Amazon RDS (Relational Database Service), and what are its benefits?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon RDS (Relational Database Service), and what are its benefits?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -964,7 +900,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -982,7 +917,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-17",
@@ -990,11 +926,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The difference between Amazon RDS and",
       "description": "Explain the difference between Amazon RDS and Amazon DynamoDB.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Amazon RDS and Amazon DynamoDB.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1026,7 +958,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1044,7 +975,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-18",
@@ -1052,11 +984,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The use of Amazon CloudWatch and",
       "description": "Explain the use of Amazon CloudWatch and its key metrics for monitoring AWS resources.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the use of Amazon CloudWatch and its key metrics for monitoring AWS resources.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1088,7 +1016,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1106,7 +1033,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-19",
@@ -1114,11 +1042,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "AWS Identity and Access Management (IAM),",
       "description": "What is AWS Identity and Access Management (IAM), and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Identity and Access Management (IAM), and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1150,7 +1074,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1168,7 +1091,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-20",
@@ -1176,11 +1100,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The difference between IAM roles and",
       "description": "Explain the difference between IAM roles and IAM users in AWS.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between IAM roles and IAM users in AWS.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1213,7 +1133,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1231,7 +1150,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-21",
@@ -1239,11 +1159,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Amazon ECS (Elastic Container Service), and",
       "description": "What is Amazon ECS (Elastic Container Service), and how does it simplify container management?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon ECS (Elastic Container Service), and how does it simplify container management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1275,7 +1191,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1293,7 +1208,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-22",
@@ -1301,11 +1217,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The concept of Amazon Aurora, and",
       "description": "Explain the concept of Amazon Aurora, and how does it differ from traditional relational databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Amazon Aurora, and how does it differ from traditional relational databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1337,7 +1249,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1355,7 +1266,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-23",
@@ -1363,11 +1275,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "AWS Lambda Layers and how they",
       "description": "Explain AWS Lambda Layers and how they enable code reuse and management in serverless applications.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain AWS Lambda Layers and how they enable code reuse and management in serverless applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1400,7 +1308,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1418,7 +1325,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-24",
@@ -1426,11 +1334,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Amazon Redshift, and how does it",
       "description": "What is Amazon Redshift, and how does it differ from other data warehousing solutions?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Redshift, and how does it differ from other data warehousing solutions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1461,7 +1365,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1479,7 +1382,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-25",
@@ -1487,11 +1391,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The different storage classes in Amazon",
       "description": "Explain the different storage classes in Amazon S3 and when to use each one.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the different storage classes in Amazon S3 and when to use each one.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1523,7 +1423,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1541,7 +1440,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-26",
@@ -1549,11 +1449,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "Amazon Polly, and how does it",
       "description": "What is Amazon Polly, and how does it enable text-to-speech capabilities for applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Polly, and how does it enable text-to-speech capabilities for applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1585,7 +1481,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1603,7 +1498,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-27",
@@ -1611,11 +1507,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Amazon Elastic Beanstalk, and how does",
       "description": "What is Amazon Elastic Beanstalk, and how does it simplify application deployment and management?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Elastic Beanstalk, and how does it simplify application deployment and management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1647,7 +1539,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1665,7 +1556,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-28",
@@ -1673,11 +1565,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The AWS Well-Architected Framework, and why",
       "description": "What is the AWS Well-Architected Framework, and why is it important when designing solutions on AWS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the AWS Well-Architected Framework, and why is it important when designing solutions on AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1708,7 +1596,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1726,7 +1613,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-29",
@@ -1734,11 +1622,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "What Amazon Cognito is and its",
       "description": "Explain what Amazon Cognito is and its role in identity management for applications.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what Amazon Cognito is and its role in identity management for applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1771,7 +1655,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1789,7 +1672,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-30",
@@ -1797,11 +1681,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The AWS Well-Architected Framework and its",
       "description": "Explain the AWS Well-Architected Framework and its pillars.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the AWS Well-Architected Framework and its pillars.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1833,7 +1713,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1851,7 +1730,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-31",
@@ -1859,11 +1739,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "AWS Availability Zones, and why are",
       "description": "What are AWS Availability Zones, and why are they important for high availability and fault tolerance?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are AWS Availability Zones, and why are they important for high availability and fault tolerance?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1895,7 +1771,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1913,7 +1788,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-32",
@@ -1921,11 +1797,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The concept of AWS CloudTrail and",
       "description": "Explain the concept of AWS CloudTrail and its role in auditing and monitoring AWS resources.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of AWS CloudTrail and its role in auditing and monitoring AWS resources.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1957,7 +1829,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -1975,7 +1846,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-33",
@@ -1983,11 +1855,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Amazon Route 53, and how does",
       "description": "What is Amazon Route 53, and how does it contribute to DNS and domain name management in AWS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Route 53, and how does it contribute to DNS and domain name management in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2019,7 +1887,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2037,7 +1904,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-34",
@@ -2045,11 +1913,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The benefits of using Amazon Lambda",
       "description": "Explain the benefits of using Amazon Lambda in serverless application architectures.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the benefits of using Amazon Lambda in serverless application architectures.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2082,7 +1946,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2100,7 +1963,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-35",
@@ -2108,11 +1972,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The AWS Lambda execution environment and",
       "description": "Explain the AWS Lambda execution environment and its lifecycle.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the AWS Lambda execution environment and its lifecycle.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2144,7 +2004,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2162,7 +2021,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-36",
@@ -2170,11 +2030,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Es AWS handle disaster recovery, and",
       "description": "How does AWS handle disaster recovery, and what are the key components for building a disaster recovery plan?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does AWS handle disaster recovery, and what are the key components for building a disaster recovery plan?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2205,7 +2061,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2223,7 +2078,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-37",
@@ -2231,11 +2087,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "The concept of serverless computing in",
       "description": "Explain the concept of serverless computing in AWS.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of serverless computing in AWS.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2267,7 +2119,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2285,7 +2136,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-38",
@@ -2293,11 +2145,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "You manage secrets and sensitive information",
       "description": "How do you manage secrets and sensitive information in AWS applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you manage secrets and sensitive information in AWS applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2329,7 +2177,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2347,20 +2194,16 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-39",
       "status": "published",
       "reviewerId": null,
       "reviewedAt": null,
-
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "CORS",
       "description": "Explain the concept of Cross-Origin Resource Sharing (CORS) and how it is relevant in AWS.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concept of Cross-Origin Resource Sharing (CORS) and how it is relevant in AWS.?\" Requirements: - Define the vulnerability and the attack vector - Concrete prevention/mitigation techniques Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2412,7 +2255,8 @@
             "Concrete prevention/mitigation techniques"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "aws-questions-bank-40",
@@ -2420,11 +2264,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "You optimize costs when using AWS",
       "description": "How do you optimize costs when using AWS services?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you optimize costs when using AWS services?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2455,7 +2295,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2473,7 +2312,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-41",
@@ -2481,11 +2321,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "A situation where you had to",
       "description": "Describe a situation where you had to troubleshoot a complex issue in an AWS environment. How did you approach it, and what was the outcome?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe a situation where you had to troubleshoot a complex issue in an AWS environment. How did you approach it, and what was the outcome?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2517,7 +2353,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2535,7 +2370,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-42",
@@ -2543,11 +2379,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "You secure data in transit and",
       "description": "How do you secure data in transit and at rest in AWS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you secure data in transit and at rest in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2579,7 +2411,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2597,7 +2428,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-43",
@@ -2605,11 +2437,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "AWS Elasticache, and when would you",
       "description": "What is AWS Elasticache, and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Elasticache, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2640,7 +2468,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2658,7 +2485,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-44",
@@ -2666,11 +2494,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "AWS Step Functions, and how does",
       "description": "What is AWS Step Functions, and how does it enable the coordination of distributed microservices and serverless workflows?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Step Functions, and how does it enable the coordination of distributed microservices and serverless workflows?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2701,7 +2525,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2719,7 +2542,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-45",
@@ -2727,11 +2551,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "Amazon Kinesis, and how can it",
       "description": "What is Amazon Kinesis, and how can it be used for real-time data streaming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Kinesis, and how can it be used for real-time data streaming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2762,7 +2582,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2780,7 +2599,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-46",
@@ -2788,11 +2608,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Es AWS handle data replication and",
       "description": "How does AWS handle data replication and backup for high availability and disaster recovery?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does AWS handle data replication and backup for high availability and disaster recovery?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2824,7 +2640,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2842,7 +2657,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-47",
@@ -2850,11 +2666,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "What a VPC (Virtual Private Cloud)",
       "description": "Explain what a VPC (Virtual Private Cloud) is and its role in AWS.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a VPC (Virtual Private Cloud) is and its role in AWS.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2886,7 +2698,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2904,7 +2715,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-48",
@@ -2912,11 +2724,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The Amazon Elastic File System (EFS),",
       "description": "What is the Amazon Elastic File System (EFS), and when would you use it over Amazon S3 or Amazon EBS for file storage?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Amazon Elastic File System (EFS), and when would you use it over Amazon S3 or Amazon EBS for file storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2947,7 +2755,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -2965,7 +2772,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-49",
@@ -2973,11 +2781,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "Amazon CloudFront, and how does it",
       "description": "What is Amazon CloudFront, and how does it improve content delivery and latency for web applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon CloudFront, and how does it improve content delivery and latency for web applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -3009,7 +2813,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -3027,7 +2830,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-50",
@@ -3035,11 +2839,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "What AWS CloudFormation is and its",
       "description": "Explain what AWS CloudFormation is and its role in infrastructure as code (IAC).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS CloudFormation is and its role in infrastructure as code (IAC).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -3071,7 +2871,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -3089,7 +2888,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-51",
@@ -3097,11 +2897,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "faang",
       "title": "The concept of Amazon Elastic MapReduce",
       "description": "Explain the concept of Amazon Elastic MapReduce (EMR) and its use cases in big data processing.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Amazon Elastic MapReduce (EMR) and its use cases in big data processing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -3133,7 +2929,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -3151,7 +2946,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-52",
@@ -3159,11 +2955,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "startup",
       "title": "You handle security and compliance in",
       "description": "How do you handle security and compliance in an AWS environment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle security and compliance in an AWS environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -3195,7 +2987,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -3213,7 +3004,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aws-questions-bank-53",
@@ -3221,11 +3013,7 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": "enterprise",
       "title": "The purpose of AWS Glue and",
       "description": "Explain the purpose of AWS Glue and how it simplifies ETL (Extract, Transform, Load) processes for data analytics.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of AWS Glue and how it simplifies ETL (Extract, Transform, Load) processes for data analytics.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -3257,7 +3045,6 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "entry",
         "junior",
         "mid"
       ],
@@ -3275,7 +3062,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     }
   ],
   "truefalse_questions": [],

@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between a process and",
       "description": "Explain the difference between a process and a thread in Linux.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between a process and a thread in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -63,7 +67,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the fork() system",
       "description": "What is the purpose of the fork() system call?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the fork() system call?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -92,8 +100,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -110,7 +118,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-3",
@@ -118,7 +126,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You check the status of a",
       "description": "How do you check the status of a Linux service or daemon?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you check the status of a Linux service or daemon?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -173,7 +185,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the /etc/passwd and",
       "description": "Explain the purpose of the /etc/passwd and /etc/shadow files in Linux.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the /etc/passwd and /etc/shadow files in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -229,7 +245,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the lsof command",
       "description": "What is the purpose of the lsof command in Linux?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the lsof command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -258,8 +278,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -276,7 +296,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-6",
@@ -284,7 +304,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the ping command",
       "description": "Explain the purpose of the ping command in Linux?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the ping command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -340,7 +364,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A shell in Linux, and why",
       "description": "What is a shell in Linux, and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a shell in Linux, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -369,8 +397,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -387,7 +415,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-8",
@@ -395,7 +423,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the ps command",
       "description": "Explain the purpose of the ps command in Linux and how it can be used to view process information.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the ps command in Linux and how it can be used to view process information.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -452,7 +484,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "How you can check the system's",
       "description": "Explain how you can check the system's current IP address and network configuration in Linux.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can check the system's current IP address and network configuration in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -508,7 +544,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of the init process",
       "description": "What is the role of the init process in Linux, and how does it relate to systemd?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the init process in Linux, and how does it relate to systemd?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -537,8 +577,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -555,7 +595,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-11",
@@ -563,7 +603,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "What the sudo command is used",
       "description": "Explain what the sudo command is used for in Linux.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what the sudo command is used for in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -619,7 +663,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the PATH environment",
       "description": "What is the purpose of the PATH environment variable in Linux, and how is it used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the PATH environment variable in Linux, and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -648,8 +696,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -666,7 +714,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-13",
@@ -674,7 +722,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the iptables command",
       "description": "Explain the purpose of the iptables command in Linux, and how can it be used to configure firewall rules?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the iptables command in Linux, and how can it be used to configure firewall rules?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -731,7 +783,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the chmod command",
       "description": "What is the purpose of the chmod command in Linux, and how do you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the chmod command in Linux, and how do you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -760,8 +816,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -778,7 +834,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-15",
@@ -786,7 +842,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between hard links and",
       "description": "Explain the difference between hard links and symbolic links in Linux.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between hard links and symbolic links in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -842,7 +902,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the grep command",
       "description": "Explain the purpose of the grep command in Linux.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the grep command in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -898,7 +962,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A Linux shell and why are",
       "description": "What is a Linux shell and why are there different shells available?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Linux shell and why are there different shells available?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -928,8 +996,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -946,7 +1014,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-18",
@@ -954,7 +1022,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of process scheduling in",
       "description": "Explain the concept of process scheduling in Linux. What scheduling algorithms are commonly used, and how do they differ?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of process scheduling in Linux. What scheduling algorithms are commonly used, and how do they differ?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1010,7 +1082,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A Linux kernel module, and why",
       "description": "What is a Linux kernel module, and why are they used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Linux kernel module, and why are they used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1039,8 +1115,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -1057,7 +1133,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-20",
@@ -1065,7 +1141,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the cron and",
       "description": "What is the purpose of the cron and at commands in Linux, and how do they differ in scheduling tasks?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the cron and at commands in Linux, and how do they differ in scheduling tasks?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1094,8 +1174,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -1112,7 +1192,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-21",
@@ -1120,7 +1200,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of the ldconfig command",
       "description": "Explain the role of the ldconfig command in Linux?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the ldconfig command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1176,7 +1260,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the df and",
       "description": "What is the purpose of the df and du commands in Linux? How do they differ?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the df and du commands in Linux? How do they differ?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1205,8 +1293,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -1223,7 +1311,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-23",
@@ -1231,7 +1319,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of the Linux runlevel.",
       "description": "Explain the concept of the Linux runlevel. What are runlevels, and how do they relate to system states?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of the Linux runlevel. What are runlevels, and how do they relate to system states?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1287,7 +1379,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the /etc/fstab file",
       "description": "What is the purpose of the /etc/fstab file in Linux?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the /etc/fstab file in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1316,8 +1412,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -1334,7 +1430,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-25",
@@ -1342,7 +1438,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The differences between a hard link",
       "description": "Explain the differences between a hard link and a soft link (symlink).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between a hard link and a soft link (symlink).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1398,7 +1498,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the top command",
       "description": "Explain the purpose of the top command in Linux.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the top command in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1454,7 +1558,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the ldd command",
       "description": "Explain the purpose of the ldd command in Linux and how it is used to check library dependencies for an executable.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the ldd command in Linux and how it is used to check library dependencies for an executable.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1511,7 +1619,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of the Linux swap",
       "description": "Explain the role of the Linux swap space. What is it used for, and how can you manage it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the Linux swap space. What is it used for, and how can you manage it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1541,8 +1653,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -1559,7 +1671,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-29",
@@ -1567,7 +1679,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the /usr and",
       "description": "What is the purpose of the /usr and /var directories in Linux? How do they differ from /bin and /etc?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the /usr and /var directories in Linux? How do they differ from /bin and /etc?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1597,8 +1713,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -1614,7 +1730,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-30",
@@ -1622,7 +1738,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the systemd init",
       "description": "What is the purpose of the systemd init system in modern Linux distributions?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the systemd init system in modern Linux distributions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1651,8 +1771,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -1669,7 +1789,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-31",
@@ -1677,7 +1797,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The Linux file permissions system (e.g.,",
       "description": "Explain the Linux file permissions system (e.g., chmod, chown, chgrp). How do you change file permissions, ownership, and group?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Linux file permissions system (e.g., chmod, chown, chgrp). How do you change file permissions, ownership, and group?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1733,7 +1857,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "What a Linux process tree is",
       "description": "Explain what a Linux process tree is and how you can visualize it using tools like pstree and htop.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a Linux process tree is and how you can visualize it using tools like pstree and htop.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1789,7 +1917,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of process priority and",
       "description": "Explain the concept of process priority and how the nice and renice commands are used to adjust process priority in Linux.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of process priority and how the nice and renice commands are used to adjust process priority in Linux.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1845,7 +1977,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the /dev directory",
       "description": "Explain the purpose of the /dev directory in Linux, and how does it relate to device files and device drivers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the /dev directory in Linux, and how does it relate to device files and device drivers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1901,7 +2037,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the LD_LIBRARY_PATH environment",
       "description": "What is the purpose of the LD_LIBRARY_PATH environment variable in Linux, and how can it be used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the LD_LIBRARY_PATH environment variable in Linux, and how can it be used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1930,8 +2070,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -1948,7 +2088,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-36",
@@ -1956,7 +2096,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the strace command",
       "description": "What is the purpose of the strace command in Linux?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the strace command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1985,8 +2129,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -2003,7 +2147,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-37",
@@ -2011,7 +2155,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the ssh command",
       "description": "Explain the purpose of the ssh command in Linux?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the ssh command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2067,7 +2215,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the nohup command",
       "description": "What is the purpose of the nohup command in Linux?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the nohup command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2096,8 +2248,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -2114,7 +2266,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-39",
@@ -2122,7 +2274,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The mount command in Linux",
       "description": "What is the mount command in Linux?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the mount command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2151,8 +2307,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -2169,7 +2325,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-40",
@@ -2177,7 +2333,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "What a Linux runlevel is, and",
       "description": "Explain what a Linux runlevel is, and how does it determine the state of the system and which services are started at boot?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a Linux runlevel is, and how does it determine the state of the system and which services are started at boot?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2233,7 +2393,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Can you explain what Linux namespaces",
       "description": "Can you explain what Linux namespaces and cgroups are, and how they are used for process isolation and resource management?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain what Linux namespaces and cgroups are, and how they are used for process isolation and resource management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2289,7 +2453,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the /proc filesystem",
       "description": "What is the purpose of the /proc filesystem in Linux?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the /proc filesystem in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2318,8 +2486,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -2336,7 +2504,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-43",
@@ -2344,7 +2512,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the Linux tar",
       "description": "What is the purpose of the Linux tar command, and how do you create and extract tarball files?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the Linux tar command, and how do you create and extract tarball files?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2373,8 +2545,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -2391,7 +2563,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "linux-questions-bank-44",
@@ -2399,7 +2571,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the rsync command",
       "description": "What is the purpose of the rsync command in Linux, and how can it be used for efficient file synchronization?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the rsync command in Linux, and how can it be used for efficient file synchronization?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2454,7 +2630,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of the initramfs (initial",
       "description": "What is the role of the initramfs (initial RAM filesystem) in the Linux boot process, and why is it necessary?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the initramfs (initial RAM filesystem) in the Linux boot process, and why is it necessary?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2509,7 +2689,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the /sbin and",
       "description": "What is the purpose of the /sbin and /usr/sbin directories in Linux? Why are some system utilities located there instead of /bin or /usr/bin?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the purpose of the /sbin and /usr/sbin directories in Linux? Why are some system utilities located there instead of /bin or /usr/bin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2539,8 +2723,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -2557,7 +2741,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "linux-questions-bank-47",
@@ -2565,7 +2749,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of the /boot partition",
       "description": "Explain the role of the /boot partition in Linux. Why is it separate from the root filesystem, and what does it typically contain?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the /boot partition in Linux. Why is it separate from the root filesystem, and what does it typically contain?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2621,7 +2809,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the sysctl command",
       "description": "What is the purpose of the sysctl command in Linux?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the sysctl command in Linux?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2650,8 +2842,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:59:07.909Z",
       "updatedAt": "2025-12-19T17:59:07.909Z",
@@ -2668,7 +2860,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     }
   ],
   "truefalse_questions": [],

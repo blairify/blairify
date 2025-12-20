@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Computer architecture",
       "description": "What is computer architecture?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is computer architecture?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -36,8 +40,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -54,7 +58,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-2",
@@ -62,7 +66,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The three categories of computer architecture",
       "description": "What are the three categories of computer architecture?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the three categories of computer architecture?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -117,7 +125,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The Von Neumann architecture, and how",
       "description": "What is the Von Neumann architecture, and how does it differ from Harvard architecture?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Von Neumann architecture, and how does it differ from Harvard architecture?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -146,8 +158,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -164,7 +176,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-4",
@@ -172,7 +184,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Some of the components of a",
       "description": "What are some of the components of a microprocessor?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some of the components of a microprocessor?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -227,7 +243,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The main differences between a CPU",
       "description": "Explain the main differences between a CPU and a GPU?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the main differences between a CPU and a GPU?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -283,7 +303,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the CPU cache",
       "description": "What is the purpose of the CPU cache in computer architecture.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the CPU cache in computer architecture.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -312,8 +336,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -330,7 +354,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-7",
@@ -338,7 +362,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A cache miss",
       "description": "What is a cache miss?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a cache miss?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -367,8 +395,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -385,7 +413,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-8",
@@ -393,7 +421,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of cache coherence in",
       "description": "Explain the concept of cache coherence in multiprocessor systems.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of cache coherence in multiprocessor systems.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -449,7 +481,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Compile time and run time.",
       "description": "Explain compile time and run time.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain compile time and run time.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -505,7 +541,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "MESI",
       "description": "What is MESI?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is MESI?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -534,8 +574,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -552,7 +592,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-11",
@@ -560,7 +600,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Volatile memory and provide some examples",
       "description": "What is volatile memory and provide some examples?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is volatile memory and provide some examples?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -590,8 +634,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -608,7 +652,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-12",
@@ -616,7 +660,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Non-volatile memory and provide some examples",
       "description": "What is non-volatile memory and provide some examples?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is non-volatile memory and provide some examples?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -646,8 +694,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -664,7 +712,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-13",
@@ -672,7 +720,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A virtual machine",
       "description": "What is a virtual machine?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a virtual machine?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -701,8 +753,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -719,7 +771,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-14",
@@ -727,7 +779,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of pipelining in computer",
       "description": "Explain the concept of pipelining in computer architecture.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of pipelining in computer architecture.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -783,7 +839,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The different types of interrupts in",
       "description": "What are the different types of interrupts in a microprocessor system?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the different types of interrupts in a microprocessor system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -838,7 +898,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The different hazards",
       "description": "What are the different hazards?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the different hazards?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -893,7 +957,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A snooping protocol",
       "description": "What is a snooping protocol?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a snooping protocol?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -922,8 +990,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -940,7 +1008,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-18",
@@ -948,7 +1016,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The easiest way to determine cache",
       "description": "What is the easiest way to determine cache locations in which to store memory blocks?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the easiest way to determine cache locations in which to store memory blocks?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -978,8 +1050,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -996,7 +1068,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-19",
@@ -1004,7 +1076,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Mention what are the different types",
       "description": "Mention what are the different types of fields that are part of an instruction?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Mention what are the different types of fields that are part of an instruction?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1059,7 +1135,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between RISC and CISC",
       "description": "Explain the difference between RISC and CISC architectures.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between RISC and CISC architectures.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1115,7 +1195,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Branch prediction in computer architecture.",
       "description": "What is branch prediction in computer architecture.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is branch prediction in computer architecture.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1145,8 +1229,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -1163,7 +1247,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-22",
@@ -1171,7 +1255,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of out-of-order execution in",
       "description": "Explain the concept of out-of-order execution in modern CPUs.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of out-of-order execution in modern CPUs.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1227,7 +1315,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of multi-core processors in",
       "description": "Explain the concept of multi-core processors in computer architecture.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of multi-core processors in computer architecture.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1283,7 +1375,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the memory management",
       "description": "What is the purpose of the memory management unit (MMU) in computer architecture.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the purpose of the memory management unit (MMU) in computer architecture.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1313,8 +1409,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -1331,7 +1427,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-25",
@@ -1339,7 +1435,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Speculative execution in CPU architecture.",
       "description": "What is speculative execution in CPU architecture.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is speculative execution in CPU architecture.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1368,8 +1468,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -1386,7 +1486,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-26",
@@ -1394,7 +1494,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of a branch target",
       "description": "Explain the concept of a branch target buffer (BTB) in the context of instruction fetching.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of a branch target buffer (BTB) in the context of instruction fetching.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1450,7 +1554,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of a memory hierarchy",
       "description": "What is the role of a memory hierarchy in computer architecture?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the role of a memory hierarchy in computer architecture?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1480,8 +1588,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -1498,7 +1606,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-28",
@@ -1506,7 +1614,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of instruction-level parallelism (ILP)",
       "description": "Explain the concept of instruction-level parallelism (ILP) in CPUs.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of instruction-level parallelism (ILP) in CPUs.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1562,7 +1674,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of the memory controller",
       "description": "What is the role of the memory controller in computer architecture?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the role of the memory controller in computer architecture?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1592,8 +1708,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -1610,7 +1726,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-30",
@@ -1618,7 +1734,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of vector processing in",
       "description": "Explain the concept of vector processing in CPU architecture.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of vector processing in CPU architecture.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1674,7 +1794,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of the microarchitecture in",
       "description": "What is the role of the microarchitecture in CPU design?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the microarchitecture in CPU design?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1703,8 +1827,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -1721,7 +1845,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-32",
@@ -1729,7 +1853,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the memory hierarchy's",
       "description": "What is the purpose of the memory hierarchy's write-back and write-through policies?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the purpose of the memory hierarchy's write-back and write-through policies?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1759,8 +1887,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -1777,7 +1905,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-33",
@@ -1785,7 +1913,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of memory latency",
       "description": "What is the concept of memory latency?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the concept of memory latency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1815,8 +1947,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -1833,7 +1965,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "computer-architecture-questions-bank-34",
@@ -1841,7 +1973,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A virtual memory on a computer",
       "description": "What is a virtual memory on a computer?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is a virtual memory on a computer?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1871,8 +2007,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -1889,7 +2025,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-35",
@@ -1897,7 +2033,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The two hardware methods to establish",
       "description": "What are the two hardware methods to establish a priority?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the two hardware methods to establish a priority?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1952,7 +2092,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of a TLB (Translation",
       "description": "Explain the role of a TLB (Translation Lookaside Buffer) in virtual memory systems.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the role of a TLB (Translation Lookaside Buffer) in virtual memory systems.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1983,8 +2127,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -2001,7 +2145,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "computer-architecture-questions-bank-37",
@@ -2009,7 +2153,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of SIMD (Single Instruction,",
       "description": "What is the purpose of SIMD (Single Instruction, Multiple Data) processing in computer architecture?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of SIMD (Single Instruction, Multiple Data) processing in computer architecture?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2064,7 +2212,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between synchronous and asynchronous",
       "description": "What is the difference between synchronous and asynchronous processor architectures?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between synchronous and asynchronous processor architectures?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2093,8 +2245,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -2111,7 +2263,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-39",
@@ -2119,7 +2271,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "DMA",
       "description": "What is DMA?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is DMA?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2148,8 +2304,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -2166,7 +2322,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-40",
@@ -2174,7 +2330,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "What is horizontal micro code",
       "description": "Explain what is horizontal micro code?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what is horizontal micro code?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2204,8 +2364,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -2222,7 +2382,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-41",
@@ -2230,7 +2390,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "What is vertical micro code",
       "description": "Explain what is vertical micro code?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what is vertical micro code?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2260,8 +2424,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -2278,7 +2442,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-42",
@@ -2286,7 +2450,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The types of micro-operations",
       "description": "What are the types of micro-operations?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the types of micro-operations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2341,7 +2509,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between little-endian and big-endian",
       "description": "What is the difference between little-endian and big-endian byte ordering in computer memory storage?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the difference between little-endian and big-endian byte ordering in computer memory storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2371,8 +2543,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -2389,7 +2561,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-44",
@@ -2397,7 +2569,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of superscalar architecture in",
       "description": "Explain the concept of superscalar architecture in CPUs.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of superscalar architecture in CPUs.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2453,7 +2629,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of an arithmetic logic",
       "description": "Explain the role of an arithmetic logic unit (ALU) in a CPU.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of an arithmetic logic unit (ALU) in a CPU.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2509,7 +2689,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of an instruction cache",
       "description": "What is the role of an instruction cache (I-cache) and a data cache (D-cache) in a CPU?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of an instruction cache (I-cache) and a data cache (D-cache) in a CPU?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2538,8 +2722,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -2556,7 +2740,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "computer-architecture-questions-bank-47",
@@ -2564,7 +2748,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Can you name some of the",
       "description": "Can you name some of the common rules of assembly language?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you name some of the common rules of assembly language?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2619,7 +2807,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The five stages in a DLX",
       "description": "What are the five stages in a DLX pipeline?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the five stages in a DLX pipeline?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2676,7 +2868,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Flip-flops",
       "description": "What are flip-flops?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are flip-flops?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2731,7 +2927,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Latches",
       "description": "What are latches?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are latches?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2786,7 +2986,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between latches and flip-flops",
       "description": "What is the difference between latches and flip-flops?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between latches and flip-flops?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2815,8 +3019,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T18:01:35.918Z",
       "updatedAt": "2025-12-19T18:01:35.918Z",
@@ -2833,7 +3037,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     }
   ],
   "truefalse_questions": [],

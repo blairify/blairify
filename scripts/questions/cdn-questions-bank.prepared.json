@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A CDN",
       "description": "What is a CDN?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a CDN?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -36,8 +40,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:56:22.978Z",
       "updatedAt": "2025-12-19T17:56:22.978Z",
@@ -54,7 +58,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cdn-questions-bank-2",
@@ -62,7 +66,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some advantages of a CDN.",
       "description": "Name some advantages of a CDN.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some advantages of a CDN.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -117,7 +125,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some disadvantages of a CDN.",
       "description": "Name some disadvantages of a CDN.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some disadvantages of a CDN.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -172,7 +184,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Briefly explain how a CDN works.",
       "description": "Briefly explain how a CDN works.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Briefly explain how a CDN works.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -228,7 +244,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some applications of a CDN.",
       "description": "Name some applications of a CDN.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some applications of a CDN.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -284,7 +304,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es caching work in a CDN.",
       "description": "How does caching work in a CDN.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does caching work in a CDN.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -339,7 +363,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es TTL mean",
       "description": "What does TTL mean?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does TTL mean?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -394,7 +422,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es cache hit ratio mean",
       "description": "What does cache hit ratio mean?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does cache hit ratio mean?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -449,7 +481,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Cache invalidation",
       "description": "What is cache invalidation?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is cache invalidation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -478,8 +514,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:56:22.978Z",
       "updatedAt": "2025-12-19T17:56:22.978Z",
@@ -496,7 +532,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cdn-questions-bank-10",
@@ -504,7 +540,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Edge servers",
       "description": "What are edge servers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are edge servers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -559,7 +599,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The benefits of edge servers",
       "description": "Describe the benefits of edge servers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the benefits of edge servers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -614,7 +658,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some applications of edge servers.",
       "description": "Name some applications of edge servers.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some applications of edge servers.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -670,7 +718,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some popular CDN providers",
       "description": "Name some popular CDN providers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some popular CDN providers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -725,7 +777,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You measure the performance of a",
       "description": "How do you measure the performance of a CDN?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you measure the performance of a CDN?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -782,7 +838,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es a CDN distribute content across",
       "description": "How does a CDN distribute content across different geographic locations?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does a CDN distribute content across different geographic locations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -837,7 +897,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es DNS play a role in",
       "description": "How does DNS play a role in CDN functionality?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does DNS play a role in CDN functionality?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -892,7 +956,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of HTTP/2 and HTTP/3",
       "description": "Explain the role of HTTP/2 and HTTP/3 in CDN performance.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the role of HTTP/2 and HTTP/3 in CDN performance.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -950,7 +1018,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The architecture of a typical CDN.",
       "description": "Describe the architecture of a typical CDN.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the architecture of a typical CDN.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1005,7 +1077,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es load balancing work in the",
       "description": "How does load balancing work in the context of CDNs?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does load balancing work in the context of CDNs?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1034,8 +1110,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:56:22.978Z",
       "updatedAt": "2025-12-19T17:56:22.978Z",
@@ -1052,7 +1128,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "cdn-questions-bank-20",
@@ -1060,7 +1136,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Discuss common security practices in CDN",
       "description": "Discuss common security practices in CDN operations.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss common security practices in CDN operations.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1116,7 +1196,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es anycast routing benefit a CDN",
       "description": "How does anycast routing benefit a CDN?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does anycast routing benefit a CDN?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1171,7 +1255,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es a CDN contribute to web",
       "description": "How does a CDN contribute to web optimization techniques like minification, compression, and image optimization?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does a CDN contribute to web optimization techniques like minification, compression, and image optimization?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1226,7 +1314,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "How a CDN can manage a",
       "description": "Describe how a CDN can manage a sudden increases in traffic?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe how a CDN can manage a sudden increases in traffic?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",

@@ -19,7 +19,10 @@
     "prepare": "husky",
     "seed:questions": "ts-node --project scripts/tsconfig.json scripts/seed-interview-questions.ts",
     "import:questions": "ts-node --project scripts/tsconfig.json scripts/import-practice-library-from-json.ts",
-    "prepare:questions": "ts-node --project scripts/tsconfig.json scripts/prepare-question-bank.ts"
+    "prepare:questions": "ts-node --project scripts/tsconfig.json scripts/prepare-question-bank.ts",
+    "questions:normalize": "ts-node --project scripts/tsconfig.json scripts/normalize-prepared-question-banks.ts",
+    "questions:validate": "ts-node --project scripts/tsconfig.json scripts/validate-prepared-question-banks.ts",
+    "questions:preimport": "pnpm -s questions:normalize && pnpm -s questions:validate"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

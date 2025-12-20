@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A message queue and why would",
       "description": "What is a message queue and why would you use one in a modern system?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a message queue and why would you use one in a modern system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -16,7 +20,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -27,7 +32,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -36,8 +42,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:51:19.394Z",
       "updatedAt": "2025-12-19T17:51:19.394Z",
@@ -54,7 +60,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "message-queues-quesstions-bank-2",
@@ -62,7 +68,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es asynchronous messaging via queues differ",
       "description": "How does asynchronous messaging via queues differ from synchronous communication (like direct API calls)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does asynchronous messaging via queues differ from synchronous communication (like direct API calls)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -71,7 +81,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -82,7 +93,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -117,7 +129,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Can you explain the difference between",
       "description": "Can you explain the difference between point-to-point messaging and publish-subscribe messaging?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the difference between point-to-point messaging and publish-subscribe messaging?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -126,7 +142,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -138,7 +155,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -173,7 +191,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Producers, consumers, and brokers in the",
       "description": "What are producers, consumers, and brokers in the context of message queues?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are producers, consumers, and brokers in the context of message queues?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -182,7 +204,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -193,7 +216,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -228,7 +252,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es it mean for a message",
       "description": "What does it mean for a message queue to guarantee durability or persistence of messages?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does it mean for a message queue to guarantee durability or persistence of messages?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -237,7 +265,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -249,7 +278,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -284,7 +314,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "At-least-once, at-most-once, and exactly-once delivery semantics",
       "description": "What are at-least-once, at-most-once, and exactly-once delivery semantics in messaging?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are at-least-once, at-most-once, and exactly-once delivery semantics in messaging?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -293,7 +327,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -304,7 +339,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -339,7 +375,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Message queues useful for decoupling and",
       "description": "Why are message queues useful for decoupling and what is an example use case in a DevOps/SRE context?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Why are message queues useful for decoupling and what is an example use case in a DevOps/SRE context?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -348,7 +388,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -360,7 +401,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -395,7 +437,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es Apache Kafka differ from a",
       "description": "How does Apache Kafka differ from a traditional message broker like RabbitMQ?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Apache Kafka differ from a traditional message broker like RabbitMQ?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -404,7 +450,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -416,7 +463,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -451,7 +499,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "How consumer groups work in Kafka",
       "description": "Explain how consumer groups work in Kafka and why they are important.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how consumer groups work in Kafka and why they are important.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -460,7 +512,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -473,7 +526,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -508,7 +562,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "In RabbitMQ, what is an exchange",
       "description": "In RabbitMQ, what is an exchange and how does it route messages to queues?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"In RabbitMQ, what is an exchange and how does it route messages to queues?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -517,7 +575,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -528,7 +587,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -537,8 +597,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:51:19.394Z",
       "updatedAt": "2025-12-19T17:51:19.394Z",
@@ -555,7 +615,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "message-queues-quesstions-bank-11",
@@ -563,7 +623,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es AWS SQS ensure message delivery,",
       "description": "How does AWS SQS ensure message delivery, and what are the differences between standard SQS and SQS FIFO queues?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does AWS SQS ensure message delivery, and what are the differences between standard SQS and SQS FIFO queues?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -572,7 +636,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -584,7 +649,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -619,7 +685,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Google Cloud Pub/Sub and how does",
       "description": "What is Google Cloud Pub/Sub and how does it handle message delivery and subscriber models?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Pub/Sub and how does it handle message delivery and subscriber models?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -628,7 +698,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -641,7 +712,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -650,8 +722,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:51:19.394Z",
       "updatedAt": "2025-12-19T17:51:19.394Z",
@@ -668,7 +740,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "message-queues-quesstions-bank-13",
@@ -676,7 +748,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You monitor the health and performance",
       "description": "How would you monitor the health and performance of a message queue system in production?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How would you monitor the health and performance of a message queue system in production?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -685,7 +761,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -697,7 +774,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -733,7 +811,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A dead-letter queue (DLQ) and how",
       "description": "What is a dead-letter queue (DLQ) and how is it used in message systems?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a dead-letter queue (DLQ) and how is it used in message systems?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -742,7 +824,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -753,7 +836,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -762,8 +846,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:51:19.394Z",
       "updatedAt": "2025-12-19T17:51:19.394Z",
@@ -780,7 +864,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "message-queues-quesstions-bank-15",
@@ -788,7 +872,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You handle a situation where producers",
       "description": "How do you handle a situation where producers are much faster than consumers (backpressure)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle a situation where producers are much faster than consumers (backpressure)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -797,7 +885,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -808,7 +897,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -817,8 +907,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:51:19.394Z",
       "updatedAt": "2025-12-19T17:51:19.394Z",
@@ -835,7 +925,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "message-queues-quesstions-bank-16",
@@ -843,7 +933,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es it mean for a consumer",
       "description": "What does it mean for a consumer to be idempotent, and why is that important in at-least-once delivery systems?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does it mean for a consumer to be idempotent, and why is that important in at-least-once delivery systems?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -852,7 +946,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -863,7 +958,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -898,7 +994,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es Kafka achieve exactly-once processing semantics",
       "description": "How does Kafka achieve exactly-once processing semantics?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Kafka achieve exactly-once processing semantics?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -907,7 +1007,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -919,7 +1020,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -954,7 +1056,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You design a highly available message",
       "description": "How would you design a highly available message queue system across multiple data centers (e.g., active-active or active-passive)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How would you design a highly available message queue system across multiple data centers (e.g., active-active or active-passive)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -963,7 +1069,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -975,7 +1082,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -1010,7 +1118,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Can you explain Kafka’s internal architecture,",
       "description": "Can you explain Kafka’s internal architecture, specifically how it uses partitions, replicas, and what roles ZooKeeper (or KRaft) play?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain Kafka’s internal architecture, specifically how it uses partitions, replicas, and what roles ZooKeeper (or KRaft) play?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1019,7 +1131,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1032,7 +1145,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -1067,7 +1181,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "RabbitMQ clustering: how does RabbitMQ achieve",
       "description": "RabbitMQ clustering: how does RabbitMQ achieve high availability?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"RabbitMQ clustering: how does RabbitMQ achieve high availability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1076,7 +1194,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1088,7 +1207,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -1123,7 +1243,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Backpressure in messaging systems, and how",
       "description": "What is backpressure in messaging systems, and how might Kafka or other systems handle it at a protocol level?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is backpressure in messaging systems, and how might Kafka or other systems handle it at a protocol level?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1132,7 +1256,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1144,7 +1269,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -1153,8 +1279,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:51:19.394Z",
       "updatedAt": "2025-12-19T17:51:19.394Z",
@@ -1171,7 +1297,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "message-queues-quesstions-bank-22",
@@ -1179,7 +1305,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Dealing with millions of messages per",
       "description": "When dealing with millions of messages per minute, what considerations and optimizations would you apply to a message queue system?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"When dealing with millions of messages per minute, what considerations and optimizations would you apply to a message queue system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1188,7 +1318,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1200,7 +1331,8 @@
         "mobile"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -1235,7 +1367,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You decide between using a managed",
       "description": "How do you decide between using a managed cloud messaging service (like AWS SQS or Google Pub/Sub) versus running your own (like Kafka or RabbitMQ) for a production system?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you decide between using a managed cloud messaging service (like AWS SQS or Google Pub/Sub) versus running your own (like Kafka or RabbitMQ) for a production system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1244,7 +1380,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1257,7 +1394,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -1267,8 +1405,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:51:19.394Z",
       "updatedAt": "2025-12-19T17:51:19.394Z",
@@ -1285,7 +1423,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "message-queues-quesstions-bank-24",
@@ -1293,7 +1431,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Some security best practices for message",
       "description": "What are some security best practices for message queue systems (like Kafka, RabbitMQ, etc.)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some security best practices for message queue systems (like Kafka, RabbitMQ, etc.)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1302,7 +1444,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1315,7 +1458,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -1350,7 +1494,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A poison message and how should",
       "description": "What is a poison message and how should one handle it in a messaging system?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a poison message and how should one handle it in a messaging system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1359,7 +1507,8 @@
         "language-fundamentals"
       ],
       "tags": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1370,7 +1519,8 @@
         "fullstack"
       ],
       "primaryTechStack": [
-        "message-queues"
+        "message-queues",
+        "message-queues-quesstions-bank"
       ],
       "interviewTypes": [
         "regular",
@@ -1379,8 +1529,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:51:19.394Z",
       "updatedAt": "2025-12-19T17:51:19.394Z",
@@ -1397,7 +1547,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     }
   ],
   "truefalse_questions": [],

@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The .NET Framework",
       "description": "What is the .NET Framework?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the .NET Framework?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -15,7 +19,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -24,7 +30,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -32,8 +40,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -50,7 +58,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-2",
@@ -58,7 +66,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The key components of the .NET",
       "description": "What are the key components of the .NET Framework?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key components of the .NET Framework?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -66,7 +78,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -75,7 +89,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -109,7 +125,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between value types and",
       "description": "Explain the difference between value types and reference types in .NET.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between value types and reference types in .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -117,7 +137,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -127,7 +149,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -161,7 +185,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Managed code in .NET",
       "description": "What is managed code in .NET?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is managed code in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -169,7 +197,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -178,7 +208,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -186,8 +218,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -204,7 +236,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-5",
@@ -212,7 +244,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Boxing and unboxing in .NET.",
       "description": "Explain boxing and unboxing in .NET.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain boxing and unboxing in .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -220,7 +256,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -230,7 +268,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -264,7 +304,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Garbage collection in .NET",
       "description": "What is garbage collection in .NET?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is garbage collection in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -272,7 +316,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -281,7 +327,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -290,8 +338,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -308,7 +356,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-7",
@@ -316,7 +364,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between String and StringBuilder",
       "description": "What is the difference between String and StringBuilder in C#?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between String and StringBuilder in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -324,7 +376,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -333,7 +387,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -341,8 +397,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -359,7 +415,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-8",
@@ -367,7 +423,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The main principles of Object-Oriented Programming",
       "description": "What are the main principles of Object-Oriented Programming (OOP)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the main principles of Object-Oriented Programming (OOP)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -375,7 +435,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -385,7 +447,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -419,7 +483,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Assemblies in .NET.",
       "description": "Explain assemblies in .NET.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain assemblies in .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -427,7 +495,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -437,7 +507,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -471,7 +543,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Namespaces in .NET",
       "description": "What are namespaces in .NET?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are namespaces in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -479,7 +555,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -488,7 +566,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -522,7 +602,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Delegates in .NET",
       "description": "What are delegates in .NET?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are delegates in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -530,7 +614,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -539,7 +625,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -573,7 +661,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The Common Language Runtime (CLR)",
       "description": "What is the Common Language Runtime (CLR)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Common Language Runtime (CLR)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -581,7 +673,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -590,7 +684,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -598,8 +694,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -616,7 +712,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-13",
@@ -624,7 +720,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Execution model",
       "description": "What is Just-In-Time (JIT) compilation?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Just-In-Time (JIT) compilation?\" Requirements: - Answer directly: JS is executed by an engine that compiles/JITs internally - Explain interpreted vs compiled as a spectrum in modern engines - Mention parse -> bytecode -> JIT optimization (high level) - Practical implication: performance varies, warm-up/optimization Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -632,7 +732,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Answer directly: JS is executed by an engine that compiles/JITs internally; Explain interpreted vs compiled as a spectrum in modern engines; Mention parse -> bytecode -> JIT optimization (high level); Practical implication: performance varies, warm-up/optimization. Penalize answers that miss key requirements.",
       "companies": null,
@@ -642,7 +744,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -650,8 +754,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -669,7 +773,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-14",
@@ -677,7 +781,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Microsoft Intermediate Language (MSIL)",
       "description": "What is Microsoft Intermediate Language (MSIL)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Microsoft Intermediate Language (MSIL)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -685,7 +793,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -694,7 +804,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -702,8 +814,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -720,7 +832,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-15",
@@ -728,7 +840,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Generics in .NET and their benefits.",
       "description": "Explain generics in .NET and their benefits.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain generics in .NET and their benefits.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -736,7 +852,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -746,7 +864,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -780,7 +900,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es exception handling work in .NET",
       "description": "How does exception handling work in .NET?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does exception handling work in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -788,7 +912,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -797,7 +923,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -831,7 +959,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "LINQ and how is it used",
       "description": "What is LINQ and how is it used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is LINQ and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -839,7 +971,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -848,7 +982,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -856,8 +992,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -874,7 +1010,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-18",
@@ -882,7 +1018,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between IEnumerable and IQueryable",
       "description": "What is the difference between IEnumerable and IQueryable in LINQ, and when to use each?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between IEnumerable and IQueryable in LINQ, and when to use each?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -890,7 +1030,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -900,7 +1042,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -908,8 +1052,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -926,7 +1070,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-19",
@@ -934,7 +1078,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Dependency injection (DI) and its benefits",
       "description": "What is dependency injection (DI) and its benefits?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is dependency injection (DI) and its benefits?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -942,7 +1090,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -952,7 +1102,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -960,8 +1112,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -978,7 +1130,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-20",
@@ -986,7 +1138,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The differences between .NET Framework, .NET",
       "description": "Explain the differences between .NET Framework, .NET Core, and .NET 5+ (.NET 6, 7, 8 etc.).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between .NET Framework, .NET Core, and .NET 5+ (.NET 6, 7, 8 etc.).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -994,7 +1150,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1004,7 +1162,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1038,7 +1198,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You optimize performance in .NET applications",
       "description": "How do you optimize performance in .NET applications?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you optimize performance in .NET applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1046,7 +1210,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1057,7 +1223,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1092,7 +1260,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Common design patterns used in .NET.",
       "description": "Describe common design patterns used in .NET.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe common design patterns used in .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1100,7 +1272,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1109,7 +1283,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1143,7 +1319,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You handle concurrency and multithreading in",
       "description": "How do you handle concurrency and multithreading in .NET?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you handle concurrency and multithreading in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1151,7 +1331,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1160,7 +1342,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1169,8 +1353,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -1187,7 +1371,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "netfundamentals-questions-bank-24",
@@ -1195,7 +1379,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Reflection in .NET and when would",
       "description": "What is reflection in .NET and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is reflection in .NET and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1203,7 +1391,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1212,7 +1402,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1220,8 +1412,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -1238,7 +1430,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-25",
@@ -1246,7 +1438,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You ensure security in .NET applications",
       "description": "How do you ensure security in .NET applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure security in .NET applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1254,7 +1450,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1265,7 +1463,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1299,7 +1499,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Microservices architecture in the context of",
       "description": "Explain microservices architecture in the context of .NET.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain microservices architecture in the context of .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1307,7 +1511,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1317,7 +1523,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1351,7 +1559,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Different approaches to caching in .NET",
       "description": "Describe different approaches to caching in .NET applications and when to use each.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe different approaches to caching in .NET applications and when to use each.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1359,7 +1571,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1369,7 +1583,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1403,7 +1619,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between await AsyncMethod() and",
       "description": "What is the difference between await AsyncMethod() and AsyncMethod().Result?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between await AsyncMethod() and AsyncMethod().Result?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1411,7 +1631,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1421,7 +1643,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1455,7 +1679,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Code contracts in .NET",
       "description": "What are code contracts in .NET?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are code contracts in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1463,7 +1691,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1472,7 +1702,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1506,7 +1738,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of the BackgroundWorker class",
       "description": "What is the role of the BackgroundWorker class in multithreaded programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the BackgroundWorker class in multithreaded programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1514,7 +1750,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1523,7 +1761,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1531,8 +1771,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:44:50.006Z",
       "updatedAt": "2025-12-19T17:44:50.006Z",
@@ -1549,7 +1789,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "netfundamentals-questions-bank-31",
@@ -1557,7 +1797,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es the Task Parallel Library (TPL)",
       "description": "How does the Task Parallel Library (TPL) improve parallel programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does the Task Parallel Library (TPL) improve parallel programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1565,7 +1809,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1574,7 +1820,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1608,7 +1856,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of marshaling in .NET.",
       "description": "Explain the concept of marshaling in .NET.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of marshaling in .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1616,7 +1868,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1626,7 +1880,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1660,7 +1916,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You use the Duplex WCF service",
       "description": "When would you use the Duplex WCF service?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"When would you use the Duplex WCF service?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1668,7 +1928,9 @@
       "subtopics": [
         "language-fundamentals"
       ],
-      "tags": [],
+      "tags": [
+        "netfundamentals"
+      ],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1677,7 +1939,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [],
+      "primaryTechStack": [
+        "netfundamentals"
+      ],
       "interviewTypes": [
         "regular",
         "practice",

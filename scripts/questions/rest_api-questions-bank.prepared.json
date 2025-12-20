@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Fetch All User Ages",
       "description": "Fetch All User Ages?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch All User Ages?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -51,7 +55,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Fetch All Restaurant Names",
       "description": "Fetch All Restaurant Names?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch All Restaurant Names?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -95,7 +103,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Fetch & Filter Movie Ratings",
       "description": "Fetch & Filter Movie Ratings?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch & Filter Movie Ratings?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -139,7 +151,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Fetch Highest‑Rated Hotel Name",
       "description": "Fetch Highest‑Rated Hotel Name?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch Highest‑Rated Hotel Name?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -183,7 +199,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Find Songs From Search Term",
       "description": "Find Songs From Search Term?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Find Songs From Search Term?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -227,7 +247,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Average Product Price By Category",
       "description": "Average Product Price By Category?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Average Product Price By Category?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -271,7 +295,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Count Active Users By Region",
       "description": "Count Active Users By Region?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Count Active Users By Region?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -315,7 +343,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Total Likes for User",
       "description": "Total Likes for User?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Total Likes for User?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -359,7 +391,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Total Article Likes for Author",
       "description": "Total Article Likes for Author?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Total Article Likes for Author?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -404,7 +440,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Count Keyword Occurrences in Comments",
       "description": "Count Keyword Occurrences in Comments?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Count Keyword Occurrences in Comments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",

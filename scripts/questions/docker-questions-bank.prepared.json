@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker",
       "description": "What is Docker?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Docker?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -63,7 +67,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Containerization",
       "description": "What is containerization?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is containerization?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -120,7 +128,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A container",
       "description": "What is a container?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a container?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -177,7 +189,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A hypervisor",
       "description": "What is a hypervisor?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a hypervisor?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -233,7 +249,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The differences between containerization and virtualization.",
       "description": "Explain the differences between containerization and virtualization.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between containerization and virtualization.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -290,7 +310,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The main components of Docker architecture.",
       "description": "Explain the main components of Docker architecture.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the main components of Docker architecture.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -347,7 +371,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some advantages of using Docker.",
       "description": "Name some advantages of using Docker.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some advantages of using Docker.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -403,7 +431,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some disadvantages of using Docker.",
       "description": "Name some disadvantages of using Docker.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some disadvantages of using Docker.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -459,7 +491,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A Docker container’s lifecycle.",
       "description": "Describe a Docker container’s lifecycle.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe a Docker container’s lifecycle.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -516,7 +552,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name the essential Docker commands and",
       "description": "Name the essential Docker commands and what they do.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name the essential Docker commands and what they do.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -572,7 +612,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A Dockerfile, and how is it",
       "description": "What is a Dockerfile, and how is it used in Docker?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Dockerfile, and how is it used in Docker?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -628,7 +672,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between a Docker image",
       "description": "Explain the difference between a Docker image and a Docker container.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between a Docker image and a Docker container.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -685,7 +733,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You share Docker images with others",
       "description": "How can you share Docker images with others?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you share Docker images with others?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -741,7 +793,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of Docker Compose",
       "description": "What is the purpose of Docker Compose?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of Docker Compose?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -797,7 +853,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker volumes",
       "description": "What are Docker volumes?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Docker volumes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -853,7 +913,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Container orchestration",
       "description": "What is container orchestration?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is container orchestration?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -910,7 +974,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker Swarm",
       "description": "What is Docker Swarm?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Docker Swarm?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -966,7 +1034,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Kubernetes",
       "description": "What is Kubernetes?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Kubernetes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -996,8 +1068,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:54:45.712Z",
       "updatedAt": "2025-12-19T17:54:45.712Z",
@@ -1014,7 +1086,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "docker-questions-bank-19",
@@ -1022,7 +1094,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between Docker and Kubernetes.",
       "description": "Explain the difference between Docker and Kubernetes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Docker and Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1053,8 +1129,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:54:45.712Z",
       "updatedAt": "2025-12-19T17:54:45.712Z",
@@ -1071,7 +1147,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "docker-questions-bank-20",
@@ -1079,7 +1155,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker labels",
       "description": "What are Docker labels?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Docker labels?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1135,7 +1215,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You ensure security in Docker containers",
       "description": "How do you ensure security in Docker containers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure security in Docker containers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1193,7 +1277,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of Docker image layers.",
       "description": "Explain the concept of Docker image layers. How do they impact image size and build efficiency?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Docker image layers. How do they impact image size and build efficiency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1250,7 +1338,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker Hub",
       "description": "What is Docker Hub?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Docker Hub?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1306,7 +1398,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of Docker health checks",
       "description": "Explain the purpose of Docker health checks and how can they be configured in a Dockerfile?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Docker health checks and how can they be configured in a Dockerfile?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1363,7 +1459,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some best practices when creating",
       "description": "Name some best practices when creating a Dockerfile.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some best practices when creating a Dockerfile.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1419,7 +1519,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Can you provide an example of",
       "description": "Can you provide an example of a docker-compose.yml file?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you provide an example of a docker-compose.yml file?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1476,7 +1580,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The key concepts of Docker Swarm",
       "description": "Explain the key concepts of Docker Swarm mode.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the key concepts of Docker Swarm mode.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1533,7 +1641,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker secrets and how can you",
       "description": "What are Docker secrets and how can you use them?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Docker secrets and how can you use them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1589,7 +1701,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the COPY instruction",
       "description": "What is the purpose of the COPY instruction in a Dockerfile?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the COPY instruction in a Dockerfile?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1645,7 +1761,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the EXPOSE instruction",
       "description": "What is the purpose of the EXPOSE instruction in a Dockerfile, and how is it different from port mapping (using -p) when running containers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the EXPOSE instruction in a Dockerfile, and how is it different from port mapping (using -p) when running containers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1703,7 +1823,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker Desktop, and how does it",
       "description": "What is Docker Desktop, and how does it differ from Docker Engine?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Docker Desktop, and how does it differ from Docker Engine?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1759,7 +1883,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker's concept of a Dockerfile context.",
       "description": "Explain Docker's concept of a Dockerfile context.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Docker's concept of a Dockerfile context.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1816,7 +1944,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between Docker's CMD and",
       "description": "Explain the difference between Docker's CMD and ENTRYPOINT instructions in a Dockerfile.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Docker's CMD and ENTRYPOINT instructions in a Dockerfile.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1873,7 +2005,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker's \"attach\" mode, and how does",
       "description": "What is Docker's \"attach\" mode, and how does it allow you to interact with running containers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Docker's \"attach\" mode, and how does it allow you to interact with running containers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1930,7 +2066,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "How Docker container logs can be",
       "description": "Explain how Docker container logs can be managed and viewed.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Docker container logs can be managed and viewed.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1987,7 +2127,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker image layer caching",
       "description": "What is Docker image layer caching?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Docker image layer caching?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2043,7 +2187,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of Docker image version",
       "description": "Explain the concept of Docker image version pinning.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Docker image version pinning.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2100,7 +2248,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "How Docker networking works.",
       "description": "Explain how Docker networking works.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Docker networking works.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2157,7 +2309,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Can you describe the difference between",
       "description": "Can you describe the difference between bridge and overlay networks?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you describe the difference between bridge and overlay networks?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2213,7 +2369,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Docker's copy-on-write (CoW) file system.",
       "description": "Explain Docker's copy-on-write (CoW) file system.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Docker's copy-on-write (CoW) file system.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2270,7 +2430,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of Dockerfile multistage builds.",
       "description": "Explain the purpose of Dockerfile multistage builds.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Dockerfile multistage builds.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2327,7 +2491,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You ensure high availability in a",
       "description": "How do you ensure high availability in a Docker Swarm cluster?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure high availability in a Docker Swarm cluster?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2384,7 +2552,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The advantages of using Docker containers",
       "description": "What are the advantages of using Docker containers in a microservices architecture?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages of using Docker containers in a microservices architecture?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2441,7 +2613,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You monitor Docker containers and troubleshoot",
       "description": "How can you monitor Docker containers and troubleshoot issues?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you monitor Docker containers and troubleshoot issues?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2498,7 +2674,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A Docker Namespace",
       "description": "What is a Docker Namespace?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Docker Namespace?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2554,7 +2734,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between docker volumes and",
       "description": "What is the difference between docker volumes and bind mounts?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between docker volumes and bind mounts?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2584,8 +2768,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:54:45.712Z",
       "updatedAt": "2025-12-19T17:54:45.712Z",
@@ -2602,7 +2786,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     }
   ],
   "truefalse_questions": [],

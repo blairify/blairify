@@ -1,4 +1,4 @@
-import { and, desc, eq } from "drizzle-orm";
+import { and, desc, eq, sql } from "drizzle-orm";
 import { practiceDb } from "@/practice-library-db/client";
 import {
   matchingQuestions,
@@ -31,6 +31,8 @@ interface BaseFilters {
   status: QuestionStatus;
   topic?: string;
   difficulty?: DifficultyLevel;
+  position?: string;
+  tag?: string;
 }
 
 interface QueryResult {
@@ -101,6 +103,8 @@ export async function queryQuestions(
     status,
     topic: filters.topic,
     difficulty: filters.difficulty,
+    position: filters.position,
+    tag: filters.tags?.[0],
   };
 
   const [mcq, open, tf, matching, system] = await Promise.all([
@@ -352,7 +356,7 @@ function mapSystemDesignRowToQuestion(row: SystemDesignRow): Question {
 // Helpers
 
 function buildWhereClauses<
-  T extends { status: any; topic: any; difficulty: any },
+  T extends { status: any; topic: any; difficulty: any; positions?: any; tags?: any },
 >(table: T, filters: BaseFilters) {
   const clauses = [eq(table.status, filters.status)];
 
@@ -362,6 +366,16 @@ function buildWhereClauses<
 
   if (filters.difficulty) {
     clauses.push(eq(table.difficulty, filters.difficulty));
+  }
+
+  if (filters.position && "positions" in table && table.positions) {
+    clauses.push(
+      sql`${table.positions} @> ARRAY[${filters.position}]::text[]`,
+    );
+  }
+
+  if (filters.tag && "tags" in table && table.tags) {
+    clauses.push(sql`${table.tags} @> ARRAY[${filters.tag}]::text[]`);
   }
 
   return clauses;

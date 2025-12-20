@@ -1,0 +1,504 @@
+{
+  "extractedAt": "2025-12-20T18:15:00.000Z",
+  "questions": [
+    {
+      "id": 1,
+      "level": "Entry",
+      "title": "What is React, and what problem does it solve?",
+      "answer": "React is a JavaScript library for building user interfaces by composing small, reusable components. It helps manage UI complexity by letting you describe the UI as a function of state, so when state changes React updates the DOM efficiently. In practice it improves maintainability for interactive apps compared to manually manipulating the DOM."
+    },
+    {
+      "id": 2,
+      "level": "Entry",
+      "title": "What is JSX? Do you have to use it with React?",
+      "answer": "JSX is a syntax extension that lets you write HTML-like markup inside JavaScript, which is compiled to React element calls. You don\"t have to use JSX; you can use plain JavaScript (e.g., React.createElement) or other templating approaches, but JSX is the most common because it\"s more readable and works well with component composition."
+    },
+    {
+      "id": 3,
+      "level": "Entry",
+      "title": "What is the difference between a React element and a React component?",
+      "answer": "A React element is a lightweight description of what to render (an immutable object). A React component is a function or class that returns elements; it can accept props and use state/hooks to produce elements based on inputs. Components are the factories; elements are the produced UI descriptions."
+    },
+    {
+      "id": 4,
+      "level": "Entry",
+      "title": "What are props in React?",
+      "answer": "Props are inputs passed from a parent component to a child component. They are read-only from the child\"s perspective and are used to configure what a component renders or how it behaves. Props changes trigger re-renders of the receiving component."
+    },
+    {
+      "id": 5,
+      "level": "Entry",
+      "title": "What is state in React, and how is it different from props?",
+      "answer": "State is local, mutable data owned by a component (or a hook/store) that can change over time and causes re-renders when updated. Props are external inputs provided by a parent and should not be mutated by the child. In short: props flow in; state is managed within."
+    },
+    {
+      "id": 6,
+      "level": "Entry",
+      "title": "What does \"render\" mean in React?",
+      "answer": "Rendering is React computing what the UI should look like for the current props/state and producing a tree of React elements. After render, React commits the necessary changes to the DOM (or native UI) to match that tree. A render can happen many times; it should be pure and fast."
+    },
+    {
+      "id": 7,
+      "level": "Entry",
+      "title": "Why are keys important when rendering lists in React?",
+      "answer": "Keys uniquely identify items in a list so React can match previous and next children during reconciliation. This prevents unnecessary DOM work and avoids bugs where state or input values \"move\" to the wrong item after insertions/removals/reordering. Keys should be stable and unique, not array indexes when the list can change order."
+    },
+    {
+      "id": 8,
+      "level": "Entry",
+      "title": "What is conditional rendering in React?",
+      "answer": "Conditional rendering means choosing what elements to return based on state/props. Common patterns are ternaries, logical &&, early returns, or mapping to different components. React just renders whatever elements you return; the condition is normal JavaScript."
+    },
+    {
+      "id": 9,
+      "level": "Entry",
+      "title": "How do you pass data from child to parent in React?",
+      "answer": "Typically the parent passes a callback function as a prop to the child. The child calls that function with data (e.g., an event value), and the parent updates its state. This keeps one-way data flow while still enabling child-to-parent communication."
+    },
+    {
+      "id": 10,
+      "level": "Entry",
+      "title": "What is a controlled component in React forms?",
+      "answer": "A controlled component is a form input whose value is driven by React state. The input\"s value comes from state, and onChange updates that state. This makes the UI the single source of truth and enables validation, conditional UI, and easy resets."
+    },
+    {
+      "id": 11,
+      "level": "Entry",
+      "title": "What is an uncontrolled component in React forms?",
+      "answer": "An uncontrolled component keeps its current value in the DOM rather than React state. You read the value using a ref (or form submission) when needed. It can be simpler for quick forms, but it\"s less flexible for dynamic validation and conditional logic than controlled inputs."
+    },
+    {
+      "id": 12,
+      "level": "Entry",
+      "title": "What is the difference between onClick={handleClick} and onClick={handleClick()}?",
+      "answer": "onClick={handleClick} passes the function reference so React can call it when the click happens. onClick={handleClick()} calls the function immediately during render and passes its return value as the handler, which is usually a bug. If you need arguments, wrap it: onClick={() => handleClick(arg)}."
+    },
+    {
+      "id": 13,
+      "level": "Entry",
+      "title": "What is the virtual DOM (at a high level) and why does React use it?",
+      "answer": "The virtual DOM is an in-memory representation of the UI tree (React elements). React compares the previous and next trees (reconciliation) to compute the minimal set of real DOM updates. This helps performance and developer ergonomics by avoiding manual DOM manipulation and enabling a declarative UI model."
+    },
+    {
+      "id": 14,
+      "level": "Entry",
+      "title": "What is reconciliation in React?",
+      "answer": "Reconciliation is the process where React compares the previous render output with the next render output to decide what needs to change in the UI. It uses heuristics (like keys in lists) to match elements and update, insert, or remove DOM nodes efficiently."
+    },
+    {
+      "id": 15,
+      "level": "Entry",
+      "title": "What are React Fragments and when would you use them?",
+      "answer": "Fragments let you return multiple sibling elements without adding an extra DOM node (e.g., <></> or <React.Fragment>). Use them to keep markup minimal and avoid unnecessary wrapper divs that can break layout, styling, or semantics."
+    },
+
+    {
+      "id": 16,
+      "level": "Junior",
+      "title": "What is useState and how does setState work?",
+      "answer": "useState is a hook that adds state to function components. It returns [value, setValue]. Calling setValue schedules an update; React may batch updates and re-render the component with the new state. If the next state depends on the previous one, use the functional form: setValue(prev => next)."
+    },
+    {
+      "id": 17,
+      "level": "Junior",
+      "title": "Why can\"t you mutate state directly in React?",
+      "answer": "Mutating state directly can prevent React from detecting changes correctly and can create hard-to-debug UI bugs because React expects state updates to be explicit and often relies on referential equality. Using immutable updates (creating new objects/arrays) makes updates predictable and plays well with memoization and change detection."
+    },
+    {
+      "id": 18,
+      "level": "Junior",
+      "title": "What is useEffect used for?",
+      "answer": "useEffect runs side effects after React has rendered (e.g., data fetching, subscriptions, timers, manual DOM interactions). It can re-run when dependencies change, and it can return a cleanup function to unsubscribe/clear timers to avoid leaks and stale behavior."
+    },
+    {
+      "id": 19,
+      "level": "Junior",
+      "title": "What does the dependency array in useEffect mean?",
+      "answer": "The dependency array tells React when to re-run the effect. If omitted, it runs after every render; if empty, it runs once after mount (and cleanup on unmount); if it contains values, it reruns when any dependency changes by referential equality. You should include all external values used inside the effect to avoid stale closures."
+    },
+    {
+      "id": 20,
+      "level": "Junior",
+      "title": "What is cleanup in useEffect and why is it needed?",
+      "answer": "Cleanup is a function returned from an effect that React calls before the effect re-runs and when the component unmounts. It\"s used to stop subscriptions, cancel timers, abort fetches, or remove event listeners, preventing memory leaks and preventing effects from running on stale components."
+    },
+    {
+      "id": 21,
+      "level": "Junior",
+      "title": "What is lifting state up?",
+      "answer": "Lifting state up means moving shared state to the closest common ancestor of components that need it. The ancestor owns the state and passes values + callbacks down via props. This avoids duplicated state and keeps a single source of truth for coordinated UI."
+    },
+    {
+      "id": 22,
+      "level": "Junior",
+      "title": "What is prop drilling and when is it a problem?",
+      "answer": "Prop drilling is passing props through multiple intermediate components that don\"t really need the data, just to reach a deep child. It becomes a problem when it makes components hard to reuse and maintain. Common solutions are composition, context, or a state management solution depending on scope."
+    },
+    {
+      "id": 23,
+      "level": "Junior",
+      "title": "What is React Context and when should you use it?",
+      "answer": "Context provides a way to pass values through the component tree without manually threading props at every level. It\"s good for truly global-ish concerns like theme, locale, auth user, or feature flags. Overusing it for rapidly changing data can cause unnecessary re-renders; in that case consider local state, memoization, or dedicated state libraries."
+    },
+    {
+      "id": 24,
+      "level": "Junior",
+      "title": "What is useMemo and what problem does it solve?",
+      "answer": "useMemo memoizes the result of an expensive computation so it\"s only recomputed when dependencies change. It helps performance when the computation is heavy or when you need stable references (e.g., derived arrays/objects) to avoid triggering child re-renders. It\"s a performance optimization, not a correctness tool."
+    },
+    {
+      "id": 25,
+      "level": "Junior",
+      "title": "What is useCallback and how is it related to useMemo?",
+      "answer": "useCallback memoizes a function reference so you can pass a stable callback to children. It\"s basically useMemo(() => fn, deps) but specialized for functions. It\"s useful when child components rely on referential equality (e.g., React.memo) or when a callback is a dependency of another hook."
+    },
+    {
+      "id": 26,
+      "level": "Junior",
+      "title": "What is React.memo and when would you use it?",
+      "answer": "React.memo memoizes a function component so it only re-renders when its props change (by shallow comparison, unless you provide a custom comparator). Use it when a component renders often with the same props and render cost is meaningful. It\"s not always beneficial because it adds comparison overhead and can hide stale prop issues if props are mutated."
+    },
+    {
+      "id": 27,
+      "level": "Junior",
+      "title": "What are common causes of unnecessary re-renders in React?",
+      "answer": "Common causes include creating new object/array/function props on every render, changing context values frequently, using unstable keys in lists, and storing derived data in state. Fixes include memoizing derived values and callbacks (useMemo/useCallback), using stable keys, splitting components, and keeping state minimal."
+    },
+    {
+      "id": 28,
+      "level": "Junior",
+      "title": "What is a custom hook and when is it useful?",
+      "answer": "A custom hook is a function that uses React hooks internally and encapsulates reusable stateful logic. It\"s useful for sharing logic (data fetching, subscriptions, form logic) across multiple components without duplicating code or using inheritance-like patterns."
+    },
+
+    {
+      "id": 29,
+      "level": "Mid",
+      "title": "Explain stale closures in React hooks with an example.",
+      "answer": "A stale closure happens when a function (like an effect or event handler) captures old state/props values from the render it was created in. Example: using setInterval inside useEffect with an empty dependency array will keep reading the initial state unless you include state in deps or use the functional update form. Fixes: include dependencies, use refs for mutable values, or use functional setState."
+    },
+    {
+      "id": 30,
+      "level": "Mid",
+      "title": "What is the difference between useEffect and useLayoutEffect?",
+      "answer": "useEffect runs after the browser paints the UI, so it\"s non-blocking for layout. useLayoutEffect runs synchronously after DOM mutations but before paint, which can block rendering; it\"s used when you must measure layout or apply DOM changes before the user sees a flicker. Prefer useEffect unless you specifically need layout timing."
+    },
+    {
+      "id": 31,
+      "level": "Mid",
+      "title": "What does \"batching\" mean in React updates?",
+      "answer": "Batching means React groups multiple state updates into a single render for performance. In modern React, updates inside many async contexts can be batched too. Practically, it\"s why reading state immediately after calling setState may still show the old value, and why the functional updater form is recommended when updates depend on previous state."
+    },
+    {
+      "id": 32,
+      "level": "Mid",
+      "title": "What is code splitting in React and how do you do it?",
+      "answer": "Code splitting loads parts of your app only when needed to reduce initial bundle size. In React you can use dynamic import with React.lazy and <Suspense> to lazy-load a component, or use your framework\"s route-level splitting (e.g., Next.js). You should handle loading states and avoid splitting too granularly."
+    },
+    {
+      "id": 33,
+      "level": "Mid",
+      "title": "Explain Suspense at a high level.",
+      "answer": "Suspense lets components \"wait\" for something (like code or data) and show a fallback UI while waiting. With React.lazy it handles loading code-split chunks; in frameworks it can also coordinate data fetching. The key idea is declarative loading states driven by the component tree, not manual boolean flags everywhere."
+    },
+    {
+      "id": 34,
+      "level": "Mid",
+      "title": "How would you structure state in a larger React app?",
+      "answer": "Keep state as local as possible, lift it only when multiple components need it, and store derived data as derived (not duplicated) when possible. Use URL state for navigation-related state, server cache libraries (e.g., React Query/SWR) for server data, and context or a store (Redux/Zustand) for cross-cutting client state. Split state by domain and prefer predictable update flows."
+    },
+    {
+      "id": 35,
+      "level": "Senior",
+      "title": "Describe how React rendering and committing work at a high level.",
+      "answer": "At a high level, React has a render phase where it computes the next UI tree (can be interrupted in concurrent rendering) and a commit phase where it applies changes to the host environment (DOM) and runs layout effects. Render should be pure (no side effects), while effects run after commit. This separation enables scheduling, prioritization, and responsive UIs."
+    },
+    {
+      "id": 36,
+      "level": "Mid",
+      "title": "What does mounted mean in React?",
+      "answer": "In React, \"mounted\" refers to the point in a component's lifecycle when it has been inserted into the DOM, making it a part of the page's UI.",
+      "isPremium": false
+    },
+    {
+      "id": 37,
+      "level": "Mid",
+      "title": "What does unmounted mean in React?",
+      "answer": "In React, \"unmounted\" refers to the stage in a component's lifecycle when it has been removed from the DOM. This is a crucial concept, particularly in the context of cleaning up resources and preventing memory leaks in a React application.",
+      "isPremium": false
+    },
+    {
+      "id": 38,
+      "level": "Mid",
+      "title": "What are lifecycle methods?",
+      "answer": "Lifecycle methods are special methods in React class components that allow you to run code at particular times in the component's life cycle. These methods are hooks that get called at specific points during a component's life in the DOM, allowing you to perform certain actions when the component is created, updated, or destroyed.\nReact class components go through three main phases:\nMounting: When the component is being created and inserted into the DOM.\nUpdating: When the component is being re-rendered as a result of changes to either its props or state.\nUnmounting: When the component is being removed from the DOM.",
+      "isPremium": false
+    },
+    {
+      "id": 39,
+      "level": "Mid",
+      "title": "Discuss custom hooks in React.",
+      "answer": "Custom hooks in React are JavaScript functions that allow you to encapsulate and reuse logic that can be shared across different components. They are a way to extract stateful logic from a component and make it more reusable and organized. Custom hooks are named with the prefix \"use\" to adhere to React's conventions.\nKey points about custom hooks:\nReuse Logic: Custom hooks are a mechanism for reusing stateful logic, side effects, or any other complex behavior across multiple components.\nStateless: Custom hooks themselves do not contain any component-specific state or JSX. They are purely functions that can accept parameters and return values.\nShareable: Custom hooks can be shared across different components and even between different projects, making it easier to manage and distribute code.\nCall Other Hooks: Custom hooks can call other built-in hooks like useState, useEffect or even other custom hooks.\nEncapsulation: Custom hooks can encapsulate complex behavior, making it easier to understand and maintain the logic in your components.\nSimple toggle example:\n\njavascript\n\nCopy code\n\n// useToggle.jsx \nfunction useToggle(initialState = false) {\n  const [state, setState] = useState(initialState);\n\n  const toggle = () => {\n    setState((prevState) => !prevState);\n  };\n  return [state, toggle];\n}\n\njavascript\n\nCopy code\n\nimport useToggle from './useToggle';\n  \nfunction App() {\n  const [isOn, toggleIsOn] = useToggle(false);\n  \n  return (\n    <div>\n      <p>The toggle is {isOn ? 'on' : 'off'}</p>\n      <button onClick={toggleIsOn}>Toggle</button>    </div>\n  );\n}",
+      "isPremium": false
+    },
+    {
+      "id": 40,
+      "level": "Mid",
+      "title": "What is NextJS and major features of it?",
+      "answer": "Next.js is an open-source React front-end development web framework that enables functionality such as server-side rendering and generating static websites for React-based web applications. It's a production-ready framework that enhances the basic capabilities of React, making it more suitable for a wider range of web applications. Here are some of its major features:\nServer-Side Rendering (SSR)\nImproved Performance and SEO: Next.js allows React components to be rendered on the server-side, which improves the initial page load time and is beneficial for SEO.\nDynamic Content: It's well-suited for applications that need to render dynamic content based on user data or other real-time inputs.\nStatic Site Generation (SSG)\nBuild-time Rendering: Next.js can pre-render pages at build time. This feature, known as Static Site Generation, is great for pages that can be rendered once and served statically.\nOptimized Performance: SSG results in highly optimized pages with faster load times.\nIncremental Static Regeneration\nUpdate Static Content: Next.js allows developers to update static content after deployment without rebuilding the entire site.\nCombine with SSR: This feature can be combined with SSR to enhance the user experience and optimize content delivery.\nFile-based Routing\nEase of Use: Next.js uses the file system for routing. Pages are created in the pages or app directory, and the file path becomes the URL path.\nDynamic Routes: Supports dynamic routes using file naming conventions.\nAPI Routes\nServer-side Logic: Next.js allows you to write server-side logic directly within your application in the pages/api directory. Each file in this directory is treated as an API endpoint.\nNo Need for External Server: This eliminates the need to set up an external server for backend logic.\nBuilt-in CSS and Sass Support\nStyling Flexibility: Offers built-in support for CSS and Sass which allows for component-level styles with CSS modules.\nGlobal Styles: Supports global CSS files as well.\nDevelopment Environment\nFast Refresh: Next.js has a fast refresh feature that gives you instant feedback on edits made to your React components.\nZero Config: Ready to use out of the box with minimal configuration required.\nDeployment\nVercel Integration: Seamlessly integrates with Vercel for easy deployment, or can be deployed on any server that runs Node.js.",
+      "isPremium": false
+    },
+    {
+      "id": 41,
+      "level": "Mid",
+      "title": "What is the virtual DOM?",
+      "answer": "The Virtual DOM (Document Object Model) is a concept employed by libraries like React to improve web application performance and efficiency. It's a lightweight, in-memory representation of the actual DOM.\nHow Virtual DOM Works\nRepresentation of UI: The Virtual DOM is a virtual representation of the UI that is kept in memory and synced with the real DOM. It's a node tree where elements are nodes and attributes are properties of these nodes.\nRendering UI Elements: When a React component renders, it does not directly modify the DOM. Instead, it updates the Virtual DOM.\nComparison with Previous State: Whenever there are changes in the state of an application, a new Virtual DOM tree is created. This new tree is then compared to the previous state's Virtual DOM tree.\nDiffing Algorithm: React uses a diffing algorithm to determine what has changed between the two Virtual DOM trees.\nBatched Updates: Instead of updating the DOM immediately and individually for each change, React identifies all the changes between the Virtual DOM and the actual DOM and performs batched updates.\nEfficiently Update the Real DOM: This minimizes the performance cost of DOM manipulation. React updates only the parts of the real DOM that have changed, which is faster than manipulating the DOM for every small change.",
+      "isPremium": false
+    },
+    {
+      "id": 42,
+      "level": "Mid",
+      "title": "What does reconciliation mean in React?",
+      "answer": "Reconciliation in React is the process by which the React library updates the DOM, comparing the current state of the component's UI (represented by the Virtual DOM) with its previous state, and making only the necessary changes to the actual DOM. This process is key to React's performance and efficiency, particularly when dealing with frequent updates to the UI.\nHow Reconciliation Works in React\nComponent Updates: When a React component's state or props change, the component re-renders, leading to a new tree of React elements (Virtual DOM).\nDiffing Algorithm: React then compares this new tree with the previous element tree. This comparison process is known as diffing.\nIdentifying Changes: The diffing algorithm efficiently identifies what has changed in the Virtual DOM. React compares the two trees and computes the minimum number of operations needed to update the actual DOM.\nUpdating the Real DOM: React then updates the real DOM to match the new Virtual DOM, but it does so in a way that minimizes actual DOM manipulations, which are costly in terms of performance.\nBatched Updates: Rather than applying changes as soon as they are identified, React may batch multiple changes together for better performance, updating the actual DOM in a single pass.",
+      "isPremium": false
+    },
+    {
+      "id": 43,
+      "level": "Mid",
+      "title": "What are React Fragments?",
+      "answer": "React Fragments let you group multiple children without adding an extra DOM node. Use <React.Fragment>...</React.Fragment> or the shorthand <>...</>. This is useful when an extra wrapper would break layout/styling or you want cleaner, more semantic markup. When rendering a list of fragments, you can provide a key on <React.Fragment key=...>.",
+      "isPremium": false
+    },
+    {
+      "id": 44,
+      "level": "Mid",
+      "title": "Can web browsers read JSX directly?",
+      "answer": "No, web browsers cannot read JSX directly. JSX (JavaScript XML) is a syntax extension for JavaScript, popularized by React, which allows writing HTML-like code within JavaScript files. However, browsers only understand plain JavaScript and cannot interpret JSX natively.\nHow JSX is Transformed:\nTo make JSX understandable to browsers, it must be transformed into regular JavaScript. This transformation is typically done using a transpiler like Babel.\nBabel: A JavaScript compiler that converts JSX code into React.createElement calls which browsers can understand. For example, Babel would transform JSX like <div>Hello World</div> into React.createElement('div', null, 'Hello World').\nBuild Tools: Modern JavaScript build tools like Webpack or Parcel, often used in React projects, integrate Babel to automatically convert JSX to standard JavaScript during the build process.\nThe Build Process:\nWrite Code with JSX: Developers write React components using JSX.\nTranspiling: Tools like Babel transpile JSX into plain JavaScript.\nBundling: Build tools bundle the transpiled JavaScript into files that are optimized for the web.\nExecution in Browser: The bundled JavaScript files, now devoid of JSX, can be executed by the browser to render the React application.",
+      "isPremium": false
+    },
+    {
+      "id": 45,
+      "level": "Mid",
+      "title": "What are the purpose of keys in React lists?",
+      "answer": "In React, keys are important when rendering lists of elements. Keys help React identify which items have changed, are added, or are removed from the DOM.\nPurpose of Keys in React Lists\nUnique Identifier: Each key should be unique among sibling elements. They help React identify which items in the list are added, changed, or removed. This plays a crucial role in the re-rendering process.\nPerformance Optimization and Reconciliation: During the reconciliation process, keys allow React to optimize updates to a list by reordering, adding, or removing elements efficiently. Without keys, React would need to re-render more elements than necessary.\nMinimizing DOM Manipulation: By providing a unique key for each element, React can minimize DOM manipulation. It can update, add, or remove only the elements that have changed, rather than re-rendering the entire list on every update.\nTracking Component State: Keys help in maintaining state in dynamic lists. When a list is re-rendered, React uses keys to determine which elements have changed and should be preserved.\nExample\n\njavascript\n\nCopy code\n\nfunction NumberList({ numbers }) {\n  return (\n    <ul>\n      {numbers.map((number, index) => (\n        <li key={number.id}>{number.value}</li>  // Here, number.id is used as a key\n      ))}\n    </ul>\n  );\n}",
+      "isPremium": false
+    },
+    {
+      "id": 46,
+      "level": "Mid",
+      "title": "What are the two primary ways of creating components in React?",
+      "answer": "The two primary ways are function components and class components. Function components are the modern default and use hooks (useState/useEffect/etc.) for state and side effects. Class components use this.state and lifecycle methods (componentDidMount, componentDidUpdate, componentWillUnmount). In most new code, function components + hooks are preferred.",
+      "isPremium": false
+    },
+    {
+      "id": 47,
+      "level": "Mid",
+      "title": "What are forward refs?",
+      "answer": "Forward refs in React are a feature that allows you to pass a ref down to a child component. This is particularly useful in scenarios where you need to access a child component's DOM node or an instance of a class component from a parent component.\nHow Forward Refs Work\nCreating a Forward Ref: You create a forward ref by using the React.forwardRef function. This function receives a render function that takes props and ref as arguments.\nPassing the Ref Down: The ref can then be passed down to a child component or a DOM element inside the render function.\nExample\n\njavascript\n\nCopy code\n\nconst FancyButton = React.forwardRef((props, ref) => (\n  <button ref={ref} className=\"FancyButton\">\n    {props.children}\n  </button>\n));\n  \n// You can now get a ref directly to the DOM button:\nconst ref = React.createRef();\n<FancyButton ref={ref}>Click me!</FancyButton>;",
+      "isPremium": false
+    },
+    {
+      "id": 48,
+      "level": "Mid",
+      "title": "What is a pure function in React?",
+      "answer": "A pure function always returns the same output for the same inputs and has no side effects. In React, render logic (and function components) should be pure: given the same props/state, they should return the same UI description, without mutating external variables, making network calls, or subscribing to events during render. Side effects belong in effects (useEffect/useLayoutEffect) or event handlers.",
+      "isPremium": false
+    },
+    {
+      "id": 49,
+      "level": "Mid",
+      "title": "What is the difference between controlled vs. uncontrolled components in React?",
+      "answer": "Controlled components keep the current form value in React state (value comes from state, updates via onChange). Uncontrolled components keep value in the DOM and you read it via refs (or on submit). Controlled inputs make validation and conditional UI easier; uncontrolled inputs can be simpler and sometimes more performant for very large forms.",
+      "isPremium": false
+    },
+    {
+      "id": 50,
+      "level": "Mid",
+      "title": "Why can hooks not be conditional in React?",
+      "answer": "Hooks must be called in the same order on every render so React can associate hook state with the correct call site. If you call hooks conditionally (inside if/loops), the order can change between renders, causing state/effects to be read from the wrong hook slot and leading to bugs. The rule is: call hooks at the top level of your component (or custom hook) unconditionally.",
+      "isPremium": false
+    },
+    {
+      "id": 51,
+      "level": "Mid",
+      "title": "What is an arrow function and how is it used in React?",
+      "answer": "An arrow function is a concise function syntax in JavaScript (e.g., const fn = (x) => x + 1) that captures lexical this (it doesn\"t have its own this). In React, arrow functions are commonly used for event handlers and callbacks, especially when you need to pass arguments (onClick={() => doThing(id)}). Be mindful that inline arrow functions create a new function each render, which can trigger child re-renders unless memoized.",
+      "isPremium": false
+    },
+    {
+      "id": 52,
+      "level": "Mid",
+      "title": "Explain the key concepts of functional components?",
+      "answer": "Functional components are plain functions that take props and return React elements. They rely on hooks to manage state (useState), side effects (useEffect), context (useContext), and derived/memoized values (useMemo/useCallback). Rendering should be pure (no side effects), and you compose UI by composing components. They typically replace most class-component patterns in modern React.",
+      "isPremium": false
+    },
+    {
+      "id": 53,
+      "level": "Mid",
+      "title": "How do you conditionally render components?",
+      "answer": "Conditional rendering in React is a technique for rendering different elements or components based on certain conditions. It's a fundamental concept in React that allows for more dynamic and responsive UIs. Here are some common ways to implement conditional rendering:\nUsing Logical && Operator\n\njavascript\n\nCopy code\n\nfunction MyComponent({ shouldShow }) {\n  return (\n    <div>\n      {shouldShow && <p>This will only appear if shouldShow is true.</p>}\n    </div>\n  );\n}\nUsing Ternary Operator\n\njavascript\n\nCopy code\n\nfunction MyComponent({ isLoggedIn }) {\n  return (\n    <div>\n      {isLoggedIn ? <LogoutButton /> : <LoginButton />}\n    </div>\n  );\n}",
+      "isPremium": false
+    },
+    {
+      "id": 54,
+      "level": "Mid",
+      "title": "Explain how component composition can be used to create larger components?",
+      "answer": "Component composition is like assembling a puzzle; each small piece (component) can be combined in various ways to create a larger picture (a more complex UI).\nReact's component model is designed to encourage composition, where components accept other components as inputs (usually through props), allowing you to nest them as needed.\n\njavascript\n\nCopy code\n\nfunction Avatar({ imageUrl }) {\n  return <img src={imageUrl} alt=\"User Avatar\" />;\n}\n\nfunction Name({ name }) {\n  return <h2>{name}</h2>;\n}\n\nfunction UserProfile() {\n  const user = {\n    imageUrl: 'user-avatar.jpg',\n    name: 'John Doe',\n  };\n\n  return (\n    <div>\n      <Avatar imageUrl={user.imageUrl} />\n      <Name name={user.name} />\n    </div>\n  );\n}",
+      "isPremium": false
+    },
+    {
+      "id": 57,
+      "level": "Mid",
+      "title": "Why is it important to maintain immutability when updating state in React?",
+      "answer": "Immutability makes state updates predictable and helps React detect changes via referential equality. If you mutate objects/arrays in place, React (and memoization tools like React.memo/useMemo) may not see a change, causing stale UI or skipped renders. Immutable updates also enable safer debugging (time travel / snapshots), reduce accidental shared-state bugs, and make it easier to reason about data flow. Practically: create new objects/arrays (e.g., spread, concat, map) instead of mutating existing ones.",
+      "isPremium": false
+    },
+    {
+      "id": 58,
+      "level": "Mid",
+      "title": "What is a React error boundary, and how can it be useful for handling errors in components?",
+      "answer": "Error boundaries in React are a feature that allows you to catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of crashing the whole application. This feature is crucial for improving the user experience in cases where a component tree unexpectedly fails due to an error during rendering, in a lifecycle method, or in the constructor of any child component.\nKey Points About Error Boundaries:\nError Capture: Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.\nFallback UI: They allow you to render a fallback UI when an error is caught, providing a better user experience than a completely broken view.\nUsage: Error boundaries are implemented using a class component with either or both of the lifecycle methods static getDerivedStateFromError() or componentDidCatch().\nLimitations:\nError boundaries do not catch errors for:\nEvent handlers (use try/catch).\nAsynchronous code (e.g., setTimeout or requestAnimationFrame callbacks).\nServer-side rendering.\nErrors thrown in the error boundary itself (rather than its children).",
+      "isPremium": false
+    },
+    {
+      "id": 59,
+      "level": "Mid",
+      "title": "What is a Higher-Order Component (HOC) in React?",
+      "answer": "Higher-Order Components (HOCs) in React are a pattern used to share common functionality between components without repeating code. An HOC is a function that takes a component and returns a new component. This concept is similar to higher-order functions in JavaScript, which are functions that take functions as arguments and/or return a function.\nKey Characteristics of HOCs:\nFunction that Takes a Component: An HOC is a function that takes a component as its argument.\nReturns a New Component: It returns a new component that wraps the original component, providing additional properties or behavior.\nReusability: HOCs allow for reusability of code across different components. Common functionalities like data fetching, input handling, or user access control can be abstracted in HOCs.\nComposition: HOCs can be composed together for added functionality.\nDo Not Modify the Original Component: Instead, they create a wrapper component with additional features.\nExample of an HOC:\n\njavascript\n\nCopy code\n\nfunction withExtraInfo(WrappedComponent) {\n  return function EnhancedComponent(props) {\n    return <WrappedComponent extraInfo=\"This is extra info\" {...props} />;\n  };\n}\n  \n// Usage\nconst EnhancedComponent = withExtraInfo(MyComponent);",
+      "isPremium": false
+    },
+    {
+      "id": 60,
+      "level": "Mid",
+      "title": "What is React.memo, and how can it be used to optimize functional components?",
+      "answer": "React.memo wraps a function component and memoizes its rendered result, so the component only re-renders when its props change (shallow comparison by default). It can reduce wasted renders in large trees or for expensive components that receive stable props. It works best together with stable references (useCallback/useMemo) to avoid recreating function/object props each render. Overusing it can hurt (extra comparisons) or hide issues if props are mutated.",
+      "isPremium": false
+    },
+    {
+      "id": 61,
+      "level": "Mid",
+      "title": "What are the equivalent hooks for common component lifecycle methods in class components?",
+      "answer": "In function components, useEffect and useLayoutEffect cover most lifecycle needs. componentDidMount maps to useEffect(() => { ... }, []) (run after first render). componentDidUpdate maps to useEffect(() => { ... }, [deps]) (run when dependencies change). componentWillUnmount maps to the cleanup function returned from an effect: useEffect(() => { return () => { ...cleanup... }; }, [deps]). For layout/read-measure-before-paint cases, useLayoutEffect runs synchronously after DOM mutations but before paint.",
+      "isPremium": false
+    },
+    {
+      "id": 62,
+      "level": "Mid",
+      "title": "What is web accessibility (a11y), and why is it important in React applications?",
+      "answer": "Web accessibility (often abbreviated as a11y, where \"a11y\" stands for \"a\" followed by 11 letters, then \"y\") refers to the inclusive practice of designing and developing websites and web applications so that they are usable by everyone, including people with disabilities. This encompasses all disabilities that affect access to the web, including auditory, cognitive, neurological, physical, speech, and visual impairments.\nImportance of Accessibility in React Applications\nLegal Compliance: Many countries have laws and regulations requiring web accessibility, and non-compliance can lead to legal repercussions.\nWider Audience Reach: Designing for accessibility naturally leads to a better user experience for all users, not just those with disabilities, thereby expanding the potential audience.\nSEO Benefits: Many accessibility practices overlap with best SEO practices, such as providing alternative text for images and ensuring clear and structured content.\nSocial Responsibility: Ensuring accessibility is part of social responsibility and inclusivity, ensuring equal access to information and functionalities on the web.",
+      "isPremium": false
+    },
+    {
+      "id": 63,
+      "level": "Mid",
+      "title": "What are ARIA attributes in React, and how can you use them to improve accessibility?",
+      "answer": "ARIA stands for Accessible Rich Internet Applications. ARIA attributes are a set of HTML attributes that can be added to elements to provide more context about the element or to modify the way the element is interpreted and interacted with by assistive technologies like screen readers. They are particularly useful for improving the accessibility of web content and web applications, especially in cases where standard HTML elements may be insufficient.\nKey Aspects of ARIA in Web Development\nRoles: Define what an element is or does (e.g., role=\"button\", role=\"navigation\").\nProperties: Provide additional information about an element’s role (e.g., aria-required=\"true\" for input fields).\nStates: Indicate the current state of interactive elements (e.g., aria-expanded=\"false\" for a collapsed accordion item).\nUsing ARIA in React\nIn React, you can use ARIA attributes in the same way as you would in regular HTML. However, it's important to follow React's camelCase naming convention for attributes.",
+      "isPremium": false
+    },
+    {
+      "id": 64,
+      "level": "Senior",
+      "title": "How can you implement lazy loading in a React application, and why is it beneficial?",
+      "answer": "Implementing Lazy Loading in React\nLazy loading in React refers to the technique of delaying the loading of non-critical resources at page load time. Instead, these resources are loaded at the moment they are needed. This can significantly improve performance, especially for larger applications. React provides built-in support for lazy loading through the React.lazy function and Suspense component.\nExample\n\njavascript\n\nCopy code\n\nconst LazyComponent = React.lazy(() => import('./LazyComponent'));\n  \nfunction App() {\n  return (\n    <div>\n      <Suspense fallback={<div>Loading...</div>}>\n        <LazyComponent />\n      </Suspense>\n    </div>\n  );\n}\nIn this example, LazyComponent will only be loaded when it is rendered for the first time. The Suspense component specifies a fallback UI (like a loading spinner) to display until LazyComponent finishes loading.\nBenefits of Lazy Loading\nImproved Initial Load Time: By loading only the essential parts of the application initially, the amount of code downloaded, parsed, and executed is reduced, leading to faster initial load times.\nReduced Memory Usage: Lazy loading can also help reduce memory usage, which can be particularly beneficial for users on low-end devices.\nBandwidth Conservation: It is especially useful for users with slow internet connections as only necessary resources are loaded initially.\nBetter User Experience: It can improve the user experience by reducing the time to interactive, meaning users can start interacting with the application more quickly.",
+      "isPremium": false
+    },
+    {
+      "id": 65,
+      "level": "Senior",
+      "title": "What is Client-Side Rendering (CSR) in React?",
+      "answer": "Client-Side Rendering (CSR) is a modern approach to rendering web applications where the content of a web page is dynamically generated using JavaScript, typically in the browser. In the context of React, it means that the majority of the application's logic, including routing, rendering components, and data fetching, is handled in the browser.\nHow Client-Side Rendering Works in React\nInitial Load: When a user first visits a React application, they download a minimal HTML page along with JavaScript files containing the React application.\nJavaScript Execution: The browser executes the JavaScript, which includes React and the application's code. React then dynamically generates the HTML of the webpage and renders the initial view in the user's browser.\nRouting and Rendering: As users interact with the application (e.g., clicking links, submitting forms), React updates the UI dynamically without requiring page reloads. This is often managed through client-side routing libraries like react-router.\nData Fetching: Any required data is fetched from APIs or other resources via AJAX calls, and the UI is updated accordingly.\nAdvantages of CSR\nRich Interactions: Allows for rich, interactive web applications. User interactions can be more fluid and responsive, as they don’t require a full page reload.\nReduced Server Load: The server's role is primarily to serve the initial application bundle and API endpoints, reducing the server load compared to traditional server-rendered applications.\nSingle Page Applications (SPAs): Enables the creation of SPAs where the page doesn't reload as users navigate the application, leading to a smoother user experience.\nDisadvantages of CSR\nInitial Load Performance: The initial load can be slower since the browser has to download, parse, and execute the JavaScript bundle before the user sees any meaningful content.\nSEO Challenges: Search engines traditionally had difficulty indexing content rendered solely on the client side, although this has improved significantly with modern search engines.\nJavaScript Dependency: Users with JavaScript disabled or with slow devices might have a suboptimal experience.",
+      "isPremium": false
+    },
+    {
+      "id": 66,
+      "level": "Senior",
+      "title": "What is Server-Side Rendering (SSR) in React?",
+      "answer": "Server-Side Rendering (SSR) in React is a technique where React components are rendered on the server, rather than in the client's browser. The server generates the full HTML for a page in response to a user's request, which is then sent to the client. The client's browser can then display the HTML content before any JavaScript has been downloaded and parsed. This is in contrast to Client-Side Rendering (CSR), where rendering occurs in the browser.\nHow SSR Works in React\nRequest Made: A user requests a webpage from the server.\nServer Renders Components: The server runs the React code to render the components into an HTML string.\nSend HTML to Browser: The server responds to the client's request with the HTML of the rendered page.\nHydration: Once the JavaScript bundle needed for React is downloaded in the client, React \"hydrates\" the server-rendered HTML. This means it attaches event handlers and allows the React app to become interactive.\nAdvantages of SSR\nImproved Initial Load Time: SSR sends a fully rendered page to the client, which can be displayed much faster, improving the perceived load time.\nSEO Benefits: Search engines can crawl server-rendered content more effectively. This is particularly beneficial for content-heavy sites and dynamic content where SEO is a concern.\nNo JavaScript Dependency for Initial Load: The initial render can be viewed even if JavaScript fails to download or execute.\nDisadvantages of SSR\nServer Load: Rendering React components on the server can increase the load and computational demand on the server.\nComplexity in Development: Implementing SSR can be more complex compared to CSR, especially when dealing with data fetching, state management, and routing.\nAdditional Time for Interactivity: While the content is viewable faster, it might take additional time for the JavaScript to be downloaded and executed for the app to become interactive.",
+      "isPremium": false
+    },
+    {
+      "id": 67,
+      "level": "Senior",
+      "title": "What is Static Site Generation (SSG) in React?",
+      "answer": "Static Site Generation (SSG) is a method in web development where HTML pages are pre-generated at build time. This approach involves generating static HTML files for each page of your site from templates or components during a build process. In the context of React, this means creating static HTML files from React components.\nHow SSG Works in React\nBuild Time: During the build process, React components are rendered to static HTML files. This usually happens on a developer's machine or in a CI/CD environment.\nPre-rendered Content: Each page of the application is pre-rendered as a static HTML file, along with a bundle of JavaScript. This includes all the content, layout, and styling.\nDeployment: These static files are then deployed to a web server or a CDN. When a user requests a page, the server directly serves the pre-generated static HTML file.\nHydration: When the JavaScript loads in the user’s browser, React takes over (a process known as hydration) to provide a fully interactive experience.\nAdvantages of SSG in React\nPerformance: Static files can be served very fast, as they do not require server-side processing or database queries at request time.\nScalability: Since the files are static, they can be distributed across multiple servers or CDNs easily, handling high traffic more effectively.\nReliability: With fewer server-side dependencies, static sites tend to be more stable and have fewer points of failure.\nSEO Optimization: Static pages are easily indexed by search engines, which can improve SEO performance.\nSecurity: With no database or server-side processes, the surface area for attacks is significantly reduced.\nUse Cases for SSG\nBlogs and Documentation Sites: Where content does not change frequently.\nMarketing Websites: To showcase products, portfolios, or company information.\nE-commerce Sites: For product listings (though dynamic functionalities will require additional client-side or server-side capabilities).",
+      "isPremium": false
+    },
+    {
+      "id": 68,
+      "level": "Senior",
+      "title": "What is Incremental Static Regeneration (ISR) in React?",
+      "answer": "ISR (commonly discussed in Next.js apps built with React) is a hybrid rendering approach where pages are generated as static HTML, but can be re-generated after deployment on a schedule or on-demand. You get the performance of static files (fast CDN delivery) while still allowing content to stay fresh without a full rebuild. Typically you set a revalidation window so the first request after expiry triggers regeneration, and subsequent requests serve the updated page.",
+      "isPremium": false
+    },
+    {
+      "id": 69,
+      "level": "Senior",
+      "title": "Discuss common strategies to improve the performance of React applications.",
+      "answer": "Start by measuring (React DevTools Profiler, web vitals) and removing unnecessary renders. Use memoization selectively (React.memo, useMemo, useCallback) and keep props stable. Split code by route/component (dynamic import, React.lazy/Suspense) and reduce bundle size. Virtualize long lists, debounce expensive input work, and avoid heavy work in render (move to memoized selectors or workers). For server data, use caching (SWR/React Query) and avoid waterfall fetches. Optimize images, avoid layout thrash, and prefer production builds with proper caching headers.",
+      "isPremium": false
+    },
+    {
+      "id": 70,
+      "level": "Senior",
+      "title": "What are Progressive Web Apps (PWAs), and how can they enhance the user experience of a React application?",
+      "answer": "Progressive Web Apps (PWAs) are a type of application software delivered through the web, built using common web technologies including HTML, CSS, and JavaScript. They are intended to work on any platform that uses a standards-compliant browser. PWAs are designed to offer an enhanced user experience by combining the best of web and mobile apps.\nKey Features of PWAs\nProgressive Enhancement: PWAs work for every user, regardless of browser choice, because they’re built with progressive enhancement as a core tenet.\nResponsive Design: They fit any form factor: desktop, mobile, tablet, or whatever is next.\nConnectivity Independent: Enhanced with service workers to work offline or on low-quality networks.\nApp-like Experience: PWAs are built on the app shell model, providing an app-like user interface and interactions.\nFresh: Always up-to-date due to the service worker update process.\nSafe: Served via HTTPS to prevent snooping and ensure content hasn’t been tampered with.\nDiscoverable: Identifiable as “applications” thanks to W3C manifests and service worker registration scope, allowing search engines to find them.\nRe-engageable: Ability to use features like push notifications to maintain engagement with the user.\nInstallable: Allow users to “keep” apps they find most useful on their home screen without the hassle of an app store.\nLinkable: Easily shareable via a URL and do not require complex installation.",
+      "isPremium": false
+    },
+    {
+      "id": 71,
+      "level": "Senior",
+      "title": "Discuss the importance of caching in React applications and how you might implement it.",
+      "answer": "Caching in React applications is a crucial strategy for improving performance and user experience. It involves storing data in a temporary storage area (cache) to efficiently reuse it on subsequent requests, thus reducing the time and resources required for rendering and data fetching.\nKey Benefits of Caching\nImproved Performance: Caching can significantly reduce loading times by storing frequently accessed data, like API responses or computed results, and reusing them without redundant calculations or network requests.\nReduced Network Load: By caching data fetched from APIs or databases, the number of network requests is reduced, which is particularly beneficial for users with slow or unstable internet connections.\nEnhanced User Experience: Faster load times and smoother interactions due to readily available data lead to a more responsive and satisfying user experience.\nCost Efficiency: Caching can reduce the load on backend services, potentially lowering server costs and bandwidth usage.\nImplementing Caching in React\nLocal State Caching\nFor temporary, per-session caching, you can store data in the component's local state or React's context API. This is suitable for data that doesn’t need to persist across sessions but should be kept during the lifecycle of a component or page.\n\njavascript\n\nCopy code\n\nconst [data, setData] = useState(() => {\n  const cachedData = sessionStorage.getItem('cacheKey');\n  return cachedData ? JSON.parse(cachedData) : null;\n});\nBrowser Storage Caching\nFor more persistent caching, browser storage mechanisms like localStorage or sessionStorage can be used. This is ideal for data that should persist across page reloads or even browser sessions.\n\njavascript\n\nCopy code\n\nconst saveToLocalStorage = (data) => {\n  localStorage.setItem('cacheKey', JSON.stringify(data));\n};\n  \nconst fetchFromLocalStorage = () => {\n  return JSON.parse(localStorage.getItem('cacheKey'));\n};\nExternal Libraries\nLibraries like React Query provide advanced data fetching and caching capabilities. These tools can automatically cache server data, revalidate it, and keep the UI in sync.\n\njavascript\n\nCopy code\n\n// Using React Query\nconst { data, isLoading } = useQuery('todos', fetchTodos);",
+      "isPremium": false
+    },
+    {
+      "id": 72,
+      "level": "Senior",
+      "title": "Discuss different caching strategies you might use to improve the performance of a React application.",
+      "answer": "Common strategies include HTTP caching (Cache-Control/ETag), CDN caching for static assets and pre-rendered pages, and browser caching via service workers (PWA) for offline/instant loads. For API data, use client-side cache layers (SWR/React Query) with stale-while-revalidate, background refetch, and deduping. Cache computed/derived UI data with memoization where it matters, but keep it scoped. For images, use responsive formats and caching + optimization (e.g., Next/Image). The key is choosing correct invalidation: time-based revalidation, event-based invalidation, or versioned assets.",
+      "isPremium": false
+    },
+    {
+      "id": 73,
+      "level": "Senior",
+      "title": "Discuss security best practices you would follow when developing a React application to protect against common vulnerabilities.",
+      "answer": "Protect Against Cross-Site Scripting (XSS)\nSanitize User Input: Never trust user input. Sanitize input to prevent XSS attacks, especially in cases where HTML content is dynamically generated.\nUse dangerouslySetInnerHTML Sparingly: This React property can render HTML strings directly and should be used cautiously. If absolutely necessary, ensure the content is sanitized.\nEscape User Input: When displaying user-generated content, ensure that it's properly escaped to prevent malicious script injection.\nHandle External URLs and Content Securely\nValidate Redirects and Links: Ensure that any external URLs or redirects in your application point to trusted sources to prevent phishing attacks.\nUse rel=\"noopener noreferrer\": When using target=\"_blank\" in anchor tags linking to external sites, also include rel=\"noopener noreferrer\" to prevent tab nabbing.\nImplement Secure Data Transmission\nUse HTTPS: Always use HTTPS to encrypt data transmitted between the client and server. This prevents man-in-the-middle (MITM) attacks.\nManage State and Authentication Securely\nDo Not Store Sensitive Data in Local Storage: Avoid storing sensitive information like JWT tokens, user credentials, or personal data in local storage. Use HTTP-only cookies for session tokens.\nUse Secure Authentication Practices: Implement authentication and session management correctly. Use established libraries or services for handling OAuth, OpenID Connect, or JWT.",
+      "isPremium": false
+    },
+    {
+      "id": 74,
+      "level": "Senior",
+      "title": "What security considerations should you keep in mind when implementing user authentication in a React application?",
+      "answer": "Secure Transmission\nUse HTTPS: Always use HTTPS to encrypt data transmitted between the client and the server. This is crucial to prevent Man-In-The-Middle (MITM) attacks.\nPassword Handling\nAvoid Storing Passwords on Client-Side: Never store plain-text passwords in your application state or local storage.\nSecure Password Transmission: Ensure passwords are sent securely to the server and are hashed and salted server-side.\nToken-Based Authentication\nJWT (JSON Web Tokens): Often used for authentication. Ensure they are securely transmitted and stored.\nToken Storage: Store tokens in a secure place. HTTP-only cookies are a safer option compared to local or session storage, as they are less susceptible to XSS attacks.\nToken Expiry: Implement token expiration to reduce the risk of token theft and misuse.\nOAuth and Third-Party Authentication\nUse Trusted Libraries: For OAuth or other third-party authentication methods, use well-established libraries.\nValidate OAuth Tokens: On the server side, validate OAuth tokens and only grant access after proper verification.",
+      "isPremium": false
+    },
+    {
+      "id": 75,
+      "level": "Senior",
+      "title": "What is the difference between Element and Component?",
+      "answer": "A React element is an immutable description of what you want to see on screen (a plain object produced by JSX/React.createElement). A React component is a function (or class) that takes props (and may use state/hooks) and returns elements. Components are the reusable building blocks; elements are the instances/outputs that React reconciles and renders.",
+      "isPremium": false
+    },
+    {
+      "id": 76,
+      "level": "Senior",
+      "title": "Discuss the importance of internationalization (i18n) and localization in a React application, and how would you implement it?",
+      "answer": "Internationalization (i18n) and localization are crucial for reaching a diverse global audience with your React application. i18n allows you to support multiple languages and adapt your content to various cultural contexts, improving user engagement and accessibility.\nTo implement i18n in a React app, you can use libraries like react-intl or i18next, which provide tools for translating text, formatting dates, numbers, and handling language-specific components, ensuring a seamless and culturally relevant user experience.",
+      "isPremium": false
+    },
+    {
+      "id": 77,
+      "level": "Senior",
+      "title": "Exlplain hydration in React.",
+      "answer": "In React, \"hydration\" is a term used in the context of server-side rendering (SSR). It refers to the process of taking a server-rendered HTML document and re-rendering it into a fully interactive React application on the client side. Here's a detailed look at how hydration works:\nServer-Side Rendering (SSR) and Hydration\nInitial Server Render:\nThe React application is first rendered on the server.\nThis process generates the HTML markup of the app's initial state.\nThe rendered output is sent to the client (browser) along with the JavaScript bundle.\nHydration on the Client:\nOnce the server-rendered HTML is loaded in the browser, the React JavaScript bundle also starts to load.\nReact \"hydrates\" this HTML, attaching event listeners and enabling interactivity. This process turns a static HTML page into a dynamic React application.\nDuring hydration, React preserves the server-rendered markup and only attaches event handlers, thus avoiding a full re-render.",
+      "isPremium": false
+    },
+    {
+      "id": 78,
+      "level": "Senior",
+      "title": "How to facilitate real-time communication in React applications?",
+      "answer": "Facilitating real-time communication in React applications can be achieved through various techniques and technologies, primarily focused on establishing a persistent, two-way connection between the client and server. This enables the application to send and receive data in real-time, providing a dynamic and interactive user experience. Here are some common methods to implement real-time communication:\nWebSockets\nDescription: WebSockets provide a full-duplex communication channel over a single, long-lived connection, allowing for real-time data flow between the client and server.\nImplementation: You can use libraries like socket.io or native WebSocket API in both your React front-end and the server.\nUse Cases: Chat applications, real-time notifications, live data feeds (like stock prices), collaborative editing tools, etc.\nServer-Sent Events (SSE)\nDescription: Server-Sent Events enable servers to push data to the client. Unlike WebSockets, SSEs are one-way from the server to the client.\nImplementation: Use EventSource interface in the browser to receive SSEs.\nUse Cases: Real-time updates where data flows primarily from server to client, such as news feeds or live analytics.\nPolling and Long Polling\nDescription: Polling involves regularly requesting data from a server at fixed intervals. Long polling is a variation where the server holds the request open until new data is available.\nImplementation: Regular HTTP requests can be used. Set intervals using setInterval in your React component, or use axios or fetch for making requests.\nUse Cases: Situations where real-time updates are not critical and can tolerate some delays.\nGraphQL Subscriptions\nDescription: For applications using GraphQL, subscriptions provide a way to push real-time data to clients that subscribe to specific events.\nImplementation: Libraries like Apollo Client for GraphQL support subscriptions.\nUse Cases: Real-time updates in GraphQL-based applications.\nFirebase and Other BaaS\nDescription: Backend as a Service (BaaS) platforms like Firebase offer real-time database solutions.\nImplementation: Integrate Firebase with your React application using Firebase SDK.\nUse Cases: Real-time data synchronization, shared user experience, real-time messaging.",
+      "isPremium": false
+    }
+  ]
+}

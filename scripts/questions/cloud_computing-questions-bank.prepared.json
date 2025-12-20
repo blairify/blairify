@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Cloud Computing, and what are its",
       "description": "What is Cloud Computing, and what are its key service models?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Cloud Computing, and what are its key service models?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -38,8 +42,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -56,7 +60,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cloud-computing-questions-bank-2",
@@ -64,7 +68,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Infrastructure as a Service (IaaS).",
       "description": "Explain Infrastructure as a Service (IaaS).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Infrastructure as a Service (IaaS).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -121,7 +129,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Platform as a Service (PaaS).",
       "description": "Explain Platform as a Service (PaaS).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Platform as a Service (PaaS).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -179,7 +191,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Software as a Service (SaaS).",
       "description": "Explain Software as a Service (SaaS).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Software as a Service (SaaS).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -236,7 +252,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The advantages of Cloud Computing",
       "description": "What are the advantages of Cloud Computing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages of Cloud Computing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -292,7 +312,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The disadvantages of Cloud Computing",
       "description": "What are the disadvantages of Cloud Computing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the disadvantages of Cloud Computing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -348,7 +372,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The differences between horizontal and vertical",
       "description": "Explain the differences between horizontal and vertical scaling. When would you use each?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between horizontal and vertical scaling. When would you use each?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -405,7 +433,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between cloud orchestration and",
       "description": "What is the difference between cloud orchestration and automation?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between cloud orchestration and automation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -435,8 +467,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -453,7 +485,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cloud-computing-questions-bank-9",
@@ -461,7 +493,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The CAP theorem, and how does",
       "description": "What is the CAP theorem, and how does it relate to cloud-based distributed systems?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the CAP theorem, and how does it relate to cloud-based distributed systems?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -491,8 +527,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -509,7 +545,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "cloud-computing-questions-bank-10",
@@ -517,7 +553,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "High Availability (HA) in cloud computing,",
       "description": "What is High Availability (HA) in cloud computing, and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is High Availability (HA) in cloud computing, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -548,8 +588,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -566,7 +606,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cloud-computing-questions-bank-11",
@@ -574,7 +614,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of cloud security groups",
       "description": "Explain the concept of cloud security groups and how they are used in cloud environments.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of cloud security groups and how they are used in cloud environments.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -632,7 +676,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The benefits, downsides, and use cases",
       "description": "Explain the benefits, downsides, and use cases of serverless computing.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the benefits, downsides, and use cases of serverless computing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -689,7 +737,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Cloud-native development, and how does it",
       "description": "What is Cloud-native development, and how does it differ from traditional application development?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Cloud-native development, and how does it differ from traditional application development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -720,8 +772,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -738,7 +790,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cloud-computing-questions-bank-14",
@@ -746,7 +798,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A CDN (Content Delivery Network), and",
       "description": "What is a CDN (Content Delivery Network), and why is it used in cloud applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a CDN (Content Delivery Network), and why is it used in cloud applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -777,8 +833,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -795,7 +851,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cloud-computing-questions-bank-15",
@@ -803,7 +859,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The principles of cost optimization in",
       "description": "Explain the principles of cost optimization in cloud computing.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the principles of cost optimization in cloud computing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -860,7 +920,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The key components of a cloud",
       "description": "What are the key components of a cloud architecture?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key components of a cloud architecture?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -916,7 +980,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of auto-scaling in cloud",
       "description": "Explain the concept of auto-scaling in cloud computing.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of auto-scaling in cloud computing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -973,7 +1041,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The differences between public, private, and",
       "description": "Describe the differences between public, private, and hybrid clouds.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the differences between public, private, and hybrid clouds.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1029,7 +1101,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The advantages of using containerization (e.g.,",
       "description": "What are the advantages of using containerization (e.g., Docker) in a cloud environment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages of using containerization (e.g., Docker) in a cloud environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1086,7 +1162,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of microservices architecture and",
       "description": "Explain the concept of microservices architecture and its advantages in cloud-native applications.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of microservices architecture and its advantages in cloud-native applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1144,7 +1224,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A Virtual Private Cloud (VPC)",
       "description": "What is a Virtual Private Cloud (VPC)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Virtual Private Cloud (VPC)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1174,8 +1258,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -1192,7 +1276,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cloud-computing-questions-bank-22",
@@ -1200,7 +1284,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The key differences between stateful and",
       "description": "What are the key differences between stateful and stateless applications in cloud computing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key differences between stateful and stateless applications in cloud computing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1257,7 +1345,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Give an example of open-source Cloud",
       "description": "Give an example of open-source Cloud Computing.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Give an example of open-source Cloud Computing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1313,7 +1405,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The cloud storage levels",
       "description": "What are the cloud storage levels?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the cloud storage levels?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1369,7 +1465,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Discuss the importance of identity and",
       "description": "Discuss the importance of identity and access management (IAM) in cloud security.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the importance of identity and access management (IAM) in cloud security.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1426,7 +1526,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A cloud service broker, and how",
       "description": "What is a cloud service broker, and how does it add value to cloud consumers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a cloud service broker, and how does it add value to cloud consumers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1456,8 +1560,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -1474,7 +1578,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cloud-computing-questions-bank-27",
@@ -1482,7 +1586,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The term \"multi-cloud\" and the benefits",
       "description": "Explain the term \"multi-cloud\" and the benefits of adopting a multi-cloud strategy.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the term \"multi-cloud\" and the benefits of adopting a multi-cloud strategy.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1539,7 +1647,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A Distributed Cloud",
       "description": "What is a Distributed Cloud?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Distributed Cloud?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1569,8 +1681,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -1587,7 +1699,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "cloud-computing-questions-bank-29",
@@ -1595,7 +1707,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Meant by Edge Computing, and how",
       "description": "What is meant by Edge Computing, and how is it related to the cloud?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is meant by Edge Computing, and how is it related to the cloud?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1625,8 +1741,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -1643,7 +1759,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cloud-computing-questions-bank-30",
@@ -1651,7 +1767,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of \"cold,\" \"warm,\" and",
       "description": "Explain the concept of \"cold,\" \"warm,\" and \"hot\" storage tiers in cloud storage.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"cold,\" \"warm,\" and \"hot\" storage tiers in cloud storage.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1708,7 +1828,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Discuss the differences between cold start",
       "description": "Discuss the differences between cold start and warm start in serverless computing, and how can cold start latency be minimized?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the differences between cold start and warm start in serverless computing, and how can cold start latency be minimized?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1738,8 +1862,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -1756,7 +1880,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "cloud-computing-questions-bank-32",
@@ -1764,7 +1888,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The importance of compliance and data",
       "description": "Explain the importance of compliance and data governance in cloud computing.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the importance of compliance and data governance in cloud computing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1821,7 +1949,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The use of cloud monitoring and",
       "description": "Describe the use of cloud monitoring and logging for operational excellence in cloud environments.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the use of cloud monitoring and logging for operational excellence in cloud environments.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1877,7 +2009,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The role of load balancing in",
       "description": "Describe the role of load balancing in cloud architecture and its types.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the role of load balancing in cloud architecture and its types.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1907,8 +2043,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -1925,7 +2061,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "cloud-computing-questions-bank-35",
@@ -1933,7 +2069,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The process of data backup and",
       "description": "Describe the process of data backup and disaster recovery in cloud computing.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the process of data backup and disaster recovery in cloud computing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1989,7 +2129,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A cloud service-level agreement (SLA)",
       "description": "What is a cloud service-level agreement (SLA)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a cloud service-level agreement (SLA)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2019,8 +2163,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -2037,7 +2181,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     },
     {
       "id": "cloud-computing-questions-bank-37",
@@ -2045,7 +2189,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The shared responsibility model in cloud",
       "description": "What is the shared responsibility model in cloud security?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the shared responsibility model in cloud security?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2077,8 +2225,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -2095,7 +2243,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "cloud-computing-questions-bank-38",
@@ -2103,7 +2251,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of cloud-native DevOps and",
       "description": "Explain the concept of cloud-native DevOps and its role in the software development lifecycle.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of cloud-native DevOps and its role in the software development lifecycle.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2160,7 +2312,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The key challenges associated with cloud",
       "description": "What are the key challenges associated with cloud migration, and how can they be mitigated?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key challenges associated with cloud migration, and how can they be mitigated?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2217,7 +2373,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Containers as a Service (CaaS)",
       "description": "What is Containers as a Service (CaaS)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Containers as a Service (CaaS)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2248,8 +2408,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:57:44.909Z",
       "updatedAt": "2025-12-19T17:57:44.909Z",
@@ -2266,7 +2426,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     }
   ],
   "truefalse_questions": [],

@@ -36,8 +36,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -53,7 +53,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-2",
@@ -108,7 +109,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-3",
@@ -145,8 +147,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -162,7 +164,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-4",
@@ -216,7 +219,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-5",
@@ -271,7 +275,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-6",
@@ -309,8 +314,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -326,7 +331,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-7",
@@ -380,7 +386,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-8",
@@ -437,7 +444,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-9",
@@ -474,8 +482,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -491,7 +499,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-10",
@@ -528,8 +537,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -545,7 +554,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-11",
@@ -583,8 +593,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -600,7 +610,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-12",
@@ -654,7 +665,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-13",
@@ -709,7 +721,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-14",
@@ -746,8 +759,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -763,7 +776,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-15",
@@ -800,8 +814,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -817,7 +831,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-16",
@@ -872,7 +887,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-17",
@@ -927,7 +943,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-18",
@@ -965,8 +982,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -982,7 +999,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-19",
@@ -1019,8 +1037,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -1036,7 +1054,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-20",
@@ -1090,7 +1109,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-21",
@@ -1128,8 +1148,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -1145,7 +1165,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-22",
@@ -1200,7 +1221,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-23",
@@ -1237,8 +1259,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -1254,7 +1276,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-24",
@@ -1311,7 +1334,8 @@
             "Concrete prevention/mitigation techniques"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     },
     {
       "id": "aspnet-core-questions-bank-25",
@@ -1366,7 +1390,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-26",
@@ -1421,7 +1446,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-27",
@@ -1477,7 +1503,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-28",
@@ -1532,7 +1559,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-29",
@@ -1570,8 +1598,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -1587,7 +1615,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-30",
@@ -1642,7 +1671,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-31",
@@ -1697,7 +1727,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-32",
@@ -1751,7 +1782,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-33",
@@ -1788,8 +1820,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -1805,7 +1837,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-34",
@@ -1843,8 +1876,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -1860,7 +1893,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-35",
@@ -1915,7 +1949,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-36",
@@ -1958,8 +1993,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -1974,7 +2009,8 @@
             "Concrete prevention/mitigation techniques"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-37",
@@ -2030,7 +2066,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-38",
@@ -2085,7 +2122,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-39",
@@ -2140,7 +2178,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-40",
@@ -2195,7 +2234,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-41",
@@ -2236,8 +2276,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -2253,7 +2293,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-42",
@@ -2308,7 +2349,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-43",
@@ -2362,7 +2404,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-44",
@@ -2417,7 +2460,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-45",
@@ -2457,8 +2501,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -2474,7 +2518,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-46",
@@ -2530,7 +2575,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-47",
@@ -2568,8 +2614,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -2585,7 +2631,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-48",
@@ -2641,7 +2688,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-49",
@@ -2698,7 +2746,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-50",
@@ -2753,7 +2802,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-51",
@@ -2808,7 +2858,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-52",
@@ -2846,8 +2897,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -2863,7 +2914,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-53",
@@ -2919,7 +2971,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-54",
@@ -2974,7 +3027,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-55",
@@ -3013,8 +3067,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -3030,7 +3084,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-56",
@@ -3085,7 +3140,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-57",
@@ -3143,7 +3199,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-58",
@@ -3182,8 +3239,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -3199,7 +3256,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-59",
@@ -3237,8 +3295,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -3254,7 +3312,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-60",
@@ -3294,13 +3353,14 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
-      "referenceAnswers": null
+      "referenceAnswers": null,
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-61",
@@ -3354,7 +3414,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-62",
@@ -3393,8 +3454,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
@@ -3409,7 +3470,8 @@
             "Give a practical example"
           ]
         }
-      ]
+      ],
+      "difficulty": "entry"
     },
     {
       "id": "aspnet-core-questions-bank-63",
@@ -3464,7 +3526,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-64",
@@ -3520,7 +3583,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-65",
@@ -3575,7 +3639,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-66",
@@ -3632,7 +3697,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-67",
@@ -3689,7 +3755,8 @@
             "Mention a common pitfall or best practice"
           ]
         }
-      ]
+      ],
+      "difficulty": "junior"
     },
     {
       "id": "aspnet-core-questions-bank-68",
@@ -3731,6 +3798,7 @@
         "competitive"
       ],
       "seniorityLevels": [
+        "mid",
         "senior"
       ],
       "createdAt": "2025-12-19T17:46:48.756Z",
@@ -3746,7 +3814,8 @@
             "Concrete prevention/mitigation techniques"
           ]
         }
-      ]
+      ],
+      "difficulty": "mid"
     }
   ],
   "truefalse_questions": [],

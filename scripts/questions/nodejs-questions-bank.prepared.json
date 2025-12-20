@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Node.js",
       "description": "What is Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -36,8 +40,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -54,7 +58,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-2",
@@ -62,7 +66,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Some key characteristics of Node.js",
       "description": "What are some key characteristics of Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some key characteristics of Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -117,7 +125,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between Node.js and JavaScript",
       "description": "What is the difference between Node.js and JavaScript?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Node.js and JavaScript?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -146,8 +158,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -164,7 +176,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-4",
@@ -172,7 +184,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Mention some benefits of using Node.js.",
       "description": "Mention some benefits of using Node.js.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Mention some benefits of using Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -227,7 +243,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Mention some disadvantages of using Node.js.",
       "description": "Mention some disadvantages of using Node.js.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Mention some disadvantages of using Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -282,7 +302,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The package.json file",
       "description": "What is the package.json file?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the package.json file?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -311,8 +335,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -329,7 +353,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-7",
@@ -337,7 +361,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "NODE_ENV used for",
       "description": "What is NODE_ENV used for?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is NODE_ENV used for?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -366,8 +394,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -384,7 +412,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-8",
@@ -392,7 +420,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "NPM",
       "description": "What is NPM?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is NPM?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -421,8 +453,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -439,7 +471,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-9",
@@ -447,7 +479,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The modules in Node.js",
       "description": "What are the modules in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the modules in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -502,7 +538,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You describe the term I/O",
       "description": "How would you describe the term I/O?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How would you describe the term I/O?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -557,7 +597,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Node.js Single-threaded",
       "description": "Why is Node.js Single-threaded?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Why is Node.js Single-threaded?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -612,7 +656,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "If Node.js is single-threaded, then how",
       "description": "If Node.js is single-threaded, then how does it handle concurrency?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"If Node.js is single-threaded, then how does it handle concurrency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -642,8 +690,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -660,7 +708,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "nodejs-questions-bank-13",
@@ -668,7 +716,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Event loop",
       "description": "What is the event loop in Node.js?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the event loop in Node.js?\" Requirements: - Call stack + task queue + microtask queue - Why JS is non-blocking despite single-threaded execution Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -700,8 +752,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -717,7 +769,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "nodejs-questions-bank-14",
@@ -725,7 +777,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es event-driven programming mean",
       "description": "What does event-driven programming mean?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does event-driven programming mean?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -780,7 +836,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "An EventEmitter in Node.js",
       "description": "What is an EventEmitter in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an EventEmitter in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -809,8 +869,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -827,7 +887,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-16",
@@ -835,7 +895,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between process.nextTick() and setImmediate()",
       "description": "What is the difference between process.nextTick() and setImmediate()?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between process.nextTick() and setImmediate()?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -864,8 +928,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -882,7 +946,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-17",
@@ -890,7 +954,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Non-blocking in Node.js.",
       "description": "Explain non-blocking in Node.js.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain non-blocking in Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -946,7 +1014,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A callback in Node.js",
       "description": "What is a callback in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a callback in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -975,8 +1047,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -993,7 +1065,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-19",
@@ -1001,7 +1073,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Promises",
       "description": "What are the advantages of using promises instead of callbacks?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What are the advantages of using promises instead of callbacks?\" Requirements: - Promise states: pending/fulfilled/rejected - Chaining and error handling - Relationship to async/await (if relevant) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1034,8 +1110,8 @@
         "competitive"
       ],
       "seniorityLevels": [
-        "mid",
-        "senior"
+        "junior",
+        "mid"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -1052,7 +1128,7 @@
           ]
         }
       ],
-      "difficulty": "mid"
+      "difficulty": "junior"
     },
     {
       "id": "nodejs-questions-bank-20",
@@ -1060,7 +1136,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "“callback hell” and how can it",
       "description": "What is “callback hell” and how can it be avoided?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is “callback hell” and how can it be avoided?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1089,8 +1169,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -1107,7 +1187,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-21",
@@ -1115,7 +1195,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "REPL in Node.js.",
       "description": "Explain REPL in Node.js.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain REPL in Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1171,7 +1255,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The syntax to import external libraries",
       "description": "What is the syntax to import external libraries into Node.js projects?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the syntax to import external libraries into Node.js projects?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1200,8 +1288,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -1218,7 +1306,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-23",
@@ -1226,7 +1314,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some of the most commonly",
       "description": "Name some of the most commonly used libraries in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some of the most commonly used libraries in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1281,7 +1373,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You create a simple Express.js application",
       "description": "How do you create a simple Express.js application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you create a simple Express.js application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1337,7 +1433,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Routing in Express.",
       "description": "Explain routing in Express.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain routing in Express.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1393,7 +1493,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The reason as to why Express",
       "description": "Explain the reason as to why Express ‘app’ and ‘server’ must be kept separate.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the reason as to why Express ‘app’ and ‘server’ must be kept separate.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1450,7 +1554,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The exit codes of Node.js.",
       "description": "Describe the exit codes of Node.js.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the exit codes of Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1505,7 +1613,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Control flow in Node.js.",
       "description": "Explain control flow in Node.js.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain control flow in Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1561,7 +1673,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Typically the first argument passed to",
       "description": "What is typically the first argument passed to a Node.js callback handler?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is typically the first argument passed to a Node.js callback handler?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1590,8 +1706,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -1608,7 +1724,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-30",
@@ -1616,7 +1732,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between Asynchronous and Non-blocking",
       "description": "What is the difference between Asynchronous and Non-blocking?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Asynchronous and Non-blocking?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1645,8 +1765,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -1663,7 +1783,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-31",
@@ -1671,7 +1791,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You understand by a test pyramid",
       "description": "What do you understand by a test pyramid?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What do you understand by a test pyramid?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1726,7 +1850,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "ESLint",
       "description": "What is ESLint?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is ESLint?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1755,8 +1883,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -1773,7 +1901,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-33",
@@ -1781,7 +1909,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Meant by tracing in Node.js",
       "description": "What is meant by tracing in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is meant by tracing in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1810,8 +1942,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -1828,7 +1960,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-34",
@@ -1836,7 +1968,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The use of module.exports in Node.js",
       "description": "What is the use of module.exports in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of module.exports in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1865,8 +2001,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -1883,7 +2019,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-35",
@@ -1891,7 +2027,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The purpose of the fs module",
       "description": "What is the purpose of the fs module?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the fs module?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -1920,8 +2060,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -1938,7 +2078,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-36",
@@ -1946,7 +2086,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "To write to files in Node.js",
       "description": "How to write to files in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How to write to files in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2001,7 +2145,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Stubs in Node.js",
       "description": "What are stubs in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are stubs in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2056,7 +2204,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Global objects in Node.js",
       "description": "What are global objects in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are global objects in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2111,7 +2263,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Middleware used in Node.js",
       "description": "How is middleware used in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How is middleware used in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2166,7 +2322,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Briefly explain how the V8 engine",
       "description": "Briefly explain how the V8 engine relates to Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Briefly explain how the V8 engine relates to Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2222,7 +2382,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Streams in Node.js",
       "description": "What are streams in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are streams in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2277,7 +2441,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The difference between fork() and spawn()",
       "description": "What is the difference between fork() and spawn() methods in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between fork() and spawn() methods in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2306,8 +2474,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -2324,7 +2492,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-43",
@@ -2332,7 +2500,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The Buffer class in Node.js",
       "description": "What is the Buffer class in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Buffer class in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2361,8 +2533,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -2379,7 +2551,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-44",
@@ -2387,7 +2559,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Piping in Node.js",
       "description": "What is piping in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is piping in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2416,8 +2592,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:41:28.046Z",
       "updatedAt": "2025-12-19T17:41:28.046Z",
@@ -2434,7 +2610,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "nodejs-questions-bank-45",
@@ -2442,7 +2618,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es Node.js handle the child threads",
       "description": "How does Node.js handle the child threads?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Node.js handle the child threads?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2497,7 +2677,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Es Node.js support multi-processor platforms, and",
       "description": "How does Node.js support multi-processor platforms, and does it fully utilize all processor resources?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Node.js support multi-processor platforms, and does it fully utilize all processor resources?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2553,7 +2737,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Libuv.",
       "description": "Explain libuv.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain libuv.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2609,7 +2797,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The concept of Punycode in Node.js",
       "description": "Explain the concept of Punycode in Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Punycode in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2665,7 +2857,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some security implementations within Node.js",
       "description": "Name some security implementations within Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some security implementations within Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -2721,7 +2917,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Is it possible to run external",
       "description": "Is it possible to run external processes with Node.js?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Is it possible to run external processes with Node.js?\" Requirements: - Answer the question directly, then explain - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",

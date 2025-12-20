@@ -7,7 +7,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Caching",
       "description": "What is caching?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is caching?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -36,8 +40,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:49:58.917Z",
       "updatedAt": "2025-12-19T17:49:58.917Z",
@@ -54,7 +58,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "caching-questions-bank-2",
@@ -62,7 +66,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some common tools used for",
       "description": "Name some common tools used for caching?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some common tools used for caching?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -117,7 +125,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A cache key and how is",
       "description": "What is a cache key and how is it used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a cache key and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -146,8 +158,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:49:58.917Z",
       "updatedAt": "2025-12-19T17:49:58.917Z",
@@ -164,7 +176,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "caching-questions-bank-4",
@@ -172,7 +184,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "A cache miss",
       "description": "What is a cache miss?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a cache miss?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -201,8 +217,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:49:58.917Z",
       "updatedAt": "2025-12-19T17:49:58.917Z",
@@ -219,7 +235,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "caching-questions-bank-5",
@@ -227,7 +243,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Cache invalidation",
       "description": "What is cache invalidation?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is cache invalidation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -256,8 +276,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:49:58.917Z",
       "updatedAt": "2025-12-19T17:49:58.917Z",
@@ -274,7 +294,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "caching-questions-bank-6",
@@ -282,7 +302,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some cache invalidation strategies.",
       "description": "Name some cache invalidation strategies.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some cache invalidation strategies.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -337,7 +361,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "The impact of cache size on",
       "description": "Describe the impact of cache size on performance.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Describe the impact of cache size on performance.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -394,7 +422,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some common scenarios when caching",
       "description": "Name some common scenarios when caching should be used.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some common scenarios when caching should be used.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -450,7 +482,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "List the steps involved in implementing",
       "description": "List the steps involved in implementing a basic cache system.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"List the steps involved in implementing a basic cache system.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -479,8 +515,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:49:58.917Z",
       "updatedAt": "2025-12-19T17:49:58.917Z",
@@ -497,7 +533,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "caching-questions-bank-10",
@@ -505,7 +541,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Some common cache writing strategies",
       "description": "What are some common cache writing strategies?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some common cache writing strategies?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -560,7 +600,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "enterprise",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Cache replacement",
       "description": "What is cache replacement?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is cache replacement?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -589,8 +633,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "entry",
+        "junior"
       ],
       "createdAt": "2025-12-19T17:49:58.917Z",
       "updatedAt": "2025-12-19T17:49:58.917Z",
@@ -607,7 +651,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "entry"
     },
     {
       "id": "caching-questions-bank-12",
@@ -615,7 +659,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "startup",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name situations when to use different",
       "description": "Name situations when to use different replacement strategies?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name situations when to use different replacement strategies?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -670,7 +718,11 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": "faang",
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "You handle cache synchronization in a",
       "description": "How would you handle cache synchronization in a distributed environment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How would you handle cache synchronization in a distributed environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
@@ -699,8 +751,8 @@
         "teacher"
       ],
       "seniorityLevels": [
-        "junior",
-        "mid"
+        "mid",
+        "senior"
       ],
       "createdAt": "2025-12-19T17:49:58.917Z",
       "updatedAt": "2025-12-19T17:49:58.917Z",
@@ -717,7 +769,7 @@
           ]
         }
       ],
-      "difficulty": "junior"
+      "difficulty": "mid"
     }
   ],
   "truefalse_questions": [],
