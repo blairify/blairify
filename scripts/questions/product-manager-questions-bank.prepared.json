@@ -1,0 +1,317 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "product-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "entry",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "DOM",
+      "description": "What is a Product Requirements Document (PRD) and how does it guide an agile team?",
+      "prompt": "You are evaluating a entry-level candidate. Answer the question: \"What is a Product Requirements Document (PRD) and how does it guide an agile team?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "product",
+      "subtopics": [
+        "dom"
+      ],
+      "tags": [
+        "dom"
+      ],
+      "estimatedTimeMinutes": 5,
+      "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior"
+      ],
+      "createdAt": "2025-12-20T01:25:00.000Z",
+      "updatedAt": "2025-12-20T01:25:00.000Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-1-ref-1",
+          "text": "A PRD captures the user problem, goal, scope, requirements, and success metrics so every discipline knows why we are building something. Typical sections include context, personas, problem statement, success metrics, functional requirements, non-functional constraints, open questions, and rollout plan. In agile teams it keeps designers, engineers, and QA aligned while sprints are executed. A common pitfall is treating the PRD as static—when discovery insights change but the PRD doesn't, teams build the wrong thing.",
+          "weight": 1,
+          "keyPoints": [
+            "Explain in the browser runtime context",
+            "Give a practical example"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "product-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "You apply prioritization frameworks like RICE",
+      "description": "How do you apply prioritization frameworks like RICE or MoSCoW when roadmap resources are constrained?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you apply prioritization frameworks like RICE or MoSCoW when roadmap resources are constrained?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "product",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-20T01:25:00.000Z",
+      "updatedAt": "2025-12-20T01:25:00.000Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-2-ref-1",
+          "text": "RICE multiplies Reach, Impact, and Confidence, then divides by Effort to produce a comparable score. Each input needs real data: weekly active users, expected lift, confidence bands, and engineering t-shirt sizes converted to person-weeks. After ranking, I discuss the portfolio with design/engineering leads to verify assumptions and communicate the top picks plus what falls below the cut line. A pitfall is letting stakeholders inflate Reach or Impact to force their projects up the list, so I require sources for each assumption and publish the scoring sheet for transparency.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "product-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You define and maintain a North",
+      "description": "How do you define and maintain a North Star metric for a mature product?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you define and maintain a North Star metric for a mature product?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "product",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-20T01:25:00.000Z",
+      "updatedAt": "2025-12-20T01:25:00.000Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-3-ref-1",
+          "text": "A North Star metric represents long-term user value and is stable enough to guide teams. I ensure it captures both engagement and value (e.g., \"weekly teams that complete a collaborative session\" instead of \"MAU\"). Supporting metrics such as activation, retention, monetization, and quality ladder up via a scorecard reviewed monthly with analytics and functional leads. When experiments show the metric no longer correlates with revenue or satisfaction, we run a retrospective, test candidate replacements, and socialize the change before resetting OKRs. Without this governance the org optimizes vanity metrics.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "product-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "How you handle conflicting requests from",
+      "description": "Describe how you handle conflicting requests from Sales and Customer Success without derailing roadmap focus.?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Describe how you handle conflicting requests from Sales and Customer Success without derailing roadmap focus.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "product",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-20T01:25:00.000Z",
+      "updatedAt": "2025-12-20T01:25:00.000Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-4-ref-1",
+          "text": "I gather the requests, quantify the user impact (pipeline at risk, ARR retention, NRR expansion), and map them to roadmap themes. If both cannot fit, I run a short decision doc summarizing data, options, and trade-offs, then convene Sales, CS, and Eng leadership for a call. We commit to one path, document the rationale, and share it in the GTM newsletter. To prevent trust erosion I also schedule follow-ups showing progress or re-evaluating when assumptions change. The key is transparent data, documented decisions, and predictable revisit cadences.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "product-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "senior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "You balance investment between platform initiatives",
+      "description": "How do you balance investment between platform initiatives and near-term feature bets when leading a multi-product portfolio?",
+      "prompt": "You are evaluating a senior-level candidate. Answer the question: \"How do you balance investment between platform initiatives and near-term feature bets when leading a multi-product portfolio?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "product",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 12,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "senior"
+      ],
+      "createdAt": "2025-12-20T01:25:00.000Z",
+      "updatedAt": "2025-12-20T01:25:00.000Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-5-ref-1",
+          "text": "I segment the portfolio into Horizons 1/2/3 and set guardrails such as 55% core feature work, 30% platform/scale, 15% explorations. Platform initiatives require stage gates tied to developer productivity metrics or infra savings, while feature bets tie to revenue or engagement OKRs. Quarterly I run an ROI review comparing committed benefits vs. realized metrics and shift capacity accordingly. To mitigate risk I build kill criteria and dual-track discovery so that if a platform bet stalls we already have validated feature work to backfill.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "product-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "senior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You introduce a product operations function,",
+      "description": "When should you introduce a product operations function, and how does it change PM rituals?",
+      "prompt": "You are evaluating a senior-level candidate. Answer the question: \"When should you introduce a product operations function, and how does it change PM rituals?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "product",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 12,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "product"
+      ],
+      "primaryTechStack": [
+        "product"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "senior"
+      ],
+      "createdAt": "2025-12-20T01:25:00.000Z",
+      "updatedAt": "2025-12-20T01:25:00.000Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "product-questions-bank-6-ref-1",
+          "text": "I introduce product operations when PM headcount passes ~10, launch volume outpaces existing tooling, or we see inconsistent rituals across squads. Product ops owns tooling, launch readiness, experiment hygiene, and centralized insights. After the function launches we standardize quarterly planning templates, introduce shared launch checklists, and run weekly analytics office hours. Success is measured through faster PRD-to-launch cycle time, forecast accuracy, and PM time reclaimed for discovery. Without this, PMs spend half their week chasing status updates instead of talking to customers.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

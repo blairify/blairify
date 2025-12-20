@@ -1,0 +1,2858 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "gcp-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The key services offered by Google",
+      "description": "Explain the key services offered by Google Cloud Platform (GCP).?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the key services offered by Google Cloud Platform (GCP).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-1-ref-1",
+          "text": "GCP provides a comprehensive set of cloud services, including computing, storage, databases, machine learning, networking, and more. Some core services include Compute Engine, Cloud Storage, BigQuery, Pub/Sub, Kubernetes Engine, and Cloud Functions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between Google Cloud Platform",
+      "description": "Explain the difference between Google Cloud Platform (GCP), Amazon Web Services (AWS), and Microsoft Azure.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Google Cloud Platform (GCP), Amazon Web Services (AWS), and Microsoft Azure.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-2-ref-1",
+          "text": "GCP, AWS, and Azure are major cloud service providers. The key differences lie in their service offerings, pricing models, and global infrastructure. GCP focuses on data analytics and machine learning, emphasizing its data capabilities. AWS is known for its extensive service portfolio, while Azure is integrated with Microsoft products and services.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Google Cloud Functions, and when would",
+      "description": "What is Google Cloud Functions, and when would you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Functions, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-3-ref-1",
+          "text": "Google Cloud Functions is a serverless compute service that lets you run code in response to various events. You'd use it for building small, single-purpose functions that are triggered by events like HTTP requests, Cloud Pub/Sub messages, or changes in Cloud Storage.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of Google Cloud Functions",
+      "description": "Explain the concept of Google Cloud Functions Triggers and how they work.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Google Cloud Functions Triggers and how they work.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-4-ref-1",
+          "text": "Google Cloud Functions can be triggered by various events such as HTTP requests, Cloud Pub/Sub messages, or changes in Cloud Storage. Triggers define the event source that invokes the function. For example, an HTTP trigger is invoked when an HTTP request is received.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A scenario where you would use",
+      "description": "Describe a scenario where you would use Google Cloud Endpoints.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe a scenario where you would use Google Cloud Endpoints.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-5-ref-1",
+          "text": "Google Cloud Endpoints is used for building, deploying, and managing APIs on GCP. It's particularly useful when you want to create RESTful APIs for your applications and need features like authentication, monitoring, and logging.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of serverless computing in",
+      "description": "Explain the concept of serverless computing in GCP.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of serverless computing in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-6-ref-1",
+          "text": "Serverless computing in GCP refers to the use of services like Google Cloud Functions or Cloud Run, where you write and deploy code without managing the underlying infrastructure. These services automatically scale based on demand and charge you only for the resources used.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "How you can implement load balancing",
+      "description": "Explain how you can implement load balancing in GCP.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can implement load balancing in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-7-ref-1",
+          "text": "GCP offers various load balancing options, including HTTP(S) Load Balancing for web traffic, Network Load Balancing for TCP/UDP traffic, and Internal Load Balancing for internal services. These load balancers distribute incoming traffic across multiple backend instances to ensure high availability and scalability.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Cloud Shell in GCP, and why",
+      "description": "What is Cloud Shell in GCP, and why is it useful for developers?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Cloud Shell in GCP, and why is it useful for developers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-8-ref-1",
+          "text": "Cloud Shell is a web-based, interactive shell environment provided by GCP. It allows developers to access a command-line interface with pre-installed tools for managing GCP resources without the need for local installations. It's useful for quick tasks and development tasks on the go.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You ensure data redundancy and high",
+      "description": "How can you ensure data redundancy and high availability in Google Cloud Storage?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you ensure data redundancy and high availability in Google Cloud Storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-9-ref-1",
+          "text": "To ensure data redundancy and high availability in Google Cloud Storage, you can enable multi-region storage for critical data, which replicates data across multiple geographic locations. Additionally, you can use versioning and object lifecycle management for data durability and retention.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The benefits of using Google Cloud",
+      "description": "Explain the benefits of using Google Cloud Firestore as a NoSQL database in GCP.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the benefits of using Google Cloud Firestore as a NoSQL database in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-10-ref-1",
+          "text": "Google Cloud Firestore is a scalable NoSQL database that offers real-time data synchronization, automatic scaling, and offline support for mobile and web applications. It's suitable for applications that require low-latency, responsive data access and real-time updates.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Google Kubernetes Engine (GKE), and how",
+      "description": "What is Google Kubernetes Engine (GKE), and how does it differ from Kubernetes?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Kubernetes Engine (GKE), and how does it differ from Kubernetes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-11-ref-1",
+          "text": "GKE is Google's managed Kubernetes service. It simplifies the deployment and management of containerized applications on Kubernetes. It automates tasks like node provisioning, cluster scaling, and updates, making it easier to run Kubernetes workloads in a GCP environment.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of Virtual Private Cloud",
+      "description": "Explain the concept of Virtual Private Cloud (VPC) in GCP.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Virtual Private Cloud (VPC) in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-12-ref-1",
+          "text": "A Virtual Private Cloud (VPC) is a logically isolated network within GCP that allows you to control and configure networking settings, such as IP address ranges, subnets, and firewall rules. VPCs are used to securely connect and isolate resources within your cloud environment.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between a regional and",
+      "description": "What is the difference between a regional and zonal resource in GCP?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a regional and zonal resource in GCP?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-13-ref-1",
+          "text": "A regional resource is available across multiple zones within a GCP region, providing redundancy and high availability. In contrast, a zonal resource is specific to a single zone and may not be as fault-tolerant. For critical services, it's advisable to use regional resources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of Cloud Identity and",
+      "description": "Explain the purpose of Cloud Identity and Access Management (IAM) in GCP.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Cloud Identity and Access Management (IAM) in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-14-ref-1",
+          "text": "IAM in GCP is used to manage permissions and access control for resources. It defines who (identities) can do what (roles) on which resources. It helps enforce the principle of least privilege and ensures security in the cloud environment.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You transfer data into Google Cloud",
+      "description": "How do you transfer data into Google Cloud Storage?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you transfer data into Google Cloud Storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-15-ref-1",
+          "text": "You can transfer data into Google Cloud Storage using various methods, including the Cloud Storage Console, gsutil command-line tool, Cloud Storage Transfer Service, and third-party tools like Storage Transfer Service.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "BigQuery, and how does it differ",
+      "description": "What is BigQuery, and how does it differ from traditional databases?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is BigQuery, and how does it differ from traditional databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-16-ref-1",
+          "text": "BigQuery is a fully managed, serverless, and highly scalable data warehouse offered by GCP. It's designed for analyzing large datasets using SQL-like queries. Unlike traditional databases, it doesn't require infrastructure management, and it can handle massive amounts of data with ease.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of Google Cloud Pub/Sub.",
+      "description": "Explain the concept of Google Cloud Pub/Sub.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Google Cloud Pub/Sub.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-17-ref-1",
+          "text": "Cloud Pub/Sub is a messaging service that allows decoupled and asynchronous communication between applications. It enables event-driven architecture by allowing publishers to send messages to topics and subscribers to receive those messages. It's commonly used for building scalable and reliable microservices.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You ensure high availability and disaster",
+      "description": "How can you ensure high availability and disaster recovery in GCP?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you ensure high availability and disaster recovery in GCP?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-18-ref-1",
+          "text": "Achieving high availability involves strategies like using regional resources, load balancing, and redundant deployments. Disaster recovery can be ensured through data replication, automated backups, and well-defined recovery processes.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The Cloud Deployment Manager in GCP,",
+      "description": "What is the Cloud Deployment Manager in GCP, and how is it used?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Cloud Deployment Manager in GCP, and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-19-ref-1",
+          "text": "Cloud Deployment Manager is an infrastructure as code (IAC) tool in GCP. It allows you to define and deploy cloud resources using configuration files (e.g., YAML or Python). With it, you can create, update, or delete resources in a consistent and repeatable manner.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Identity Platform in GCP, and why",
+      "description": "What is Identity Platform in GCP, and why is it important for application security?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Identity Platform in GCP, and why is it important for application security?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-20-ref-1",
+          "text": "Identity Platform is a fully managed authentication and user management service in GCP. It provides features like multi-factor authentication (MFA), social identity providers, and user profile storage. It's essential for securing user access to your applications and services.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You monitor and troubleshoot performance issues",
+      "description": "How can you monitor and troubleshoot performance issues in a Google Cloud application?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How can you monitor and troubleshoot performance issues in a Google Cloud application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-21-ref-1",
+          "text": "GCP offers tools like Stackdriver Monitoring and Logging to monitor and troubleshoot application performance. You can set up custom alerts, view logs, and analyze metrics to identify and resolve performance issues.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Google Cloud Composer, and when would",
+      "description": "What is Google Cloud Composer, and when would you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Composer, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-22-ref-1",
+          "text": "Google Cloud Composer is a managed workflow automation tool built on Apache Airflow. It allows you to create, schedule, and monitor complex workflows in the cloud. You'd use it for orchestrating tasks and data pipelines.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Es GCP handle data security and",
+      "description": "How does GCP handle data security and compliance?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does GCP handle data security and compliance?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-23-ref-1",
+          "text": "GCP has a range of security and compliance features, including encryption at rest and in transit, identity and access management (IAM), auditing and monitoring with Cloud Audit Logs and Stackdriver, and compliance certifications like SOC 2 and ISO 27001. Customers can also set up their own security controls and compliance policies.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Google Cloud Storage Nearline and how",
+      "description": "What is Google Cloud Storage Nearline and how is it different from Coldline storage?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Storage Nearline and how is it different from Coldline storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-24-ref-1",
+          "text": "Google Cloud Storage Nearline and Coldline are storage classes optimized for archival data. Nearline offers faster access times compared to Coldline but at a slightly higher cost per retrieval. Use Nearline when you need quicker access to your archived data.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "How you can achieve automatic scaling",
+      "description": "Explain how you can achieve automatic scaling in Google App Engine.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can achieve automatic scaling in Google App Engine.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-25-ref-1",
+          "text": "In Google App Engine, automatic scaling is achieved by defining minimum and maximum instances for your application. App Engine will automatically adjust the number of instances based on incoming traffic to meet the specified requirements.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Google Cloud Bigtable, and in what",
+      "description": "What is Google Cloud Bigtable, and in what scenarios is it a suitable choice for data storage?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Bigtable, and in what scenarios is it a suitable choice for data storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-26-ref-1",
+          "text": "Google Cloud Bigtable is a NoSQL database designed for high-throughput, low-latency workloads. It's a good choice for applications requiring fast and scalable storage, such as time-series data, IoT, or analytics.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "GCP's recommendations for optimizing costs in",
+      "description": "What are GCP's recommendations for optimizing costs in a cloud environment?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are GCP's recommendations for optimizing costs in a cloud environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-27-ref-1",
+          "text": "GCP provides several recommendations for cost optimization, including rightsizing VM instances, setting up budget alerts, utilizing sustained use discounts, and using preemptible instances for fault-tolerant workloads.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The differences between Google Cloud Spanner",
+      "description": "Describe the differences between Google Cloud Spanner and Google Cloud Bigtable.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the differences between Google Cloud Spanner and Google Cloud Bigtable.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-28-ref-1",
+          "text": "Google Cloud Spanner is a globally distributed, strongly consistent, relational database service, while Google Cloud Bigtable is a NoSQL, wide-column store. Spanner is suitable for transactional applications, while Bigtable is designed for high-throughput, read-heavy workloads.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Es Google Cloud Monitoring differ from",
+      "description": "How does Google Cloud Monitoring differ from Google Cloud Logging, and when would you use each one?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Google Cloud Monitoring differ from Google Cloud Logging, and when would you use each one?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-29-ref-1",
+          "text": "Google Cloud Monitoring focuses on collecting and analyzing performance metrics, while Google Cloud Logging deals with log data generated by applications and services. You'd use Monitoring for real-time insights into system performance and Logging for debugging and auditing purposes.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "What Google Cloud Datastore is and",
+      "description": "Explain what Google Cloud Datastore is and how it differs from other database systems.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what Google Cloud Datastore is and how it differs from other database systems.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-30-ref-1",
+          "text": "Google Cloud Datastore is a NoSQL database that provides a highly scalable, fully managed, and schemaless data storage solution. It differs from traditional relational databases by offering automatic scaling, a simpler data model, and a focus on high availability.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of a service account",
+      "description": "Explain the concept of a service account in GCP and its role in security.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of a service account in GCP and its role in security.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-31-ref-1",
+          "text": "A service account is an identity associated with an application or service within GCP. It plays a crucial role in security by allowing you to grant permissions to resources and services while keeping the credentials separate from user accounts, enhancing security and access control.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Google Cloud CDN, and why is",
+      "description": "What is Google Cloud CDN, and why is it important for web applications?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud CDN, and why is it important for web applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-32-ref-1",
+          "text": "Google Cloud CDN (Content Delivery Network) is a globally distributed network of servers that accelerates content delivery, reducing latency and improving user experience. It's important for web applications as it helps serve content quickly to users around the world.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Google Cloud Memorystore, and when is",
+      "description": "What is Google Cloud Memorystore, and when is it used for caching?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Memorystore, and when is it used for caching?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-33-ref-1",
+          "text": "Google Cloud Memorystore is a managed in-memory data store service based on Redis. It's used for caching to improve application performance by storing frequently accessed data in memory, reducing the need to fetch it from a primary data source.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The advantages of using Infrastructure as",
+      "description": "Explain the advantages of using Infrastructure as Code (IAC) tools like Terraform or Deployment Manager in GCP.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the advantages of using Infrastructure as Code (IAC) tools like Terraform or Deployment Manager in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-34-ref-1",
+          "text": "IAC tools like Terraform or Deployment Manager allow you to define and manage cloud resources using code, enabling version control, repeatability, and automation. This ensures consistency, reduces human errors, and makes infrastructure provisioning and management more efficient.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of a GCP project",
+      "description": "Explain the concept of a GCP project and its significance in resource management.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of a GCP project and its significance in resource management.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-35-ref-1",
+          "text": "A GCP project is a container for organizing and managing resources. It acts as a billing and access boundary, allowing you to control who has access to the resources within the project. Projects help with resource isolation, budgeting, and access control.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Cloud Run in GCP, and when",
+      "description": "What is Cloud Run in GCP, and when is it a suitable choice for deploying applications?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Cloud Run in GCP, and when is it a suitable choice for deploying applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-36-ref-1",
+          "text": "Cloud Run is a serverless platform for running containerized applications. It's suitable for applications with varying traffic and resource needs, as it automatically scales up and down to handle incoming requests, making it cost-effective and scalable.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The advantages of using Google Cloud's",
+      "description": "Explain the advantages of using Google Cloud's multi-region and dual-region storage options.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the advantages of using Google Cloud's multi-region and dual-region storage options.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-37-ref-1",
+          "text": "Multi-region and dual-region storage options in Google Cloud Storage offer improved data redundancy and availability. Multi-region storage replicates data across multiple geographic regions for high availability, while dual-region storage provides redundancy in two specific regions for data durability and low-latency access.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Google Cloud Data Catalog, and how",
+      "description": "What is Google Cloud Data Catalog, and how can it help in data governance and discovery?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Data Catalog, and how can it help in data governance and discovery?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-38-ref-1",
+          "text": "Google Cloud Data Catalog is a fully managed metadata management and data discovery service. It helps organizations catalog, discover, and manage their data assets, making it easier to find and understand data across the organization, improving data governance and compliance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The Google Cloud IoT Core, and",
+      "description": "What is the Google Cloud IoT Core, and how can it be utilized for building scalable IoT solutions?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Google Cloud IoT Core, and how can it be utilized for building scalable IoT solutions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-39-ref-1",
+          "text": "Google Cloud IoT Core is a fully managed service for securely connecting and managing IoT devices. It can be used to build scalable IoT solutions by providing device management, authentication, and integration with other GCP services for data processing and analysis.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of GCP's Cloud Audit",
+      "description": "Explain the concept of GCP's Cloud Audit Logs and their role in compliance and security.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of GCP's Cloud Audit Logs and their role in compliance and security.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-40-ref-1",
+          "text": "GCP's Cloud Audit Logs provide a record of all API operations performed in a GCP project. They play a crucial role in compliance and security by allowing organizations to track and audit actions performed on their resources, helping to identify and investigate security incidents.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You optimize the cost of running",
+      "description": "How can you optimize the cost of running virtual machines (VMs) in Google Compute Engine?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you optimize the cost of running virtual machines (VMs) in Google Compute Engine?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-41-ref-1",
+          "text": "To optimize VM costs in Google Compute Engine, you can use strategies such as rightsizing VM instances to match workload requirements, leveraging sustained use discounts, and implementing automatic scaling to adjust resources based on demand.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-42",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The Google Cloud SDK, and how",
+      "description": "What is the Google Cloud SDK, and how can it be useful for developers working with GCP resources?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Google Cloud SDK, and how can it be useful for developers working with GCP resources?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-42-ref-1",
+          "text": "The Google Cloud SDK is a set of command-line tools for managing GCP resources and services. It's useful for developers to interact with GCP resources, deploy applications, and automate tasks from the command line or in scripts.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-43",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The significance of Google Cloud AutoML.",
+      "description": "Explain the significance of Google Cloud AutoML.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the significance of Google Cloud AutoML.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-43-ref-1",
+          "text": "Google Cloud AutoML is a suite of machine learning tools that allows developers with limited ML expertise to build custom machine learning models. It automates tasks like data preprocessing, model training, and hyperparameter tuning, making it easier to leverage machine learning in your applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-44",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Google Cloud Dataflow and Apache Beam,",
+      "description": "What are Google Cloud Dataflow and Apache Beam, and how do they relate?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Google Cloud Dataflow and Apache Beam, and how do they relate?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-44-ref-1",
+          "text": "Google Cloud Dataflow is a fully managed stream and batch data processing service. Apache Beam is an open-source unified programming model for data processing, and Google Cloud Dataflow is based on it. You can use Beam to write portable data processing pipelines that can run on Dataflow or other supported runners.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-45",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of VPC Peering in",
+      "description": "Explain the concept of VPC Peering in GCP and its use cases.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of VPC Peering in GCP and its use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-45-ref-1",
+          "text": "VPC Peering in GCP allows you to establish private connectivity between Virtual Private Clouds (VPCs) in different projects or organizations. It's useful for sharing resources or data securely between VPCs without using the public internet.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-46",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Google Cloud's Anthos, and how does",
+      "description": "What is Google Cloud's Anthos, and how does it enable hybrid and multi-cloud deployments?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud's Anthos, and how does it enable hybrid and multi-cloud deployments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-46-ref-1",
+          "text": "Google Cloud's Anthos is a platform for managing applications across hybrid and multi-cloud environments. It allows organizations to build, deploy, and manage applications consistently across on-premises and cloud environments, providing flexibility and simplifying operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-47",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of Cloud Armor in",
+      "description": "Explain the purpose of Cloud Armor in GCP.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Cloud Armor in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-47-ref-1",
+          "text": "Cloud Armor is a security service in GCP that provides Distributed Denial of Service (DDoS) protection and web application firewall (WAF) capabilities. It helps protect your applications and services from online threats and attacks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-48",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Google Cloud AI Platform, and how",
+      "description": "What is Google Cloud AI Platform, and how can it be used for machine learning projects?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud AI Platform, and how can it be used for machine learning projects?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-48-ref-1",
+          "text": "Google Cloud AI Platform is a managed service that helps developers and data scientists build, train, and deploy machine learning models at scale. It provides tools and infrastructure for end-to-end machine learning workflows, including data preparation, model training, and deployment as APIs.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-49",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "How Google Cloud Interconnect works and",
+      "description": "Explain how Google Cloud Interconnect works and when you might use it.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Google Cloud Interconnect works and when you might use it.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-49-ref-1",
+          "text": "Google Cloud Interconnect provides private, high-speed connectivity between your on-premises network and GCP. You'd use it when you require dedicated and reliable network connections, such as for hybrid cloud deployments or high-throughput workloads.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gcp-questions-bank-50",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You manage secrets and sensitive information",
+      "description": "How do you manage secrets and sensitive information securely in a GCP application?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you manage secrets and sensitive information securely in a GCP application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "gcp"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "gcp"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:48.985Z",
+      "updatedAt": "2025-12-19T17:52:48.985Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "gcp-questions-bank-50-ref-1",
+          "text": "To manage secrets securely in GCP, you can use Cloud Key Management Service (KMS) to encrypt and decrypt sensitive data, Google Secret Manager to store and manage secrets, and Identity-Aware Proxy (IAP) for controlling access to resources based on identity and context.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

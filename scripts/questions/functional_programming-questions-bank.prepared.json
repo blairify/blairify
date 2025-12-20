@@ -1,0 +1,1284 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "functional-programming-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Functional programming, and how does it",
+      "description": "What is functional programming, and how does it differ from imperative programming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is functional programming, and how does it differ from imperative programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-1-ref-1",
+          "text": "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions. It differs from imperative programming in that it avoids changing state and mutable data, emphasizing immutability and pure functions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Pure functions, and why are they",
+      "description": "What are pure functions, and why are they important in functional programming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are pure functions, and why are they important in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-2-ref-1",
+          "text": "Pure functions are functions that always produce the same output for the same input and have no side effects. They are important in functional programming because they make code more predictable, testable, and parallelizable. Example in Haskell: add :: Int -> Int -> Int add x y = x + y main :: IO () main = do let result = add 3 5 putStrLn (\"The result is: \" ++ show result) In this example, we call the add function with the arguments 3 and 5, and it returns 8. The code is predictable, and the function is pure, making it easy to reason about and test.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of immutability in functional",
+      "description": "Explain the concept of immutability in functional programming.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of immutability in functional programming.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-3-ref-1",
+          "text": "Immutability means that once a data structure is created, it cannot be changed. Instead, any modification creates a new data structure. Immutability ensures that data remains unchanged, simplifying reasoning about code.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "A higher-order function, and can you",
+      "description": "What is a higher-order function, and can you provide an example of one?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a higher-order function, and can you provide an example of one?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-4-ref-1",
+          "text": "A higher-order function is a function that takes one or more functions as arguments or returns a function as a result. An example is the map function in Python or JavaScript, which takes a function and a list and applies the function to each element of the list, returning a new list. # Define a function to square a number def square(x): return x ** 2 # Create a list of numbers numbers = [1, 2, 3, 4, 5] # Use the map function to square each number in the list squared_numbers = map(square, numbers) # Convert the result back to a list (map returns an iterable) squared_numbers_list = list(squared_numbers) # Print the original and squared numbersprint(\"Original numbers:\", numbers) print(\"Squared numbers:\", squared_numbers_list)",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Closures",
+      "description": "Explain the concept of closures in functional programming.?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concept of closures in functional programming.?\" Requirements: - Closure = function + captured lexical environment - Practical use cases (privacy, callbacks, factories) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming",
+        "closures"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-5-ref-1",
+          "text": "A closure is a function that \"closes over\" its lexical scope, capturing variables from the surrounding environment. Closures allow functions to maintain state across multiple calls, often used in functional programming for encapsulation. -- Create a function that takes an argument 'x' makeIncrementer :: Int -> (Int -> Int) makeIncrementer x = \\y -> x + y main :: IO () main = do let add5 = makeIncrementer 5 -- create a closure putStrLn \"Result of adding 5 to 7:\" print (add5 7) -- The 'add5' function captures 'x' from the lexical scope",
+          "weight": 1,
+          "keyPoints": [
+            "Closure = function + captured lexical environment",
+            "Practical use cases (privacy, callbacks, factories)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Lazy evaluation, and how does it",
+      "description": "What is lazy evaluation, and how does it relate to functional programming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is lazy evaluation, and how does it relate to functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-6-ref-1",
+          "text": "Lazy evaluation is an evaluation strategy where expressions are only evaluated when their values are actually needed. It's related to functional programming because it allows for more efficient and expressive code by avoiding unnecessary computations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Currying, and how can it be",
+      "description": "What is currying, and how can it be used in functional programming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is currying, and how can it be used in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-7-ref-1",
+          "text": "Currying is the process of transforming a function that takes multiple arguments into a series of functions that each take a single argument. It's used in functional programming to create reusable and composable functions. Example of currying in Haskell: -- Define a function that takes two arguments and adds them add :: Int -> Int -> Int add x y = x + y main :: IO () main = do let addFive = add 5 -- Partial application, creating a new function putStrLn \"Result of adding 5 to 7:\" print (addFive 7) -- Curried function application",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Function composition, and why is it",
+      "description": "What is function composition, and why is it important in functional programming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is function composition, and why is it important in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-8-ref-1",
+          "text": "Function composition is the process of combining two or more functions to produce a new function. It's important in functional programming because it allows you to build complex operations from simpler, composable functions. Example in Haskell: -- Define two functions addTwo :: Int -> Int addTwo x = x + 2 square :: Int -> Int square x = x * x -- Compose the two functions to create a new function addTwoAndSquare :: Int -> Int addTwoAndSquare = square . addTwo main :: IO () main = do putStrLn \"Result of composing addTwo and square for 5:\" print (addTwoAndSquare 5) -- Composed function",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Some advantages of functional programming languages,",
+      "description": "What are some advantages of functional programming languages, and when would you choose to use one?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some advantages of functional programming languages, and when would you choose to use one?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-9-ref-1",
+          "text": "Functional programming languages offer advantages like immutability, easy parallelism, and concise, expressive code. You might choose to use a functional programming language when dealing with complex data transformations, distributed systems, or when you want to emphasize purity and immutability.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of referential transparency in",
+      "description": "Explain the concept of referential transparency in functional programming.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of referential transparency in functional programming.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-10-ref-1",
+          "text": "Referential transparency means that a function's output is solely determined by its input, and it has no side effects. It allows for easy reasoning about code and makes it possible to substitute function calls with their results.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Tail recursion, and why is it",
+      "description": "What is tail recursion, and why is it important in functional programming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is tail recursion, and why is it important in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-11-ref-1",
+          "text": "Tail recursion is a form of recursion where the recursive call is the last operation in a function. It's important because it allows the compiler or interpreter to optimize the recursion, preventing stack overflow errors and making recursive algorithms more efficient.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Algebraic data types (ADTs) in functional",
+      "description": "What are algebraic data types (ADTs) in functional programming, and how do they differ from primitive data types?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are algebraic data types (ADTs) in functional programming, and how do they differ from primitive data types?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-12-ref-1",
+          "text": "Algebraic data types are composite data types created by combining existing types using constructors. They differ from primitive data types in that they allow you to define more complex data structures, like lists, trees, and custom data structures.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Pattern matching in functional programming and",
+      "description": "Explain pattern matching in functional programming and provide an example.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain pattern matching in functional programming and provide an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-13-ref-1",
+          "text": "Pattern matching is a way to destructure data and match it against predefined patterns. For example, in Haskell, you can use pattern matching to extract elements from a list or match on different cases in a function definition.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The map function, and how is",
+      "description": "What is the map function, and how is it used in functional programming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the map function, and how is it used in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-14-ref-1",
+          "text": "The map function is a higher-order function that applies a given function to each element of a collection (e.g., a list) and returns a new collection containing the results. It's a fundamental operation in functional programming for transforming data.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The \"fold\" (or \"reduce\") function in",
+      "description": "What is the \"fold\" (or \"reduce\") function in functional programming, and how is it used?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the \"fold\" (or \"reduce\") function in functional programming, and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-15-ref-1",
+          "text": "The \"fold\" or \"reduce\" function is used to combine elements of a collection into a single value. It takes an associative binary function, an initial accumulator value, and applies the function to each element in the collection, accumulating a result.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Discuss the advantages of immutability in",
+      "description": "Discuss the advantages of immutability in functional programming and provide an example of a situation where immutability is crucial.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the advantages of immutability in functional programming and provide an example of a situation where immutability is crucial.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-16-ref-1",
+          "text": "Immutability prevents data from being changed after creation, ensuring data integrity and thread safety. An example where immutability is crucial is in concurrent programming, where shared data should not be modified to avoid race conditions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The filter function in functional programming,",
+      "description": "What is the filter function in functional programming, and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the filter function in functional programming, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-17-ref-1",
+          "text": "The filter function is used to create a new collection by selecting elements from an existing collection that satisfy a given predicate (a function that returns true or false). It's commonly used to filter data based on certain criteria.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of category theory and",
+      "description": "Explain the concept of category theory and its relevance in functional programming.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of category theory and its relevance in functional programming.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-18-ref-1",
+          "text": "Category theory is a branch of mathematics that studies abstract structures and their relationships. In functional programming, category theory provides a formal framework for understanding and reasoning about functional abstractions like functors, monads, and natural transformations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Discuss the benefits of using the",
+      "description": "Discuss the benefits of using the \"Maybe\" or \"Option\" type in functional programming and provide an example of how it prevents null or undefined errors.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the benefits of using the \"Maybe\" or \"Option\" type in functional programming and provide an example of how it prevents null or undefined errors.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-19-ref-1",
+          "text": "The \"Maybe\" or \"Option\" type represents the presence or absence of a value. It prevents null or undefined errors by forcing developers to handle the absence case explicitly. For example, in Haskell: data Maybe a = Nothing | Just a safeDivide :: Int -> Int -> Maybe Int safeDivide _ 0 = Nothing safeDivide x y = Just (x `div` y)",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Monads in functional programming and provide",
+      "description": "Explain monads in functional programming and provide an example.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain monads in functional programming and provide an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-20-ref-1",
+          "text": "A monad is a design pattern used in functional programming to encapsulate computation with additional context. Examples include the Maybe monad for handling optional values or the IO monad for managing side effects. -- Define a function that divides two numbers, but handles division by zero safeDivision :: Double -> Double -> Maybe Double safeDivision _ 0 = Nothing -- Division by zero returns Nothing safeDivision x y = Just (x / y) -- Division with a valid divisor returns Just result main :: IO () main = do putStrLn \"Enter the numerator:\" numeratorStr <- getLine putStrLn \"Enter the denominator:\" denominatorStr <- getLine -- Parse input as Double values let maybeNumerator = readMaybe numeratorStr :: Maybe Double maybeDenominator = readMaybe denominatorStr :: Maybe Double -- Perform safe division using the Maybe monad let result = do numerator <- maybeNumerator denominator <- maybeDenominator safeDivision numerator denominator -- Display the result or an error message case result of Just r -> putStrLn (\"Result of division: \" ++ show r) Nothing -> putStrLn \"Error: Division by zero or invalid input.\" import Text.Read (readMaybe)",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A monad transformer, and how is",
+      "description": "What is a monad transformer, and how is it used in functional programming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a monad transformer, and how is it used in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-21-ref-1",
+          "text": "A monad transformer is a type that transforms one monad into another while preserving their combined behavior. They are used in functional programming to combine the effects of multiple monads, such as combining the Maybe monad with the IO monad to handle optional and input/output operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Discuss the principles of referential transparency",
+      "description": "Discuss the principles of referential transparency and equational reasoning in functional programming.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the principles of referential transparency and equational reasoning in functional programming.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-22-ref-1",
+          "text": "Referential transparency means that you can replace a function call with its result without changing the program's behavior. Equational reasoning allows you to reason about code by applying algebraic laws, making code more predictable and testable.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of higher-kinded types (HKTs)",
+      "description": "Explain the concept of higher-kinded types (HKTs) in functional programming and provide an example.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of higher-kinded types (HKTs) in functional programming and provide an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "functional-programming"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "functional-programming"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:05:32.118Z",
+      "updatedAt": "2025-12-19T18:05:32.118Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "functional-programming-questions-bank-23-ref-1",
+          "text": "Higher-kinded types are type constructors that operate on type constructors. In languages like Scala and Haskell, HKTs enable the creation of generic data structures that work with various types. An example is the \"Functor\" type class in Haskell.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

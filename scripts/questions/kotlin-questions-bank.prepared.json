@@ -1,0 +1,2826 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "kotlin-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Kotlin, and why is it used",
+      "description": "What is Kotlin, and why is it used in Android development?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Kotlin, and why is it used in Android development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-1-ref-1",
+          "text": "Kotlin is a statically-typed, cross-platform programming language that runs on the Java Virtual Machine (JVM). It is officially supported for Android app development by Google. Kotlin offers concise syntax, null safety, and modern features, which make it safer and more expressive than Java. It's used in Android development to improve productivity and reduce common sources of errors.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The key features of Kotlin compared",
+      "description": "What are the key features of Kotlin compared to Java?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key features of Kotlin compared to Java?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-2-ref-1",
+          "text": "Some key features of Kotlin compared to Java include: Null safety, which helps prevent null pointer exceptions. Concise syntax, reducing boilerplate code. Extension functions, allowing you to extend classes without modifying their source code. Smart casts, eliminating the need for explicit type casting. Data classes for creating simple, immutable value objects. Coroutines for asynchronous programming.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Nullable and non-nullable types in Kotlin",
+      "description": "What are nullable and non-nullable types in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are nullable and non-nullable types in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-3-ref-1",
+          "text": "In Kotlin, you can declare variables as nullable by appending ? to the type, e.g., var name: String? = null. Non-nullable types, on the other hand, are declared without ?, like var age: Int = 25. To work with nullable types safely, you can use the safe call operator ?. and the Elvis operator ?:.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Inline functions in Kotlin",
+      "description": "What are inline functions in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are inline functions in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-4-ref-1",
+          "text": "Inline functions are functions that are expanded by the compiler at the call site, effectively copying their code into the calling function. This reduces the overhead of function calls, making code more efficient. Inline functions are essential for performance optimization in cases where function calls might introduce unnecessary overhead.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between val and var",
+      "description": "Explain the difference between val and var in Kotlin.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between val and var in Kotlin.?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin",
+        "scope"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-5-ref-1",
+          "text": "val is used to declare immutable variables, meaning their values cannot be changed once assigned. var is used for mutable variables, which can have their values reassigned.",
+          "weight": 1,
+          "keyPoints": [
+            "Function scope vs block scope",
+            "`var` vs `let`/`const` behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Data classes in Kotlin, and why",
+      "description": "What are data classes in Kotlin, and why are they useful?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are data classes in Kotlin, and why are they useful?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-6-ref-1",
+          "text": "Data classes are a feature in Kotlin that automatically generate equals, hashCode, toString, and copy methods for a class based on its properties. They are useful for creating simple, immutable data structures, reducing boilerplate code, and making code more readable.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The concept of type inference in",
+      "description": "Explain the concept of type inference in Kotlin.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of type inference in Kotlin.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-7-ref-1",
+          "text": "Type inference is a feature in Kotlin where the compiler can automatically deduce the data type of a variable or expression without explicit type declarations. This reduces the need for verbose type annotations, making code more concise and readable while maintaining strong static typing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Higher-order functions in Kotlin",
+      "description": "What are higher-order functions in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are higher-order functions in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-8-ref-1",
+          "text": "Higher-order functions are functions that can take other functions as parameters or return them as results. You can use them to implement behaviors like map, filter, and reduce on collections. fun applyOperation(x: Int, y: Int, operation: (Int, Int) -> Int): Int { return operation(x, y) }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of extension functions in",
+      "description": "Explain the concept of extension functions in Kotlin.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of extension functions in Kotlin.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-9-ref-1",
+          "text": "Extension functions allow you to add new functions to existing classes without modifying their source code. They are defined outside the class and can be called as if they were regular methods. This helps keep code clean and maintainable.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Extension properties in Kotlin, and how",
+      "description": "What are extension properties in Kotlin, and how do they differ from extension functions?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are extension properties in Kotlin, and how do they differ from extension functions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-10-ref-1",
+          "text": "Extension properties allow you to add properties to existing classes without modifying their source code. They are defined using extension functions with a get accessor. Extension functions, on the other hand, allow you to add functions to existing classes. While extension functions are invoked with parentheses, extension properties are accessed like regular properties.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Kotlin coroutines, and how do they",
+      "description": "What are Kotlin coroutines, and how do they differ from traditional threads?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Kotlin coroutines, and how do they differ from traditional threads?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-11-ref-1",
+          "text": "Kotlin coroutines are a way to write asynchronous, non-blocking code in a more sequential and readable manner. Unlike traditional threads, coroutines are lightweight, and they can be suspended and resumed, making it easier to manage concurrency and avoid callback hell.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "You handle exceptions in Kotlin",
+      "description": "How do you handle exceptions in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle exceptions in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-12-ref-1",
+          "text": "In Kotlin, you can use try-catch blocks to handle exceptions. Unlike Java, Kotlin does not have checked exceptions. You can use the try expression to return a result or handle exceptions using catch blocks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The Kotlin Standard Library",
+      "description": "What is the Kotlin Standard Library?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Kotlin Standard Library?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-13-ref-1",
+          "text": "The Kotlin Standard Library is a collection of functions and types provided by Kotlin to simplify common programming tasks. It includes extensions for the Java Standard Library and provides additional functionality like higher-order functions, collections, and coroutine support. It's important because it enhances the productivity of Kotlin developers and encourages best practices.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Sealed classes in Kotlin. When would",
+      "description": "Explain sealed classes in Kotlin. When would you use them?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain sealed classes in Kotlin. When would you use them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-14-ref-1",
+          "text": "Sealed classes are used to represent restricted class hierarchies, meaning all subclasses must be defined in the same file. They are often used for representing data types with a limited set of possibilities, like in when expressions. For example, when modeling the status of an order, you could create a sealed class with subclasses for different order statuses.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the init block",
+      "description": "What is the purpose of the init block in Kotlin classes?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the init block in Kotlin classes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-15-ref-1",
+          "text": "The init block is used to initialize properties or perform other setup code when an instance of a class is created. It's executed as part of the primary constructor and helps ensure that objects start in a consistent state.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between apply and also",
+      "description": "What is the difference between apply and also scope functions in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between apply and also scope functions in Kotlin?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin",
+        "scope"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-16-ref-1",
+          "text": "Both apply and also are scope functions in Kotlin that allow you to work with an object within a specified context. The key difference is in their return values. apply returns the receiver object after applying changes, while also returns the same receiver object but allows you to perform additional actions without affecting the result.",
+          "weight": 1,
+          "keyPoints": [
+            "Function scope vs block scope",
+            "`var` vs `let`/`const` behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Es Kotlin support functional programming paradigms",
+      "description": "How does Kotlin support functional programming paradigms?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Kotlin support functional programming paradigms?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-17-ref-1",
+          "text": "Kotlin supports functional programming through features like lambda expressions, higher-order functions, and immutability. These features enable developers to write concise, expressive code that emphasizes the use of pure functions and avoids mutable state.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The Elvis operator in Kotlin, and",
+      "description": "What is the Elvis operator in Kotlin, and when would you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Elvis operator in Kotlin, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-18-ref-1",
+          "text": "The Elvis operator (?:) is used to provide a default value when a nullable expression evaluates to null. For example, val result = nullableValue ?: defaultValue assigns defaultValue to result if nullableValue is null. It's useful for handling nullable values gracefully.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The lateinit modifier in Kotlin. When",
+      "description": "Explain the lateinit modifier in Kotlin. When and why would you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the lateinit modifier in Kotlin. When and why would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-19-ref-1",
+          "text": "The lateinit modifier is used for properties in Kotlin that are declared as non-nullable but are initialized later (typically in a constructor). You would use it when you cannot initialize the property at the point of declaration, such as in Android development for initializing views from XML layouts.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between let, run, and",
+      "description": "What is the difference between let, run, and with scope functions in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between let, run, and with scope functions in Kotlin?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin",
+        "scope"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-20-ref-1",
+          "text": "All three scope functions (let, run, and with) are used to operate on an object within a specified context, but they differ in how they access the object and return values. let and run take the object as a lambda argument, while with takes it as a receiver. let and run return the lambda result, while with returns the result of the lambda.",
+          "weight": 1,
+          "keyPoints": [
+            "Function scope vs block scope",
+            "`var` vs `let`/`const` behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es Kotlin handle interoperability with Java",
+      "description": "How does Kotlin handle interoperability with Java?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Kotlin handle interoperability with Java?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-21-ref-1",
+          "text": "Kotlin is fully interoperable with Java, allowing you to call Java code from Kotlin and vice versa. You can use Kotlin features like nullable types and extension functions seamlessly with Java code. The Kotlin compiler generates bytecode compatible with the Java Virtual Machine (JVM).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The Kotlin Android Extensions plugin",
+      "description": "What is the Kotlin Android Extensions plugin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Kotlin Android Extensions plugin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-22-ref-1",
+          "text": "The Kotlin Android Extensions plugin simplifies Android app development by allowing you to access Views from XML layouts directly in your Kotlin code without the need for findViewById. It generates synthetic properties for XML elements, making UI-related code cleaner and more concise.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The primary purpose of a companion",
+      "description": "What is the primary purpose of a companion object in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the primary purpose of a companion object in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-23-ref-1",
+          "text": "A companion object is used to define static members for a class. You would use it when you need to create class-level functionality or constants that are associated with the class itself rather than with instances of the class.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the by lazy",
+      "description": "What is the purpose of the by lazy delegate in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the by lazy delegate in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-24-ref-1",
+          "text": "The by lazy delegate is used to create properties with lazy initialization. The property's value is computed the first time it's accessed and cached for subsequent accesses. It's useful when you have properties that are computationally expensive to initialize or when you want to defer initialization until it's needed.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A sealed interface in Kotlin",
+      "description": "What is a sealed interface in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a sealed interface in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-25-ref-1",
+          "text": "A sealed interface is similar to a sealed class in that it restricts the inheritance hierarchy, but it allows multiple implementations. In contrast, a sealed class can have multiple subclasses but only one implementation per subclass. Sealed interfaces are useful when you want to define a set of related interfaces with a limited number of known implementations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The in and out variance modifiers",
+      "description": "Explain the in and out variance modifiers in Kotlin's type system.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the in and out variance modifiers in Kotlin's type system.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-26-ref-1",
+          "text": "in and out are used to define type variance in Kotlin. in is used for input (consumer) types, and out is used for output (producer) types. You would use in when you need to ensure that a function can accept more specific (subtypes) data. You would use out when you need to ensure that a function can produce more generic (supertypes) data.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the suspend modifier",
+      "description": "Explain the purpose of the suspend modifier in Kotlin and its relation to coroutines.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the suspend modifier in Kotlin and its relation to coroutines.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-27-ref-1",
+          "text": "The suspend modifier is used to mark functions that can be paused and resumed asynchronously. It is a fundamental part of Kotlin coroutines, allowing you to write asynchronous code in a more sequential and readable manner. Suspended functions can be used within coroutine scopes and other suspending functions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "A Kotlin data class and when",
+      "description": "What is a Kotlin data class and when would you use it in your code?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Kotlin data class and when would you use it in your code?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-28-ref-1",
+          "text": "A Kotlin data class is a concise way to declare a class that is primarily used to store data. It automatically generates equals, hashCode, toString, and copy methods based on the class's properties. Data classes are typically used for modeling immutable data structures where identity and behavior are less important than the actual data.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Es Kotlin handle default arguments in",
+      "description": "How does Kotlin handle default arguments in function declarations?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Kotlin handle default arguments in function declarations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-29-ref-1",
+          "text": "Kotlin allows you to specify default values for function parameters, eliminating the need to provide all arguments when calling a function. When you call the function, you can choose to omit any parameters with default values, and the default values will be used instead.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es Kotlin handle concurrency and multithreading,",
+      "description": "How does Kotlin handle concurrency and multithreading, and what are some advantages of using Kotlin for concurrent programming?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Kotlin handle concurrency and multithreading, and what are some advantages of using Kotlin for concurrent programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-30-ref-1",
+          "text": "Kotlin provides first-class support for concurrency through coroutines, which offer a more straightforward and safer way to write asynchronous code compared to traditional multithreading approaches. Coroutines allow developers to write asynchronous code sequentially, avoiding callback hell and common concurrency issues.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The let extension function, and how",
+      "description": "What is the let extension function, and how would you use it in practice?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the let extension function, and how would you use it in practice?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin",
+        "scope"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-31-ref-1",
+          "text": "The let extension function is used to execute a lambda expression on a non-null object. It is often used for performing operations on non-null values, ensuring that the lambda block is only executed when the object is not null. val result = nullableValue?.let { /* perform operations on non-null value */ }",
+          "weight": 1,
+          "keyPoints": [
+            "Function scope vs block scope",
+            "`var` vs `let`/`const` behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The concept of smart casts in",
+      "description": "Explain the concept of smart casts in Kotlin. How do they improve type safety?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of smart casts in Kotlin. How do they improve type safety?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-32-ref-1",
+          "text": "Smart casts are a feature in Kotlin that automatically cast a variable to a more specific type when certain conditions are met. For example, after checking that an object is not null and is of a certain type, Kotlin allows you to access its properties and methods without explicit type casting, improving type safety.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The purpose of the crossinline modifier",
+      "description": "What is the purpose of the crossinline modifier in Kotlin? When and why would you use it in a lambda expression?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the crossinline modifier in Kotlin? When and why would you use it in a lambda expression?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-33-ref-1",
+          "text": "The crossinline modifier is used in lambda expressions to indicate that the lambda cannot perform non-local returns. This means that you cannot use return to exit the enclosing function from within a crossinline lambda. It's used when you want to ensure that the lambda does not affect control flow in unexpected ways, such as inlining within higher-order functions or suspending functions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between primary constructors and",
+      "description": "What is the difference between primary constructors and secondary constructors in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between primary constructors and secondary constructors in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-34-ref-1",
+          "text": "A primary constructor is defined within the class header and is used to initialize properties of the class. A secondary constructor is defined using the constructor keyword and can be used to provide alternative ways to initialize a class. Secondary constructors must delegate to the primary constructor using the this keyword or another secondary constructor.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Property accessors in Kotlin, and how",
+      "description": "What are property accessors in Kotlin, and how do you customize them using custom getters and setters?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are property accessors in Kotlin, and how do you customize them using custom getters and setters?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-35-ref-1",
+          "text": "Property accessors allow you to control how properties are accessed and modified. You can customize them using custom getters and setters. A custom getter is defined with get() and allows you to compute the property's value dynamically. A custom setter is defined with set() and lets you add custom logic when a property is assigned a new value.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The differences between listOf, mutableListOf, and",
+      "description": "Explain the differences between listOf, mutableListOf, and arrayListOf in Kotlin.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between listOf, mutableListOf, and arrayListOf in Kotlin.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-36-ref-1",
+          "text": "listOf creates an immutable list, while mutableListOf creates a mutable list. arrayListOf creates a resizable array-backed list. You would choose one over the other based on whether you need an immutable, mutable, or dynamically sized list. Immutable lists are useful when you don't want the list to be modified after creation, while mutable lists are for cases where you need to modify the list's contents.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between let, also, apply,",
+      "description": "Explain the difference between let, also, apply, run, and with scope functions in Kotlin.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between let, also, apply, run, and with scope functions in Kotlin.?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin",
+        "scope"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-37-ref-1",
+          "text": "These scope functions have different use cases: let: Used to execute a lambda on an object and return a result. Typically used for transformation. also: Used for additional actions on an object and returns the same object. apply: Used to initialize or configure an object and returns the same object. run: Similar to apply, but returns the result of the lambda. with: Non-extension function version of run. The choice depends on whether you need to return the object itself or a result, and whether you're working with extensions or not.",
+          "weight": 1,
+          "keyPoints": [
+            "Function scope vs block scope",
+            "`var` vs `let`/`const` behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The benefits of using Kotlin for",
+      "description": "What are the benefits of using Kotlin for Android app development compared to Java?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of using Kotlin for Android app development compared to Java?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-38-ref-1",
+          "text": "Kotlin offers several advantages for Android development: Concise syntax and reduced boilerplate code. Null safety, reducing null pointer exceptions. Improved support for functional programming. Seamless interoperability with Java. Coroutines for asynchronous programming. Enhanced type inference. A more expressive and readable language.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The \"single expression\" rule for functions",
+      "description": "Explain the \"single expression\" rule for functions in Kotlin.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the \"single expression\" rule for functions in Kotlin.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-39-ref-1",
+          "text": "In Kotlin, if a function has only one expression in its body, you can omit the braces {} and specify the expression directly after the = sign. This feature allows for more concise function definitions, making code cleaner and more readable.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the when expression",
+      "description": "What is the purpose of the when expression in Kotlin, and how does it differ from a switch statement in Java?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the when expression in Kotlin, and how does it differ from a switch statement in Java?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-40-ref-1",
+          "text": "The when expression in Kotlin is used for conditional branching similar to a switch statement in Java. However, it offers more flexibility and power. It allows you to match values, execute code blocks, and return values, making it a versatile tool for various conditional expressions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The @JvmOverloads annotation, and how does",
+      "description": "What is the @JvmOverloads annotation, and how does it affect function overloading in Kotlin when targeting the JVM?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the @JvmOverloads annotation, and how does it affect function overloading in Kotlin when targeting the JVM?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-41-ref-1",
+          "text": "The @JvmOverloads annotation is used to generate overloaded Java methods for Kotlin functions that have default parameter values. It helps maintain compatibility with Java code that calls those functions by generating multiple overloaded Java methods with different parameter combinations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-42",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The differences between the first, firstOrNull,",
+      "description": "Explain the differences between the first, firstOrNull, single, and singleOrNull.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between the first, firstOrNull, single, and singleOrNull.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-42-ref-1",
+          "text": "These functions are used for different purposes when working with collections: first: Returns the first element that matches a given predicate. Throws an exception if no match is found. firstOrNull: Returns the first element that matches a given predicate or null if no match is found. single: Returns the single element that matches a given predicate. Throws an exception if there is not exactly one match. singleOrNull: Returns the single element that matches a given predicate or null if there is not exactly one match. You would choose one based on whether you expect zero, one, or multiple matches and whether you want to handle potential exceptions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-43",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "How Kotlin handles default arguments in",
+      "description": "Explain how Kotlin handles default arguments in function declarations.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Kotlin handles default arguments in function declarations.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-43-ref-1",
+          "text": "Kotlin allows you to specify default values for function parameters. When you call the function, you can choose to omit any parameters with default values, and the default values will be used instead. This feature improves code readability and simplifies function calls by reducing the need for multiple overloaded functions with different parameter sets.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-44",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The term \"coroutine context\" in Kotlin.",
+      "description": "Explain the term \"coroutine context\" in Kotlin. How does it affect coroutine execution?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the term \"coroutine context\" in Kotlin. How does it affect coroutine execution?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-44-ref-1",
+          "text": "The coroutine context is a set of elements that define the behavior of a coroutine, such as its dispatcher, job, and exception handler. It affects how the coroutine is scheduled and executed. For example, you can specify a coroutine context to run a coroutine on a specific thread or define a custom error handler.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-45",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A suspending function in Kotlin, and",
+      "description": "What is a suspending function in Kotlin, and how does it differ from a regular function?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a suspending function in Kotlin, and how does it differ from a regular function?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-45-ref-1",
+          "text": "A suspending function is a function that can be paused and resumed, allowing for asynchronous, non-blocking code execution. It is marked with the suspend keyword. Unlike regular functions, suspending functions can be used within coroutine scopes and other suspending functions, making them suitable for asynchronous tasks like network requests.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-46",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between a top-level function",
+      "description": "What is the difference between a top-level function and a member function in Kotlin?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a top-level function and a member function in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-46-ref-1",
+          "text": "Top-level functions are functions defined outside of any class or object declaration, making them globally accessible. Member functions, on the other hand, are defined within a class or object and are associated with instances of that class or object. Member functions have access to the properties and state of the class or object they belong to, while top-level functions do not.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-47",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the @JvmStatic annotation",
+      "description": "What is the purpose of the @JvmStatic annotation in Kotlin, and when would you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the @JvmStatic annotation in Kotlin, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-47-ref-1",
+          "text": "The @JvmStatic annotation is used to indicate that a Kotlin function should be treated as a static method when compiled to Java bytecode. You would use it when you need to expose a Kotlin function as a static method for compatibility with Java code that expects static methods.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-48",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The differences between sealed classes and",
+      "description": "Explain the differences between sealed classes and abstract classes in Kotlin. When would you use one over the other?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between sealed classes and abstract classes in Kotlin. When would you use one over the other?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-48-ref-1",
+          "text": "sealed classes are used to define a limited set of subclasses that must be defined in the same file. They are often used for representing data types with a finite set of possibilities. abstract classes, on the other hand, are used to define common behavior and can have both abstract and concrete methods. You would use sealed classes when you want a closed set of subclasses with known implementations and abstract classes when you need to define common behavior but expect different implementations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-49",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The purpose of the tailrec modifier",
+      "description": "Explain the purpose of the tailrec modifier in Kotlin.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the tailrec modifier in Kotlin.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-49-ref-1",
+          "text": "The tailrec modifier is used to indicate that a function is tail-recursive. Tail recursion is a technique where a function calls itself as its last operation. Using tailrec allows the compiler to optimize the recursion, reducing the risk of stack overflow errors for deep recursive calls. You would use it when implementing recursive algorithms that meet the tail-recursive criteria.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin-questions-bank-50",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between infix functions and",
+      "description": "What is the difference between infix functions and regular functions in Kotlin, and when would you use an infix function?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between infix functions and regular functions in Kotlin, and when would you use an infix function?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "kotlin"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "kotlin"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:35:52.180Z",
+      "updatedAt": "2025-12-19T17:35:52.180Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "kotlin-questions-bank-50-ref-1",
+          "text": "Infix functions are a type of extension function that can be called without using dot notation or parentheses. They are defined using the infix modifier. Infix functions are typically used to create more readable, DSL-like code for certain operations, such as mathematical or boolean operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

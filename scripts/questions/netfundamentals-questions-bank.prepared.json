@@ -1,0 +1,1712 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "netfundamentals-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The .NET Framework",
+      "description": "What is the .NET Framework?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the .NET Framework?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-1-ref-1",
+          "text": "The .NET Framework is a comprehensive software development platform created by Microsoft. It provides a runtime environment called the Common Language Runtime (CLR) and a rich set of class libraries, supporting multiple programming languages like C#, VB .NET, and F# for building various applications on Windows and other platforms with .NET Core and later versions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The key components of the .NET",
+      "description": "What are the key components of the .NET Framework?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key components of the .NET Framework?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-2-ref-1",
+          "text": "The two main components are: Common Language Runtime (CLR), which manages the execution of .NET applications by providing services like memory management and security. .NET Class Library (BCL), a vast collection of pre-built classes, interfaces, and types offering a wide range of functionalities.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between value types and",
+      "description": "Explain the difference between value types and reference types in .NET.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between value types and reference types in .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-3-ref-1",
+          "text": "Value types (e.g., int, bool, struct) store their actual data directly in memory, typically on the stack. Each variable holds its own copy of the data. Reference types (e.g., class, string, array) store a reference (memory address) to the actual data, which is located on the heap. Multiple variables can point to the same data in memory.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Managed code in .NET",
+      "description": "What is managed code in .NET?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is managed code in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-4-ref-1",
+          "text": "Managed code is code that is executed under the control of the Common Language Runtime (CLR). The CLR provides services such as automatic memory management (garbage collection), type safety, and exception handling.Languages like C# and VB .NET compile to managed code.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Boxing and unboxing in .NET.",
+      "description": "Explain boxing and unboxing in .NET.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain boxing and unboxing in .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-5-ref-1",
+          "text": "Boxing is the implicit conversion of a value type to a reference type (specifically, to an object or an interface). The value type is copied onto the heap. Unboxing is the explicit conversion of a reference type back to a value type. It involves checking the type and copying the value from the heap back to the stack.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Garbage collection in .NET",
+      "description": "What is garbage collection in .NET?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is garbage collection in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-6-ref-1",
+          "text": "Garbage collection is an automatic memory management process performed by the CLR. It periodically identifies and reclaims memory occupied by objects that are no longer referenced by the application, thus preventing memory leaks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between String and StringBuilder",
+      "description": "What is the difference between String and StringBuilder in C#?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between String and StringBuilder in C#?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-7-ref-1",
+          "text": "String objects are immutable, meaning their value cannot be changed after creation. Any operation that seems to modify a string actually creates a new String object. StringBuilder is mutable, allowing modifications to the string without creating a new object each time, making it more efficient for frequent string manipulations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The main principles of Object-Oriented Programming",
+      "description": "What are the main principles of Object-Oriented Programming (OOP)?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the main principles of Object-Oriented Programming (OOP)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-8-ref-1",
+          "text": "The four main principles are: Encapsulation: Encapsulation is the principle of bundling data (attributes or properties) and the methods that operate on that data into a single unit, or class. It also involves hiding the internal implementation details of an object and controlling access to its data. Abstraction: Abstraction is the principle of showing only the essential or relevant information to the user while hiding the complex underlying details. It focuses on what an object does rather than how it achieves it, often using abstract classes and interfaces. Inheritance: Inheritance is a mechanism that allows a new class (derived or child class) to inherit properties and behaviors (methods) from an existing class (base or parent class). This promotes code reusability and helps in establishing hierarchical relationships between classes.C# supports single inheritance for classes but multiple inheritance for interfaces. Polymorphism: Polymorphism, meaning \"many forms,\" enables objects of different classes to respond to the same method call in their own specific way. This can be achieved through method overriding and method overloading.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Assemblies in .NET.",
+      "description": "Explain assemblies in .NET.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain assemblies in .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-9-ref-1",
+          "text": "An assembly is a compiled unit of code (.exe for applications, .dll for libraries) that contains Intermediate Language (IL), metadata (manifest), and resources. It's the basic unit of deployment, versioning, and security in .NET. Assemblies can be private (application-specific) or shared (stored in the Global Assembly Cache - GAC).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Namespaces in .NET",
+      "description": "What are namespaces in .NET?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are namespaces in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-10-ref-1",
+          "text": "Namespaces provide a hierarchical way to organize code elements like classes and interfaces, preventing naming conflicts and improving code readability and maintainability. They act as logical containers for related types.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Delegates in .NET",
+      "description": "What are delegates in .NET?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are delegates in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-11-ref-1",
+          "text": "A delegate is a type-safe function pointer that represents a reference to a method with a specific signature (return type and parameters). Delegates allow you to treat methods as objects, enabling them to be passed as arguments to other methods.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The Common Language Runtime (CLR)",
+      "description": "What is the Common Language Runtime (CLR)?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Common Language Runtime (CLR)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-12-ref-1",
+          "text": "The CLR is the virtual machine component of the .NET Framework that manages the execution of .NET applications. It provides services like memory management, security, and exception handling.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Execution model",
+      "description": "What is Just-In-Time (JIT) compilation?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Just-In-Time (JIT) compilation?\" Requirements: - Answer directly: JS is executed by an engine that compiles/JITs internally - Explain interpreted vs compiled as a spectrum in modern engines - Mention parse -> bytecode -> JIT optimization (high level) - Practical implication: performance varies, warm-up/optimization Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Answer directly: JS is executed by an engine that compiles/JITs internally; Explain interpreted vs compiled as a spectrum in modern engines; Mention parse -> bytecode -> JIT optimization (high level); Practical implication: performance varies, warm-up/optimization. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-13-ref-1",
+          "text": "JIT compilation is a process where the Common Language Runtime (CLR) converts the Intermediate Language (IL) code of a .NET assembly into native machine code at runtime, just before it's executed. This allows for platform independence while achieving efficient execution.",
+          "weight": 1,
+          "keyPoints": [
+            "Answer directly: JS is executed by an engine that compiles/JITs internally",
+            "Explain interpreted vs compiled as a spectrum in modern engines",
+            "Mention parse -> bytecode -> JIT optimization (high level)",
+            "Practical implication: performance varies, warm-up/optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Microsoft Intermediate Language (MSIL)",
+      "description": "What is Microsoft Intermediate Language (MSIL)?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Microsoft Intermediate Language (MSIL)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-14-ref-1",
+          "text": "MSIL (also known as CIL - Common Intermediate Language) is a platform-agnostic set of instructions that.NET languages compile to. It's then translated to native code by the JIT compiler when the application is run.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Generics in .NET and their benefits.",
+      "description": "Explain generics in .NET and their benefits.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain generics in .NET and their benefits.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-15-ref-1",
+          "text": "Generics allow you to define type-safe data structures and algorithms without specifying the exact data type at compile time. Type parameters are used as placeholders, and the actual type is specified when the generic type or method is used. Benefits include improved type safety, code reusability, and better performance (by avoiding boxing/unboxing for value types).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Es exception handling work in .NET",
+      "description": "How does exception handling work in .NET?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does exception handling work in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-16-ref-1",
+          "text": "Exception handling in .NET uses try blocks to enclose code that might throw an exception. catch blocks are used to handle specific types of exceptions that occur in the try block. The optional finally block contains code that is guaranteed to execute regardless of whether an exception occurred or was caught, often used for cleanup operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "LINQ and how is it used",
+      "description": "What is LINQ and how is it used?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is LINQ and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-17-ref-1",
+          "text": "LINQ (Language Integrated Query) provides a unified syntax within C# to query data from various sources like collections, databases, and XML. It uses a set of extension methods to perform operations like filtering, sorting, and selecting data directly in the code, improving readability and type safety.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between IEnumerable and IQueryable",
+      "description": "What is the difference between IEnumerable and IQueryable in LINQ, and when to use each?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between IEnumerable and IQueryable in LINQ, and when to use each?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-18-ref-1",
+          "text": "IEnumerable represents a sequence that can be iterated over, typically used for in-memory collections. Operations on IEnumerable are executed in memory. IQueryable also represents a sequence but is designed for querying data sources outside of memory (like databases). It allows for query translation and execution at the data source, improving performance for large datasets. Use IQueryable when querying databases (e.g., with Entity Framework) and IEnumerable for in-memory collections.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Dependency injection (DI) and its benefits",
+      "description": "What is dependency injection (DI) and its benefits?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is dependency injection (DI) and its benefits?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-19-ref-1",
+          "text": "Dependency Injection is a design pattern where a class receives its dependencies from an external source rather than creating them itself. This promotes loose coupling, improves testability (by allowing the use of mock objects), increases code reusability, and enhances maintainability.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The differences between .NET Framework, .NET",
+      "description": "Explain the differences between .NET Framework, .NET Core, and .NET 5+ (.NET 6, 7, 8 etc.).?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between .NET Framework, .NET Core, and .NET 5+ (.NET 6, 7, 8 etc.).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-20-ref-1",
+          "text": ".NET Framework was the original Windows-only implementation. .NET Core was a cross-platform, open-source version optimized for modern workloads. .NET 5 and later versions represent a unification of these, aiming for a single platform for all .NET development needs, with ongoing improvements in performance and cross-platform capabilities.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You optimize performance in .NET applications",
+      "description": "How do you optimize performance in .NET applications?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you optimize performance in .NET applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-21-ref-1",
+          "text": "Performance optimization involves various techniques such as choosing the right data structures, minimizing boxing and unboxing, using StringBuilder for string manipulation, leveraging asynchronous programming, optimizing database queries (indexing, stored procedures), implementing caching, and profiling the application to identify bottlenecks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Common design patterns used in .NET.",
+      "description": "Describe common design patterns used in .NET.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe common design patterns used in .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-22-ref-1",
+          "text": "Common design patterns include creational patterns like Singleton and Factory, structural patterns like Adapter and Decorator, and behavioral patterns like Observer and Strategy. Architectural patterns like MVC are also widely used, especially in ASP .NET Core.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "You handle concurrency and multithreading in",
+      "description": "How do you handle concurrency and multithreading in .NET?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you handle concurrency and multithreading in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-23-ref-1",
+          "text": ".NET provides several ways to handle concurrency, including the Thread class, the Thread Pool, the Task and async/await pattern, the Parallel class for parallel execution, and thread-safe collections in the System.Collections.Concurrent namespace. Proper synchronization mechanisms like locks are crucial to avoid race conditions and deadlocks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Reflection in .NET and when would",
+      "description": "What is reflection in .NET and when would you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is reflection in .NET and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-24-ref-1",
+          "text": "Reflection allows you to inspect and manipulate types, objects, and assemblies at runtime. It's used for scenarios like plugin architectures, ORMs, and DI containers. Drawbacks include performance overhead due to runtime type checking, loss of compile-time safety, and potential security concerns if not used carefully.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You ensure security in .NET applications",
+      "description": "How do you ensure security in .NET applications?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure security in .NET applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-25-ref-1",
+          "text": "Security involves authentication and authorization, input validation to prevent injection attacks (like SQL injection), encoding output to prevent XSS, using anti-forgery tokens for CSRF, secure configuration management, data encryption (in transit and at rest), and regular security audits. Staying updated with OWASP Top 10 is crucial.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Microservices architecture in the context of",
+      "description": "Explain microservices architecture in the context of .NET.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain microservices architecture in the context of .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-26-ref-1",
+          "text": "Microservices architecture structures an application as a collection of small, independent services communicating over a network. Benefits include improved scalability, maintainability, fault isolation, and technology diversity. Challenges involve increased complexity in deployment and management, inter-service communication overhead, and the need for robust monitoring. ASP.NET Core is often used to build.NET microservices.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Different approaches to caching in .NET",
+      "description": "Describe different approaches to caching in .NET applications and when to use each.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe different approaches to caching in .NET applications and when to use each.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-27-ref-1",
+          "text": "Common caching approaches include: In-memory caching: Fastest, for single-server scenarios. Distributed caching: For scalable, multi-server applications. Client-side caching: HTTP caching, browser storage for static content. Content Delivery Networks (CDNs): For globally distributed static content. The choice depends on data volatility, access patterns, and scalability requirements.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between await AsyncMethod() and",
+      "description": "What is the difference between await AsyncMethod() and AsyncMethod().Result?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between await AsyncMethod() and AsyncMethod().Result?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-28-ref-1",
+          "text": "await AsyncMethod() is the preferred way to handle asynchronous operations. It pauses the execution of the current async method without blocking the calling thread, allowing it to perform other work. Once the AsyncMethod completes, the execution resumes. AsyncMethod().Result blocks the calling thread until the asynchronous operation completes, which can lead to deadlocks in certain scenarios and should generally be avoided in UI applications or request processing pipelines.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Code contracts in .NET",
+      "description": "What are code contracts in .NET?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are code contracts in .NET?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-29-ref-1",
+          "text": "Code contracts provide a way to specify preconditions, postconditions, and object invariants in your code. They help in documenting assumptions, validating inputs and outputs, and improving code reliability by enabling static and runtime checking of these contracts.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The role of the BackgroundWorker class",
+      "description": "What is the role of the BackgroundWorker class in multithreaded programming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the BackgroundWorker class in multithreaded programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-30-ref-1",
+          "text": "The BackgroundWorker class provides a convenient way to perform operations on a separate thread without blocking the user interface (UI) thread in Windows Forms or WPF applications. It simplifies tasks like progress reporting and cancellation.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Es the Task Parallel Library (TPL)",
+      "description": "How does the Task Parallel Library (TPL) improve parallel programming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does the Task Parallel Library (TPL) improve parallel programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-31-ref-1",
+          "text": "The TPL simplifies parallel programming by providing abstractions like Task and Parallel for executing operations concurrently. It handles task scheduling, load balancing, and synchronization, making it easier to write efficient and scalable parallel code.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of marshaling in .NET.",
+      "description": "Explain the concept of marshaling in .NET.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of marshaling in .NET.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-32-ref-1",
+          "text": "Marshaling is the process of converting data between managed (.NET) and unmanaged (outside the CLR, e.g., COM, Win32 API) memory. It's necessary when interacting with unmanaged code from a .NET application.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "netfundamentals-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "You use the Duplex WCF service",
+      "description": "When would you use the Duplex WCF service?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"When would you use the Duplex WCF service?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:44:50.006Z",
+      "updatedAt": "2025-12-19T17:44:50.006Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "netfundamentals-questions-bank-33-ref-1",
+          "text": "A Duplex WCF service is used when you need two-way communication between the client and the server, allowing the server to initiate calls back to the client (callbacks). This is useful for scenarios like event notifications or real-time updates where the server needs to push data to the client.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

@@ -1,0 +1,2779 @@
+{
+  "mcq_questions": [],
+  "open_questions": [
+    {
+      "id": "nodejs-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Node.js",
+      "description": "What is Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-1-ref-1",
+          "text": "Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside of a web browser. Unlike traditional JavaScript, which is primarily used for client-side scripting in web browsers, Node.js enables developers to use JavaScript for server-side scripting to produce dynamic web page content before the page is sent to the user's web browser.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Some key characteristics of Node.js",
+      "description": "What are some key characteristics of Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some key characteristics of Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-2-ref-1",
+          "text": "Event-Driven and Asynchronous: Node.js operates on a non-blocking, event-driven architecture, making it efficient and suitable for scalable and high-performance applications, particularly those involving I/O-intensive operations. Built on Chrome's V8 JavaScript Engine: Node.js uses Google Chrome's V8 JavaScript engine, which compiles JavaScript directly to native machine code, ensuring fast execution. Single-Threaded Model: Despite being single-threaded, Node.js can handle multiple concurrent connections efficiently due to its event-driven architecture and use of non-blocking I/O operations. NPM (Node Package Manager): Node.js comes with a vast library of packages, managed through the Node Package Manager (NPM), making it easy to import and use a wide range of modules and tools contributed by the community. Cross-Platform: Node.js is cross-platform, meaning it can run on various operating systems like Windows, Linux, Unix, Mac OS X, etc. Use in Full-Stack Development: Its ability to use JavaScript both on the client and server-side makes Node.js popular in full-stack development.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The difference between Node.js and JavaScript",
+      "description": "What is the difference between Node.js and JavaScript?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Node.js and JavaScript?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-3-ref-1",
+          "text": "JavaScript: Nature: JavaScript is a scripting language that was initially designed to run in web browsers. It is used mainly for client-side web development to create interactive web pages and user interfaces. Environment: Runs primarily in web browsers, but can also be used on servers through environments like Node.js. Usage: Used for adding interactive behavior to web pages, manipulating HTML and CSS, and handling user inputs and events. Node.js: Nature: Node.js is a runtime environment that allows JavaScript to be run on the server side. It's not a programming language but an environment that uses JavaScript. Environment: Runs on the server side, outside of web browsers. It allows JavaScript to interact with I/O devices through its APIs, access databases, and more. Usage: Used for building server-side applications, RESTful APIs, and handling backend tasks like file operations, network communication, and database operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Mention some benefits of using Node.js.",
+      "description": "Mention some benefits of using Node.js.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Mention some benefits of using Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-4-ref-1",
+          "text": "Asynchronous, Non-blocking I/O: Enables efficient handling of multiple operations concurrently. Scalability: Its event-driven architecture supports high concurrency, ideal for real-time applications. Unified JavaScript Development: Allows using JavaScript for both server-side and client-side, streamlining development. Large Ecosystem: Features a vast library of modules accessible via Node Package Manager (NPM). Fast Performance: Utilizes Google's V8 JavaScript engine for rapid execution of code. Cross-platform Compatibility: Facilitates development across different operating systems. Strong Community Support: Backed by a robust and active community and corporate sponsorship. Suitable for Microservices: Well-adapted for building microservices architecture due to its lightweight nature.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Mention some disadvantages of using Node.js.",
+      "description": "Mention some disadvantages of using Node.js.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Mention some disadvantages of using Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-5-ref-1",
+          "text": "Performance with CPU-intensive Tasks: Node.js is less efficient when handling CPU-intensive tasks due to its single-threaded nature. In such cases, CPU-bound operations can block the event loop, leading to performance issues. Callback Hell: Asynchronous programming patterns in Node.js can lead to complex nested callbacks, often referred to as \"callback hell,\" making the code hard to read and maintain. Lack of Consistent Conventions: With its open-source nature, Node.js can suffer from a lack of consistent coding standards and conventions, which can affect code quality and maintainability. Asynchronous Programming Complexity: The asynchronous nature of Node.js, while beneficial for I/O operations, can introduce complexity in code logic, making it challenging for developers who are accustomed to linear, synchronous code execution.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The package.json file",
+      "description": "What is the package.json file?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the package.json file?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-6-ref-1",
+          "text": "The package.json file in Node.js projects is a JSON-formatted file that contains metadata about the project, such as its name, version, and description. It also lists project dependencies, defines scripts for common tasks, and may include additional configuration settings. This file plays a crucial role in managing the project's environment and dependencies.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "NODE_ENV used for",
+      "description": "What is NODE_ENV used for?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is NODE_ENV used for?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-7-ref-1",
+          "text": "NODE_ENV in Node.js is used to indicate the environment (like 'development', 'test', or 'production') in which the application is running. This helps in configuring the application's behavior based on the environment, such as enabling verbose logging in development or optimizing performance in production. Example: if (process.env.NODE_ENV === 'development') { console.log('Logging in development mode'); }",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "NPM",
+      "description": "What is NPM?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is NPM?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-8-ref-1",
+          "text": "NPM stands for Node Package Manager. It's a key part of the Node.js ecosystem and serves as the following: Package Manager: NPM manages packages (or modules) for Node.js. It allows developers to install, update, and manage dependencies for their Node.js applications easily. Online Repository: NPM hosts a large repository of public and private packages, making it a central hub for Node.js libraries and applications. Command-Line Utility: Through its CLI (Command-Line Interface), NPM provides tools for installing and managing packages, as well as controlling various aspects of the Node.js application development.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The modules in Node.js",
+      "description": "What are the modules in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the modules in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-9-ref-1",
+          "text": "Modules in Node.js are individual units of code that encapsulate functionality. They can be core modules provided by Node.js, custom modules written by developers, or third-party modules installed from npm. Modules are imported using import or require() and can export objects, functions, or variables for use in other parts of an application. They facilitate code organization, reusability, and maintenance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You describe the term I/O",
+      "description": "How would you describe the term I/O?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How would you describe the term I/O?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-10-ref-1",
+          "text": "The term I/O, short for Input/Output, refers to the transfer of data to and from a computing system. Input is the data received by the system, and Output is the data sent from it. This encompasses a range of activities, such as reading from or writing to storage devices, and receiving or sending data over a network. Efficient I/O handling is vital for software performance, particularly in server environments and data-intensive applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Node.js Single-threaded",
+      "description": "Why is Node.js Single-threaded?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Why is Node.js Single-threaded?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-11-ref-1",
+          "text": "Node.js is single-threaded to simplify handling of I/O operations and to improve efficiency. This design allows for easy management of asynchronous events and reduces issues common in multi-threaded environments, such as deadlocks and race conditions. Despite its single-threaded nature, Node.js can handle high concurrency through its event-driven architecture and non-blocking I/O model.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "If Node.js is single-threaded, then how",
+      "description": "If Node.js is single-threaded, then how does it handle concurrency?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"If Node.js is single-threaded, then how does it handle concurrency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-12-ref-1",
+          "text": "Node.js handles concurrency despite being single-threaded by using an event loop and non-blocking I/O operations. The event loop allows Node.js to perform other tasks while waiting for I/O operations to complete, and then handles the results with callbacks, promises, or async/await. This model enables efficient management of multiple simultaneous operations, making Node.js suitable for high I/O applications. Additionally, for CPU-intensive tasks, Node.js can utilize worker threads to execute JavaScript in parallel threads.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Event loop",
+      "description": "What is the event loop in Node.js?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the event loop in Node.js?\" Requirements: - Call stack + task queue + microtask queue - Why JS is non-blocking despite single-threaded execution Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "async"
+      ],
+      "tags": [
+        "nodejs",
+        "event-loop",
+        "async"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Call stack + task queue + microtask queue; Why JS is non-blocking despite single-threaded execution. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-13-ref-1",
+          "text": "The event loop is a fundamental component of Node.js, allowing it to handle asynchronous operations efficiently. Here's a concise explanation: Core Mechanism: The event loop is what enables Node.js to perform non-blocking I/O operations, despite JavaScript being single-threaded. It's at the heart of Node.js's concurrency model. Handling Asynchronous Events: When Node.js needs to execute a task that may take a while to complete (like reading from a file), instead of waiting for the task to finish, it registers an event and a callback function. The event loop keeps running, handling other tasks. Execution Order: Once the I/O operation or the task is complete, the event loop retrieves the callback associated with that task and executes it. This system allows Node.js to handle numerous operations concurrently, without waiting for each one to complete before moving on to the next. Phases of the Event Loop: The event loop in Node.js has several phases, such as polling for new events, executing callbacks registered with setImmediate(), handling I/O callbacks, and managing timers set with setTimeout() and setInterval(). Efficiency in I/O Heavy Tasks: The event loop makes Node.js particularly efficient for I/O-heavy tasks, as it can handle many operations in the background and respond to them as soon as they're ready.",
+          "weight": 1,
+          "keyPoints": [
+            "Call stack + task queue + microtask queue",
+            "Why JS is non-blocking despite single-threaded execution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Es event-driven programming mean",
+      "description": "What does event-driven programming mean?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does event-driven programming mean?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-14-ref-1",
+          "text": "Event-driven programming is a programming paradigm in which the flow of the program is determined by events such as user actions (mouse clicks, keyboard presses), sensor outputs, or messages from other programs/threads. Characteristic features: Event Handlers: In this paradigm, the program responds to different events using event handlers or listener functions. When an event occurs, the corresponding handler function is executed. Asynchronous Behavior: Event-driven programming is inherently asynchronous. Instead of executing code in a linear sequence, operations are typically triggered by events and handled independently. Loose Coupling: This style often results in a program structure where the components are loosely coupled. They don't call each other directly but instead communicate via events, which can enhance flexibility and scalability. Reactive Approach: The program waits and listens for events to occur and reacts accordingly, rather than following a predetermined path of execution.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "An EventEmitter in Node.js",
+      "description": "What is an EventEmitter in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an EventEmitter in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-15-ref-1",
+          "text": "In Node.js, an EventEmitter is part of the events module and is used to handle and emit custom events. It allows you to set up event listeners with .on() or .addListener(), and trigger those listeners by emitting events with .emit(). This mechanism is key for creating and handling custom events in an asynchronous way, making it essential in event-driven programming in Node.js. Example: const EventEmitter = require('events'); // Create an emitter class class MyEmitter extends EventEmitter {} // Initialize an emitter object const myEmitter = new MyEmitter(); // Add an event listener myEmitter.on('event', () => { console.log('An event occurred!'); }); // Emit an event myEmitter.emit('event'); In this example, we create a new EventEmitter instance, add a listener for an 'event', and then emit 'event', triggering the listener function.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The difference between process.nextTick() and setImmediate()",
+      "description": "What is the difference between process.nextTick() and setImmediate()?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between process.nextTick() and setImmediate()?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-16-ref-1",
+          "text": "process.nextTick() schedules a callback to be invoked in the next iteration of the event loop, prioritizing it over other events like I/O. setImmediate() schedules a callback to execute after the current event loop cycle, typically after I/O events. Thus, process.nextTick() callbacks tend to execute before those scheduled with setImmediate(). Example: // Example using setImmediate setImmediate(() => { console.log('Executed with setImmediate'); }); // Example using process.nextTick process.nextTick(() => { console.log('Executed with process.nextTick'); }); console.log('Started'); // OUTPUT: // Started // Executed with process.nextTick // Executed with setImmediate",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Non-blocking in Node.js.",
+      "description": "Explain non-blocking in Node.js.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain non-blocking in Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-17-ref-1",
+          "text": "Non-blocking in Node.js refers to its capability to perform operations like I/O asynchronously. This means Node.js can initiate an operation and then move on to execute other code without waiting for the operation to complete. The results are handled via callbacks, promises, or async/await, allowing Node.js to efficiently manage multiple tasks concurrently. This approach enhances the performance and scalability of applications, particularly in handling numerous I/O operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "A callback in Node.js",
+      "description": "What is a callback in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a callback in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-18-ref-1",
+          "text": "In Node.js, a callback is a function passed as an argument to another function and is executed after a certain operation completes. This is a key part of handling asynchronous operations in Node.js, enabling non-blocking execution. Example: const fs = require('fs'); // Read a file asynchronously fs.readFile('example.txt', 'utf8', (err, data) => { if (err) { console.error(\"Error reading file:\", err); return; } console.log(data); }); In this example, fs.readFile is an asynchronous function that reads a file. The third argument is a callback function that gets executed after the file is read. The callback receives two parameters, an error err (if any occurred) and the file data data. This pattern allows the rest of the code to run without waiting for the file read operation to complete.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Promises",
+      "description": "What are the advantages of using promises instead of callbacks?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What are the advantages of using promises instead of callbacks?\" Requirements: - Promise states: pending/fulfilled/rejected - Chaining and error handling - Relationship to async/await (if relevant) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "async"
+      ],
+      "tags": [
+        "nodejs",
+        "promises",
+        "async"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Promise states: pending/fulfilled/rejected; Chaining and error handling; Relationship to async/await (if relevant). Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-19-ref-1",
+          "text": "Readability: They lead to cleaner and more structured code, reducing the complexity seen in nested callback patterns. Error Handling: Promises provide a streamlined approach for error handling with .catch(), avoiding repetitive error checks in each callback. Chaining: Promises can be easily chained, allowing for sequential and clear execution of asynchronous tasks. Control Over Asynchronous Operations: They offer methods like Promise.all() to manage multiple asynchronous operations more effectively.",
+          "weight": 1,
+          "keyPoints": [
+            "Promise states: pending/fulfilled/rejected",
+            "Chaining and error handling",
+            "Relationship to async/await (if relevant)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "“callback hell” and how can it",
+      "description": "What is “callback hell” and how can it be avoided?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is “callback hell” and how can it be avoided?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-20-ref-1",
+          "text": "\"Callback hell\" in Node.js refers to deeply nested and hard-to-read callback functions common in asynchronous programming. It can be avoided by: Modularization: Breaking down complex functions into smaller, manageable ones. Using Promises: They provide a cleaner way to handle asynchronous operations with .then() and .catch() methods. Async/Await Syntax: Makes asynchronous code more readable and easier to follow.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "REPL in Node.js.",
+      "description": "Explain REPL in Node.js.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain REPL in Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-21-ref-1",
+          "text": "REPL stands for Read-Eval-Print Loop, and it's an interactive programming environment in Node.js. Here's a concise explanation: Interactive Environment: REPL in Node.js provides an interactive shell that allows you to execute JavaScript code and see the results immediately. Components: Read: Reads the user's input, parses it into JavaScript data structures, and then stores it in memory. Eval: Executes the parsed JavaScript code and evaluates the result. Print: Prints the result of the evaluated code to the console. Loop: Loops back to the read phase, waiting for new user input. Usage: It's commonly used for experimenting with Node.js code, debugging, or learning purposes. You can test code snippets rapidly without needing to write a complete script. Starting REPL: It can be initiated by simply running the node command without any arguments in the command line.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The syntax to import external libraries",
+      "description": "What is the syntax to import external libraries into Node.js projects?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the syntax to import external libraries into Node.js projects?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-22-ref-1",
+          "text": "There are two primary ways to import external libraries in Node.js projects: The require() function with the library's name as an argument. const libraryName = require('libraryName'); const express = require('express'); The import statement, a feature from ECMAScript 6 (ES6). import libraryName from 'libraryName'; import express from 'express';",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Name some of the most commonly",
+      "description": "Name some of the most commonly used libraries in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some of the most commonly used libraries in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-23-ref-1",
+          "text": "Express.js: A fast, unopinionated, minimalist web framework for Node.js, often used to build web applications and APIs. Mongoose: A MongoDB object modeling tool designed to work in an asynchronous environment, simplifying interactions with MongoDB databases. Async: A utility module that provides straightforward, powerful functions for working with asynchronous JavaScript. Lodash: A modern JavaScript utility library delivering modularity, performance, & extras, widely used for working with arrays, numbers, objects, strings, etc. Moment.js: A library for parsing, validating, manipulating, and displaying dates and times in JavaScript. Socket.io: Enables real-time bidirectional event-based communication, commonly used for chat applications and real-time analytics. Axios: A Promise-based HTTP client for the browser and Node.js, popular for making HTTP requests. Passport: A middleware for Node.js, extremely flexible and modular, used for implementing user authentication.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "You create a simple Express.js application",
+      "description": "How do you create a simple Express.js application?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you create a simple Express.js application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-24-ref-1",
+          "text": "Initialize a Node.js project with npm init and create a package.json file. Install Express with npm install express. Create a file (e.g., app.js) and write the basic Express setup: const express = require('express'); const app = express(); app.get('/', (req, res) => { res.send('Hello World!'); }); app.listen(3000, () => { console.log('Server running on port 3000'); }); Start the server with node app.js and access it at http://localhost:3000.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Routing in Express.",
+      "description": "Explain routing in Express.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain routing in Express.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-25-ref-1",
+          "text": "Routing in Express.js defines how an application responds to client requests at specific endpoints. It involves specifying paths, HTTP methods, and handling logic for each route. Example: const express = require('express'); const app = express(); // Define a route app.get('/hello', (req, res) => { res.send('Hello World!'); }); app.listen(3000, () => { console.log('Server started on port 3000'); }); In this example, a route is defined for GET requests to '/hello', which responds with 'Hello World!'. This showcases the basic setup for handling a route in Express.js.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The reason as to why Express",
+      "description": "Explain the reason as to why Express ‘app’ and ‘server’ must be kept separate.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the reason as to why Express ‘app’ and ‘server’ must be kept separate.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-26-ref-1",
+          "text": "Separating the Express 'app' (handling routes and middleware) from the 'server' (managing the HTTP server) in Node.js is recommended for improved testability, flexibility in deployment, and maintainability. It allows for easier testing of the app logic, provides options for different server configurations, and supports scalability and code manageability. This separation also facilitates the integration of advanced server features without altering the application logic. This approach leads to a cleaner and more modular application structure. Example: // app.js - Defining the Express application const express = require('express'); const app = express(); app.get('/', (req, res) => { res.send('Hello World!'); }); module.exports = app; // server.js - Setting up the server const app = require('./app'); const server = app.listen(3000, () => { console.log('Server running on port 3000'); }); In this structure, app.js contains the Express application logic, while server.js handles the server configuration and startup. This separation enhances testability, scalability, and maintainability of the application.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The exit codes of Node.js.",
+      "description": "Describe the exit codes of Node.js.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the exit codes of Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-27-ref-1",
+          "text": "In Node.js, exit codes are numerical codes returned by processes upon their completion, used to indicate whether the process exited successfully or encountered an error. Commonly used exit codes include: 0: Successful completion. The default code when a process exits without errors. 1: Uncaught Fatal Exception. Indicates the process was terminated due to an unhandled exception. 2: Reserved. Generally indicates misuse of shell built-ins.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Control flow in Node.js.",
+      "description": "Explain control flow in Node.js.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain control flow in Node.js.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-28-ref-1",
+          "text": "Control flow in Node.js refers to the order in which individual pieces of code (like functions, callbacks, or events) are executed. Due to its asynchronous, event-driven nature, control flow in Node.js can be more complex compared to traditional, linear programming languages. Here's a brief overview: Asynchronous Execution: Many operations in Node.js, particularly I/O tasks, are performed asynchronously. This means the program can continue executing other code while waiting for these operations to complete, rather than blocking the execution thread. Event Loop: The heart of control flow in Node.js is the event loop. It allows Node.js to perform non-blocking I/O operations by offloading operations to the system kernel whenever possible. Callbacks: Control flow is often managed through callbacks. A callback function is executed after the completion of an asynchronous operation, allowing the program to continue where it left off. Promises and Async/Await: To manage control flow more effectively and avoid \"callback hell,\" Node.js supports Promises and the async/await syntax, making asynchronous code easier to write and understand. Modules and Middleware: In Node.js, modularization and the use of middleware (especially in web frameworks like Express) also play a significant role in controlling the flow of applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Typically the first argument passed to",
+      "description": "What is typically the first argument passed to a Node.js callback handler?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is typically the first argument passed to a Node.js callback handler?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-29-ref-1",
+          "text": "In Node.js, the first argument passed to a callback handler is typically an error object. This follows the error-first callback pattern, which is a standard convention in Node.js for handling asynchronous operations. Example: fs.readFile('/path/to/file', (err, data) => { if (err) { console.error('Error reading file:', err); return; } console.log('File data:', data); });",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between Asynchronous and Non-blocking",
+      "description": "What is the difference between Asynchronous and Non-blocking?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Asynchronous and Non-blocking?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-30-ref-1",
+          "text": "Asynchronous operations in Node.js are executed separately from the main program flow, allowing the program to continue running while waiting for the operation to complete, typically handled with callbacks, promises, or async/await. Non-blocking refers to the system's ability to continue processing other tasks without waiting for an operation, like I/O, to finish, thus avoiding halting the execution. While related, asynchronous is more about the timing of operations, and non-blocking is about the system's responsiveness to resource availability.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "You understand by a test pyramid",
+      "description": "What do you understand by a test pyramid?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What do you understand by a test pyramid?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-31-ref-1",
+          "text": "The test pyramid is a concept in software testing that emphasizes having a large number of quick and isolated unit tests at the base, a moderate number of integration tests in the middle, and a small number of comprehensive end-to-end tests at the top. This structure promotes a balanced and efficient testing strategy, where most issues are caught by fast-running unit tests, while integration and end-to-end tests ensure overall system integrity and user experience.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "ESLint",
+      "description": "What is ESLint?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is ESLint?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-32-ref-1",
+          "text": "ESLint is a static code analysis tool for JavaScript and TypeScript that identifies and fixes problematic code patterns and ensures adherence to style guidelines. It offers customizable rules, automated code fixing, and can be integrated into development workflows. ESLint is widely used to maintain code quality and consistency in projects.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Meant by tracing in Node.js",
+      "description": "What is meant by tracing in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is meant by tracing in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-33-ref-1",
+          "text": "In Node.js, tracing refers to the process of capturing and recording diagnostic information about the execution of a program. Tracing is commonly used for performance analysis, debugging, and profiling of Node.js applications. It involves collecting data such as function calls, execution times, memory usage, and more to gain insights into how the application behaves.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The use of module.exports in Node.js",
+      "description": "What is the use of module.exports in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of module.exports in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-34-ref-1",
+          "text": "In Node.js, module.exports is used to export functions, objects, or values from a module so they can be required and used in other modules. This mechanism allows for the modularization of code, enabling the separation of concerns and reuse of code across different parts of an application.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "The purpose of the fs module",
+      "description": "What is the purpose of the fs module?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the fs module?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-35-ref-1",
+          "text": "The fs module in Node.js stands for \"File System\" and provides a set of methods and functionalities for interacting with the file system of a computer. It allows you to perform various operations on files and directories, including: File I/O: Reading and writing files asynchronously or synchronously. File and Directory Manipulation: Creating, deleting, renaming, and moving files and directories. File Metadata: Accessing file information such as size, modification timestamps, and permissions. Directory Traversal: Navigating and listing the contents of directories. File Watching: Monitoring files and directories for changes. Error Handling: Managing errors that may occur during file system operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "To write to files in Node.js",
+      "description": "How to write to files in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How to write to files in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-36-ref-1",
+          "text": "In Node.js, you can write to files using the fs (File System) module. Here's a basic example of how to write to a file asynchronously: const fs = require('fs'); // Data to write to the file const dataToWrite = 'This is the content that will be written to the file.'; // Specify the file path const filePath = 'example.txt'; // Write to the file asynchronously fs.writeFile(filePath, dataToWrite, (err) => { if (err) { console.error('Error writing to the file:', err); } else { console.log('File has been written successfully.'); } });",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Stubs in Node.js",
+      "description": "What are stubs in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are stubs in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-37-ref-1",
+          "text": "In Node.js, stubs are simplified, controllable replacements for complex or external functionalities used in unit testing. They simulate the behavior of real components by providing predefined responses to function calls. Stubs help isolate the code being tested from its dependencies, making tests simpler and more focused. They are commonly used to test how code interacts with external systems or to simulate error conditions, often in conjunction with testing frameworks like Sinon.js.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Global objects in Node.js",
+      "description": "What are global objects in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are global objects in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-38-ref-1",
+          "text": "Global objects in Node.js are objects that are available globally throughout the entire Node.js application without the need for explicit declaration. They can be accessed from any module without importing them. Some common global objects in Node.js include: console: Used for logging messages and data to the console. process: Provides information and control over the current Node.js process. Buffer: Represents binary data and is used for working with binary streams. require(): Used to import modules and their functionality. __dirname: Represents the directory name of the current module. __filename: Represents the file name of the current module. global: The global namespace object, but it's generally recommended to avoid adding properties to it.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Middleware used in Node.js",
+      "description": "How is middleware used in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How is middleware used in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-39-ref-1",
+          "text": "In Node.js, particularly with frameworks like Express, middleware refers to functions that have access to the request and response objects, and the next middleware function in the application’s request-response cycle. The primary uses of middleware include: Request Processing: Middleware functions can execute any code, modify request and response objects, and end the request-response cycle. Route Handling: They can be used to perform validations, parse the request body, handle cookies or sessions, etc., before the request reaches its intended route handler. Error Handling: Middleware functions are used for error handling across the application. Enhancing Functionality: They can add new functionality to the application, like logging, setting security headers, or enabling CORS. Modularizing Code: Middleware helps in breaking the application into smaller, more manageable parts, enhancing code organization and maintenance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Briefly explain how the V8 engine",
+      "description": "Briefly explain how the V8 engine relates to Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Briefly explain how the V8 engine relates to Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-40-ref-1",
+          "text": "The V8 engine, developed by Google for the Chrome browser, is a crucial component of Node.js. It compiles JavaScript into native machine code, enabling efficient and fast execution. Node.js uses the V8 engine to run JavaScript code outside the browser, allowing Node.js applications to benefit from V8's performance and optimizations. This relationship allows Node.js to provide a server-side environment where JavaScript can be executed with the speed and efficiency comparable to traditional server-side languages.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Streams in Node.js",
+      "description": "What are streams in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are streams in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-41-ref-1",
+          "text": "Streams in Node.js are used for handling data flow, allowing you to read or write data in chunks without loading everything into memory. They are efficient for processing large data sets and come in different types: Readable (for reading data), Writable (for writing data), Duplex (both reading and writing), and Transform (modifying data as it's read or written). Example of a Readable Stream: const fs = require('fs'); // Create a readable stream to read a file const readableStream = fs.createReadStream('example.txt'); readableStream.on('data', (chunk) => { console.log(`Received ${chunk.length} bytes of data.`); }); readableStream.on('end', () => { console.log('Finished reading file.'); }); This code creates a readable stream for a file named example.txt, reading it in chunks and logging the size of each chunk to the console. When the file is fully read, it logs that the reading is finished.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-42",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The difference between fork() and spawn()",
+      "description": "What is the difference between fork() and spawn() methods in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between fork() and spawn() methods in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-42-ref-1",
+          "text": "fork() is used for spawning new Node.js processes and establishes an IPC channel for communication between the parent and child processes. It's ideal for when you need to execute Node.js modules separately but with communication. Example: Let's say you have a Node.js module child.js that you want to run as a child process: process.on('message', (msg) => { console.log('Message from parent:', msg); }); let counter = 0; setInterval(() => { process.send({ counter: counter++ }); }, 1000); You can create a parent script that uses fork() to spawn this child process: spawn() is more general and can be used for any command, not limited to Node.js. It's suitable for executing system commands and handles large amounts of data output, offering a stream interface but without establishing an IPC channel by default. Example: For instance, listing files in a directory: const { spawn } = require('child_process'); const ls = spawn('ls', ['-lh', '/usr']); ls.stdout.on('data', (data) => { console.log(`Output: ${data}`); }); ls.stderr.on('data', (data) => { console.error(`Error: ${data}`); }); ls.on('close', (code) => { console.log(`Child process exited with code ${code}`); }); Here, spawn() is used to run the ls command to list files in /usr. The output is captured via streams, allowing the parent process to handle the data as it's generated.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-43",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "The Buffer class in Node.js",
+      "description": "What is the Buffer class in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Buffer class in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-43-ref-1",
+          "text": "The Buffer class in Node.js is used for handling raw binary data. It allows you to work with bytes of data directly, which is useful when dealing with I/O operations like file handling and network communication. Example: // Create a Buffer containing \"Hello\" const buf = Buffer.from('Hello', 'utf8'); // Log the Buffer and its string equivalent console.log(buf); // Outputs: <Buffer 48 65 6c 6c 6f> console.log(buf.toString()); // Outputs: Hello In this example, a Buffer is created from a string \"Hello\" and then displayed both as raw binary data and as a human-readable string.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-44",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Piping in Node.js",
+      "description": "What is piping in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is piping in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-44-ref-1",
+          "text": "Piping in Node.js is a technique used to take the output stream of one object and connect it to the input stream of another. It's a way to efficiently pass data from one source to another without intermediate holding of the data in a buffer. This method is commonly used in working with streams, allowing for easy data transfer and transformation. Example: const fs = require('fs'); // Create a readable stream to read from a file let readableStream = fs.createReadStream('input.txt'); // Create a writable stream to write to a file let writableStream = fs.createWriteStream('output.txt'); // Pipe the read and write operations readableStream.pipe(writableStream); console.log(\"Piping is done.\"); In this example, the content of input.txt is piped to output.txt. This means that as soon as some data is read from input.txt, it is immediately written to output.txt, efficiently handling the data transfer.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-45",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "Es Node.js handle the child threads",
+      "description": "How does Node.js handle the child threads?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Node.js handle the child threads?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-45-ref-1",
+          "text": "Node.js primarily operates in a single-threaded manner, but it can handle child threads for certain operations, allowing for concurrent execution. Here's how Node.js manages child threads: Libuv Library: Node.js uses the libuv library, which provides a multi-threaded environment in the background. While the main JavaScript code runs on a single thread (the event loop), libuv handles tasks like file I/O and network communication in a multi-threaded way. Worker Threads: Introduced in Node.js as an experimental feature and later stabilized, Worker Threads allow running JavaScript in parallel threads. This feature can be used for CPU-intensive tasks without blocking the main event loop. Child Process Module: Node.js has a built-in child_process module, which can be used to create and manage child processes. This module provides functions like spawn, exec, execFile, and fork to run secondary processes. While these are not threads in the traditional sense, they allow Node.js to perform multiple tasks concurrently. Cluster Module: For handling HTTP server load, the cluster module can be used. It enables the creation of child processes that all run their own event loop and share the server port.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-46",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Es Node.js support multi-processor platforms, and",
+      "description": "How does Node.js support multi-processor platforms, and does it fully utilize all processor resources?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Node.js support multi-processor platforms, and does it fully utilize all processor resources?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-46-ref-1",
+          "text": "Node.js, inherently single-threaded, doesn't automatically utilize multiple processor cores. However, it can be made to support multi-processor platforms and utilize all available processor resources through specific methods: Cluster Module: Node.js includes a cluster module that allows you to create child processes (workers) that run simultaneously and share the same server port. This module forks the main Node.js process, creating a master-worker architecture. Each worker runs in its own process and utilizes a CPU core, thus enabling the application to take advantage of multi-core systems. Worker Threads: Introduced in later versions of Node.js, worker threads allow running tasks in parallel threads within the same process. This feature is suitable for performing CPU-intensive tasks without blocking the main thread. Load Balancing: The cluster module can also be used to implement a load balancing strategy over multiple CPU cores, distributing incoming network requests among multiple instances of the Node.js application.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-47",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Libuv.",
+      "description": "Explain libuv.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain libuv.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-47-ref-1",
+          "text": "Libuv is a cross-platform C library that provides the core asynchronous I/O functionality for Node.js. It implements an event loop and a non-blocking I/O model, enabling efficient handling of various operations like file system tasks, network communication, and timers. Libuv abstracts platform-specific details, ensuring consistent behavior across different operating systems. Its design contributes to Node.js's ability to handle high levels of concurrency and performance, particularly in network and I/O-driven applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-48",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "startup",
+      "title": "The concept of Punycode in Node.js",
+      "description": "Explain the concept of Punycode in Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Punycode in Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-48-ref-1",
+          "text": "Punycode is a character encoding scheme used in Node.js and other programming environments to convert Unicode (internationalized) domain names to ASCII (American Standard Code for Information Interchange) domain names. This conversion is necessary because the Domain Name System (DNS) originally only supported ASCII characters, which limited the use of non-Latin characters in domain names.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-49",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "enterprise",
+      "title": "Name some security implementations within Node.js",
+      "description": "Name some security implementations within Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some security implementations within Node.js?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-49-ref-1",
+          "text": "Node.js, like any other server-side platform, requires specific security implementations to protect applications from various threats. Some common security implementations in Node.js include: Input Validation: Sanitize and validate user input to prevent injection attacks, like SQL Injection or Cross-Site Scripting (XSS). Authentication and Authorization: Implement robust authentication mechanisms and role-based access control (RBAC) to ensure only authorized users can access specific resources. HTTPS: Use HTTPS to encrypt data in transit, securing communication between clients and the server. Helmet.js: Employ the Helmet.js library to set various security-related HTTP headers, mitigating common web vulnerabilities like Cross-Site Scripting (XSS) and Clickjacking. OWASP Top Ten: Follow the OWASP Top Ten Project guidelines to address common security risks such as injection attacks, broken authentication, and security misconfigurations. Content Security Policy (CSP): Implement CSP headers to prevent the execution of malicious scripts, protecting against XSS attacks. Rate Limiting: Apply rate limiting to limit the number of requests from a single IP address to prevent abuse or DoS attacks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-questions-bank-50",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": "faang",
+      "title": "Is it possible to run external",
+      "description": "Is it possible to run external processes with Node.js?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Is it possible to run external processes with Node.js?\" Requirements: - Answer the question directly, then explain - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "nodejs"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Answer the question directly, then explain; Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "nodejs"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:41:28.046Z",
+      "updatedAt": "2025-12-19T17:41:28.046Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "nodejs-questions-bank-50-ref-1",
+          "text": "Yes, it is possible to run external processes with Node.js using the child_process module. The child_process module provides methods for spawning and interacting with child processes, which can be any external command or script executable on your system. Example: const { exec } = require('child_process'); // Run the \"ls -l\" command in the shell exec('ls -l', (error, stdout, stderr) => { if (error) { console.error(`Error: ${error.message}`); return; } console.log(`stdout: ${stdout}`); console.error(`stderr: ${stderr}`); }); In this example, we use exec() to run the \"ls -l\" command, which lists the files in the current directory with detailed information. The output is captured and displayed in the stdout and stderr streams, and any errors are handled in the callback function.",
+          "weight": 1,
+          "keyPoints": [
+            "Answer the question directly, then explain",
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
+    }
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
+}

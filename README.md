@@ -21,3 +21,12 @@ This software is provided "as is" without warranty of any kind, express or impli
 
 ## Copyright
 © 2025 Blairify. All rights reserved.
+
+
+
+
+how to import all question banks:
+for file in scripts/questions/*.json; do
+  [[ "$file" == *.prepared.json ]] && continue
+  pnpm prepare:questions "$file" && pnpm import:questions "${file%.json}.prepared.json" || break
+done

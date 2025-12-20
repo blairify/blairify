@@ -278,7 +278,6 @@ export function ConfigureContent() {
               {isImportingJob ? "Importing..." : "Import"}
             </Button>
           </div>
-
         </div>
 
         <Separator />
