@@ -1,377 +1,3336 @@
 {
-  "totalQuestions": 53,
-  "extractedAt": "2025-12-19T17:52:55.627Z",
-  "questions": [
+  "mcq_questions": [],
+  "open_questions": [
     {
-      "id": 1,
-      "level": "Junior",
-      "title": "Explain what AWS is and its core services.",
-      "answer": "AWS stands for Amazon Web Services, and it is a cloud computing platform that provides a wide range of cloud services, including computing power, storage, databases, machine learning, analytics, and more.\nSome core services include EC2 (Elastic Compute Cloud), S3 (Simple Storage Service), RDS (Relational Database Service), and Lambda for serverless computing.",
-      "isPremium": false
+      "id": "aws-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "What AWS is and its core",
+      "description": "Explain what AWS is and its core services.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS is and its core services.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-1-ref-1",
+          "text": "AWS stands for Amazon Web Services, and it is a cloud computing platform that provides a wide range of cloud services, including computing power, storage, databases, machine learning, analytics, and more. Some core services include EC2 (Elastic Compute Cloud), S3 (Simple Storage Service), RDS (Relational Database Service), and Lambda for serverless computing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 2,
-      "level": "Junior",
-      "title": "What are the advantages of using AWS over traditional on-premises infrastructure?",
-      "answer": "AWS offers several advantages, such as scalability, cost-effectiveness, flexibility, and the ability to pay only for what you use. It also provides a global network of data centers, which ensures high availability and reliability.",
-      "isPremium": false
+      "id": "aws-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The advantages of using AWS over",
+      "description": "What are the advantages of using AWS over traditional on-premises infrastructure?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages of using AWS over traditional on-premises infrastructure?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-2-ref-1",
+          "text": "AWS offers several advantages, such as scalability, cost-effectiveness, flexibility, and the ability to pay only for what you use. It also provides a global network of data centers, which ensures high availability and reliability.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 3,
-      "level": "Junior",
-      "title": "What is the difference between horizontal scaling and vertical scaling in AWS?",
-      "answer": "Horizontal scaling, also known as scaling out, involves adding more instances or servers to your application to handle increased load. Vertical scaling, or scaling up, involves increasing the resources (e.g., CPU, RAM) of existing instances to handle more load. AWS provides tools and services like Auto Scaling to facilitate horizontal scaling.",
-      "isPremium": false
+      "id": "aws-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between horizontal scaling and",
+      "description": "What is the difference between horizontal scaling and vertical scaling in AWS?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between horizontal scaling and vertical scaling in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-3-ref-1",
+          "text": "Horizontal scaling, also known as scaling out, involves adding more instances or servers to your application to handle increased load. Vertical scaling, or scaling up, involves increasing the resources (e.g., CPU, RAM) of existing instances to handle more load. AWS provides tools and services like Auto Scaling to facilitate horizontal scaling.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 4,
-      "level": "Junior",
-      "title": "What is the Amazon DynamoDB database and how does it work?",
-      "answer": "Amazon DynamoDB is a fully managed NoSQL database service provided by AWS. It is designed for high availability and scalability. DynamoDB uses a distributed architecture where data is partitioned and replicated across multiple servers to ensure high performance and fault tolerance.",
-      "isPremium": false
+      "id": "aws-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The Amazon DynamoDB database and how",
+      "description": "What is the Amazon DynamoDB database and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Amazon DynamoDB database and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-4-ref-1",
+          "text": "Amazon DynamoDB is a fully managed NoSQL database service provided by AWS. It is designed for high availability and scalability. DynamoDB uses a distributed architecture where data is partitioned and replicated across multiple servers to ensure high performance and fault tolerance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 5,
-      "level": "Junior",
-      "title": "What is the Amazon Web Services (AWS) Shared Responsibility Model?",
-      "answer": "The AWS Shared Responsibility Model defines the division of responsibilities between AWS and its customers. AWS is responsible for the security \"of\" the cloud (physical infrastructure, networking, and some aspects of the host operating system), while customers are responsible for the security \"in\" the cloud (configuring security groups, managing access control, securing their own applications, etc.).",
-      "isPremium": false
+      "id": "aws-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The Amazon Web Services (AWS) Shared",
+      "description": "What is the Amazon Web Services (AWS) Shared Responsibility Model?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Amazon Web Services (AWS) Shared Responsibility Model?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-5-ref-1",
+          "text": "The AWS Shared Responsibility Model defines the division of responsibilities between AWS and its customers. AWS is responsible for the security \"of\" the cloud (physical infrastructure, networking, and some aspects of the host operating system), while customers are responsible for the security \"in\" the cloud (configuring security groups, managing access control, securing their own applications, etc.).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 6,
-      "level": "Junior",
-      "title": "Explain what AWS Lambda is and its use cases.",
-      "answer": "AWS Lambda is a serverless compute service that allows you to run code in response to events without managing servers. It is used for various tasks, including data processing, real-time file processing, and building serverless applications.",
-      "isPremium": false
+      "id": "aws-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "What AWS Lambda is and its",
+      "description": "Explain what AWS Lambda is and its use cases.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS Lambda is and its use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-6-ref-1",
+          "text": "AWS Lambda is a serverless compute service that allows you to run code in response to events without managing servers. It is used for various tasks, including data processing, real-time file processing, and building serverless applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 7,
-      "level": "Junior",
-      "title": "Explain what AWS EC2 is and its use cases.",
-      "answer": "Amazon EC2 is a versatile service that enables users to run virtual servers in the cloud, making it suitable for a wide range of use cases, from hosting websites to running complex data analytics and machine learning workloads. Its scalability and pay-as-you-go pricing model make it a valuable resource for businesses of all sizes.",
-      "isPremium": false
+      "id": "aws-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "What AWS EC2 is and its",
+      "description": "Explain what AWS EC2 is and its use cases.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS EC2 is and its use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-7-ref-1",
+          "text": "Amazon EC2 is a versatile service that enables users to run virtual servers in the cloud, making it suitable for a wide range of use cases, from hosting websites to running complex data analytics and machine learning workloads. Its scalability and pay-as-you-go pricing model make it a valuable resource for businesses of all sizes.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 8,
-      "level": "Junior",
-      "title": "What is the difference between EC2 and Lambda, and when would you choose one over the other for a specific use case?",
-      "answer": "Amazon EC2 (Elastic Compute Cloud) provides virtual machines that you manage, while AWS Lambda is a serverless service where you upload code, and AWS manages the infrastructure. Choose EC2 for more control and flexibility and Lambda for event-driven, highly scalable, and cost-efficient workloads.",
-      "isPremium": false
+      "id": "aws-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between EC2 and Lambda,",
+      "description": "What is the difference between EC2 and Lambda, and when would you choose one over the other for a specific use case?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between EC2 and Lambda, and when would you choose one over the other for a specific use case?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-8-ref-1",
+          "text": "Amazon EC2 (Elastic Compute Cloud) provides virtual machines that you manage, while AWS Lambda is a serverless service where you upload code, and AWS manages the infrastructure. Choose EC2 for more control and flexibility and Lambda for event-driven, highly scalable, and cost-efficient workloads.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 9,
-      "level": "Junior",
-      "title": "What is Auto Scaling, and how does it work in AWS?",
-      "answer": "Auto Scaling is a feature in AWS that allows you to automatically adjust the number of EC2 instances in a group based on demand. It uses scaling policies and metrics to determine when to add or remove instances to maintain a desired level of capacity and availability.",
-      "isPremium": false
+      "id": "aws-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Auto Scaling, and how does it",
+      "description": "What is Auto Scaling, and how does it work in AWS?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Auto Scaling, and how does it work in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-9-ref-1",
+          "text": "Auto Scaling is a feature in AWS that allows you to automatically adjust the number of EC2 instances in a group based on demand. It uses scaling policies and metrics to determine when to add or remove instances to maintain a desired level of capacity and availability.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 10,
-      "level": "Mid",
-      "title": "How does Amazon S3 achieve high availability and durability?",
-      "answer": "Amazon S3 (Simple Storage Service) achieves high availability and durability by replicating data across multiple data centers within an AWS region. It uses object-level versioning, automatically handles hardware failures, and provides data integrity through checksums.",
-      "isPremium": false
+      "id": "aws-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Es Amazon S3 achieve high availability",
+      "description": "How does Amazon S3 achieve high availability and durability?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Amazon S3 achieve high availability and durability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-10-ref-1",
+          "text": "Amazon S3 (Simple Storage Service) achieves high availability and durability by replicating data across multiple data centers within an AWS region. It uses object-level versioning, automatically handles hardware failures, and provides data integrity through checksums.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 11,
-      "level": "Mid",
-      "title": "How do you ensure the security of data stored in Amazon S3 buckets?",
-      "answer": "You can ensure the security of data in Amazon S3 buckets by:\nSetting appropriate bucket policies and access control lists (ACLs).\nEnabling versioning and MFA (Multi-Factor Authentication) delete.\nUsing AWS Identity and Access Management (IAM) roles and policies.\nEncrypting data at rest using server-side encryption (SSE).\nUsing VPC endpoints and S3 bucket policies for fine-grained control.\nRegularly reviewing access logs and monitoring with AWS CloudWatch.",
-      "isPremium": false
+      "id": "aws-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You ensure the security of data",
+      "description": "How do you ensure the security of data stored in Amazon S3 buckets?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure the security of data stored in Amazon S3 buckets?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-11-ref-1",
+          "text": "You can ensure the security of data in Amazon S3 buckets by: Setting appropriate bucket policies and access control lists (ACLs). Enabling versioning and MFA (Multi-Factor Authentication) delete. Using AWS Identity and Access Management (IAM) roles and policies. Encrypting data at rest using server-side encryption (SSE). Using VPC endpoints and S3 bucket policies for fine-grained control. Regularly reviewing access logs and monitoring with AWS CloudWatch.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 12,
-      "level": "Mid",
-      "title": "What is a CDN (Content Delivery Network).",
-      "answer": "A CDN is a distributed network of servers located at various geographic locations. Its primary purpose is to improve the speed, reliability, and availability of web content, such as images, videos, and static files.\nCDNs cache content close to end-users, reducing latency and offloading traffic from origin servers. This results in faster content delivery and better scalability, especially for global audiences.",
-      "isPremium": false
+      "id": "aws-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "A CDN (Content Delivery Network).",
+      "description": "What is a CDN (Content Delivery Network).?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a CDN (Content Delivery Network).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-12-ref-1",
+          "text": "A CDN is a distributed network of servers located at various geographic locations. Its primary purpose is to improve the speed, reliability, and availability of web content, such as images, videos, and static files. CDNs cache content close to end-users, reducing latency and offloading traffic from origin servers. This results in faster content delivery and better scalability, especially for global audiences.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 13,
-      "level": "Mid",
-      "title": "What is Amazon Elastic Load Balancing (ELB), and how does it work?",
-      "answer": "Amazon ELB is a service that automatically distributes incoming application traffic across multiple targets, such as EC2 instances, to ensure high availability and fault tolerance. It works by regularly monitoring the health of instances and routing traffic only to healthy targets.",
-      "isPremium": false
+      "id": "aws-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Amazon Elastic Load Balancing (ELB), and",
+      "description": "What is Amazon Elastic Load Balancing (ELB), and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Elastic Load Balancing (ELB), and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-13-ref-1",
+          "text": "Amazon ELB is a service that automatically distributes incoming application traffic across multiple targets, such as EC2 instances, to ensure high availability and fault tolerance. It works by regularly monitoring the health of instances and routing traffic only to healthy targets.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 14,
-      "level": "Mid",
-      "title": "What is AWS Lambda@Edge, and what are its use cases?",
-      "answer": "AWS Lambda@Edge is a service that allows you to run Lambda functions in response to CloudFront events (e.g., user requests). Use cases include modifying content at the edge, customizing web pages, and implementing security features like access control.",
-      "isPremium": false
+      "id": "aws-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "AWS Lambda@Edge, and what are its",
+      "description": "What is AWS Lambda@Edge, and what are its use cases?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Lambda@Edge, and what are its use cases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-14-ref-1",
+          "text": "AWS Lambda@Edge is a service that allows you to run Lambda functions in response to CloudFront events (e.g., user requests). Use cases include modifying content at the edge, customizing web pages, and implementing security features like access control.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 15,
-      "level": "Mid",
-      "title": "What is Amazon SQS (Simple Queue Service), and how does it differ from Amazon SNS (Simple Notification Service)?",
-      "answer": "Amazon SQS is a managed message queuing service that decouples the components of a cloud application. Amazon SNS is a fully managed notification service. While SQS allows messages to be stored temporarily until processed, SNS is used for real-time message delivery to multiple subscribers.",
-      "isPremium": false
+      "id": "aws-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Amazon SQS (Simple Queue Service), and",
+      "description": "What is Amazon SQS (Simple Queue Service), and how does it differ from Amazon SNS (Simple Notification Service)?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon SQS (Simple Queue Service), and how does it differ from Amazon SNS (Simple Notification Service)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-15-ref-1",
+          "text": "Amazon SQS is a managed message queuing service that decouples the components of a cloud application. Amazon SNS is a fully managed notification service. While SQS allows messages to be stored temporarily until processed, SNS is used for real-time message delivery to multiple subscribers.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 16,
-      "level": "Mid",
-      "title": "What is Amazon RDS (Relational Database Service), and what are its benefits?",
-      "answer": "Amazon RDS is a managed relational database service that supports various database engines like MySQL, PostgreSQL, and SQL Server. Benefits include automated backups, high availability with Multi-AZ deployments, and automated software patching.",
-      "isPremium": false
+      "id": "aws-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Amazon RDS (Relational Database Service), and",
+      "description": "What is Amazon RDS (Relational Database Service), and what are its benefits?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon RDS (Relational Database Service), and what are its benefits?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-16-ref-1",
+          "text": "Amazon RDS is a managed relational database service that supports various database engines like MySQL, PostgreSQL, and SQL Server. Benefits include automated backups, high availability with Multi-AZ deployments, and automated software patching.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 17,
-      "level": "Mid",
-      "title": "Explain the difference between Amazon RDS and Amazon DynamoDB.",
-      "answer": "Amazon RDS (Relational Database Service) is a managed relational database service that supports multiple database engines like MySQL, PostgreSQL, and SQL Server. It's suitable for structured data and offers features like automatic backups and scaling.\nAmazon DynamoDB, on the other hand, is a managed NoSQL database service that provides high scalability, low latency, and seamless replication. It's ideal for applications requiring flexible and fast data access.",
-      "isPremium": false
+      "id": "aws-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between Amazon RDS and",
+      "description": "Explain the difference between Amazon RDS and Amazon DynamoDB.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Amazon RDS and Amazon DynamoDB.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-17-ref-1",
+          "text": "Amazon RDS (Relational Database Service) is a managed relational database service that supports multiple database engines like MySQL, PostgreSQL, and SQL Server. It's suitable for structured data and offers features like automatic backups and scaling. Amazon DynamoDB, on the other hand, is a managed NoSQL database service that provides high scalability, low latency, and seamless replication. It's ideal for applications requiring flexible and fast data access.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 18,
-      "level": "Mid",
-      "title": "Explain the use of Amazon CloudWatch and its key metrics for monitoring AWS resources.",
-      "answer": "Amazon CloudWatch is a monitoring and observability service for AWS resources. Key metrics include CPU utilization, network traffic, and error rates. It can be used to set alarms, automate responses, and gain insights into the performance of AWS resources.",
-      "isPremium": false
+      "id": "aws-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of Amazon CloudWatch and",
+      "description": "Explain the use of Amazon CloudWatch and its key metrics for monitoring AWS resources.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the use of Amazon CloudWatch and its key metrics for monitoring AWS resources.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-18-ref-1",
+          "text": "Amazon CloudWatch is a monitoring and observability service for AWS resources. Key metrics include CPU utilization, network traffic, and error rates. It can be used to set alarms, automate responses, and gain insights into the performance of AWS resources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 19,
-      "level": "Mid",
-      "title": "What is AWS Identity and Access Management (IAM), and why is it important?",
-      "answer": "AWS IAM is a service that allows you to manage access to AWS resources securely. It's important because it enables you to control who has access to your AWS resources and what actions they can perform, enhancing security and compliance.",
-      "isPremium": false
+      "id": "aws-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "AWS Identity and Access Management (IAM),",
+      "description": "What is AWS Identity and Access Management (IAM), and why is it important?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Identity and Access Management (IAM), and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-19-ref-1",
+          "text": "AWS IAM is a service that allows you to manage access to AWS resources securely. It's important because it enables you to control who has access to your AWS resources and what actions they can perform, enhancing security and compliance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 20,
-      "level": "Mid",
-      "title": "Explain the difference between IAM roles and IAM users in AWS.",
-      "answer": "IAM (Identity and Access Management) roles are used to grant permissions to AWS services or resources, while IAM users are used to grant permissions to individual users or applications. Roles are often used for cross-account access and are assumed by trusted entities.",
-      "isPremium": false
+      "id": "aws-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between IAM roles and",
+      "description": "Explain the difference between IAM roles and IAM users in AWS.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between IAM roles and IAM users in AWS.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-20-ref-1",
+          "text": "IAM (Identity and Access Management) roles are used to grant permissions to AWS services or resources, while IAM users are used to grant permissions to individual users or applications. Roles are often used for cross-account access and are assumed by trusted entities.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 21,
-      "level": "Mid",
-      "title": "What is Amazon ECS (Elastic Container Service), and how does it simplify container management?",
-      "answer": "Amazon ECS is a container orchestration service that simplifies the deployment, management, and scaling of Docker containers. It allows you to run and scale containerized applications easily.",
-      "isPremium": false
+      "id": "aws-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Amazon ECS (Elastic Container Service), and",
+      "description": "What is Amazon ECS (Elastic Container Service), and how does it simplify container management?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon ECS (Elastic Container Service), and how does it simplify container management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-21-ref-1",
+          "text": "Amazon ECS is a container orchestration service that simplifies the deployment, management, and scaling of Docker containers. It allows you to run and scale containerized applications easily.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 22,
-      "level": "Mid",
-      "title": "Explain the concept of Amazon Aurora, and how does it differ from traditional relational databases?",
-      "answer": "Amazon Aurora is a high-performance relational database service compatible with MySQL and PostgreSQL. It offers benefits like high availability, durability, and performance that exceed traditional databases, along with features like auto-scaling and replication.",
-      "isPremium": false
+      "id": "aws-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of Amazon Aurora, and",
+      "description": "Explain the concept of Amazon Aurora, and how does it differ from traditional relational databases?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Amazon Aurora, and how does it differ from traditional relational databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-22-ref-1",
+          "text": "Amazon Aurora is a high-performance relational database service compatible with MySQL and PostgreSQL. It offers benefits like high availability, durability, and performance that exceed traditional databases, along with features like auto-scaling and replication.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 23,
-      "level": "Mid",
-      "title": "Explain AWS Lambda Layers and how they enable code reuse and management in serverless applications.",
-      "answer": "AWS Lambda Layers allow you to package and manage common code and libraries separately from your Lambda functions. This promotes code reuse and simplifies version management in serverless applications.",
-      "isPremium": false
+      "id": "aws-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "AWS Lambda Layers and how they",
+      "description": "Explain AWS Lambda Layers and how they enable code reuse and management in serverless applications.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain AWS Lambda Layers and how they enable code reuse and management in serverless applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-23-ref-1",
+          "text": "AWS Lambda Layers allow you to package and manage common code and libraries separately from your Lambda functions. This promotes code reuse and simplifies version management in serverless applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 24,
-      "level": "Mid",
-      "title": "What is Amazon Redshift, and how does it differ from other data warehousing solutions?",
-      "answer": "Amazon Redshift is a fully managed data warehousing service. It's optimized for analyzing large datasets and offers scalability, performance, and integration with other AWS services. It differs from traditional data warehouses in its cloud-native design.",
-      "isPremium": false
+      "id": "aws-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Amazon Redshift, and how does it",
+      "description": "What is Amazon Redshift, and how does it differ from other data warehousing solutions?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Redshift, and how does it differ from other data warehousing solutions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-24-ref-1",
+          "text": "Amazon Redshift is a fully managed data warehousing service. It's optimized for analyzing large datasets and offers scalability, performance, and integration with other AWS services. It differs from traditional data warehouses in its cloud-native design.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 25,
-      "level": "Mid",
-      "title": "Explain the different storage classes in Amazon S3 and when to use each one.",
-      "answer": "Amazon S3 offers several storage classes, including Standard, Intelligent-Tiering, One Zone-IA, Glacier, and Glacier Deep Archive. Each class has different pricing and access characteristics. For example, use Standard for frequently accessed data, Intelligent-Tiering for variable access patterns, and Glacier classes for archiving data with long retrieval times.",
-      "isPremium": false
+      "id": "aws-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The different storage classes in Amazon",
+      "description": "Explain the different storage classes in Amazon S3 and when to use each one.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the different storage classes in Amazon S3 and when to use each one.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-25-ref-1",
+          "text": "Amazon S3 offers several storage classes, including Standard, Intelligent-Tiering, One Zone-IA, Glacier, and Glacier Deep Archive. Each class has different pricing and access characteristics. For example, use Standard for frequently accessed data, Intelligent-Tiering for variable access patterns, and Glacier classes for archiving data with long retrieval times.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 26,
-      "level": "Mid",
-      "title": "What is Amazon Polly, and how does it enable text-to-speech capabilities for applications?",
-      "answer": "Amazon Polly is a service that turns text into lifelike speech. It can be used to add voice capabilities to applications, including chatbots, voice assistants, and more.",
-      "isPremium": false
+      "id": "aws-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Amazon Polly, and how does it",
+      "description": "What is Amazon Polly, and how does it enable text-to-speech capabilities for applications?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Polly, and how does it enable text-to-speech capabilities for applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-26-ref-1",
+          "text": "Amazon Polly is a service that turns text into lifelike speech. It can be used to add voice capabilities to applications, including chatbots, voice assistants, and more.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 27,
-      "level": "Mid",
-      "title": "What is Amazon Elastic Beanstalk, and how does it simplify application deployment and management?",
-      "answer": "Amazon Elastic Beanstalk is a Platform-as-a-Service (PaaS) that simplifies the deployment and management of applications. It automates the provisioning of infrastructure and allows developers to focus on code.",
-      "isPremium": false
+      "id": "aws-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Amazon Elastic Beanstalk, and how does",
+      "description": "What is Amazon Elastic Beanstalk, and how does it simplify application deployment and management?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Elastic Beanstalk, and how does it simplify application deployment and management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-27-ref-1",
+          "text": "Amazon Elastic Beanstalk is a Platform-as-a-Service (PaaS) that simplifies the deployment and management of applications. It automates the provisioning of infrastructure and allows developers to focus on code.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 28,
-      "level": "Mid",
-      "title": "What is the AWS Well-Architected Framework, and why is it important when designing solutions on AWS?",
-      "answer": "The AWS Well-Architected Framework is a set of best practices for designing and building secure, high-performing, resilient, and efficient infrastructure for applications. It's important because it helps ensure that your solutions are aligned with AWS best practices, resulting in better-performing and more secure systems.",
-      "isPremium": false
+      "id": "aws-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The AWS Well-Architected Framework, and why",
+      "description": "What is the AWS Well-Architected Framework, and why is it important when designing solutions on AWS?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the AWS Well-Architected Framework, and why is it important when designing solutions on AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-28-ref-1",
+          "text": "The AWS Well-Architected Framework is a set of best practices for designing and building secure, high-performing, resilient, and efficient infrastructure for applications. It's important because it helps ensure that your solutions are aligned with AWS best practices, resulting in better-performing and more secure systems.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 29,
-      "level": "Mid",
-      "title": "Explain what Amazon Cognito is and its role in identity management for applications.",
-      "answer": "Amazon Cognito is a service for managing user identities and authentication in applications. It provides features like user sign-up, sign-in, and access control, making it easier to add user identity and access management to your apps.",
-      "isPremium": false
+      "id": "aws-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "What Amazon Cognito is and its",
+      "description": "Explain what Amazon Cognito is and its role in identity management for applications.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what Amazon Cognito is and its role in identity management for applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-29-ref-1",
+          "text": "Amazon Cognito is a service for managing user identities and authentication in applications. It provides features like user sign-up, sign-in, and access control, making it easier to add user identity and access management to your apps.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 30,
-      "level": "Mid",
-      "title": "Explain the AWS Well-Architected Framework and its pillars.",
-      "answer": "The AWS Well-Architected Framework is a set of best practices for building secure, high-performing, resilient, and efficient infrastructure for applications. It consists of five pillars:\nOperational Excellence\nSecurity\nReliability\nPerformance Efficiency\nCost Optimization",
-      "isPremium": false
+      "id": "aws-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The AWS Well-Architected Framework and its",
+      "description": "Explain the AWS Well-Architected Framework and its pillars.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the AWS Well-Architected Framework and its pillars.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-30-ref-1",
+          "text": "The AWS Well-Architected Framework is a set of best practices for building secure, high-performing, resilient, and efficient infrastructure for applications. It consists of five pillars: Operational Excellence Security Reliability Performance Efficiency Cost Optimization",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 31,
-      "level": "Mid",
-      "title": "What are AWS Availability Zones, and why are they important for high availability and fault tolerance?",
-      "answer": "AWS Availability Zones are isolated data center locations within an AWS Region. They are important for distributing resources across multiple physical facilities to achieve high availability and fault tolerance.",
-      "isPremium": false
+      "id": "aws-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "AWS Availability Zones, and why are",
+      "description": "What are AWS Availability Zones, and why are they important for high availability and fault tolerance?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are AWS Availability Zones, and why are they important for high availability and fault tolerance?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-31-ref-1",
+          "text": "AWS Availability Zones are isolated data center locations within an AWS Region. They are important for distributing resources across multiple physical facilities to achieve high availability and fault tolerance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 32,
-      "level": "Mid",
-      "title": "Explain the concept of AWS CloudTrail and its role in auditing and monitoring AWS resources.",
-      "answer": "AWS CloudTrail is a service that records API calls made on your AWS account. It provides audit logs that help in monitoring and troubleshooting AWS resources and ensuring compliance with security policies.",
-      "isPremium": false
+      "id": "aws-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of AWS CloudTrail and",
+      "description": "Explain the concept of AWS CloudTrail and its role in auditing and monitoring AWS resources.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of AWS CloudTrail and its role in auditing and monitoring AWS resources.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-32-ref-1",
+          "text": "AWS CloudTrail is a service that records API calls made on your AWS account. It provides audit logs that help in monitoring and troubleshooting AWS resources and ensuring compliance with security policies.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 33,
-      "level": "Mid",
-      "title": "What is Amazon Route 53, and how does it contribute to DNS and domain name management in AWS?",
-      "answer": "Amazon Route 53 is a scalable and highly available Domain Name System (DNS) web service. It provides reliable and cost-effective domain registration, DNS routing, and health checking of resources.",
-      "isPremium": false
+      "id": "aws-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Amazon Route 53, and how does",
+      "description": "What is Amazon Route 53, and how does it contribute to DNS and domain name management in AWS?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Route 53, and how does it contribute to DNS and domain name management in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-33-ref-1",
+          "text": "Amazon Route 53 is a scalable and highly available Domain Name System (DNS) web service. It provides reliable and cost-effective domain registration, DNS routing, and health checking of resources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 34,
-      "level": "Mid",
-      "title": "Explain the benefits of using Amazon Lambda in serverless application architectures.",
-      "answer": "Amazon Lambda is a serverless compute service that automatically scales based on the workload. It eliminates the need to manage servers and infrastructure, enabling developers to focus on writing code. Lambda can be used for various tasks, including event-driven functions and backend processing.",
-      "isPremium": false
+      "id": "aws-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The benefits of using Amazon Lambda",
+      "description": "Explain the benefits of using Amazon Lambda in serverless application architectures.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the benefits of using Amazon Lambda in serverless application architectures.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-34-ref-1",
+          "text": "Amazon Lambda is a serverless compute service that automatically scales based on the workload. It eliminates the need to manage servers and infrastructure, enabling developers to focus on writing code. Lambda can be used for various tasks, including event-driven functions and backend processing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 35,
-      "level": "Mid",
-      "title": "Explain the AWS Lambda execution environment and its lifecycle.",
-      "answer": "AWS Lambda execution environments are preconfigured containers that run your Lambda functions. The lifecycle involves:\nInitialization: AWS creates a new execution environment if one is not available.\nInvocation: Your Lambda function is triggered by an event.\nExecution: Your code runs and processes the event.\nCleanup: AWS may reuse the environment for subsequent invocations or terminate it.",
-      "isPremium": false
+      "id": "aws-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The AWS Lambda execution environment and",
+      "description": "Explain the AWS Lambda execution environment and its lifecycle.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the AWS Lambda execution environment and its lifecycle.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-35-ref-1",
+          "text": "AWS Lambda execution environments are preconfigured containers that run your Lambda functions. The lifecycle involves: Initialization: AWS creates a new execution environment if one is not available. Invocation: Your Lambda function is triggered by an event. Execution: Your code runs and processes the event. Cleanup: AWS may reuse the environment for subsequent invocations or terminate it.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 36,
-      "level": "Mid",
-      "title": "How does AWS handle disaster recovery, and what are the key components for building a disaster recovery plan?",
-      "answer": "AWS provides multiple tools and services for disaster recovery, including AWS Backup, AWS Disaster Recovery (DR) services, and cross-region replication. Key components for building a disaster recovery plan include regular backups, automated failover, testing of DR procedures, and documentation of recovery processes.",
-      "isPremium": false
+      "id": "aws-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Es AWS handle disaster recovery, and",
+      "description": "How does AWS handle disaster recovery, and what are the key components for building a disaster recovery plan?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does AWS handle disaster recovery, and what are the key components for building a disaster recovery plan?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-36-ref-1",
+          "text": "AWS provides multiple tools and services for disaster recovery, including AWS Backup, AWS Disaster Recovery (DR) services, and cross-region replication. Key components for building a disaster recovery plan include regular backups, automated failover, testing of DR procedures, and documentation of recovery processes.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 37,
-      "level": "Mid",
-      "title": "Explain the concept of serverless computing in AWS.",
-      "answer": "Serverless computing in AWS, often associated with AWS Lambda, is a cloud computing model where you don't need to provision or manage servers. Instead, you focus on writing code in response to events. AWS Lambda automatically scales your code in response to incoming requests and charges you only for the compute time used.",
-      "isPremium": false
+      "id": "aws-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of serverless computing in",
+      "description": "Explain the concept of serverless computing in AWS.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of serverless computing in AWS.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-37-ref-1",
+          "text": "Serverless computing in AWS, often associated with AWS Lambda, is a cloud computing model where you don't need to provision or manage servers. Instead, you focus on writing code in response to events. AWS Lambda automatically scales your code in response to incoming requests and charges you only for the compute time used.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 38,
-      "level": "Mid",
-      "title": "How do you manage secrets and sensitive information in AWS applications?",
-      "answer": "You can manage secrets and sensitive information in AWS applications by using AWS Secrets Manager for storing and rotating secrets (e.g., API keys, database credentials), or AWS Systems Manager Parameter Store for storing configuration data securely. Additionally, IAM roles and policies can be used to control access to these secrets.",
-      "isPremium": false
+      "id": "aws-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You manage secrets and sensitive information",
+      "description": "How do you manage secrets and sensitive information in AWS applications?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you manage secrets and sensitive information in AWS applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-38-ref-1",
+          "text": "You can manage secrets and sensitive information in AWS applications by using AWS Secrets Manager for storing and rotating secrets (e.g., API keys, database credentials), or AWS Systems Manager Parameter Store for storing configuration data securely. Additionally, IAM roles and policies can be used to control access to these secrets.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 39,
-      "level": "Mid",
-      "title": "Explain the concept of Cross-Origin Resource Sharing (CORS) and how it is relevant in AWS.",
-      "answer": "CORS is a security feature implemented by web browsers to control requests made to different origins (domains). In AWS, you may encounter CORS issues when you have web applications hosted on S3 or API Gateway. You configure CORS to specify which origins are allowed to access your resources, helping to prevent unauthorized cross-origin requests.",
-      "isPremium": false
+      "id": "aws-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "CORS",
+      "description": "Explain the concept of Cross-Origin Resource Sharing (CORS) and how it is relevant in AWS.?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concept of Cross-Origin Resource Sharing (CORS) and how it is relevant in AWS.?\" Requirements: - Define the vulnerability and the attack vector - Concrete prevention/mitigation techniques Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "security"
+      ],
+      "tags": [
+        "aws",
+        "cors",
+        "http",
+        "security"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-39-ref-1",
+          "text": "CORS is a security feature implemented by web browsers to control requests made to different origins (domains). In AWS, you may encounter CORS issues when you have web applications hosted on S3 or API Gateway. You configure CORS to specify which origins are allowed to access your resources, helping to prevent unauthorized cross-origin requests.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the vulnerability and the attack vector",
+            "Concrete prevention/mitigation techniques"
+          ]
+        }
+      ]
     },
     {
-      "id": 40,
-      "level": "Mid",
-      "title": "How do you optimize costs when using AWS services?",
-      "answer": "To optimize costs in AWS, you can:\nUse AWS Trusted Advisor to identify cost-saving opportunities.\nLeverage AWS Cost Explorer to analyze and visualize spending.\nImplement auto-scaling to match resources with demand.\nUse Reserved Instances for predictable workloads.\nSet up budget alerts to monitor spending.\nUtilize AWS spot instances for cost-effective computing.",
-      "isPremium": false
+      "id": "aws-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You optimize costs when using AWS",
+      "description": "How do you optimize costs when using AWS services?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you optimize costs when using AWS services?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-40-ref-1",
+          "text": "To optimize costs in AWS, you can: Use AWS Trusted Advisor to identify cost-saving opportunities. Leverage AWS Cost Explorer to analyze and visualize spending. Implement auto-scaling to match resources with demand. Use Reserved Instances for predictable workloads. Set up budget alerts to monitor spending. Utilize AWS spot instances for cost-effective computing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 41,
-      "level": "Mid",
-      "title": "Describe a situation where you had to troubleshoot a complex issue in an AWS environment. How did you approach it, and what was the outcome?",
-      "answer": "Provide a specific example from your experience where you faced a challenging issue, how you diagnosed it (e.g., using CloudWatch, logs, debugging tools), and the steps you took to resolve it. Highlight the outcome and any lessons learned from the experience.",
-      "isPremium": false
+      "id": "aws-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "A situation where you had to",
+      "description": "Describe a situation where you had to troubleshoot a complex issue in an AWS environment. How did you approach it, and what was the outcome?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe a situation where you had to troubleshoot a complex issue in an AWS environment. How did you approach it, and what was the outcome?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-41-ref-1",
+          "text": "Provide a specific example from your experience where you faced a challenging issue, how you diagnosed it (e.g., using CloudWatch, logs, debugging tools), and the steps you took to resolve it. Highlight the outcome and any lessons learned from the experience.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 42,
-      "level": "Mid",
-      "title": "How do you secure data in transit and at rest in AWS?",
-      "answer": "Data in transit can be secured using protocols like SSL/TLS, while data at rest can be protected using encryption services like AWS Key Management Service (KMS) for managing encryption keys. You can also use security groups, Network ACLs, and IAM policies to control access to resources.",
-      "isPremium": false
+      "id": "aws-questions-bank-42",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You secure data in transit and",
+      "description": "How do you secure data in transit and at rest in AWS?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you secure data in transit and at rest in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-42-ref-1",
+          "text": "Data in transit can be secured using protocols like SSL/TLS, while data at rest can be protected using encryption services like AWS Key Management Service (KMS) for managing encryption keys. You can also use security groups, Network ACLs, and IAM policies to control access to resources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 43,
-      "level": "Mid",
-      "title": "What is AWS Elasticache, and when would you use it?",
-      "answer": "AWS Elasticache is a managed caching service that supports popular in-memory caching engines like Redis and Memcached. You would use Elasticache to improve the performance and scalability of your applications by caching frequently accessed data. It reduces the load on your backend databases and can lead to lower response times for users.",
-      "isPremium": false
+      "id": "aws-questions-bank-43",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "AWS Elasticache, and when would you",
+      "description": "What is AWS Elasticache, and when would you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Elasticache, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-43-ref-1",
+          "text": "AWS Elasticache is a managed caching service that supports popular in-memory caching engines like Redis and Memcached. You would use Elasticache to improve the performance and scalability of your applications by caching frequently accessed data. It reduces the load on your backend databases and can lead to lower response times for users.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 44,
-      "level": "Senior",
-      "title": "What is AWS Step Functions, and how does it enable the coordination of distributed microservices and serverless workflows?",
-      "answer": "AWS Step Functions is a serverless orchestration service that allows you to coordinate the execution of distributed applications and microservices. It helps manage complex workflows by defining state machines to control the flow of tasks.",
-      "isPremium": false
+      "id": "aws-questions-bank-44",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "AWS Step Functions, and how does",
+      "description": "What is AWS Step Functions, and how does it enable the coordination of distributed microservices and serverless workflows?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Step Functions, and how does it enable the coordination of distributed microservices and serverless workflows?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-44-ref-1",
+          "text": "AWS Step Functions is a serverless orchestration service that allows you to coordinate the execution of distributed applications and microservices. It helps manage complex workflows by defining state machines to control the flow of tasks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 45,
-      "level": "Senior",
-      "title": "What is Amazon Kinesis, and how can it be used for real-time data streaming?",
-      "answer": "Amazon Kinesis is a platform for real-time data streaming and analytics. It offers services like Kinesis Data Streams, Kinesis Data Firehose, and Kinesis Data Analytics. It's used to ingest, process, and analyze streaming data from various sources.",
-      "isPremium": false
+      "id": "aws-questions-bank-45",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Amazon Kinesis, and how can it",
+      "description": "What is Amazon Kinesis, and how can it be used for real-time data streaming?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Kinesis, and how can it be used for real-time data streaming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-45-ref-1",
+          "text": "Amazon Kinesis is a platform for real-time data streaming and analytics. It offers services like Kinesis Data Streams, Kinesis Data Firehose, and Kinesis Data Analytics. It's used to ingest, process, and analyze streaming data from various sources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 46,
-      "level": "Senior",
-      "title": "How does AWS handle data replication and backup for high availability and disaster recovery?",
-      "answer": "AWS provides data replication and backup options, including:\nMulti-AZ deployments for services like Amazon RDS, which automatically replicate data across multiple availability zones for high availability.\nCross-region replication for services like Amazon S3, allowing data to be stored in different geographic regions for disaster recovery.\nAutomated backup solutions and snapshot capabilities for various AWS resources.",
-      "isPremium": false
+      "id": "aws-questions-bank-46",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Es AWS handle data replication and",
+      "description": "How does AWS handle data replication and backup for high availability and disaster recovery?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does AWS handle data replication and backup for high availability and disaster recovery?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-46-ref-1",
+          "text": "AWS provides data replication and backup options, including: Multi-AZ deployments for services like Amazon RDS, which automatically replicate data across multiple availability zones for high availability. Cross-region replication for services like Amazon S3, allowing data to be stored in different geographic regions for disaster recovery. Automated backup solutions and snapshot capabilities for various AWS resources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 47,
-      "level": "Senior",
-      "title": "Explain what a VPC (Virtual Private Cloud) is and its role in AWS.",
-      "answer": "A VPC is a logically isolated section of the AWS cloud where you can launch AWS resources. It allows you to define your network topology, including IP addressing, subnets, and routing tables, and provides network security controls.",
-      "isPremium": false
+      "id": "aws-questions-bank-47",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "What a VPC (Virtual Private Cloud)",
+      "description": "Explain what a VPC (Virtual Private Cloud) is and its role in AWS.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a VPC (Virtual Private Cloud) is and its role in AWS.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-47-ref-1",
+          "text": "A VPC is a logically isolated section of the AWS cloud where you can launch AWS resources. It allows you to define your network topology, including IP addressing, subnets, and routing tables, and provides network security controls.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 48,
-      "level": "Senior",
-      "title": "What is the Amazon Elastic File System (EFS), and when would you use it over Amazon S3 or Amazon EBS for file storage?",
-      "answer": "Amazon EFS is a scalable file storage service that can be mounted to multiple EC2 instances. It's best used for shared file storage among multiple EC2 instances, while Amazon S3 is for object storage and Amazon EBS for block storage.",
-      "isPremium": false
+      "id": "aws-questions-bank-48",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The Amazon Elastic File System (EFS),",
+      "description": "What is the Amazon Elastic File System (EFS), and when would you use it over Amazon S3 or Amazon EBS for file storage?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Amazon Elastic File System (EFS), and when would you use it over Amazon S3 or Amazon EBS for file storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-48-ref-1",
+          "text": "Amazon EFS is a scalable file storage service that can be mounted to multiple EC2 instances. It's best used for shared file storage among multiple EC2 instances, while Amazon S3 is for object storage and Amazon EBS for block storage.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 49,
-      "level": "Senior",
-      "title": "What is Amazon CloudFront, and how does it improve content delivery and latency for web applications?",
-      "answer": "Amazon CloudFront is a content delivery network (CDN) service that accelerates the distribution of content to end-users. It caches content at edge locations worldwide, reducing latency and improving the delivery of web applications, APIs, and other web content.",
-      "isPremium": false
+      "id": "aws-questions-bank-49",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Amazon CloudFront, and how does it",
+      "description": "What is Amazon CloudFront, and how does it improve content delivery and latency for web applications?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon CloudFront, and how does it improve content delivery and latency for web applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-49-ref-1",
+          "text": "Amazon CloudFront is a content delivery network (CDN) service that accelerates the distribution of content to end-users. It caches content at edge locations worldwide, reducing latency and improving the delivery of web applications, APIs, and other web content.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 50,
-      "level": "Senior",
-      "title": "Explain what AWS CloudFormation is and its role in infrastructure as code (IAC).",
-      "answer": "AWS CloudFormation is a service that allows you to define and provision AWS infrastructure as code. It enables the automated creation and management of AWS resources using templates, improving infrastructure consistency and manageability.",
-      "isPremium": false
+      "id": "aws-questions-bank-50",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "What AWS CloudFormation is and its",
+      "description": "Explain what AWS CloudFormation is and its role in infrastructure as code (IAC).?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS CloudFormation is and its role in infrastructure as code (IAC).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-50-ref-1",
+          "text": "AWS CloudFormation is a service that allows you to define and provision AWS infrastructure as code. It enables the automated creation and management of AWS resources using templates, improving infrastructure consistency and manageability.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 51,
-      "level": "Senior",
-      "title": "Explain the concept of Amazon Elastic MapReduce (EMR) and its use cases in big data processing.",
-      "answer": "Amazon EMR is a cloud-native big data platform that simplifies the processing of vast amounts of data using popular frameworks like Apache Hadoop and Apache Spark. It is used for tasks such as data transformation, data warehousing, log analysis, and machine learning.",
-      "isPremium": false
+      "id": "aws-questions-bank-51",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of Amazon Elastic MapReduce",
+      "description": "Explain the concept of Amazon Elastic MapReduce (EMR) and its use cases in big data processing.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Amazon Elastic MapReduce (EMR) and its use cases in big data processing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-51-ref-1",
+          "text": "Amazon EMR is a cloud-native big data platform that simplifies the processing of vast amounts of data using popular frameworks like Apache Hadoop and Apache Spark. It is used for tasks such as data transformation, data warehousing, log analysis, and machine learning.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 52,
-      "level": "Senior",
-      "title": "How do you handle security and compliance in an AWS environment?",
-      "answer": "To handle security and compliance in AWS, you can:\nImplement IAM roles and policies for access control.\nUse AWS Config for compliance monitoring.\nEnforce security groups and Network ACLs.\nEnable VPC Flow Logs for network visibility.\nRegularly patch and update instances.\nLeverage AWS services like AWS Security Hub and AWS Identity and Access Management (IAM) Access Analyzer.",
-      "isPremium": false
+      "id": "aws-questions-bank-52",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You handle security and compliance in",
+      "description": "How do you handle security and compliance in an AWS environment?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle security and compliance in an AWS environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-engineer",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-52-ref-1",
+          "text": "To handle security and compliance in AWS, you can: Implement IAM roles and policies for access control. Use AWS Config for compliance monitoring. Enforce security groups and Network ACLs. Enable VPC Flow Logs for network visibility. Regularly patch and update instances. Leverage AWS services like AWS Security Hub and AWS Identity and Access Management (IAM) Access Analyzer.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 53,
-      "level": "Senior",
-      "title": "Explain the purpose of AWS Glue and how it simplifies ETL (Extract, Transform, Load) processes for data analytics.",
-      "answer": "AWS Glue is a fully managed ETL service that automates data extraction, transformation, and loading tasks. It helps data engineers and analysts prepare and transform data for analytics and data warehousing.",
-      "isPremium": false
+      "id": "aws-questions-bank-53",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of AWS Glue and",
+      "description": "Explain the purpose of AWS Glue and how it simplifies ETL (Extract, Transform, Load) processes for data analytics.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of AWS Glue and how it simplifies ETL (Extract, Transform, Load) processes for data analytics.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "aws"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "aws"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:52:55.627Z",
+      "updatedAt": "2025-12-19T17:52:55.627Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "aws-questions-bank-53-ref-1",
+          "text": "AWS Glue is a fully managed ETL service that automates data extraction, transformation, and loading tasks. It helps data engineers and analysts prepare and transform data for analytics and data warehousing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
 }

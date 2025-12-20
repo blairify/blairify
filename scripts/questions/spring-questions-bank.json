@@ -1,300 +1,2548 @@
 {
-  "totalQuestions": 42,
-  "extractedAt": "2025-12-19T17:43:58.703Z",
-  "questions": [
+  "mcq_questions": [],
+  "open_questions": [
     {
-      "id": 1,
-      "level": "Junior",
-      "title": "What is Spring and what are its benefits?",
-      "answer": "Spring is a framework that provides a lot of features and functionality for building enterprise-level applications. It provides a wide range of features that make it easier to develop and deploy Spring-based applications.",
-      "isPremium": false
+      "id": "spring-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Spring and what are its benefits",
+      "description": "What is Spring and what are its benefits?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Spring and what are its benefits?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-1-ref-1",
+          "text": "Spring is a framework that provides a lot of features and functionality for building enterprise-level applications. It provides a wide range of features that make it easier to develop and deploy Spring-based applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 2,
-      "level": "Junior",
-      "title": "What is the difference between Spring and Spring Boot?",
-      "answer": "Spring is a framework that provides a lot of features and functionality for building enterprise-level applications. Spring Boot is built on top of the Spring framework and provides a simpler and faster way to build Spring-based applications.",
-      "isPremium": false
+      "id": "spring-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between Spring and Spring",
+      "description": "What is the difference between Spring and Spring Boot?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Spring and Spring Boot?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-2-ref-1",
+          "text": "Spring is a framework that provides a lot of features and functionality for building enterprise-level applications. Spring Boot is built on top of the Spring framework and provides a simpler and faster way to build Spring-based applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 3,
-      "level": "Junior",
-      "title": "What are the advantages of using Spring Boot for developing Java web applications?",
-      "answer": "Spring Boot simplifies and accelerates the development of Java web applications by providing defaults and auto-configuration, reducing boilerplate code, and offering a wide range of pre-built components for various tasks, including embedded web servers and database access.",
-      "isPremium": false
+      "id": "spring-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The advantages of using Spring Boot",
+      "description": "What are the advantages of using Spring Boot for developing Java web applications?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages of using Spring Boot for developing Java web applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-3-ref-1",
+          "text": "Spring Boot simplifies and accelerates the development of Java web applications by providing defaults and auto-configuration, reducing boilerplate code, and offering a wide range of pre-built components for various tasks, including embedded web servers and database access.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 4,
-      "level": "Junior",
-      "title": "What is inversion of control (IoC) in Spring?",
-      "answer": "Inversion of control (IoC) is a design pattern in which the control of object creation and dependency injection is moved from the application code to a framework like Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Inversion of control (IoC) in Spring",
+      "description": "What is inversion of control (IoC) in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is inversion of control (IoC) in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-4-ref-1",
+          "text": "Inversion of control (IoC) is a design pattern in which the control of object creation and dependency injection is moved from the application code to a framework like Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 5,
-      "level": "Junior",
-      "title": "What is dependency injection (DI) in Spring?",
-      "answer": "Dependency injection (DI) is a design pattern in which the dependencies of an object are injected into it by a framework like Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Dependency injection (DI) in Spring",
+      "description": "What is dependency injection (DI) in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is dependency injection (DI) in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-5-ref-1",
+          "text": "Dependency injection (DI) is a design pattern in which the dependencies of an object are injected into it by a framework like Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 6,
-      "level": "Junior",
-      "title": "What is the Model-View-Controller (MVC) pattern, and how does Spring MVC implement it?",
-      "answer": "MVC is a design pattern that separates an application into three interconnected components: Model (business logic/data), View (presentation), and Controller (handles requests). Spring MVC provides a framework for building web applications following this pattern.",
-      "isPremium": false
+      "id": "spring-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The Model-View-Controller (MVC) pattern, and how",
+      "description": "What is the Model-View-Controller (MVC) pattern, and how does Spring MVC implement it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Model-View-Controller (MVC) pattern, and how does Spring MVC implement it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-6-ref-1",
+          "text": "MVC is a design pattern that separates an application into three interconnected components: Model (business logic/data), View (presentation), and Controller (handles requests). Spring MVC provides a framework for building web applications following this pattern.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 7,
-      "level": "Junior",
-      "title": "What is the purpose of the @Autowired annotation in Spring?",
-      "answer": "The @Autowired annotation in Spring is used for automatic dependency injection. It allows Spring to automatically inject a dependency (such as another bean or a service) into a Spring-managed component, reducing the need for manual wiring.",
-      "isPremium": false
+      "id": "spring-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the @Autowired annotation",
+      "description": "What is the purpose of the @Autowired annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the @Autowired annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-7-ref-1",
+          "text": "The @Autowired annotation in Spring is used for automatic dependency injection. It allows Spring to automatically inject a dependency (such as another bean or a service) into a Spring-managed component, reducing the need for manual wiring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 8,
-      "level": "Junior",
-      "title": "What is the use of @Value annotation in Spring?",
-      "answer": "@Value is used to inject values from properties files or environment variables into a Spring-managed bean.",
-      "isPremium": false
+      "id": "spring-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @Value annotation in",
+      "description": "What is the use of @Value annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @Value annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-8-ref-1",
+          "text": "@Value is used to inject values from properties files or environment variables into a Spring-managed bean.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 9,
-      "level": "Junior",
-      "title": "What is the use of @Transactional annotation in Spring?",
-      "answer": "@Transactional is used to mark a method as transactional, which means that the method will be executed within a transaction.",
-      "isPremium": false
+      "id": "spring-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @Transactional annotation in",
+      "description": "What is the use of @Transactional annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @Transactional annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-9-ref-1",
+          "text": "@Transactional is used to mark a method as transactional, which means that the method will be executed within a transaction.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 10,
-      "level": "Junior",
-      "title": "What is the use of @ExceptionHandler annotation in Spring?",
-      "answer": "@ExceptionHandler is used to handle exceptions that occur during the execution of a Spring MVC controller.",
-      "isPremium": false
+      "id": "spring-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @ExceptionHandler annotation in",
+      "description": "What is the use of @ExceptionHandler annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @ExceptionHandler annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-10-ref-1",
+          "text": "@ExceptionHandler is used to handle exceptions that occur during the execution of a Spring MVC controller.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 11,
-      "level": "Junior",
-      "title": "How can you handle exceptions in a Spring Boot application?",
-      "answer": "Spring Boot provides exception handling mechanisms like @ExceptionHandler and global exception handling using @ControllerAdvice.",
-      "isPremium": false
+      "id": "spring-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You handle exceptions in a Spring",
+      "description": "How can you handle exceptions in a Spring Boot application?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you handle exceptions in a Spring Boot application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-11-ref-1",
+          "text": "Spring Boot provides exception handling mechanisms like @ExceptionHandler and global exception handling using @ControllerAdvice.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 12,
-      "level": "Junior",
-      "title": "What is the purpose of the @RequestMapping annotation in Spring MVC?",
-      "answer": "@RequestMapping is used to map a URL request to a specific method in a Spring Controller. It defines the URL path and HTTP methods that trigger the execution of the method.",
-      "isPremium": false
+      "id": "spring-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the @RequestMapping annotation",
+      "description": "What is the purpose of the @RequestMapping annotation in Spring MVC?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the @RequestMapping annotation in Spring MVC?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-12-ref-1",
+          "text": "@RequestMapping is used to map a URL request to a specific method in a Spring Controller. It defines the URL path and HTTP methods that trigger the execution of the method.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 13,
-      "level": "Junior",
-      "title": "What is the use of @PathVariable annotation in Spring?",
-      "answer": "@PathVariable is used to extract a variable from the URL in Spring MVC.",
-      "isPremium": false
+      "id": "spring-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @PathVariable annotation in",
+      "description": "What is the use of @PathVariable annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @PathVariable annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-13-ref-1",
+          "text": "@PathVariable is used to extract a variable from the URL in Spring MVC.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 14,
-      "level": "Junior",
-      "title": "What is the use of @RequestBody annotation in Spring?",
-      "answer": "@RequestBody is used to extract the request body from an HTTP request in Spring MVC.",
-      "isPremium": false
+      "id": "spring-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @RequestBody annotation in",
+      "description": "What is the use of @RequestBody annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @RequestBody annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-14-ref-1",
+          "text": "@RequestBody is used to extract the request body from an HTTP request in Spring MVC.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 15,
-      "level": "Mid",
-      "title": "Explain the concept of Spring Boot Starters.",
-      "answer": "Spring Boot Starters are pre-configured templates that include a set of dependencies for specific tasks or functionality. They simplify project setup by providing ready-to-use configurations and dependencies, such as those for web development, data access, or messaging.",
-      "isPremium": false
+      "id": "spring-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of Spring Boot Starters.",
+      "description": "Explain the concept of Spring Boot Starters.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Spring Boot Starters.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-15-ref-1",
+          "text": "Spring Boot Starters are pre-configured templates that include a set of dependencies for specific tasks or functionality. They simplify project setup by providing ready-to-use configurations and dependencies, such as those for web development, data access, or messaging.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 16,
-      "level": "Mid",
-      "title": "What is the Spring Boot Actuator, and what are some common endpoints provided by it?",
-      "answer": "Spring Boot Actuator is a set of production-ready features for monitoring and managing Spring Boot applications. Common endpoints include /health (application health), /metrics (application metrics), and /info (application information).",
-      "isPremium": false
+      "id": "spring-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The Spring Boot Actuator, and what",
+      "description": "What is the Spring Boot Actuator, and what are some common endpoints provided by it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Spring Boot Actuator, and what are some common endpoints provided by it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-16-ref-1",
+          "text": "Spring Boot Actuator is a set of production-ready features for monitoring and managing Spring Boot applications. Common endpoints include /health (application health), /metrics (application metrics), and /info (application information).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 17,
-      "level": "Mid",
-      "title": "Explain the concept of Spring Cloud in the context of microservices.",
-      "answer": "Spring Cloud is a set of tools and libraries within the Spring ecosystem that simplifies building and deploying microservices-based applications. It provides features like service discovery, load balancing, configuration management, and distributed tracing.",
-      "isPremium": false
+      "id": "spring-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of Spring Cloud in",
+      "description": "Explain the concept of Spring Cloud in the context of microservices.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Spring Cloud in the context of microservices.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "devops",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-17-ref-1",
+          "text": "Spring Cloud is a set of tools and libraries within the Spring ecosystem that simplifies building and deploying microservices-based applications. It provides features like service discovery, load balancing, configuration management, and distributed tracing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 18,
-      "level": "Mid",
-      "title": "What is the purpose of the @RestController annotation in Spring Boot, and how does it differ from @Controller?",
-      "answer": "The @RestController annotation in Spring Boot is used to create RESTful web services that produce JSON or XML responses. It combines @Controller and @ResponseBody, making it more convenient for building REST APIs compared to using @Controller.",
-      "isPremium": false
+      "id": "spring-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the @RestController annotation",
+      "description": "What is the purpose of the @RestController annotation in Spring Boot, and how does it differ from @Controller?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the @RestController annotation in Spring Boot, and how does it differ from @Controller?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-18-ref-1",
+          "text": "The @RestController annotation in Spring Boot is used to create RESTful web services that produce JSON or XML responses. It combines @Controller and @ResponseBody, making it more convenient for building REST APIs compared to using @Controller.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 19,
-      "level": "Mid",
-      "title": "What is the purpose of the @ComponentScan annotation in Spring Framework?",
-      "answer": "The @ComponentScan annotation is used to instruct Spring to scan and discover Spring-managed components (such as beans, controllers, and services) within a specific package and its subpackages, making them available for dependency injection and auto-wiring.",
-      "isPremium": false
+      "id": "spring-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the @ComponentScan annotation",
+      "description": "What is the purpose of the @ComponentScan annotation in Spring Framework?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the @ComponentScan annotation in Spring Framework?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-19-ref-1",
+          "text": "The @ComponentScan annotation is used to instruct Spring to scan and discover Spring-managed components (such as beans, controllers, and services) within a specific package and its subpackages, making them available for dependency injection and auto-wiring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 20,
-      "level": "Mid",
-      "title": "Explain the purpose of Spring Boot Auto-configuration and provide an example of its usage.",
-      "answer": "Spring Boot Auto-configuration automatically configures the application based on classpath dependencies. For example, if you include a JDBC driver on the classpath, Spring Boot will auto-configure a data source for you. It simplifies setup and reduces the need for manual configuration.",
-      "isPremium": false
+      "id": "spring-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of Spring Boot Auto-configuration",
+      "description": "Explain the purpose of Spring Boot Auto-configuration and provide an example of its usage.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Spring Boot Auto-configuration and provide an example of its usage.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-20-ref-1",
+          "text": "Spring Boot Auto-configuration automatically configures the application based on classpath dependencies. For example, if you include a JDBC driver on the classpath, Spring Boot will auto-configure a data source for you. It simplifies setup and reduces the need for manual configuration.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 21,
-      "level": "Mid",
-      "title": "What is the use of @CrossOrigin annotation in Spring?",
-      "answer": "@CrossOrigin is used to enable cross-origin resource sharing (CORS) in Spring MVC.",
-      "isPremium": false
+      "id": "spring-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @CrossOrigin annotation in",
+      "description": "What is the use of @CrossOrigin annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @CrossOrigin annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-21-ref-1",
+          "text": "@CrossOrigin is used to enable cross-origin resource sharing (CORS) in Spring MVC.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 22,
-      "level": "Mid",
-      "title": "What is the use of @Cacheable annotation in Spring?",
-      "answer": "@Cacheable is used to cache the results of a method in Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @Cacheable annotation in",
+      "description": "What is the use of @Cacheable annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @Cacheable annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-22-ref-1",
+          "text": "@Cacheable is used to cache the results of a method in Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 23,
-      "level": "Mid",
-      "title": "Explain the concept of AOP (Aspect-Oriented Programming) in Spring.",
-      "answer": "AOP is a programming paradigm that allows you to modularize cross-cutting concerns (e.g., logging, security, transaction management) in your application. Spring AOP provides a way to apply aspects (cross-cutting behavior) to specific points in the code, like method invocations or exceptions.",
-      "isPremium": false
+      "id": "spring-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of AOP (Aspect-Oriented Programming)",
+      "description": "Explain the concept of AOP (Aspect-Oriented Programming) in Spring.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of AOP (Aspect-Oriented Programming) in Spring.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-23-ref-1",
+          "text": "AOP is a programming paradigm that allows you to modularize cross-cutting concerns (e.g., logging, security, transaction management) in your application. Spring AOP provides a way to apply aspects (cross-cutting behavior) to specific points in the code, like method invocations or exceptions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 24,
-      "level": "Mid",
-      "title": "What is the use of @Scheduled annotation in Spring?",
-      "answer": "@Scheduled is used to schedule a method to be executed at a fixed rate or at a fixed time in Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @Scheduled annotation in",
+      "description": "What is the use of @Scheduled annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @Scheduled annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-24-ref-1",
+          "text": "@Scheduled is used to schedule a method to be executed at a fixed rate or at a fixed time in Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 25,
-      "level": "Mid",
-      "title": "What is the use of @Async annotation in Spring?",
-      "answer": "@Async is used to execute a method asynchronously in Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @Async annotation in",
+      "description": "What is the use of @Async annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @Async annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-25-ref-1",
+          "text": "@Async is used to execute a method asynchronously in Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 26,
-      "level": "Mid",
-      "title": "What is the use of @EnableScheduling annotation in Spring?",
-      "answer": "@EnableScheduling is used to enable scheduling in Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @EnableScheduling annotation in",
+      "description": "What is the use of @EnableScheduling annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @EnableScheduling annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-26-ref-1",
+          "text": "@EnableScheduling is used to enable scheduling in Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 27,
-      "level": "Mid",
-      "title": "What is the use of @EnableAsync annotation in Spring?",
-      "answer": "@EnableAsync is used to enable asynchronous execution in Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @EnableAsync annotation in",
+      "description": "What is the use of @EnableAsync annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @EnableAsync annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-27-ref-1",
+          "text": "@EnableAsync is used to enable asynchronous execution in Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 28,
-      "level": "Mid",
-      "title": "What is the use of @EnableAutoConfiguration annotation in Spring?",
-      "answer": "@EnableAutoConfiguration is used to enable auto-configuration in Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @EnableAutoConfiguration annotation in",
+      "description": "What is the use of @EnableAutoConfiguration annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @EnableAutoConfiguration annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-28-ref-1",
+          "text": "@EnableAutoConfiguration is used to enable auto-configuration in Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 29,
-      "level": "Mid",
-      "title": "What is the use of @EnableConfigurationProperties annotation in Spring?",
-      "answer": "@EnableConfigurationProperties is used to enable the use of @ConfigurationProperties in Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @EnableConfigurationProperties annotation in",
+      "description": "What is the use of @EnableConfigurationProperties annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @EnableConfigurationProperties annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-29-ref-1",
+          "text": "@EnableConfigurationProperties is used to enable the use of @ConfigurationProperties in Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 30,
-      "level": "Mid",
-      "title": "What is the use of @ConfigurationProperties annotation in Spring?",
-      "answer": "@ConfigurationProperties is used to bind properties from a properties file or environment variables to a Spring-managed bean.",
-      "isPremium": false
+      "id": "spring-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @ConfigurationProperties annotation in",
+      "description": "What is the use of @ConfigurationProperties annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @ConfigurationProperties annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-30-ref-1",
+          "text": "@ConfigurationProperties is used to bind properties from a properties file or environment variables to a Spring-managed bean.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 31,
-      "level": "Mid",
-      "title": "What is the use of @ConditionalOnProperty annotation in Spring?",
-      "answer": "@ConditionalOnProperty is used to conditionally enable a Spring-managed bean based on the value of a property.",
-      "isPremium": false
+      "id": "spring-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @ConditionalOnProperty annotation in",
+      "description": "What is the use of @ConditionalOnProperty annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @ConditionalOnProperty annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-31-ref-1",
+          "text": "@ConditionalOnProperty is used to conditionally enable a Spring-managed bean based on the value of a property.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 32,
-      "level": "Mid",
-      "title": "What is the use of @Entity annotation in Spring?",
-      "answer": "@Entity is used to mark a class as a JPA entity in Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @Entity annotation in",
+      "description": "What is the use of @Entity annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @Entity annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-32-ref-1",
+          "text": "@Entity is used to mark a class as a JPA entity in Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 33,
-      "level": "Mid",
-      "title": "What is the use of @GeneratedValue annotation in Spring?",
-      "answer": "@GeneratedValue is used to specify the generation strategy for a JPA entity's primary key in Spring.",
-      "isPremium": false
+      "id": "spring-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @GeneratedValue annotation in",
+      "description": "What is the use of @GeneratedValue annotation in Spring?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @GeneratedValue annotation in Spring?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-33-ref-1",
+          "text": "@GeneratedValue is used to specify the generation strategy for a JPA entity's primary key in Spring.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 34,
-      "level": "Mid",
-      "title": "What is the difference between @Component, @Service, and @Repository annotations in Spring Boot?",
-      "answer": "@Component is a generic annotation used for any Spring-managed component. @Service is used to mark a class as a service layer component. @Repository is used to mark a class as a data access layer component.",
-      "isPremium": false
+      "id": "spring-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between @Component, @Service, and",
+      "description": "What is the difference between @Component, @Service, and @Repository annotations in Spring Boot?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between @Component, @Service, and @Repository annotations in Spring Boot?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-34-ref-1",
+          "text": "@Component is a generic annotation used for any Spring-managed component. @Service is used to mark a class as a service layer component. @Repository is used to mark a class as a data access layer component.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 35,
-      "level": "Mid",
-      "title": "What is the use of @Autowired annotation in Spring Boot?",
-      "answer": "@Autowired is used to inject dependencies automatically into a Spring-managed bean.",
-      "isPremium": false
+      "id": "spring-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The use of @Autowired annotation in",
+      "description": "What is the use of @Autowired annotation in Spring Boot?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the use of @Autowired annotation in Spring Boot?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-35-ref-1",
+          "text": "@Autowired is used to inject dependencies automatically into a Spring-managed bean.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 36,
-      "level": "Mid",
-      "title": "What is Spring Data JPA, and how does it simplify data access in Spring Boot?",
-      "answer": "Spring Data JPA is a sub-project of Spring Data that simplifies database access using JPA (Java Persistence API) with the help of various repository interfaces and CRUD methods.",
-      "isPremium": false
+      "id": "spring-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Spring Data JPA, and how does",
+      "description": "What is Spring Data JPA, and how does it simplify data access in Spring Boot?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Spring Data JPA, and how does it simplify data access in Spring Boot?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-36-ref-1",
+          "text": "Spring Data JPA is a sub-project of Spring Data that simplifies database access using JPA (Java Persistence API) with the help of various repository interfaces and CRUD methods.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 37,
-      "level": "Mid",
-      "title": "What is the purpose of the Spring JDBC template in Spring Framework?",
-      "answer": "Spring JDBC template simplifies database access by providing methods for common database operations while handling connection management and exception handling.",
-      "isPremium": false
+      "id": "spring-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the Spring JDBC",
+      "description": "What is the purpose of the Spring JDBC template in Spring Framework?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the Spring JDBC template in Spring Framework?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-37-ref-1",
+          "text": "Spring JDBC template simplifies database access by providing methods for common database operations while handling connection management and exception handling.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 38,
-      "level": "Mid",
-      "title": "Explain the role of UserDetailsService in Spring Security.",
-      "answer": "UserDetailsService is an interface that Spring Security uses to retrieve user details. It is often implemented to load user information from a database.",
-      "isPremium": false
+      "id": "spring-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The role of UserDetailsService in Spring",
+      "description": "Explain the role of UserDetailsService in Spring Security.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of UserDetailsService in Spring Security.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-38-ref-1",
+          "text": "UserDetailsService is an interface that Spring Security uses to retrieve user details. It is often implemented to load user information from a database.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 39,
-      "level": "Mid",
-      "title": "What is the purpose of the @SpringBootTest annotation in Spring Boot testing?",
-      "answer": "@SpringBootTest is used to create an application context for integration testing. It loads the complete Spring Boot application.",
-      "isPremium": false
+      "id": "spring-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the @SpringBootTest annotation",
+      "description": "What is the purpose of the @SpringBootTest annotation in Spring Boot testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the @SpringBootTest annotation in Spring Boot testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-39-ref-1",
+          "text": "@SpringBootTest is used to create an application context for integration testing. It loads the complete Spring Boot application.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 40,
-      "level": "Senior",
-      "title": "What is CSRF protection, and how does Spring Boot handle it?",
-      "answer": "CSRF (Cross-Site Request Forgery) protection is a security feature that prevents unauthorized requests. Spring Security provides CSRF protection by default.",
-      "isPremium": false
+      "id": "spring-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "CSRF",
+      "description": "What is CSRF protection, and how does Spring Boot handle it?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is CSRF protection, and how does Spring Boot handle it?\" Requirements: - Define the vulnerability and the attack vector - Concrete prevention/mitigation techniques Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "security"
+      ],
+      "tags": [
+        "spring",
+        "csrf",
+        "security"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-40-ref-1",
+          "text": "CSRF (Cross-Site Request Forgery) protection is a security feature that prevents unauthorized requests. Spring Security provides CSRF protection by default.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the vulnerability and the attack vector",
+            "Concrete prevention/mitigation techniques"
+          ]
+        }
+      ]
     },
     {
-      "id": 41,
-      "level": "Senior",
-      "title": "What is the purpose of the @MockBean annotation in Spring Boot testing?",
-      "answer": "@MockBean is used to create mock instances of beans. It is often used in integration tests to replace real beans with mock implementations.",
-      "isPremium": false
+      "id": "spring-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the @MockBean annotation",
+      "description": "What is the purpose of the @MockBean annotation in Spring Boot testing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the @MockBean annotation in Spring Boot testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-41-ref-1",
+          "text": "@MockBean is used to create mock instances of beans. It is often used in integration tests to replace real beans with mock implementations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 42,
-      "level": "Senior",
-      "title": "How can you secure a Spring Boot application?",
-      "answer": "You can secure a Spring Boot application using Spring Security, which allows you to configure authentication and authorization.",
-      "isPremium": false
+      "id": "spring-questions-bank-42",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You secure a Spring Boot application",
+      "description": "How can you secure a Spring Boot application?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you secure a Spring Boot application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "spring"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "spring"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:43:58.703Z",
+      "updatedAt": "2025-12-19T17:43:58.703Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "spring-questions-bank-42-ref-1",
+          "text": "You can secure a Spring Boot application using Spring Security, which allows you to configure authentication and authorization.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
 }

@@ -83,9 +83,9 @@ export function ConfigureContent() {
 
   const getFirstIncompleteStep = (next: InterviewConfig) => {
     if (!next.position) return 0;
-    if (!next.seniority) return 1;
     if (isTechRequired(next.position) && next.technologies.length === 0)
-      return 2;
+      return 1;
+    if (!next.seniority) return 2;
     if (!next.companyProfile && !next.specificCompany) return 3;
     return 4;
   };
@@ -255,9 +255,9 @@ export function ConfigureContent() {
   function renderPositionStep() {
     return (
       <div className="space-y-8">
-        <div className="space-y-2">
+        <div className="space-y-2 ">
           <Label htmlFor="job-listing-url">Job listing URL (optional)</Label>
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <Input
               id="job-listing-url"
               placeholder="Paste a job URL (LinkedIn, Greenhouse, Lever, etc.)"
@@ -267,10 +267,10 @@ export function ConfigureContent() {
               autoCorrect="off"
               inputMode="url"
               disabled={isImportingJob}
+              className="h-10"
             />
             <Button
               type="button"
-              variant="outline"
               onClick={importFromJobListingUrl}
               disabled={isImportingJob || !jobListingUrl.trim()}
               className="shrink-0"
@@ -278,12 +278,7 @@ export function ConfigureContent() {
               {isImportingJob ? "Importing..." : "Import"}
             </Button>
           </div>
-          {config.technologies.length > 0 && (
-            <Typography.CaptionMedium className="text-muted-foreground">
-              Imported tech: {config.technologies.slice(0, 8).join(", ")}
-              {config.technologies.length > 8 ? "..." : ""}
-            </Typography.CaptionMedium>
-          )}
+
         </div>
 
         <Separator />
@@ -654,9 +649,9 @@ export function ConfigureContent() {
       case 0:
         return renderPositionStep();
       case 1:
-        return renderExperienceStep();
-      case 2:
         return renderTechnologiesStep();
+      case 2:
+        return renderExperienceStep();
       case 3:
         return renderCompanyStep();
       case 4:

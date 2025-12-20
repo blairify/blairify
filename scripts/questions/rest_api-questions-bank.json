@@ -1,76 +1,499 @@
 {
-  "totalQuestions": 10,
-  "extractedAt": "2025-12-19T17:42:49.767Z",
-  "questions": [
+  "mcq_questions": [],
+  "open_questions": [
     {
-      "id": 1,
-      "level": "Junior",
+      "id": "rest-api-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Fetch All User Ages",
-      "answer": null,
-      "isPremium": false
+      "description": "Fetch All User Ages?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch All User Ages?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "rest-api"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "rest-api"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:42:49.767Z",
+      "updatedAt": "2025-12-19T17:42:49.767Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     },
     {
-      "id": 2,
-      "level": "Junior",
+      "id": "rest-api-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Fetch All Restaurant Names",
-      "answer": null,
-      "isPremium": false
+      "description": "Fetch All Restaurant Names?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch All Restaurant Names?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "rest-api"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "rest-api"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:42:49.767Z",
+      "updatedAt": "2025-12-19T17:42:49.767Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     },
     {
-      "id": 3,
-      "level": "Junior",
-      "title": "Fetch & Filter Movie Ratings",
-      "answer": null,
-      "isPremium": false
+      "id": "rest-api-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Fetch & Filter Movie Ratings",
+      "description": "Fetch & Filter Movie Ratings?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch & Filter Movie Ratings?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "rest-api"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "rest-api"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:42:49.767Z",
+      "updatedAt": "2025-12-19T17:42:49.767Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     },
     {
-      "id": 4,
-      "level": "Mid",
+      "id": "rest-api-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Fetch Highest‑Rated Hotel Name",
-      "answer": null,
-      "isPremium": false
+      "description": "Fetch Highest‑Rated Hotel Name?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Fetch Highest‑Rated Hotel Name?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "rest-api"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "rest-api"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:42:49.767Z",
+      "updatedAt": "2025-12-19T17:42:49.767Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     },
     {
-      "id": 5,
-      "level": "Mid",
+      "id": "rest-api-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Find Songs From Search Term",
-      "answer": null,
-      "isPremium": false
+      "description": "Find Songs From Search Term?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Find Songs From Search Term?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "rest-api"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "rest-api"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:42:49.767Z",
+      "updatedAt": "2025-12-19T17:42:49.767Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     },
     {
-      "id": 6,
-      "level": "Mid",
+      "id": "rest-api-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Average Product Price By Category",
-      "answer": null,
-      "isPremium": false
+      "description": "Average Product Price By Category?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Average Product Price By Category?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "rest-api"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "rest-api"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:42:49.767Z",
+      "updatedAt": "2025-12-19T17:42:49.767Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     },
     {
-      "id": 7,
-      "level": "Mid",
+      "id": "rest-api-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Count Active Users By Region",
-      "answer": null,
-      "isPremium": false
+      "description": "Count Active Users By Region?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Count Active Users By Region?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "rest-api"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "rest-api"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:42:49.767Z",
+      "updatedAt": "2025-12-19T17:42:49.767Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     },
     {
-      "id": 8,
-      "level": "Senior",
+      "id": "rest-api-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Total Likes for User",
-      "answer": null,
-      "isPremium": false
+      "description": "Total Likes for User?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Total Likes for User?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "rest-api"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "rest-api"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:42:49.767Z",
+      "updatedAt": "2025-12-19T17:42:49.767Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     },
     {
-      "id": 9,
-      "level": "Senior",
+      "id": "rest-api-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Total Article Likes for Author",
-      "answer": null,
-      "isPremium": false
+      "description": "Total Article Likes for Author?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Total Article Likes for Author?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "rest-api"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "rest-api"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:42:49.767Z",
+      "updatedAt": "2025-12-19T17:42:49.767Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     },
     {
-      "id": 10,
-      "level": "Senior",
+      "id": "rest-api-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Count Keyword Occurrences in Comments",
-      "answer": null,
-      "isPremium": false
+      "description": "Count Keyword Occurrences in Comments?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Count Keyword Occurrences in Comments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "rest-api"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "rest-api"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:42:49.767Z",
+      "updatedAt": "2025-12-19T17:42:49.767Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     }
-  ]
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
 }

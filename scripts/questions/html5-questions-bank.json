@@ -1,293 +1,2515 @@
 {
-  "totalQuestions": 41,
-  "extractedAt": "2025-12-19T17:25:45.595Z",
-  "questions": [
+  "mcq_questions": [],
+  "open_questions": [
     {
-      "id": 1,
-      "level": "Junior",
-      "title": "What is HTML?",
-      "answer": "HTML stands for HyperText Markup Language. It's the standard markup language used to create web pages. HTML is the foundation of all web content, specifying the structure of web pages in a format that web browsers can interpret and display.",
-      "isPremium": false
+      "id": "html5-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "HTML",
+      "description": "What is HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-1-ref-1",
+          "text": "HTML stands for HyperText Markup Language. It's the standard markup language used to create web pages. HTML is the foundation of all web content, specifying the structure of web pages in a format that web browsers can interpret and display.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 2,
-      "level": "Junior",
-      "title": "What are HTML tags?",
-      "answer": "HTML tags are the coding elements used to structure and format content on a web page. Each tag is enclosed in angle brackets, like <tagname>, and usually comes in pairs: an opening tag (<tagname>) and a closing tag (</tagname>). Tags can contain attributes for additional functionality.\nExmaple:\n\nhtml\n\nCopy code\n\n<a href=\"https://example.com\">Click here</a>\nThis tag creates a hyperlink; <a> is the tag, href=\"https://example.com\" is the attribute, and \"Click here\" is the link text displayed to the user.",
-      "isPremium": false
+      "id": "html5-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "HTML tags",
+      "description": "What are HTML tags?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are HTML tags?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-2-ref-1",
+          "text": "HTML tags are the coding elements used to structure and format content on a web page. Each tag is enclosed in angle brackets, like <tagname>, and usually comes in pairs: an opening tag (<tagname>) and a closing tag (</tagname>). Tags can contain attributes for additional functionality. Exmaple: html <a href=\"https://example.com\">Click here</a> This tag creates a hyperlink; <a> is the tag, href=\"https://example.com\" is the attribute, and \"Click here\" is the link text displayed to the user.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 3,
-      "level": "Junior",
-      "title": "Are HTML tags and elements the same thing?",
-      "answer": "HTML tags are the specific codes enclosed in angle brackets (like <p>), used to mark the start and end of an element.\nAn HTML element is the combination of a start tag, its content, and an end tag (for example, <p>Content</p>). So, while tags form part of an element, an element includes the tags and the content between them.",
-      "isPremium": false
+      "id": "html5-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Are HTML tags and elements the",
+      "description": "Are HTML tags and elements the same thing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Are HTML tags and elements the same thing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-3-ref-1",
+          "text": "HTML tags are the specific codes enclosed in angle brackets (like <p>), used to mark the start and end of an element. An HTML element is the combination of a start tag, its content, and an end tag (for example, <p>Content</p>). So, while tags form part of an element, an element includes the tags and the content between them.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 4,
-      "level": "Junior",
-      "title": "What are attributes and how do you use them?",
-      "answer": "Attributes in HTML are used to provide additional information about elements. They are written as name-value pairs within the opening tag of an element, like attribute_name=\"attribute_value\".\nFor example, in <a href=\"https://www.example.com\">, href is an attribute specifying the link's URL. Attributes are used for various purposes, such as linking resources, assigning styles, and identifying elements for scripts and CSS. Some attributes, like checked in input tags, are boolean and don't require a value.",
-      "isPremium": false
+      "id": "html5-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Attributes and how do you use",
+      "description": "What are attributes and how do you use them?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are attributes and how do you use them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-4-ref-1",
+          "text": "Attributes in HTML are used to provide additional information about elements. They are written as name-value pairs within the opening tag of an element, like attribute_name=\"attribute_value\". For example, in <a href=\"https://www.example.com\">, href is an attribute specifying the link's URL. Attributes are used for various purposes, such as linking resources, assigning styles, and identifying elements for scripts and CSS. Some attributes, like checked in input tags, are boolean and don't require a value.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 5,
-      "level": "Junior",
-      "title": "What is the difference between a block-level element and an inline element?",
-      "answer": "Block-level elements start on a new line and occupy the full width available, stacking vertically.\nExamples include <div>, <p>, and <h1>.\nInline elements do not start on a new line and only take up as much width as necessary, lining up horizontally with other content.\nExamples include <span>, <a>, and <img>.",
-      "isPremium": false
+      "id": "html5-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between a block-level element",
+      "description": "What is the difference between a block-level element and an inline element?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a block-level element and an inline element?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-5-ref-1",
+          "text": "Block-level elements start on a new line and occupy the full width available, stacking vertically. Examples include <div>, <p>, and <h1>. Inline elements do not start on a new line and only take up as much width as necessary, lining up horizontally with other content. Examples include <span>, <a>, and <img>.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 6,
-      "level": "Junior",
-      "title": "What is the syntax of comments in HTML?",
-      "answer": "HTML comments start with <!-- and end with -->. They are used to add notes or disable code without deleting it, and are not displayed in the browser.\nExample: <!-- This is a comment -->",
-      "isPremium": false
+      "id": "html5-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The syntax of comments in HTML",
+      "description": "What is the syntax of comments in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the syntax of comments in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-6-ref-1",
+          "text": "HTML comments start with <!-- and end with -->. They are used to add notes or disable code without deleting it, and are not displayed in the browser. Example: <!-- This is a comment -->",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 7,
-      "level": "Junior",
-      "title": "What is semantic HTML?",
-      "answer": "Semantic HTML involves using HTML elements that clearly describe their meaning and purpose in the webpage, not just their appearance. This approach uses specific tags like <article>, <section>, <header>, <footer>, <nav>, and <aside> to accurately represent different parts and content of a web page. Semantic HTML improves accessibility, search engine optimization, and maintainability of the code.",
-      "isPremium": false
+      "id": "html5-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Semantic HTML",
+      "description": "What is semantic HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is semantic HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-7-ref-1",
+          "text": "Semantic HTML involves using HTML elements that clearly describe their meaning and purpose in the webpage, not just their appearance. This approach uses specific tags like <article>, <section>, <header>, <footer>, <nav>, and <aside> to accurately represent different parts and content of a web page. Semantic HTML improves accessibility, search engine optimization, and maintainability of the code.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 8,
-      "level": "Junior",
-      "title": "What is the purpose of main element?",
-      "answer": "The <main> element in HTML is used to represent the primary content of a webpage, distinct from sidebars, headers, footers, and navigation. It improves accessibility and SEO by semantically indicating the main content area.",
-      "isPremium": false
+      "id": "html5-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of main element",
+      "description": "What is the purpose of main element?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of main element?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-8-ref-1",
+          "text": "The <main> element in HTML is used to represent the primary content of a webpage, distinct from sidebars, headers, footers, and navigation. It improves accessibility and SEO by semantically indicating the main content area.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 9,
-      "level": "Junior",
-      "title": "When should you use section, div or article?",
-      "answer": "<section>: When you want to group thematically related content. Each <section> should ideally have a heading and represents a standalone section of the document.\n<div>: For styling or layout purposes where no other semantic element is appropriate. It's a generic container with no semantic meaning.\n<article>: For self-contained, independent content that could be distributed or reused separately, like a blog post, news article, or user comment. Each <article> can contain its own sections and headings.",
-      "isPremium": false
+      "id": "html5-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You use section, div or article",
+      "description": "When should you use section, div or article?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"When should you use section, div or article?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-9-ref-1",
+          "text": "<section>: When you want to group thematically related content. Each <section> should ideally have a heading and represents a standalone section of the document. <div>: For styling or layout purposes where no other semantic element is appropriate. It's a generic container with no semantic meaning. <article>: For self-contained, independent content that could be distributed or reused separately, like a blog post, news article, or user comment. Each <article> can contain its own sections and headings.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 10,
-      "level": "Junior",
-      "title": "How are hyperlinks inserted in the HTML webpage?",
-      "answer": "Hyperlinks in HTML are created using the <a> tag with the href attribute, like <a href=\"URL\">Link Text</a>.",
-      "isPremium": false
+      "id": "html5-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Hyperlinks inserted in the HTML webpage",
+      "description": "How are hyperlinks inserted in the HTML webpage?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How are hyperlinks inserted in the HTML webpage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-10-ref-1",
+          "text": "Hyperlinks in HTML are created using the <a> tag with the href attribute, like <a href=\"URL\">Link Text</a>.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 11,
-      "level": "Junior",
-      "title": "What is the difference between an absolute and relative URL?",
-      "answer": "An absolute URL contains the full path, including the scheme (http/https), domain, and file path (e.g., https://www.example.com/page.html).\nA relative URL points to a file within the same domain, using only the file path (e.g., /page.html or images/pic.jpg). Absolute URLs are used for linking to external sites, while relative URLs are used for internal links within the same website.",
-      "isPremium": false
+      "id": "html5-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between an absolute and",
+      "description": "What is the difference between an absolute and relative URL?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between an absolute and relative URL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-11-ref-1",
+          "text": "An absolute URL contains the full path, including the scheme (http/https), domain, and file path (e.g., https://www.example.com/page.html). A relative URL points to a file within the same domain, using only the file path (e.g., /page.html or images/pic.jpg). Absolute URLs are used for linking to external sites, while relative URLs are used for internal links within the same website.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 12,
-      "level": "Junior",
-      "title": "What are the benefits of server side rendering (SSR) over client side rendering (CSR)?",
-      "answer": "Faster Initial Page Load: SSR sends a fully rendered page to the client, leading to quicker initial rendering and improved perceived performance.\nSEO Optimization: Search engines can easily index SSR pages as the content is already rendered, improving search rankings.\nNo JavaScript Dependency: SSR allows users to view content without enabling JavaScript, ensuring accessibility for all users.\nReduced Client-Side Processing: With SSR, most of the heavy lifting is done on the server, reducing the processing load on the client's device.",
-      "isPremium": false
+      "id": "html5-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The benefits of server side rendering",
+      "description": "What are the benefits of server side rendering (SSR) over client side rendering (CSR)?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of server side rendering (SSR) over client side rendering (CSR)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-12-ref-1",
+          "text": "Faster Initial Page Load: SSR sends a fully rendered page to the client, leading to quicker initial rendering and improved perceived performance. SEO Optimization: Search engines can easily index SSR pages as the content is already rendered, improving search rankings. No JavaScript Dependency: SSR allows users to view content without enabling JavaScript, ensuring accessibility for all users. Reduced Client-Side Processing: With SSR, most of the heavy lifting is done on the server, reducing the processing load on the client's device.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 13,
-      "level": "Junior",
-      "title": "How do you add CSS styling in HTML?",
-      "answer": "Inline Styling: Directly in an element's tag using the style attribute.\nExample: <p style=\"color: blue;\">Text</p>.\nInternal Styling: Within the <style> tag in the <head> section of the HTML document.\nExample:\n\nhtml\n\nCopy code\n\n<style>\n  p { color: blue; }\n</style>\nExternal Styling: Linking an external CSS file using the <link> tag in the <head> section.\nExample: <link rel=\"stylesheet\" href=\"styles.css\">",
-      "isPremium": false
+      "id": "html5-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You add CSS styling in HTML",
+      "description": "How do you add CSS styling in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you add CSS styling in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-13-ref-1",
+          "text": "Inline Styling: Directly in an element's tag using the style attribute. Example: <p style=\"color: blue;\">Text</p>. Internal Styling: Within the <style> tag in the <head> section of the HTML document. Example: html <style> p { color: blue; } </style> External Styling: Linking an external CSS file using the <link> tag in the <head> section. Example: <link rel=\"stylesheet\" href=\"styles.css\">",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 14,
-      "level": "Junior",
-      "title": "What are stylesheets?",
-      "answer": "Stylesheets in web development are files or documents used to define the look and format of a website. Written in CSS (Cascading Style Sheets), they control the presentation aspect of web pages, including layout, colors, fonts, and all other visual elements.\nStylesheets enable web developers to separate content (HTML) from presentation, leading to more efficient design and easier maintenance. They can be applied site-wide, affecting multiple pages, or be specific to a single HTML document.",
-      "isPremium": false
+      "id": "html5-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Stylesheets",
+      "description": "What are stylesheets?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are stylesheets?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-14-ref-1",
+          "text": "Stylesheets in web development are files or documents used to define the look and format of a website. Written in CSS (Cascading Style Sheets), they control the presentation aspect of web pages, including layout, colors, fonts, and all other visual elements. Stylesheets enable web developers to separate content (HTML) from presentation, leading to more efficient design and easier maintenance. They can be applied site-wide, affecting multiple pages, or be specific to a single HTML document.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 15,
-      "level": "Junior",
-      "title": "What is the ‘class' attribute in HTML?",
-      "answer": "The class attribute in HTML is used to assign one or more class names to an element, which can then be targeted with CSS and JavaScript. This attribute helps in applying specific styles and behaviors to groups of elements without repeating styles for each individual element.\nFor example, <div class=\"container\"> assigns the class container to a div element, allowing it to be styled through CSS with a .container selector. Classes are also used in JavaScript to manipulate groups of elements easily.",
-      "isPremium": false
+      "id": "html5-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The ‘class' attribute in HTML",
+      "description": "What is the ‘class' attribute in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the ‘class' attribute in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-15-ref-1",
+          "text": "The class attribute in HTML is used to assign one or more class names to an element, which can then be targeted with CSS and JavaScript. This attribute helps in applying specific styles and behaviors to groups of elements without repeating styles for each individual element. For example, <div class=\"container\"> assigns the class container to a div element, allowing it to be styled through CSS with a .container selector. Classes are also used in JavaScript to manipulate groups of elements easily.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 16,
-      "level": "Mid",
-      "title": "What is an iframe and how does it work?",
-      "answer": "An iframe (inline frame) is an HTML element that allows embedding another HTML document within a webpage. It works by creating a nested browsing context, essentially embedding a separate page within the parent page.\nThe basic syntax is <iframe src=\"URL\"></iframe>, where src specifies the URL of the page to be displayed inside the iframe.",
-      "isPremium": false
+      "id": "html5-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "An iframe and how does it",
+      "description": "What is an iframe and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an iframe and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-16-ref-1",
+          "text": "An iframe (inline frame) is an HTML element that allows embedding another HTML document within a webpage. It works by creating a nested browsing context, essentially embedding a separate page within the parent page. The basic syntax is <iframe src=\"URL\"></iframe>, where src specifies the URL of the page to be displayed inside the iframe.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 17,
-      "level": "Mid",
-      "title": "What is the canvas element in HTML5?",
-      "answer": "The <canvas> element in HTML5 is used to draw graphics on a web page via scripting, typically with JavaScript. It creates a fixed-size drawing surface that can be used for rendering graphs, game graphics, art, or other visual images on the fly.\nThe canvas is a bitmap canvas, rendering pixel-based images, which are resolution-dependent and not scalable like SVG. This element is versatile and powerful for creating dynamic, interactive graphics, but it requires programming to define the graphics.",
-      "isPremium": false
+      "id": "html5-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The canvas element in HTML5",
+      "description": "What is the canvas element in HTML5?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the canvas element in HTML5?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-17-ref-1",
+          "text": "The <canvas> element in HTML5 is used to draw graphics on a web page via scripting, typically with JavaScript. It creates a fixed-size drawing surface that can be used for rendering graphs, game graphics, art, or other visual images on the fly. The canvas is a bitmap canvas, rendering pixel-based images, which are resolution-dependent and not scalable like SVG. This element is versatile and powerful for creating dynamic, interactive graphics, but it requires programming to define the graphics.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 18,
-      "level": "Mid",
-      "title": "What is SVG?",
-      "answer": "SVG (Scalable Vector Graphics) is an XML-based file format for describing two-dimensional vector graphics. SVG is used for images and animations in web design due to its scalability without loss of quality, its small file size, and its ability to be manipulated with CSS and JavaScript.",
-      "isPremium": false
+      "id": "html5-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "SVG",
+      "description": "What is SVG?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is SVG?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-18-ref-1",
+          "text": "SVG (Scalable Vector Graphics) is an XML-based file format for describing two-dimensional vector graphics. SVG is used for images and animations in web design due to its scalability without loss of quality, its small file size, and its ability to be manipulated with CSS and JavaScript.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 19,
-      "level": "Mid",
-      "title": "What is the difference between <figure> tag and <img> tag?",
-      "answer": "The <img> tag in HTML is used solely for embedding images, while the <figure> tag serves as a container for various types of media, including images, and optionally, their accompanying captions (<figcaption>).\n<figure> provides semantic grouping for media elements and their descriptions, enhancing document structure and meaning.\nExample:\n\nhtml\n\nCopy code\n\n<figure>\n  <img src=\"image.jpg\" alt=\"Description\">\n  <figcaption>Caption describing the image</figcaption>\n</figure>\n\nWhile <img> is just for images, <figure> is a semantic element used to encapsulate media elements and their captions, providing additional context or meaning.",
-      "isPremium": false
+      "id": "html5-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between <figure> tag and",
+      "description": "What is the difference between <figure> tag and <img> tag?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between <figure> tag and <img> tag?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-19-ref-1",
+          "text": "The <img> tag in HTML is used solely for embedding images, while the <figure> tag serves as a container for various types of media, including images, and optionally, their accompanying captions (<figcaption>). <figure> provides semantic grouping for media elements and their descriptions, enhancing document structure and meaning. Example: html <figure> <img src=\"image.jpg\" alt=\"Description\"> <figcaption>Caption describing the image</figcaption> </figure> While <img> is just for images, <figure> is a semantic element used to encapsulate media elements and their captions, providing additional context or meaning.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 20,
-      "level": "Mid",
-      "title": "How do you set the language in HTML?",
-      "answer": "To set the language of an HTML document, use the lang attribute in the <html> tag. For example, <html lang=\"en\"> sets the document's language to English. This is important for accessibility and search engine optimization.",
-      "isPremium": false
+      "id": "html5-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You set the language in HTML",
+      "description": "How do you set the language in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you set the language in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-20-ref-1",
+          "text": "To set the language of an HTML document, use the lang attribute in the <html> tag. For example, <html lang=\"en\"> sets the document's language to English. This is important for accessibility and search engine optimization.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 21,
-      "level": "Mid",
-      "title": "What is Character Encoding?",
-      "answer": "Character encoding is a system that pairs each character in a set (like letters, numbers, symbols) with a specific value that a computer can process. It ensures consistent representation and handling of text across different digital platforms and devices.\nCommon encodings include ASCII, UTF-8, and ISO-8859-1, with UTF-8 being the most widely used on the web for its ability to represent a vast array of characters from various languages.",
-      "isPremium": false
+      "id": "html5-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Character Encoding",
+      "description": "What is Character Encoding?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Character Encoding?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-21-ref-1",
+          "text": "Character encoding is a system that pairs each character in a set (like letters, numbers, symbols) with a specific value that a computer can process. It ensures consistent representation and handling of text across different digital platforms and devices. Common encodings include ASCII, UTF-8, and ISO-8859-1, with UTF-8 being the most widely used on the web for its ability to represent a vast array of characters from various languages.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 22,
-      "level": "Mid",
-      "title": "Define the list types in HTML?",
-      "answer": "Unordered List (<ul>): Represents a list of items in no particular order. Items are typically displayed with bullet points. Each item in the list is enclosed by the <li> (list item) tag.\nOrdered List (<ol>): Represents a list of items in a specific order. Items are typically displayed with numbers or letters. Like the unordered list, each item is enclosed by the <li> tag.\nDescription List (<dl>): Used to display a list of terms and their descriptions. It includes <dt> tags for the terms and <dd> tags for their descriptions. This list type is ideal for glossaries or key-value pairs.",
-      "isPremium": false
+      "id": "html5-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The list types in HTML",
+      "description": "Define the list types in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Define the list types in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-22-ref-1",
+          "text": "Unordered List (<ul>): Represents a list of items in no particular order. Items are typically displayed with bullet points. Each item in the list is enclosed by the <li> (list item) tag. Ordered List (<ol>): Represents a list of items in a specific order. Items are typically displayed with numbers or letters. Like the unordered list, each item is enclosed by the <li> tag. Description List (<dl>): Used to display a list of terms and their descriptions. It includes <dt> tags for the terms and <dd> tags for their descriptions. This list type is ideal for glossaries or key-value pairs.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 23,
-      "level": "Mid",
-      "title": "What is the DOM and how does it work?",
-      "answer": "The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of a webpage as a tree of objects, enabling programming languages like JavaScript to manipulate the page's content, structure, and styles.\nChanges to the DOM by scripts are immediately reflected in the webpage. The DOM also facilitates event handling for interactive functionality.",
-      "isPremium": false
+      "id": "html5-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "DOM",
+      "description": "What is the DOM and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the DOM and how does it work?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "dom"
+      ],
+      "tags": [
+        "html",
+        "dom"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-23-ref-1",
+          "text": "The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of a webpage as a tree of objects, enabling programming languages like JavaScript to manipulate the page's content, structure, and styles. Changes to the DOM by scripts are immediately reflected in the webpage. The DOM also facilitates event handling for interactive functionality.",
+          "weight": 1,
+          "keyPoints": [
+            "Explain in the browser runtime context",
+            "Give a practical example"
+          ]
+        }
+      ]
     },
     {
-      "id": 24,
-      "level": "Mid",
-      "title": "What does a <DOCTYPE html> do?",
-      "answer": "The <!DOCTYPE html> declaration in HTML is used to specify the document type and version of HTML. It tells the browser to render the page in standards mode, ensuring that the page is displayed correctly according to the HTML5 standard.\nThis declaration must be the first line in an HTML document and is not an HTML tag; it's an instruction to the web browser about what version of HTML the page is written in.",
-      "isPremium": false
+      "id": "html5-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Es a <DOCTYPE html> do",
+      "description": "What does a <DOCTYPE html> do?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does a <DOCTYPE html> do?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-24-ref-1",
+          "text": "The <!DOCTYPE html> declaration in HTML is used to specify the document type and version of HTML. It tells the browser to render the page in standards mode, ensuring that the page is displayed correctly according to the HTML5 standard. This declaration must be the first line in an HTML document and is not an HTML tag; it's an instruction to the web browser about what version of HTML the page is written in.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 25,
-      "level": "Mid",
-      "title": "What happens when DOCTYPE is not specified?",
-      "answer": "When DOCTYPE is not specified in an HTML document, the browser enters \"quirks mode.\" In this mode, the browser uses a different algorithm to interpret the webpage, which often emulates the behavior of older browsers.\nEssentially, omitting DOCTYPE may cause a webpage to not adhere to modern web standards, leading to layout issues and poor cross-browser compatibility.",
-      "isPremium": false
+      "id": "html5-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Happens when DOCTYPE is not specified",
+      "description": "What happens when DOCTYPE is not specified?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What happens when DOCTYPE is not specified?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack",
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-25-ref-1",
+          "text": "When DOCTYPE is not specified in an HTML document, the browser enters \"quirks mode.\" In this mode, the browser uses a different algorithm to interpret the webpage, which often emulates the behavior of older browsers. Essentially, omitting DOCTYPE may cause a webpage to not adhere to modern web standards, leading to layout issues and poor cross-browser compatibility.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 26,
-      "level": "Mid",
-      "title": "What is the significance of <head> and <body> tag in HTML?",
-      "answer": "The <head> tag in HTML contains metadata like the page title, links to CSS, and scripts, essential for search engines and browser processing.\nThe <body> tag encloses the visible content of the webpage, including text, images, and interactive elements, directly seen and interacted with by users. Together, they organize the HTML document into backend information and frontend display.",
-      "isPremium": false
+      "id": "html5-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The significance of <head> and <body>",
+      "description": "What is the significance of <head> and <body> tag in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the significance of <head> and <body> tag in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-26-ref-1",
+          "text": "The <head> tag in HTML contains metadata like the page title, links to CSS, and scripts, essential for search engines and browser processing. The <body> tag encloses the visible content of the webpage, including text, images, and interactive elements, directly seen and interacted with by users. Together, they organize the HTML document into backend information and frontend display.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 27,
-      "level": "Mid",
-      "title": "What is the role of the <meta> tag in HTML?",
-      "answer": "Meta tags in HTML provide metadata about the web page, which includes information about the page that is not displayed directly on the webpage itself. Their purposes include:\n\nDefining Character Encoding: Specifying the character set used (e.g., UTF-8) for proper text display.\nSEO Optimization: Describing page content with titles, descriptions, and keywords for search engines.\nViewport Settings for Responsive Design: Adjusting how the page is displayed on different devices.\nControl over Browser Behavior: Such as refreshing the page or controlling cache policy.\nSocial Media Integration: Specifying how content should be displayed when shared on social media platforms.",
-      "isPremium": false
+      "id": "html5-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The role of the <meta> tag",
+      "description": "What is the role of the <meta> tag in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the <meta> tag in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-27-ref-1",
+          "text": "Meta tags in HTML provide metadata about the web page, which includes information about the page that is not displayed directly on the webpage itself. Their purposes include: Defining Character Encoding: Specifying the character set used (e.g., UTF-8) for proper text display. SEO Optimization: Describing page content with titles, descriptions, and keywords for search engines. Viewport Settings for Responsive Design: Adjusting how the page is displayed on different devices. Control over Browser Behavior: Such as refreshing the page or controlling cache policy. Social Media Integration: Specifying how content should be displayed when shared on social media platforms.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 28,
-      "level": "Mid",
-      "title": "What is the difference between the ‘id' and ‘class' attributes of HTML elements?",
-      "answer": "The 'id' attribute in HTML is used for a unique identifier of a single element, while the 'class' attribute is used to define a group of elements with a common style or behavior.\nAn 'id' must be unique within a page, but multiple elements can share the same 'class', and a single element can have multiple classes. In CSS, 'id' selectors have higher specificity than 'class' selectors.",
-      "isPremium": false
+      "id": "html5-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between the ‘id' and",
+      "description": "What is the difference between the ‘id' and ‘class' attributes of HTML elements?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between the ‘id' and ‘class' attributes of HTML elements?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-28-ref-1",
+          "text": "The 'id' attribute in HTML is used for a unique identifier of a single element, while the 'class' attribute is used to define a group of elements with a common style or behavior. An 'id' must be unique within a page, but multiple elements can share the same 'class', and a single element can have multiple classes. In CSS, 'id' selectors have higher specificity than 'class' selectors.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 29,
-      "level": "Mid",
-      "title": "What is the role of the title attribute in HTML?",
-      "answer": "The title attribute in HTML provides additional information about an element. Often displayed as a tooltip when the mouse hovers over the element, it can be used to offer supplementary detail or context.\nThis attribute can enhance usability and accessibility, especially for providing descriptions or explanations for various elements like links, images, or abbreviations.",
-      "isPremium": false
+      "id": "html5-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The role of the title attribute",
+      "description": "What is the role of the title attribute in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the title attribute in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-29-ref-1",
+          "text": "The title attribute in HTML provides additional information about an element. Often displayed as a tooltip when the mouse hovers over the element, it can be used to offer supplementary detail or context. This attribute can enhance usability and accessibility, especially for providing descriptions or explanations for various elements like links, images, or abbreviations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 30,
-      "level": "Mid",
-      "title": "What is the role of the alt attribute in HTML?",
-      "answer": "The alt attribute in HTML provides alternative text for images. It serves two main purposes: improving accessibility by describing the image content to screen reader users and displaying a descriptive text in case the image fails to load.\nThis attribute is crucial for users with visual impairments and for overall web accessibility.",
-      "isPremium": false
+      "id": "html5-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The role of the alt attribute",
+      "description": "What is the role of the alt attribute in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the alt attribute in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-30-ref-1",
+          "text": "The alt attribute in HTML provides alternative text for images. It serves two main purposes: improving accessibility by describing the image content to screen reader users and displaying a descriptive text in case the image fails to load. This attribute is crucial for users with visual impairments and for overall web accessibility.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 31,
-      "level": "Mid",
-      "title": "How to include JavaScript code in HTML?",
-      "answer": "To include JavaScript code in an HTML document, you can:\nInternal JavaScript: Place JavaScript code directly within <script> tags in the HTML. This is often done in the <head> or at the end of the <body>:\n\nhtml\n\nCopy code\n\n<script>\n  // JavaScript code goes here\n</script>\n\nExternal JavaScript File: Link to an external JavaScript file using the <script> tag with the src attribute. This keeps JavaScript separate from HTML, promoting cleaner code:\n\nhtml\n\nCopy code\n\n<script src=\"path/to/your-script.js\"></script>",
-      "isPremium": false
+      "id": "html5-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "To include JavaScript code in HTML",
+      "description": "How to include JavaScript code in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How to include JavaScript code in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-31-ref-1",
+          "text": "To include JavaScript code in an HTML document, you can: Internal JavaScript: Place JavaScript code directly within <script> tags in the HTML. This is often done in the <head> or at the end of the <body>: html <script> // JavaScript code goes here </script> External JavaScript File: Link to an external JavaScript file using the <script> tag with the src attribute. This keeps JavaScript separate from HTML, promoting cleaner code: html <script src=\"path/to/your-script.js\"></script>",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 32,
-      "level": "Mid",
-      "title": "What are data- attributes good for?",
-      "answer": "data- attributes in HTML are used for storing custom data directly within HTML elements. They are useful for:\nJavaScript Interaction: data- attributes provide a way to embed data that can be easily accessed and manipulated by JavaScript, without cluttering the class or id attributes.\nMaintaining HTML and JavaScript Separation: Helps keep the HTML structure separate from the JavaScript functionality, improving code readability and maintenance.\nStoring Extra Information: Useful for storing additional information that doesn’t have any visual representation, like identifiers, state values, or extra data for scripts.\nEnhancing Functionality: Often used in dynamic HTML applications, data- attributes can enhance functionality without relying on additional, external data sources.",
-      "isPremium": false
+      "id": "html5-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Data- attributes good for",
+      "description": "What are data- attributes good for?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are data- attributes good for?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-32-ref-1",
+          "text": "data- attributes in HTML are used for storing custom data directly within HTML elements. They are useful for: JavaScript Interaction: data- attributes provide a way to embed data that can be easily accessed and manipulated by JavaScript, without cluttering the class or id attributes. Maintaining HTML and JavaScript Separation: Helps keep the HTML structure separate from the JavaScript functionality, improving code readability and maintenance. Storing Extra Information: Useful for storing additional information that doesn’t have any visual representation, like identifiers, state values, or extra data for scripts. Enhancing Functionality: Often used in dynamic HTML applications, data- attributes can enhance functionality without relying on additional, external data sources.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 33,
-      "level": "Mid",
-      "title": "What is a form in HTML?",
-      "answer": "A form in HTML is an element that allows users to input data and submit it to a server for processing. Forms are used for various types of user interaction, such as search queries, login details, and data entry. A typical form includes text fields, checkboxes, radio buttons, and submit buttons, defined using <input>, <textarea>, <select>, and other related tags.\nForms use the <form> tag, which contains attributes to specify the action (server endpoint) and method (GET or POST) for data submission. Forms are essential for interactive, user-focused websites.",
-      "isPremium": false
+      "id": "html5-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "A form in HTML",
+      "description": "What is a form in HTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a form in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-33-ref-1",
+          "text": "A form in HTML is an element that allows users to input data and submit it to a server for processing. Forms are used for various types of user interaction, such as search queries, login details, and data entry. A typical form includes text fields, checkboxes, radio buttons, and submit buttons, defined using <input>, <textarea>, <select>, and other related tags. Forms use the <form> tag, which contains attributes to specify the action (server endpoint) and method (GET or POST) for data submission. Forms are essential for interactive, user-focused websites.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 34,
-      "level": "Senior",
-      "title": "List the media types and formats supported by HTML.",
-      "answer": "HTML supports various media types and formats, primarily through the <img>, <audio>, and <video> elements. Here's a list:\n\nImages:\nJPEG (.jpg, .jpeg)\nPNG (.png)\nGIF (.gif)\nSVG (Scalable Vector Graphics, .svg)\nWebP (.webp)\nBMP (.bmp)\nTIFF (.tiff) [less common]\nAudio:\nMP3 (.mp3)\nWAV (.wav)\nOgg (.ogg)\nAAC (.aac)\nFLAC (.flac) [browser support varies]\nVideo:\nMP4 (.mp4, .m4v) [H.264 video codec and AAC audio codec]\nWebM (.webm)\nOgg (.ogv)\nAVI, MKV, MOV [less common and not widely supported in web browsers]",
-      "isPremium": false
+      "id": "html5-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "List the media types and formats",
+      "description": "List the media types and formats supported by HTML.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"List the media types and formats supported by HTML.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-34-ref-1",
+          "text": "HTML supports various media types and formats, primarily through the <img>, <audio>, and <video> elements. Here's a list: Images: JPEG (.jpg, .jpeg) PNG (.png) GIF (.gif) SVG (Scalable Vector Graphics, .svg) WebP (.webp) BMP (.bmp) TIFF (.tiff) [less common] Audio: MP3 (.mp3) WAV (.wav) Ogg (.ogg) AAC (.aac) FLAC (.flac) [browser support varies] Video: MP4 (.mp4, .m4v) [H.264 video codec and AAC audio codec] WebM (.webm) Ogg (.ogv) AVI, MKV, MOV [less common and not widely supported in web browsers]",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 35,
-      "level": "Senior",
-      "title": "What does CORS stand for and what issue does it address?",
-      "answer": "CORS stands for \"Cross-Origin Resource Sharing.\" It is a security feature that manages how web resources (like fonts, JavaScript, etc.) are requested from different domains. CORS addresses the issue of web browsers' same-origin policy, which restricts how a document or script from one origin can interact with resources from another origin.\nThis policy is in place to prevent malicious attacks like Cross-Site Scripting (XSS). CORS provides a way for web servers to declare which origins are permitted to access resources on the server, allowing safe cross-origin requests and data sharing.",
-      "isPremium": false
+      "id": "html5-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "CORS",
+      "description": "What does CORS stand for and what issue does it address?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What does CORS stand for and what issue does it address?\" Requirements: - Define the vulnerability and the attack vector - Concrete prevention/mitigation techniques Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "security"
+      ],
+      "tags": [
+        "html",
+        "cors",
+        "http",
+        "security"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "cybersecurity",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-35-ref-1",
+          "text": "CORS stands for \"Cross-Origin Resource Sharing.\" It is a security feature that manages how web resources (like fonts, JavaScript, etc.) are requested from different domains. CORS addresses the issue of web browsers' same-origin policy, which restricts how a document or script from one origin can interact with resources from another origin. This policy is in place to prevent malicious attacks like Cross-Site Scripting (XSS). CORS provides a way for web servers to declare which origins are permitted to access resources on the server, allowing safe cross-origin requests and data sharing.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the vulnerability and the attack vector",
+            "Concrete prevention/mitigation techniques"
+          ]
+        }
+      ]
     },
     {
-      "id": 36,
-      "level": "Senior",
-      "title": "Describe the difference between <script>, <script async>, and <script defer>.",
-      "answer": "<script>: Without any attributes, the script is fetched and executed immediately, blocking HTML parsing until the script is loaded and executed. This can affect page load time.\n<script async>: The script is fetched asynchronously and executed as soon as it's downloaded, without waiting for the HTML parsing to complete. This doesn't guarantee the order of script execution if there are multiple scripts.\n<script defer>: The script is fetched asynchronously, but it's executed only after the HTML parsing is complete. If there are multiple deferred scripts, they are executed in the order they appear in the document.",
-      "isPremium": false
+      "id": "html5-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between <script>, <script async>,",
+      "description": "Describe the difference between <script>, <script async>, and <script defer>.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the difference between <script>, <script async>, and <script defer>.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-36-ref-1",
+          "text": "<script>: Without any attributes, the script is fetched and executed immediately, blocking HTML parsing until the script is loaded and executed. This can affect page load time. <script async>: The script is fetched asynchronously and executed as soon as it's downloaded, without waiting for the HTML parsing to complete. This doesn't guarantee the order of script execution if there are multiple scripts. <script defer>: The script is fetched asynchronously, but it's executed only after the HTML parsing is complete. If there are multiple deferred scripts, they are executed in the order they appear in the document.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 37,
-      "level": "Senior",
-      "title": "Explain the difference between layout, painting and compositing?",
-      "answer": "In web browser rendering, layout, painting, and compositing are distinct stages:\n\nLayout: This stage involves calculating the position and size of each element on the web page. It's also known as \"reflow.\" The browser examines the DOM and CSSOM to understand the document structure and style rules, then determines the geometry of each element.\nPainting: Once the layout is determined, the painting process begins. This involves filling in the pixels for each element. It includes drawing text, colors, images, borders, and shadows. This process converts each element into layers that can be visually rendered.\nCompositing: In the final stage, the layers created during the painting process are assembled into the final visual representation on the screen. This is where the browser decides the order of layer stacking and how they overlap, applying any final touches like CSS transitions or animations.",
-      "isPremium": false
+      "id": "html5-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between layout, painting and",
+      "description": "Explain the difference between layout, painting and compositing?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between layout, painting and compositing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-37-ref-1",
+          "text": "In web browser rendering, layout, painting, and compositing are distinct stages: Layout: This stage involves calculating the position and size of each element on the web page. It's also known as \"reflow.\" The browser examines the DOM and CSSOM to understand the document structure and style rules, then determines the geometry of each element. Painting: Once the layout is determined, the painting process begins. This involves filling in the pixels for each element. It includes drawing text, colors, images, borders, and shadows. This process converts each element into layers that can be visually rendered. Compositing: In the final stage, the layers created during the painting process are assembled into the final visual representation on the screen. This is where the browser decides the order of layer stacking and how they overlap, applying any final touches like CSS transitions or animations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 38,
-      "level": "Senior",
-      "title": "What is the difference between HTML and XHTML?",
-      "answer": "HTML (HyperText Markup Language) and XHTML (eXtensible HyperText Markup Language) are both languages used to write web pages, but they have key differences:\nSyntax Rules: XHTML is more strict in terms of syntax. It requires all elements to be properly nested, closed, and in lowercase, and attributes must be quoted and use a full declaration (<!DOCTYPE ...>).\nXML-based: XHTML is an application of XML (eXtensible Markup Language), meaning it needs to be well-formed XML, while HTML is based on SGML (Standard Generalized Markup Language) and is more lenient with syntax.\nError Handling: Browsers tend to be more forgiving with HTML errors, while XHTML errors can cause a page to fail to render properly.\nMIME Type: XHTML is served with an XML MIME type (application/xhtml+xml), which enforces strict error handling, whereas HTML is served with a text MIME type (text/html).\nDocument Object Model (DOM): While both create a DOM, the XML DOM of XHTML is slightly different and can have implications for JavaScript interaction.",
-      "isPremium": false
+      "id": "html5-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between HTML and XHTML",
+      "description": "What is the difference between HTML and XHTML?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between HTML and XHTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-38-ref-1",
+          "text": "HTML (HyperText Markup Language) and XHTML (eXtensible HyperText Markup Language) are both languages used to write web pages, but they have key differences: Syntax Rules: XHTML is more strict in terms of syntax. It requires all elements to be properly nested, closed, and in lowercase, and attributes must be quoted and use a full declaration (<!DOCTYPE ...>). XML-based: XHTML is an application of XML (eXtensible Markup Language), meaning it needs to be well-formed XML, while HTML is based on SGML (Standard Generalized Markup Language) and is more lenient with syntax. Error Handling: Browsers tend to be more forgiving with HTML errors, while XHTML errors can cause a page to fail to render properly. MIME Type: XHTML is served with an XML MIME type (application/xhtml+xml), which enforces strict error handling, whereas HTML is served with a text MIME type (text/html). Document Object Model (DOM): While both create a DOM, the XML DOM of XHTML is slightly different and can have implications for JavaScript interaction.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 39,
-      "level": "Senior",
-      "title": "What is the Geolocation API in HTML5?",
-      "answer": "The Geolocation API in HTML5 is a feature that allows web applications to access the geographical location of the user. This API can provide location data based on various sources like GPS, network signals, and IP address. It's commonly used in applications for mapping, location tracking, or providing location-specific information.\nThe API requires user consent for privacy reasons, and its accuracy and availability can vary depending on the device and the method used to determine the location.",
-      "isPremium": false
+      "id": "html5-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The Geolocation API in HTML5",
+      "description": "What is the Geolocation API in HTML5?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Geolocation API in HTML5?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-39-ref-1",
+          "text": "The Geolocation API in HTML5 is a feature that allows web applications to access the geographical location of the user. This API can provide location data based on various sources like GPS, network signals, and IP address. It's commonly used in applications for mapping, location tracking, or providing location-specific information. The API requires user consent for privacy reasons, and its accuracy and availability can vary depending on the device and the method used to determine the location.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 40,
-      "level": "Senior",
-      "title": "How will you make an image draggable in HTML5?",
-      "answer": "To make an image draggable in HTML5, you simply add the draggable=\"true\" attribute to the <img> tag. Here's an example:\n\nhtml\n\nCopy code\n\n<img src=\"path-to-image.jpg\" alt=\"Descriptive Text\" draggable=\"true\">\n\nThis makes the image draggable within the browser. For a complete drag-and-drop functionality, you'll need to implement JavaScript event handlers for drag events (ondragstart, ondragover, ondrop, etc.).",
-      "isPremium": false
+      "id": "html5-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Will you make an image draggable",
+      "description": "How will you make an image draggable in HTML5?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How will you make an image draggable in HTML5?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-40-ref-1",
+          "text": "To make an image draggable in HTML5, you simply add the draggable=\"true\" attribute to the <img> tag. Here's an example: html <img src=\"path-to-image.jpg\" alt=\"Descriptive Text\" draggable=\"true\"> This makes the image draggable within the browser. For a complete drag-and-drop functionality, you'll need to implement JavaScript event handlers for drag events (ondragstart, ondragover, ondrop, etc.).",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 41,
-      "level": "Senior",
-      "title": "Explain the concept of web storage in HTML5.",
-      "answer": "Web Storage in HTML5 provides a way for web applications to store data locally within the user's browser. Unlike cookies, this data is not sent to the server with every request. Web Storage is more secure and can store a larger amount of data.\nThere are two main mechanisms:\nLocal Storage: Stores data with no expiration date. The data will persist even after the browser window is closed. It's ideal for storing data that should be kept across sessions, like user preferences or application state.\nSession Storage: Stores data for one session and is cleared when the browser tab or window is closed. Useful for data relevant to a single page session, like form inputs on a single page.",
-      "isPremium": false
+      "id": "html5-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of web storage in",
+      "description": "Explain the concept of web storage in HTML5.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of web storage in HTML5.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "html"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "html"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:25:45.595Z",
+      "updatedAt": "2025-12-19T17:25:45.595Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "html5-questions-bank-41-ref-1",
+          "text": "Web Storage in HTML5 provides a way for web applications to store data locally within the user's browser. Unlike cookies, this data is not sent to the server with every request. Web Storage is more secure and can store a larger amount of data. There are two main mechanisms: Local Storage: Stores data with no expiration date. The data will persist even after the browser window is closed. It's ideal for storing data that should be kept across sessions, like user preferences or application state. Session Storage: Stores data for one session and is cleared when the browser tab or window is closed. Useful for data relevant to a single page session, like form inputs on a single page.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
 }

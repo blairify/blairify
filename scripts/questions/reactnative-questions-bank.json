@@ -1,356 +1,3008 @@
 {
-  "totalQuestions": 50,
-  "extractedAt": "2025-12-19T17:33:45.726Z",
-  "questions": [
+  "mcq_questions": [],
+  "open_questions": [
     {
-      "id": 1,
-      "level": "Junior",
-      "title": "What is React Native, and how does it differ from React?",
-      "answer": "React Native is a framework for building mobile applications using JavaScript and React. It allows developers to write components that can be compiled to native code for iOS and Android platforms. React, on the other hand, is a library for building web user interfaces. React Native extends React to support mobile app development.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "React Native, and how does it",
+      "description": "What is React Native, and how does it differ from React?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is React Native, and how does it differ from React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-1-ref-1",
+          "text": "React Native is a framework for building mobile applications using JavaScript and React. It allows developers to write components that can be compiled to native code for iOS and Android platforms. React, on the other hand, is a library for building web user interfaces. React Native extends React to support mobile app development.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 2,
-      "level": "Junior",
-      "title": "What is the purpose of Redux in a React Native application, and how does it work?",
-      "answer": "Redux is a state management library that helps manage the state of an application in a predictable and centralized manner. In a React Native app, Redux can be used to store and manage the application's global state, making it easier to share data between components. Actions are dispatched to modify the state, and reducers handle these actions to update the state in an immutable way.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of Redux in a",
+      "description": "What is the purpose of Redux in a React Native application, and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of Redux in a React Native application, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-2-ref-1",
+          "text": "Redux is a state management library that helps manage the state of an application in a predictable and centralized manner. In a React Native app, Redux can be used to store and manage the application's global state, making it easier to share data between components. Actions are dispatched to modify the state, and reducers handle these actions to update the state in an immutable way.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 3,
-      "level": "Junior",
-      "title": "What is the difference between React Native and native app development?",
-      "answer": "React Native allows you to build mobile apps using JavaScript and React, sharing a significant portion of code between iOS and Android platforms. Native app development involves writing separate code for each platform (Swift/Objective-C for iOS and Java/Kotlin for Android).\nReact Native offers a cross-platform solution, while native development provides more control and performance optimization.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between React Native and",
+      "description": "What is the difference between React Native and native app development?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between React Native and native app development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-3-ref-1",
+          "text": "React Native allows you to build mobile apps using JavaScript and React, sharing a significant portion of code between iOS and Android platforms. Native app development involves writing separate code for each platform (Swift/Objective-C for iOS and Java/Kotlin for Android). React Native offers a cross-platform solution, while native development provides more control and performance optimization.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 4,
-      "level": "Junior",
-      "title": "How do you handle navigation in a React Native application?",
-      "answer": "React Navigation is a popular library for handling navigation in React Native. It provides a declarative way to define navigation flows and offers various navigators like Stack Navigator, Tab Navigator, and Drawer Navigator. You can use these navigators to navigate between screens in your app.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You handle navigation in a React",
+      "description": "How do you handle navigation in a React Native application?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle navigation in a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-4-ref-1",
+          "text": "React Navigation is a popular library for handling navigation in React Native. It provides a declarative way to define navigation flows and offers various navigators like Stack Navigator, Tab Navigator, and Drawer Navigator. You can use these navigators to navigate between screens in your app.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 5,
-      "level": "Junior",
-      "title": "Explain the concept of props and state in React Native.",
-      "answer": "Props (short for properties) are used to pass data from parent to child components. They are immutable and help make components reusable. State, on the other hand, represents mutable data that is specific to a component. It can be changed over time, typically using setState for class components or useState for functional components.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of props and state",
+      "description": "Explain the concept of props and state in React Native.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of props and state in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-5-ref-1",
+          "text": "Props (short for properties) are used to pass data from parent to child components. They are immutable and help make components reusable. State, on the other hand, represents mutable data that is specific to a component. It can be changed over time, typically using setState for class components or useState for functional components.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 6,
-      "level": "Junior",
-      "title": "What are the advantages and disadvantages of using React Native for mobile app development?",
-      "answer": "Advantages: Code reusability between iOS and Android, a large and active community, rapid development, and access to native modules.\nDisadvantages: Limited performance for certain complex animations or heavy computations, occasional delays in adopting new native features, and potential challenges with third-party native libraries.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The advantages and disadvantages of using",
+      "description": "What are the advantages and disadvantages of using React Native for mobile app development?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages and disadvantages of using React Native for mobile app development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-6-ref-1",
+          "text": "Advantages: Code reusability between iOS and Android, a large and active community, rapid development, and access to native modules. Disadvantages: Limited performance for certain complex animations or heavy computations, occasional delays in adopting new native features, and potential challenges with third-party native libraries.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 7,
-      "level": "Junior",
-      "title": "How do you optimize the performance of a React Native application?",
-      "answer": "Performance optimization in React Native involves techniques like using the PureComponent or React.memo for memoization, avoiding unnecessary re-renders, optimizing image loading, and using tools like the React Native Performance Monitor for profiling and debugging.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You optimize the performance of a",
+      "description": "How do you optimize the performance of a React Native application?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you optimize the performance of a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-7-ref-1",
+          "text": "Performance optimization in React Native involves techniques like using the PureComponent or React.memo for memoization, avoiding unnecessary re-renders, optimizing image loading, and using tools like the React Native Performance Monitor for profiling and debugging.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 8,
-      "level": "Mid",
-      "title": "Can you explain the concept of bridging in React Native?",
-      "answer": "Bridging is the process of connecting JavaScript code with native code (Java/Objective-C/Swift) in React Native. It allows you to access native modules and components from JavaScript and vice versa. React Native provides a bridge to enable seamless communication between the JavaScript and native worlds.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Can you explain the concept of",
+      "description": "Can you explain the concept of bridging in React Native?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the concept of bridging in React Native?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-8-ref-1",
+          "text": "Bridging is the process of connecting JavaScript code with native code (Java/Objective-C/Swift) in React Native. It allows you to access native modules and components from JavaScript and vice versa. React Native provides a bridge to enable seamless communication between the JavaScript and native worlds.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 9,
-      "level": "Mid",
-      "title": "What are some key differences between React Native and Flutter?",
-      "answer": "React Native and Flutter are both popular frameworks for mobile app development, but they have different approaches. React Native uses JavaScript and relies on native components, while Flutter uses the Dart language and provides a complete set of custom widgets. Key differences include the programming language, performance, and the UI rendering approach.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Some key differences between React Native",
+      "description": "What are some key differences between React Native and Flutter?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some key differences between React Native and Flutter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-9-ref-1",
+          "text": "React Native and Flutter are both popular frameworks for mobile app development, but they have different approaches. React Native uses JavaScript and relies on native components, while Flutter uses the Dart language and provides a complete set of custom widgets. Key differences include the programming language, performance, and the UI rendering approach.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 10,
-      "level": "Mid",
-      "title": "What is the significance of the Virtual DOM in React Native, and how does it improve performance?",
-      "answer": "The Virtual DOM is a key concept in React (and React Native). It's an abstract representation of the actual DOM, which React uses to efficiently update the real DOM when changes occur. By comparing the Virtual DOM with the previous state, React minimizes DOM manipulation and re-renders, resulting in improved performance.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "DOM",
+      "description": "What is the significance of the Virtual DOM in React Native, and how does it improve performance?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the significance of the Virtual DOM in React Native, and how does it improve performance?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "dom"
+      ],
+      "tags": [
+        "react-native",
+        "react",
+        "dom"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-10-ref-1",
+          "text": "The Virtual DOM is a key concept in React (and React Native). It's an abstract representation of the actual DOM, which React uses to efficiently update the real DOM when changes occur. By comparing the Virtual DOM with the previous state, React minimizes DOM manipulation and re-renders, resulting in improved performance.",
+          "weight": 1,
+          "keyPoints": [
+            "Explain in the browser runtime context",
+            "Give a practical example"
+          ]
+        }
+      ]
     },
     {
-      "id": 11,
-      "level": "Mid",
-      "title": "What is the purpose of the StyleSheet component in React Native, and how does it differ from traditional CSS?",
-      "answer": "StyleSheet is used to define styles in React Native. It's similar to traditional CSS but with some differences. Styles defined in a StyleSheet are preprocessed and optimized during compilation, leading to better performance. Additionally, StyleSheet enforces the use of inline styles and prevents global style collisions.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the StyleSheet component",
+      "description": "What is the purpose of the StyleSheet component in React Native, and how does it differ from traditional CSS?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the StyleSheet component in React Native, and how does it differ from traditional CSS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-11-ref-1",
+          "text": "StyleSheet is used to define styles in React Native. It's similar to traditional CSS but with some differences. Styles defined in a StyleSheet are preprocessed and optimized during compilation, leading to better performance. Additionally, StyleSheet enforces the use of inline styles and prevents global style collisions.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 12,
-      "level": "Mid",
-      "title": "Explain the concept of AsyncStorage in React Native.",
-      "answer": "AsyncStorage is an asynchronous, key-value storage system in React Native for persisting data locally.\nIt's typically used for storing small amounts of data like user settings or cached data.\nIts main limitations include limited storage capacity, lack of querying capabilities, and the fact that it's not suitable for storing large amounts of data.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of AsyncStorage in React",
+      "description": "Explain the concept of AsyncStorage in React Native.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of AsyncStorage in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-12-ref-1",
+          "text": "AsyncStorage is an asynchronous, key-value storage system in React Native for persisting data locally. It's typically used for storing small amounts of data like user settings or cached data. Its main limitations include limited storage capacity, lack of querying capabilities, and the fact that it's not suitable for storing large amounts of data.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 13,
-      "level": "Mid",
-      "title": "How do you handle platform-specific code in a React Native project?",
-      "answer": "React Native provides a mechanism for handling platform-specific code using file extensions. You can create separate files for iOS and Android, such as MyComponent.ios.js and MyComponent.android.js, and React Native will automatically choose the appropriate file based on the platform.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You handle platform-specific code in a",
+      "description": "How do you handle platform-specific code in a React Native project?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle platform-specific code in a React Native project?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-13-ref-1",
+          "text": "React Native provides a mechanism for handling platform-specific code using file extensions. You can create separate files for iOS and Android, such as MyComponent.ios.js and MyComponent.android.js, and React Native will automatically choose the appropriate file based on the platform.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 14,
-      "level": "Mid",
-      "title": "What are HOCs (Higher-Order Components) in React Native, and why are they useful?",
-      "answer": "HOCs are functions that take a component and return a new component with additional props or behavior. They are used for code reuse, logic sharing, and enhancing components' functionality without changing their original structure.\nHOCs are useful for applying common patterns, such as authentication or data fetching, to multiple components.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "HOCs (Higher-Order Components) in React Native,",
+      "description": "What are HOCs (Higher-Order Components) in React Native, and why are they useful?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are HOCs (Higher-Order Components) in React Native, and why are they useful?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-14-ref-1",
+          "text": "HOCs are functions that take a component and return a new component with additional props or behavior. They are used for code reuse, logic sharing, and enhancing components' functionality without changing their original structure. HOCs are useful for applying common patterns, such as authentication or data fetching, to multiple components.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 15,
-      "level": "Mid",
-      "title": "Explain the concept of conditional rendering in React Native and provide an example.",
-      "answer": "Conditional rendering is the practice of rendering components or elements based on certain conditions or data.\nFor example, you can use JavaScript conditional statements (e.g., if or ternary operators) to conditionally render different UI components based on the application's state.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of conditional rendering in",
+      "description": "Explain the concept of conditional rendering in React Native and provide an example.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of conditional rendering in React Native and provide an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-15-ref-1",
+          "text": "Conditional rendering is the practice of rendering components or elements based on certain conditions or data. For example, you can use JavaScript conditional statements (e.g., if or ternary operators) to conditionally render different UI components based on the application's state.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 16,
-      "level": "Mid",
-      "title": "What is Redux Thunk, and why would you use it in a React Native application?",
-      "answer": "Redux Thunk is a middleware for Redux that allows you to dispatch asynchronous actions. It's commonly used for handling side effects like network requests in Redux. With Redux Thunk, you can dispatch functions instead of plain action objects, making it easier to manage asynchronous logic in your app.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Redux Thunk, and why would you",
+      "description": "What is Redux Thunk, and why would you use it in a React Native application?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redux Thunk, and why would you use it in a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-16-ref-1",
+          "text": "Redux Thunk is a middleware for Redux that allows you to dispatch asynchronous actions. It's commonly used for handling side effects like network requests in Redux. With Redux Thunk, you can dispatch functions instead of plain action objects, making it easier to manage asynchronous logic in your app.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 17,
-      "level": "Mid",
-      "title": "How do you optimize images for a React Native application to improve performance?",
-      "answer": "To optimize images in a React Native app, you can:\nUse responsive images by providing different sizes for different screen densities (e.g., @2x, @3x).\nCompress images to reduce file size.\nUse image placeholders or lazy loading for images below the fold.\nCache images to avoid unnecessary downloads.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You optimize images for a React",
+      "description": "How do you optimize images for a React Native application to improve performance?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you optimize images for a React Native application to improve performance?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-17-ref-1",
+          "text": "To optimize images in a React Native app, you can: Use responsive images by providing different sizes for different screen densities (e.g., @2x, @3x). Compress images to reduce file size. Use image placeholders or lazy loading for images below the fold. Cache images to avoid unnecessary downloads.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 18,
-      "level": "Mid",
-      "title": "Explain how you can handle deep linking in a React Native app.",
-      "answer": "Deep linking allows users to open specific screens or sections of an app by clicking on links from external sources (e.g., a web page or another app). To handle deep linking in React Native, you can use libraries like react-navigation to set up routing based on the deep link URL. Additionally, you'll need to configure your app's manifest or Info.plist files to specify the URL schemes or Universal Links for deep linking to work.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "How you can handle deep linking",
+      "description": "Explain how you can handle deep linking in a React Native app.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can handle deep linking in a React Native app.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-18-ref-1",
+          "text": "Deep linking allows users to open specific screens or sections of an app by clicking on links from external sources (e.g., a web page or another app). To handle deep linking in React Native, you can use libraries like react-navigation to set up routing based on the deep link URL. Additionally, you'll need to configure your app's manifest or Info.plist files to specify the URL schemes or Universal Links for deep linking to work.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 19,
-      "level": "Mid",
-      "title": "What is the purpose of the FlatList component in React Native, and how does it differ from ScrollView for rendering lists?",
-      "answer": "FlatList is a highly optimized component for rendering large lists of data in React Native. It only renders the items that are currently visible on the screen, which significantly improves performance compared to ScrollView, especially for long lists. It also provides features like lazy loading, pull-to-refresh, and item recycling.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the FlatList component",
+      "description": "What is the purpose of the FlatList component in React Native, and how does it differ from ScrollView for rendering lists?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the FlatList component in React Native, and how does it differ from ScrollView for rendering lists?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-19-ref-1",
+          "text": "FlatList is a highly optimized component for rendering large lists of data in React Native. It only renders the items that are currently visible on the screen, which significantly improves performance compared to ScrollView, especially for long lists. It also provides features like lazy loading, pull-to-refresh, and item recycling.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 20,
-      "level": "Mid",
-      "title": "Explain the concept of \"props drilling\" in React Native. How can you avoid it?",
-      "answer": "Props drilling refers to the situation where you pass props down multiple levels of nested components, making the code less maintainable. To avoid props drilling, you can use React's Context API or state management libraries like Redux to pass data or functions down the component tree without explicitly passing them through each intermediate component.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of \"props drilling\" in",
+      "description": "Explain the concept of \"props drilling\" in React Native. How can you avoid it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"props drilling\" in React Native. How can you avoid it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-20-ref-1",
+          "text": "Props drilling refers to the situation where you pass props down multiple levels of nested components, making the code less maintainable. To avoid props drilling, you can use React's Context API or state management libraries like Redux to pass data or functions down the component tree without explicitly passing them through each intermediate component.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 21,
-      "level": "Mid",
-      "title": "What is the purpose of the useEffect hook in React Native, and how does it differ from class-based lifecycle methods?",
-      "answer": "useEffect is a hook in React (and React Native) used for handling side effects and performing actions in functional components. It can replace lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount.\nUnlike lifecycle methods, useEffect allows you to organize side effects in a more declarative way and can be used in functional components.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the useEffect hook",
+      "description": "What is the purpose of the useEffect hook in React Native, and how does it differ from class-based lifecycle methods?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the useEffect hook in React Native, and how does it differ from class-based lifecycle methods?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-21-ref-1",
+          "text": "useEffect is a hook in React (and React Native) used for handling side effects and performing actions in functional components. It can replace lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount. Unlike lifecycle methods, useEffect allows you to organize side effects in a more declarative way and can be used in functional components.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 22,
-      "level": "Mid",
-      "title": "What is the purpose of the TouchableOpacity component in React Native?",
-      "answer": "TouchableOpacity is a wrapper component that provides touchable behavior to its child components. It's commonly used to create interactive elements like buttons. When a user taps on a TouchableOpacity, it provides feedback by reducing the opacity of its child component, making it look like a button press.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the TouchableOpacity component",
+      "description": "What is the purpose of the TouchableOpacity component in React Native?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the TouchableOpacity component in React Native?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-22-ref-1",
+          "text": "TouchableOpacity is a wrapper component that provides touchable behavior to its child components. It's commonly used to create interactive elements like buttons. When a user taps on a TouchableOpacity, it provides feedback by reducing the opacity of its child component, making it look like a button press.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 23,
-      "level": "Mid",
-      "title": "Explain the concept of navigation stacks and navigation actions in React Navigation.",
-      "answer": "In React Navigation, a navigation stack is a collection of screens that are managed in a stack-like manner. When you navigate to a new screen, it's pushed onto the stack, and you can go back to the previous screen by popping it off the stack.\nNavigation actions are actions like navigate, push, and pop that allow you to manipulate the navigation stack and transition between screens.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of navigation stacks and",
+      "description": "Explain the concept of navigation stacks and navigation actions in React Navigation.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of navigation stacks and navigation actions in React Navigation.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-23-ref-1",
+          "text": "In React Navigation, a navigation stack is a collection of screens that are managed in a stack-like manner. When you navigate to a new screen, it's pushed onto the stack, and you can go back to the previous screen by popping it off the stack. Navigation actions are actions like navigate, push, and pop that allow you to manipulate the navigation stack and transition between screens.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 24,
-      "level": "Mid",
-      "title": "What is Redux Saga, and why might you use it in a React Native application?",
-      "answer": "Redux Saga is a middleware library for Redux that helps manage side effects in a more structured way, particularly asynchronous operations like network requests. It allows you to handle complex asynchronous logic with generators and provides better testability and maintainability for side effects in your Redux store.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Redux Saga, and why might you",
+      "description": "What is Redux Saga, and why might you use it in a React Native application?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redux Saga, and why might you use it in a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-24-ref-1",
+          "text": "Redux Saga is a middleware library for Redux that helps manage side effects in a more structured way, particularly asynchronous operations like network requests. It allows you to handle complex asynchronous logic with generators and provides better testability and maintainability for side effects in your Redux store.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 25,
-      "level": "Mid",
-      "title": "How can you handle screen orientation changes in a React Native app?",
-      "answer": "To handle screen orientation changes in React Native, you can use the react-native-orientation-locker library or the built-in react-native-orientation module. These libraries provide APIs for detecting and controlling screen orientations, allowing you to adapt your UI and logic accordingly.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You handle screen orientation changes in",
+      "description": "How can you handle screen orientation changes in a React Native app?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you handle screen orientation changes in a React Native app?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-25-ref-1",
+          "text": "To handle screen orientation changes in React Native, you can use the react-native-orientation-locker library or the built-in react-native-orientation module. These libraries provide APIs for detecting and controlling screen orientations, allowing you to adapt your UI and logic accordingly.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 26,
-      "level": "Mid",
-      "title": "Explain the concept of error boundaries in React Native and how they help in error handling.",
-      "answer": "Error boundaries are special React components that catch JavaScript errors during rendering and in lifecycle methods of their children. They allow you to gracefully handle errors by providing fallback UIs or logging error information.\nError boundaries help prevent the entire application from crashing due to unhandled errors in a specific component tree.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of error boundaries in",
+      "description": "Explain the concept of error boundaries in React Native and how they help in error handling.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of error boundaries in React Native and how they help in error handling.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-26-ref-1",
+          "text": "Error boundaries are special React components that catch JavaScript errors during rendering and in lifecycle methods of their children. They allow you to gracefully handle errors by providing fallback UIs or logging error information. Error boundaries help prevent the entire application from crashing due to unhandled errors in a specific component tree.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 27,
-      "level": "Mid",
-      "title": "What are the key considerations when optimizing the performance of animations in a React Native application?",
-      "answer": "To optimize animation performance in React Native, you should:\nUse the Animated API for smooth and performant animations.\nAvoid frequent updates to animated values outside the animation loop.\nConsider using the LayoutAnimation API for simple layout animations.\nUse the useNativeDriver option when animating properties that can be handled natively.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The key considerations when optimizing the",
+      "description": "What are the key considerations when optimizing the performance of animations in a React Native application?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What are the key considerations when optimizing the performance of animations in a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-27-ref-1",
+          "text": "To optimize animation performance in React Native, you should: Use the Animated API for smooth and performant animations. Avoid frequent updates to animated values outside the animation loop. Consider using the LayoutAnimation API for simple layout animations. Use the useNativeDriver option when animating properties that can be handled natively.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 28,
-      "level": "Mid",
-      "title": "Can you explain the concept of hot-reloading in React Native?",
-      "answer": "Hot-reloading is a development feature in React Native that allows developers to see immediate changes in the app while it's running.\nIt helps speed up development by preserving the app's state and avoiding the need for a full app restart after code changes. Hot-reloading makes it easier to experiment and iterate on UI and code changes rapidly.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Can you explain the concept of",
+      "description": "Can you explain the concept of hot-reloading in React Native?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the concept of hot-reloading in React Native?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-28-ref-1",
+          "text": "Hot-reloading is a development feature in React Native that allows developers to see immediate changes in the app while it's running. It helps speed up development by preserving the app's state and avoiding the need for a full app restart after code changes. Hot-reloading makes it easier to experiment and iterate on UI and code changes rapidly.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 29,
-      "level": "Mid",
-      "title": "What are React Native Hooks, and how do they simplify component logic and state management?",
-      "answer": "React Native Hooks are functions that allow functional components to have state and lifecycle features similar to class components. Hooks like useState, useEffect, and useContext simplify component logic and state management by eliminating the need for class-based components and enabling more readable and reusable code.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "React Native Hooks, and how do",
+      "description": "What are React Native Hooks, and how do they simplify component logic and state management?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are React Native Hooks, and how do they simplify component logic and state management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-29-ref-1",
+          "text": "React Native Hooks are functions that allow functional components to have state and lifecycle features similar to class components. Hooks like useState, useEffect, and useContext simplify component logic and state management by eliminating the need for class-based components and enabling more readable and reusable code.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 30,
-      "level": "Mid",
-      "title": "What is the purpose of the key prop when rendering lists of items in React Native.",
-      "answer": "The key prop is used to give a unique identifier to each item in a list when rendering in React Native. It helps React efficiently update and reorder elements when the list changes.\nHaving unique keys ensures that React can identify which items have been added, removed, or rearranged, resulting in improved rendering performance.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the key prop",
+      "description": "What is the purpose of the key prop when rendering lists of items in React Native.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the key prop when rendering lists of items in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-30-ref-1",
+          "text": "The key prop is used to give a unique identifier to each item in a list when rendering in React Native. It helps React efficiently update and reorder elements when the list changes. Having unique keys ensures that React can identify which items have been added, removed, or rearranged, resulting in improved rendering performance.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 31,
-      "level": "Mid",
-      "title": "What is the purpose of the react-native-vector-icons library?",
-      "answer": "react-native-vector-icons is a library that provides a collection of high-quality icons for use in React Native applications. You can include icons in your app by importing the desired icon component from the library and rendering it within your components.\nFor example, you can use the FontAwesome icon set like this:\n\ntypescript\n\nCopy code\n\nimport FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';\n\n// Inside your component's render method\n<FontAwesomeIcon name=\"star\" size={30} color=\"gold\" />",
-      "isPremium": false
+      "id": "reactnative-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the react-native-vector-icons library",
+      "description": "What is the purpose of the react-native-vector-icons library?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the react-native-vector-icons library?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-31-ref-1",
+          "text": "react-native-vector-icons is a library that provides a collection of high-quality icons for use in React Native applications. You can include icons in your app by importing the desired icon component from the library and rendering it within your components. For example, you can use the FontAwesome icon set like this: import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'; // Inside your component's render method <FontAwesomeIcon name=\"star\" size={30} color=\"gold\" />",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 32,
-      "level": "Mid",
-      "title": "What is the purpose of the react-native-paper library?",
-      "answer": "react-native-paper is a popular UI library for React Native that provides pre-designed and customizable UI components following the Material Design guidelines. It simplifies UI development by offering a set of ready-to-use components like buttons, cards, and text fields. You can easily style and customize these components to match your app's design.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the react-native-paper library",
+      "description": "What is the purpose of the react-native-paper library?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the react-native-paper library?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-32-ref-1",
+          "text": "react-native-paper is a popular UI library for React Native that provides pre-designed and customizable UI components following the Material Design guidelines. It simplifies UI development by offering a set of ready-to-use components like buttons, cards, and text fields. You can easily style and customize these components to match your app's design.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 33,
-      "level": "Mid",
-      "title": "What is the purpose of the React Native Debugger?",
-      "answer": "The React Native Debugger is a standalone debugging tool that helps developers inspect and debug React Native applications more effectively. It provides features like real-time code inspection, a Redux DevTools extension, and a JavaScript console.\nDevelopers can use it to inspect the component tree, monitor state changes, and debug JavaScript code in a more controlled environment.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-33",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the React Native",
+      "description": "What is the purpose of the React Native Debugger?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the React Native Debugger?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-33-ref-1",
+          "text": "The React Native Debugger is a standalone debugging tool that helps developers inspect and debug React Native applications more effectively. It provides features like real-time code inspection, a Redux DevTools extension, and a JavaScript console. Developers can use it to inspect the component tree, monitor state changes, and debug JavaScript code in a more controlled environment.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 34,
-      "level": "Mid",
-      "title": "What are the benefits of using TypeScript with React Native?",
-      "answer": "TypeScript is a statically typed superset of JavaScript that offers benefits in React Native development, such as:\nType safety: Helps catch errors at compile-time.\nImproved code readability and maintainability.\nEnhanced tooling support, including auto-completion and type inference.\nBetter documentation through type annotations.\nCollaboration and refactoring support.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-34",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The benefits of using TypeScript with",
+      "description": "What are the benefits of using TypeScript with React Native?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of using TypeScript with React Native?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-34-ref-1",
+          "text": "TypeScript is a statically typed superset of JavaScript that offers benefits in React Native development, such as: Type safety: Helps catch errors at compile-time. Improved code readability and maintainability. Enhanced tooling support, including auto-completion and type inference. Better documentation through type annotations. Collaboration and refactoring support.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 35,
-      "level": "Mid",
-      "title": "Explain the concept of Native Modules in React Native. When and why would you use them?",
-      "answer": "Native Modules are JavaScript modules that allow communication between JavaScript code and native code in React Native applications. You would use them when you need to access platform-specific functionality or integrate native libraries that are not available in JavaScript. Native Modules bridge the gap between the JavaScript world and the native world.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-35",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of Native Modules in",
+      "description": "Explain the concept of Native Modules in React Native. When and why would you use them?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Native Modules in React Native. When and why would you use them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-35-ref-1",
+          "text": "Native Modules are JavaScript modules that allow communication between JavaScript code and native code in React Native applications. You would use them when you need to access platform-specific functionality or integrate native libraries that are not available in JavaScript. Native Modules bridge the gap between the JavaScript world and the native world.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 36,
-      "level": "Mid",
-      "title": "What are the benefits of using Fastlane in React Native development, and how does it streamline the build and deployment process?",
-      "answer": "Fastlane is a popular automation tool for mobile app deployment. In React Native development, Fastlane simplifies and accelerates the build and deployment process by automating tasks such as code signing, generating release builds, and distributing apps to app stores. It helps ensure consistent and reliable deployments across multiple platforms.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-36",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The benefits of using Fastlane in",
+      "description": "What are the benefits of using Fastlane in React Native development, and how does it streamline the build and deployment process?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of using Fastlane in React Native development, and how does it streamline the build and deployment process?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-36-ref-1",
+          "text": "Fastlane is a popular automation tool for mobile app deployment. In React Native development, Fastlane simplifies and accelerates the build and deployment process by automating tasks such as code signing, generating release builds, and distributing apps to app stores. It helps ensure consistent and reliable deployments across multiple platforms.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 37,
-      "level": "Mid",
-      "title": "Explain the concept of \"debugging in production\" in the context of React Native.",
-      "answer": "Debugging in production refers to the practice of diagnosing and fixing issues in a live, production environment rather than relying solely on development or staging environments.\nIt is crucial for identifying and addressing real-world issues that may not occur in controlled environments. Tools like React Native Debugger and remote debugging techniques can be used to debug production issues safely.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-37",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of \"debugging in production\"",
+      "description": "Explain the concept of \"debugging in production\" in the context of React Native.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"debugging in production\" in the context of React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-37-ref-1",
+          "text": "Debugging in production refers to the practice of diagnosing and fixing issues in a live, production environment rather than relying solely on development or staging environments. It is crucial for identifying and addressing real-world issues that may not occur in controlled environments. Tools like React Native Debugger and remote debugging techniques can be used to debug production issues safely.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 38,
-      "level": "Mid",
-      "title": "Explain the concept of \"offline-first\" development in React Native.",
-      "answer": "Offline-first development focuses on ensuring that an app remains functional even when the device is offline or has a poor network connection. It is important for providing a seamless user experience.\nStrategies for implementing offline-first functionality include caching data locally, using service workers, implementing background synchronization, and gracefully handling network errors.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-38",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of \"offline-first\" development in",
+      "description": "Explain the concept of \"offline-first\" development in React Native.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"offline-first\" development in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-38-ref-1",
+          "text": "Offline-first development focuses on ensuring that an app remains functional even when the device is offline or has a poor network connection. It is important for providing a seamless user experience. Strategies for implementing offline-first functionality include caching data locally, using service workers, implementing background synchronization, and gracefully handling network errors.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 39,
-      "level": "Mid",
-      "title": "What is the purpose of the \"PermissionsAndroid\" module in React Native.",
-      "answer": "The \"PermissionsAndroid\" module in React Native allows you to request permissions required for certain device features, such as camera access, location services, or device storage. You can use this module to check and request permissions from the user, ensuring that your app complies with platform-specific permission requirements.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-39",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of the \"PermissionsAndroid\" module",
+      "description": "What is the purpose of the \"PermissionsAndroid\" module in React Native.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the \"PermissionsAndroid\" module in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-39-ref-1",
+          "text": "The \"PermissionsAndroid\" module in React Native allows you to request permissions required for certain device features, such as camera access, location services, or device storage. You can use this module to check and request permissions from the user, ensuring that your app complies with platform-specific permission requirements.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 40,
-      "level": "Mid",
-      "title": "Explain the concept of \"CodePush\" in React Native and how it can be used for over-the-air updates.",
-      "answer": "CodePush is a service provided by Microsoft that enables developers to push updates to a React Native app without going through the app store approval process.\nIt allows you to deploy bug fixes, feature updates, and other changes directly to users' devices. CodePush works by delivering JavaScript bundle updates to the app, which can be applied on the next app launch.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-40",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of \"CodePush\" in React",
+      "description": "Explain the concept of \"CodePush\" in React Native and how it can be used for over-the-air updates.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"CodePush\" in React Native and how it can be used for over-the-air updates.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-40-ref-1",
+          "text": "CodePush is a service provided by Microsoft that enables developers to push updates to a React Native app without going through the app store approval process. It allows you to deploy bug fixes, feature updates, and other changes directly to users' devices. CodePush works by delivering JavaScript bundle updates to the app, which can be applied on the next app launch.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 41,
-      "level": "Mid",
-      "title": "Explain the concept of NavigationOptions in React Navigation and how you can use them to configure navigation behavior.",
-      "answer": "NavigationOptions are configuration options for defining the behavior and appearance of navigation screens in React Navigation.\nYou can use them to set screen titles, customize header styles, configure navigation gestures, and handle other navigation-related settings. NavigationOptions are often defined as static properties or functions within your component.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-41",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of NavigationOptions in React",
+      "description": "Explain the concept of NavigationOptions in React Navigation and how you can use them to configure navigation behavior.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of NavigationOptions in React Navigation and how you can use them to configure navigation behavior.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-41-ref-1",
+          "text": "NavigationOptions are configuration options for defining the behavior and appearance of navigation screens in React Navigation. You can use them to set screen titles, customize header styles, configure navigation gestures, and handle other navigation-related settings. NavigationOptions are often defined as static properties or functions within your component.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 42,
-      "level": "Mid",
-      "title": "What is the \"SafeAreaView\" component in React Native.",
-      "answer": "The \"SafeAreaView\" component is used in React Native to ensure that content is displayed within safe bounds on the screen, avoiding overlap with device notches, navigation bars, or other platform-specific elements.\nIt is crucial for providing a consistent and visually pleasing user experience across different devices.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-42",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The \"SafeAreaView\" component in React Native.",
+      "description": "What is the \"SafeAreaView\" component in React Native.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the \"SafeAreaView\" component in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-42-ref-1",
+          "text": "The \"SafeAreaView\" component is used in React Native to ensure that content is displayed within safe bounds on the screen, avoiding overlap with device notches, navigation bars, or other platform-specific elements. It is crucial for providing a consistent and visually pleasing user experience across different devices.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 43,
-      "level": "Senior",
-      "title": "Explain the concept of Babel and its role in a React Native project.",
-      "answer": "Babel is a JavaScript compiler that is commonly used in React Native projects. It allows developers to write modern JavaScript code (ES6/ES7) and transpile it into a version of JavaScript that is compatible with the target platforms (iOS and Android). Babel is crucial for ensuring cross-platform compatibility and enabling the use of the latest JavaScript features in React Native applications.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-43",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of Babel and its",
+      "description": "Explain the concept of Babel and its role in a React Native project.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Babel and its role in a React Native project.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-43-ref-1",
+          "text": "Babel is a JavaScript compiler that is commonly used in React Native projects. It allows developers to write modern JavaScript code (ES6/ES7) and transpile it into a version of JavaScript that is compatible with the target platforms (iOS and Android). Babel is crucial for ensuring cross-platform compatibility and enabling the use of the latest JavaScript features in React Native applications.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 44,
-      "level": "Senior",
-      "title": "Explain the concept of ref in React Native, and when would you use it?",
-      "answer": "A ref in React Native is a way to access and interact with a DOM node or a component instance directly. It is often used when you need to imperatively control a child component, access its methods, or get information about it. Refs can be created using React.createRef() or using the useRef hook in functional components.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-44",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of ref in React",
+      "description": "Explain the concept of ref in React Native, and when would you use it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of ref in React Native, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-44-ref-1",
+          "text": "A ref in React Native is a way to access and interact with a DOM node or a component instance directly. It is often used when you need to imperatively control a child component, access its methods, or get information about it. Refs can be created using React.createRef() or using the useRef hook in functional components.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 45,
-      "level": "Senior",
-      "title": "How can you ensure your React Native application is accessible to users with disabilities, and what are some best practices for accessibility?",
-      "answer": "To make a React Native app accessible:\nUse semantic HTML elements, such as <Button>, <TextInput>, and <TouchableHighlight>, instead of custom views.\nProvide meaningful alt text for images.\nUse accessibility labels and hints.\nEnsure keyboard navigation and focus management.\nTest with screen readers to ensure proper accessibility.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-45",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "mid",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You ensure your React Native application",
+      "description": "How can you ensure your React Native application is accessible to users with disabilities, and what are some best practices for accessibility?",
+      "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How can you ensure your React Native application is accessible to users with disabilities, and what are some best practices for accessibility?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 10,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher",
+        "competitive"
+      ],
+      "seniorityLevels": [
+        "mid",
+        "senior"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-45-ref-1",
+          "text": "To make a React Native app accessible: Use semantic HTML elements, such as <Button>, <TextInput>, and <TouchableHighlight>, instead of custom views. Provide meaningful alt text for images. Use accessibility labels and hints. Ensure keyboard navigation and focus management. Test with screen readers to ensure proper accessibility.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 46,
-      "level": "Senior",
-      "title": "How can you optimize the startup time of a React Native application?",
-      "answer": "To optimize the startup time of a React Native app:\nUse techniques like code splitting to load only essential parts of the app initially.\nMinimize the use of unnecessary third-party libraries.\nOptimize the app's JavaScript bundle size.\nImplement lazy loading for non-essential components.\nUse native modules sparingly and optimize their initialization.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-46",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "You optimize the startup time of",
+      "description": "How can you optimize the startup time of a React Native application?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you optimize the startup time of a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-46-ref-1",
+          "text": "To optimize the startup time of a React Native app: Use techniques like code splitting to load only essential parts of the app initially. Minimize the use of unnecessary third-party libraries. Optimize the app's JavaScript bundle size. Implement lazy loading for non-essential components. Use native modules sparingly and optimize their initialization.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 47,
-      "level": "Senior",
-      "title": "Explain the concept of WebView in React Native and when you might use it.",
-      "answer": "WebView is a component in React Native that allows you to embed web content (HTML, CSS, JavaScript) within your app. You might use it when you need to display web pages, load external web content, or integrate web-based functionality into your React Native app. WebView provides a way to interact with web content while still maintaining a native app's look and feel.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-47",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of WebView in React",
+      "description": "Explain the concept of WebView in React Native and when you might use it.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of WebView in React Native and when you might use it.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-47-ref-1",
+          "text": "WebView is a component in React Native that allows you to embed web content (HTML, CSS, JavaScript) within your app. You might use it when you need to display web pages, load external web content, or integrate web-based functionality into your React Native app. WebView provides a way to interact with web content while still maintaining a native app's look and feel.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 48,
-      "level": "Senior",
-      "title": "Explain how you can handle offline data synchronization in a React Native app.",
-      "answer": "To handle offline data synchronization, you can use technologies like Redux Offline, which provides a framework for caching actions and data for offline use and synchronizing them when the device reconnects.\nStrategies for data consistency include conflict resolution mechanisms and maintaining a clear data synchronization flow to ensure that data updates are applied correctly when the device goes offline and back online.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-48",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "How you can handle offline data",
+      "description": "Explain how you can handle offline data synchronization in a React Native app.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can handle offline data synchronization in a React Native app.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-48-ref-1",
+          "text": "To handle offline data synchronization, you can use technologies like Redux Offline, which provides a framework for caching actions and data for offline use and synchronizing them when the device reconnects. Strategies for data consistency include conflict resolution mechanisms and maintaining a clear data synchronization flow to ensure that data updates are applied correctly when the device goes offline and back online.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 49,
-      "level": "Senior",
-      "title": "What is the purpose of React Native CLI and Expo CLI.",
-      "answer": "React Native CLI and Expo CLI are two command-line interfaces for React Native development.\nReact Native CLI: It is the official CLI for React Native and offers more control and flexibility over the development process. It requires additional setup for native modules and may involve platform-specific configurations.\nExpo CLI: It is a third-party tool that simplifies React Native development, providing a wide range of pre-configured native modules and services. Expo apps can be developed more quickly but may have limitations in terms of custom native code integration.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-49",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of React Native CLI",
+      "description": "What is the purpose of React Native CLI and Expo CLI.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of React Native CLI and Expo CLI.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-49-ref-1",
+          "text": "React Native CLI and Expo CLI are two command-line interfaces for React Native development. React Native CLI: It is the official CLI for React Native and offers more control and flexibility over the development process. It requires additional setup for native modules and may involve platform-specific configurations. Expo CLI: It is a third-party tool that simplifies React Native development, providing a wide range of pre-configured native modules and services. Expo apps can be developed more quickly but may have limitations in terms of custom native code integration.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 50,
-      "level": "Senior",
-      "title": "Explain how you can handle internationalization (i18n) and localization (l10n) in a React Native application.",
-      "answer": "To handle internationalization and localization in React Native, you can use libraries like react-intl or i18next. These libraries provide mechanisms for translating text and formatting data according to different locales and languages. You can define language files with translations and switch between them based on user preferences.",
-      "isPremium": false
+      "id": "reactnative-questions-bank-50",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "How you can handle internationalization (i18n)",
+      "description": "Explain how you can handle internationalization (i18n) and localization (l10n) in a React Native application.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can handle internationalization (i18n) and localization (l10n) in a React Native application.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "react-native",
+        "react"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "mobile"
+      ],
+      "primaryTechStack": [
+        "react-native",
+        "react"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T17:33:45.726Z",
+      "updatedAt": "2025-12-19T17:33:45.726Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "reactnative-questions-bank-50-ref-1",
+          "text": "To handle internationalization and localization in React Native, you can use libraries like react-intl or i18next. These libraries provide mechanisms for translating text and formatting data according to different locales and languages. You can define language files with translations and switch between them based on user preferences.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
 }

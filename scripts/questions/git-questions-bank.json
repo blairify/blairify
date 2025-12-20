@@ -1,230 +1,1931 @@
 {
-  "totalQuestions": 32,
-  "extractedAt": "2025-12-19T18:04:17.571Z",
-  "questions": [
+  "mcq_questions": [],
+  "open_questions": [
     {
-      "id": 1,
-      "level": "Junior",
-      "title": "What is Git, and how does it differ from other version control systems?",
-      "answer": "Git is a distributed version control system that allows multiple developers to collaborate on a project, track changes to code, and manage different versions of the codebase.\nUnlike centralized version control systems (e.g., SVN), Git stores a complete copy of the repository on each developer's machine, enabling offline work and faster operations.",
-      "isPremium": false
+      "id": "git-questions-bank-1",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Git, and how does it differ",
+      "description": "What is Git, and how does it differ from other version control systems?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Git, and how does it differ from other version control systems?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-1-ref-1",
+          "text": "Git is a distributed version control system that allows multiple developers to collaborate on a project, track changes to code, and manage different versions of the codebase. Unlike centralized version control systems (e.g., SVN), Git stores a complete copy of the repository on each developer's machine, enabling offline work and faster operations.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 2,
-      "level": "Junior",
-      "title": "How is Git different from Subversion (SVN)?",
-      "answer": "Git is a distributed version control system, where every developer's working copy is a full-fledged repository with complete history and version tracking capabilities, independent of network access or a central server.\nSubversion (SVN) is a centralized version control system, relying on a central server to store all files and version history, with developers checking out only a specific snapshot of a project.\nGit offers greater flexibility in branching and merging, and better supports distributed workflows, whereas SVN has simpler and linear version tracking.",
-      "isPremium": false
+      "id": "git-questions-bank-2",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Git different from Subversion (SVN)",
+      "description": "How is Git different from Subversion (SVN)?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How is Git different from Subversion (SVN)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-2-ref-1",
+          "text": "Git is a distributed version control system, where every developer's working copy is a full-fledged repository with complete history and version tracking capabilities, independent of network access or a central server. Subversion (SVN) is a centralized version control system, relying on a central server to store all files and version history, with developers checking out only a specific snapshot of a project. Git offers greater flexibility in branching and merging, and better supports distributed workflows, whereas SVN has simpler and linear version tracking.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 3,
-      "level": "Junior",
-      "title": "What are the key features of Git?",
-      "answer": null,
-      "isPremium": false
+      "id": "git-questions-bank-3",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The key features of Git",
+      "description": "What are the key features of Git?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key features of Git?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": null
     },
     {
-      "id": 4,
-      "level": "Junior",
+      "id": "git-questions-bank-4",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Name some benefits of using Git.",
-      "answer": "Version Control: Track and manage changes to code, enabling easy navigation through a project's history.\nCollaboration: Facilitates teamwork on code projects, allowing multiple people to work on the same project simultaneously without overriding each other's changes.\nBranching and Merging: Efficiently manage and integrate new features or fixes through branches without affecting the main codebase.\nDistributed Development: Each user has a full copy of the project, including its history, allowing for work even when offline.\nBackup and Restore: Changes are stored securely, providing a backup. You can easily revert to previous versions if something goes wrong.\nStaging Area: Allows you to review and organize commits before pushing them, ensuring only intended changes are added.\nFlexibility: Supports various workflows (centralized, feature branch, Gitflow, etc.), making it adaptable to different project needs.\nOpen Source: Free to use and has a large community, providing extensive resources and support.\nCompatibility with CI/CD: Integrates well with continuous integration and continuous deployment systems, streamlining the development pipeline.",
-      "isPremium": false
+      "description": "Name some benefits of using Git.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some benefits of using Git.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-4-ref-1",
+          "text": "Version Control: Track and manage changes to code, enabling easy navigation through a project's history. Collaboration: Facilitates teamwork on code projects, allowing multiple people to work on the same project simultaneously without overriding each other's changes. Branching and Merging: Efficiently manage and integrate new features or fixes through branches without affecting the main codebase. Distributed Development: Each user has a full copy of the project, including its history, allowing for work even when offline. Backup and Restore: Changes are stored securely, providing a backup. You can easily revert to previous versions if something goes wrong. Staging Area: Allows you to review and organize commits before pushing them, ensuring only intended changes are added. Flexibility: Supports various workflows (centralized, feature branch, Gitflow, etc.), making it adaptable to different project needs. Open Source: Free to use and has a large community, providing extensive resources and support. Compatibility with CI/CD: Integrates well with continuous integration and continuous deployment systems, streamlining the development pipeline.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 5,
-      "level": "Junior",
-      "title": "Explain the difference between Git and GitHub.",
-      "answer": "Git is a version control system that allows individuals and teams to track changes in code during software development.\nGitHub, on the other hand, is a hosting service for Git repositories that provides a web-based graphical interface. It offers additional collaboration features like bug tracking, task management, and feature requests for every project.\nEssentially, Git is the tool, and GitHub is a service that hosts projects using Git.",
-      "isPremium": false
+      "id": "git-questions-bank-5",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between Git and GitHub.",
+      "description": "Explain the difference between Git and GitHub.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Git and GitHub.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-5-ref-1",
+          "text": "Git is a version control system that allows individuals and teams to track changes in code during software development. GitHub, on the other hand, is a hosting service for Git repositories that provides a web-based graphical interface. It offers additional collaboration features like bug tracking, task management, and feature requests for every project. Essentially, Git is the tool, and GitHub is a service that hosts projects using Git.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 6,
-      "level": "Junior",
-      "title": "What is a Git repository, and how do you create one?",
-      "answer": "A Git repository is a storage space where your project's history is stored. It tracks changes to your project files.\nTo create one, use the command git init in your project's root directory. This initializes a new Git repository.",
-      "isPremium": false
+      "id": "git-questions-bank-6",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "A Git repository, and how do",
+      "description": "What is a Git repository, and how do you create one?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Git repository, and how do you create one?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-6-ref-1",
+          "text": "A Git repository is a storage space where your project's history is stored. It tracks changes to your project files. To create one, use the command git init in your project's root directory. This initializes a new Git repository.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 7,
-      "level": "Junior",
-      "title": "Explain the difference between Git's \"working directory,\" \"staging area,\" and \"repository.\"",
-      "answer": "Working Directory: This is where you have your project files. It represents the current state of your project.\nStaging Area (Index): This is an intermediate area where changes are prepared before they are committed. Files in the staging area are ready to be included in the next commit.\nRepository (Local and Remote): This is where Git stores the complete history of your project, including all commits and branches. The local repository is on your machine, while remote repositories can be hosted on services like GitHub or GitLab.",
-      "isPremium": false
+      "id": "git-questions-bank-7",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between Git's \"working directory,\"",
+      "description": "Explain the difference between Git's \"working directory,\" \"staging area,\" and \"repository.\"?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Git's \"working directory,\" \"staging area,\" and \"repository.\"?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-7-ref-1",
+          "text": "Working Directory: This is where you have your project files. It represents the current state of your project. Staging Area (Index): This is an intermediate area where changes are prepared before they are committed. Files in the staging area are ready to be included in the next commit. Repository (Local and Remote): This is where Git stores the complete history of your project, including all commits and branches. The local repository is on your machine, while remote repositories can be hosted on services like GitHub or GitLab.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 8,
-      "level": "Junior",
-      "title": "What is a Git commit, and how do you create one?",
-      "answer": "A Git commit represents a snapshot of your project at a particular point in time.\nTo create a commit, you use the git commit command along with a message to describe the changes made since the last commit.\nFor example: git commit -m \"Added new feature\"",
-      "isPremium": false
+      "id": "git-questions-bank-8",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "A Git commit, and how do",
+      "description": "What is a Git commit, and how do you create one?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Git commit, and how do you create one?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-8-ref-1",
+          "text": "A Git commit represents a snapshot of your project at a particular point in time. To create a commit, you use the git commit command along with a message to describe the changes made since the last commit. For example: git commit -m \"Added new feature\"",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 9,
-      "level": "Junior",
-      "title": "Explain the purpose of Git branches, and how do you create and switch between them?",
-      "answer": "Git branches allow you to work on isolated features or fixes without affecting the main codebase.\nTo create a new branch, you can use the git branch command followed by the branch name.\nTo switch between branches, you can use the git checkout command, e.g., git checkout my-feature-branch",
-      "isPremium": false
+      "id": "git-questions-bank-9",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of Git branches, and",
+      "description": "Explain the purpose of Git branches, and how do you create and switch between them?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Git branches, and how do you create and switch between them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-9-ref-1",
+          "text": "Git branches allow you to work on isolated features or fixes without affecting the main codebase. To create a new branch, you can use the git branch command followed by the branch name. To switch between branches, you can use the git checkout command, e.g., git checkout my-feature-branch",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 10,
-      "level": "Junior",
-      "title": "What is a Git merge, and how does it work?",
-      "answer": "Git merge combines changes from one branch into another. To merge branches, you use the git merge command followed by the branch you want to merge into your current branch. Git will automatically incorporate the changes, creating a new merge commit if necessary.\nA Git merge is the process of integrating changes from one branch into another. It combines the histories of the two branches, often incorporating changes from a feature branch into the main branch.\nTo perform a merge, use git merge [branch-name], where [branch-name] is the name of the branch you want to merge into your current branch. This creates a new \"merge commit\" that combines the changes of the merged branches.",
-      "isPremium": false
+      "id": "git-questions-bank-10",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "A Git merge, and how does",
+      "description": "What is a Git merge, and how does it work?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Git merge, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-10-ref-1",
+          "text": "Git merge combines changes from one branch into another. To merge branches, you use the git merge command followed by the branch you want to merge into your current branch. Git will automatically incorporate the changes, creating a new merge commit if necessary. A Git merge is the process of integrating changes from one branch into another. It combines the histories of the two branches, often incorporating changes from a feature branch into the main branch. To perform a merge, use git merge [branch-name], where [branch-name] is the name of the branch you want to merge into your current branch. This creates a new \"merge commit\" that combines the changes of the merged branches.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 11,
-      "level": "Mid",
-      "title": "Explain what a Git rebase is and when it is used.",
-      "answer": "A Git rebase is a process of moving or combining a sequence of commits to a new base commit. It's used to integrate changes from one branch into another, similar to a merge, but it rearranges the commit history to create a linear sequence of commits.\nRebasing is often used to clean up a messy history before merging a feature branch into the main branch. It's achieved with the git rebase command.",
-      "isPremium": false
+      "id": "git-questions-bank-11",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "What a Git rebase is and",
+      "description": "Explain what a Git rebase is and when it is used.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a Git rebase is and when it is used.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-11-ref-1",
+          "text": "A Git rebase is a process of moving or combining a sequence of commits to a new base commit. It's used to integrate changes from one branch into another, similar to a merge, but it rearranges the commit history to create a linear sequence of commits. Rebasing is often used to clean up a messy history before merging a feature branch into the main branch. It's achieved with the git rebase command.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 12,
-      "level": "Mid",
-      "title": "What is the difference between a git merge and a git rebase?",
-      "answer": "The difference between a git merge and a git rebase is in how they integrate changes from one branch into another.\nGit Merge: Combines the histories of two branches, creating a new \"merge commit\". It preserves the history as it happened, including all the individual commits and the fact that there was a branch.\nGit Rebase: Moves the entire branch to begin on the tip of another branch, effectively rewriting the project history by creating new commits for each commit in the original branch. This results in a cleaner, linear history.",
-      "isPremium": false
+      "id": "git-questions-bank-12",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between a git merge",
+      "description": "What is the difference between a git merge and a git rebase?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a git merge and a git rebase?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-12-ref-1",
+          "text": "The difference between a git merge and a git rebase is in how they integrate changes from one branch into another. Git Merge: Combines the histories of two branches, creating a new \"merge commit\". It preserves the history as it happened, including all the individual commits and the fact that there was a branch. Git Rebase: Moves the entire branch to begin on the tip of another branch, effectively rewriting the project history by creating new commits for each commit in the original branch. This results in a cleaner, linear history.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 13,
-      "level": "Mid",
-      "title": "What is a Git conflict is and how do you resolve it?",
-      "answer": "A Git conflict occurs when changes in different branches are incompatible, typically during a merge or rebase.\nTo resolve it, manually edit the files to fix the conflicting changes, then mark the conflict as resolved by staging the files with git add, and complete the merge or rebase process with git commit.",
-      "isPremium": false
+      "id": "git-questions-bank-13",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "A Git conflict is and how",
+      "description": "What is a Git conflict is and how do you resolve it?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Git conflict is and how do you resolve it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-13-ref-1",
+          "text": "A Git conflict occurs when changes in different branches are incompatible, typically during a merge or rebase. To resolve it, manually edit the files to fix the conflicting changes, then mark the conflict as resolved by staging the files with git add, and complete the merge or rebase process with git commit.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 14,
-      "level": "Mid",
-      "title": "What is a Git pull request?",
-      "answer": "A Git pull request (PR) is a method of submitting contributions to a project. It's a request to review and merge a branch into another branch, typically used in online Git repository hosting services like GitHub or GitLab.\nIt facilitates code review, discussion, and approval before changes are merged into the main branch.",
-      "isPremium": false
+      "id": "git-questions-bank-14",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "A Git pull request",
+      "description": "What is a Git pull request?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Git pull request?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-14-ref-1",
+          "text": "A Git pull request (PR) is a method of submitting contributions to a project. It's a request to review and merge a branch into another branch, typically used in online Git repository hosting services like GitHub or GitLab. It facilitates code review, discussion, and approval before changes are merged into the main branch.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 15,
-      "level": "Mid",
-      "title": "Explain the difference between Git's pull and fetch operations.",
-      "answer": "Git Pull: The git pull command fetches changes from a remote repository and automatically merges them into the current branch. It combines both the fetch and merge steps into one operation.\nGit Fetch: The git fetch command retrieves changes from a remote repository and updates the remote-tracking branches in your local repository. It does not automatically merge the changes into your working branch, allowing you to review and decide when and how to merge.",
-      "isPremium": false
+      "id": "git-questions-bank-15",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between Git's pull and",
+      "description": "Explain the difference between Git's pull and fetch operations.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Git's pull and fetch operations.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-15-ref-1",
+          "text": "Git Pull: The git pull command fetches changes from a remote repository and automatically merges them into the current branch. It combines both the fetch and merge steps into one operation. Git Fetch: The git fetch command retrieves changes from a remote repository and updates the remote-tracking branches in your local repository. It does not automatically merge the changes into your working branch, allowing you to review and decide when and how to merge.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 16,
-      "level": "Mid",
-      "title": "What is the difference between Git local and remote repositories?",
-      "answer": "Local Repository: This is on your computer, where you make changes to your files. It's where you commit your work, create branches, and manage your version history locally.\nRemote Repository: Hosted on a server (like GitHub or GitLab), it's a shared space where multiple contributors can access, fetch, and push changes. It serves as a central hub for collaboration and backup.",
-      "isPremium": false
+      "id": "git-questions-bank-16",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between Git local and",
+      "description": "What is the difference between Git local and remote repositories?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Git local and remote repositories?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-16-ref-1",
+          "text": "Local Repository: This is on your computer, where you make changes to your files. It's where you commit your work, create branches, and manage your version history locally. Remote Repository: Hosted on a server (like GitHub or GitLab), it's a shared space where multiple contributors can access, fetch, and push changes. It serves as a central hub for collaboration and backup.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 17,
-      "level": "Mid",
-      "title": "What is a Git fork, and how does it differ from cloning a repository?",
-      "answer": "A Git fork is a copy of a remote repository on a Git hosting platform, like GitHub or GitLab. It allows you to make changes independently without affecting the original repository.\nCloning a repository, on the other hand, creates a local copy of a repository, and changes made to the clone can be pushed back to the original repository.",
-      "isPremium": false
+      "id": "git-questions-bank-17",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "A Git fork, and how does",
+      "description": "What is a Git fork, and how does it differ from cloning a repository?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Git fork, and how does it differ from cloning a repository?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-17-ref-1",
+          "text": "A Git fork is a copy of a remote repository on a Git hosting platform, like GitHub or GitLab. It allows you to make changes independently without affecting the original repository. Cloning a repository, on the other hand, creates a local copy of a repository, and changes made to the clone can be pushed back to the original repository.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 18,
-      "level": "Mid",
-      "title": "Explain the purpose of Git stash.",
-      "answer": "Git stash is used to temporarily save changes that are not ready to be committed but need to be set aside. It is often used when you need to switch to a different branch or perform an operation that would conflict with your current changes.\nYou can stash changes using git stash and later apply them using git stash apply or git stash pop.",
-      "isPremium": false
+      "id": "git-questions-bank-18",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose of Git stash.",
+      "description": "Explain the purpose of Git stash.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Git stash.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-18-ref-1",
+          "text": "Git stash is used to temporarily save changes that are not ready to be committed but need to be set aside. It is often used when you need to switch to a different branch or perform an operation that would conflict with your current changes. You can stash changes using git stash and later apply them using git stash apply or git stash pop.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 19,
-      "level": "Mid",
-      "title": "Explain the git squash operation.",
-      "answer": "Git squash is an operation used during a rebase or when merging a pull request, allowing you to combine multiple commits into a single commit.\nThis creates a cleaner, more readable history by condensing a series of smaller changes or fixes into one coherent commit.",
-      "isPremium": false
+      "id": "git-questions-bank-19",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The git squash operation.",
+      "description": "Explain the git squash operation.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the git squash operation.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-19-ref-1",
+          "text": "Git squash is an operation used during a rebase or when merging a pull request, allowing you to combine multiple commits into a single commit. This creates a cleaner, more readable history by condensing a series of smaller changes or fixes into one coherent commit.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 20,
-      "level": "Mid",
-      "title": "What is Git cherry-picking?",
-      "answer": "Git cherry-picking is the process of selecting and applying specific commits from one branch into another branch. This allows you to include specific changes without merging all commits from a source branch.\nIt's useful for applying bug fixes or specific features that are needed in multiple branches.",
-      "isPremium": false
+      "id": "git-questions-bank-20",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Git cherry-picking",
+      "description": "What is Git cherry-picking?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Git cherry-picking?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-20-ref-1",
+          "text": "Git cherry-picking is the process of selecting and applying specific commits from one branch into another branch. This allows you to include specific changes without merging all commits from a source branch. It's useful for applying bug fixes or specific features that are needed in multiple branches.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 21,
-      "level": "Mid",
-      "title": "What is Git blame?",
-      "answer": "Git blame is a command used to examine the history of a file, showing which user last modified each line, along with the commit ID and timestamp. It's useful for tracking changes and identifying who made specific modifications.\nYou can use git blame <file> to see the detailed line-by-line history.",
-      "isPremium": false
+      "id": "git-questions-bank-21",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Git blame",
+      "description": "What is Git blame?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Git blame?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-21-ref-1",
+          "text": "Git blame is a command used to examine the history of a file, showing which user last modified each line, along with the commit ID and timestamp. It's useful for tracking changes and identifying who made specific modifications. You can use git blame <file> to see the detailed line-by-line history.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 22,
-      "level": "Mid",
-      "title": "What is gitignore file.",
-      "answer": ".gitignore is a file in Git repositories used to specify intentionally untracked files that Git should ignore. It's commonly used to exclude temporary files, build outputs, and other non-source files from being added to the version control.\nEach line in a .gitignore file specifies a pattern for files/directories to ignore.",
-      "isPremium": false
+      "id": "git-questions-bank-22",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Gitignore file.",
+      "description": "What is gitignore file.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is gitignore file.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-22-ref-1",
+          "text": ".gitignore is a file in Git repositories used to specify intentionally untracked files that Git should ignore. It's commonly used to exclude temporary files, build outputs, and other non-source files from being added to the version control. Each line in a .gitignore file specifies a pattern for files/directories to ignore.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 23,
-      "level": "Mid",
-      "title": "What is Git's HEAD pointer?",
-      "answer": "Git's HEAD pointer refers to the latest commit of the currently checked-out branch. It's like a pointer to what is currently active in your working directory.\nWhen you switch branches, the HEAD updates to point to the tip of the new branch.",
-      "isPremium": false
+      "id": "git-questions-bank-23",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Git's HEAD pointer",
+      "description": "What is Git's HEAD pointer?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Git's HEAD pointer?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-23-ref-1",
+          "text": "Git's HEAD pointer refers to the latest commit of the currently checked-out branch. It's like a pointer to what is currently active in your working directory. When you switch branches, the HEAD updates to point to the tip of the new branch.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 24,
-      "level": "Mid",
-      "title": "What is a detached head?",
-      "answer": "A detached HEAD in Git means you are currently checked out at a specific commit, not at the tip of a branch. In this state, any new commits you make won't belong to any branch and can be hard to find later unless you create a new branch from this point.",
-      "isPremium": false
+      "id": "git-questions-bank-24",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "A detached head",
+      "description": "What is a detached head?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a detached head?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-24-ref-1",
+          "text": "A detached HEAD in Git means you are currently checked out at a specific commit, not at the tip of a branch. In this state, any new commits you make won't belong to any branch and can be hard to find later unless you create a new branch from this point.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 25,
-      "level": "Senior",
-      "title": "What is Git branching strategy and name some popular ones?",
-      "answer": "Git branching strategy is a set of rules and best practices for creating and managing branches within a Git repository, designed to streamline development and collaboration.\nPopular strategies include:\nFeature Branching: Each new feature is developed in its own branch and merged back into the main branch upon completion.\nGitflow: A strict branching model designed around project release. It involves multiple branch types like feature, develop, release, and hotfix branches.\nForking Workflow: Contributors fork the main repository, make changes in their copies, and then submit pull requests to merge their changes into the main project.\nTrunk-Based Development: Developers work in short-lived branches or directly in the main branch, ensuring that changes are integrated quickly and often.",
-      "isPremium": false
+      "id": "git-questions-bank-25",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Git branching strategy and name some",
+      "description": "What is Git branching strategy and name some popular ones?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Git branching strategy and name some popular ones?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-25-ref-1",
+          "text": "Git branching strategy is a set of rules and best practices for creating and managing branches within a Git repository, designed to streamline development and collaboration. Popular strategies include: Feature Branching: Each new feature is developed in its own branch and merged back into the main branch upon completion. Gitflow: A strict branching model designed around project release. It involves multiple branch types like feature, develop, release, and hotfix branches. Forking Workflow: Contributors fork the main repository, make changes in their copies, and then submit pull requests to merge their changes into the main project. Trunk-Based Development: Developers work in short-lived branches or directly in the main branch, ensuring that changes are integrated quickly and often.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 26,
-      "level": "Senior",
-      "title": "What is Git reflog?",
-      "answer": "Git reflog (reference log) is a mechanism in Git that records updates to the tips of branches and other references in your repository. It's a chronological log of the changes in the head positions of all branches and can be used to recover lost commits, see the history of HEAD, and undo actions like a rebase, merge, or pull.\nEssentially, it's a safety net and a powerful tool for undoing mistakes and understanding the history of your repository.",
-      "isPremium": false
+      "id": "git-questions-bank-26",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Git reflog",
+      "description": "What is Git reflog?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Git reflog?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-26-ref-1",
+          "text": "Git reflog (reference log) is a mechanism in Git that records updates to the tips of branches and other references in your repository. It's a chronological log of the changes in the head positions of all branches and can be used to recover lost commits, see the history of HEAD, and undo actions like a rebase, merge, or pull. Essentially, it's a safety net and a powerful tool for undoing mistakes and understanding the history of your repository.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 27,
-      "level": "Senior",
-      "title": "Explain the concept of a Git bisect.",
-      "answer": "Git bisect is a useful tool for finding the specific commit that introduced a bug or issue in your project. It uses a binary search algorithm to efficiently track down the offending commit. You start by marking a known bad commit and a known good commit. Git then checks out a commit halfway between the two and waits for you to determine if the project at that point is good or bad. This process continues, narrowing down the range, until it finds the exact commit that introduced the issue.\nThis is especially helpful in large projects with a long commit history.",
-      "isPremium": false
+      "id": "git-questions-bank-27",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The concept of a Git bisect.",
+      "description": "Explain the concept of a Git bisect.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of a Git bisect.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-27-ref-1",
+          "text": "Git bisect is a useful tool for finding the specific commit that introduced a bug or issue in your project. It uses a binary search algorithm to efficiently track down the offending commit. You start by marking a known bad commit and a known good commit. Git then checks out a commit halfway between the two and waits for you to determine if the project at that point is good or bad. This process continues, narrowing down the range, until it finds the exact commit that introduced the issue. This is especially helpful in large projects with a long commit history.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 28,
-      "level": "Senior",
-      "title": "What are Git submodules?",
-      "answer": "Git submodules are a feature that allows you to include and manage a reference to another repository within your Git repository. They are useful for incorporating and tracking external dependencies or libraries in your main project.\nSubmodules let you keep a separate repository in a subdirectory of your main repository, while maintaining the external repository's full Git functionality and history. This helps in organizing large projects with external dependencies without mixing project histories.",
-      "isPremium": false
+      "id": "git-questions-bank-28",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Git submodules",
+      "description": "What are Git submodules?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Git submodules?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-28-ref-1",
+          "text": "Git submodules are a feature that allows you to include and manage a reference to another repository within your Git repository. They are useful for incorporating and tracking external dependencies or libraries in your main project. Submodules let you keep a separate repository in a subdirectory of your main repository, while maintaining the external repository's full Git functionality and history. This helps in organizing large projects with external dependencies without mixing project histories.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 29,
-      "level": "Senior",
-      "title": "Explain the purpose and use of Git hooks in a repository.",
-      "answer": "Git hooks are scripts that Git executes before or after events such as: commit, push, and receive. They are used for automating tasks during the development workflow. For example, you can use hooks to run tests before a commit is completed, to enforce coding standards, or to automate deployment processes.\nHooks can be customized for various purposes and are stored in the hooks subdirectory of the Git directory in a repository. They provide a powerful way to enforce rules and automate routine tasks.",
-      "isPremium": false
+      "id": "git-questions-bank-29",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The purpose and use of Git",
+      "description": "Explain the purpose and use of Git hooks in a repository.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose and use of Git hooks in a repository.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-engineer",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-29-ref-1",
+          "text": "Git hooks are scripts that Git executes before or after events such as: commit, push, and receive. They are used for automating tasks during the development workflow. For example, you can use hooks to run tests before a commit is completed, to enforce coding standards, or to automate deployment processes. Hooks can be customized for various purposes and are stored in the hooks subdirectory of the Git directory in a repository. They provide a powerful way to enforce rules and automate routine tasks.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 30,
-      "level": "Senior",
+      "id": "git-questions-bank-30",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
       "title": "Provide examples of common Git hooks.",
-      "answer": "Git hooks are scripts that Git can run at specific points in the version control process. They allow you to automate tasks or enforce workflows. Common Git hooks include:\npre-commit: Runs before a commit and can be used to run code linting or testing.\npost-commit: Runs after a commit and can be used for notifications or deployment tasks.\npre-receive: Runs on the server before accepting a push and can be used for access control.\npost-receive: Runs on the server after a push and can trigger additional actions like continuous integration builds.",
-      "isPremium": false
+      "description": "Provide examples of common Git hooks.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Provide examples of common Git hooks.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-30-ref-1",
+          "text": "Git hooks are scripts that Git can run at specific points in the version control process. They allow you to automate tasks or enforce workflows. Common Git hooks include: pre-commit: Runs before a commit and can be used to run code linting or testing. post-commit: Runs after a commit and can be used for notifications or deployment tasks. pre-receive: Runs on the server before accepting a push and can be used for access control. post-receive: Runs on the server after a push and can trigger additional actions like continuous integration builds.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 31,
-      "level": "Senior",
-      "title": "What are Git tags?",
-      "answer": "Git tags are markers used to point to specific points in a Git repository's history, typically used for marking release points like v1.0, v2.0, etc. They are a snapshot of the repository at a certain point in time and are often used to mark stable release versions or significant changes.\nThere are two types of tags in Git: lightweight and annotated. Lightweight tags are like branch names but don't change, whereas annotated tags are stored as full objects in the Git database, containing the tagger's name, email, date, and have a tagging message.\nThey are used for versioning and releasing without affecting the repository's branch structure.",
-      "isPremium": false
+      "id": "git-questions-bank-31",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "Git tags",
+      "description": "What are Git tags?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Git tags?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-31-ref-1",
+          "text": "Git tags are markers used to point to specific points in a Git repository's history, typically used for marking release points like v1.0, v2.0, etc. They are a snapshot of the repository at a certain point in time and are often used to mark stable release versions or significant changes. There are two types of tags in Git: lightweight and annotated. Lightweight tags are like branch names but don't change, whereas annotated tags are stored as full objects in the Git database, containing the tagger's name, email, date, and have a tagging message. They are used for versioning and releasing without affecting the repository's branch structure.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     },
     {
-      "id": 32,
-      "level": "Senior",
-      "title": "Explain the difference between hard, soft, and mixed resets in Git.",
-      "answer": "In Git, reset is a powerful command that alters the current HEAD and possibly the working directory and the staging area. There are three types of resets: hard, soft, and mixed.\nHard Reset (--hard): This resets the working directory and staging area to match the specified commit. Any changes made since that commit will be lost. It's a way to completely revert to a previous state, discarding all the changes.\nSoft Reset (--soft): This only resets the HEAD to the specified commit. The working directory and staging area are not altered. Changes made since the commit are kept in the staging area, ready to be re-committed.\nMixed Reset (--mixed): This is the default mode of git reset. It resets the HEAD and updates the staging area to match, but leaves the working directory unchanged. Changes since the commit are kept as un-staged changes in your working directory.",
-      "isPremium": false
+      "id": "git-questions-bank-32",
+      "status": "published",
+      "reviewerId": null,
+      "reviewedAt": null,
+      "difficulty": "junior",
+      "isDemoMode": false,
+      "companyType": [
+        "faang",
+        "startup",
+        "enterprise"
+      ],
+      "title": "The difference between hard, soft, and",
+      "description": "Explain the difference between hard, soft, and mixed resets in Git.?",
+      "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between hard, soft, and mixed resets in Git.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
+      "topic": "fullstack",
+      "subtopics": [
+        "language-fundamentals"
+      ],
+      "tags": [
+        "git"
+      ],
+      "estimatedTimeMinutes": 7,
+      "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
+      "companies": null,
+      "positions": [
+        "backend",
+        "data-scientist",
+        "frontend",
+        "fullstack"
+      ],
+      "primaryTechStack": [
+        "git"
+      ],
+      "interviewTypes": [
+        "regular",
+        "practice",
+        "flash",
+        "teacher"
+      ],
+      "seniorityLevels": [
+        "entry",
+        "junior",
+        "mid"
+      ],
+      "createdAt": "2025-12-19T18:04:17.571Z",
+      "updatedAt": "2025-12-19T18:04:17.571Z",
+      "createdBy": "admin",
+      "referenceAnswers": [
+        {
+          "id": "git-questions-bank-32-ref-1",
+          "text": "In Git, reset is a powerful command that alters the current HEAD and possibly the working directory and the staging area. There are three types of resets: hard, soft, and mixed. Hard Reset (--hard): This resets the working directory and staging area to match the specified commit. Any changes made since that commit will be lost. It's a way to completely revert to a previous state, discarding all the changes. Soft Reset (--soft): This only resets the HEAD to the specified commit. The working directory and staging area are not altered. Changes made since the commit are kept in the staging area, ready to be re-committed. Mixed Reset (--mixed): This is the default mode of git reset. It resets the HEAD and updates the staging area to match, but leaves the working directory unchanged. Changes since the commit are kept as un-staged changes in your working directory.",
+          "weight": 1,
+          "keyPoints": [
+            "Define the concept in your own words",
+            "Give a small example",
+            "Mention a common pitfall or best practice"
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "truefalse_questions": [],
+  "matching_questions": [],
+  "system_design_questions": []
 }

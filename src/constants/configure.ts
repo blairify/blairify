@@ -76,15 +76,15 @@ export const CONFIGURE_STEPS: ConfigStep[] = [
     icon: Code,
   },
   {
-    id: "experience",
-    title: "Skills",
-    description: "Choose your level and tech stack",
-    icon: Target,
-  },
-  {
     id: "technologies",
     title: "Technologies",
     description: "Pick your tech stack",
+    icon: Target,
+  },
+  {
+    id: "experience",
+    title: "Experience",
+    description: "Choose your experience level",
     icon: Target,
   },
   {

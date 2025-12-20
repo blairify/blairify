@@ -28,9 +28,9 @@ export function canGoNext(
     case 0:
       return config.position !== "";
     case 1:
-      return config.seniority !== "";
-    case 2:
       return !isTechRequired(config.position) || config.technologies.length > 0;
+    case 2:
+      return config.seniority !== "";
     case 3:
       return config.companyProfile !== "" || config.specificCompany !== "";
     case 4:
