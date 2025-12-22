@@ -61,7 +61,11 @@ function computeResponseSubscores(response: string): {
 
   const communicationBase =
     (analysis.hasExplanation ? 45 : 15) +
-    (analysis.responseLength >= 80 ? 25 : analysis.responseLength >= 30 ? 15 : 5);
+    (analysis.responseLength >= 80
+      ? 25
+      : analysis.responseLength >= 30
+        ? 15
+        : 5);
 
   const technicalBase =
     (analysis.mentionsTechnology ? 35 : 10) +
@@ -71,7 +75,11 @@ function computeResponseSubscores(response: string): {
   const problemSolvingBase =
     (analysis.hasExplanation ? 40 : 10) +
     (analysis.hasCodeExample ? 35 : 0) +
-    (analysis.responseLength >= 120 ? 25 : analysis.responseLength >= 60 ? 15 : 5);
+    (analysis.responseLength >= 120
+      ? 25
+      : analysis.responseLength >= 60
+        ? 15
+        : 5);
 
   const penalty = user.isVeryShort ? 25 : 0;
 
@@ -104,7 +112,12 @@ function computeSessionScores(responses: InterviewResponse[]): {
   communication: number;
   problemSolving: number;
 } | null {
-  const totals = { overall: 0, technical: 0, communication: 0, problemSolving: 0 };
+  const totals = {
+    overall: 0,
+    technical: 0,
+    communication: 0,
+    problemSolving: 0,
+  };
   let count = 0;
 
   for (const r of responses) {
@@ -441,7 +454,9 @@ export async function saveInterviewResults(
     const shouldWriteScores = shouldPersistScores(
       (sessionBase.config as any).interviewMode,
     );
-    const derivedScores = shouldWriteScores ? computeSessionScores(responses) : null;
+    const derivedScores = shouldWriteScores
+      ? computeSessionScores(responses)
+      : null;
 
     const fallbackScores =
       shouldWriteScores && resolvedScore > 0

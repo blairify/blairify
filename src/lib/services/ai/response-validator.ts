@@ -15,12 +15,14 @@ export function extractCandidateFacingQuestionFromPrompt(
   );
   if (quotedMatch) {
     return (
-      quotedMatch[1] ??
-      quotedMatch[2] ??
-      quotedMatch[3] ??
-      quotedMatch[4] ??
-      null
-    )?.trim() ?? null;
+      (
+        quotedMatch[1] ??
+        quotedMatch[2] ??
+        quotedMatch[3] ??
+        quotedMatch[4] ??
+        null
+      )?.trim() ?? null
+    );
   }
 
   const unquotedMatch = value.match(

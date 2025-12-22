@@ -16,8 +16,8 @@ import {
   getFallbackResponse,
 } from "@/lib/services/ai/ai-client";
 import {
-  validateAIResponse,
   extractCandidateFacingQuestionFromPrompt,
+  validateAIResponse,
   validateQuestionSequence,
 } from "@/lib/services/ai/response-validator";
 import {

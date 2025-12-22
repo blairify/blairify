@@ -122,7 +122,11 @@ export async function POST(request: NextRequest) {
     }
 
     if (typeof finalMessage === "string" && finalMessage.trim().length > 0) {
-      const validation = validateAIResponse(finalMessage, interviewConfig, true);
+      const validation = validateAIResponse(
+        finalMessage,
+        interviewConfig,
+        true,
+      );
       if (validation.isValid && validation.sanitized) {
         finalMessage = validation.sanitized;
       }
