@@ -445,6 +445,9 @@ function matchTechStack(question: Question, technologies: string[]): boolean {
       case "c#":
       case "csharp":
         return "csharp";
+      case "react-native":
+      case "react native":
+        return "reactnative";
       case "js":
         return "javascript";
       case "ts":

@@ -4,41 +4,74 @@ import {
 } from "@/lib/config/interview-config";
 import type { InterviewConfig, ValidationResult } from "@/types/interview";
 
+function sanitizeModelOutput(value: string): string {
+  const raw = value.trim();
+  if (!raw) return raw;
+
+  const finalMatch = raw.match(/(^|\n)\s*final\s*:\s*/i);
+  if (finalMatch?.index !== undefined) {
+    const start = finalMatch.index + finalMatch[0].length;
+    return raw.slice(start).trim();
+  }
+
+  const withoutXmlAnalysis = raw.replace(
+    /<analysis>[\s\S]*?<\/analysis>/gi,
+    "",
+  );
+  const withoutFencedAnalysis = withoutXmlAnalysis.replace(
+    /```\s*analysis[\s\S]*?```/gi,
+    "",
+  );
+
+  return withoutFencedAnalysis
+    .replace(/^\s*(analysis|thinking)\s*:\s*/i, "")
+    .trim();
+}
+
 export function validateAIResponse(
   response: string,
   config: InterviewConfig,
   isFollowUp: boolean,
 ): ValidationResult {
-  if (!response || response.trim().length === 0) {
+  const sanitizedResponse = sanitizeModelOutput(response);
+
+  if (!sanitizedResponse || sanitizedResponse.trim().length === 0) {
     return { isValid: false, reason: "Empty response" };
   }
 
-  if (response.length < SCORING_THRESHOLDS.minResponseLength) {
+  if (sanitizedResponse.length < SCORING_THRESHOLDS.minResponseLength) {
     return { isValid: false, reason: "Response too short" };
   }
 
-  if (response.length > SCORING_THRESHOLDS.maxResponseLength) {
+  if (sanitizedResponse.length > SCORING_THRESHOLDS.maxResponseLength) {
     return {
       isValid: true,
-      sanitized: `${response.substring(0, 1800)}... [Response truncated for clarity]`,
+      sanitized: `${sanitizedResponse.substring(0, 1800)}... [Response truncated for clarity]`,
     };
   }
 
-  const inappropriateCheck = checkInappropriateContent(response);
+  const inappropriateCheck = checkInappropriateContent(sanitizedResponse);
   if (!inappropriateCheck.isValid) {
     return inappropriateCheck;
   }
 
   if (!config.isDemoMode) {
-    const contextCheck = validateInterviewContext(response, isFollowUp);
+    const contextCheck = validateInterviewContext(
+      sanitizedResponse,
+      isFollowUp,
+    );
     if (!contextCheck.isValid) {
       return contextCheck;
     }
   }
 
-  const technicalCheck = validateTechnicalContent(response, config);
+  const technicalCheck = validateTechnicalContent(sanitizedResponse, config);
   if (!technicalCheck.isValid) {
     return technicalCheck;
+  }
+
+  if (sanitizedResponse !== response) {
+    return { isValid: true, sanitized: sanitizedResponse };
   }
 
   return { isValid: true };

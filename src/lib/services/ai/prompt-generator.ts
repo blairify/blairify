@@ -256,12 +256,14 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 - Title: [short gap name]
   Priority: [high | medium | low]
   Tags: [comma-separated kebab-case tags, e.g. react-rendering, sql-indexes]
-  Why: [1 sentence explaining why this is a gap based on the transcript]
+  Why: [1 sentence explaining why this is a gap based on the transcript, referencing a specific moment from the transcript]
 
 Rules for KNOWLEDGE GAPS:
-- Output 3-6 gaps max.
+- Output 2-6 gaps max. NEVER output fewer than 2 items. If the candidate scored perfectly, output Optimization Tips or Advanced Concepts instead (still as gaps) so there are at least 2 items.
+- The Why MUST reference a specific moment from the transcript (e.g. "In question 3...", or quote the exact interviewer question you asked).
 - Tags MUST be generic skill tags (no URLs, no provider names, no full sentences).
 - If the candidate passed, still output gaps, but prioritize "medium" and "low".
+- Prefer including 2+ learning resources per gap as markdown links (prioritize roadmap.sh, W3Schools, MDN Web Docs, freeCodeCamp, and YouTube).
 
 ## CRITICAL REMINDERS FOR SCORING:
 1. If a candidate answered mostly "I don't know" - score should be 0-20 maximum

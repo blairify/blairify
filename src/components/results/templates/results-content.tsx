@@ -126,7 +126,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [progress, setProgress] = useState(0);
   const [analysisMessages, setAnalysisMessages] = useState<string[]>([]);
   const [outcomeMessage, setOutcomeMessage] = useState<string>("");
-  const [currentDate, setCurrentDate] = useState<string>("");
+  const [_currentDate, setCurrentDate] = useState<string>("");
   const [copySeed, setCopySeed] = useState<number | null>(null);
   const [storedConfig, setStoredConfig] = useState<
     Pick<InterviewConfig, "position" | "seniority"> | undefined

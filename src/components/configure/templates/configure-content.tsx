@@ -3,25 +3,28 @@
 import { ArrowLeft, ArrowRight, Shield } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import { FaJava, FaMicrosoft } from "react-icons/fa";
 import {
   SiAmazon,
   SiCss3,
   SiDocker,
+  SiFlutter,
   SiGo,
   SiGooglecloud,
   SiHtml5,
   SiJavascript,
+  SiKotlin,
   SiKubernetes,
   SiPhp,
   SiPython,
   SiReact,
   SiRust,
   SiSharp,
+  SiSwift,
   SiTerraform,
   SiTypescript,
 } from "react-icons/si";
-import { toast } from "sonner";
 import { Typography } from "@/components/common/atoms/typography";
 import {
   canStartInterview,
@@ -29,10 +32,8 @@ import {
   isConfigComplete as checkIsConfigComplete,
 } from "@/components/configure/utils/configure-helpers";
 import type { InterviewConfig } from "@/components/configure/utils/types";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
@@ -43,7 +44,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { Textarea } from "@/components/ui/textarea";
 import {
   COMPANY_PROFILES,
   CONFIGURE_SPECIFIC_COMPANIES,
@@ -59,36 +59,31 @@ import {
   type InterviewType,
   type SeniorityLevel,
 } from "@/lib/interview";
-import {
-  analyzeJobText,
-  htmlToPlainText,
-  MAX_JOB_TEXT_LENGTH,
-  normalizeJobText,
-} from "@/lib/job-parsing";
-import {
-  type ParsedSection,
-  parseJobDescription,
-} from "@/lib/parse-job-descrpition";
 import type { CompanyProfileValue, PositionValue } from "@/types/global";
 
-const DETECTED_TECH_TO_VALUE: Record<string, string> = {
-  React: "react",
-  "Next.js": "react",
-  TypeScript: "typescript",
-  JavaScript: "javascript",
-  Java: "java",
-  Python: "python",
-  Go: "go",
-  Kotlin: "kotlin",
-  Rust: "rust",
-  PHP: "php",
-  Docker: "docker",
-  Kubernetes: "kubernetes",
-  Terraform: "terraform",
-  AWS: "aws",
-  GCP: "gcp",
-  Azure: "azure",
-};
+const BANK_TECH_VALUES = new Set<string>([
+  "aws",
+  "azure",
+  "css",
+  "docker",
+  "flutter",
+  "gcp",
+  "go",
+  "html5",
+  "java",
+  "javascript",
+  "kotlin",
+  "kubernetes",
+  "php",
+  "python",
+  "react",
+  "reactnative",
+  "rust",
+  "swift",
+  "terraform",
+  "typescript",
+  "csharp",
+]);
 
 export function ConfigureContent() {
   const router = useRouter();
@@ -108,23 +103,7 @@ export function ConfigureContent() {
     contextType: "",
   });
 
-  const [jobDescriptionInput, setJobDescriptionInput] = useState("");
-  const [isAnalyzingDescription, setIsAnalyzingDescription] = useState(false);
-
-  const allowedPositionValues = new Set(POSITIONS.map((p) => p.value));
-  const allowedSeniorityValues = new Set(SENIORITY_LEVELS.map((s) => s.value));
-  const allowedCompanyProfiles = new Set(COMPANY_PROFILES.map((p) => p.value));
-
   const isTechRequired = (position: string) => position !== "product";
-
-  const getFirstIncompleteStep = (next: InterviewConfig) => {
-    if (!next.position) return 0;
-    if (isTechRequired(next.position) && next.technologies.length === 0)
-      return 1;
-    if (!next.seniority) return 2;
-    if (!next.companyProfile && !next.specificCompany) return 3;
-    return 4;
-  };
 
   const handleStartInterview = () => {
     if (!canStartInterview(config)) return;
@@ -183,240 +162,9 @@ export function ConfigureContent() {
     }));
   };
 
-  const jobRequirementsPreview = useMemo(() => {
-    if (!config.jobRequirements) return [];
-    return config.jobRequirements
-      .split("\n")
-      .map((line) => line.trim())
-      .filter(Boolean)
-      .slice(0, 4);
-  }, [config.jobRequirements]);
-
-  const detectedTechnologies = useMemo(() => {
-    if (!config.technologies.length) return [];
-    return config.technologies.slice(0, 6);
-  }, [config.technologies]);
-
-  const handleAnalyzeJobDescription = async () => {
-    const rawText = jobDescriptionInput.trim();
-    if (!rawText) {
-      toast.error("Job description required", {
-        description: "Paste the job text before analyzing.",
-      });
-      return;
-    }
-
-    setIsAnalyzingDescription(true);
-    try {
-      const normalizedPlain = normalizeJobText(htmlToPlainText(rawText));
-      if (!normalizedPlain) {
-        toast.error("Invalid description", {
-          description: "Unable to parse the provided job text.",
-        });
-        return;
-      }
-
-      const analysis = analyzeJobText({
-        title: undefined,
-        body: normalizedPlain,
-      });
-
-      const mappedTechnologies = analysis.technologies
-        .map((label) => DETECTED_TECH_TO_VALUE[label])
-        .filter(Boolean) as string[];
-
-      const mergedTechnologies = [
-        ...new Set([...config.technologies, ...mappedTechnologies]),
-      ];
-
-      const inferredPosition =
-        analysis.position && allowedPositionValues.has(analysis.position)
-          ? analysis.position
-          : config.position;
-      const inferredSeniority = analysis.seniority || config.seniority;
-      const inferredProfile =
-        analysis.companyProfile &&
-        allowedCompanyProfiles.has(analysis.companyProfile)
-          ? analysis.companyProfile
-          : config.companyProfile;
-
-      const normalizedCompany = analysis.company
-        ? analysis.company.trim().toLowerCase()
-        : "";
-
-      const nextSpecificCompany = normalizedCompany
-        ? (CONFIGURE_SPECIFIC_COMPANIES.find((candidate) => {
-            const normalizedLabel = candidate.label.trim().toLowerCase();
-            if (normalizedLabel === normalizedCompany) return true;
-            return normalizedCompany.includes(normalizedLabel);
-          })?.value ?? config.specificCompany)
-        : config.specificCompany;
-
-      const finalCompanyProfile = nextSpecificCompany
-        ? "faang"
-        : inferredProfile || "generic";
-
-      const parsed = parseJobDescription(rawText);
-      const requirementLines = parsed.sections
-        .filter((section: ParsedSection) =>
-          /requirement|qualification|responsibilit/i.test(section.title),
-        )
-        .flatMap((section: ParsedSection) => section.content);
-
-      const requirementSummary = requirementLines.join("\n");
-
-      const nextConfig: InterviewConfig = {
-        ...config,
-        position: inferredPosition,
-        seniority: inferredSeniority,
-        companyProfile: finalCompanyProfile,
-        specificCompany: nextSpecificCompany,
-        technologies: mergedTechnologies,
-        company: analysis.company || config.company || "",
-        jobDescription: normalizedPlain,
-        jobRequirements: requirementSummary || config.jobRequirements || "",
-        contextType: "job-specific",
-      };
-
-      setConfig(nextConfig);
-      setCurrentStep(getFirstIncompleteStep(nextConfig));
-      setJobDescriptionInput(normalizedPlain);
-      toast.success("Job description analyzed");
-    } catch (error) {
-      console.error("Failed to analyze job description:", error);
-      toast.error("Failed to analyze description", {
-        description: error instanceof Error ? error.message : "Unknown error",
-      });
-    } finally {
-      setIsAnalyzingDescription(false);
-    }
-  };
-
-  const handleClearJobContext = () => {
-    setConfig((previous) => ({
-      ...previous,
-      company: "",
-      companyProfile: "",
-      specificCompany: "",
-      jobDescription: "",
-      jobRequirements: "",
-      contextType: "",
-    }));
-    setJobDescriptionInput("");
-    toast.info("Cleared job-specific context");
-  };
-
   function renderPositionStep() {
     return (
       <div className="space-y-8">
-        <div className="space-y-3">
-          {/* <Label htmlFor="job-description">
-            Paste or drop the job description
-          </Label>
-          <Textarea
-            id="job-description"
-            value={jobDescriptionInput}
-            onChange={(event) => {
-              const nextValue = event.target.value.slice(
-                0,
-                MAX_JOB_TEXT_LENGTH,
-              );
-              setJobDescriptionInput(nextValue);
-            }}
-            placeholder="Paste the full job description (HTML or plain text)"
-            disabled={isAnalyzingDescription}
-            className="min-h-[180px]"
-          /> */}
-          {/* <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="text-xs text-muted-foreground">
-              {jobDescriptionInput.length}/{MAX_JOB_TEXT_LENGTH} characters
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Button
-                type="button"
-                onClick={handleAnalyzeJobDescription}
-                disabled={isAnalyzingDescription || !jobDescriptionInput.trim()}
-              >
-                {isAnalyzingDescription
-                  ? "Analyzing..."
-                  : "Analyze description"}
-              </Button>
-              {config.jobDescription && (
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={handleClearJobContext}
-                  disabled={isAnalyzingDescription}
-                >
-                  Clear job context
-                </Button>
-              )}
-            </div>
-          </div> */}
-
-          {config.jobDescription && (
-            <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4 space-y-4">
-              <Typography.BodyBold>Detected job context</Typography.BodyBold>
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="space-y-2">
-                  <Typography.CaptionMedium className="text-muted-foreground">
-                    Company
-                  </Typography.CaptionMedium>
-                  <Typography.BodyBold>
-                    {config.company || "Unknown company"}
-                  </Typography.BodyBold>
-                  {config.specificCompany && (
-                    <Typography.CaptionMedium className="text-muted-foreground">
-                      Mapped to {config.specificCompany.toUpperCase()} interview
-                      profile
-                    </Typography.CaptionMedium>
-                  )}
-                </div>
-                <div className="space-y-2">
-                  <Typography.CaptionMedium className="text-muted-foreground">
-                    Suggested seniority
-                  </Typography.CaptionMedium>
-                  <Typography.BodyBold className="capitalize">
-                    {config.seniority || "Not detected"}
-                  </Typography.BodyBold>
-                </div>
-              </div>
-
-              {detectedTechnologies.length > 0 && (
-                <div className="space-y-2">
-                  <Typography.CaptionMedium className="text-muted-foreground">
-                    Key technologies
-                  </Typography.CaptionMedium>
-                  <div className="flex flex-wrap gap-2">
-                    {detectedTechnologies.map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="secondary"
-                        className="uppercase"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {jobRequirementsPreview.length > 0 && (
-                <div className="space-y-2">
-                  <Typography.CaptionMedium className="text-muted-foreground">
-                    Requirements sample
-                  </Typography.CaptionMedium>
-                  <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">
-                    {jobRequirementsPreview.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-1">
           {POSITIONS.map((position) => {
             const Icon = position.icon;
@@ -503,12 +251,12 @@ export function ConfigureContent() {
             { value: "react", label: "React", icon: SiReact },
             { value: "typescript", label: "TypeScript", icon: SiTypescript },
             { value: "javascript", label: "JavaScript", icon: SiJavascript },
-            { value: "html", label: "HTML", icon: SiHtml5 },
+            { value: "html5", label: "HTML", icon: SiHtml5 },
             { value: "css", label: "CSS", icon: SiCss3 },
           ] as const;
         case "backend":
           return [
-            { value: "java", label: "Java", icon: SiAmazon },
+            { value: "java", label: "Java", icon: FaJava },
             { value: "python", label: "Python", icon: SiPython },
             { value: "go", label: "Go", icon: SiGo },
             { value: "csharp", label: "C#", icon: SiSharp },
@@ -522,9 +270,9 @@ export function ConfigureContent() {
             { value: "react", label: "React", icon: SiReact },
             { value: "typescript", label: "TypeScript", icon: SiTypescript },
             { value: "javascript", label: "JavaScript", icon: SiJavascript },
-            { value: "html", label: "HTML", icon: SiHtml5 },
+            { value: "html5", label: "HTML", icon: SiHtml5 },
             { value: "css", label: "CSS", icon: SiCss3 },
-            { value: "java", label: "Java", icon: SiAmazon },
+            { value: "java", label: "Java", icon: FaJava },
             { value: "python", label: "Python", icon: SiPython },
             { value: "go", label: "Go", icon: SiGo },
             { value: "csharp", label: "C#", icon: SiSharp },
@@ -538,18 +286,19 @@ export function ConfigureContent() {
             { value: "terraform", label: "Terraform", icon: SiTerraform },
             { value: "aws", label: "AWS", icon: SiAmazon },
             { value: "gcp", label: "GCP", icon: SiGooglecloud },
-            { value: "azure", label: "Azure", icon: SiGooglecloud },
+            { value: "azure", label: "Azure", icon: FaMicrosoft },
           ] as const;
         case "mobile":
           return [
-            { value: "swift", label: "Swift", icon: SiReact },
-            { value: "kotlin", label: "Kotlin", icon: SiTypescript },
+            { value: "reactnative", label: "React Native", icon: SiReact },
+            { value: "flutter", label: "Flutter", icon: SiFlutter },
+            { value: "swift", label: "Swift", icon: SiSwift },
+            { value: "kotlin", label: "Kotlin", icon: SiKotlin },
           ] as const;
         case "data-engineer":
           return [
             { value: "python", label: "Python", icon: SiPython },
-            { value: "sql", label: "SQL", icon: SiTypescript },
-            { value: "java", label: "Java", icon: SiAmazon },
+            { value: "java", label: "Java", icon: FaJava },
             { value: "go", label: "Go", icon: SiGo },
           ] as const;
         case "data-scientist":
@@ -567,6 +316,10 @@ export function ConfigureContent() {
       }
     })();
 
+    const bankBackedTechChoices = techChoices.filter((t) =>
+      BANK_TECH_VALUES.has(t.value),
+    );
+
     const selected = new Set(config.technologies);
     const toggleTechnology = (tech: string) => {
       if (selected.has(tech)) {
@@ -583,7 +336,7 @@ export function ConfigureContent() {
     return (
       <div className="space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-1">
-          {techChoices.map((tech) => (
+          {bankBackedTechChoices.map((tech) => (
             <Card
               key={tech.value}
               className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
