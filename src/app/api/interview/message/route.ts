@@ -17,6 +17,7 @@ import {
 } from "@/lib/services/ai/ai-client";
 import {
   validateAIResponse,
+  extractCandidateFacingQuestionFromPrompt,
   validateQuestionSequence,
 } from "@/lib/services/ai/response-validator";
 import {
@@ -363,7 +364,11 @@ export async function POST(request: NextRequest) {
       typeof currentQuestionPrompt === "string" &&
       currentQuestionPrompt.trim().length > 0
     ) {
-      finalMessage = `Question #${currentQuestionCount + 1}: ${currentQuestionPrompt.trim()}`;
+      const extracted = extractCandidateFacingQuestionFromPrompt(
+        currentQuestionPrompt,
+      );
+      const candidateFacing = extracted ?? currentQuestionPrompt.trim();
+      finalMessage = candidateFacing;
       usedFallback = false;
       servedBankedQuestion = true;
     }

@@ -20,6 +20,10 @@ import {
   safeSetDoc,
   safeUpdateDoc,
 } from "@/lib/firestore-utils";
+import {
+  analyzeResponseCharacteristics,
+  validateUserResponse,
+} from "@/lib/services/ai/response-validator";
 import type {
   InterviewQuestion,
   InterviewResponse,
@@ -31,6 +35,102 @@ import type {
 import { COLLECTIONS, ensureDatabase } from "../common/database-common";
 
 const SENIORITY_LEVELS: SeniorityLevel[] = ["entry", "junior", "mid", "senior"];
+
+function clampScore(value: number): number {
+  if (!Number.isFinite(value)) return 0;
+  return Math.max(0, Math.min(100, Math.round(value)));
+}
+
+function computeResponseSubscores(response: string): {
+  overall: number;
+  technical: number;
+  communication: number;
+  problemSolving: number;
+} {
+  const trimmed = response.trim();
+  if (!trimmed) {
+    return { overall: 0, technical: 0, communication: 0, problemSolving: 0 };
+  }
+
+  const user = validateUserResponse(trimmed);
+  if (user.isNoAnswer || user.isGibberish) {
+    return { overall: 0, technical: 0, communication: 0, problemSolving: 0 };
+  }
+
+  const analysis = analyzeResponseCharacteristics(trimmed);
+
+  const communicationBase =
+    (analysis.hasExplanation ? 45 : 15) +
+    (analysis.responseLength >= 80 ? 25 : analysis.responseLength >= 30 ? 15 : 5);
+
+  const technicalBase =
+    (analysis.mentionsTechnology ? 35 : 10) +
+    (analysis.hasCodeExample ? 35 : 0) +
+    (analysis.hasExplanation ? 20 : 10);
+
+  const problemSolvingBase =
+    (analysis.hasExplanation ? 40 : 10) +
+    (analysis.hasCodeExample ? 35 : 0) +
+    (analysis.responseLength >= 120 ? 25 : analysis.responseLength >= 60 ? 15 : 5);
+
+  const penalty = user.isVeryShort ? 25 : 0;
+
+  let communication = clampScore(communicationBase - penalty);
+  let technical = clampScore(technicalBase - penalty);
+  let problemSolving = clampScore(problemSolvingBase - penalty);
+
+  if (communication === technical && technical === problemSolving) {
+    if (analysis.hasCodeExample) {
+      communication = clampScore(communication + 2);
+      technical = clampScore(technical + 1);
+      problemSolving = clampScore(problemSolving - 3);
+    } else if (analysis.hasExplanation) {
+      communication = clampScore(communication + 1);
+      technical = clampScore(technical + 2);
+      problemSolving = clampScore(problemSolving - 3);
+    } else {
+      communication = clampScore(communication + 1);
+      technical = clampScore(technical - 1);
+    }
+  }
+
+  const overall = clampScore((technical + communication + problemSolving) / 3);
+  return { overall, technical, communication, problemSolving };
+}
+
+function computeSessionScores(responses: InterviewResponse[]): {
+  overall: number;
+  technical: number;
+  communication: number;
+  problemSolving: number;
+} | null {
+  const totals = { overall: 0, technical: 0, communication: 0, problemSolving: 0 };
+  let count = 0;
+
+  for (const r of responses) {
+    if (!r.response?.trim()) continue;
+    const subscores = computeResponseSubscores(r.response);
+    if (subscores.overall <= 0) continue;
+    totals.overall += subscores.overall;
+    totals.technical += subscores.technical;
+    totals.communication += subscores.communication;
+    totals.problemSolving += subscores.problemSolving;
+    count += 1;
+  }
+
+  if (count === 0) return null;
+
+  return {
+    overall: clampScore(totals.overall / count),
+    technical: clampScore(totals.technical / count),
+    communication: clampScore(totals.communication / count),
+    problemSolving: clampScore(totals.problemSolving / count),
+  };
+}
+
+function shouldPersistScores(interviewMode: string | undefined): boolean {
+  return interviewMode !== "teacher";
+}
 
 function parseSeniorityLevel(value: string): SeniorityLevel {
   const normalized = value.toLowerCase() as SeniorityLevel;
@@ -249,6 +349,8 @@ export async function saveInterviewResults(
             ? practiceQuestionId
             : `q_${questionIndex + 1}`;
 
+        const subscores = computeResponseSubscores(userMessage.content);
+
         questions.push({
           id: questionId,
           type: config.interviewType as InterviewType,
@@ -264,7 +366,7 @@ export async function saveInterviewResults(
           response: userMessage.content,
           duration: 180,
           confidence: 7,
-          score: resolvedScore,
+          score: subscores.overall,
           feedback: resolvedFeedback,
           keyPoints: [],
           missedPoints: [],
@@ -336,19 +438,28 @@ export async function saveInterviewResults(
       updatedAt: Timestamp.now(),
     };
 
-    // Only add scores if they exist and are valid
-    const session: InterviewSession =
-      analysis.score > 0
+    const shouldWriteScores = shouldPersistScores(
+      (sessionBase.config as any).interviewMode,
+    );
+    const derivedScores = shouldWriteScores ? computeSessionScores(responses) : null;
+
+    const fallbackScores =
+      shouldWriteScores && resolvedScore > 0
         ? {
-            ...sessionBase,
-            scores: {
-              overall: analysis.score,
-              technical: analysis.score,
-              communication: analysis.score,
-              problemSolving: analysis.score,
-            },
+            overall: resolvedScore,
+            technical: clampScore(resolvedScore * 0.92),
+            communication: clampScore(resolvedScore * 0.86),
+            problemSolving: clampScore(resolvedScore * 0.9),
           }
-        : sessionBase;
+        : null;
+
+    const nextScores = derivedScores ?? fallbackScores;
+    const session: InterviewSession = nextScores
+      ? {
+          ...sessionBase,
+          scores: nextScores,
+        }
+      : sessionBase;
 
     await safeSetDoc(sessionDoc, session);
     return sessionDoc.id;

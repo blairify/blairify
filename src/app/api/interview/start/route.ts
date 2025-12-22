@@ -13,6 +13,7 @@ import {
   generateInterviewResponse,
   getFallbackResponse,
 } from "@/lib/services/ai/ai-client";
+import { validateAIResponse } from "@/lib/services/ai/response-validator";
 
 export async function POST(request: NextRequest) {
   try {
@@ -118,6 +119,13 @@ export async function POST(request: NextRequest) {
     if (!aiResponse.success) {
       console.warn(`AI response failed: ${aiResponse.error}`);
       finalMessage = getFallbackResponse(interviewConfig, false);
+    }
+
+    if (typeof finalMessage === "string" && finalMessage.trim().length > 0) {
+      const validation = validateAIResponse(finalMessage, interviewConfig, true);
+      if (validation.isValid && validation.sanitized) {
+        finalMessage = validation.sanitized;
+      }
     }
 
     if (finalMessage) {

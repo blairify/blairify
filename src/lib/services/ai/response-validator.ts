@@ -4,6 +4,35 @@ import {
 } from "@/lib/config/interview-config";
 import type { InterviewConfig, ValidationResult } from "@/types/interview";
 
+export function extractCandidateFacingQuestionFromPrompt(
+  prompt: string,
+): string | null {
+  const value = prompt.trim();
+  if (!value) return null;
+
+  const quotedMatch = value.match(
+    /answer\s+the\s+question\s*:\s*(?:"([^"]+)"|'([^']+)'|“([^”]+)”|‘([^’]+)’)/i,
+  );
+  if (quotedMatch) {
+    return (
+      quotedMatch[1] ??
+      quotedMatch[2] ??
+      quotedMatch[3] ??
+      quotedMatch[4] ??
+      null
+    )?.trim() ?? null;
+  }
+
+  const unquotedMatch = value.match(
+    /answer\s+the\s+question\s*:\s*([^\n\r]+)/i,
+  );
+  if (unquotedMatch?.[1]) {
+    return unquotedMatch[1].trim().replace(/^["']|["']$/g, "");
+  }
+
+  return null;
+}
+
 function sanitizeModelOutput(value: string): string {
   const raw = value.trim();
   if (!raw) return raw;
