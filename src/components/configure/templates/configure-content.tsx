@@ -664,7 +664,7 @@ export function ConfigureContent() {
                     : "Paste the job description here..."
                 }
                 rows={3}
-                className="max-h-[50vh] flex-1 resize-none border-none !bg-transparent pr-28 text-base focus-visible:ring-0"
+                className="max-h-[50vh] flex-1 resize-none border-none shadow-none !bg-transparent pr-28 text-base focus-visible:ring-0"
                 autoFocus
               />
               <Button

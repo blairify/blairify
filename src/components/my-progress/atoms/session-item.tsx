@@ -1,4 +1,5 @@
 import { Brain, Code, Target } from "lucide-react";
+import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 
 interface SessionItemProps {
@@ -40,15 +41,19 @@ export function SessionItem({ session }: SessionItemProps) {
           {getTypeIcon(session.type)}
         </div>
         <div>
-          <p className="text-sm font-medium">{session.position}</p>
-          <p className="text-xs text-muted-foreground">{session.date}</p>
+          <Typography.BodyMedium>{session.position}</Typography.BodyMedium>
+          <Typography.SubCaption className="text-muted-foreground">
+            {session.date}
+          </Typography.SubCaption>
         </div>
       </div>
       <div className="text-right">
         <Badge variant="secondary" className={getScoreColor(session.score)}>
           {session.score}%
         </Badge>
-        <p className="text-xs text-chart-2 mt-1">{session.improvement}</p>
+        <Typography.SubCaption className="text-chart-2 mt-1">
+          {session.improvement}
+        </Typography.SubCaption>
       </div>
     </div>
   );
