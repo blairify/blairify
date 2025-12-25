@@ -676,9 +676,9 @@ export default function AuthForm({
               <div className="flex items-center justify-between">
                 <Button
                   asChild
-                  variant="ghost"
+                  variant="outline"
                   size="sm"
-                  className="auth-back-home-landscape-outline gap-1 text-xs bg-background/60 border border-border/60 text-muted-foreground hover:text-foreground hover:bg-background/80 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:hidden"
+                  className="gap-1 text-xs bg-background/60 border border-border/60 text-muted-foreground hover:text-foreground hover:bg-background/80 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:hidden"
                 >
                   <Link href="/">
                     <span aria-hidden="true">←</span> Back to home
@@ -804,6 +804,7 @@ export default function AuthForm({
                         <Button
                           type="button"
                           variant="outline"
+                          size="sm"
                           onClick={handlePrevious}
                           disabled={
                             currentStep === 1 || isLoading || isCheckingEmail
@@ -966,9 +967,9 @@ export default function AuthForm({
               <div className="flex justify-end mb-4">
                 <Button
                   asChild
-                  variant="ghost"
+                  variant="outline"
                   size="sm"
-                  className="auth-back-home-landscape-outline gap-2 text-xs border border-border/60 text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="gap-2 text-xs border border-border/60 text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   <Link href="/">
                     <span aria-hidden="true">←</span> Back to home
@@ -1056,6 +1057,7 @@ export default function AuthForm({
                           <Button
                             type="button"
                             variant="outline"
+                            size="sm"
                             onClick={handlePrevious}
                             disabled={
                               currentStep === 1 || isLoading || isCheckingEmail
@@ -1079,6 +1081,7 @@ export default function AuthForm({
                             <Button
                               type="button"
                               onClick={handleNext}
+                              size="sm"
                               disabled={
                                 !canProceedToNextStep() ||
                                 isLoading ||

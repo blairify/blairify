@@ -67,11 +67,10 @@ export function ScoreProgressCard({
 
   return (
     <Card className={className}>
-      <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
+      <CardHeader className="flex items-center gap-2 space-y-0 border-b sm:flex-row">
         <div className="grid flex-1 gap-1">
           <CardTitle className="p-0">
             <Typography.BodyBold className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-primary" />
               Score Progression
             </Typography.BodyBold>
           </CardTitle>
@@ -81,10 +80,12 @@ export function ScoreProgressCard({
             </Typography.Caption>
           </CardDescription>
         </div>
+        <TrendingUp className="size-5" />
+
         {hasData && (
           <Select value={timeRange} onValueChange={onTimeRangeChange}>
             <SelectTrigger
-              className="w-[160px] rounded-lg sm:ml-auto border-primary/40 text-primary focus:ring-primary focus:ring-offset-0"
+              className="w-[160px] rounded-lg sm:ml-auto  focus:ring-primary focus:ring-offset-0"
               aria-label="Select a time range"
             >
               <SelectValue placeholder="All time" />

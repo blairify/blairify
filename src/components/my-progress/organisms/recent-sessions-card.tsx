@@ -1,9 +1,8 @@
 "use client";
 
-import { ArrowDownRight, ArrowUpRight, Calendar, Clock } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Calendar } from "lucide-react";
 import Link from "next/link";
 import { Typography } from "@/components/common/atoms/typography";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,11 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import type { RecentSession } from "@/lib/services/dashboard/dashboard-analytics";
-import {
-  formatKebabCase,
-  formatTitleCase,
-  getScoreColor,
-} from "../utils/formatters";
+import { formatTitleCase, getScoreColor } from "../utils/formatters";
 
 interface RecentSessionsCardProps {
   sessions: RecentSession[];
@@ -62,7 +57,7 @@ export function RecentSessionsCard({ sessions }: RecentSessionsCardProps) {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {sessions.map((session, index) => (
             <div
               key={session.id}
@@ -73,13 +68,10 @@ export function RecentSessionsCard({ sessions }: RecentSessionsCardProps) {
                   <Typography.BodyBold>
                     {formatTitleCase(session.position)}
                   </Typography.BodyBold>
-                  <Badge variant="secondary">
-                    {formatKebabCase(session.type)}
-                  </Badge>
                 </div>
                 <div className="flex items-center gap-4 text-muted-foreground">
                   <div className="flex items-center gap-1">
-                    <Calendar className="h-3.5 w-3.5" />
+                    <Calendar className="size-3.5" />
                     <Typography.Caption>
                       {session.date.toLocaleDateString("en-US", {
                         month: "short",
@@ -88,17 +80,11 @@ export function RecentSessionsCard({ sessions }: RecentSessionsCardProps) {
                       })}
                     </Typography.Caption>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5" />
-                    <Typography.Caption>
-                      {session.duration} minutes
-                    </Typography.Caption>
-                  </div>
                 </div>
               </div>
               <div className="text-right">
                 <Typography.BodyBold
-                  className={`text-2xl ${getScoreColor(session.score)}`}
+                  className={`${getScoreColor(session.score)}`}
                 >
                   {session.score}%
                 </Typography.BodyBold>

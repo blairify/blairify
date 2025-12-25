@@ -35,6 +35,7 @@ import {
 import type { Job } from "@/lib/validators";
 import { useAuth } from "@/providers/auth-provider";
 import type { UserPreferences } from "@/types/firestore";
+import type { PositionValue } from "@/types/global";
 
 interface OnboardingPageClientProps {
   user: UserData;
@@ -53,6 +54,35 @@ const ROLE_OPTIONS = [
 ] as const;
 
 const EXPERIENCE_OPTIONS = ["entry", "junior", "mid", "senior"] as const;
+
+const SENIORITY_VALUES: SeniorityLevel[] = ["entry", "junior", "mid", "senior"];
+
+const resolveSeniorityValue = (
+  value?: string | null,
+  fallback?: string | null,
+): SeniorityLevel => {
+  const allowed = new Set<SeniorityLevel>(SENIORITY_VALUES);
+  if (value && allowed.has(value as SeniorityLevel)) {
+    return value as SeniorityLevel;
+  }
+  if (fallback && allowed.has(fallback as SeniorityLevel)) {
+    return fallback as SeniorityLevel;
+  }
+  return "mid";
+};
+
+const resolvePositionValue = (
+  primary?: string | null,
+  fallback?: string | null,
+): PositionValue => {
+  if (primary) {
+    return normalizePositionValue(primary);
+  }
+  if (fallback) {
+    return normalizePositionValue(fallback);
+  }
+  return "frontend";
+};
 
 function getRoleLabel(role: (typeof ROLE_OPTIONS)[number]) {
   switch (role) {
@@ -266,9 +296,9 @@ export function OnboardingPageClient({
   const [earlyJobMatchingEnabled, setEarlyJobMatchingEnabled] = useState(false);
   const [hasHover, setHasHover] = useState(false);
 
-  const [nextActionView, setNextActionView] = useState<"choose" | "offers">(
-    "choose",
-  );
+  const [nextActionView, setNextActionView] = useState<
+    "choose" | "offers" | "paste"
+  >("choose");
   const [isStartingNextAction, setIsStartingNextAction] = useState(false);
   const [offersStatus, setOffersStatus] = useState<
     "idle" | "loading" | "error" | "success"
@@ -382,6 +412,18 @@ export function OnboardingPageClient({
     setter([...state, value]);
   };
 
+  const handleSelectNextActionView = (view: "choose" | "offers" | "paste") => {
+    setNextActionView(view);
+  };
+
+  const startPasteDescriptionFlow = async () => {
+    if (isSaving || isStartingNextAction) return;
+    setNextActionView("paste");
+    setIsStartingNextAction(true);
+    await completeOnboarding();
+    router.push("/configure?flow=paste&step=description");
+  };
+
   const handleBack = () => {
     if (isSaving) return;
     if (stepIndex === 0) return;
@@ -446,24 +488,34 @@ export function OnboardingPageClient({
     }
   };
 
-  const buildTrainingInterviewParams = () => {
-    const seniority = (experience || "mid") as SeniorityLevel;
-    const interviewMode: InterviewMode = "practice";
-    const interviewType: InterviewType = "technical";
+  const buildTrainingInterviewParams = (
+    override?: Partial<InterviewConfig>,
+  ) => {
+    const seniority = resolveSeniorityValue(
+      experience || override?.seniority,
+      override?.seniority,
+    );
+    const interviewMode: InterviewMode = override?.interviewMode ?? "practice";
+    const interviewType: InterviewType = override?.interviewType ?? "technical";
 
-    const position = normalizePositionValue(role);
+    const position = resolvePositionValue(override?.position, role);
 
     const config: InterviewConfig = {
       position,
       seniority,
-      technologies: [],
-      companyProfile: normalizeCompanyProfileValue(undefined),
-      specificCompany: undefined,
+      technologies: override?.technologies ?? [],
+      companyProfile: normalizeCompanyProfileValue(
+        override?.companyProfile ?? undefined,
+      ),
+      specificCompany: override?.specificCompany,
       interviewMode,
       interviewType,
-      duration: "30",
+      duration: override?.duration ?? "30",
       isDemoMode: false,
-      contextType: "preferences",
+      contextType: override?.contextType ?? "preferences",
+      jobDescription: override?.jobDescription,
+      jobRequirements: override?.jobRequirements,
+      company: override?.company,
     };
 
     return buildSearchParamsFromInterviewConfig(config);
@@ -476,7 +528,7 @@ export function OnboardingPageClient({
   };
 
   const startOffersFlow = async () => {
-    setNextActionView("offers");
+    handleSelectNextActionView("offers");
     setOffersStatus("loading");
 
     try {
@@ -945,55 +997,78 @@ export function OnboardingPageClient({
             {currentStep === "next-action" && (
               <div className="space-y-5">
                 <div className="text-center">
-                  <Typography.Heading1 className="text-4xl mb-10">
+                  <Typography.Heading1 className="text-4xl mb-16">
                     What would you like to do next?
                   </Typography.Heading1>
                 </div>
 
-                <div className="grid gap-3 sm:grid-cols-2">
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  <button
+                    type="button"
+                    onClick={startPasteDescriptionFlow}
+                    disabled={isSaving || isStartingNextAction}
+                    className={`rounded-xl border bg-background/70 p-4 text-left shadow-sm transition-colors hover:border-primary hover:bg-background ${
+                      nextActionView === "paste"
+                        ? "border-primary bg-primary/5"
+                        : ""
+                    }`}
+                  >
+                    <Typography.Heading3 className="text-left mb-3">
+                      Paste description
+                    </Typography.Heading3>
+                    <Typography.SubCaption className="mt-1 text-left">
+                      Drop a job description and let AI configure a{" "}
+                      <span className="text-primary">
+                        personalized interview.{" "}
+                      </span>
+                    </Typography.SubCaption>
+                  </button>
                   <button
                     type="button"
                     onClick={startTrainingInterview}
                     disabled={isSaving || isStartingNextAction}
                     className="rounded-xl border bg-background/70 p-4 text-left shadow-sm transition-colors hover:border-primary hover:bg-background"
                   >
-                    <Typography.Heading3 className="text-center mb-5">
+                    <Typography.Heading3 className="text-left mb-3">
                       Training interview{" "}
                     </Typography.Heading3>
 
-                    <div className="flex flex-col gap-1">
-                      <Typography.SubCaption className="mt-1 text-center ">
-                        <span>
-                          Start a{" "}
-                          <span className="text-primary">
-                            preconfigured interview
-                          </span>
+                    <Typography.SubCaption className=" text-left ">
+                      <span>
+                        Start a{" "}
+                        <span className="text-primary">
+                          preconfigured interview{" "}
                         </span>
-                      </Typography.SubCaption>
-                      <Typography.SubCaption className="mt-1 text-center ">
-                        <span>and begin learning about your career</span>
-                      </Typography.SubCaption>
-                    </div>
+                      </span>
+                    </Typography.SubCaption>
+                    <Typography.SubCaption className="mt-1 text-left ">
+                      <span>and begin learning about your career.</span>
+                    </Typography.SubCaption>
                   </button>
 
                   <button
                     type="button"
                     onClick={startOffersFlow}
                     disabled={isSaving || isStartingNextAction}
-                    className="rounded-xl py-10 border bg-background/70 p-4 text-left shadow-sm transition-colors hover:border-primary hover:bg-background"
+                    className={`rounded-xl border bg-background/70 p-4 text-left shadow-sm transition-colors hover:border-primary hover:bg-background ${
+                      nextActionView === "offers"
+                        ? "border-primary bg-primary/5"
+                        : ""
+                    }`}
                   >
-                    <Typography.Heading3 className="text-center mb-5">
+                    <Typography.Heading3 className="text-left mb-3">
                       Real offers
                     </Typography.Heading3>
                     <div className="flex flex-col gap-1">
-                      <Typography.SubCaption className="mt-1 text-center ">
+                      <Typography.SubCaption className="mt-1 text-left ">
                         <span>
                           See a couple of{" "}
-                          <span className="text-primary">matching roles</span>
+                          <span className="text-primary">matching roles </span>
+                          and
                         </span>
                       </Typography.SubCaption>
-                      <Typography.SubCaption className="mt-1 text-center ">
-                        <span> then start an interview for the best match</span>
+                      <Typography.SubCaption className="mt-1 text-left ">
+                        <span> choose the most interesting one.</span>
                       </Typography.SubCaption>
                     </div>
                   </button>

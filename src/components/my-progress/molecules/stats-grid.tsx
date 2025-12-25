@@ -10,7 +10,7 @@ interface StatsGridProps {
 
 export function StatsGrid({ stats }: StatsGridProps) {
   return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 sm:gap-4 md:gap-6">
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 sm:gap-4 md:gap-6">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="p-0">
@@ -18,7 +18,7 @@ export function StatsGrid({ stats }: StatsGridProps) {
               Total Interviews
             </Typography.SubCaptionMedium>
           </CardTitle>
-          <BarChart3 className="h-4 w-4 text-muted-foreground" />
+          <BarChart3 className="size-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <Typography.Heading2 className="text-2xl font-bold">

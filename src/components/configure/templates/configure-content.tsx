@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight, Loader2, Shield } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { FaJava } from "react-icons/fa";
 import { FiCopy } from "react-icons/fi";
@@ -205,6 +205,13 @@ const HUMANIZED_FIELDS: Record<string, string> = {
   requirements: "Key requirements",
 };
 
+function getVisibleStepsForFlow(flowMode: ConfigureFlowMode) {
+  if (flowMode === "paste") {
+    return CONFIGURE_STEPS.filter((step) => PASTE_FLOW_STEP_IDS.has(step.id));
+  }
+  return CONFIGURE_STEPS.filter((step) => !PASTE_ONLY_STEP_IDS.has(step.id));
+}
+
 type ValidationIssue = {
   message?: string;
   code?: string;
@@ -235,10 +242,14 @@ function formatAnalysisError(error: unknown): string {
 
 export function ConfigureContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { isMobile } = useIsMobile();
-  const [currentStep, setCurrentStep] = useState(0);
-  const [config, setConfig] = useState<InterviewConfig>({
-    flowMode: "custom",
+  const resolveInitialFlowMode = () =>
+    (searchParams.get("flow") === "paste"
+      ? "paste"
+      : "custom") as ConfigureFlowMode;
+  const [config, setConfig] = useState<InterviewConfig>(() => ({
+    flowMode: resolveInitialFlowMode(),
     position: "",
     seniority: "",
     technologies: [],
@@ -252,17 +263,23 @@ export function ConfigureContent() {
     jobRequirements: "",
     contextType: "",
     pastedDescription: "",
+  }));
+  const [currentStep, setCurrentStep] = useState(() => {
+    const requestedStepId = searchParams.get("step");
+    const stepsForFlow = getVisibleStepsForFlow(resolveInitialFlowMode());
+    const requestedIndex = stepsForFlow.findIndex(
+      (step) => step.id === requestedStepId,
+    );
+    return requestedIndex >= 0 ? requestedIndex : 0;
   });
   const [isAnalyzingDescription, setIsAnalyzingDescription] = useState(false);
   const [analysisError, setAnalysisError] = useState<string | null>(null);
   const [editingField, setEditingField] = useState<MarkdownField>(null);
 
-  const visibleSteps = useMemo(() => {
-    if (config.flowMode === "paste") {
-      return CONFIGURE_STEPS.filter((step) => PASTE_FLOW_STEP_IDS.has(step.id));
-    }
-    return CONFIGURE_STEPS.filter((step) => !PASTE_ONLY_STEP_IDS.has(step.id));
-  }, [config.flowMode]);
+  const visibleSteps = useMemo(
+    () => getVisibleStepsForFlow(config.flowMode),
+    [config.flowMode],
+  );
 
   useEffect(() => {
     if (currentStep >= visibleSteps.length) {
