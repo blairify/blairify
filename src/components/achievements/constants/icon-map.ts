@@ -1,0 +1,55 @@
+"use client";
+
+import type { IconType } from "react-icons";
+import {
+  Gi3dMeeple,
+  GiAchievement,
+  GiAlarmClock,
+  GiDiamondTrophy,
+  GiFire,
+  GiFlowerTwirl,
+  GiHourglass,
+  GiImperialCrown,
+  GiLaurelCrown,
+  GiLightningTrio,
+  GiLotus,
+  GiMeepleKing,
+  GiMetronome,
+  GiProgression,
+  GiSandsOfTime,
+  GiSparkles,
+  GiSparkSpirit,
+  GiStarMedal,
+  GiTargetShot,
+  GiTimeTrap,
+  GiTrophyCup,
+} from "react-icons/gi";
+
+export const ACHIEVEMENT_ICON_MAP: Record<string, IconType> = {
+  Gi3dMeeple,
+  GiProgression,
+  GiHourglass,
+  GiLaurelCrown,
+  GiSandsOfTime,
+  GiStarMedal,
+  GiMeepleKing,
+  GiDiamondTrophy,
+  GiTimeTrap,
+  GiImperialCrown,
+  GiSparkSpirit,
+  GiMetronome,
+  GiTrophyCup,
+  GiSparkles,
+  GiLotus,
+  GiFlowerTwirl,
+  Trophy: GiTrophyCup,
+  Target: GiTargetShot,
+  Star: GiStarMedal,
+  Clock: GiAlarmClock,
+  Crown: GiImperialCrown,
+  Zap: GiLightningTrio,
+  Flame: GiFire,
+  Sparkles: GiSparkles,
+};
+
+export const ACHIEVEMENT_FALLBACK_ICON = GiAchievement;

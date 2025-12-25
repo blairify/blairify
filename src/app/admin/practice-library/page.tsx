@@ -11,7 +11,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import useSWR from "swr";
 import { Typography } from "@/components/common/atoms/typography";
@@ -302,13 +302,8 @@ function _LegacyManagePracticeLibraryPage() {
     },
   });
 
-  // DO NOT ADD QUESTIONS TO THIS ARRAY DEPENDENCY MATI
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: intentional stable dependency
-  const stableQuestions = useMemo(() => questions, [JSON.stringify(questions)]);
-
   useEffect(() => {
-    let filtered = stableQuestions;
+    let filtered = questions;
 
     if (searchTerm) {
       filtered = filtered.filter(
@@ -344,7 +339,7 @@ function _LegacyManagePracticeLibraryPage() {
 
     setFilteredQuestions(filtered);
   }, [
-    stableQuestions,
+    questions,
     searchTerm,
     categoryFilter,
     difficultyFilter,
@@ -447,9 +442,7 @@ function _LegacyManagePracticeLibraryPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">
-                      {stableQuestions.length}
-                    </div>
+                    <div className="text-2xl font-bold">{questions.length}</div>
                   </CardContent>
                 </Card>
                 <Card>
@@ -485,8 +478,9 @@ function _LegacyManagePracticeLibraryPage() {
                   <CardContent>
                     <div className="text-2xl font-bold">
                       {
-                        stableQuestions.filter((q) => q.difficulty === "medium")
-                          .length
+                        questions.filter(
+                          (question) => question.difficulty === "medium",
+                        ).length
                       }
                     </div>
                   </CardContent>
@@ -637,8 +631,7 @@ function _LegacyManagePracticeLibraryPage() {
                   Refresh
                 </Button>
                 <Badge variant="secondary">
-                  {filteredQuestions.length} of {stableQuestions.length}{" "}
-                  questions
+                  {filteredQuestions.length} of {questions.length} questions
                 </Badge>
               </div>
             </div>

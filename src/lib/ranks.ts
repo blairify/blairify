@@ -52,7 +52,7 @@ export const RANKS: Rank[] = [
       secondary: "#8B4513",
       gradient: "from-amber-700 via-amber-600 to-amber-800",
     },
-    icon: "Shield",
+    icon: "GiTurtleShell",
     badge: {
       border: "border-amber-600",
       bg: "bg-gradient-to-br from-amber-700/20 to-amber-900/20",
@@ -72,7 +72,7 @@ export const RANKS: Rank[] = [
       secondary: "#A8A8A8",
       gradient: "from-slate-400 via-slate-300 to-slate-500",
     },
-    icon: "Shield",
+    icon: "GiTurtleShell",
     badge: {
       border: "border-slate-400",
       bg: "bg-gradient-to-br from-slate-400/20 to-slate-600/20",

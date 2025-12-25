@@ -1,17 +1,13 @@
 "use client";
 
-import { type LucideIcon, Target } from "lucide-react";
-import type { ComponentType } from "react";
+import type { IconType } from "react-icons";
+import { GiTargetShot } from "react-icons/gi";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import type { AchievementTier } from "@/lib/achievements";
 
-type SupportedIconProps = {
-  className?: string;
-};
-
-export type AchievementIcon = LucideIcon | ComponentType<SupportedIconProps>;
+export type AchievementIcon = IconType;
 
 interface NextAchievementCardProps {
   name: string;
@@ -36,7 +32,7 @@ export function NextAchievementCard({
     <Card className="border-2 border-primary/50 bg-gradient-to-r from-primary/5 to-transparent">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-lg">
-          <Target className="size-5 text-primary" />
+          <GiTargetShot className="size-5 text-primary" />
           Next Achievement
         </CardTitle>
       </CardHeader>

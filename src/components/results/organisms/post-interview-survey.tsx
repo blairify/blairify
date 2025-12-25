@@ -1,7 +1,7 @@
 "use client";
 
 import { Star } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
@@ -224,13 +224,13 @@ export function PostInterviewSurvey({
     [activeUserId],
   );
 
-  const qualifiesForSurvey = useMemo(() => {
+  const qualifiesForSurvey = (() => {
     if (!userProfile) return false;
     const totalInterviews = userProfile.totalInterviews ?? 0;
     if (totalInterviews < 1) return false;
     if (userProfile.postInterviewSurveyCompleted) return false;
     return !isSurveyDismissedForInterview(surveyDismissRecord, totalInterviews);
-  }, [surveyDismissRecord, userProfile]);
+  })();
 
   useEffect(() => {
     if (!activeUserId || !qualifiesForSurvey) {
@@ -334,9 +334,8 @@ export function PostInterviewSurvey({
     [],
   );
 
-  const isSurveySubmitDisabled = useMemo(
-    () => Object.values(surveyResponses).some((value) => value === 0),
-    [surveyResponses],
+  const isSurveySubmitDisabled = Object.values(surveyResponses).some(
+    (value) => value === 0,
   );
 
   const handleSurveyDismiss = useCallback(() => {
@@ -392,14 +391,11 @@ export function PostInterviewSurvey({
     surveyResponses,
   ]);
 
-  const shouldInterceptNavigation = useMemo(
-    () =>
-      surveyEligible &&
-      !!results &&
-      !hasShownSurveyRef.current &&
-      !surveyDismissedForCurrentInterview,
-    [results, surveyEligible, surveyDismissedForCurrentInterview],
-  );
+  const shouldInterceptNavigation =
+    surveyEligible &&
+    !!results &&
+    !hasShownSurveyRef.current &&
+    !surveyDismissedForCurrentInterview;
 
   useEffect(() => {
     if (!controllerRef) return;

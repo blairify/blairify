@@ -2,7 +2,7 @@
 
 import { ChevronLeft, Info } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { type ReactNode, useEffect, useMemo, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
@@ -364,7 +364,7 @@ export function OnboardingPageClient({
     setStepIndex((prev) => Math.min(prev + 1, totalSteps - 1));
   };
 
-  const canNext = useMemo(() => {
+  const canNext = (() => {
     if (isSaving) return false;
 
     switch (currentStep) {
@@ -388,16 +388,7 @@ export function OnboardingPageClient({
         throw new Error(`Unhandled step: ${_never}`);
       }
     }
-  }, [
-    careerGoals,
-    currentStep,
-    employmentType,
-    experience,
-    isSaving,
-    role,
-    struggleAreas,
-    workMode,
-  ]);
+  })();
 
   const toggleArrayValue = (
     value: string,

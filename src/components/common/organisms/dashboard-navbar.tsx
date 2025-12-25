@@ -171,7 +171,12 @@ export default function DashboardNavbar({
               {/* User info - name, rank, and XP */}
               {!isMobile && (
                 <div className="flex items-center gap-2">
-                  <RankBadge rank={rank} size="xs" showGlow={false} />
+                  <RankBadge
+                    rank={rank}
+                    size="lg"
+                    showGlow={false}
+                    showContainer={false}
+                  />
                   <div className="flex flex-col gap-1">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-medium text-foreground">
@@ -189,12 +194,8 @@ export default function DashboardNavbar({
               )}
             </div>
           </div>
-
-          {/* Right side: Action buttons */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
-
-            {/* Bug Report */}
             <Tooltip>
               <TooltipTrigger asChild>
                 <div>

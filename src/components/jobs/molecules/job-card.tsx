@@ -69,9 +69,23 @@ export function JobCard({
     onViewDetails?.(job);
   };
 
-  const handleApply = (e: React.MouseEvent, url?: string) => {
+  const getValidJobUrl = (...urls: Array<string | null | undefined>) => {
+    for (const candidate of urls) {
+      if (!candidate) continue;
+      const trimmed = candidate.trim();
+      if (!trimmed) continue;
+      if (trimmed.toLowerCase() === "nan") continue;
+      return trimmed;
+    }
+    return null;
+  };
+
+  const primaryApplyUrl = getValidJobUrl(job.url, job.jobUrlDirect, job.jobUrl);
+
+  const handleApply = (e: React.MouseEvent, url?: string | null) => {
     e.stopPropagation();
-    if (url) window.open(url, "_blank", "noopener,noreferrer");
+    if (!url) return;
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   const handlePrepare = (e: React.MouseEvent) => {
@@ -330,8 +344,8 @@ export function JobCard({
                       ? "h-9 px-4"
                       : "flex-1"
                 }`}
-                onClick={(e) => handleApply(e, job.jobUrlDirect || job.jobUrl)}
-                disabled={!job.jobUrl && !job.jobUrlDirect}
+                onClick={(e) => handleApply(e, primaryApplyUrl)}
+                disabled={!primaryApplyUrl}
               >
                 <ExternalLink
                   className={`${
@@ -582,10 +596,8 @@ export function JobCard({
                 Prepare for Interview
               </Button>
               <Button
-                onClick={(e) =>
-                  handleApply(e, job.url || job.jobUrlDirect || job.jobUrl)
-                }
-                disabled={!job.url && !job.jobUrlDirect && !job.jobUrl}
+                onClick={(e) => handleApply(e, primaryApplyUrl)}
+                disabled={!primaryApplyUrl}
                 className="flex-1 sm:flex-none"
               >
                 <ExternalLink className="h-4 w-4 mr-2" />

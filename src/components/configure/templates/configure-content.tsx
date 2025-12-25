@@ -2,7 +2,7 @@
 
 import { ArrowRight, Loader2, Shield } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FaJava } from "react-icons/fa";
 import { FiCopy } from "react-icons/fi";
 import {
@@ -276,32 +276,26 @@ export function ConfigureContent() {
   const [analysisError, setAnalysisError] = useState<string | null>(null);
   const [editingField, setEditingField] = useState<MarkdownField>(null);
 
-  const visibleSteps = useMemo(
-    () => getVisibleStepsForFlow(config.flowMode),
-    [config.flowMode],
-  );
+  const visibleSteps = getVisibleStepsForFlow(config.flowMode);
 
   useEffect(() => {
     if (currentStep >= visibleSteps.length) {
       setCurrentStep(Math.max(0, visibleSteps.length - 1));
     }
-  }, [currentStep, visibleSteps]);
+  }, [currentStep, visibleSteps.length]);
 
   const currentStepId = visibleSteps[currentStep]?.id ?? "flow";
 
-  const techChoicesForCurrentPosition = useMemo(
-    () => getTechChoices(config.position),
-    [config.position],
-  );
+  const techChoicesForCurrentPosition = getTechChoices(config.position);
 
-  const autoAdvanceTechChoices = useMemo(() => {
+  const autoAdvanceTechChoices = (() => {
     if (currentStepId !== "technologies") return null;
     if (!isTechRequired(config.position)) return null;
     const filtered = techChoicesForCurrentPosition.filter((tech) =>
       BANK_TECH_VALUES.has(tech.value),
     );
     return filtered.length === 1 ? filtered : null;
-  }, [config.position, currentStepId, techChoicesForCurrentPosition]);
+  })();
 
   const updateConfig = useCallback(
     <K extends keyof InterviewConfig>(key: K, value: InterviewConfig[K]) => {
@@ -336,12 +330,12 @@ export function ConfigureContent() {
     visibleSteps.length,
   ]);
 
-  const filteredTechChoices = useMemo(() => {
+  const filteredTechChoices = (() => {
     if (!isTechRequired(config.position)) return [];
     return techChoicesForCurrentPosition.filter((tech) =>
       BANK_TECH_VALUES.has(tech.value),
     );
-  }, [config.position, techChoicesForCurrentPosition]);
+  })();
 
   const handleToggleTechnology = useCallback((tech: string) => {
     setConfig((prev) => {

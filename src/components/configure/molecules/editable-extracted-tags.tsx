@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckCircle2, Circle } from "lucide-react";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 import type { TechChoice } from "@/components/configure/types/tech-choice";
 import type { InterviewConfig } from "@/components/configure/utils/types";
@@ -43,10 +43,7 @@ export function EditableExtractedTags({
       : techChoicesForPosition;
   const selectedTechnologies = new Set(config.technologies);
   const hasSelectedTech = config.technologies?.length ?? 0;
-  const selectableTechValues = useMemo(
-    () => selectableTechChoices.map((tech) => tech.value),
-    [selectableTechChoices],
-  );
+  const selectableTechValues = selectableTechChoices.map((tech) => tech.value);
 
   useEffect(() => {
     if (!isTechRequired) return;

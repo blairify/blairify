@@ -91,6 +91,17 @@ const ROLE_OPTIONS = [
 
 type RoleOption = (typeof ROLE_OPTIONS)[number];
 
+const getValidJobUrl = (...urls: Array<string | null | undefined>) => {
+  for (const candidate of urls) {
+    if (!candidate) continue;
+    const trimmed = candidate.trim();
+    if (!trimmed) continue;
+    if (trimmed.toLowerCase() === "nan") continue;
+    return trimmed;
+  }
+  return null;
+};
+
 function normalizeRole(value: string | null | undefined): RoleOption | null {
   const trimmed = value?.trim();
   if (!trimmed) return null;
@@ -590,19 +601,28 @@ export function JobsContent() {
             remoteOnly ? (
               <>
                 {location ? (
-                  <Badge variant="secondary" className="bg-purple-200 py-1">
+                  <Badge
+                    variant="secondary"
+                    className="bg-purple-200 dark:text-black py-1"
+                  >
                     {location}
                   </Badge>
                 ) : null}
                 {remoteOnly ? (
-                  <Badge variant="secondary" className="bg-emerald-200 py-1">
+                  <Badge
+                    variant="secondary"
+                    className="bg-emerald-200 dark:text-black py-1"
+                  >
                     Remote Only
                   </Badge>
                 ) : null}
               </>
             ) : null}
             {jobLevel !== "level-all" ? (
-              <Badge variant="secondary" className="bg-blue-200 py-1">
+              <Badge
+                variant="secondary"
+                className="bg-blue-200 dark:text-black py-1"
+              >
                 {jobLevel}
               </Badge>
             ) : null}
@@ -816,40 +836,48 @@ export function JobsContent() {
                             )}
                           </TableCell>
                           <TableCell className="text-right">
-                            <div className="flex items-center justify-end gap-2">
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handlePrepareJob(job);
-                                }}
-                                className="hover:bg-primary/10 hover:border-primary hover:text-[color:var(--foreground)] relative overflow-hidden group/btn"
-                              >
-                                <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                                <Lightbulb className="mr-1 size-3 relative z-10" />
-                                <span className="relative z-10">
-                                  Interview with AI
-                                </span>
-                              </Button>
-                              <Button
-                                size="sm"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  if (job.jobUrlDirect || job.jobUrl) {
-                                    window.open(
-                                      job.jobUrlDirect || job.jobUrl,
-                                      "_blank",
-                                    );
-                                  }
-                                }}
-                                disabled={!job.jobUrl && !job.jobUrlDirect}
-                                className="h-8"
-                              >
-                                <ExternalLink className="h-3 w-3 mr-1" />
-                                Apply
-                              </Button>
-                            </div>
+                            {(() => {
+                              const applyUrl = getValidJobUrl(
+                                job.jobUrlDirect,
+                                job.jobUrl,
+                              );
+                              return (
+                                <div className="flex items-center justify-end gap-2">
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      handlePrepareJob(job);
+                                    }}
+                                    className="hover:bg-primary/10 hover:border-primary hover:text-[color:var(--foreground)] relative overflow-hidden group/btn"
+                                  >
+                                    <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+                                    <Lightbulb className="mr-1 size-3 relative z-10" />
+                                    <span className="relative z-10">
+                                      Interview with AI
+                                    </span>
+                                  </Button>
+                                  <Button
+                                    size="sm"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      if (!applyUrl) return;
+                                      window.open(
+                                        applyUrl,
+                                        "_blank",
+                                        "noopener,noreferrer",
+                                      );
+                                    }}
+                                    disabled={!applyUrl}
+                                    className="h-8"
+                                  >
+                                    <ExternalLink className="h-3 w-3 mr-1" />
+                                    Apply
+                                  </Button>
+                                </div>
+                              );
+                            })()}
                           </TableCell>
                         </TableRow>
                       ),
