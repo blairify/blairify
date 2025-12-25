@@ -1,5 +1,6 @@
-import { Clock, MessageSquare, User } from "lucide-react";
+import { Clock, MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
+import { RiChatAiLine } from "react-icons/ri";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
@@ -93,40 +94,29 @@ export function MessageBubble({
         isLatest ? "animate-in slide-in-from-bottom-4" : ""
       }`}
     >
-      {/* AI Avatar */}
       {isAI && (
         <div className="relative">
-          <div className="h-10 w-10 flex-shrink-0 ring-2 ring-primary/20 rounded-full overflow-hidden shadow-md">
+          <div className="size-10 flex-shrink-0 ring-2 ring-primary/20 rounded-full overflow-hidden shadow-md">
             <InterviewerAvatar interviewer={interviewer} size={40} />
           </div>
-          {/* Online indicator */}
-          <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 bg-green-500 rounded-full border-2 border-background shadow-sm" />
+          <div className="absolute -bottom-0.5 -right-0.5 size-3 bg-green-500 rounded-full border-2 border-background shadow-sm" />
         </div>
       )}
 
-      {/* Message Content */}
       <div className="flex flex-col gap-1 max-w-[85%] sm:max-w-[75%] min-w-0">
-        {/* Message Header */}
         <div
           className={`flex items-center gap-2 text-xs text-muted-foreground ${isUser ? "justify-end" : "justify-start"}`}
         >
           <div className="flex items-center gap-1">
-            {isUser ? (
-              <User className="h-3 w-3" />
-            ) : (
-              <MessageSquare className="h-3 w-3" />
-            )}
-            <span className="font-medium">
-              {isUser ? "You" : interviewer.name}
-            </span>
+            {!isUser && <RiChatAiLine className="size-3" />}
+            <span className="font-medium">{!isUser && interviewer.name}</span>
           </div>
           <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <Clock className="h-3 w-3" />
+            <Clock className="size-3" />
             <span>{formatTime(message.timestamp)}</span>
           </div>
         </div>
 
-        {/* Message Bubble */}
         <div
           className={`relative rounded-2xl shadow-lg border backdrop-blur-sm transition-all duration-200 hover:shadow-xl ${
             isUser
@@ -134,21 +124,18 @@ export function MessageBubble({
               : "bg-gradient-to-br from-card to-card/95 text-card-foreground border-border/50 shadow-black/5 dark:shadow-black/20"
           }`}
         >
-          {/* Message tail */}
           <div
-            className={`absolute top-3 w-3 h-3 rotate-45 border ${
+            className={`absolute top-3 size-3 rotate-45 border ${
               isUser
                 ? "right-[-6px] bg-primary border-primary/20 border-l-0 border-b-0"
                 : "left-[-6px] bg-card border-border/50 border-r-0 border-t-0"
             }`}
           />
 
-          {/* Content */}
           <div className="relative p-4">
-            {/* Question type indicator for AI messages */}
             {isAI && message.questionType && (
               <div className="mb-2 inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                <MessageSquare className="h-3 w-3" />
+                <MessageSquare className="size-3" />
                 {message.questionType
                   .replace("-", " ")
                   .replace(/\b\w/g, (l) => l.toUpperCase())}
@@ -156,7 +143,7 @@ export function MessageBubble({
             )}
 
             <div
-              className={`prose prose-sm max-w-none min-w-0 break-words [overflow-wrap:anywhere] ${
+              className={`prose prose-sm max-w-none min-w-0 break-words ${
                 isUser ? "prose-invert" : "dark:prose-invert"
               } prose-p:my-2 prose-p:leading-relaxed prose-headings:my-2 prose-ul:my-2 prose-ol:my-2`}
             >
@@ -166,7 +153,6 @@ export function MessageBubble({
             </div>
           </div>
 
-          {/* Subtle glow effect for latest message */}
           {isLatest && (
             <div
               className={`absolute inset-0 rounded-2xl ${
@@ -177,17 +163,16 @@ export function MessageBubble({
         </div>
       </div>
 
-      {/* User Avatar */}
       {isUser && (
-        <div className="h-10 w-10 flex-shrink-0 rounded-full overflow-hidden shadow-md">
+        <div className="size-10 flex-shrink-0 rounded-full overflow-hidden shadow-md">
           {userData?.avatarIcon ? (
             <AvatarIconDisplay
               iconId={userData.avatarIcon}
               size="sm"
-              className="h-10 w-10"
+              className="size-10"
             />
           ) : (
-            <Avatar className="h-10 w-10 border-2 border-primary/20">
+            <Avatar className="size-10 border-2 border-primary/20">
               <AvatarImage
                 src={user?.photoURL || userData?.photoURL}
                 alt={userData?.displayName || user?.displayName || "User"}

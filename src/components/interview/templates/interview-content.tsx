@@ -2,7 +2,6 @@
 
 import { Timestamp } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
-import { TokenCounter } from "@/components/interview/atoms/token-counter";
 import {
   getInterviewerById,
   getInterviewerForRole,
@@ -693,7 +692,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
         </div>
       </div>
 
-      <TokenCounter messages={session.messages} />
+      {/* <TokenCounter messages={session.messages} /> */}
     </main>
   );
 }

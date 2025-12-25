@@ -149,7 +149,7 @@ export function XPProgressBar({
 
 // Compact version for header/navigation
 export function XPProgressBarCompact({
-  currentXP,
+  currentXP: _currentXP,
   rank,
   progress,
   className,
@@ -168,14 +168,6 @@ export function XPProgressBarCompact({
           indicatorClassName={cn("bg-gradient-to-r", rank.color.gradient)}
         />
       </div>
-      <span
-        className={cn(
-          "text-[10px] font-medium whitespace-nowrap",
-          rank.badge.text,
-        )}
-      >
-        {formatXP(currentXP)}
-      </span>
     </div>
   );
 }

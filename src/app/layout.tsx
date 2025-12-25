@@ -5,6 +5,7 @@ import { type ReactNode, Suspense } from "react";
 import { CookieBanner } from "../components/landing-page/organisms/cookie-banner";
 import { Toaster } from "../components/ui/sonner";
 import { AuthProvider } from "../providers/auth-provider";
+import { SidebarProvider } from "../providers/sidebar-provider";
 import { SWRProvider } from "../providers/swr-provider";
 import { ThemeProvider } from "../providers/theme-provider";
 import "./globals.css";
@@ -158,9 +159,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           >
             <SWRProvider>
               <AuthProvider>
-                <div className="flex flex-col min-h-screen">{children}</div>
-                <CookieBanner />
-                <Toaster />
+                <SidebarProvider>
+                  <div className="flex flex-col min-h-screen">{children}</div>
+                  <CookieBanner />
+                  <Toaster />
+                </SidebarProvider>
               </AuthProvider>
             </SWRProvider>
           </ThemeProvider>

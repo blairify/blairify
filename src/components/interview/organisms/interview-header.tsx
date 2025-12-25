@@ -1,4 +1,5 @@
 import { Pause, Play, SkipForward, Square } from "lucide-react";
+import { PaginationIndicator } from "@/components/common/atoms/pagination-indicator";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -6,7 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { InterviewQuestionSteps } from "../atoms/interview-question-steps";
+import useIsMobile from "@/hooks/use-is-mobile";
 import { TimerDisplay } from "../atoms/timer-display";
 
 interface InterviewHeaderProps {
@@ -34,6 +35,7 @@ export function InterviewHeader({
   onSkip,
   onEnd,
 }: InterviewHeaderProps) {
+  const { isMobile } = useIsMobile();
   return (
     <div
       className="sticky top-0 z-10 bg-background/95 backdrop-blur-lg border-b border-border/50 shadow-sm"
@@ -42,10 +44,13 @@ export function InterviewHeader({
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-            <InterviewQuestionSteps
-              currentQuestion={currentQuestion}
-              totalQuestions={totalQuestions}
-            />
+            {!isMobile && (
+              <PaginationIndicator
+                variant="numbered"
+                total={totalQuestions}
+                current={currentQuestion}
+              />
+            )}
             <TimerDisplay seconds={timeRemaining} />
           </div>
           <TooltipProvider>

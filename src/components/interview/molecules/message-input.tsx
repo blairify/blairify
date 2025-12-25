@@ -79,8 +79,8 @@ export function MessageInput({
             )}
             {isLoading && (
               <>
-                <Loader2 className="size-4 animate-spin text-blue-600" />
-                <span className="text-blue-600 dark:text-blue-400">
+                <Loader2 className="size-4 animate-spin text-orange-600" />
+                <span className="text-orange-600 dark:text-orange-400">
                   AI is thinking...
                 </span>
               </>
@@ -160,7 +160,7 @@ export function MessageInput({
               className={`size-9 p-0 rounded-full transition-all duration-200 ${
                 isListening
                   ? "bg-red-500 hover:bg-red-600 text-white animate-pulse shadow-lg"
-                  : "hover:bg-muted border-2 hover:border-primary/50"
+                  : "hover:bg-muted border hover:border-primary/50"
               }`}
               aria-label={
                 isListening ? "Stop voice input" : "Start voice input"

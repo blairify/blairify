@@ -1,9 +1,4 @@
-/**
- * Configuration-related constants for the interview configuration page
- */
-
 import {
-  Book,
   Building,
   ChartLine,
   ClipboardList,
@@ -11,16 +6,10 @@ import {
   Code,
   Database,
   Gamepad2,
-  Layers,
-  Pen,
   Rocket,
   Server,
   Shield,
   Smartphone,
-  Target,
-  Timer,
-  Users,
-  Zap,
 } from "lucide-react";
 import { FaGoogle, FaMicrosoft } from "react-icons/fa";
 import {
@@ -65,39 +54,43 @@ export interface ConfigStep {
   id: string;
   title: string;
   description: string;
-  icon: React.ElementType;
 }
 
 export const CONFIGURE_STEPS: ConfigStep[] = [
   {
+    id: "flow",
+    title: "Interview Setup",
+    description: "Choose how you want to configure your practice session",
+  },
+  {
+    id: "description",
+    title: "Paste description",
+    description: "Provide the job post for AI analysis",
+  },
+  {
+    id: "analysis",
+    title: "AI analysis",
+    description: "Review and refine the extracted job information",
+  },
+  {
     id: "position",
     title: "Position",
     description: "Select your target role",
-    icon: Code,
   },
   {
     id: "technologies",
     title: "Technologies",
     description: "Pick your tech stack",
-    icon: Target,
   },
   {
     id: "experience",
     title: "Experience",
     description: "Choose your experience level",
-    icon: Target,
-  },
-  {
-    id: "company",
-    title: "Company",
-    description: "Pick your target",
-    icon: Building,
   },
   {
     id: "mode",
     title: "Mode",
     description: "Configure preferences",
-    icon: Timer,
   },
 ];
 
@@ -163,7 +156,7 @@ export const POSITIONS = [
   {
     value: "fullstack",
     label: "Full Stack Developer",
-    icon: Layers,
+    icon: Gamepad2,
   },
   {
     value: "devops",
@@ -610,36 +603,30 @@ export const INTERVIEW_MODES = [
     value: "regular",
     label: "Regular",
     description: "Realistic time pressure",
-    icon: Timer,
   },
   {
     value: "practice",
     label: "Practice Mode",
     description: "Take your time to think",
-    icon: Book,
   },
   {
     value: "flash",
     label: "Flash Interview",
     description: "Quick 3-question session",
-    icon: Zap,
   },
   {
     value: "play",
     label: "Play Mode",
     description: "Coming soon...",
-    icon: Gamepad2,
   },
   {
     value: "competitive",
     label: "Competitive Interview",
     description: "Coming soon...",
-    icon: Users,
   },
   {
     value: "teacher",
     label: "Teacher Mode",
     description: "Coming soon...",
-    icon: Pen,
   },
 ];

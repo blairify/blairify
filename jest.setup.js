@@ -8,11 +8,23 @@ global.TextDecoder = TextDecoder;
 // Mock Request and Response for Next.js API routes
 if (!global.Request) {
   global.Request = class Request {
-    constructor(input, init) {
+    constructor(input, init = {}) {
       this.url = typeof input === "string" ? input : input.url;
-      this.method = init?.method || "GET";
-      this.headers = new Map(Object.entries(init?.headers || {}));
-      this.body = init?.body;
+      this.method = init.method || "GET";
+      this.headers = new Map(Object.entries(init.headers || {}));
+      this._body = init.body ?? null;
+    }
+
+    async json() {
+      if (!this._body) return {};
+      if (typeof this._body === "string") return JSON.parse(this._body);
+      return this._body;
+    }
+
+    async text() {
+      if (this._body === null || this._body === undefined) return "";
+      if (typeof this._body === "string") return this._body;
+      return JSON.stringify(this._body);
     }
   };
 }

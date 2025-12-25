@@ -1,9 +1,10 @@
 "use client";
 
-import { History, Plus, X } from "lucide-react";
+import { History, Plus } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GiDandelionFlower } from "react-icons/gi";
+import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
 import { GrFlows } from "react-icons/gr";
 import { IoIosRadio } from "react-icons/io";
 import { LuBookAudio } from "react-icons/lu";
@@ -12,6 +13,7 @@ import { TbProgressBolt } from "react-icons/tb";
 import { TiFlowChildren } from "react-icons/ti";
 import Logo from "@/components/common/atoms/logo-blairify";
 import { Button } from "@/components/ui/button";
+import { useSidebar } from "@/providers/sidebar-provider";
 
 interface DashboardSidebarProps {
   sidebarOpen: boolean;
@@ -25,6 +27,7 @@ export default function DashboardSidebar({
   userAdmin: _,
 }: DashboardSidebarProps) {
   const pathname = usePathname();
+  const { collapsed, setCollapsed } = useSidebar();
 
   const isActive = (path: string) => {
     return pathname === path;
@@ -33,29 +36,54 @@ export default function DashboardSidebar({
   return (
     <>
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-64 h-screen bg-sidebar text-sky-50 border-r border-sidebar-border transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:inset-0 flex flex-col overflow-hidden`}
+        className={`fixed inset-y-0 left-0 z-50 h-screen bg-sidebar text-sky-50 border-r border-sidebar-border transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-all duration-200 ease-in-out lg:translate-x-0 lg:static lg:inset-0 flex flex-col overflow-hidden ${
+          collapsed ? "w-20" : "w-64"
+        }`}
       >
         <div className="border-b border-border">
           <div className="px-4 h-16 flex items-center">
-            <div className="flex items-center justify-between w-full">
-              <Logo />
-
-              <Button
-                variant="ghost"
-                size="sm"
-                className="lg:hidden text-sidebar-foreground active:bg-sidebar-accent md:hover:bg-sidebar-accent transition-colors"
-                onClick={() => setSidebarOpen(false)}
+            <div
+              className={`flex items-center justify-between w-full ${collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"}`}
+            >
+              {!collapsed && (
+                <div className="transition-transform">
+                  <Logo variant="textOnly" />
+                </div>
+              )}
+              <div
+                className="hidden items-center gap-1 lg:flex"
+                aria-hidden="true"
               >
-                <X className="h-4 w-4" />
-              </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={`flex  size-9 shadow-none mx-auto items-center p-3 rounded-full  ${
+                    collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+                  } `}
+                  onClick={() => setCollapsed((prev) => !prev)}
+                  aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+                >
+                  {collapsed ? (
+                    <GoSidebarCollapse className="size-5" />
+                  ) : (
+                    <GoSidebarExpand className="size-5" />
+                  )}
+                </Button>
+              </div>
             </div>
           </div>
         </div>
 
-        <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+        <nav
+          className={`flex-1 ${collapsed ? "px-2" : "px-4"} py-6 space-y-2 overflow-y-auto`}
+        >
           <Link
             href="/configure"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+            title="New Interview"
+            aria-label="New Interview"
+            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            } ${
               isActive("/configure")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -63,14 +91,20 @@ export default function DashboardSidebar({
           >
             <Plus className="size-5 flex-shrink-0" />
             <span
-              className={`truncate ${isActive("/configure") ? "font-medium" : ""}`}
+              className={`${collapsed ? "sr-only" : "truncate"} ${
+                isActive("/configure") ? "font-medium" : ""
+              }`}
             >
               New Interview
             </span>
           </Link>
           <Link
             href="/jobs"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+            title="Real Offers"
+            aria-label="Real Offers"
+            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            } ${
               isActive("/jobs")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -78,7 +112,9 @@ export default function DashboardSidebar({
           >
             <MdOutlineLocalFireDepartment className="size-5 flex-shrink-0" />
             <span
-              className={`truncate ${isActive("/jobs") ? "font-medium" : ""}`}
+              className={`${collapsed ? "sr-only" : "truncate"} ${
+                isActive("/jobs") ? "font-medium" : ""
+              }`}
             >
               Real Offers
             </span>
@@ -86,7 +122,11 @@ export default function DashboardSidebar({
 
           <Link
             href="/history"
-            className={`flex items-center space-x-3 px-3 py-2  rounded-md transition-colors w-full ${
+            title="History"
+            aria-label="History"
+            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            } ${
               isActive("/history")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -94,21 +134,31 @@ export default function DashboardSidebar({
           >
             <History className="size-5 flex-shrink-0" />
             <span
-              className={`truncate ${isActive("/history") ? "font-medium" : ""}`}
+              className={`${collapsed ? "sr-only" : "truncate"} ${
+                isActive("/history") ? "font-medium" : ""
+              }`}
             >
               History
             </span>
           </Link>
 
           {/* Progress Section */}
-          <div className="pt-4 pb-2 px-3">
-            <p className="text-xs font-semibold text-sidebar-foreground/60 uppercase tracking-wider">
+          <div className={`pt-4 pb-2 ${collapsed ? "px-0" : "px-3"}`}>
+            <p
+              className={`text-xs font-semibold text-sidebar-foreground/60 uppercase tracking-wider ${
+                collapsed ? "sr-only" : ""
+              }`}
+            >
               Progress
             </p>
           </div>
           <Link
             href="/my-progress"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+            title="My Progress"
+            aria-label="My Progress"
+            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            } ${
               isActive("/my-progress")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -116,14 +166,20 @@ export default function DashboardSidebar({
           >
             <TbProgressBolt className="size-5 flex-shrink-0" />
             <span
-              className={`truncate ${isActive("/my-progress") ? "font-medium" : ""}`}
+              className={`${collapsed ? "sr-only" : "truncate"} ${
+                isActive("/my-progress") ? "font-medium" : ""
+              }`}
             >
               My Progress
             </span>
           </Link>
           <Link
             href="/achievements"
-            className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors w-full ${
+            title="Achievements"
+            aria-label="Achievements"
+            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            } ${
               isActive("/achievements")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -131,7 +187,9 @@ export default function DashboardSidebar({
           >
             <TiFlowChildren className="size-5 flex-shrink-0" />
             <span
-              className={`truncate ${isActive("/achievements") ? "font-medium" : ""}`}
+              className={`${collapsed ? "sr-only" : "truncate"} ${
+                isActive("/achievements") ? "font-medium" : ""
+              }`}
             >
               Achievements
             </span>
@@ -140,56 +198,88 @@ export default function DashboardSidebar({
           <button
             type="button"
             disabled
-            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
+            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
+              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            }`}
+            aria-label="Docs coming soon"
           >
             <LuBookAudio className="size-5 flex-shrink-0" />
-            <span className="truncate text-sm">Docs</span>
-            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-              Soon
+            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
+              Docs
             </span>
+            {!collapsed && (
+              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+                Soon
+              </span>
+            )}
           </button>
 
           <button
             type="button"
             disabled
-            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
+            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
+              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            }`}
+            aria-label="Roadmap coming soon"
           >
             <GrFlows className="size-5 flex-shrink-0" />
-            <span className="truncate text-sm">Roadmap</span>
-            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-              Soon
+            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
+              Roadmap
             </span>
+            {!collapsed && (
+              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+                Soon
+              </span>
+            )}
           </button>
 
           <button
             type="button"
             disabled
-            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
+            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
+              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            }`}
+            aria-label="Tech news coming soon"
           >
             <IoIosRadio className="size-5 flex-shrink-0" />
-            <span className="truncate text-sm">Tech News</span>
-            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-              Soon
+            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
+              Tech News
             </span>
+            {!collapsed && (
+              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+                Soon
+              </span>
+            )}
           </button>
 
           <button
             type="button"
             disabled
-            className="flex items-center space-x-3 px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed"
+            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
+              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            }`}
+            aria-label="BairTalk coming soon"
           >
             <GiDandelionFlower className="size-5 flex-shrink-0" />
-            <span className="truncate text-sm">BairTalk</span>
-            <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-              Soon
+            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
+              BairTalk
             </span>
+            {!collapsed && (
+              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+                Soon
+              </span>
+            )}
           </button>
         </nav>
 
         {/* Footer - Sticky at bottom */}
         <div className="mt-auto p-4 border-t border-sidebar-border">
-          <p className="text-xs text-sidebar-foreground/60 text-center">
-            © Rights Reserved Blairify
+          <p
+            className={`text-xs text-sidebar-foreground/60 text-center ${
+              collapsed ? "sr-only" : ""
+            }`}
+          >
+            &copy; Rights Reserved Blairify
           </p>
         </div>
       </div>

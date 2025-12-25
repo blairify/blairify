@@ -119,8 +119,7 @@ export default function DashboardNavbar({
     <TooltipProvider>
       <nav className="relative z-40 border-b border-border lg:bg-card/50 backdrop-blur-sm">
         <div className="px-4 h-16 flex items-center justify-between w-full">
-          {/* Left side: Mobile menu + Avatar + User info */}
-          <div className="flex items-center space-x-4">
+          <div className="flex my-auto items-center space-x-4">
             <Button
               variant="outline"
               size="icon"
@@ -128,22 +127,22 @@ export default function DashboardNavbar({
               className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors lg:hidden"
               data-testid="mobile-menu-button"
             >
-              <Menu className="h-5 w-5" />
+              <Menu className="size-5" />
             </Button>
 
             <div className="flex items-center space-x-3">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link aria-label="View Profile" href="/profile">
-                    <div className="size-8 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
+                    <div className="size-10 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
                       {userData?.avatarIcon ? (
                         <AvatarIconDisplay
                           iconId={userData.avatarIcon}
                           size="sm"
-                          className="size-8"
+                          className="size-10"
                         />
                       ) : (
-                        <Avatar className="size-8 border-2 border-primary/20">
+                        <Avatar className="size-10 my-auto border-2 border-primary/20">
                           <AvatarImage
                             src={user?.photoURL || userData?.photoURL}
                             alt={
@@ -171,24 +170,23 @@ export default function DashboardNavbar({
 
               {/* User info - name, rank, and XP */}
               {!isMobile && (
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium text-foreground">
-                      {userData?.displayName || user?.displayName || "User"}
-                    </span>
-                    <RankBadge rank={rank} size="xs" showGlow={false} />
+                <div className="flex items-center gap-2">
+                  <RankBadge rank={rank} size="xs" showGlow={false} />
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-foreground">
+                        {userData?.displayName || user?.displayName || "User"}
+                      </span>
+                    </div>
+                    <XPProgressBarCompact
+                      currentXP={totalXP}
+                      rank={rank}
+                      progress={progressToNextRank}
+                      className="max-w-[200px]"
+                    />
                   </div>
-                  <XPProgressBarCompact
-                    currentXP={totalXP}
-                    rank={rank}
-                    progress={progressToNextRank}
-                    className="max-w-[200px]"
-                  />
                 </div>
               )}
-
-              {/* Mobile: Just show rank badge */}
-              {isMobile && <RankBadge rank={rank} size="xs" showGlow={false} />}
             </div>
           </div>
 
@@ -207,58 +205,59 @@ export default function DashboardNavbar({
                 <p>Report Bug</p>
               </TooltipContent>
             </Tooltip>
+            {!isMobile && (
+              <>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      aria-label="Settings"
+                      onClick={() => router.push("/settings")}
+                      variant="outline"
+                      size="icon"
+                      className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                    >
+                      <Settings className="h-4 w-4" />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Settings</p>
+                  </TooltipContent>
+                </Tooltip>
 
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  aria-label="Settings"
-                  onClick={() => router.push("/settings")}
-                  variant="outline"
-                  size="icon"
-                  className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                >
-                  <Settings className="h-4 w-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Settings</p>
-              </TooltipContent>
-            </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      onClick={() => router.push("/support")}
+                      aria-label="Help & Support"
+                      variant="outline"
+                      size="icon"
+                      className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                    >
+                      <HelpCircle className="h-4 w-4" />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Help & Support</p>
+                  </TooltipContent>
+                </Tooltip>
 
-            {/* Help & Support */}
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  onClick={() => router.push("/support")}
-                  aria-label="Help & Support"
-                  variant="outline"
-                  size="icon"
-                  className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                >
-                  <HelpCircle className="h-4 w-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Help & Support</p>
-              </TooltipContent>
-            </Tooltip>
-
-            {/* Sign Out */}
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                  onClick={handleSignOut}
-                >
-                  <LogOut className="h-4 w-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Sign Out</p>
-              </TooltipContent>
-            </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                      onClick={handleSignOut}
+                    >
+                      <LogOut className="h-4 w-4" />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Sign Out</p>
+                  </TooltipContent>
+                </Tooltip>
+              </>
+            )}
           </div>
         </div>
       </nav>

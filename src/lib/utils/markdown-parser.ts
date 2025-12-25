@@ -146,7 +146,7 @@ function processLists(text: string): string {
       .filter((line) => line.trim())
       .map((line) => {
         const content = line.replace(/^[-*+]\s+/, "");
-        return `<li class="mb-1.5 text-gray-700 dark:text-gray-300 leading-relaxed">${content}</li>`;
+        return `<li class="mb-1.5 text-gray-700 dark:text-gray-300 leading-relaxed text-sm">${content}</li>`;
       })
       .join("\n");
     return `\n\n<!--LIST--><ul class="list-disc list-inside space-y-1.5 my-4 ml-4">\n${items}\n</ul><!--/LIST-->\n\n`;
@@ -161,7 +161,7 @@ function processLists(text: string): string {
       .filter((line) => line.trim())
       .map((line) => {
         const content = line.replace(/^\d+\.\s+/, "");
-        return `<li class="mb-1.5 text-gray-700 dark:text-gray-300 leading-relaxed">${content}</li>`;
+        return `<li class="mb-1.5 text-gray-700 dark:text-gray-300 leading-relaxed text-sm">${content}</li>`;
       })
       .join("\n");
     return `\n\n<!--LIST--><ol class="list-decimal list-inside space-y-1.5 my-4 ml-4">\n${items}\n</ol><!--/LIST-->\n\n`;
@@ -268,7 +268,7 @@ function processParagraphs(text: string): string {
       // Replace single newlines with <br> within paragraphs
       para = para.replace(/\n/g, "<br>");
 
-      return `<p class="mb-3 text-gray-700 dark:text-gray-300 leading-relaxed">${para}</p>`;
+      return `<p class="mb-3 text-gray-700 dark:text-gray-300 leading-relaxed text-sm">${para}</p>`;
     })
     .join("\n");
 }
