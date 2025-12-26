@@ -17,6 +17,7 @@ import {
 import {
   safeGetDoc,
   safeGetDocs,
+  safeDeleteDoc,
   safeSetDoc,
   safeUpdateDoc,
 } from "@/lib/firestore-utils";
@@ -318,6 +319,27 @@ export async function updateSession(
     return null;
   } catch (error) {
     console.error("Error updating session:", error);
+    throw error;
+  }
+}
+
+export async function deleteSession(
+  userId: string,
+  sessionId: string,
+): Promise<void> {
+  try {
+    const database = ensureDatabase();
+    const sessionRef = doc(
+      database,
+      COLLECTIONS.USERS,
+      userId,
+      COLLECTIONS.SESSIONS,
+      sessionId,
+    );
+
+    await safeDeleteDoc(sessionRef);
+  } catch (error) {
+    console.error("Error deleting session:", error);
     throw error;
   }
 }

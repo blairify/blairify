@@ -7,6 +7,7 @@ import {
   type DocumentData,
   type DocumentReference,
   type DocumentSnapshot,
+  deleteDoc,
   doc,
   enableNetwork,
   getDoc,
@@ -201,6 +202,39 @@ export const safeGetDocs = async (
     }
 
     firebaseMonitor.reportError(error, "firestore-query");
+    throw error;
+  }
+};
+
+export const safeDeleteDoc = async (
+  docRef: DocumentReference<DocumentData>,
+  retryCount = 0,
+): Promise<void> => {
+  if (!db) {
+    throw new Error("Firestore is not initialized");
+  }
+
+  try {
+    await deleteDoc(docRef);
+    firebaseMonitor.reportSuccess("firestore-delete");
+  } catch (error: unknown) {
+    console.error(
+      `Firestore deleteDoc error (attempt ${retryCount + 1}):`,
+      error,
+    );
+
+    if (isConnectionError(error) && retryCount < RETRY_ATTEMPTS) {
+      try {
+        await enableNetwork(db);
+      } catch (networkError) {
+        console.warn("Failed to re-enable network:", networkError);
+      }
+
+      await wait(RETRY_DELAY * (retryCount + 1));
+      return safeDeleteDoc(docRef, retryCount + 1);
+    }
+
+    firebaseMonitor.reportError(error, "firestore-delete");
     throw error;
   }
 };

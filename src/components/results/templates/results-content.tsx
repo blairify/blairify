@@ -610,9 +610,38 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           );
 
           if (activeUserId) {
+            const hasAnyUserAnswer =
+              Array.isArray(session.messages) &&
+              session.messages.some(
+                (message: { type?: unknown; content?: unknown }) =>
+                  message.type === "user" &&
+                  typeof message.content === "string" &&
+                  message.content.trim().length > 0,
+              );
+
+            const existingSessionId =
+              localStorage.getItem("interviewSessionId");
+
+            if (!hasAnyUserAnswer) {
+              if (existingSessionId) {
+                try {
+                  await DatabaseService.deleteSession(
+                    activeUserId,
+                    existingSessionId,
+                  );
+                } catch (deleteError) {
+                  console.error(
+                    "Error deleting empty session from database:",
+                    deleteError,
+                  );
+                }
+              }
+
+              localStorage.removeItem("interviewSessionId");
+              return;
+            }
+
             try {
-              const existingSessionId =
-                localStorage.getItem("interviewSessionId");
               await DatabaseService.saveInterviewResults(
                 activeUserId,
                 session,
@@ -621,10 +650,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 existingSessionId,
               );
 
-              // Update XP, levels, badges
               const xpResult = await addUserXP(
                 activeUserId,
-                data.feedback.score, // AI score
+                data.feedback.score,
                 data.feedback.totalDuration || 0,
               );
 

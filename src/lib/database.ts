@@ -5,6 +5,7 @@
 
 import {
   createSession,
+  deleteSession,
   getSession,
   getUserSessions,
   saveInterviewResults,
@@ -40,6 +41,7 @@ export {
   getDefaultSkills,
   // Session operations
   createSession,
+  deleteSession,
   getSession,
   getUserSessions,
   updateSession,
@@ -67,6 +69,7 @@ export const DatabaseService = {
 
   // Session operations
   createSession,
+  deleteSession,
   getSession,
   getUserSessions,
   updateSession,
