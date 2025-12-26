@@ -36,12 +36,12 @@ interface ChatInterviewResponse {
   message: string;
   questionType?: QuestionType;
   isFollowUp?: boolean;
+  usedFallback?: boolean;
   warningCount?: number;
   isComplete?: boolean;
   terminatedForProfanity?: boolean;
   terminatedForBehavior?: boolean;
   aiErrorType?: string;
-  usedFallback?: boolean;
   matchedBehaviorPatterns?: string[];
 }
 
@@ -355,6 +355,9 @@ export function InterviewContent({ user }: InterviewContentProps) {
       const data: ChatInterviewResponse = await response.json();
 
       if (data.success) {
+        const isFollowUp = data.isFollowUp === true;
+        const usedFallback = data.usedFallback === true;
+
         if (data.matchedBehaviorPatterns?.length) {
           console.warn("Moderation matched behavior patterns:", {
             matchedBehaviorPatterns: data.matchedBehaviorPatterns,
@@ -367,7 +370,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
           content: data.message,
           timestamp: new Date(),
           questionType: data.questionType,
-          isFollowUp: data.isFollowUp,
+          isFollowUp,
         };
 
         addMessage(aiMessage);
@@ -444,7 +447,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
           markInterviewComplete();
         }
 
-        if (!data.isFollowUp && !data.usedFallback) {
+        if (!isFollowUp && !usedFallback) {
           incrementQuestionCount();
         }
       }
@@ -501,13 +504,15 @@ export function InterviewContent({ user }: InterviewContentProps) {
         const data: ChatInterviewResponse = await response.json();
 
         if (data.success) {
+          const isFollowUp = data.isFollowUp === true;
+
           const aiMessage: Message = {
             id: (Date.now() + 1).toString(),
             type: "ai",
             content: data.message,
             timestamp: new Date(),
             questionType: data.questionType,
-            isFollowUp: data.isFollowUp,
+            isFollowUp,
           };
 
           addMessage(aiMessage);
@@ -570,7 +575,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
             markInterviewComplete();
           }
 
-          if (!data.isFollowUp) {
+          if (!isFollowUp) {
             incrementQuestionCount();
           }
         }

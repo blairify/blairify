@@ -35,6 +35,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import type { InterviewSession, InterviewType } from "@/types/firestore";
@@ -57,7 +58,17 @@ export function HistoryContent({ user }: HistoryContentProps) {
   const [filterType, setFilterType] = useState<HistoryFilterType>("all");
   const [sortBy, setSortBy] = useState<HistorySortBy>("date");
   const [viewLayout, setViewLayout] = useState<"grid" | "list">("list");
+  const [viewLayoutInitialized, setViewLayoutInitialized] = useState(false);
+  const { isMobile, isLoading: isMobileLoading } = useIsMobile();
   const router = useRouter();
+
+  useEffect(() => {
+    if (viewLayoutInitialized) return;
+    if (isMobileLoading) return;
+
+    setViewLayout(isMobile ? "grid" : "list");
+    setViewLayoutInitialized(true);
+  }, [isMobile, isMobileLoading, viewLayoutInitialized]);
 
   const loadSessions = useCallback(async () => {
     if (!user?.uid) return;
@@ -210,12 +221,12 @@ export function HistoryContent({ user }: HistoryContentProps) {
       <div className="border-b bg-gradient-to-br from-muted/30 via-muted/20 to-background">
         <div className="container mx-auto px-4 sm:px-6 py-6">
           <div className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-4 sm:p-6 shadow-lg mb-6">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-              <div className="flex items-center gap-4">
+            <div className="grid grid-cols-3 items-center divide-x divide-border/50">
+              <div className="flex flex-col items-center gap-2 px-2 md:px-6 md:flex-row md:items-center md:justify-center md:gap-4">
                 <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg border border-primary/20">
                   <Trophy className="h-6 w-6 text-primary" />
                 </div>
-                <div className="text-center sm:text-left">
+                <div className="text-center">
                   <div className="text-2xl sm:text-3xl font-bold text-primary">
                     {stats.avgScore}%
                   </div>
@@ -223,13 +234,11 @@ export function HistoryContent({ user }: HistoryContentProps) {
                 </div>
               </div>
 
-              <div className="h-12 w-px bg-border/50 hidden sm:block" />
-
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col items-center gap-2 px-2 md:px-6 md:flex-row md:items-center md:justify-center md:gap-4">
                 <div className="p-3 bg-gradient-to-br from-blue-500/20 to-blue-500/10 rounded-lg border border-blue-500/20">
                   <Target className="h-6 w-6 text-blue-500" />
                 </div>
-                <div className="text-center sm:text-left">
+                <div className="text-center">
                   <div className="text-2xl sm:text-3xl font-bold text-foreground">
                     {stats.totalSessions}
                   </div>
@@ -239,13 +248,11 @@ export function HistoryContent({ user }: HistoryContentProps) {
                 </div>
               </div>
 
-              <div className="h-12 w-px bg-border/50 hidden sm:block" />
-
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col items-center gap-2 px-2 md:px-6 md:flex-row md:items-center md:justify-center md:gap-4">
                 <div className="p-3 bg-gradient-to-br from-purple-500/20 to-purple-500/10 rounded-lg border border-purple-500/20">
                   <Clock className="h-6 w-6 text-purple-500" />
                 </div>
-                <div className="text-center sm:text-left">
+                <div className="text-center">
                   <div className="text-2xl sm:text-3xl font-bold text-foreground">
                     {Math.round(stats.totalTime / 60)}h
                   </div>
@@ -256,82 +263,13 @@ export function HistoryContent({ user }: HistoryContentProps) {
           </div>
 
           <div className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-4 sm:p-6 shadow-lg">
-            <div className="space-y-4">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div className="relative flex-1 group">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                  <Input
-                    placeholder="Search by position, company, or interview type..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 h-11 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all"
-                  />
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <div className="relative group">
-                    <Filter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
-                    <Select
-                      value={filterType}
-                      onValueChange={(value) =>
-                        setFilterType(value as HistoryFilterType)
-                      }
-                    >
-                      <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
-                        <SelectValue placeholder="Interview Type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Types</SelectItem>
-                        <SelectItem value="technical">Technical</SelectItem>
-                        <SelectItem value="bullet">Bullet</SelectItem>
-                        <SelectItem value="system-design">
-                          System Design
-                        </SelectItem>
-                        <SelectItem value="coding">Coding</SelectItem>
-                      </SelectContent>
-                    </Select>
+            <details className="rounded-lg border border-border/50 bg-muted/20">
+              <summary className="list-none [&::-webkit-details-marker]:hidden cursor-pointer select-none px-3 py-2">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                    <Filter className="h-4 w-4 text-muted-foreground" />
+                    Filters
                   </div>
-
-                  <div className="relative group">
-                    <Grid3x3 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
-                    <Select
-                      value={sortBy}
-                      onValueChange={(value) =>
-                        setSortBy(value as HistorySortBy)
-                      }
-                    >
-                      <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
-                        <SelectValue placeholder="Sort By" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="date">Date</SelectItem>
-                        <SelectItem value="score">Score</SelectItem>
-                        <SelectItem value="duration">Duration</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                <div className="text-sm text-muted-foreground">
-                  {filteredSessions.length > 10 && (
-                    <>
-                      Showing{" "}
-                      <span className="font-semibold text-foreground">
-                        {filteredSessions.length}
-                      </span>{" "}
-                      of{" "}
-                      <span className="font-semibold text-foreground">
-                        {sessions.length}
-                      </span>{" "}
-                      sessions
-                    </>
-                  )}
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-muted-foreground">View:</span>
                   <div className="flex items-center gap-1 bg-muted/50 border border-border/50 rounded-lg p-1">
                     <Button
                       variant={viewLayout === "grid" ? "secondary" : "ghost"}
@@ -351,8 +289,82 @@ export function HistoryContent({ user }: HistoryContentProps) {
                     </Button>
                   </div>
                 </div>
+              </summary>
+
+              <div className="space-y-4 px-3 pb-3">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="relative flex-1 group">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <Input
+                      placeholder="Search by position, company, or interview type..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-10 h-11 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all"
+                    />
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="relative group">
+                      <Filter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
+                      <Select
+                        value={filterType}
+                        onValueChange={(value) =>
+                          setFilterType(value as HistoryFilterType)
+                        }
+                      >
+                        <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
+                          <SelectValue placeholder="Interview Type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">All Types</SelectItem>
+                          <SelectItem value="technical">Technical</SelectItem>
+                          <SelectItem value="bullet">Bullet</SelectItem>
+                          <SelectItem value="system-design">
+                            System Design
+                          </SelectItem>
+                          <SelectItem value="coding">Coding</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="relative group">
+                      <Grid3x3 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
+                      <Select
+                        value={sortBy}
+                        onValueChange={(value) =>
+                          setSortBy(value as HistorySortBy)
+                        }
+                      >
+                        <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
+                          <SelectValue placeholder="Sort By" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="date">Date</SelectItem>
+                          <SelectItem value="score">Score</SelectItem>
+                          <SelectItem value="duration">Duration</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-sm text-muted-foreground">
+                  {filteredSessions.length > 10 && (
+                    <>
+                      Showing{" "}
+                      <span className="font-semibold text-foreground">
+                        {filteredSessions.length}
+                      </span>{" "}
+                      of{" "}
+                      <span className="font-semibold text-foreground">
+                        {sessions.length}
+                      </span>{" "}
+                      sessions
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
+            </details>
           </div>
         </div>
       </div>
@@ -524,19 +536,28 @@ export function HistoryContent({ user }: HistoryContentProps) {
               </Card>
             ) : (
               filteredSessions.map((session) => (
-                <Card
+                <button
                   key={session.sessionId}
-                  className="group border border-border/50 bg-gradient-to-br from-card to-card/50 hover:border-primary/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
+                  type="button"
+                  className="group border border-border/50 bg-gradient-to-br from-card to-card/50 hover:border-primary/50 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden rounded-xl"
                   onClick={() => router.push(`/history/${session.sessionId}`)}
                 >
-                  <CardContent className="p-5">
+                  <div className="p-4 sm:p-5">
                     {/* Header with Icon and Score */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="p-2.5 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg border border-primary/20 group-hover:scale-110 transition-transform">
-                        {getInterviewIcon(session.config.interviewType)}
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <div className="p-2 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg border border-primary/20">
+                          {getInterviewIcon(session.config.interviewType)}
+                        </div>
+                        <Badge
+                          variant="secondary"
+                          className="text-xs capitalize font-medium"
+                        >
+                          {session.config.interviewType}
+                        </Badge>
                       </div>
                       <div
-                        className={`text-2xl font-bold px-3.5 py-1.5 rounded-lg shadow-sm ${getScoreColor(session.scores?.overall || 0)}`}
+                        className={`text-xl font-bold px-3 py-1.5 rounded-lg shadow-sm border border-border/60 ${getScoreColor(session.scores?.overall || 0)}`}
                       >
                         {session.scores?.overall || 0}%
                       </div>
@@ -545,80 +566,56 @@ export function HistoryContent({ user }: HistoryContentProps) {
                     {/* Title */}
                     <Typography.Heading3
                       color="primary"
-                      className="mb-2 line-clamp-2 group-hover:text-primary transition-colors"
+                      className="mb-1 line-clamp-2 group-hover:text-primary transition-colors"
                     >
                       {capitalizeTitle(session.config.position)}
                     </Typography.Heading3>
 
-                    {/* Type Badge */}
-                    <Badge
-                      variant="secondary"
-                      className="mb-3 text-xs capitalize font-medium"
-                    >
-                      {session.config.interviewType}
-                    </Badge>
-
-                    {/* Metadata */}
-                    <div className="space-y-2 text-sm text-muted-foreground mb-3">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="h-3.5 w-3.5" />
-                        <span className="text-xs">
-                          {formatDate(session.createdAt)}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Clock className="h-3.5 w-3.5" />
-                        <span className="text-xs">
-                          {session.totalDuration} min
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Company Badge */}
                     {session.config.specificCompany && (
-                      <Badge
-                        variant="outline"
-                        className="mb-3 text-xs font-medium"
-                      >
+                      <div className="text-sm text-muted-foreground mb-2 line-clamp-1">
                         {session.config.specificCompany}
-                      </Badge>
+                      </div>
                     )}
 
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-2 gap-3 pt-3 border-t border-border/50 text-xs mb-3">
-                      <div className="bg-muted/30 rounded-lg p-2">
-                        <span className="text-muted-foreground block mb-0.5">
-                          Level
-                        </span>
-                        <span className="font-semibold capitalize text-foreground">
-                          {session.config.seniority}
-                        </span>
+                    <div className="flex items-center justify-between gap-3 pt-3 border-t border-border/50 mb-3">
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="h-3.5 w-3.5" />
+                          <span className="text-xs">
+                            {formatDate(session.createdAt)}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Clock className="h-3.5 w-3.5" />
+                          <span className="text-xs">
+                            {session.totalDuration} min
+                          </span>
+                        </div>
                       </div>
-                      <div className="bg-muted/30 rounded-lg p-2">
-                        <span className="text-muted-foreground block mb-0.5">
-                          Questions
-                        </span>
-                        <span className="font-semibold text-foreground">
+
+                      <div className="flex items-center gap-2 text-xs flex-shrink-0">
+                        <Badge
+                          variant="outline"
+                          className="text-xs font-medium capitalize"
+                        >
+                          {session.config.seniority}
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="text-xs font-medium"
+                        >
                           {session.questions?.length || 0}
-                        </span>
+                        </Badge>
                       </div>
                     </div>
 
                     {/* View Button */}
-                    <Button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        router.push(`/history/${session.sessionId}`);
-                      }}
-                      variant="outline"
-                      size="sm"
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all shadow-sm"
-                    >
+                    <div className="w-full inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all">
                       <Eye className="h-3.5 w-3.5 mr-1.5" />
                       View Details
-                    </Button>
-                  </CardContent>
-                </Card>
+                    </div>
+                  </div>
+                </button>
               ))
             )}
           </div>

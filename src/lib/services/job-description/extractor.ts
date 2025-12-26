@@ -1,4 +1,3 @@
-import { jsonrepair } from "jsonrepair";
 import { z } from "zod";
 import {
   aiClient,
@@ -140,13 +139,28 @@ function extractJsonObject(payload: string) {
   try {
     return JSON.parse(jsonString);
   } catch {
-    const repaired = jsonrepair(jsonString);
+    const repaired = repairJsonString(jsonString);
     try {
       return JSON.parse(repaired);
     } catch {
       throw new Error("Failed to parse AI response JSON.");
     }
   }
+}
+
+function repairJsonString(value: string): string {
+  return value
+    .replace(/[“”]/g, '"')
+    .replace(/[‘’]/g, "'")
+    .replace(/\u00A0/g, " ")
+    .replace(/,\s*(?=[\]}])/g, "")
+    .replace(/'([^'\\]*(?:\\.[^'\\]*)*)'/g, (_m, inner) => {
+      const escaped = String(inner)
+        .replace(/\\"/g, '"')
+        .replace(/\\/g, "\\\\")
+        .replace(/"/g, '\\"');
+      return `"${escaped}"`;
+    });
 }
 
 function normalizeTechnologies(values?: string[] | null): string[] {

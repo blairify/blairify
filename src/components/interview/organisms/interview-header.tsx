@@ -36,6 +36,7 @@ export function InterviewHeader({
   onEnd,
 }: InterviewHeaderProps) {
   const { isMobile } = useIsMobile();
+  const currentIndex = Math.max(0, currentQuestion - 1);
   return (
     <div
       className="sticky top-0 z-10 bg-background/95 backdrop-blur-lg border-b border-border/50 shadow-sm"
@@ -48,7 +49,7 @@ export function InterviewHeader({
               <PaginationIndicator
                 variant="numbered"
                 total={totalQuestions}
-                current={currentQuestion}
+                current={currentIndex}
               />
             )}
             <TimerDisplay seconds={timeRemaining} />

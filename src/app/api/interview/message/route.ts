@@ -29,6 +29,106 @@ import {
 } from "@/lib/services/interview/message-moderation";
 import type { Message } from "@/types/interview";
 
+function getLeadingAcknowledgement(value: string): string | null {
+  const trimmed = value.trimStart();
+  const match = trimmed.match(
+    /^(got\s+it|okay|ok|sure|alright|right)\b[\s,!:.-]*/i,
+  );
+  if (!match?.[0]) return null;
+  return match[0].trim().toLowerCase();
+}
+
+function stripLeadingAcknowledgement(value: string): string {
+  return value.replace(
+    /^(\s*)(got\s+it|okay|ok|sure|alright|right)\b[\s,!:.-]*/i,
+    "$1",
+  );
+}
+
+function stripRepeatedAcknowledgement(
+  message: string,
+  conversationHistory: Message[] | undefined,
+): string {
+  const history = Array.isArray(conversationHistory) ? conversationHistory : [];
+  const lastAi = [...history].reverse().find((m) => m.type === "ai");
+  if (!lastAi?.content) return message;
+
+  const currentAck = getLeadingAcknowledgement(message);
+  if (!currentAck) return message;
+
+  const previousAck = getLeadingAcknowledgement(lastAi.content);
+  if (!previousAck) return message;
+
+  if (previousAck !== currentAck) return message;
+  return stripLeadingAcknowledgement(message).trimStart();
+}
+
+function stripLeadingDash(value: string): string {
+  return value.replace(/^\s*[\p{Pd}-]+\s*/u, "").trimStart();
+}
+
+function hashString(value: string): number {
+  let hash = 5381;
+  for (let i = 0; i < value.length; i++) {
+    hash = (hash * 33) ^ value.charCodeAt(i);
+  }
+  return hash >>> 0;
+}
+
+function pickFollowUpOpener(seed: string): string {
+  const variants = [
+    "Makes sense —",
+    "Good point —",
+    "Right —",
+    "Thanks for clarifying —",
+    "Let’s build on that —",
+    "Building on that —",
+  ] as const;
+
+  return variants[hashString(seed) % variants.length];
+}
+
+function paraphraseFollowUpOpener(message: string): string {
+  const trimmed = message.trimStart();
+
+  const ackSinceMatch = trimmed.match(
+    /^(got\s+it|okay|ok|sure|alright|right)\b[\s,!:.-]*[\p{Pd}-]?\s*((?:since|so)\s+you\s+mentioned\b[\s\S]*)/iu,
+  );
+
+  if (ackSinceMatch?.[2]) {
+    const remainder = ackSinceMatch[2].trimStart();
+    const opener = pickFollowUpOpener(remainder.slice(0, 120));
+    return `${opener} ${remainder}`;
+  }
+
+  const dashSinceMatch = trimmed.match(
+    /^[\p{Pd}-]+\s*((?:since|so)\s+you\s+mentioned\b[\s\S]*)/iu,
+  );
+
+  if (dashSinceMatch?.[1]) {
+    const remainder = dashSinceMatch[1].trimStart();
+    const opener = pickFollowUpOpener(remainder.slice(0, 120));
+    return `${opener} ${remainder}`;
+  }
+
+  return message;
+}
+
+function normalizeOpening(
+  message: string,
+  conversationHistory: Message[] | undefined,
+  isFollowUp: boolean,
+): string {
+  const withoutLeadingDash = stripLeadingDash(message);
+  if (isFollowUp) {
+    const paraphrased = paraphraseFollowUpOpener(withoutLeadingDash);
+    const cleaned = stripLeadingAcknowledgement(paraphrased).trimStart();
+    return cleaned;
+  }
+
+  return stripRepeatedAcknowledgement(withoutLeadingDash, conversationHistory);
+}
+
 function getFollowUpsSinceLastMainQuestion(
   conversationHistory: Message[],
 ):
@@ -355,6 +455,14 @@ export async function POST(request: NextRequest) {
         .replace(/\s*\[BANK_QUESTION_INDEX:\s*\d+\]\s*$/gi, "")
         .trim();
     }
+
+    finalMessage = normalizeOpening(
+      finalMessage,
+      Array.isArray(conversationHistory)
+        ? (conversationHistory as Message[])
+        : undefined,
+      effectiveIsFollowUp,
+    );
 
     if (
       usedFallback &&

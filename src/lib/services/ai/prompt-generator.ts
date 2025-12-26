@@ -455,6 +455,7 @@ function getSystemPromptGuidelines(seniority: SeniorityLevel): string {
 - End with ONE clear, specific question
 - Avoid formulaic openings like "At [Company]" or "For this [Company] interview"
 - Start questions directly and naturally, focusing on the technical content
+- Avoid repetitive acknowledgements at the start of messages (for example, do not start multiple replies in a row with "Got it", "Sure", "Okay", or "Great") – vary your openings or go straight to the question
 - Adjust difficulty for ${seniority} level: 
   * Junior: Focus on fundamentals and basic concepts
   * Mid: Include some intermediate concepts and practical scenarios

@@ -7,21 +7,23 @@ import {
   CheckCircle,
   Clock,
   Code,
-  Download,
   Lightbulb,
   MessageSquare,
+  Sparkles,
   Star,
   Target,
-  TrendingUp,
   Trophy,
   User,
 } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
+import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
 import { Badge } from "@/components/ui/badge";
@@ -34,9 +36,20 @@ import { useAuth } from "@/providers/auth-provider";
 import type { InterviewSession } from "@/types/firestore";
 import type { Question } from "@/types/practice-question";
 
+function getMarkdownNodeText(node: ReactNode): string {
+  if (node == null || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(getMarkdownNodeText).join("");
+  if (typeof node === "object" && "props" in node) {
+    const n = node as { props?: { children?: ReactNode } };
+    return getMarkdownNodeText(n.props?.children);
+  }
+  return "";
+}
+
 export default function SessionDetailsPage() {
-  const params = useParams();
   const { user, loading: authLoading } = useAuth();
+  const params = useParams();
   const [session, setSession] = useState<InterviewSession | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -46,7 +59,202 @@ export default function SessionDetailsPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
 
+  const getDifficultyLabel = (value: number): string => {
+    if (value <= 3) return "Entry";
+    if (value <= 5) return "Junior";
+    if (value <= 7) return "Mid";
+    return "Senior";
+  };
+
+  const readableMarkdownComponents = useMemo<Components>(() => {
+    return {
+      h1({ children }) {
+        return (
+          <div className="text-sm font-semibold tracking-tight text-gray-950 dark:text-gray-50 mb-2">
+            {children}
+          </div>
+        );
+      },
+      h2({ children }) {
+        return (
+          <div className="text-sm font-semibold tracking-tight text-gray-950 dark:text-gray-50 mb-2">
+            {children}
+          </div>
+        );
+      },
+      h3({ children }) {
+        return (
+          <div className="pt-3">
+            <div className="text-sm font-semibold tracking-tight text-gray-950 dark:text-gray-50">
+              {children}
+            </div>
+          </div>
+        );
+      },
+      h4({ children }) {
+        return (
+          <div className="pt-2">
+            <div className="text-sm font-medium tracking-tight text-gray-900 dark:text-gray-100">
+              {children}
+            </div>
+          </div>
+        );
+      },
+      p({ children }) {
+        const text = getMarkdownNodeText(children).trim().replace(/\s+/g, " ");
+
+        const summaryLabels = [
+          "DECISION:",
+          "Score:",
+          "Performance Level:",
+        ] as const;
+
+        const splitSummaryHeader = (() => {
+          const indices = summaryLabels
+            .map((label) => ({ label, idx: text.indexOf(label) }))
+            .filter((x) => x.idx >= 0)
+            .sort((a, b) => a.idx - b.idx);
+
+          if (indices.length <= 1) return null;
+          if (indices[0]?.idx !== 0) return null;
+
+          const rows = indices.map((entry, i) => {
+            const start = entry.idx + entry.label.length;
+            const end =
+              i + 1 < indices.length ? indices[i + 1]!.idx : text.length;
+            const value = text.slice(start, end).trim();
+            return { label: entry.label.slice(0, -1), value };
+          });
+
+          return { rows, rest: null };
+        })();
+
+        if (splitSummaryHeader) {
+          return (
+            <div className="space-y-1">
+              {splitSummaryHeader.rows.map((row) => (
+                <p
+                  key={row.label}
+                  className="text-sm leading-relaxed whitespace-pre-line"
+                >
+                  <span className="text-gray-900 dark:text-gray-100 font-semibold">
+                    {row.label}:
+                  </span>{" "}
+                  <span className="text-gray-500 dark:text-gray-400">
+                    {row.value}
+                  </span>
+                </p>
+              ))}
+
+              <div className="h-1" />
+
+              {splitSummaryHeader.rest && (
+                <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 whitespace-pre-line pt-2">
+                  {splitSummaryHeader.rest}
+                </p>
+              )}
+            </div>
+          );
+        }
+
+        const labelMatch = text.match(/^([A-Za-z][A-Za-z\s]{1,40}):\s*(.+)$/);
+
+        if (labelMatch) {
+          const [, label, value] = labelMatch;
+
+          return (
+            <p className="text-sm leading-relaxed whitespace-pre-line my-1 first:mt-0 last:mb-0">
+              <span className="text-gray-900 dark:text-gray-100 font-semibold">
+                {label}:
+              </span>{" "}
+              <span className="text-gray-500 dark:text-gray-400">{value}</span>
+            </p>
+          );
+        }
+
+        return (
+          <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 whitespace-pre-line my-1 first:mt-0 last:mb-0">
+            {children}
+          </p>
+        );
+      },
+      ul({ children }) {
+        return (
+          <ul className="space-y-2 list-disc pl-5 mt-1 mb-2">{children}</ul>
+        );
+      },
+      ol({ children }) {
+        return (
+          <ol className="space-y-2 list-decimal pl-5 mt-1 mb-2">{children}</ol>
+        );
+      },
+      li({ children }) {
+        return (
+          <li className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+            {children}
+          </li>
+        );
+      },
+      pre({ children }) {
+        return (
+          <pre className="my-2 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
+            {children}
+          </pre>
+        );
+      },
+      code({ children }) {
+        return (
+          <code className="rounded bg-muted/40 px-1 py-0.5 font-mono text-[0.85em]">
+            {children}
+          </code>
+        );
+      },
+      strong({ children }) {
+        return <strong className="font-normal">{children}</strong>;
+      },
+      hr() {
+        return null;
+      },
+    };
+  }, []);
+
+  const qaQuestionMarkdownComponents = useMemo<Components>(() => {
+    return {
+      ...readableMarkdownComponents,
+      p({ children }) {
+        return (
+          <p className="text-sm leading-relaxed text-gray-900 dark:text-gray-100 whitespace-pre-line my-1 first:mt-0 last:mb-0">
+            {children}
+          </p>
+        );
+      },
+      li({ children }) {
+        return (
+          <li className="text-sm leading-relaxed text-gray-800 dark:text-gray-200">
+            {children}
+          </li>
+        );
+      },
+    };
+  }, [readableMarkdownComponents]);
+
   const sessionId = params.sessionId as string;
+
+  const aiFeedback = useMemo(() => {
+    const responses = session?.responses ?? [];
+    const unique = new Set(
+      responses
+        .map((r) => r.feedback?.trim())
+        .filter(
+          (v): v is string =>
+            typeof v === "string" && v.length > 0 && v !== "Analysis pending",
+        ),
+    );
+
+    if (unique.size === 0) return null;
+    if (unique.size === 1) return Array.from(unique)[0];
+    return Array.from(unique)[0];
+  }, [session?.responses]);
 
   useEffect(() => {
     const loadSession = async () => {
@@ -197,6 +405,7 @@ export default function SessionDetailsPage() {
                 <Button
                   onClick={() => router.push("/history")}
                   aria-label="Back to History"
+                  variant="outline"
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to History
@@ -224,8 +433,8 @@ export default function SessionDetailsPage() {
               <Button
                 aria-label="Back to History"
                 onClick={() => router.push("/history")}
-                variant="ghost"
-                className="mb-4 sm:mb-6 hover:bg-primary/10"
+                variant="outline"
+                className="mb-4 sm:mb-6"
                 size="sm"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
@@ -271,7 +480,7 @@ export default function SessionDetailsPage() {
                   {session.scores?.overall ? (
                     <>
                       <div
-                        className={`text-5xl sm:text-6xl font-bold px-6 py-3 rounded-2xl shadow-lg ${getScoreColor(session.scores.overall)}`}
+                        className={`text-5xl sm:text-6xl font-bold px-6 py-3 rounded-2xl shadow-lg border border-border/60 bg-card/50 ${getScoreColor(session.scores.overall)}`}
                       >
                         {session.scores.overall}%
                       </div>
@@ -293,17 +502,37 @@ export default function SessionDetailsPage() {
               </div>
             </div>
 
+            {/* Interview Summary */}
+            {session.analysis?.summary && (
+              <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
+                <CardHeader className="px-3 pt-1 pb-0">
+                  <CardTitle className="flex items-center gap-2 text-lg font-bold leading-none">
+                    <Brain className="size-5 text-primary" />
+                    Interview Summary
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="px-3 pt-0 pb-3">
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={readableMarkdownComponents}
+                  >
+                    {session.analysis.summary}
+                  </ReactMarkdown>
+                </CardContent>
+              </Card>
+            )}
+
             {/* Score Breakdown - Only show if scores are available */}
             {session.scores && session.scores.overall > 0 && (
               <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-                <CardHeader className="pb-4">
+                <CardHeader className="px-3 pt-2 pb-0">
                   <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                    <TrendingUp className="size-5 text-primary" />
+                    <Trophy className="size-5 text-primary" />
                     Performance Breakdown
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <CardContent className="px-3 pt-0 pb-3">
+                  <div className="space-y-4">
                     {Object.entries(session.scores).map(([key, value]) => {
                       if (key === "overall" || !value) return null;
 
@@ -343,13 +572,13 @@ export default function SessionDetailsPage() {
 
             {/* Interview Configuration */}
             <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-              <CardHeader className="pb-4">
+              <CardHeader className="px-3 pt-2 pb-0">
                 <CardTitle className="flex items-center gap-2 text-xl font-bold">
                   <User className="size-5 text-primary" />
                   Interview Configuration
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="px-3 pt-0 pb-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
                     <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
@@ -414,187 +643,202 @@ export default function SessionDetailsPage() {
             {/* Questions and Responses */}
             {session.questions && session.questions.length > 0 && (
               <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-                <CardHeader className="pb-4">
+                <CardHeader className="px-3 pt-2 pb-0">
                   <CardTitle className="flex items-center gap-2 text-xl font-bold">
                     <MessageSquare className="size-5 text-primary" />
-                    Questions & Responses ({session.questions.length})
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-6 sm:space-y-8">
-                    {session.questions.map((question, index) => {
-                      const response = session.responses?.find(
-                        (r) => r.questionId === question.id,
-                      );
+                    {(() => {
+                      const visibleQuestions = session.questions.filter((q) => {
+                        const r = session.responses?.find(
+                          (x) => x.questionId === q.id,
+                        );
 
-                      const practiceQuestion =
-                        practiceQuestionsById[question.id] ?? null;
-                      const exampleAnswer = practiceQuestion
-                        ? getExampleAnswer(practiceQuestion)
-                        : null;
+                        if (!r) return false;
+                        if ((r.response ?? "").trim().length > 0) return true;
+                        return r.score > 0;
+                      });
 
                       return (
-                        <div
-                          key={question.id}
-                          className="border-2 border-border/50 rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-card to-card/50 shadow-md hover:shadow-lg transition-shadow"
-                        >
-                          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
-                            <div className="flex-1 min-w-0">
-                              <div className="flex flex-wrap items-center gap-2 mb-3">
-                                <Badge
-                                  variant="default"
-                                  className="font-semibold"
-                                >
-                                  Question {index + 1}
-                                </Badge>
-                                <Badge
-                                  variant="secondary"
-                                  className="capitalize font-medium"
-                                >
-                                  {question.type}
-                                </Badge>
-                                <Badge
-                                  variant="outline"
-                                  className="font-medium"
-                                >
-                                  Difficulty: {question.difficulty}/10
-                                </Badge>
-                              </div>
-                              <div className="prose prose-sm sm:prose-base max-w-none dark:prose-invert mb-3">
-                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                  {question.question}
-                                </ReactMarkdown>
-                              </div>
-                              {question.category && (
-                                <div className="text-sm text-muted-foreground font-medium">
-                                  Category:{" "}
-                                  <span className="text-foreground">
-                                    {question.category}
-                                  </span>
-                                </div>
-                              )}
+                        <>Questions & Responses ({visibleQuestions.length})</>
+                      );
+                    })()}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="px-3 pt-0 pb-3">
+                  <div className="space-y-6 sm:space-y-8">
+                    {session.questions
+                      .filter((q) => {
+                        const r = session.responses?.find(
+                          (x) => x.questionId === q.id,
+                        );
 
-                              {exampleAnswer && (
-                                <div className="mt-4">
-                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                    <Lightbulb className="h-4 w-4 text-primary" />
-                                    Example Answer:
+                        if (!r) return false;
+                        if ((r.response ?? "").trim().length > 0) return true;
+                        return r.score > 0;
+                      })
+                      .map((question, index) => {
+                        const response = session.responses?.find(
+                          (r) => r.questionId === question.id,
+                        );
+
+                        const practiceQuestion =
+                          practiceQuestionsById[question.id] ?? null;
+                        const exampleAnswer = practiceQuestion
+                          ? getExampleAnswer(practiceQuestion)
+                          : null;
+
+                        const normalizedExampleAnswer = exampleAnswer
+                          ? exampleAnswer
+                              .replace(
+                                /^\s*(Example\s+Answer|Example)\s*:\s*/i,
+                                "",
+                              )
+                              .replace(
+                                /^\s*(Example\s+Answer|Example)\s*\n+/i,
+                                "",
+                              )
+                              .trim()
+                          : null;
+
+                        return (
+                          <div
+                            key={question.id}
+                            className="border-2 border-border/50 rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-card to-card/50 shadow-md hover:shadow-lg transition-shadow"
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-start justify-between gap-3 mb-3">
+                                  <div className="flex flex-wrap items-center gap-2">
+                                    <Badge
+                                      variant="default"
+                                      className="font-semibold"
+                                    >
+                                      Question {index + 1}
+                                    </Badge>
+                                    <Badge
+                                      variant="secondary"
+                                      className="capitalize font-medium"
+                                    >
+                                      {question.type}
+                                    </Badge>
+                                    <Badge
+                                      variant="outline"
+                                      className="font-medium"
+                                    >
+                                      Difficulty:{" "}
+                                      {practiceQuestion?.difficulty
+                                        ? practiceQuestion.difficulty
+                                            .charAt(0)
+                                            .toUpperCase() +
+                                          practiceQuestion.difficulty.slice(1)
+                                        : getDifficultyLabel(
+                                            question.difficulty,
+                                          )}
+                                    </Badge>
                                   </div>
-                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                    <div className="prose prose-sm max-w-none dark:prose-invert">
-                                      <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                      >
-                                        {exampleAnswer}
-                                      </ReactMarkdown>
+
+                                  {response && (
+                                    <div className="sm:hidden text-right flex-shrink-0">
+                                      {response.score > 0 ? (
+                                        <div
+                                          className={`inline-flex text-2xl font-bold px-3 py-1.5 rounded-xl shadow-sm border border-border/60 bg-card/50 ${getScoreColor(response.score)}`}
+                                        >
+                                          {response.score}%
+                                        </div>
+                                      ) : (
+                                        <div className="inline-flex text-2xl font-bold text-muted-foreground px-3 py-1.5 rounded-xl bg-muted/50">
+                                          N/A
+                                        </div>
+                                      )}
                                     </div>
-                                  </div>
+                                  )}
+                                </div>
+                                <div className="whitespace-pre-line mb-3">
+                                  <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={qaQuestionMarkdownComponents}
+                                  >
+                                    {question.question}
+                                  </ReactMarkdown>
+                                </div>
+                              </div>
+                              {response && (
+                                <div className="hidden sm:block text-center sm:text-right flex-shrink-0">
+                                  {response.score > 0 ? (
+                                    <div
+                                      className={`text-3xl sm:text-4xl font-bold px-4 py-2 rounded-xl shadow-sm border border-border/60 bg-card/50 ${getScoreColor(response.score)}`}
+                                    >
+                                      {response.score}%
+                                    </div>
+                                  ) : (
+                                    <div className="text-3xl sm:text-4xl font-bold text-muted-foreground px-4 py-2 rounded-xl bg-muted/50">
+                                      N/A
+                                    </div>
+                                  )}
                                 </div>
                               )}
                             </div>
-                            {response && (
-                              <div className="text-center sm:text-right flex-shrink-0">
-                                {response.score > 0 ? (
-                                  <div
-                                    className={`text-3xl sm:text-4xl font-bold px-4 py-2 rounded-xl shadow-sm ${getScoreColor(response.score)}`}
-                                  >
-                                    {response.score}%
+
+                            {normalizedExampleAnswer && (
+                              <div className="mt-4">
+                                <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                  <Lightbulb className="size-4 text-primary" />
+                                  Example Answer:
+                                </div>
+                                <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                  <div className="whitespace-pre-line text-sm">
+                                    <ReactMarkdown
+                                      remarkPlugins={[remarkGfm]}
+                                      components={readableMarkdownComponents}
+                                    >
+                                      {normalizedExampleAnswer}
+                                    </ReactMarkdown>
                                   </div>
-                                ) : (
-                                  <div className="text-3xl sm:text-4xl font-bold text-muted-foreground px-4 py-2 rounded-xl bg-muted/50">
-                                    N/A
-                                  </div>
-                                )}
-                                <div className="text-xs text-muted-foreground mt-2 font-medium">
-                                  {Math.round(response.duration / 60)}m{" "}
-                                  {response.duration % 60}s
                                 </div>
                               </div>
                             )}
-                          </div>
 
-                          {response && (
-                            <>
-                              <Separator className="my-5" />
-                              <div className="space-y-5">
-                                <div>
-                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                    <User className="h-4 w-4 text-primary" />
-                                    Your Response:
-                                  </div>
-                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                    <div className="prose prose-sm max-w-none dark:prose-invert">
-                                      <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                      >
-                                        {response.response ||
-                                          "No response recorded"}
-                                      </ReactMarkdown>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                {response.feedback &&
-                                  response.feedback !== "Analysis pending" && (
-                                    <div>
-                                      <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                        <Brain className="h-4 w-4 text-primary" />
-                                        AI Feedback:
-                                      </div>
-                                      <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-xl border border-primary/20">
-                                        <div className="prose prose-sm max-w-none dark:prose-invert">
-                                          <ReactMarkdown
-                                            remarkPlugins={[remarkGfm]}
-                                          >
-                                            {response.feedback}
-                                          </ReactMarkdown>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  )}
-
-                                {response.feedback === "Analysis pending" && (
-                                  <div className="bg-muted/50 p-4 rounded-xl border border-border/50">
-                                    <div className="text-sm font-bold mb-2 text-muted-foreground">
-                                      AI Analysis Pending
-                                    </div>
-                                    <div className="text-sm text-muted-foreground">
-                                      Detailed feedback requires AI service
-                                      configuration.
-                                    </div>
-                                  </div>
-                                )}
-
-                                <div className="flex items-center justify-between text-sm">
+                            {response && (
+                              <>
+                                <Separator className="my-5" />
+                                <div className="space-y-5">
                                   <div>
-                                    Confidence: {response.confidence}/10
-                                  </div>
-                                  <div className="flex gap-4">
-                                    {response.keyPoints &&
-                                      response.keyPoints.length > 0 && (
-                                        <span className="text-green-600">
-                                          ✓ {response.keyPoints.length} key
-                                          points covered
-                                        </span>
-                                      )}
-                                    {response.missedPoints &&
-                                      response.missedPoints.length > 0 && (
-                                        <span className="text-orange-600">
-                                          ⚠ {response.missedPoints.length}{" "}
-                                          points missed
-                                        </span>
-                                      )}
+                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                      <User className="size-4 text-primary" />
+                                      Your Response:
+                                    </div>
+                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                      <div className="whitespace-pre-line text-sm">
+                                        <ReactMarkdown
+                                          remarkPlugins={[remarkGfm]}
+                                          components={
+                                            readableMarkdownComponents
+                                          }
+                                        >
+                                          {response.response ||
+                                            "No response recorded"}
+                                        </ReactMarkdown>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </>
-                          )}
-                        </div>
-                      );
-                    })}
+                              </>
+                            )}
+                          </div>
+                        );
+                      })}
                   </div>
                 </CardContent>
               </Card>
+            )}
+
+            {aiFeedback && (
+              <div className="mb-6">
+                <AiFeedbackCard
+                  icon={<Sparkles className="size-5" />}
+                  title="AI Feedback"
+                  detailsMarkdown={aiFeedback}
+                />
+              </div>
             )}
 
             {/* Analysis & Feedback */}
@@ -677,35 +921,17 @@ export default function SessionDetailsPage() {
             {session.analysis &&
               (session.analysis.summary ||
                 session.analysis.recommendations) && (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                  {session.analysis.summary && (
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <Brain className="size-5" />
-                          Interview Summary
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="prose prose-sm max-w-none dark:prose-invert">
-                          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                            {session.analysis.summary}
-                          </ReactMarkdown>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  )}
-
+                <div className="mb-6">
                   {session.analysis.recommendations &&
                     session.analysis.recommendations.length > 0 && (
-                      <Card>
-                        <CardHeader>
-                          <CardTitle className="flex items-center gap-2">
-                            <Lightbulb className="size-5" />
+                      <Card className="border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
+                        <CardHeader className="px-3 pt-2 pb-0">
+                          <CardTitle className="flex items-center gap-2 text-xl font-bold">
+                            <Lightbulb className="size-5 text-primary" />
                             Recommendations
                           </CardTitle>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="px-3 pt-0 pb-3">
                           <ul className="space-y-3">
                             {session.analysis.recommendations.map(
                               (rec, index) => (
@@ -730,35 +956,7 @@ export default function SessionDetailsPage() {
               )}
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                aria-label="Start New Interview"
-                onClick={() => router.push("/configure")}
-                size="lg"
-                className="w-full sm:w-auto h-12 px-8 font-semibold text-base shadow-lg"
-              >
-                Start New Interview
-              </Button>
-              <Button
-                aria-label="Practice More Questions"
-                onClick={() => router.push("/configure")}
-                variant="outline"
-                size="lg"
-                className="w-full sm:w-auto h-12 px-8 font-semibold text-base"
-              >
-                Practice More Questions
-              </Button>
-              <Button
-                aria-label="Export Results"
-                onClick={() => router.push("/export")}
-                variant="outline"
-                size="lg"
-                className="w-full sm:w-auto h-12 px-8 font-semibold text-base"
-              >
-                <Download className="h-4 w-4 mr-2" />
-                Export Results
-              </Button>
-            </div>
+            {null}
           </div>
         </main>
       </div>

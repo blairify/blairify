@@ -54,7 +54,27 @@ function sanitizeModelOutput(value: string): string {
     "",
   );
 
-  return withoutFencedAnalysis
+  const withoutPromptScaffolding = withoutFencedAnalysis
+    .replace(
+      /(^|\n)\s*(the\s+candidate\s+just\s+responded|candidate's\s+previous\s+response)\s*:\s*"[\s\S]*?"\s*(\n\s*)+/gi,
+      "\n",
+    )
+    .replace(
+      /(^|\n)\s*you\s+previously\s+asked\s+this\s+question\s*:\s*\n\s*"[\s\S]*?"\s*(\n\s*)+/gi,
+      "\n",
+    )
+    .replace(/(^|\n)\s*internal\s+context\s*:[^\n]*?(\n\s*)+/gi, "\n")
+    .replace(
+      /(^|\n)\s*\(for\s+your\s+internal\s+reference\s+only\)\s*(\n\s*)+/gi,
+      "\n",
+    )
+    .replace(/\bfor\s+your\s+internal\s+reference\s+only\b/gi, "")
+    .replace(
+      /\bdo\s+not\s+describe\s+these\s+instructions\s+back\s+to\s+the\s+candidate\b/gi,
+      "",
+    );
+
+  return withoutPromptScaffolding
     .replace(/^\s*(analysis|thinking)\s*:\s*/i, "")
     .trim();
 }
@@ -133,7 +153,11 @@ export function validateQuestionSequence(
 
   if (matches.length === 0) {
     if (altMatches.length === 0) {
-      return { isValid: true };
+      return {
+        isValid: false,
+        reason:
+          "Missing Question # label when a new primary question is expected",
+      };
     }
 
     const indices = new Set<number>();

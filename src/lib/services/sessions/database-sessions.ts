@@ -24,6 +24,7 @@ import {
   analyzeResponseCharacteristics,
   validateUserResponse,
 } from "@/lib/services/ai/response-validator";
+import { getPracticeQuestionById } from "@/lib/services/practice-questions/practice-questions-service";
 import type {
   InterviewQuestion,
   InterviewResponse,
@@ -148,6 +149,38 @@ function shouldPersistScores(interviewMode: string | undefined): boolean {
 function parseSeniorityLevel(value: string): SeniorityLevel {
   const normalized = value.toLowerCase() as SeniorityLevel;
   return SENIORITY_LEVELS.includes(normalized) ? normalized : "mid";
+}
+
+function mapDifficultyLevelToScore(level: "easy" | "medium" | "hard"): number {
+  switch (level) {
+    case "easy":
+      return 3;
+    case "medium":
+      return 5;
+    case "hard":
+      return 7;
+    default: {
+      const _never: never = level;
+      throw new Error(`Unhandled difficulty level: ${_never}`);
+    }
+  }
+}
+
+function mapSeniorityToDifficultyScore(level: SeniorityLevel): number {
+  switch (level) {
+    case "entry":
+      return 3;
+    case "junior":
+      return 5;
+    case "mid":
+      return 7;
+    case "senior":
+      return 9;
+    default: {
+      const _never: never = level;
+      throw new Error(`Unhandled seniority level: ${_never}`);
+    }
+  }
 }
 
 // ================================
@@ -349,6 +382,19 @@ export async function saveInterviewResults(
 
     const practiceQuestionIds = (sessionData.questionIds ?? []).filter(Boolean);
 
+    const difficultyByQuestionId = new Map<string, number>();
+    await Promise.all(
+      practiceQuestionIds.map(async (id) => {
+        const q = await getPracticeQuestionById(id);
+        if (!q) return;
+        difficultyByQuestionId.set(id, mapDifficultyLevelToScore(q.difficulty));
+      }),
+    );
+
+    const sessionDifficulty = mapSeniorityToDifficultyScore(
+      parseSeniorityLevel(config.seniority),
+    );
+
     for (let i = 0; i < sessionData.messages.length; i += 2) {
       const aiMessage = sessionData.messages[i];
       const userMessage = sessionData.messages[i + 1];
@@ -369,7 +415,8 @@ export async function saveInterviewResults(
           type: config.interviewType as InterviewType,
           category: config.interviewType,
           question: aiMessage.content,
-          difficulty: 5, // Default difficulty
+          difficulty:
+            difficultyByQuestionId.get(questionId) ?? sessionDifficulty,
           expectedDuration: 3, // Default 3 minutes
           tags: [config.position, config.seniority],
         });
@@ -378,7 +425,7 @@ export async function saveInterviewResults(
           questionId,
           response: userMessage.content,
           duration: 180,
-          confidence: 7,
+          confidence: 0,
           score: subscores.overall,
           feedback: resolvedFeedback,
           keyPoints: [],
@@ -437,7 +484,7 @@ export async function saveInterviewResults(
           config.seniority,
           config.interviewType,
         ],
-        difficulty: 5,
+        difficulty: sessionDifficulty,
         aiConfidence: 85,
         summary: analysis.overallScore || "Analysis pending",
         recommendations: analysis.recommendations

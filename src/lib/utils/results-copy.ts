@@ -40,6 +40,41 @@ function clampFact(value: string | undefined): string | null {
   return trimmed;
 }
 
+function isNonStrengthFact(value: string): boolean {
+  const v = value.trim().toLowerCase();
+  if (v.length === 0) return true;
+
+  return (
+    v.includes("no significant strengths") ||
+    v.includes("no notable strengths") ||
+    v.includes("no clear strengths") ||
+    v.includes("no strengths demonstrated") ||
+    v.includes("no major strengths") ||
+    v.includes("none identified") ||
+    v === "none" ||
+    v === "n/a" ||
+    v === "na"
+  );
+}
+
+function getFallbackStrength(band: ReturnType<typeof getScoreBand>): string {
+  switch (band) {
+    case "elite":
+      return "your clarity and depth across key topics";
+    case "strong":
+      return "your consistent fundamentals";
+    case "pass":
+    case "near":
+    case "mid":
+    case "low":
+      return "your ability to meet the bar under pressure";
+    default: {
+      const _never: never = band;
+      throw new Error(`Unhandled band: ${_never}`);
+    }
+  }
+}
+
 function getScoreBand(
   score: number,
 ): "elite" | "strong" | "pass" | "near" | "mid" | "low" {
@@ -51,12 +86,19 @@ function getScoreBand(
   return "low";
 }
 
+function sanitizeFact(value: string | null): string | null {
+  if (!value) return null;
+  const trimmed = value.trim().replace(/\s+/g, " ");
+  if (trimmed.length === 0) return null;
+  return trimmed.replace(/[\s:;,.!-]+$/g, "");
+}
+
 export function generateOutcomeMessage(params: OutcomeMessageParams): string {
   const { seed, results, config } = params;
   const rng = createSeededRandom(seed ^ Math.floor(results.score));
 
-  const topStrength = clampFact(results.strengths?.[0]);
-  const topImprovement = clampFact(results.improvements?.[0]);
+  const rawStrength = clampFact(results.strengths?.[0]);
+  const rawImprovement = clampFact(results.improvements?.[0]);
 
   const role = config?.position ? `${config.position}` : null;
   const level = config?.seniority ? `${config.seniority}` : null;
@@ -65,18 +107,33 @@ export function generateOutcomeMessage(params: OutcomeMessageParams): string {
   const passed = results.passed === true;
   const band = getScoreBand(results.score);
 
+  const topStrength = sanitizeFact(
+    (() => {
+      if (!rawStrength) return null;
+      if (!passed) return rawStrength;
+      if (isNonStrengthFact(rawStrength)) return null;
+      return rawStrength;
+    })(),
+  );
+
+  const topImprovement = sanitizeFact(rawImprovement);
+
   const subject = roleContext
     ? `for a ${roleContext} interview`
     : "for this interview";
 
   if (passed) {
+    const fallbackStrength = getFallbackStrength(band);
+
     const highlight =
       topStrength && topImprovement
         ? `Your strongest signal was ${topStrength}. Next, focus on ${topImprovement}.`
         : topStrength
           ? `Your strongest signal was ${topStrength}.`
           : topImprovement
-            ? `Next, focus on ${topImprovement}.`
+            ? results.score >= 70
+              ? `Your strongest signal was ${fallbackStrength}. Next, focus on ${topImprovement}.`
+              : `Next, focus on ${topImprovement}.`
             : null;
 
     switch (band) {

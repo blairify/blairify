@@ -6,21 +6,27 @@ import {
   BarChart3,
   BookOpen,
   CheckCircle,
+  ChevronDown,
   FileText,
   Lightbulb,
-  MessageSquare,
   RotateCcw,
   Target,
   TrendingUp,
+  User,
   XCircle,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { Components } from "react-markdown";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Typography } from "@/components/common/atoms/typography";
+import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
 import {
   PostInterviewSurvey,
   type PostInterviewSurveyController,
 } from "@/components/results/organisms/post-interview-survey";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -29,6 +35,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { Separator } from "@/components/ui/separator";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import { addUserXP } from "@/lib/services/users/user-xp";
@@ -36,7 +48,6 @@ import {
   normalizePositionValue,
   normalizeSeniorityValue,
 } from "@/lib/utils/interview-normalizers";
-import { parseFullMarkdown } from "@/lib/utils/markdown-parser";
 import {
   generateAnalysisMessages,
   generateOutcomeMessage,
@@ -102,11 +113,176 @@ const getPerformanceLabel = (score: number, passed?: boolean): string => {
   return "Needs Improvement";
 };
 
+const qaMarkdownComponents: Components = {
+  p({ children }) {
+    return (
+      <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 whitespace-pre-line my-2">
+        {children}
+      </p>
+    );
+  },
+  ul({ children }) {
+    return <ul className="space-y-2 list-disc pl-5 mt-1 mb-2">{children}</ul>;
+  },
+  ol({ children }) {
+    return (
+      <ol className="space-y-2 list-decimal pl-5 mt-1 mb-2">{children}</ol>
+    );
+  },
+  li({ children }) {
+    return (
+      <li className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+        {children}
+      </li>
+    );
+  },
+  pre({ children }) {
+    return (
+      <pre className="my-2 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
+        {children}
+      </pre>
+    );
+  },
+  code({ children }) {
+    return (
+      <code className="rounded bg-muted/40 px-1 py-0.5 font-mono text-[0.85em]">
+        {children}
+      </code>
+    );
+  },
+  strong({ children }) {
+    return (
+      <strong className="text-gray-900 dark:text-gray-100 font-semibold">
+        {children}
+      </strong>
+    );
+  },
+  hr() {
+    return null;
+  },
+};
+
+const qaQuestionMarkdownComponents: Components = {
+  ...qaMarkdownComponents,
+  p({ children }) {
+    return (
+      <p className="text-sm leading-relaxed text-gray-900 dark:text-gray-100 whitespace-pre-line my-2">
+        {children}
+      </p>
+    );
+  },
+  li({ children }) {
+    return (
+      <li className="text-sm leading-relaxed text-gray-900 dark:text-gray-100">
+        {children}
+      </li>
+    );
+  },
+};
+
 function stripLinks(value: string): string {
   const withoutMarkdownLinks = value.replace(/\[([^\]]+)]\([^)]+\)/g, "$1");
   const withoutUrls = withoutMarkdownLinks.replace(/https?:\/\/\S+/g, "");
   return withoutUrls.replace(/\s{2,}/g, " ").trim();
 }
+
+function normalizeKnowledgeGapTitle(title: string): string {
+  return title
+    .trim()
+    .replace(/^\s*\d+\s*[.)]\s*/g, "")
+    .replace(/^\s*title\s*:\s*/i, "")
+    .trim();
+}
+
+function getMarkdownText(node: unknown): string {
+  if (node == null || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(getMarkdownText).join("");
+  if (typeof node === "object" && node && "props" in node) {
+    const n = node as { props?: { children?: unknown } };
+    return getMarkdownText(n.props?.children);
+  }
+  return "";
+}
+
+function normalizeOverallSummaryMarkdown(markdown: string): string {
+  return markdown.replace(/\n(?=[A-Za-z][A-Za-z\s/]{2,40}:\s*\S)/g, "\n\n");
+}
+
+const overallSummaryMarkdownComponents: Components = {
+  p({ children }) {
+    const labelInfo = (() => {
+      const text = getMarkdownText(children).trim().replace(/\s+/g, " ");
+      const match = /^([A-Za-z][A-Za-z\s/]{2,40}):\s*(.+)$/.exec(text);
+      if (!match) return null;
+      const [, label, value] = match;
+      return { label, value };
+    })();
+
+    if (labelInfo) {
+      return (
+        <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 whitespace-pre-line my-2">
+          <span className="text-gray-900 dark:text-gray-100 font-semibold">
+            {labelInfo.label}:
+          </span>{" "}
+          <span className="text-gray-500 dark:text-gray-400">
+            {labelInfo.value}
+          </span>
+        </p>
+      );
+    }
+
+    return (
+      <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 whitespace-pre-line my-2">
+        {children}
+      </p>
+    );
+  },
+  ul({ children }) {
+    return <ul className="space-y-2 list-disc pl-5 mt-1 mb-2">{children}</ul>;
+  },
+  ol({ children }) {
+    return (
+      <ol className="space-y-2 list-decimal pl-5 mt-1 mb-2">{children}</ol>
+    );
+  },
+  li({ children }) {
+    return (
+      <li className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+        {children}
+      </li>
+    );
+  },
+  pre({ children }) {
+    return (
+      <pre className="my-2 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
+        {children}
+      </pre>
+    );
+  },
+  code({ children }) {
+    return (
+      <code className="rounded bg-muted/40 px-1 py-0.5 font-mono text-[0.85em]">
+        {children}
+      </code>
+    );
+  },
+  strong({ children }) {
+    const text = getMarkdownText(children).trim().replace(/\s+/g, " ");
+    if (text.endsWith(":")) {
+      return (
+        <strong className="text-gray-900 dark:text-gray-100 font-semibold">
+          {children}
+        </strong>
+      );
+    }
+
+    return <strong className="font-normal">{children}</strong>;
+  },
+  hr() {
+    return null;
+  },
+};
 
 interface ResultsContentProps {
   user: UserData;
@@ -121,6 +297,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [practiceQuestionIds, setPracticeQuestionIds] = useState<string[]>([]);
   const [practiceQuestionsById, setPracticeQuestionsById] = useState<
     Record<string, Question>
+  >({});
+  const [answerByQuestionId, setAnswerByQuestionId] = useState<
+    Record<string, string>
   >({});
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -155,11 +334,32 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
     try {
       const parsedSession = interviewSessionRaw
-        ? (JSON.parse(interviewSessionRaw) as { questionIds?: string[] })
+        ? (JSON.parse(interviewSessionRaw) as {
+            questionIds?: string[];
+            messages?: Array<{
+              type?: "ai" | "user";
+              content?: string;
+              isFollowUp?: boolean;
+            }>;
+          })
         : null;
       const questionIds = parsedSession?.questionIds ?? [];
 
       setPracticeQuestionIds(questionIds);
+
+      const userAnswers = (parsedSession?.messages ?? [])
+        .filter((m) => m.type === "user" && m.isFollowUp !== true)
+        .map((m) => (m.content ?? "").trim())
+        .filter(Boolean);
+
+      const nextAnswers: Record<string, string> = {};
+      for (let i = 0; i < questionIds.length; i++) {
+        const id = questionIds[i];
+        const answer = userAnswers[i] ?? "";
+        if (!id) continue;
+        nextAnswers[id] = answer;
+      }
+      setAnswerByQuestionId(nextAnswers);
 
       if (questionIds.length > 0) {
         void (async () => {
@@ -195,6 +395,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     } catch {
       setPracticeQuestionIds([]);
       setPracticeQuestionsById({});
+      setAnswerByQuestionId({});
     }
 
     setCopySeed(
@@ -743,23 +944,6 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                       >
                         {outcomeMessage}
                       </Typography.Body>
-                      <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                        <Typography.Body>Final Score:</Typography.Body>
-                        <Typography.BodyBold
-                          className={`text-xl ${
-                            results.passed
-                              ? "text-emerald-600 dark:text-emerald-400"
-                              : "text-red-600 dark:text-red-400"
-                          }`}
-                        >
-                          {results.score}/100
-                        </Typography.BodyBold>
-                        {results.passingThreshold && (
-                          <Typography.Body className="text-gray-500">
-                            (threshold: {results.passingThreshold})
-                          </Typography.Body>
-                        )}
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -830,12 +1014,43 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   <Typography.Heading3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
                     {getPerformanceLabel(results.score, results.passed)}
                   </Typography.Heading3>
-                  <div
-                    className="prose prose-base prose-gray dark:prose-invert max-w-none leading-relaxed"
-                    dangerouslySetInnerHTML={parseFullMarkdown(
-                      results.overallScore,
-                    )}
-                  />
+
+                  {(() => {
+                    const summary = results.overallScore?.trim();
+                    if (summary) {
+                      return (
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={overallSummaryMarkdownComponents}
+                        >
+                          {normalizeOverallSummaryMarkdown(summary)}
+                        </ReactMarkdown>
+                      );
+                    }
+
+                    const fallback = results.detailedAnalysis
+                      ?.trim()
+                      .split(/\n{2,}/)
+                      .map((part) => part.trim())
+                      .filter(Boolean)[0];
+
+                    if (fallback) {
+                      return (
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={overallSummaryMarkdownComponents}
+                        >
+                          {normalizeOverallSummaryMarkdown(fallback)}
+                        </ReactMarkdown>
+                      );
+                    }
+
+                    return (
+                      <Typography.Body className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Detailed summary unavailable for this interview.
+                      </Typography.Body>
+                    );
+                  })()}
                 </div>
               </div>
               {results.passingThreshold && (
@@ -847,55 +1062,18 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             </CardContent>
           </Card>
 
-          {practiceQuestionIds.length > 0 && (
-            <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
-              <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  <Lightbulb className="h-5 w-5 text-amber-600 dark:text-amber-400" />
-                  Questions & Example Answers
-                </CardTitle>
-                <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Practice-library examples to benchmark your responses.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="space-y-6">
-                  {practiceQuestionIds.map((id, idx) => {
-                    const q = practiceQuestionsById[id] ?? null;
-                    const example = q ? getExampleAnswer(q) : null;
-
-                    return (
-                      <div
-                        key={id}
-                        className="rounded-lg border border-gray-200 dark:border-gray-800 p-4"
-                      >
-                        <div className="flex items-center justify-between gap-3 mb-3">
-                          <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
-                            Question {idx + 1}: {q?.title ?? "(failed to load)"}
-                          </div>
-                          <Typography.Caption className="text-xs text-gray-600 dark:text-gray-400">
-                            {q?.type ?? "unknown"}
-                          </Typography.Caption>
-                        </div>
-
-                        {example ? (
-                          <div
-                            className="prose prose-sm prose-gray dark:prose-invert max-w-none leading-relaxed"
-                            dangerouslySetInnerHTML={parseFullMarkdown(example)}
-                          />
-                        ) : (
-                          <div className="text-sm text-gray-600 dark:text-gray-400">
-                            {q
-                              ? "No example answer available for this question yet."
-                              : "Question details unavailable (could not fetch from Neon)."}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </CardContent>
-            </Card>
+          {(Boolean(results.overallScore?.trim()) ||
+            Boolean(results.detailedAnalysis?.trim()) ||
+            results.strengths.length > 0 ||
+            results.improvements.length > 0) && (
+            <AiFeedbackCard
+              title="AI Feedback"
+              icon={<FileText className="size-4" />}
+              summaryMarkdown={null}
+              strengths={results.strengths}
+              improvements={results.improvements}
+              detailsMarkdown={results.detailedAnalysis}
+            />
           )}
 
           {/* ============================================================================ */}
@@ -1014,7 +1192,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
                         <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
-                          {gap.title}
+                          {normalizeKnowledgeGapTitle(gap.title)}
                         </div>
                         <Typography.CaptionMedium
                           className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getPriorityClass(
@@ -1071,33 +1249,126 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             </Card>
           )}
 
-          {/* ============================================================================ */}
-          {/* DETAILED PERFORMANCE ANALYSIS */}
-          {/* ============================================================================ */}
-          {results.whyDecision && (
-            <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          {practiceQuestionIds.length > 0 && (
+            <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
               <CardHeader className="border-b border-gray-200 dark:border-gray-800">
                 <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  <MessageSquare className="h-5 w-5 text-purple-600 dark:text-purple-400" />
-                  Detailed Performance Analysis
+                  <Lightbulb className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                  Questions & Example Answers
                 </CardTitle>
                 <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  {results.passed === false
-                    ? "Key factors in the evaluation decision"
-                    : "Understanding your performance evaluation"}
+                  Practice-library examples to benchmark your responses.
                 </CardDescription>
               </CardHeader>
-
               <CardContent className="pt-6">
-                <div
-                  className="prose prose-base prose-gray dark:prose-invert max-w-none leading-relaxed"
-                  dangerouslySetInnerHTML={parseFullMarkdown(
-                    results.detailedAnalysis,
-                  )}
-                />
+                <div className="space-y-6">
+                  {practiceQuestionIds.map((id, idx) => {
+                    const q = practiceQuestionsById[id] ?? null;
+                    const example = q ? getExampleAnswer(q) : null;
+                    const prompt =
+                      q?.prompt?.trim() || q?.description?.trim() || null;
+                    const yourAnswer = answerByQuestionId[id]?.trim() || null;
+
+                    return (
+                      <Collapsible
+                        key={id}
+                        defaultOpen={false}
+                        className="border-2 border-border/50 rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-card to-card/50 shadow-md hover:shadow-lg transition-shadow"
+                      >
+                        <CollapsibleTrigger className="w-full text-left group">
+                          <div className="flex items-center justify-between gap-3">
+                            <div className="flex flex-wrap items-center gap-2 min-w-0">
+                              <Badge
+                                variant="default"
+                                className="font-semibold"
+                              >
+                                Question {idx + 1}
+                              </Badge>
+                              <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
+                                {q?.title ?? "(failed to load)"}
+                              </div>
+                            </div>
+                            <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
+                          </div>
+                        </CollapsibleTrigger>
+
+                        <CollapsibleContent className="pt-4">
+                          <div className="whitespace-pre-line mb-3">
+                            {prompt ? (
+                              <ReactMarkdown
+                                remarkPlugins={[remarkGfm]}
+                                components={qaQuestionMarkdownComponents}
+                              >
+                                {prompt}
+                              </ReactMarkdown>
+                            ) : (
+                              <div className="text-sm text-gray-600 dark:text-gray-400">
+                                Question prompt unavailable.
+                              </div>
+                            )}
+                          </div>
+
+                          {yourAnswer ? (
+                            <>
+                              <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                <User className="size-4 text-primary" />
+                                Your Response:
+                              </div>
+                              <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                <div className="whitespace-pre-line text-sm">
+                                  <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={qaMarkdownComponents}
+                                  >
+                                    {yourAnswer}
+                                  </ReactMarkdown>
+                                </div>
+                              </div>
+                            </>
+                          ) : (
+                            <div className="text-sm text-gray-600 dark:text-gray-400">
+                              No response recorded.
+                            </div>
+                          )}
+
+                          <Separator className="my-5" />
+
+                          {example ? (
+                            <div>
+                              <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                <Lightbulb className="size-4 text-primary" />
+                                Example Answer:
+                              </div>
+                              <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                <div className="whitespace-pre-line text-sm">
+                                  <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={qaMarkdownComponents}
+                                  >
+                                    {example}
+                                  </ReactMarkdown>
+                                </div>
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="text-sm text-gray-600 dark:text-gray-400">
+                              {q
+                                ? "No example answer available for this question yet."
+                                : "Question details unavailable (could not fetch from Neon)."}
+                            </div>
+                          )}
+                        </CollapsibleContent>
+                      </Collapsible>
+                    );
+                  })}
+                </div>
               </CardContent>
             </Card>
           )}
+
+          {/* ============================================================================ */}
+          {/* DETAILED PERFORMANCE ANALYSIS */}
+          {/* ============================================================================ */}
 
           {/* ============================================================================ */}
           {/* ACTION BUTTONS */}

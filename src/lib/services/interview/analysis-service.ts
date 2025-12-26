@@ -326,7 +326,7 @@ function buildDetailedAnalysis(analysis: string, whyDecision: string): string {
     categoryParts.unshift(`**WHY THIS DECISION**\n${whyDecision}`);
   }
 
-  return categoryParts.join("\n\n");
+  return categoryParts.join("\n\n---\n\n");
 }
 
 function extractCategoryContent(
