@@ -2,6 +2,15 @@
 
 import { Timestamp } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import {
   getInterviewerById,
   getInterviewerForRole,
@@ -72,6 +81,14 @@ export function InterviewContent({ user }: InterviewContentProps) {
   );
   const [warningCount, setWarningCount] = useState(0);
   const interviewCompletedRef = useRef(false);
+  const allowExitRef = useRef(false);
+  const hasPushedGuardStateRef = useRef(false);
+  const [isExitDialogOpen, setIsExitDialogOpen] = useState(false);
+  const pendingExitUrlRef = useRef<string | null>(null);
+  const originalHistoryMethodsRef = useRef<{
+    pushState: History["pushState"];
+    replaceState: History["replaceState"];
+  } | null>(null);
 
   const {
     session,
@@ -111,9 +128,184 @@ export function InterviewContent({ user }: InterviewContentProps) {
     }
   };
 
+  const shouldBlockExit =
+    isInterviewStarted && !session.isComplete && !allowExitRef.current;
+
+  useEffect(() => {
+    if (!shouldBlockExit) {
+      return;
+    }
+
+    const ensureOriginalHistoryMethods = () => {
+      if (originalHistoryMethodsRef.current) {
+        return originalHistoryMethodsRef.current;
+      }
+
+      const methods = {
+        pushState: window.history.pushState.bind(window.history),
+        replaceState: window.history.replaceState.bind(window.history),
+      };
+      originalHistoryMethodsRef.current = methods;
+      return methods;
+    };
+
+    const shouldBlockNavigationTo = (url: string) => {
+      if (!shouldBlockExit) {
+        return false;
+      }
+
+      let nextUrl: URL;
+      try {
+        nextUrl = new URL(url, window.location.href);
+      } catch {
+        return false;
+      }
+
+      if (nextUrl.origin !== window.location.origin) {
+        return false;
+      }
+
+      if (
+        nextUrl.pathname === window.location.pathname &&
+        nextUrl.search === window.location.search &&
+        nextUrl.hash === window.location.hash
+      ) {
+        return false;
+      }
+
+      return true;
+    };
+
+    const requestExitTo = (url: string) => {
+      if (!shouldBlockExit) {
+        return;
+      }
+
+      pendingExitUrlRef.current = url;
+      setIsExitDialogOpen(true);
+    };
+
+    const { pushState, replaceState } = ensureOriginalHistoryMethods();
+
+    window.history.pushState = ((...args: Parameters<History["pushState"]>) => {
+      const url = args[2];
+      if (typeof url === "string" && shouldBlockNavigationTo(url)) {
+        requestExitTo(url);
+        return;
+      }
+      pushState(...args);
+    }) as History["pushState"];
+
+    window.history.replaceState = ((
+      ...args: Parameters<History["replaceState"]>
+    ) => {
+      const url = args[2];
+      if (typeof url === "string" && shouldBlockNavigationTo(url)) {
+        requestExitTo(url);
+        return;
+      }
+      replaceState(...args);
+    }) as History["replaceState"];
+
+    const handleDocumentClickCapture = (event: MouseEvent) => {
+      if (!shouldBlockExit) {
+        return;
+      }
+
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      if (event.button !== 0) {
+        return;
+      }
+
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
+
+      const target = event.target;
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const anchor = target.closest("a[href]");
+      if (!(anchor instanceof HTMLAnchorElement)) {
+        return;
+      }
+
+      const href = anchor.getAttribute("href");
+      if (!href) {
+        return;
+      }
+
+      if (anchor.target && anchor.target !== "_self") {
+        return;
+      }
+
+      if (anchor.hasAttribute("download")) {
+        return;
+      }
+
+      if (shouldBlockNavigationTo(href)) {
+        event.preventDefault();
+        requestExitTo(href);
+      }
+    };
+
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (!shouldBlockExit) {
+        return;
+      }
+      event.preventDefault();
+      event.returnValue = "";
+    };
+
+    const handlePopState = () => {
+      if (!shouldBlockExit) {
+        return;
+      }
+
+      if (!isExitDialogOpen) {
+        setIsExitDialogOpen(true);
+      }
+
+      window.history.pushState(null, "", window.location.href);
+    };
+
+    if (!hasPushedGuardStateRef.current) {
+      hasPushedGuardStateRef.current = true;
+      window.history.pushState(null, "", window.location.href);
+    }
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener("popstate", handlePopState);
+    document.addEventListener("click", handleDocumentClickCapture, true);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener("popstate", handlePopState);
+
+      document.removeEventListener("click", handleDocumentClickCapture, true);
+
+      const original = originalHistoryMethodsRef.current;
+      if (original) {
+        window.history.pushState = original.pushState;
+        window.history.replaceState = original.replaceState;
+      }
+    };
+  }, [isExitDialogOpen, shouldBlockExit]);
+
   const handleViewResults = () => {
+    allowExitRef.current = true;
     markInterviewComplete();
     window.location.href = "/results";
+  };
+
+  const handleStopInterview = () => {
+    allowExitRef.current = true;
+    setIsExitDialogOpen(false);
+    markInterviewComplete();
   };
 
   const handleTimeUp = () => {
@@ -657,6 +849,46 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
   return (
     <main className="flex-1 flex flex-col h-full overflow-hidden bg-gradient-to-b from-background to-muted/20">
+      <Dialog open={isExitDialogOpen} onOpenChange={setIsExitDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Leave interview?</DialogTitle>
+            <DialogDescription>
+              Your interview is still in progress. Click Stop to end it, or View
+              Results after it ends.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => {
+                pendingExitUrlRef.current = null;
+                setIsExitDialogOpen(false);
+              }}
+            >
+              Stay
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={() => {
+                allowExitRef.current = true;
+                setIsExitDialogOpen(false);
+                const pendingUrl = pendingExitUrlRef.current;
+                pendingExitUrlRef.current = null;
+                if (pendingUrl) {
+                  window.location.href = pendingUrl;
+                  return;
+                }
+
+                window.history.back();
+              }}
+            >
+              Leave
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
       <InterviewHeader
         interviewType={config.interviewType}
         timeRemaining={timeRemaining}
@@ -667,7 +899,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
         isLoading={isLoading}
         onPauseResume={togglePause}
         onSkip={handleSkipQuestion}
-        onEnd={markInterviewComplete}
+        onEnd={handleStopInterview}
       />
 
       <InterviewMessagesArea
