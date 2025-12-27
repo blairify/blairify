@@ -59,6 +59,7 @@ import type {
   InterviewConfig,
   InterviewResults,
   KnowledgeGapPriority,
+  TerminationReason,
 } from "@/types/interview";
 import type { Question } from "@/types/practice-question";
 
@@ -294,6 +295,11 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [isAnalyzing, setIsAnalyzing] = useState(true);
   const [results, setResults] = useState<InterviewResults | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [termination, setTermination] = useState<{
+    reason: TerminationReason;
+    message: string;
+    at?: string | Date;
+  } | null>(null);
   const [practiceQuestionIds, setPracticeQuestionIds] = useState<string[]>([]);
   const [practiceQuestionsById, setPracticeQuestionsById] = useState<
     Record<string, Question>
@@ -341,11 +347,31 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               content?: string;
               isFollowUp?: boolean;
             }>;
+            termination?: {
+              reason?: TerminationReason;
+              message?: string;
+              at?: string | Date;
+            };
           })
         : null;
       const questionIds = parsedSession?.questionIds ?? [];
 
       setPracticeQuestionIds(questionIds);
+
+      const maybeTermination = parsedSession?.termination;
+      if (
+        maybeTermination?.reason &&
+        typeof maybeTermination.message === "string" &&
+        maybeTermination.message.trim().length > 0
+      ) {
+        setTermination({
+          reason: maybeTermination.reason,
+          message: maybeTermination.message,
+          at: maybeTermination.at,
+        });
+      } else {
+        setTermination(null);
+      }
 
       const userAnswers = (parsedSession?.messages ?? [])
         .filter((m) => m.type === "user" && m.isFollowUp !== true)
@@ -396,6 +422,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       setPracticeQuestionIds([]);
       setPracticeQuestionsById({});
       setAnswerByQuestionId({});
+      setTermination(null);
     }
 
     setCopySeed(
@@ -922,10 +949,46 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     );
   }
 
+  const terminationTitle = (() => {
+    if (!termination) return null;
+    switch (termination.reason) {
+      case "profanity":
+        return "Interview terminated: inappropriate language";
+      case "inappropriate-behavior":
+        return "Interview terminated: inappropriate behavior";
+      default: {
+        const _never: never = termination.reason;
+        throw new Error(`Unhandled termination reason: ${_never}`);
+      }
+    }
+  })();
+
   return (
     <>
       <main className={`flex-1 overflow-auto ${backgroundClass}`}>
         <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
+          {termination && terminationTitle && (
+            <Card className="border-2 border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700">
+              <CardContent className="py-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300">
+                      <AlertTriangle className="size-6" />
+                    </div>
+                    <div>
+                      <div className="text-lg font-bold text-red-900 dark:text-red-100 mb-1">
+                        {terminationTitle}
+                      </div>
+                      <Typography.Body className="text-sm leading-relaxed text-red-700 dark:text-red-300">
+                        {termination.message}
+                      </Typography.Body>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
           {/* ============================================================================ */}
           {/* OUTCOME DECISION BANNER */}
           {/* ============================================================================ */}

@@ -46,7 +46,16 @@ export interface InterviewSession {
   isDemoMode: boolean;
   hasPersonalizedIntro: boolean;
   endedEarly?: boolean;
+  termination?: InterviewTermination;
   interviewerId?: string; // Store interviewer ID for consistency
+}
+
+export type TerminationReason = "profanity" | "inappropriate-behavior";
+
+export interface InterviewTermination {
+  reason: TerminationReason;
+  message: string;
+  at?: Date;
 }
 
 export interface InterviewResults {

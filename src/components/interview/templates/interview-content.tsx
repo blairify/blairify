@@ -590,8 +590,16 @@ export function InterviewContent({ user }: InterviewContentProps) {
               messages: session.messages,
               config,
               interviewer,
+              startTime: session.startTime,
+              endTime: new Date(),
+              questionIds: session.questionIds,
               isComplete: true,
               terminatedForProfanity: true,
+              termination: {
+                reason: "profanity",
+                message: data.message,
+                at: new Date(),
+              },
               finalScore: 0,
             };
 
@@ -617,8 +625,16 @@ export function InterviewContent({ user }: InterviewContentProps) {
               messages: session.messages,
               config,
               interviewer,
+              startTime: session.startTime,
+              endTime: new Date(),
+              questionIds: session.questionIds,
               isComplete: true,
               terminatedForBehavior: true,
+              termination: {
+                reason: "inappropriate-behavior",
+                message: data.message,
+                at: new Date(),
+              },
               finalScore: 0,
             };
 
@@ -722,8 +738,16 @@ export function InterviewContent({ user }: InterviewContentProps) {
                 messages: session.messages,
                 config,
                 interviewer,
+                startTime: session.startTime,
+                endTime: new Date(),
+                questionIds: session.questionIds,
                 isComplete: true,
                 terminatedForProfanity: true,
+                termination: {
+                  reason: "profanity",
+                  message: data.message,
+                  at: new Date(),
+                },
                 finalScore: 0,
               };
 
@@ -745,8 +769,16 @@ export function InterviewContent({ user }: InterviewContentProps) {
                 messages: session.messages,
                 config,
                 interviewer,
+                startTime: session.startTime,
+                endTime: new Date(),
+                questionIds: session.questionIds,
                 isComplete: true,
                 terminatedForBehavior: true,
+                termination: {
+                  reason: "inappropriate-behavior",
+                  message: data.message,
+                  at: new Date(),
+                },
                 finalScore: 0,
               };
 

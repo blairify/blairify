@@ -173,12 +173,21 @@ export interface InterviewSession {
   completedAt?: Timestamp;
   totalDuration: number; // actual minutes spent
   scores?: SessionScores;
+  termination?: SessionTermination;
   questions: InterviewQuestion[];
   responses: InterviewResponse[];
   analysis: SessionAnalysis;
   userFeedback?: UserSessionFeedback;
   createdAt: Timestamp;
   updatedAt: Timestamp;
+}
+
+export type TerminationReason = "profanity" | "inappropriate-behavior";
+
+export interface SessionTermination {
+  reason: TerminationReason;
+  message: string;
+  at?: Timestamp;
 }
 
 export interface InterviewConfig {

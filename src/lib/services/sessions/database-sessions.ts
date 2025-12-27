@@ -15,9 +15,9 @@ import {
   where,
 } from "firebase/firestore";
 import {
+  safeDeleteDoc,
   safeGetDoc,
   safeGetDocs,
-  safeDeleteDoc,
   safeSetDoc,
   safeUpdateDoc,
 } from "@/lib/firestore-utils";
@@ -357,6 +357,11 @@ export async function saveInterviewResults(
     startTime?: Date | string;
     endTime?: Date | string;
     endedEarly?: boolean;
+    termination?: {
+      reason: "profanity" | "inappropriate-behavior";
+      message: string;
+      at?: Date | string;
+    };
   },
   config: {
     position: string;
@@ -465,6 +470,16 @@ export async function saveInterviewResults(
       ? Timestamp.fromDate(new Date(sessionData.endTime))
       : Timestamp.now();
 
+    const termination = sessionData.termination
+      ? {
+          reason: sessionData.termination.reason,
+          message: sessionData.termination.message,
+          ...(sessionData.termination.at
+            ? { at: Timestamp.fromDate(new Date(sessionData.termination.at)) }
+            : {}),
+        }
+      : undefined;
+
     const sessionBase = {
       sessionId: existingSessionId ?? sessionDoc.id,
       config: {
@@ -496,6 +511,7 @@ export async function saveInterviewResults(
                 60000,
             )
           : config.duration,
+      ...(termination ? { termination } : {}),
       questions,
       responses,
       analysis: {

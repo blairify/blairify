@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  AlertTriangle,
   ArrowLeft,
   Brain,
   Calendar,
@@ -501,6 +502,40 @@ export default function SessionDetailsPage() {
                 </div>
               </div>
             </div>
+
+            {(() => {
+              const termination = session.termination;
+              if (!termination) return null;
+
+              const title = (() => {
+                switch (termination.reason) {
+                  case "profanity":
+                    return "Interview terminated: inappropriate language";
+                  case "inappropriate-behavior":
+                    return "Interview terminated: inappropriate behavior";
+                  default: {
+                    const _never: never = termination.reason;
+                    throw new Error(`Unhandled termination reason: ${_never}`);
+                  }
+                }
+              })();
+
+              return (
+                <Card className="mb-6 border-2 border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 shadow-lg">
+                  <CardHeader className="px-3 pt-2 pb-0">
+                    <CardTitle className="flex items-center gap-2 text-lg font-bold leading-none text-red-900 dark:text-red-100">
+                      <AlertTriangle className="size-5" />
+                      {title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-3 pt-2 pb-3">
+                    <Typography.Body className="text-sm leading-relaxed text-red-700 dark:text-red-300">
+                      {termination.message}
+                    </Typography.Body>
+                  </CardContent>
+                </Card>
+              );
+            })()}
 
             {/* Interview Summary */}
             {session.analysis?.summary && (
