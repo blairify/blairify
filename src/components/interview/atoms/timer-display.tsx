@@ -6,7 +6,7 @@ interface TimerDisplayProps {
 
 export function TimerDisplay({ seconds }: TimerDisplayProps) {
   const formatTime = (secs: number) => {
-    if (secs === Number.POSITIVE_INFINITY) return "∞";
+    if (secs === Number.POSITIVE_INFINITY) return "-";
     const mins = Math.floor(secs / 60);
     const remainingSecs = secs % 60;
     return `${mins}:${remainingSecs.toString().padStart(2, "0")}`;

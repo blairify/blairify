@@ -486,7 +486,7 @@ export function OnboardingPageClient({
       experience || override?.seniority,
       override?.seniority,
     );
-    const interviewMode: InterviewMode = override?.interviewMode ?? "practice";
+    const interviewMode: InterviewMode = override?.interviewMode ?? "regular";
     const interviewType: InterviewType = override?.interviewType ?? "technical";
 
     const position = resolvePositionValue(override?.position, role);
@@ -562,7 +562,7 @@ export function OnboardingPageClient({
     await completeOnboarding();
 
     const seniority = (experience || "mid") as SeniorityLevel;
-    const interviewMode: InterviewMode = "practice";
+    const interviewMode: InterviewMode = "regular";
     const interviewType: InterviewType = "technical";
 
     const config: InterviewConfig = {

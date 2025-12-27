@@ -2,20 +2,118 @@
 
 import { ArrowRight, ExternalLink, Lightbulb } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import {
+  buildSearchParamsFromInterviewConfig,
+  type InterviewConfig,
+  type InterviewMode,
+  type InterviewType,
+  type SeniorityLevel,
+} from "@/lib/interview";
 import type { JobListing } from "@/lib/services/landing-page-data";
+import {
+  normalizeCompanyProfileValue,
+  normalizePositionValue,
+  normalizeSeniorityValue,
+} from "@/lib/utils/interview-normalizers";
 import { formatJobType } from "@/lib/utils/job-formatting";
 
 interface JobListingsPromoProps {
   jobs: JobListing[];
 }
 
+interface JobTitleProps {
+  title: string;
+}
+
+function JobTitle({ title }: JobTitleProps) {
+  const [el, setEl] = useState<HTMLHeadingElement | null>(null);
+  const [isTruncated, setIsTruncated] = useState(false);
+
+  useEffect(() => {
+    if (!el) return;
+
+    const update = () => {
+      const isWidthTruncated = el.scrollWidth > el.clientWidth;
+      const isHeightTruncated = el.scrollHeight > el.clientHeight;
+      setIsTruncated(isWidthTruncated || isHeightTruncated);
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [el]);
+
+  if (!isTruncated) {
+    return (
+      <h4
+        key={title}
+        ref={setEl}
+        className="font-medium text-sm group-hover:text-primary transition-colors line-clamp-1"
+      >
+        {title}
+      </h4>
+    );
+  }
+
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <h4
+          key={title}
+          ref={setEl}
+          className="font-medium text-sm group-hover:text-primary transition-colors line-clamp-1"
+        >
+          {title}
+        </h4>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>{title}</p>
+      </TooltipContent>
+    </Tooltip>
+  );
+}
+
 export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
   const router = useRouter();
   const featuredJobs = jobs.slice(0, 4);
+
+  const startJobListingInterview = (job: JobListing) => {
+    const interviewMode: InterviewMode = "practice";
+    const interviewType: InterviewType = "technical";
+
+    const config: InterviewConfig = {
+      position: normalizePositionValue(job.title),
+      seniority: normalizeSeniorityValue(null) as SeniorityLevel,
+      technologies: [],
+      companyProfile: normalizeCompanyProfileValue(null),
+      specificCompany: undefined,
+      interviewMode,
+      interviewType,
+      duration: "30",
+      isDemoMode: false,
+      contextType: "job-specific",
+      jobId: job.id,
+      company: job.company ?? undefined,
+      jobLocation: job.location ?? undefined,
+      jobType: job.jobType ?? undefined,
+    };
+
+    const params = buildSearchParamsFromInterviewConfig(config);
+    router.push(`/interview?${params.toString()}`);
+  };
+
   return (
     <section
       className="w-full bg-[color:var(--secondary)] py-12 sm:py-16 lg:py-20 overflow-hidden"
@@ -26,66 +124,73 @@ export function JobListingsPromo({ jobs }: JobListingsPromoProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
           {/* Job Listings - Left Side */}
           <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-left-8 duration-1000 delay-200 order-last lg:order-first max-w-xl lg:max-w-none mx-auto lg:mx-0">
-            <ul
-              className="grid grid-cols-2 gap-4"
-              aria-label="Featured job opportunities"
-            >
-              {featuredJobs.map((job, index) => (
-                <Card
-                  key={job.id}
-                  className="p-4 rounded-lg transition-colors border space-y-1 gap-2 group hover:shadow-md"
-                  style={{
-                    animationDelay: `${600 + index * 100}ms`,
-                  }}
-                  role="listitem"
-                  aria-label={`Job: ${job.title} at ${job.company}`}
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h4 className="font-medium text-sm group-hover:text-primary transition-colors line-clamp-1">
-                        {job.title}
-                      </h4>
-                      <div className="flex items-center gap-1 mt-1">
-                        <span className="text-xs  font-medium">
-                          {job.company}
-                        </span>
-                      </div>
-                    </div>
-                    <Badge variant="outline" className="text-xs ml-2">
-                      {formatJobType(job.jobType)}
-                    </Badge>
-                  </div>
+            <TooltipProvider delayDuration={0}>
+              <ul
+                className="grid grid-cols-2 gap-4"
+                aria-label="Featured job opportunities"
+              >
+                {featuredJobs.map((job, index) =>
+                  (() => {
+                    const title = job.title ?? "Untitled role";
+                    return (
+                      <Card
+                        key={job.id}
+                        className="p-4 rounded-lg transition-colors border space-y-1 gap-2 group hover:shadow-md"
+                        style={{
+                          animationDelay: `${600 + index * 100}ms`,
+                        }}
+                        role="listitem"
+                        aria-label={`Job: ${title} at ${job.company}`}
+                      >
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <JobTitle title={title} />
+                            <div className="flex items-center gap-1 mt-1">
+                              <span className="text-xs  font-medium">
+                                {job.company}
+                              </span>
+                            </div>
+                          </div>
+                          <Badge variant="outline" className="text-xs ml-2">
+                            {formatJobType(job.jobType)}
+                          </Badge>
+                        </div>
 
-                  <div className="flex flex-col min-[600px]:flex-row gap-2 pt-2 w-full">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="w-full min-[600px]:w-1/3 text-xs"
-                      onClick={() =>
-                        window.open(
-                          job.jobUrlDirect ?? job.jobUrl ?? "#",
-                          "_blank",
-                        )
-                      }
-                      disabled={!job.jobUrlDirect && !job.jobUrl}
-                    >
-                      <ExternalLink className="mr-1 size-3" />
-                      Apply
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="w-full min-[600px]:flex-1 text-xs hover:bg-primary/10 hover:border-primary hover:text-[color:var(--foreground)] relative overflow-hidden group/btn"
-                      onClick={() => router.push("/configure")}
-                    >
-                      <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                      <Lightbulb className="mr-1 size-3 relative z-10" />
-                      <span className="relative z-10">Interview with AI</span>
-                    </Button>
-                  </div>
-                </Card>
-              ))}
-            </ul>
+                        <div className="flex flex-col min-[600px]:flex-row gap-2 pt-2 w-full">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="w-full min-[600px]:w-1/3 text-xs"
+                            onClick={() =>
+                              window.open(
+                                job.jobUrlDirect ?? job.jobUrl ?? "#",
+                                "_blank",
+                              )
+                            }
+                            disabled={!job.jobUrlDirect && !job.jobUrl}
+                          >
+                            <ExternalLink className="mr-1 size-3" />
+                            Apply
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="w-full min-[600px]:flex-1 text-xs hover:bg-primary/10 hover:border-primary hover:text-[color:var(--foreground)] relative overflow-hidden group/btn"
+                            onClick={() => startJobListingInterview(job)}
+                          >
+                            <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+                            <Lightbulb className="mr-1 size-3 relative z-10" />
+                            <span className="relative z-10">
+                              Interview with AI
+                            </span>
+                          </Button>
+                        </div>
+                      </Card>
+                    );
+                  })(),
+                )}
+              </ul>
+            </TooltipProvider>
           </div>
 
           <div className="space-y-4 sm:space-y-8 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col items-center lg:items-start justify-center text-center lg:text-left max-w-xl lg:max-w-none mx-auto lg:mx-0">
