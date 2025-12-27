@@ -613,7 +613,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
               localStorage.setItem("interviewSessionId", databaseSessionId);
             }
 
-            window.location.href = "/results";
+            markInterviewComplete();
             return;
           }
 
@@ -648,7 +648,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
               localStorage.setItem("interviewSessionId", databaseSessionId);
             }
 
-            window.location.href = "/results";
+            markInterviewComplete();
             return;
           }
 
@@ -757,7 +757,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
               );
               localStorage.setItem("interviewConfig", JSON.stringify(config));
 
-              window.location.href = "/results";
+              markInterviewComplete();
               return;
             }
 
@@ -792,7 +792,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
                 localStorage.setItem("interviewSessionId", databaseSessionId);
               }
 
-              window.location.href = "/results";
+              markInterviewComplete();
               return;
             }
 
