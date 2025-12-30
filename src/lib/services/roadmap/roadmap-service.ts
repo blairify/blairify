@@ -2,6 +2,7 @@ import {
   addDoc,
   collection,
   collectionGroup,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
@@ -273,4 +274,12 @@ export async function toggleRoadmapIdeaUpvote(params: {
 
     return { voteCount: currentVoteCount + 1, upvoted: true };
   });
+}
+
+export async function deleteRoadmapIdea(params: {
+  ideaId: string;
+}): Promise<void> {
+  const db = ensureDatabase();
+  const ideaRef = doc(db, ROADMAP_IDEAS_COLLECTION, params.ideaId);
+  await deleteDoc(ideaRef);
 }

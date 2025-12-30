@@ -8,6 +8,14 @@ import { DashboardLayout } from "@/components/my-progress/templates/dashboard-la
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -20,6 +28,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { isAdmin } from "@/lib/services/auth/auth-roles";
 import {
   createRoadmapIdea,
+  deleteRoadmapIdea,
   hasUserUpvotedRoadmapIdea,
   type RoadmapIdea,
   type RoadmapIdeaAudience,
@@ -43,6 +52,10 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [votingIdeaId, setVotingIdeaId] = useState<string | null>(null);
+  const [deletingIdeaId, setDeletingIdeaId] = useState<string | null>(null);
+  const [deleteDialogIdeaId, setDeleteDialogIdeaId] = useState<string | null>(
+    null,
+  );
   const [bumpIdeaId, setBumpIdeaId] = useState<string | null>(null);
 
   const [title, setTitle] = useState("");
@@ -210,6 +223,42 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
     }
   };
 
+  const onRequestDeleteIdea = (ideaId: string) => {
+    if (!canManageRoadmap) {
+      toast.error("You don't have permission to delete roadmap items");
+      return;
+    }
+    setDeleteDialogIdeaId(ideaId);
+  };
+
+  const onConfirmDeleteIdea = async (ideaId: string) => {
+    if (!canManageRoadmap) {
+      toast.error("You don't have permission to delete roadmap items");
+      return;
+    }
+
+    const previousIdeas = ideas;
+
+    setIdeas((prev) => prev.filter((idea) => idea.id !== ideaId));
+    setUpvotedByIdeaId((prev) => {
+      const { [ideaId]: _, ...rest } = prev;
+      return rest;
+    });
+
+    try {
+      setDeletingIdeaId(ideaId);
+      await deleteRoadmapIdea({ ideaId });
+      toast.success("Roadmap item deleted");
+    } catch (error) {
+      console.error("Failed to delete roadmap idea:", error);
+      toast.error("Failed to delete roadmap item");
+      setIdeas(previousIdeas);
+    } finally {
+      setDeletingIdeaId(null);
+      setDeleteDialogIdeaId(null);
+    }
+  };
+
   const candidateIdeas = useMemo(() => {
     return ideas.filter((idea) => idea.audience === "candidate");
   }, [ideas]);
@@ -221,6 +270,7 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
   const renderIdeaCard = (idea: RoadmapIdea) => {
     const upvoted = upvotedByIdeaId[idea.id] ?? false;
     const isBumping = bumpIdeaId === idea.id;
+    const isDeleting = deletingIdeaId === idea.id;
 
     const statusLabel = (() => {
       switch (idea.status) {
@@ -243,20 +293,32 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
               <CardTitle className="text-base">{idea.title}</CardTitle>
               <Badge variant="secondary">{statusLabel}</Badge>
             </div>
-            <Button
-              size="sm"
-              variant={upvoted ? "secondary" : "outline"}
-              onClick={() => onToggleUpvote(idea.id)}
-              disabled={votingIdeaId === idea.id}
-              aria-pressed={upvoted}
-              className={
-                isBumping
-                  ? "transition-transform duration-150 scale-105"
-                  : undefined
-              }
-            >
-              {upvoted ? "Upvoted" : "Upvote"} · {idea.voteCount}
-            </Button>
+            <div className="flex items-center gap-2">
+              {canManageRoadmap ? (
+                <Button
+                  size="sm"
+                  variant="destructive"
+                  onClick={() => onRequestDeleteIdea(idea.id)}
+                  disabled={isDeleting}
+                >
+                  Delete
+                </Button>
+              ) : null}
+              <Button
+                size="sm"
+                variant={upvoted ? "secondary" : "outline"}
+                onClick={() => onToggleUpvote(idea.id)}
+                disabled={votingIdeaId === idea.id || isDeleting}
+                aria-pressed={upvoted}
+                className={
+                  isBumping
+                    ? "transition-transform duration-150 scale-105"
+                    : undefined
+                }
+              >
+                {upvoted ? "Upvoted" : "Upvote"} · {idea.voteCount}
+              </Button>
+            </div>
           </div>
         </CardHeader>
         <CardContent>
@@ -278,6 +340,39 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
 
   return (
     <DashboardLayout>
+      <Dialog
+        open={deleteDialogIdeaId !== null}
+        onOpenChange={(open) => {
+          if (open) return;
+          setDeleteDialogIdeaId(null);
+        }}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Delete roadmap item?</DialogTitle>
+            <DialogDescription>This cannot be undone.</DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => setDeleteDialogIdeaId(null)}
+              disabled={deletingIdeaId !== null}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={() => {
+                if (!deleteDialogIdeaId) return;
+                void onConfirmDeleteIdea(deleteDialogIdeaId);
+              }}
+              disabled={deleteDialogIdeaId === null || deletingIdeaId !== null}
+            >
+              Delete
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
       <div className="space-y-6">
         <div className="space-y-2">
           <Typography.Heading1 className="tracking-tight">
