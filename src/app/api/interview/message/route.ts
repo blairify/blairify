@@ -165,10 +165,11 @@ export async function POST(request: NextRequest) {
         success: true,
         message:
           "I appreciate your question! Currently, I can only conduct interviews in English. This helps ensure consistency and accuracy in our assessment process. Let's continue with your interview in English - I'm here to help you showcase your skills!",
-        questionType: "clarification",
+        questionType: "termination",
         validated: true,
-        isFollowUp: true,
-        isComplete: false,
+        isFollowUp: false,
+        isComplete: true,
+        terminatedForLanguage: true,
       });
     }
 

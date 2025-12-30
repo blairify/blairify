@@ -182,7 +182,10 @@ export interface InterviewSession {
   updatedAt: Timestamp;
 }
 
-export type TerminationReason = "profanity" | "inappropriate-behavior";
+export type TerminationReason =
+  | "language"
+  | "profanity"
+  | "inappropriate-behavior";
 
 export interface SessionTermination {
   reason: TerminationReason;

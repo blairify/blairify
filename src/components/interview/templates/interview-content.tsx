@@ -17,6 +17,7 @@ import {
 } from "@/lib/config/interviewers";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
+import type { TerminationReason } from "@/types/interview";
 import { useInterviewConfig } from "../../../hooks/use-interview-config";
 import { useInterviewSession } from "../../../hooks/use-interview-session";
 import { useInterviewTimer } from "../../../hooks/use-interview-timer";
@@ -48,6 +49,7 @@ interface ChatInterviewResponse {
   usedFallback?: boolean;
   warningCount?: number;
   isComplete?: boolean;
+  terminatedForLanguage?: boolean;
   terminatedForProfanity?: boolean;
   terminatedForBehavior?: boolean;
   aiErrorType?: string;
@@ -76,6 +78,8 @@ export function InterviewContent({ user }: InterviewContentProps) {
   const [isInterviewStarted, setIsInterviewStarted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
+  const [completionTerminationReason, setCompletionTerminationReason] =
+    useState<TerminationReason | null>(null);
   const [databaseSessionId, setDatabaseSessionId] = useState<string | null>(
     null,
   );
@@ -340,6 +344,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
     });
 
   const handleStartInterview = async () => {
+    setCompletionTerminationReason(null);
     setIsInterviewStarted(true);
     setIsLoading(true);
 
@@ -581,9 +586,60 @@ export function InterviewContent({ user }: InterviewContentProps) {
         }
 
         if (data.isComplete) {
+          if (data.terminatedForLanguage) {
+            interviewCompletedRef.current = true;
+            setCompletionTerminationReason("language");
+            updateSession({
+              isComplete: true,
+              termination: {
+                reason: "language",
+                message: data.message,
+                at: new Date(),
+              },
+            });
+
+            const terminationData = {
+              messages: session.messages,
+              config,
+              interviewer,
+              startTime: session.startTime,
+              endTime: new Date(),
+              questionIds: session.questionIds,
+              isComplete: true,
+              terminatedForLanguage: true,
+              termination: {
+                reason: "language",
+                message: data.message,
+                at: new Date(),
+              },
+              finalScore: 0,
+            };
+
+            localStorage.setItem(
+              "interviewSession",
+              JSON.stringify(terminationData),
+            );
+            localStorage.setItem("interviewConfig", JSON.stringify(config));
+
+            if (databaseSessionId) {
+              localStorage.setItem("interviewSessionId", databaseSessionId);
+            }
+
+            markInterviewComplete();
+            return;
+          }
+
           if (data.terminatedForProfanity) {
             interviewCompletedRef.current = true;
-            completeInterview();
+            setCompletionTerminationReason("profanity");
+            updateSession({
+              isComplete: true,
+              termination: {
+                reason: "profanity",
+                message: data.message,
+                at: new Date(),
+              },
+            });
 
             const terminationData = {
               messages: session.messages,
@@ -618,7 +674,15 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
           if (data.terminatedForBehavior) {
             interviewCompletedRef.current = true;
-            completeInterview();
+            setCompletionTerminationReason("inappropriate-behavior");
+            updateSession({
+              isComplete: true,
+              termination: {
+                reason: "inappropriate-behavior",
+                message: data.message,
+                at: new Date(),
+              },
+            });
 
             const terminationData = {
               messages: session.messages,
@@ -939,7 +1003,14 @@ export function InterviewContent({ user }: InterviewContentProps) {
         interviewer={interviewer}
         completionCard={
           session.isComplete ? (
-            <InterviewCompleteCard onViewResults={handleViewResults} />
+            <InterviewCompleteCard
+              onViewResults={handleViewResults}
+              terminationReason={
+                session.termination?.reason ??
+                completionTerminationReason ??
+                undefined
+              }
+            />
           ) : null
         }
       />

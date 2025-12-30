@@ -959,6 +959,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const terminationTitle = (() => {
     if (!termination) return null;
     switch (termination.reason) {
+      case "language":
+        return "Interview terminated: language";
       case "profanity":
         return "Interview terminated: inappropriate language";
       case "inappropriate-behavior":

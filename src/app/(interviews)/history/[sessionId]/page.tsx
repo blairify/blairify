@@ -560,6 +560,8 @@ export default function SessionDetailsPage() {
 
               const title = (() => {
                 switch (termination.reason) {
+                  case "language":
+                    return "Interview terminated: language";
                   case "profanity":
                     return "Interview terminated: inappropriate language";
                   case "inappropriate-behavior":

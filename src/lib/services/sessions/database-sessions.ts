@@ -324,7 +324,7 @@ export async function saveInterviewResults(
     endTime?: Date | string;
     endedEarly?: boolean;
     termination?: {
-      reason: "profanity" | "inappropriate-behavior";
+      reason: "language" | "profanity" | "inappropriate-behavior";
       message: string;
       at?: Date | string;
     };
