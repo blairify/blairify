@@ -17,6 +17,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
   SelectContent,
@@ -62,6 +63,9 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
   const [description, setDescription] = useState("");
   const [audience, setAudience] = useState<RoadmapIdeaAudience>("candidate");
   const [status, setStatus] = useState<RoadmapIdeaStatus>("planned");
+
+  const [selectedAudience, setSelectedAudience] =
+    useState<RoadmapIdeaAudience>("candidate");
 
   const canInteract = useMemo(() => {
     if (authLoading) return false;
@@ -267,6 +271,19 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
     return ideas.filter((idea) => idea.audience === "recruiter");
   }, [ideas]);
 
+  const selectedIdeas = useMemo(() => {
+    switch (selectedAudience) {
+      case "candidate":
+        return candidateIdeas;
+      case "recruiter":
+        return recruiterIdeas;
+      default: {
+        const _never: never = selectedAudience;
+        throw new Error(`Unhandled audience: ${_never}`);
+      }
+    }
+  }, [candidateIdeas, recruiterIdeas, selectedAudience]);
+
   const renderIdeaCard = (idea: RoadmapIdea) => {
     const upvoted = upvotedByIdeaId[idea.id] ?? false;
     const isBumping = bumpIdeaId === idea.id;
@@ -383,6 +400,28 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
           </Typography.Body>
         </div>
 
+        <Tabs
+          value={selectedAudience}
+          onValueChange={(value) => {
+            if (value === "candidate") {
+              setSelectedAudience("candidate");
+              return;
+            }
+            if (value === "recruiter") {
+              setSelectedAudience("recruiter");
+              return;
+            }
+
+            const _never: never = value as never;
+            throw new Error(`Unhandled audience tab: ${_never}`);
+          }}
+        >
+          <TabsList>
+            <TabsTrigger value="candidate">B2C</TabsTrigger>
+            <TabsTrigger value="recruiter">B2B</TabsTrigger>
+          </TabsList>
+        </Tabs>
+
         {canManageRoadmap ? (
           <Card>
             <CardHeader>
@@ -466,43 +505,55 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
         <div className="space-y-8">
           <section className="space-y-3">
             <div className="space-y-1">
-              <Typography.Heading2>For Candidate</Typography.Heading2>
-              <Typography.Body color="secondary" className="text-sm">
-                B2C roadmap items.
-              </Typography.Body>
+              {(() => {
+                switch (selectedAudience) {
+                  case "candidate":
+                    return (
+                      <>
+                        <Typography.Heading2>For Candidate</Typography.Heading2>
+                        <Typography.Body color="secondary" className="text-sm">
+                          B2C roadmap items.
+                        </Typography.Body>
+                      </>
+                    );
+                  case "recruiter":
+                    return (
+                      <>
+                        <Typography.Heading2>For Recruiter</Typography.Heading2>
+                        <Typography.Body color="secondary" className="text-sm">
+                          B2B roadmap items.
+                        </Typography.Body>
+                      </>
+                    );
+                  default: {
+                    const _never: never = selectedAudience;
+                    throw new Error(`Unhandled audience: ${_never}`);
+                  }
+                }
+              })()}
             </div>
 
-            {candidateIdeas.length === 0 ? (
+            {selectedIdeas.length === 0 ? (
               <Card>
                 <CardContent>
                   <Typography.Body color="secondary">
-                    No candidate features yet.
+                    {(() => {
+                      switch (selectedAudience) {
+                        case "candidate":
+                          return "No candidate features yet.";
+                        case "recruiter":
+                          return "No recruiter features yet.";
+                        default: {
+                          const _never: never = selectedAudience;
+                          throw new Error(`Unhandled audience: ${_never}`);
+                        }
+                      }
+                    })()}
                   </Typography.Body>
                 </CardContent>
               </Card>
             ) : (
-              candidateIdeas.map(renderIdeaCard)
-            )}
-          </section>
-
-          <section className="space-y-3">
-            <div className="space-y-1">
-              <Typography.Heading2>For Recruiter</Typography.Heading2>
-              <Typography.Body color="secondary" className="text-sm">
-                B2B roadmap items.
-              </Typography.Body>
-            </div>
-
-            {recruiterIdeas.length === 0 ? (
-              <Card>
-                <CardContent>
-                  <Typography.Body color="secondary">
-                    No recruiter features yet.
-                  </Typography.Body>
-                </CardContent>
-              </Card>
-            ) : (
-              recruiterIdeas.map(renderIdeaCard)
+              selectedIdeas.map(renderIdeaCard)
             )}
           </section>
         </div>
