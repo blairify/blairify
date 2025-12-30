@@ -116,6 +116,13 @@ export function validateAIResponse(
     }
   }
 
+  if (isFollowUp && !config.isDemoMode) {
+    const followUpCheck = validateFollowUpFormat(sanitizedResponse);
+    if (!followUpCheck.isValid) {
+      return followUpCheck;
+    }
+  }
+
   const technicalCheck = validateTechnicalContent(sanitizedResponse, config);
   if (!technicalCheck.isValid) {
     return technicalCheck;
@@ -123,6 +130,35 @@ export function validateAIResponse(
 
   if (sanitizedResponse !== response) {
     return { isValid: true, sanitized: sanitizedResponse };
+  }
+
+  return { isValid: true };
+}
+
+function validateFollowUpFormat(response: string): ValidationResult {
+  const value = response.trim();
+  if (!value) return { isValid: false, reason: "Empty follow-up" };
+
+  if (/["“”`]/.test(value) || /```/.test(value)) {
+    return {
+      isValid: false,
+      reason: "Follow-up must not include quotes or code fences",
+    };
+  }
+
+  if (/\b(interviewer|candidate)\s*:/i.test(value)) {
+    return {
+      isValid: false,
+      reason: "Follow-up must not include speaker labels",
+    };
+  }
+
+  const questionMarks = (value.match(/\?/g) ?? []).length;
+  if (questionMarks !== 1 || !value.endsWith("?")) {
+    return {
+      isValid: false,
+      reason: "Follow-up must ask exactly one question and end with '?'",
+    };
   }
 
   return { isValid: true };

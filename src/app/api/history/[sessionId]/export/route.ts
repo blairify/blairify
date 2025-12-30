@@ -359,6 +359,7 @@ function buildPdfDocument(session: InterviewSession) {
   const el = React.createElement;
   const score = session.scores?.overall ?? 0;
   const summary = safeText(session.analysis?.summary);
+  const detailedAnalysis = safeText(session.analysis?.detailedAnalysis);
   const responses = Array.isArray(session.responses) ? session.responses : [];
   const questions = Array.isArray(session.questions) ? session.questions : [];
 
@@ -441,6 +442,9 @@ function buildPdfDocument(session: InterviewSession) {
       : null;
 
   const aiFeedback = (() => {
+    if (detailedAnalysis.length > 0)
+      return stripTrailingSeparators(detailedAnalysis);
+
     const unique = new Set(
       responses
         .map((r) => safeText(r.feedback))

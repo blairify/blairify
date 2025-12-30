@@ -40,6 +40,39 @@ export function mapSeniorityToDifficulty(
   return mapping[seniority];
 }
 
+function getAcceptedSeniorityLevels(
+  seniority: SeniorityLevel,
+): Array<"entry" | "junior" | "mid" | "senior"> {
+  switch (seniority) {
+    case "entry":
+      return ["entry", "junior"];
+    case "junior":
+      return ["junior", "mid"];
+    case "mid":
+      return ["mid", "senior"];
+    case "senior":
+      return ["senior", "mid"];
+    default: {
+      const _never: never = seniority;
+      throw new Error(`Unhandled seniority: ${_never}`);
+    }
+  }
+}
+
+function matchQuestionToSeniority(
+  question: Question,
+  seniority: SeniorityLevel,
+) {
+  const accepted = getAcceptedSeniorityLevels(seniority);
+  const declared = question.seniorityLevels;
+
+  if (declared && declared.length > 0) {
+    return declared.some((level) => accepted.includes(level));
+  }
+
+  return accepted.includes(question.difficulty);
+}
+
 /**
  * Map interview type to practice question filters
  */
@@ -89,24 +122,26 @@ export async function selectQuestionsForInterview(
   options: InterviewQuestionSelectionOptions,
 ): Promise<Question[]> {
   const { config, count, excludeIds = [], preferCompany } = options;
-
-  const difficulty = mapSeniorityToDifficulty(config.seniority);
   const topics = getTopicForInterviewType(config.interviewType);
 
   // Build query filters
   const filters: QuestionFilters = {
-    difficulty,
     status: "published",
+    position: config.position,
+    tags:
+      config.technologies.length === 1 ? [config.technologies[0]] : undefined,
   };
 
   // Query questions
   const { questions } = await queryQuestions({
     filters,
-    limit: count * 3, // Get more than needed for filtering
+    limit: count * 25,
   });
 
   // Filter and prioritize
-  let filtered = questions.filter((q) => !excludeIds.includes(q.id));
+  let filtered = questions
+    .filter((q) => !excludeIds.includes(q.id))
+    .filter((q) => matchQuestionToSeniority(q, config.seniority));
 
   // Prioritize by company if specified
   if (preferCompany) {

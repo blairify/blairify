@@ -602,36 +602,38 @@ function generateFollowUpPrompt(
     ? `You previously asked this question:\n"${lastMainQuestion.content}"\n\n`
     : "";
 
-  if (config.interviewMode === "flash") {
-    return `${questionContext}The candidate just responded: "${userMessage}"
+  const followUpFormat = `\n\nFollow-up output rules (mandatory):\n- Output exactly 2 sentences.\n- Sentence 1: paraphrase the candidate's latest response in second-person (use "you", never "they" / "the candidate").\n- Sentence 2: ask exactly ONE follow-up question and end with a single "?".\n- Never quote the candidate's response or repeat it verbatim. Do not reuse any exact phrases longer than 4 words from their response.\n- Do NOT include self-talk, meta commentary, or planning text (for example: "let’s dig deeper", "we should", "I will", "since they mentioned").\n- Do NOT use quotation marks, code fences, bullet points, or speaker labels.`;
 
-Ask one very brief follow-up question (1-2 short sentences) that clarifies a key detail from their answer. Do not introduce new topics and keep it quick, since this is a flash interview.`;
+  if (config.interviewMode === "flash") {
+    return `${questionContext}The candidate just responded (internal):\n${userMessage}\n
+
+Ask one very brief follow-up question (1-2 short sentences) that clarifies a key detail from their answer. Do not introduce new topics and keep it quick, since this is a flash interview.${followUpFormat}`;
   }
 
   if (
     config.interviewMode === "regular" ||
     config.interviewMode === "practice"
   ) {
-    return `${questionContext}The candidate just responded: "${userMessage}"
+    return `${questionContext}The candidate just responded (internal):\n${userMessage}\n
 
-Based on their response, ask a thoughtful follow-up question that digs deeper into their understanding or asks them to elaborate on a specific aspect. Keep it related to the current topic.`;
+Based on their response, ask a thoughtful follow-up question that digs deeper into their understanding or asks them to elaborate on a specific aspect. Keep it related to the current topic.${followUpFormat}`;
   }
 
   switch (config.interviewMode) {
     case "play": {
-      return `${questionContext}The candidate just responded: "${userMessage}"
+      return `${questionContext}The candidate just responded (internal):\n${userMessage}\n
 
-Ask a concise follow-up question that keeps the conversation engaging while staying on the same topic. Keep it light and quick.`;
+Ask a concise follow-up question that keeps the conversation engaging while staying on the same topic. Keep it light and quick.${followUpFormat}`;
     }
     case "competitive": {
-      return `${questionContext}The candidate just responded: "${userMessage}"
+      return `${questionContext}The candidate just responded (internal):\n${userMessage}\n
 
-Ask a single sharp follow-up question that probes the depth of their understanding on this topic. Stay focused and concise.`;
+Ask a single sharp follow-up question that probes the depth of their understanding on this topic. Stay focused and concise.${followUpFormat}`;
     }
     case "teacher": {
-      return `${questionContext}The candidate just responded: "${userMessage}"
+      return `${questionContext}The candidate just responded (internal):\n${userMessage}\n
 
-Ask a clarifying follow-up question that helps reveal gaps in understanding, then briefly guide them toward what a strong answer would include. Keep the tone supportive.`;
+Ask a clarifying follow-up question that helps reveal gaps in understanding, then briefly guide them toward what a strong answer would include. Keep the tone supportive.${followUpFormat}`;
     }
   }
 

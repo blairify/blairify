@@ -34,6 +34,7 @@ import type {
   SeniorityLevel,
   SessionStatus,
 } from "@/types/firestore";
+import type { InterviewResults } from "@/types/interview";
 import { COLLECTIONS, ensureDatabase } from "../common/database-common";
 
 const SENIORITY_LEVELS: SeniorityLevel[] = ["entry", "junior", "mid", "senior"];
@@ -106,41 +107,6 @@ function computeResponseSubscores(response: string): {
 
   const overall = clampScore((technical + communication + problemSolving) / 3);
   return { overall, technical, communication, problemSolving };
-}
-
-function computeSessionScores(responses: InterviewResponse[]): {
-  overall: number;
-  technical: number;
-  communication: number;
-  problemSolving: number;
-} | null {
-  const totals = {
-    overall: 0,
-    technical: 0,
-    communication: 0,
-    problemSolving: 0,
-  };
-  let count = 0;
-
-  for (const r of responses) {
-    if (!r.response?.trim()) continue;
-    const subscores = computeResponseSubscores(r.response);
-    if (subscores.overall <= 0) continue;
-    totals.overall += subscores.overall;
-    totals.technical += subscores.technical;
-    totals.communication += subscores.communication;
-    totals.problemSolving += subscores.problemSolving;
-    count += 1;
-  }
-
-  if (count === 0) return null;
-
-  return {
-    overall: clampScore(totals.overall / count),
-    technical: clampScore(totals.technical / count),
-    communication: clampScore(totals.communication / count),
-    problemSolving: clampScore(totals.problemSolving / count),
-  };
 }
 
 function shouldPersistScores(interviewMode: string | undefined): boolean {
@@ -371,15 +337,7 @@ export async function saveInterviewResults(
     duration: number;
     specificCompany?: string;
   },
-  analysis: {
-    score: number;
-    overallScore: string;
-    strengths: string[];
-    improvements: string[];
-    detailedAnalysis: string;
-    recommendations: string;
-    nextSteps: string;
-  },
+  analysis: InterviewResults,
   existingSessionId?: string | null,
 ): Promise<string> {
   try {
@@ -525,12 +483,43 @@ export async function saveInterviewResults(
         difficulty: sessionDifficulty,
         aiConfidence: 85,
         summary: analysis.overallScore || "Analysis pending",
+        detailedAnalysis: analysis.detailedAnalysis?.trim().length
+          ? analysis.detailedAnalysis
+          : undefined,
         recommendations: analysis.recommendations
           ? analysis.recommendations.split("\n").filter((r) => r.trim())
           : [],
         nextSteps: analysis.nextSteps
           ? analysis.nextSteps.split("\n").filter((s) => s.trim())
           : [],
+        ...(typeof analysis.passed === "boolean"
+          ? { passed: analysis.passed }
+          : {}),
+        ...(analysis.decision ? { decision: analysis.decision } : {}),
+        ...(typeof analysis.passingThreshold === "number"
+          ? { passingThreshold: analysis.passingThreshold }
+          : {}),
+        ...(analysis.whyDecision?.trim()
+          ? { whyDecision: analysis.whyDecision }
+          : {}),
+        ...(Array.isArray(analysis.knowledgeGaps)
+          ? {
+              knowledgeGaps: analysis.knowledgeGaps.map((gap) => ({
+                title: gap.title,
+                priority: gap.priority,
+                tags: gap.tags,
+                why: gap.why,
+                resources: gap.resources?.map((r) => ({
+                  id: r.id,
+                  title: r.title,
+                  url: r.url,
+                  type: r.type,
+                  tags: r.tags,
+                  ...(r.difficulty ? { difficulty: r.difficulty } : {}),
+                })),
+              })),
+            }
+          : {}),
       },
       createdAt: Timestamp.now(),
       updatedAt: Timestamp.now(),
@@ -539,10 +528,6 @@ export async function saveInterviewResults(
     const shouldWriteScores = shouldPersistScores(
       (sessionBase.config as any).interviewMode,
     );
-    const derivedScores = shouldWriteScores
-      ? computeSessionScores(responses)
-      : null;
-
     const fallbackScores =
       shouldWriteScores && resolvedScore > 0
         ? {
@@ -553,7 +538,7 @@ export async function saveInterviewResults(
           }
         : null;
 
-    const nextScores = derivedScores ?? fallbackScores;
+    const nextScores = fallbackScores;
     const session: InterviewSession = nextScores
       ? {
           ...sessionBase,

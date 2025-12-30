@@ -669,13 +669,20 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             }
 
             try {
-              await DatabaseService.saveInterviewResults(
+              const savedSessionId = await DatabaseService.saveInterviewResults(
                 activeUserId,
                 session,
                 config,
                 data.feedback,
                 existingSessionId,
               );
+
+              if (
+                typeof savedSessionId === "string" &&
+                savedSessionId.length > 0
+              ) {
+                localStorage.setItem("interviewSessionId", savedSessionId);
+              }
 
               const xpResult = await addUserXP(
                 activeUserId,

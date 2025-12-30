@@ -64,7 +64,7 @@ const DISALLOWED_TOPIC_PATTERNS: RegExp[] = [
   /\b(god|jesus|christ|christian|christianity|muslim|islam|islamic|jew|jewish|judaism|hindu|hinduism|buddhist|buddhism|religion|religious|church|mosque|synagogue|temple|bible|quran|torah|prayer|pray|faith|belief|atheist|agnostic|satan|devil|hell|heaven|prophet|muhammad|allah|buddha|shiva|vishnu|brahma|karma|reincarnation|afterlife|soul|spirit|holy|sacred|blessed|cursed|sin|sinner|salvation|redemption|missionary|evangelist|fundamentalist|extremist|radical|sect|cult)\b/i,
 
   // Sensitive personal topics
-  /\b(suicide|kill myself|end my life|self harm|cutting|depression|anxiety|mental health|antidepressant|bipolar|schizophrenia|ptsd|trauma|domestic violence|sexual assault|rape|harassment|racism|sexism|homophobia|transphobia|xenophobia|hate crime|bullying|alcoholism|drug abuse|overdose|rehab)\b/i,
+  /\b(suicide|kill myself|end my life|self harm|depression|anxiety|mental health|antidepressant|bipolar|schizophrenia|ptsd|trauma|domestic violence|sexual assault|rape|harassment|racism|sexism|homophobia|transphobia|xenophobia|hate crime|bullying|alcoholism|drug abuse|overdose|rehab)\b/i,
 
   // Inappropriate personal questions
   /\b(how old are you|what's your age|where do you live|what's your address|phone number|social security|ssn|personal information|private life)\b/i,

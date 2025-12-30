@@ -280,6 +280,9 @@ export default function SessionDetailsPage() {
   };
 
   const aiFeedback = useMemo(() => {
+    const detailed = session?.analysis?.detailedAnalysis?.trim();
+    if (detailed) return detailed;
+
     const responses = session?.responses ?? [];
     const unique = new Set(
       responses
@@ -291,9 +294,8 @@ export default function SessionDetailsPage() {
     );
 
     if (unique.size === 0) return null;
-    if (unique.size === 1) return Array.from(unique)[0];
-    return Array.from(unique)[0];
-  }, [session?.responses]);
+    return Array.from(unique)[0] ?? null;
+  }, [session?.analysis?.detailedAnalysis, session?.responses]);
 
   useEffect(() => {
     const loadSession = async () => {

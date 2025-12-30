@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
       const validation = validateAIResponse(
         finalMessage,
         interviewConfig,
-        true,
+        false,
       );
       if (validation.isValid && validation.sanitized) {
         finalMessage = validation.sanitized;

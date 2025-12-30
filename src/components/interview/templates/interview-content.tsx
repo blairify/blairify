@@ -548,7 +548,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
       if (data.success) {
         const isFollowUp = data.isFollowUp === true;
-        const usedFallback = data.usedFallback === true;
 
         if (data.matchedBehaviorPatterns?.length) {
           console.warn("Moderation matched behavior patterns:", {
@@ -655,7 +654,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
           markInterviewComplete();
         }
 
-        if (!isFollowUp && !usedFallback) {
+        if (!isFollowUp) {
           incrementQuestionCount();
         }
       }

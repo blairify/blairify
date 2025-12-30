@@ -273,8 +273,27 @@ export interface SessionAnalysis {
   difficulty: number; // 1-10
   aiConfidence: number; // 1-100
   summary: string;
+  detailedAnalysis?: string;
   recommendations: string[];
   nextSteps: string[];
+  passed?: boolean;
+  decision?: "PASS" | "FAIL" | "UNKNOWN";
+  passingThreshold?: number;
+  whyDecision?: string;
+  knowledgeGaps?: Array<{
+    title: string;
+    priority: "high" | "medium" | "low";
+    tags: string[];
+    why: string;
+    resources?: Array<{
+      id: string;
+      title: string;
+      url: string;
+      type: "docs" | "course" | "video" | "book" | "practice";
+      tags: string[];
+      difficulty?: SeniorityLevel;
+    }>;
+  }>;
 }
 
 export interface UserSessionFeedback {

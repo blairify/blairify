@@ -29,6 +29,27 @@ import {
 } from "@/lib/services/interview/message-moderation";
 import type { Message } from "@/types/interview";
 
+function buildFollowUpRepairPrompt(
+  baseUserPrompt: string,
+  draft: string,
+): string {
+  return `${baseUserPrompt}
+
+Your previous draft follow-up did NOT follow the rules.
+
+Draft follow-up (invalid):
+${draft}
+
+Rewrite from scratch so it strictly follows the follow-up output rules.
+
+Additional repair constraints:
+- Do NOT reuse phrases from the invalid draft.
+- Do NOT use quotation marks, code fences, bullet points, or speaker labels.
+- Output exactly 2 sentences and end with exactly one "?".
+
+Output ONLY the repaired follow-up text.`;
+}
+
 function getLeadingAcknowledgement(value: string): string | null {
   const trimmed = value.trimStart();
   const match = trimmed.match(
@@ -67,53 +88,6 @@ function stripLeadingDash(value: string): string {
   return value.replace(/^\s*[\p{Pd}-]+\s*/u, "").trimStart();
 }
 
-function hashString(value: string): number {
-  let hash = 5381;
-  for (let i = 0; i < value.length; i++) {
-    hash = (hash * 33) ^ value.charCodeAt(i);
-  }
-  return hash >>> 0;
-}
-
-function pickFollowUpOpener(seed: string): string {
-  const variants = [
-    "Makes sense —",
-    "Good point —",
-    "Right —",
-    "Thanks for clarifying —",
-    "Let’s build on that —",
-    "Building on that —",
-  ] as const;
-
-  return variants[hashString(seed) % variants.length];
-}
-
-function paraphraseFollowUpOpener(message: string): string {
-  const trimmed = message.trimStart();
-
-  const ackSinceMatch = trimmed.match(
-    /^(got\s+it|okay|ok|sure|alright|right)\b[\s,!:.-]*[\p{Pd}-]?\s*((?:since|so)\s+you\s+mentioned\b[\s\S]*)/iu,
-  );
-
-  if (ackSinceMatch?.[2]) {
-    const remainder = ackSinceMatch[2].trimStart();
-    const opener = pickFollowUpOpener(remainder.slice(0, 120));
-    return `${opener} ${remainder}`;
-  }
-
-  const dashSinceMatch = trimmed.match(
-    /^[\p{Pd}-]+\s*((?:since|so)\s+you\s+mentioned\b[\s\S]*)/iu,
-  );
-
-  if (dashSinceMatch?.[1]) {
-    const remainder = dashSinceMatch[1].trimStart();
-    const opener = pickFollowUpOpener(remainder.slice(0, 120));
-    return `${opener} ${remainder}`;
-  }
-
-  return message;
-}
-
 function normalizeOpening(
   message: string,
   conversationHistory: Message[] | undefined,
@@ -121,9 +95,7 @@ function normalizeOpening(
 ): string {
   const withoutLeadingDash = stripLeadingDash(message);
   if (isFollowUp) {
-    const paraphrased = paraphraseFollowUpOpener(withoutLeadingDash);
-    const cleaned = stripLeadingAcknowledgement(paraphrased).trimStart();
-    return cleaned;
+    return stripLeadingAcknowledgement(withoutLeadingDash).trimStart();
   }
 
   return stripRepeatedAcknowledgement(withoutLeadingDash, conversationHistory);
@@ -339,10 +311,26 @@ export async function POST(request: NextRequest) {
       );
 
     const requestedFollowUp = isFollowUp && !reachedFollowUpCap;
-    const effectiveIsFollowUp = requestedFollowUp || autoFollowUp;
+    let effectiveIsFollowUp = requestedFollowUp || autoFollowUp;
 
-    const shouldComplete =
+    let shouldComplete =
       !effectiveIsFollowUp && currentQuestionCount >= maxQuestions;
+
+    if (shouldComplete && !interviewConfig.isDemoMode) {
+      return NextResponse.json({
+        success: true,
+        message:
+          "Thanks — that's all the questions for this interview. You can review your results now.",
+        questionType: determineQuestionType(
+          interviewConfig.interviewType,
+          currentQuestionCount,
+        ),
+        validated: true,
+        isFollowUp: false,
+        isComplete: true,
+        usedFallback: false,
+      });
+    }
 
     let currentQuestionPrompt: string | undefined;
 
@@ -395,25 +383,66 @@ export async function POST(request: NextRequest) {
     let finalMessage: string;
     let usedFallback = false;
     let servedBankedQuestion = false;
+    let forceServeNextBankedQuestion = false;
 
     if (!aiResponse.success || !aiResponse.content) {
       console.warn("AI response failed, using fallback");
       finalMessage = getFallbackResponse(interviewConfig, effectiveIsFollowUp);
       usedFallback = true;
+      if (effectiveIsFollowUp && !interviewConfig.isDemoMode) {
+        forceServeNextBankedQuestion = true;
+      }
     } else {
       const validation = validateAIResponse(
         aiResponse.content,
         interviewConfig,
-        effectiveIsFollowUp || shouldComplete,
+        effectiveIsFollowUp,
       );
 
       if (!validation.isValid) {
-        console.warn(`AI response validation failed: ${validation.reason}`);
-        finalMessage = getFallbackResponse(
-          interviewConfig,
-          effectiveIsFollowUp,
-        );
-        usedFallback = true;
+        if (effectiveIsFollowUp && !interviewConfig.isDemoMode) {
+          console.warn(
+            `AI follow-up validation failed, attempting repair: ${validation.reason}`,
+          );
+
+          const repaired = await generateInterviewResponse(
+            aiClient,
+            systemPrompt,
+            buildFollowUpRepairPrompt(userPrompt, aiResponse.content),
+            interviewConfig.interviewType,
+          );
+
+          if (repaired.success && repaired.content) {
+            const repairedValidation = validateAIResponse(
+              repaired.content,
+              interviewConfig,
+              true,
+            );
+
+            if (repairedValidation.isValid) {
+              finalMessage = repairedValidation.sanitized ?? repaired.content;
+            } else {
+              console.warn(
+                `AI follow-up repair failed validation: ${repairedValidation.reason}`,
+              );
+              finalMessage = getFallbackResponse(interviewConfig, true);
+              usedFallback = true;
+              forceServeNextBankedQuestion = true;
+            }
+          } else {
+            console.warn("AI follow-up repair call failed, using fallback");
+            finalMessage = getFallbackResponse(interviewConfig, true);
+            usedFallback = true;
+            forceServeNextBankedQuestion = true;
+          }
+        } else {
+          console.warn(`AI response validation failed: ${validation.reason}`);
+          finalMessage = getFallbackResponse(
+            interviewConfig,
+            effectiveIsFollowUp,
+          );
+          usedFallback = true;
+        }
       } else {
         const contentForSequence = validation.sanitized ?? aiResponse.content;
 
@@ -463,6 +492,42 @@ export async function POST(request: NextRequest) {
         : undefined,
       effectiveIsFollowUp,
     );
+
+    if (
+      forceServeNextBankedQuestion &&
+      safeQuestionIds.length > 0 &&
+      !interviewConfig.isDemoMode
+    ) {
+      const nextIndex = currentQuestionCount;
+      const nextId =
+        nextIndex >= 0 && nextIndex < safeQuestionIds.length
+          ? safeQuestionIds[nextIndex]
+          : undefined;
+
+      if (nextId) {
+        try {
+          const { getQuestionById } = await import(
+            "@/lib/services/questions/neon-question-repository"
+          );
+          const nextQuestion = await getQuestionById(nextId);
+          const prompt = nextQuestion?.prompt;
+
+          if (typeof prompt === "string" && prompt.trim().length > 0) {
+            const extracted = extractCandidateFacingQuestionFromPrompt(prompt);
+            finalMessage = extracted ?? prompt.trim();
+            usedFallback = false;
+            servedBankedQuestion = true;
+            effectiveIsFollowUp = false;
+            shouldComplete = currentQuestionCount >= maxQuestions;
+          }
+        } catch (error) {
+          console.error(
+            "Failed to load Neon question after follow-up failure:",
+            error,
+          );
+        }
+      }
+    }
 
     if (
       usedFallback &&
