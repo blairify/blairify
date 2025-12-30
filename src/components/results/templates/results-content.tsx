@@ -1060,8 +1060,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
-              <div className="flex items-start gap-8 mb-6">
-                <div className="relative w-28 h-28 flex-shrink-0">
+              <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 mb-6">
+                <div className="relative w-28 h-28 flex-shrink-0 mx-auto sm:mx-0">
                   <svg
                     className="w-full h-full transform -rotate-90"
                     viewBox="0 0 100 100"
@@ -1108,7 +1108,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                     </Typography.BodyBold>
                   </div>
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 w-full">
                   <Typography.Heading3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
                     {getPerformanceLabel(results.score, results.passed)}
                   </Typography.Heading3>
