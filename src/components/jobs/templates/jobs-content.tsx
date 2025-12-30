@@ -13,7 +13,7 @@ import {
   Search,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import useSWR from "swr";
 import { Typography } from "@/components/common/atoms/typography";
@@ -49,6 +49,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { SENIORITY_LEVELS } from "@/constants/configure";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import {
   buildSearchParamsFromInterviewConfig,
   type InterviewConfig as DomainInterviewConfig,
@@ -90,7 +91,6 @@ const ROLE_OPTIONS = [
 ] as const;
 
 type RoleOption = (typeof ROLE_OPTIONS)[number];
-const ACTIONS_COMPACT_THRESHOLD = 220;
 
 const formatJobLevelLabel = (value: string) => {
   const normalized = value
@@ -218,7 +218,12 @@ const citiesFetcher = async (url: string): Promise<CitiesResponse> => {
 export function JobsContent() {
   const router = useRouter();
   const { userData } = useAuth();
-  const actionObservers = useRef<Map<string, ResizeObserver>>(new Map());
+
+  const { isMobile, isLoading: isMobileLoading } = useIsMobile();
+  const [desktopViewLayout, setDesktopViewLayout] = useState<
+    "grid" | "list" | "compact"
+  >("grid");
+  const viewLayout = isMobile ? ("grid" as const) : desktopViewLayout;
 
   // Basic filters
   const [searchQuery, setSearchQuery] = useState("");
@@ -251,58 +256,12 @@ export function JobsContent() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(12);
-  const [viewLayout, setViewLayout] = useState<"grid" | "list" | "compact">(
-    "grid",
-  );
-  const [compactActionLabels, setCompactActionLabels] = useState<
-    Record<string, boolean>
-  >({});
-
-  const registerActionContainer = useCallback(
-    (jobId: string) => (node: HTMLDivElement | null) => {
-      const observers = actionObservers.current;
-      const existing = observers.get(jobId);
-      if (existing) {
-        existing.disconnect();
-        observers.delete(jobId);
-      }
-
-      if (
-        !node ||
-        typeof window === "undefined" ||
-        typeof ResizeObserver === "undefined"
-      ) {
-        setCompactActionLabels((prev) => {
-          if (!(jobId in prev)) return prev;
-          const { [jobId]: _removed, ...rest } = prev;
-          return rest;
-        });
-        return;
-      }
-
-      const observer = new ResizeObserver((entries) => {
-        const width = entries[0]?.contentRect.width ?? 0;
-        setCompactActionLabels((prev) => {
-          const next = width < ACTIONS_COMPACT_THRESHOLD;
-          if (prev[jobId] === next) return prev;
-          return { ...prev, [jobId]: next };
-        });
-      });
-
-      observer.observe(node);
-      observers.set(jobId, observer);
-    },
-    [],
-  );
 
   useEffect(() => {
-    return () => {
-      actionObservers.current.forEach((observer) => {
-        observer.disconnect();
-      });
-      actionObservers.current.clear();
-    };
-  }, []);
+    if (isMobileLoading) return;
+    if (!isMobile) return;
+    setDesktopViewLayout((prev) => (prev === "grid" ? prev : "grid"));
+  }, [isMobile, isMobileLoading]);
 
   const { data: citiesData } = useSWR<CitiesResponse>(
     "/api/jobs/cities?limit=500",
@@ -707,32 +666,34 @@ export function JobsContent() {
               </Select>
             </div>
 
-            <div className="flex items-center gap-1 border rounded-md p-1">
-              <Button
-                variant={viewLayout === "grid" ? "secondary" : "ghost"}
-                size="sm"
-                onClick={() => setViewLayout("grid")}
-                className="h-8 px-2"
-              >
-                <LayoutGrid className="size-4" />
-              </Button>
-              <Button
-                variant={viewLayout === "compact" ? "secondary" : "ghost"}
-                size="sm"
-                onClick={() => setViewLayout("compact")}
-                className="h-8 px-2"
-              >
-                <Grid3x3 className="size-4" />
-              </Button>
-              <Button
-                variant={viewLayout === "list" ? "secondary" : "ghost"}
-                size="sm"
-                onClick={() => setViewLayout("list")}
-                className="hidden h-8 px-2 sm:inline-flex"
-              >
-                <List className="size-4" />
-              </Button>
-            </div>
+            {isMobileLoading || isMobile ? null : (
+              <div className="flex items-center gap-1 border rounded-md p-1">
+                <Button
+                  variant={viewLayout === "grid" ? "secondary" : "ghost"}
+                  size="sm"
+                  onClick={() => setDesktopViewLayout("grid")}
+                  className="h-8 px-2"
+                >
+                  <LayoutGrid className="size-4" />
+                </Button>
+                <Button
+                  variant={viewLayout === "compact" ? "secondary" : "ghost"}
+                  size="sm"
+                  onClick={() => setDesktopViewLayout("compact")}
+                  className="h-8 px-2"
+                >
+                  <Grid3x3 className="size-4" />
+                </Button>
+                <Button
+                  variant={viewLayout === "list" ? "secondary" : "ghost"}
+                  size="sm"
+                  onClick={() => setDesktopViewLayout("list")}
+                  className="h-8 px-2"
+                >
+                  <List className="size-4" />
+                </Button>
+              </div>
+            )}
 
             {isLoading && (
               <div className="flex items-center gap-2 text-muted-foreground">
@@ -887,7 +848,7 @@ export function JobsContent() {
                           <TableCell>
                             {(job.cityNormalized ?? job.location) && (
                               <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                                <MapPin className="h-3 w-3" />
+                                <MapPin className="size-3" />
                                 <span>
                                   {job.cityNormalized ?? job.location}
                                 </span>
@@ -900,14 +861,9 @@ export function JobsContent() {
                                 job.jobUrlDirect,
                                 job.jobUrl,
                               );
-                              const isCompactActionLabel =
-                                compactActionLabels[job.id] ?? false;
 
                               return (
-                                <div
-                                  ref={registerActionContainer(job.id)}
-                                  className="flex items-center justify-end gap-2"
-                                >
+                                <div className="flex items-center justify-end gap-2">
                                   <Button
                                     variant="outline"
                                     size="sm"
@@ -920,9 +876,7 @@ export function JobsContent() {
                                     <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
                                     <Lightbulb className="mr-1 size-3 relative z-10" />
                                     <span className="relative z-10 whitespace-nowrap">
-                                      {isCompactActionLabel
-                                        ? "Interview"
-                                        : "Interview with AI"}
+                                      Interview with AI
                                     </span>
                                   </Button>
                                   <Button
@@ -938,7 +892,7 @@ export function JobsContent() {
                                     }}
                                     disabled={!applyUrl}
                                   >
-                                    <ExternalLink className="h-3 w-3 mr-1" />
+                                    <ExternalLink className="mr-1 size-3" />
                                     Apply
                                   </Button>
                                 </div>
@@ -980,7 +934,7 @@ export function JobsContent() {
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPage === 1 || isLoading}
                 >
-                  <ChevronLeft className="h-4 w-4" />
+                  <ChevronLeft className="size-4" />
                   Previous
                 </Button>
 
@@ -1019,7 +973,7 @@ export function JobsContent() {
                   disabled={currentPage === pageCount || isLoading}
                 >
                   Next
-                  <ChevronRight className="h-4 w-4" />
+                  <ChevronRight className="size-4" />
                 </Button>
               </div>
             )}
