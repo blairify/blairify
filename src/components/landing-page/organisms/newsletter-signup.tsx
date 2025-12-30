@@ -80,7 +80,7 @@ export function NewsletterSignup() {
           >
             Join Our Newsletter
           </Typography.Heading2>
-          <Typography.Body className="text-muted-foreground text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0">
+          <Typography.Body className="text-muted-foreground text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0">
             Stay updated with new features being deployed daily! Get exclusive
             insights, tips, and be the first to know about exciting updates to
             our platform.
@@ -99,7 +99,7 @@ export function NewsletterSignup() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 h-12 sm:h-12 text-base"
+              className="flex-1 h-10 sm:h-12 text-sm sm:text-base"
               disabled={loading}
               aria-describedby="email-description"
               aria-invalid={false}
