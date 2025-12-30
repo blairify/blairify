@@ -8,6 +8,7 @@ import {
   CheckCircle,
   Clock,
   Code,
+  FileDown,
   Lightbulb,
   MessageSquare,
   Sparkles,
@@ -22,6 +23,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { toast } from "sonner";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
@@ -53,6 +55,7 @@ export default function SessionDetailsPage() {
   const params = useParams();
   const [session, setSession] = useState<InterviewSession | null>(null);
   const [loading, setLoading] = useState(true);
+  const [exporting, setExporting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [practiceQuestionsById, setPracticeQuestionsById] = useState<
     Record<string, Question>
@@ -240,6 +243,41 @@ export default function SessionDetailsPage() {
   }, [readableMarkdownComponents]);
 
   const sessionId = params.sessionId as string;
+
+  const exportPdf = async () => {
+    if (!session) return;
+    if (exporting) return;
+
+    setExporting(true);
+    try {
+      const res = await fetch(`/api/history/${session.sessionId}/export`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ session }),
+      });
+
+      if (!res.ok) {
+        toast.error(`Export failed (HTTP ${res.status})`);
+        return;
+      }
+
+      const blob = await res.blob();
+      const disposition = res.headers.get("content-disposition");
+      const match = disposition?.match(/filename="?([^";]+)"?/);
+      const fileName = match?.[1] ?? "interview-report.pdf";
+
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      toast.error("Export failed");
+    } finally {
+      setExporting(false);
+    }
+  };
 
   const aiFeedback = useMemo(() => {
     const responses = session?.responses ?? [];
@@ -431,16 +469,27 @@ export default function SessionDetailsPage() {
           <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-6xl">
             {/* Header */}
             <div className="mb-6 sm:mb-8">
-              <Button
-                aria-label="Back to History"
-                onClick={() => router.push("/history")}
-                variant="outline"
-                className="mb-4 sm:mb-6"
-                size="sm"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to History
-              </Button>
+              <div className="mb-4 sm:mb-6 flex flex-wrap items-center gap-2">
+                <Button
+                  aria-label="Back to History"
+                  onClick={() => router.push("/history")}
+                  variant="outline"
+                  size="sm"
+                >
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Back to History
+                </Button>
+                <Button
+                  aria-label="Export PDF"
+                  onClick={() => void exportPdf()}
+                  variant="outline"
+                  size="sm"
+                  disabled={exporting}
+                >
+                  <FileDown className="size-4 mr-2" />
+                  Export PDF
+                </Button>
+              </div>
 
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
                 <div className="flex items-start sm:items-center gap-4">

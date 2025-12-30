@@ -44,6 +44,7 @@
     "@radix-ui/react-switch": "^1.2.6",
     "@radix-ui/react-tabs": "^1.1.13",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@react-pdf/renderer": "^4.3.1",
     "@react-three/fiber": "9.0.0-rc.7",
     "@tailwindcss/typography": "^0.5.16",
     "@vercel/speed-insights": "^1.2.0",

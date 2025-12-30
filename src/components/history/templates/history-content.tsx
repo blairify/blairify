@@ -13,6 +13,7 @@ import {
   Target,
   Trophy,
 } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
@@ -536,11 +537,10 @@ export function HistoryContent({ user }: HistoryContentProps) {
               </Card>
             ) : (
               filteredSessions.map((session) => (
-                <button
+                <Link
                   key={session.sessionId}
-                  type="button"
+                  href={`/history/${session.sessionId}`}
                   className="group border border-border/50 bg-gradient-to-br from-card to-card/50 hover:border-primary/50 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden rounded-xl"
-                  onClick={() => router.push(`/history/${session.sessionId}`)}
                 >
                   <div className="p-4 sm:p-5">
                     {/* Header with Icon and Score */}
@@ -609,13 +609,12 @@ export function HistoryContent({ user }: HistoryContentProps) {
                       </div>
                     </div>
 
-                    {/* View Button */}
                     <div className="w-full inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all">
                       <Eye className="h-3.5 w-3.5 mr-1.5" />
                       View Details
                     </div>
                   </div>
-                </button>
+                </Link>
               ))
             )}
           </div>
