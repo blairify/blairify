@@ -150,6 +150,8 @@ const buildSurveyDismissRecord = (
   interviewCount: Math.max(interviewCount, 1),
 });
 
+const SURVEY_DELAY_MS = 12_000;
+
 export type PostInterviewSurveyController = {
   requestNavigation: (path: string) => void;
 };
@@ -191,6 +193,8 @@ export function PostInterviewSurvey({
     gapInsightScore: 0,
   });
   const surveyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [surveyReady, setSurveyReady] = useState(false);
+  const surveyReadyRef = useRef(false);
   const hasShownSurveyRef = useRef(false);
   const currentInterviewCount = userProfile?.totalInterviews ?? 0;
   const surveyDismissedForCurrentInterview = isSurveyDismissedForInterview(
@@ -278,6 +282,11 @@ export function PostInterviewSurvey({
     }
   }, []);
 
+  const setSurveyReadyState = useCallback((ready: boolean) => {
+    surveyReadyRef.current = ready;
+    setSurveyReady(ready);
+  }, []);
+
   const markSurveyDismissed = useCallback(() => {
     if (!activeUserId) return;
     persistSurveyDismissRecord(buildSurveyDismissRecord(currentInterviewCount));
@@ -291,26 +300,47 @@ export function PostInterviewSurvey({
   ]);
 
   const openSurvey = useCallback(() => {
-    if (surveyDismissedForCurrentInterview || isSurveyOpen) return;
+    if (
+      !surveyReadyRef.current ||
+      surveyDismissedForCurrentInterview ||
+      isSurveyOpen
+    )
+      return;
     hasShownSurveyRef.current = true;
     clearSurveyTimer();
     setIsSurveyOpen(true);
   }, [surveyDismissedForCurrentInterview, isSurveyOpen, clearSurveyTimer]);
 
   useEffect(() => {
+    setSurveyReadyState(false);
+    clearSurveyTimer();
     if (!surveyEligible || !results || hasShownSurveyRef.current) return;
 
     surveyTimerRef.current = setTimeout(() => {
+      setSurveyReadyState(true);
       openSurvey();
-    }, 7000);
+    }, SURVEY_DELAY_MS);
 
     return () => {
       clearSurveyTimer();
+      setSurveyReadyState(false);
     };
-  }, [surveyEligible, results, openSurvey, clearSurveyTimer]);
+  }, [
+    clearSurveyTimer,
+    openSurvey,
+    results,
+    setSurveyReadyState,
+    surveyEligible,
+  ]);
 
   useEffect(() => {
-    if (!surveyEligible || !results || hasShownSurveyRef.current) return;
+    if (
+      !surveyReady ||
+      !surveyEligible ||
+      !results ||
+      hasShownSurveyRef.current
+    )
+      return;
 
     const handleMouseLeave = (event: MouseEvent) => {
       if (event.clientY > 0) return;
@@ -322,7 +352,7 @@ export function PostInterviewSurvey({
     return () => {
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [surveyEligible, results, openSurvey]);
+  }, [surveyEligible, results, openSurvey, surveyReady]);
 
   const handleSurveyResponseChange = useCallback(
     (field: SurveyField, value: number) => {
@@ -392,6 +422,7 @@ export function PostInterviewSurvey({
   ]);
 
   const shouldInterceptNavigation =
+    surveyReady &&
     surveyEligible &&
     !!results &&
     !hasShownSurveyRef.current &&

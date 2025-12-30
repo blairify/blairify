@@ -7,7 +7,8 @@ export type PositionValue =
   | "data-engineer"
   | "data-scientist"
   | "cybersecurity"
-  | "product";
+  | "product"
+  | "other";
 
 export type SeniorityValue = "entry" | "junior" | "mid" | "senior";
 

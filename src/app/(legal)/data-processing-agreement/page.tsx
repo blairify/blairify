@@ -38,14 +38,12 @@ export default function DataProcessingAgreementPage() {
               <p className="mb-4">
                 For any questions, concerns, or requests related to this Data
                 Processing Agreement or our data processing activities, please
-                contact us at blairify.team@gmail.com. We are committed to
-                addressing all inquiries promptly and working with you to ensure
-                compliance with all applicable data protection laws and
-                regulations.
+                contact us at team@blairify.com. We are committed to addressing
+                all inquiries promptly and working with you to ensure compliance
+                with all applicable data protection laws and regulations.
               </p>
               <p className="mb-4">
-                <strong>Data Protection Contact:</strong>{" "}
-                blairify.team@gmail.com
+                <strong>Data Protection Contact:</strong> team@blairify.com
               </p>
             </section>
           </div>

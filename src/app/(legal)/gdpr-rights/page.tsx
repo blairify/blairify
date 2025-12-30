@@ -49,9 +49,9 @@ export default function GDPRRightsPage() {
               </p>
               <p className="mb-4">
                 To request access to your data, send an email to
-                blairify.team@gmail.com with the subject line "Data Access
-                Request." We will respond within 30 days and provide your data
-                in a clear, structured format that is easy to understand.
+                team@blairify.com with the subject line "Data Access Request."
+                We will respond within 30 days and provide your data in a clear,
+                structured format that is easy to understand.
               </p>
             </section>
 
@@ -71,8 +71,8 @@ export default function GDPRRightsPage() {
               </p>
               <p className="mb-4">
                 For data that you cannot change yourself through the platform,
-                please email us at blairify.team@gmail.com with the details of
-                what needs to be corrected. We will make the necessary changes
+                please email us at team@blairify.com with the details of what
+                needs to be corrected. We will make the necessary changes
                 promptly and confirm the updates with you.
               </p>
             </section>
@@ -91,15 +91,15 @@ export default function GDPRRightsPage() {
                 information are permanently removed from our systems.
               </p>
               <p className="mb-4">
-                Alternatively, you can email us at blairify.team@gmail.com to
-                request account deletion, and we will process your request
-                promptly. After deletion, we will send you a confirmation email
-                verifying that your data has been permanently erased. Please
-                note that we may retain certain data if required by law or for
-                legitimate legal purposes, such as complying with legal
-                obligations, resolving disputes, or enforcing our agreements.
-                However, any retained data will be minimal and kept only for as
-                long as legally required.
+                Alternatively, you can email us at team@blairify.com to request
+                account deletion, and we will process your request promptly.
+                After deletion, we will send you a confirmation email verifying
+                that your data has been permanently erased. Please note that we
+                may retain certain data if required by law or for legitimate
+                legal purposes, such as complying with legal obligations,
+                resolving disputes, or enforcing our agreements. However, any
+                retained data will be minimal and kept only for as long as
+                legally required.
               </p>
             </section>
 
@@ -121,9 +121,9 @@ export default function GDPRRightsPage() {
               </p>
               <p className="mb-4">
                 To request restriction of processing, email us at
-                blairify.team@gmail.com with details of your request and the
-                reason for restriction. We will implement the restriction and
-                notify you before lifting it.
+                team@blairify.com with details of your request and the reason
+                for restriction. We will implement the restriction and notify
+                you before lifting it.
               </p>
             </section>
 
@@ -147,8 +147,8 @@ export default function GDPRRightsPage() {
                 responses, AI feedback and assessments, settings and
                 preferences, and usage history. You can use the "Export Data"
                 feature in your account settings to download this information at
-                any time, or email us at blairify.team@gmail.com to request a
-                data export. The exported data can be easily imported into other
+                any time, or email us at team@blairify.com to request a data
+                export. The exported data can be easily imported into other
                 services or stored for your own records.
               </p>
             </section>
@@ -169,11 +169,10 @@ export default function GDPRRightsPage() {
                 exercise, or defense of legal claims.
               </p>
               <p className="mb-4">
-                To exercise your right to object, email us at
-                blairify.team@gmail.com with a clear explanation of your
-                objection and the specific processing activities you wish to
-                object to. We will carefully consider your objection and respond
-                within 30 days.
+                To exercise your right to object, email us at team@blairify.com
+                with a clear explanation of your objection and the specific
+                processing activities you wish to object to. We will carefully
+                consider your objection and respond within 30 days.
               </p>
             </section>
 
@@ -192,8 +191,8 @@ export default function GDPRRightsPage() {
               <p className="mb-4">
                 You can withdraw consent for specific processing activities
                 through your account settings or by emailing us at
-                blairify.team@gmail.com. For example, you can withdraw consent
-                for analytics cookies through our cookie settings page. We will
+                team@blairify.com. For example, you can withdraw consent for
+                analytics cookies through our cookie settings page. We will
                 honor your withdrawal immediately and update our processing
                 accordingly.
               </p>
@@ -223,10 +222,10 @@ export default function GDPRRightsPage() {
               </p>
               <p className="mb-4">
                 Before lodging a formal complaint with a supervisory authority,
-                we encourage you to contact us first at blairify.team@gmail.com
-                so we can try to resolve your concerns directly. We take all
-                privacy concerns seriously and are committed to addressing them
-                promptly and thoroughly.
+                we encourage you to contact us first at team@blairify.com so we
+                can try to resolve your concerns directly. We take all privacy
+                concerns seriously and are committed to addressing them promptly
+                and thoroughly.
               </p>
             </section>
 
@@ -250,7 +249,7 @@ export default function GDPRRightsPage() {
                 believe are incorrect or unfair. If you would like a human
                 review of any AI feedback you have received, or if you have
                 questions about how our AI processes your responses, please
-                email us at blairify.team@gmail.com. We will provide a thorough
+                email us at team@blairify.com. We will provide a thorough
                 explanation and, where appropriate, have a team member review
                 the AI's assessment.
               </p>
@@ -309,8 +308,8 @@ export default function GDPRRightsPage() {
               </Typography.Heading2>
               <p className="mb-4">
                 Exercising your data protection rights is straightforward. For
-                most rights, you can simply email us at blairify.team@gmail.com
-                with your request. Please include your full name and the email
+                most rights, you can simply email us at team@blairify.com with
+                your request. Please include your full name and the email
                 address associated with your Blairify account, a clear
                 description of which right you wish to exercise, any specific
                 details or information relevant to your request, and your
@@ -327,7 +326,7 @@ export default function GDPRRightsPage() {
               <p className="mb-4">
                 We are here to help you exercise your rights and answer any
                 questions you may have about data protection. Please do not
-                hesitate to reach out to us at blairify.team@gmail.com. We are
+                hesitate to reach out to us at team@blairify.com. We are
                 committed to transparency, respecting your privacy, and ensuring
                 you have full control over your personal information.
               </p>
@@ -338,8 +337,7 @@ export default function GDPRRightsPage() {
                 Contact Information
               </Typography.Heading2>
               <p className="mb-4">
-                <strong>Data Protection Contact:</strong>{" "}
-                blairify.team@gmail.com
+                <strong>Data Protection Contact:</strong> team@blairify.com
               </p>
               <p className="mb-4">
                 We respond to all inquiries within 30 days and are committed to

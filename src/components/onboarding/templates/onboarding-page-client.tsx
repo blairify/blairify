@@ -51,6 +51,7 @@ const ROLE_OPTIONS = [
   "data-scientist",
   "cybersecurity",
   "product",
+  "other",
 ] as const;
 
 const EXPERIENCE_OPTIONS = ["entry", "junior", "mid", "senior"] as const;
@@ -97,13 +98,15 @@ function getRoleLabel(role: (typeof ROLE_OPTIONS)[number]) {
     case "mobile":
       return "Mobile";
     case "data-engineer":
-      return "Data";
+      return "Data Engineer";
     case "data-scientist":
       return "Data Scientist";
     case "cybersecurity":
       return "Cybersecurity";
     case "product":
       return "Product Manager";
+    case "other":
+      return "Other";
     default: {
       const _never: never = role;
       throw new Error(`Unhandled role: ${_never}`);
@@ -152,6 +155,8 @@ function normalizeRole(value: string): (typeof ROLE_OPTIONS)[number] | "" {
       return "cybersecurity";
     case "Product Manager":
       return "product";
+    case "Other":
+      return "other";
     default:
       return "";
   }
@@ -243,6 +248,7 @@ const STRUGGLE_OPTIONS = [
   "Talking through my thinking",
   "Time management during interviews",
   "Confidence / nerves",
+  "Other",
 ] as const;
 
 const GOAL_OPTIONS = [
@@ -252,6 +258,7 @@ const GOAL_OPTIONS = [
   "Practice for upcoming interviews",
   "Stay sharp between job searches",
   "Explore my strengths and weaknesses",
+  "Other",
 ] as const;
 
 type StepId =
@@ -289,8 +296,8 @@ export function OnboardingPageClient({
 
   const [role, setRole] = useState("");
   const [experience, setExperience] = useState("");
-  const [employmentType, setEmploymentType] = useState<string | null>(null);
-  const [workMode, setWorkMode] = useState<string | null>(null);
+  const [employmentTypes, setEmploymentTypes] = useState<string[]>([]);
+  const [workModes, setWorkModes] = useState<string[]>([]);
   const [struggleAreas, setStruggleAreas] = useState<string[]>([]);
   const [careerGoals, setCareerGoals] = useState<string[]>([]);
   const [earlyJobMatchingEnabled, setEarlyJobMatchingEnabled] = useState(false);
@@ -332,17 +339,19 @@ export function OnboardingPageClient({
 
     const savedWorkTypes = userData.preferences?.preferredWorkTypes ?? [];
 
-    const savedEmploymentType = savedWorkTypes
+    const savedEmploymentTypes = savedWorkTypes
       .map(normalizeEmploymentType)
-      .find((value): value is (typeof EMPLOYMENT_TYPE_OPTIONS)[number] =>
+      .filter((value): value is (typeof EMPLOYMENT_TYPE_OPTIONS)[number] =>
         Boolean(value),
       );
-    const savedWorkMode = savedWorkTypes.find((value) =>
-      WORK_MODE_OPTIONS.includes(value as (typeof WORK_MODE_OPTIONS)[number]),
-    );
+    const savedWorkModes = savedWorkTypes
+      .filter((value): value is (typeof WORK_MODE_OPTIONS)[number] =>
+        WORK_MODE_OPTIONS.includes(value as (typeof WORK_MODE_OPTIONS)[number]),
+      )
+      .map((value) => value as (typeof WORK_MODE_OPTIONS)[number]);
 
-    setEmploymentType(savedEmploymentType ?? null);
-    setWorkMode(savedWorkMode ?? null);
+    setEmploymentTypes(savedEmploymentTypes);
+    setWorkModes(savedWorkModes);
     setEarlyJobMatchingEnabled(
       Boolean(userData.preferences?.earlyJobMatchingEnabled),
     );
@@ -354,8 +363,6 @@ export function OnboardingPageClient({
   const shouldAutoAdvance =
     currentStep === "role" ||
     currentStep === "experience" ||
-    currentStep === "employment-type" ||
-    currentStep === "work-mode" ||
     currentStep === "next-action";
 
   const goNext = () => {
@@ -373,9 +380,9 @@ export function OnboardingPageClient({
       case "experience":
         return experience.trim().length > 0;
       case "employment-type":
-        return Boolean(employmentType);
+        return employmentTypes.length > 0;
       case "work-mode":
-        return Boolean(workMode);
+        return workModes.length > 0;
       case "struggle-areas":
         return struggleAreas.length > 0;
       case "career-goals":
@@ -441,11 +448,9 @@ export function OnboardingPageClient({
       const preferencesUpdate: UserPreferences = {
         ...basePreferences,
         earlyJobMatchingEnabled,
-        ...(employmentType || workMode
+        ...(employmentTypes.length > 0 || workModes.length > 0
           ? {
-              preferredWorkTypes: [employmentType, workMode].filter(
-                (value): value is string => Boolean(value),
-              ),
+              preferredWorkTypes: [...employmentTypes, ...workModes],
             }
           : {}),
         ...(struggleAreas.length > 0 && { struggleAreas }),
@@ -822,14 +827,17 @@ export function OnboardingPageClient({
                       key={option}
                       type="button"
                       className={`cursor-pointer font-medium px-4 py-2 text-xs sm:text-sm rounded-md border-2 transition-all duration-200 hover:shadow-md ${
-                        employmentType === option
+                        employmentTypes.includes(option)
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary"
                       }`}
-                      onClick={() => {
-                        setEmploymentType(option);
-                        goNext();
-                      }}
+                      onClick={() =>
+                        toggleArrayValue(
+                          option,
+                          setEmploymentTypes,
+                          employmentTypes,
+                        )
+                      }
                       disabled={isSaving}
                     >
                       {getEmploymentTypeLabel(option)}
@@ -850,14 +858,13 @@ export function OnboardingPageClient({
                       key={option}
                       type="button"
                       className={`cursor-pointer font-medium px-4 py-2 text-xs sm:text-sm rounded-md border-2 transition-all duration-200 hover:shadow-md ${
-                        workMode === option
+                        workModes.includes(option)
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary"
                       }`}
-                      onClick={() => {
-                        setWorkMode(option);
-                        goNext();
-                      }}
+                      onClick={() =>
+                        toggleArrayValue(option, setWorkModes, workModes)
+                      }
                       disabled={isSaving}
                     >
                       {option}

@@ -37,7 +37,7 @@ export default function LegalNoticePage() {
                   preparation platform
                 </p>
                 <p>
-                  <strong>Contact Email:</strong> blairify.team@gmail.com
+                  <strong>Contact Email:</strong> team@blairify.com
                 </p>
               </div>
             </section>
@@ -79,7 +79,7 @@ export default function LegalNoticePage() {
               </p>
               <p className="mb-4">
                 <strong>Data Protection Contact Email:</strong>{" "}
-                blairify.team@gmail.com
+                team@blairify.com
               </p>
               <p className="mb-4">
                 If you have questions about how we handle your personal data,
@@ -154,11 +154,11 @@ export default function LegalNoticePage() {
               <p className="mb-4">
                 If you have any concerns, complaints, or disputes related to
                 Blairify or our services, we strongly encourage you to contact
-                us first at blairify.team@gmail.com. We are committed to
-                resolving issues fairly and promptly through direct
-                communication. Most concerns can be addressed quickly through
-                informal discussion, and we value the opportunity to resolve
-                problems before they escalate to formal proceedings.
+                us first at team@blairify.com. We are committed to resolving
+                issues fairly and promptly through direct communication. Most
+                concerns can be addressed quickly through informal discussion,
+                and we value the opportunity to resolve problems before they
+                escalate to formal proceedings.
               </p>
               <p className="mb-4">
                 When you contact us with a concern, we will acknowledge receipt
@@ -237,8 +237,8 @@ export default function LegalNoticePage() {
                 platform. These components are used in accordance with their
                 respective open-source licenses. If you would like information
                 about the open-source components we use and their licenses,
-                please contact us at blairify.team@gmail.com, and we will
-                provide you with the relevant information.
+                please contact us at team@blairify.com, and we will provide you
+                with the relevant information.
               </p>
 
               <h3 className="text-xl font-semibold mb-3">User Content</h3>
@@ -397,17 +397,17 @@ export default function LegalNoticePage() {
               </p>
               <div className="mb-4">
                 <p>
-                  <strong>General Inquiries:</strong> blairify.team@gmail.com
+                  <strong>General Inquiries:</strong> team@blairify.com
                 </p>
                 <p>
                   <strong>Data Protection and Privacy:</strong>{" "}
-                  blairify.team@gmail.com
+                  team@blairify.com
                 </p>
                 <p>
-                  <strong>Security Issues:</strong> blairify.team@gmail.com
+                  <strong>Security Issues:</strong> team@blairify.com
                 </p>
                 <p>
-                  <strong>Legal Matters:</strong> blairify.team@gmail.com
+                  <strong>Legal Matters:</strong> team@blairify.com
                 </p>
               </div>
               <p className="mb-4">

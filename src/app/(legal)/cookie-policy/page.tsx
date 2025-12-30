@@ -318,10 +318,9 @@ export default function CookiePolicyPage() {
               </Typography.Heading2>
               <p className="mb-4">
                 If you have questions about our use of cookies or this Cookie
-                Policy, please contact us at blairify.team@gmail.com. We are
-                happy to provide additional information about our cookie
-                practices and help you understand your choices regarding cookies
-                on Blairify.
+                Policy, please contact us at team@blairify.com. We are happy to
+                provide additional information about our cookie practices and
+                help you understand your choices regarding cookies on Blairify.
               </p>
             </section>
           </div>

@@ -58,8 +58,7 @@ export default function PrivacyPolicyPage() {
                 passionate about helping people succeed in their interviews.
               </p>
               <p className="mb-4">
-                <strong>Data Protection Contact:</strong>{" "}
-                blairify.team@gmail.com
+                <strong>Data Protection Contact:</strong> team@blairify.com
               </p>
             </section>
 
@@ -144,8 +143,8 @@ export default function PrivacyPolicyPage() {
               </p>
               <p className="mb-4">
                 To exercise any of these rights, please contact us at
-                blairify.team@gmail.com. We will respond to your request within
-                30 days as required by GDPR and other applicable regulations.
+                team@blairify.com. We will respond to your request within 30
+                days as required by GDPR and other applicable regulations.
               </p>
             </section>
 
@@ -170,10 +169,10 @@ export default function PrivacyPolicyPage() {
               </Typography.Heading2>
               <p className="mb-4">
                 For any questions about this Privacy Policy or to exercise your
-                data protection rights, please contact us at
-                blairify.team@gmail.com. We are committed to responding to all
-                inquiries within 30 days and working with you to address any
-                concerns you may have about your privacy.
+                data protection rights, please contact us at team@blairify.com.
+                We are committed to responding to all inquiries within 30 days
+                and working with you to address any concerns you may have about
+                your privacy.
               </p>
             </section>
           </div>

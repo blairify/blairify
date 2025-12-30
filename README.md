@@ -14,7 +14,7 @@ No rights are granted unless you have **written permission** or a **commercial l
 
 ## Contact
 For licensing, partnerships, or inquiries:
-**blairify.team@gmail.com**
+**team@blairify.com**
 
 ## Disclaimer
 This software is provided "as is" without warranty of any kind, express or implied. The Blairify team is not liable for any damages arising from the use of this software.

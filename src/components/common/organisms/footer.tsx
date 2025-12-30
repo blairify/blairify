@@ -124,7 +124,7 @@ export default function Footer() {
               href="mailto:blairiy.team@gmail.com"
               className="underline hover:text-[color:var(--foreground)] transition-colors py-1 px-1 -mx-1 touch-manipulation"
             >
-              blairify.team@gmail.com
+              team@blairify.com
             </Link>
           </Typography.Caption>
         </div>

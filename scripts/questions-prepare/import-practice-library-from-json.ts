@@ -1,14 +1,14 @@
 import "dotenv/config";
 import fs from "fs";
 import path from "path";
-import { practiceDb } from "../src/practice-library-db/client";
+import { practiceDb } from "../../src/practice-library-db/client";
 import {
   mcqQuestions,
   openQuestions,
   truefalseQuestions,
   matchingQuestions,
   systemDesignQuestions,
-} from "../src/practice-library-db/schema";
+} from "../../src/practice-library-db/schema";
 
 type QuestionStatus = "draft" | "published" | "archived";
 type Difficulty = "entry" | "junior" | "mid" | "senior";

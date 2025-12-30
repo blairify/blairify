@@ -54,7 +54,7 @@ export function EditableExtractedTags({
 
   return (
     <div className="space-y-4">
-      <div className="flex gap-4">
+      <div className="flex flex-wrap gap-4">
         <div className="space-y-2">
           <Typography.SubCaptionBold>Position</Typography.SubCaptionBold>
           <Select
@@ -63,7 +63,10 @@ export function EditableExtractedTags({
               onUpdateConfig("position", value as PositionValue)
             }
           >
-            <SelectTrigger className="h-10 bg-input border-border">
+            <SelectTrigger
+              size="sm"
+              className=" min-w-[205px] bg-input border-border rounded-lg px-3 py-4.5"
+            >
               <SelectValue placeholder="Select role" />
             </SelectTrigger>
             <SelectContent>
@@ -81,13 +84,16 @@ export function EditableExtractedTags({
             value={config.seniority}
             onValueChange={(value) => onUpdateConfig("seniority", value)}
           >
-            <SelectTrigger className="h-10 bg-input border-border">
+            <SelectTrigger
+              size="sm"
+              className="h-9 min-w-[130px] bg-input border-border rounded-lg px-3 py-4.5"
+            >
               <SelectValue placeholder="Select level" />
             </SelectTrigger>
             <SelectContent>
-              {SENIORITY_LEVELS.map((level) => (
-                <SelectItem key={level.value} value={level.value}>
-                  {level.label}
+              {SENIORITY_LEVELS.map((seniority) => (
+                <SelectItem key={seniority.value} value={seniority.value}>
+                  {seniority.label}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -99,7 +105,7 @@ export function EditableExtractedTags({
             value={config.company ?? ""}
             onChange={(event) => onUpdateConfig("company", event.target.value)}
             placeholder="Enter company name"
-            className="h-9 bg-input border-border"
+            className="h-11 sm:h-[38px]  w-[200px] max-w-[335px] bg-input border-border rounded-lg"
           />
         </div>
       </div>
@@ -113,7 +119,7 @@ export function EditableExtractedTags({
             </Typography.Caption>
           </div>
           {selectableTechChoices.length > 0 ? (
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {selectableTechChoices.map((tech) => {
                 const isSelected = selectedTechnologies.has(tech.value);
                 return (
@@ -125,7 +131,7 @@ export function EditableExtractedTags({
                     className={`flex items-center justify-between rounded-xl border px-4 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
                       isSelected
                         ? "border-primary bg-primary/5 text-primary shadow-sm"
-                        : "border-border hover:border-primary/40 hover:bg-muted/50"
+                        : "border-border hover:border-primary/40 !hover:bg-muted/50"
                     }`}
                   >
                     <span className="flex items-center gap-2">

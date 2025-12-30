@@ -220,9 +220,9 @@ export default function TermsOfServicePage() {
               <p className="mb-4">
                 If you have any questions about these Terms of Service or need
                 clarification on any provision, please contact us at
-                blairify.team@gmail.com. We are committed to addressing your
-                concerns and helping you understand your rights and obligations
-                under these terms.
+                team@blairify.com. We are committed to addressing your concerns
+                and helping you understand your rights and obligations under
+                these terms.
               </p>
             </section>
           </div>

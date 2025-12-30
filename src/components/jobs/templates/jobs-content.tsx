@@ -13,7 +13,7 @@ import {
   Search,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import useSWR from "swr";
 import { Typography } from "@/components/common/atoms/typography";
@@ -90,6 +90,16 @@ const ROLE_OPTIONS = [
 ] as const;
 
 type RoleOption = (typeof ROLE_OPTIONS)[number];
+const ACTIONS_COMPACT_THRESHOLD = 220;
+
+const formatJobLevelLabel = (value: string) => {
+  const normalized = value
+    .replace(/^level-/, "")
+    .replace(/-/g, " ")
+    .trim();
+  if (!normalized) return "";
+  return normalized.replace(/\b\w/g, (char: string) => char.toUpperCase());
+};
 
 const getValidJobUrl = (...urls: Array<string | null | undefined>) => {
   for (const candidate of urls) {
@@ -208,6 +218,7 @@ const citiesFetcher = async (url: string): Promise<CitiesResponse> => {
 export function JobsContent() {
   const router = useRouter();
   const { userData } = useAuth();
+  const actionObservers = useRef<Map<string, ResizeObserver>>(new Map());
 
   // Basic filters
   const [searchQuery, setSearchQuery] = useState("");
@@ -243,6 +254,55 @@ export function JobsContent() {
   const [viewLayout, setViewLayout] = useState<"grid" | "list" | "compact">(
     "grid",
   );
+  const [compactActionLabels, setCompactActionLabels] = useState<
+    Record<string, boolean>
+  >({});
+
+  const registerActionContainer = useCallback(
+    (jobId: string) => (node: HTMLDivElement | null) => {
+      const observers = actionObservers.current;
+      const existing = observers.get(jobId);
+      if (existing) {
+        existing.disconnect();
+        observers.delete(jobId);
+      }
+
+      if (
+        !node ||
+        typeof window === "undefined" ||
+        typeof ResizeObserver === "undefined"
+      ) {
+        setCompactActionLabels((prev) => {
+          if (!(jobId in prev)) return prev;
+          const { [jobId]: _removed, ...rest } = prev;
+          return rest;
+        });
+        return;
+      }
+
+      const observer = new ResizeObserver((entries) => {
+        const width = entries[0]?.contentRect.width ?? 0;
+        setCompactActionLabels((prev) => {
+          const next = width < ACTIONS_COMPACT_THRESHOLD;
+          if (prev[jobId] === next) return prev;
+          return { ...prev, [jobId]: next };
+        });
+      });
+
+      observer.observe(node);
+      observers.set(jobId, observer);
+    },
+    [],
+  );
+
+  useEffect(() => {
+    return () => {
+      actionObservers.current.forEach((observer) => {
+        observer.disconnect();
+      });
+      actionObservers.current.clear();
+    };
+  }, []);
 
   const { data: citiesData } = useSWR<CitiesResponse>(
     "/api/jobs/cities?limit=500",
@@ -258,6 +318,9 @@ export function JobsContent() {
     if (!locationSearch.trim()) return true;
     return city.toLowerCase().includes(locationSearch.trim().toLowerCase());
   });
+
+  const formattedJobLevelLabel =
+    jobLevel === "level-all" ? "" : formatJobLevelLabel(jobLevel);
 
   // Build query string
   const buildQueryParams = () => {
@@ -587,11 +650,8 @@ export function JobsContent() {
       <section className="container mx-auto px-6 py-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-2">
-            <Typography.BodyBold className="text-2xl font-semibold mr-2">
-              Available Jobs
-            </Typography.BodyBold>
             {typeof data?.total === "number" ? (
-              <Badge variant="secondary" className="py-1">
+              <Badge variant="secondary" className="py-2">
                 {data.total.toLocaleString("fr-FR")} positions
               </Badge>
             ) : null}
@@ -603,7 +663,7 @@ export function JobsContent() {
                 {location ? (
                   <Badge
                     variant="secondary"
-                    className="bg-purple-200 dark:text-black py-1"
+                    className="bg-purple-200 dark:text-black py-2"
                   >
                     {location}
                   </Badge>
@@ -611,7 +671,7 @@ export function JobsContent() {
                 {remoteOnly ? (
                   <Badge
                     variant="secondary"
-                    className="bg-emerald-200 dark:text-black py-1"
+                    className="bg-emerald-200 dark:text-black py-2"
                   >
                     Remote Only
                   </Badge>
@@ -621,14 +681,14 @@ export function JobsContent() {
             {jobLevel !== "level-all" ? (
               <Badge
                 variant="secondary"
-                className="bg-blue-200 dark:text-black py-1"
+                className="bg-blue-200 dark:text-black py-2"
               >
-                {jobLevel}
+                {formattedJobLevelLabel}
               </Badge>
             ) : null}
           </div>
 
-            <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex items-center gap-4 flex-wrap">
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground">Show:</span>
               <Select
@@ -767,22 +827,21 @@ export function JobsContent() {
                               <TooltipProvider>
                                 <Tooltip>
                                   <TooltipTrigger asChild>
-                                    <div className="font-semibold text-foreground hover:text-primary transition-colors line-clamp-1">
+                                    <Typography.Body className="hover:text-primary transition-colors line-clamp-1">
                                       {job.title}
-                                    </div>
+                                    </Typography.Body>
                                   </TooltipTrigger>
                                   <TooltipContent>{job.title}</TooltipContent>
                                 </Tooltip>
                               </TooltipProvider>
                               <div className="flex flex-wrap gap-1">
-                                {job.level && (
-                                  <Badge variant="outline" className="text-xs">
-                                    {job.level}
-                                  </Badge>
-                                )}
                                 {job.seniorityLevel && (
                                   <Badge variant="outline" className="text-xs">
-                                    {job.seniorityLevel}
+                                    {job.seniorityLevel
+                                      .trim()
+                                      .replace(/\b\w/g, (char) =>
+                                        char.toUpperCase(),
+                                      )}
                                   </Badge>
                                 )}
                                 {job.remote && (
@@ -841,8 +900,14 @@ export function JobsContent() {
                                 job.jobUrlDirect,
                                 job.jobUrl,
                               );
+                              const isCompactActionLabel =
+                                compactActionLabels[job.id] ?? false;
+
                               return (
-                                <div className="flex items-center justify-end gap-2">
+                                <div
+                                  ref={registerActionContainer(job.id)}
+                                  className="flex items-center justify-end gap-2"
+                                >
                                   <Button
                                     variant="outline"
                                     size="sm"
@@ -854,8 +919,10 @@ export function JobsContent() {
                                   >
                                     <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
                                     <Lightbulb className="mr-1 size-3 relative z-10" />
-                                    <span className="relative z-10">
-                                      Interview with AI
+                                    <span className="relative z-10 whitespace-nowrap">
+                                      {isCompactActionLabel
+                                        ? "Interview"
+                                        : "Interview with AI"}
                                     </span>
                                   </Button>
                                   <Button
@@ -870,7 +937,6 @@ export function JobsContent() {
                                       );
                                     }}
                                     disabled={!applyUrl}
-                                    className="h-8"
                                   >
                                     <ExternalLink className="h-3 w-3 mr-1" />
                                     Apply

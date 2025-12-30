@@ -14,6 +14,7 @@ const POSITION_VALUES: readonly PositionValue[] = [
   "data-scientist",
   "cybersecurity",
   "product",
+  "other",
 ];
 
 const COMPANY_PROFILE_VALUES: readonly CompanyProfileValue[] = [
@@ -47,6 +48,7 @@ const POSITION_KEYWORDS: Record<PositionValue, string[]> = {
   "data-scientist": ["data scientist", "ml", "machine learning"],
   cybersecurity: ["security", "cyber", "appsec", "infosec"],
   product: ["product manager", "pm ", "pm-", "product owner"],
+  other: [],
 };
 
 function findFromKeywords(value: string): PositionValue | null {

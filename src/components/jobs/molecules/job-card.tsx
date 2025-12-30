@@ -8,7 +8,7 @@ import {
   Lightbulb,
   MapPin,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -53,15 +53,12 @@ export function JobCard({
   layout = "grid",
 }: JobCardProps) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isCompactButtonLabel, setIsCompactButtonLabel] = useState(false);
+  const prepareButtonRef = useRef<HTMLButtonElement | null>(null);
 
   // Use validation hooks for clean separation of concerns
   const validation = useJobValidation(job);
   const { safeData } = useValidatedJobData(job);
-
-  // Early return if job is not valid for display
-  if (!validation.isValid) {
-    return null;
-  }
 
   const handleCardClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -92,6 +89,25 @@ export function JobCard({
     e.stopPropagation();
     onPrepare?.(job);
   };
+
+  useEffect(() => {
+    const button = prepareButtonRef.current;
+    if (!button || typeof ResizeObserver === "undefined") return undefined;
+
+    const observer = new ResizeObserver((entries) => {
+      const width = entries[0]?.contentRect.width ?? 0;
+      const threshold =
+        layout === "compact" ? 150 : layout === "list" ? 190 : 210;
+      setIsCompactButtonLabel(width < threshold);
+    });
+    observer.observe(button);
+    return () => observer.disconnect();
+  }, [layout]);
+
+  // Early return if job is not valid for display
+  if (!validation.isValid) {
+    return null;
+  }
 
   return (
     <>
@@ -242,16 +258,6 @@ export function JobCard({
                   layout === "compact" ? "gap-1" : "gap-2"
                 }`}
               >
-                {safeData.level && (
-                  <Badge
-                    variant="outline"
-                    className={
-                      layout === "compact" ? "text-xs px-1.5 py-0" : ""
-                    }
-                  >
-                    {safeData.level}
-                  </Badge>
-                )}
                 {job.seniorityLevel && (
                   <Badge
                     variant="outline"
@@ -259,19 +265,12 @@ export function JobCard({
                       layout === "compact" ? "text-xs px-1.5 py-0" : ""
                     }
                   >
-                    {job.seniorityLevel}
+                    {job.seniorityLevel
+                      .trim()
+                      .replace(/\b\w/g, (char) => char.toUpperCase())}
                   </Badge>
                 )}
-                {safeData.category && (
-                  <Badge
-                    variant="secondary"
-                    className={
-                      layout === "compact" ? "text-xs px-1.5 py-0" : ""
-                    }
-                  >
-                    {safeData.category}
-                  </Badge>
-                )}
+
                 {safeData.tags
                   .slice(0, layout === "compact" ? 2 : 3)
                   .map((tag) => (
@@ -333,7 +332,9 @@ export function JobCard({
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
                 <Lightbulb className="mr-1 size-3 relative z-10" />
-                <span className="relative z-10">Interview with AI</span>
+                <span className="relative z-10" ref={prepareButtonRef}>
+                  {isCompactButtonLabel ? "Interview" : "Interview with AI"}
+                </span>
               </Button>
               <Button
                 size={layout === "compact" ? "sm" : "sm"}
@@ -365,7 +366,7 @@ export function JobCard({
           <DialogHeader>
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1 min-w-0">
-                <DialogTitle className="text-lg md:text-xl font-bold leading-tight">
+                <DialogTitle className="text-lg md:text-lg font-bold leading-tight">
                   {job.title}
                 </DialogTitle>
                 <DialogDescription className="text-base md:text-lg mt-1">

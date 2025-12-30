@@ -74,11 +74,11 @@ export default function NotFound() {
             </Link>{" "}
             or email us at{" "}
             <a
-              href="mailto:blairify.team@gmail.com"
+              href="mailto:team@blairify.com"
               className="text-primary hover:text-primary/80 underline underline-offset-4 transition-colors"
-              aria-label="Email support at blairify.team@gmail.com"
+              aria-label="Email support at team@blairify.com"
             >
-              blairify.team@gmail.com
+              team@blairify.com
             </a>
           </p>
         </div>
