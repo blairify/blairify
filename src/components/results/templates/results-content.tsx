@@ -316,6 +316,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [storedConfig, setStoredConfig] = useState<
     Pick<InterviewConfig, "position" | "seniority"> | undefined
   >(undefined);
+  const [interviewConfig, setInterviewConfig] =
+    useState<InterviewConfig | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const backgroundClass = "bg-gradient-to-b from-background to-muted/20";
   const surveyControllerRef = useRef<PostInterviewSurveyController | null>(
@@ -357,6 +359,22 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       const questionIds = parsedSession?.questionIds ?? [];
 
       setPracticeQuestionIds(questionIds);
+
+      const parsedConfig = interviewConfigRaw
+        ? (JSON.parse(interviewConfigRaw) as Partial<InterviewConfig>)
+        : null;
+
+      if (
+        parsedConfig?.position &&
+        parsedConfig.seniority &&
+        parsedConfig.interviewType &&
+        parsedConfig.interviewMode &&
+        typeof parsedConfig.duration === "number"
+      ) {
+        setInterviewConfig(parsedConfig as InterviewConfig);
+      } else {
+        setInterviewConfig(null);
+      }
 
       const maybeTermination = parsedSession?.termination;
       if (
@@ -1035,6 +1053,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                       >
                         {results.passed ? "Interview Passed" : "Not Passed"}
                       </div>
+                      <div className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                        {results.score} points
+                      </div>
                       <Typography.Body
                         className={`text-lg leading-relaxed mb-2 ${
                           results.passed
@@ -1046,6 +1067,73 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                       </Typography.Body>
                     </div>
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {interviewConfig && (
+            <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
+              <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                  <User className="size-4 text-blue-600 dark:text-blue-400" />
+                  Interview Configuration
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div>
+                    <div className="text-xs font-medium text-muted-foreground mb-1">
+                      Position
+                    </div>
+                    <div className="text-sm font-semibold capitalize">
+                      {interviewConfig.position}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs font-medium text-muted-foreground mb-1">
+                      Seniority
+                    </div>
+                    <div className="text-sm font-semibold capitalize">
+                      {interviewConfig.seniority}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs font-medium text-muted-foreground mb-1">
+                      Interview Type
+                    </div>
+                    <div className="text-sm font-semibold capitalize">
+                      {interviewConfig.interviewType}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs font-medium text-muted-foreground mb-1">
+                      Mode
+                    </div>
+                    <div className="text-sm font-semibold capitalize">
+                      {interviewConfig.interviewMode}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs font-medium text-muted-foreground mb-1">
+                      Duration
+                    </div>
+                    <div className="text-sm font-semibold">
+                      {interviewConfig.duration} minutes
+                    </div>
+                  </div>
+                  {(interviewConfig.specificCompany ||
+                    interviewConfig.company) && (
+                    <div>
+                      <div className="text-xs font-medium text-muted-foreground mb-1">
+                        Company
+                      </div>
+                      <div className="text-sm font-semibold">
+                        {interviewConfig.specificCompany ??
+                          interviewConfig.company}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -1161,20 +1249,6 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               )}
             </CardContent>
           </Card>
-
-          {(Boolean(results.overallScore?.trim()) ||
-            Boolean(results.detailedAnalysis?.trim()) ||
-            results.strengths.length > 0 ||
-            results.improvements.length > 0) && (
-            <AiFeedbackCard
-              title="AI Feedback"
-              icon={<FileText className="size-4" />}
-              summaryMarkdown={null}
-              strengths={results.strengths}
-              improvements={results.improvements}
-              detailsMarkdown={results.detailedAnalysis}
-            />
-          )}
 
           {/* ============================================================================ */}
           {/* STRENGTHS & IMPROVEMENTS GRID */}
@@ -1464,6 +1538,20 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 </div>
               </CardContent>
             </Card>
+          )}
+
+          {(Boolean(results.overallScore?.trim()) ||
+            Boolean(results.detailedAnalysis?.trim()) ||
+            results.strengths.length > 0 ||
+            results.improvements.length > 0) && (
+            <AiFeedbackCard
+              title="AI Feedback"
+              icon={<FileText className="size-4" />}
+              summaryMarkdown={null}
+              strengths={results.strengths}
+              improvements={results.improvements}
+              detailsMarkdown={results.detailedAnalysis}
+            />
           )}
 
           {/* ============================================================================ */}

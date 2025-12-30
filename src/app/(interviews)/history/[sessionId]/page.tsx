@@ -3,6 +3,7 @@
 import {
   AlertTriangle,
   ArrowLeft,
+  BookOpen,
   Brain,
   Calendar,
   CheckCircle,
@@ -38,6 +39,44 @@ import { DatabaseService } from "@/lib/database";
 import { useAuth } from "@/providers/auth-provider";
 import type { InterviewSession } from "@/types/firestore";
 import type { Question } from "@/types/practice-question";
+
+function getPriorityLabel(priority: "high" | "medium" | "low"): string {
+  switch (priority) {
+    case "high":
+      return "High priority";
+    case "medium":
+      return "Medium priority";
+    case "low":
+      return "Low priority";
+    default: {
+      const _never: never = priority;
+      throw new Error(`Unhandled priority: ${_never}`);
+    }
+  }
+}
+
+function getPriorityClass(priority: "high" | "medium" | "low"): string {
+  switch (priority) {
+    case "high":
+      return "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300";
+    case "medium":
+      return "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300";
+    case "low":
+      return "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300";
+    default: {
+      const _never: never = priority;
+      throw new Error(`Unhandled priority: ${_never}`);
+    }
+  }
+}
+
+function normalizeKnowledgeGapTitle(title: string): string {
+  return title
+    .trim()
+    .replace(/^\s*\d+\s*[.)]\s*/g, "")
+    .replace(/^\s*title\s*:\s*/i, "")
+    .trim();
+}
 
 function getMarkdownNodeText(node: ReactNode): string {
   if (node == null || typeof node === "boolean") return "";
@@ -590,69 +629,32 @@ export default function SessionDetailsPage() {
               );
             })()}
 
-            {/* Interview Summary */}
-            {session.analysis?.summary && (
-              <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-                <CardHeader className="px-3 pt-1 pb-0">
-                  <CardTitle className="flex items-center gap-2 text-lg font-bold leading-none">
-                    <Brain className="size-5 text-primary" />
-                    Interview Summary
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-3 pt-0 pb-3">
-                  <ReactMarkdown
-                    remarkPlugins={[remarkGfm]}
-                    components={readableMarkdownComponents}
-                  >
-                    {session.analysis.summary}
-                  </ReactMarkdown>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Score Breakdown - Only show if scores are available */}
-            {session.scores && session.scores.overall > 0 && (
+            {session.analysis?.passed !== undefined && (
               <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
                 <CardHeader className="px-3 pt-2 pb-0">
                   <CardTitle className="flex items-center gap-2 text-xl font-bold">
                     <Trophy className="size-5 text-primary" />
-                    Performance Breakdown
+                    Result
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="px-3 pt-0 pb-3">
-                  <div className="space-y-4">
-                    {Object.entries(session.scores).map(([key, value]) => {
-                      if (key === "overall" || !value) return null;
-
-                      const formatKey = (str: string) => {
-                        return str
-                          .split(/(?=[A-Z])/)
-                          .map(
-                            (word) =>
-                              word.charAt(0).toUpperCase() + word.slice(1),
-                          )
-                          .join(" ");
-                      };
-
-                      return (
-                        <div
-                          key={key}
-                          className="space-y-3 p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30"
-                        >
-                          <div className="flex justify-between items-center">
-                            <span className="text-sm font-bold text-foreground">
-                              {formatKey(key)}
-                            </span>
-                            <span
-                              className={`text-lg font-bold px-2.5 py-0.5 rounded-lg ${getScoreColor(value)}`}
-                            >
-                              {value}%
-                            </span>
-                          </div>
-                          <Progress value={value} className="h-2.5" />
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                      <div className="text-2xl font-bold">
+                        {session.analysis.passed ? "Passed" : "Not passed"}
+                      </div>
+                      {typeof session.scores?.overall === "number" && (
+                        <div className="text-sm font-semibold text-muted-foreground mt-1">
+                          {session.scores.overall} points
                         </div>
-                      );
-                    })}
+                      )}
+                    </div>
+
+                    {session.analysis.decision && (
+                      <Badge variant="secondary" className="font-semibold">
+                        {session.analysis.decision}
+                      </Badge>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -728,6 +730,126 @@ export default function SessionDetailsPage() {
               </CardContent>
             </Card>
 
+            {(session.analysis?.summary ||
+              (session.scores && session.scores.overall > 0)) && (
+              <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
+                <CardHeader className="px-3 pt-2 pb-0">
+                  <CardTitle className="flex items-center gap-2 text-xl font-bold">
+                    <Brain className="size-5 text-primary" />
+                    Overall Performance Assessment
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="px-3 pt-0 pb-3">
+                  {session.analysis?.summary && (
+                    <div className="mb-5">
+                      <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={readableMarkdownComponents}
+                      >
+                        {session.analysis.summary}
+                      </ReactMarkdown>
+                    </div>
+                  )}
+
+                  {session.scores && session.scores.overall > 0 && (
+                    <div className="space-y-4">
+                      {Object.entries(session.scores).map(([key, value]) => {
+                        if (key === "overall" || !value) return null;
+
+                        const formatKey = (str: string) => {
+                          return str
+                            .split(/(?=[A-Z])/)
+                            .map(
+                              (word) =>
+                                word.charAt(0).toUpperCase() + word.slice(1),
+                            )
+                            .join(" ");
+                        };
+
+                        return (
+                          <div
+                            key={key}
+                            className="space-y-3 p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30"
+                          >
+                            <div className="flex justify-between items-center">
+                              <span className="text-sm font-bold text-foreground">
+                                {formatKey(key)}
+                              </span>
+                              <span
+                                className={`text-lg font-bold px-2.5 py-0.5 rounded-lg ${getScoreColor(value)}`}
+                              >
+                                {value}%
+                              </span>
+                            </div>
+                            <Progress value={value} className="h-2.5" />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            )}
+
+            {session.analysis?.knowledgeGaps &&
+              session.analysis.knowledgeGaps.length > 0 && (
+                <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
+                  <CardHeader className="px-3 pt-2 pb-0">
+                    <CardTitle className="flex items-center gap-2 text-xl font-bold">
+                      <BookOpen className="size-5 text-primary" />
+                      Knowledge Gaps & Resources
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-3 pt-0 pb-3">
+                    <div className="space-y-4">
+                      {session.analysis.knowledgeGaps.map((gap) => (
+                        <div
+                          key={gap.title}
+                          className="space-y-3 p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30"
+                        >
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <div className="text-sm font-bold text-foreground">
+                              {normalizeKnowledgeGapTitle(gap.title)}
+                            </div>
+                            <Badge
+                              variant="secondary"
+                              className={`font-semibold ${getPriorityClass(
+                                gap.priority,
+                              )}`}
+                            >
+                              {getPriorityLabel(gap.priority)}
+                            </Badge>
+                          </div>
+
+                          {gap.why && (
+                            <Typography.Body className="text-sm text-muted-foreground">
+                              {gap.why}
+                            </Typography.Body>
+                          )}
+
+                          {gap.resources && gap.resources.length > 0 && (
+                            <ul className="space-y-2">
+                              {gap.resources.map((r) => (
+                                <li key={r.id} className="text-sm">
+                                  <a
+                                    className="text-blue-700 dark:text-blue-300 hover:underline"
+                                    href={r.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
+                                    {r.title}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
             {/* Questions and Responses */}
             {session.questions && session.questions.length > 0 && (
               <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
@@ -746,7 +868,10 @@ export default function SessionDetailsPage() {
                       });
 
                       return (
-                        <>Questions & Responses ({visibleQuestions.length})</>
+                        <>
+                          Questions & Example Answers ({visibleQuestions.length}
+                          )
+                        </>
                       );
                     })()}
                   </CardTitle>
