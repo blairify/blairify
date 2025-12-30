@@ -628,7 +628,7 @@ export function JobsContent() {
             ) : null}
           </div>
 
-          <div className="flex items-center gap-4 flex-wrap">
+            <div className="flex items-center gap-4 flex-wrap">
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground">Show:</span>
               <Select
@@ -654,7 +654,7 @@ export function JobsContent() {
                 onClick={() => setViewLayout("grid")}
                 className="h-8 px-2"
               >
-                <LayoutGrid className="h-4 w-4" />
+                <LayoutGrid className="size-4" />
               </Button>
               <Button
                 variant={viewLayout === "compact" ? "secondary" : "ghost"}
@@ -662,21 +662,21 @@ export function JobsContent() {
                 onClick={() => setViewLayout("compact")}
                 className="h-8 px-2"
               >
-                <Grid3x3 className="h-4 w-4" />
+                <Grid3x3 className="size-4" />
               </Button>
               <Button
                 variant={viewLayout === "list" ? "secondary" : "ghost"}
                 size="sm"
                 onClick={() => setViewLayout("list")}
-                className="h-8 px-2"
+                className="hidden h-8 px-2 sm:inline-flex"
               >
-                <List className="h-4 w-4" />
+                <List className="size-4" />
               </Button>
             </div>
 
             {isLoading && (
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <Loader2 className="size-4 animate-spin" />
                 <span>Loading...</span>
               </div>
             )}
