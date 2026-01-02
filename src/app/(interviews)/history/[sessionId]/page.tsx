@@ -899,6 +899,11 @@ export default function SessionDetailsPage() {
                           ? getExampleAnswer(practiceQuestion)
                           : null;
 
+                        const storedAiExampleAnswer =
+                          typeof question.aiExampleAnswer === "string"
+                            ? question.aiExampleAnswer.trim()
+                            : null;
+
                         const normalizedExampleAnswer = exampleAnswer
                           ? exampleAnswer
                               .replace(
@@ -911,6 +916,42 @@ export default function SessionDetailsPage() {
                               )
                               .trim()
                           : null;
+
+                        const normalizedStoredAiExampleAnswer =
+                          storedAiExampleAnswer
+                            ? storedAiExampleAnswer
+                                .replace(
+                                  /^\s*(Example\s+Answer|Example)\s*:\s*/i,
+                                  "",
+                                )
+                                .replace(
+                                  /^\s*(Example\s+Answer|Example)\s*\n+/i,
+                                  "",
+                                )
+                                .trim()
+                            : null;
+
+                        const effectiveExampleAnswer =
+                          normalizedExampleAnswer ??
+                          normalizedStoredAiExampleAnswer ??
+                          null;
+
+                        const followUps = Array.isArray(question.followUps)
+                          ? question.followUps
+                              .map((f) => ({
+                                question: (f?.question ?? "").trim(),
+                                response: (f?.response ?? "").trim(),
+                                aiExampleAnswer:
+                                  typeof (f as { aiExampleAnswer?: unknown })
+                                    .aiExampleAnswer === "string"
+                                    ? (
+                                        (f as { aiExampleAnswer?: string })
+                                          .aiExampleAnswer ?? ""
+                                      ).trim()
+                                    : "",
+                              }))
+                              .filter((f) => f.question.length > 0)
+                          : [];
 
                         return (
                           <div
@@ -991,7 +1032,7 @@ export default function SessionDetailsPage() {
                               )}
                             </div>
 
-                            {normalizedExampleAnswer && (
+                            {effectiveExampleAnswer && (
                               <div className="mt-4">
                                 <div className="text-sm font-bold mb-3 flex items-center gap-2">
                                   <Lightbulb className="size-4 text-primary" />
@@ -1003,9 +1044,71 @@ export default function SessionDetailsPage() {
                                       remarkPlugins={[remarkGfm]}
                                       components={readableMarkdownComponents}
                                     >
-                                      {normalizedExampleAnswer}
+                                      {effectiveExampleAnswer}
                                     </ReactMarkdown>
                                   </div>
+                                </div>
+                              </div>
+                            )}
+
+                            {followUps.length > 0 && (
+                              <div className="mt-4">
+                                <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                  <MessageSquare className="size-4 text-primary" />
+                                  Follow-ups:
+                                </div>
+                                <div className="space-y-4">
+                                  {followUps.map((f, idx) => (
+                                    <div
+                                      key={`${question.id}_followup_${idx}`}
+                                      className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50"
+                                    >
+                                      <div className="whitespace-pre-line text-sm">
+                                        <ReactMarkdown
+                                          remarkPlugins={[remarkGfm]}
+                                          components={
+                                            readableMarkdownComponents
+                                          }
+                                        >
+                                          {f.question}
+                                        </ReactMarkdown>
+                                      </div>
+
+                                      {f.response.length > 0 && (
+                                        <div className="mt-3 whitespace-pre-line text-sm">
+                                          <ReactMarkdown
+                                            remarkPlugins={[remarkGfm]}
+                                            components={
+                                              readableMarkdownComponents
+                                            }
+                                          >
+                                            {f.response}
+                                          </ReactMarkdown>
+                                        </div>
+                                      )}
+
+                                      {f.aiExampleAnswer.length > 0 && (
+                                        <div className="mt-4">
+                                          <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                            <Lightbulb className="size-4 text-primary" />
+                                            Example Answer:
+                                          </div>
+                                          <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                            <div className="whitespace-pre-line text-sm">
+                                              <ReactMarkdown
+                                                remarkPlugins={[remarkGfm]}
+                                                components={
+                                                  readableMarkdownComponents
+                                                }
+                                              >
+                                                {f.aiExampleAnswer}
+                                              </ReactMarkdown>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      )}
+                                    </div>
+                                  ))}
                                 </div>
                               </div>
                             )}

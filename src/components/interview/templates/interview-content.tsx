@@ -108,7 +108,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
       getInterviewerForRole(config.position)
     : getInterviewerForRole(config.position);
 
-  const markInterviewComplete = () => {
+  const markInterviewComplete = (messagesOverride?: Message[]) => {
     if (session.isComplete || interviewCompletedRef.current) {
       return;
     }
@@ -117,7 +117,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
     completeInterview();
     const sessionData = {
       ...session,
-      messages: session.messages,
+      messages: messagesOverride ?? session.messages,
       endTime: new Date(),
       totalDuration: Math.round(
         (Date.now() - session.startTime.getTime()) / 1000 / 60,
@@ -553,6 +553,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
       if (data.success) {
         const isFollowUp = data.isFollowUp === true;
+        const _usedFallback = data.usedFallback === true;
 
         if (data.matchedBehaviorPatterns?.length) {
           console.warn("Moderation matched behavior patterns:", {
@@ -568,6 +569,8 @@ export function InterviewContent({ user }: InterviewContentProps) {
           questionType: data.questionType,
           isFollowUp,
         };
+
+        const nextMessages = [...conversationHistoryToSend, aiMessage];
 
         addMessage(aiMessage);
 
@@ -599,7 +602,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
             });
 
             const terminationData = {
-              messages: session.messages,
+              messages: nextMessages,
               config,
               interviewer,
               startTime: session.startTime,
@@ -625,7 +628,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
               localStorage.setItem("interviewSessionId", databaseSessionId);
             }
 
-            markInterviewComplete();
+            markInterviewComplete(nextMessages);
             return;
           }
 
@@ -642,7 +645,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
             });
 
             const terminationData = {
-              messages: session.messages,
+              messages: nextMessages,
               config,
               interviewer,
               startTime: session.startTime,
@@ -668,7 +671,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
               localStorage.setItem("interviewSessionId", databaseSessionId);
             }
 
-            markInterviewComplete();
+            markInterviewComplete(nextMessages);
             return;
           }
 
@@ -685,7 +688,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
             });
 
             const terminationData = {
-              messages: session.messages,
+              messages: nextMessages,
               config,
               interviewer,
               startTime: session.startTime,
@@ -711,11 +714,11 @@ export function InterviewContent({ user }: InterviewContentProps) {
               localStorage.setItem("interviewSessionId", databaseSessionId);
             }
 
-            markInterviewComplete();
+            markInterviewComplete(nextMessages);
             return;
           }
 
-          markInterviewComplete();
+          markInterviewComplete(nextMessages);
         }
 
         if (!isFollowUp) {

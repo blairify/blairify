@@ -254,6 +254,12 @@ export interface InterviewQuestion {
   tags: string[];
   hints?: string[];
   followUpQuestions?: string[];
+  aiExampleAnswer?: string;
+  followUps?: Array<{
+    question: string;
+    response: string;
+    aiExampleAnswer?: string;
+  }>;
 }
 
 export interface InterviewResponse {

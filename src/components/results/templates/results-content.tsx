@@ -9,6 +9,7 @@ import {
   ChevronDown,
   FileText,
   Lightbulb,
+  MessageSquare,
   RotateCcw,
   Target,
   TrendingUp,
@@ -294,6 +295,14 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const { user: authUser, refreshUserData } = useAuth();
   const [isAnalyzing, setIsAnalyzing] = useState(true);
   const [results, setResults] = useState<InterviewResults | null>(null);
+  const [storedSession, setStoredSession] = useState<{
+    questionIds?: string[];
+    messages?: Array<{
+      type?: "ai" | "user";
+      content?: string;
+      isFollowUp?: boolean;
+    }>;
+  } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [termination, setTermination] = useState<{
     reason: TerminationReason;
@@ -304,7 +313,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [practiceQuestionsById, setPracticeQuestionsById] = useState<
     Record<string, Question>
   >({});
-  const [answerByQuestionId, setAnswerByQuestionId] = useState<
+  const [_answerByQuestionId, setAnswerByQuestionId] = useState<
     Record<string, string>
   >({});
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
@@ -313,6 +322,12 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [outcomeMessage, setOutcomeMessage] = useState<string>("");
   const [_currentDate, setCurrentDate] = useState<string>("");
   const [copySeed, setCopySeed] = useState<number | null>(null);
+  const [
+    generatedExampleAnswerByQuestionId,
+    setGeneratedExampleAnswerByQuestionId,
+  ] = useState<Record<string, string>>({});
+  const [generatedFollowUpExampleAnswers, setGeneratedFollowUpExampleAnswers] =
+    useState<string[]>([]);
   const [storedConfig, setStoredConfig] = useState<
     Pick<InterviewConfig, "position" | "seniority"> | undefined
   >(undefined);
@@ -356,6 +371,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             };
           })
         : null;
+      setStoredSession(parsedSession);
       const questionIds = parsedSession?.questionIds ?? [];
 
       setPracticeQuestionIds(questionIds);
@@ -437,6 +453,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         })();
       }
     } catch {
+      setStoredSession(null);
       setPracticeQuestionIds([]);
       setPracticeQuestionsById({});
       setAnswerByQuestionId({});
@@ -485,6 +502,126 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         throw new Error(`Unhandled question type: ${_never}`);
       }
     }
+  };
+
+  const qaRows = useMemo(() => {
+    const messages = Array.isArray(storedSession?.messages)
+      ? storedSession.messages
+      : [];
+
+    const rows: Array<{
+      idx: number;
+      practiceQuestionId: string | null;
+      questionText: string;
+      yourAnswer: string;
+      followUps: Array<{
+        question: string;
+        response: string;
+        aiExampleAnswer?: string;
+      }>;
+    }> = [];
+
+    let mainIdx = 0;
+    let cursor = 0;
+    let followUpIdx = 0;
+
+    while (cursor < messages.length) {
+      const ai = messages[cursor];
+      const user = messages[cursor + 1];
+
+      if (!ai || ai.type !== "ai") {
+        cursor += 1;
+        continue;
+      }
+
+      const aiText = (ai.content ?? "").trim();
+      if (!aiText) {
+        cursor += 1;
+        continue;
+      }
+
+      const isFollowUp = ai.isFollowUp === true;
+      if (isFollowUp) {
+        const current = rows[rows.length - 1];
+        if (!current) {
+          cursor += 1;
+          continue;
+        }
+
+        const responseText =
+          user?.type === "user" ? (user.content ?? "").trim() : "";
+        const followUpExample = (() => {
+          const raw = generatedFollowUpExampleAnswers[followUpIdx];
+          if (typeof raw !== "string") return undefined;
+          const trimmed = raw.trim();
+          return trimmed.length > 0 ? trimmed : undefined;
+        })();
+
+        current.followUps.push({
+          question: aiText,
+          response: responseText,
+          ...(followUpExample ? { aiExampleAnswer: followUpExample } : {}),
+        });
+
+        followUpIdx += 1;
+        cursor += user?.type === "user" ? 2 : 1;
+        continue;
+      }
+
+      const practiceQuestionId = practiceQuestionIds[mainIdx] ?? null;
+
+      if (!user || user.type !== "user") {
+        rows.push({
+          idx: mainIdx,
+          practiceQuestionId,
+          questionText: aiText,
+          yourAnswer: "",
+          followUps: [],
+        });
+        mainIdx += 1;
+        cursor += 1;
+        continue;
+      }
+
+      rows.push({
+        idx: mainIdx,
+        practiceQuestionId,
+        questionText: aiText,
+        yourAnswer: (user.content ?? "").trim(),
+        followUps: [],
+      });
+
+      mainIdx += 1;
+      cursor += 2;
+    }
+
+    const expectedCount =
+      practiceQuestionIds.length > 0 ? practiceQuestionIds.length : rows.length;
+    return Array.from({ length: expectedCount }, (_, idx) => {
+      const row = rows[idx];
+      return {
+        idx,
+        practiceQuestionId: practiceQuestionIds[idx] ?? null,
+        questionText: row?.questionText ?? "",
+        yourAnswer: row?.yourAnswer ?? "",
+        followUps: row?.followUps ?? [],
+      };
+    });
+  }, [
+    generatedFollowUpExampleAnswers,
+    practiceQuestionIds,
+    storedSession?.messages,
+  ]);
+
+  const getAiExampleAnswerForRow = (row: {
+    idx: number;
+    practiceQuestionId: string | null;
+  }): string | null => {
+    const key = row.practiceQuestionId ?? `q_${row.idx + 1}`;
+    const value = generatedExampleAnswerByQuestionId[key];
+    if (typeof value !== "string") return null;
+    const trimmed = value.trim();
+    return trimmed.length > 0 ? trimmed : null;
   };
 
   useEffect(() => {
@@ -687,9 +824,101 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             }
 
             try {
+              const mainQuestionPrompts = (session.messages ?? [])
+                .filter(
+                  (m: { type?: unknown; isFollowUp?: unknown }) =>
+                    m.type === "ai" && m.isFollowUp !== true,
+                )
+                .map((m: { content?: unknown }) =>
+                  typeof m.content === "string" ? m.content.trim() : "",
+                )
+                .filter(Boolean);
+
+              const followUpPrompts = (session.messages ?? [])
+                .filter(
+                  (m: { type?: unknown; isFollowUp?: unknown }) =>
+                    m.type === "ai" && m.isFollowUp === true,
+                )
+                .map((m: { content?: unknown }) =>
+                  typeof m.content === "string" ? m.content.trim() : "",
+                )
+                .filter(Boolean);
+
+              let exampleAnswers: string[] = [];
+              if (mainQuestionPrompts.length > 0) {
+                try {
+                  const exampleRes = await fetch(
+                    "/api/interview/example-answers",
+                    {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        interviewConfig: config,
+                        questions: mainQuestionPrompts,
+                      }),
+                    },
+                  );
+
+                  if (exampleRes.ok) {
+                    const payload = (await exampleRes.json()) as {
+                      success: boolean;
+                      answers?: string[];
+                    };
+
+                    if (payload.success && Array.isArray(payload.answers)) {
+                      exampleAnswers = payload.answers;
+                    }
+                  }
+                } catch (exampleError) {
+                  console.error(
+                    "Failed to generate example answers for results:",
+                    exampleError,
+                  );
+                }
+              }
+
+              let followUpExampleAnswers: string[] = [];
+              if (followUpPrompts.length > 0) {
+                try {
+                  const exampleRes = await fetch(
+                    "/api/interview/example-answers",
+                    {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        interviewConfig: config,
+                        questions: followUpPrompts,
+                      }),
+                    },
+                  );
+
+                  if (exampleRes.ok) {
+                    const payload = (await exampleRes.json()) as {
+                      success: boolean;
+                      answers?: string[];
+                    };
+
+                    if (payload.success && Array.isArray(payload.answers)) {
+                      followUpExampleAnswers = payload.answers;
+                    }
+                  }
+                } catch (exampleError) {
+                  console.error(
+                    "Failed to generate follow-up example answers for results:",
+                    exampleError,
+                  );
+                }
+              }
+
+              setGeneratedFollowUpExampleAnswers(
+                Array.isArray(followUpExampleAnswers)
+                  ? followUpExampleAnswers
+                  : [],
+              );
+
               const savedSessionId = await DatabaseService.saveInterviewResults(
                 activeUserId,
-                session,
+                { ...session, exampleAnswers, followUpExampleAnswers },
                 config,
                 data.feedback,
                 existingSessionId,
@@ -700,6 +929,23 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 savedSessionId.length > 0
               ) {
                 localStorage.setItem("interviewSessionId", savedSessionId);
+
+                if (exampleAnswers.length > 0) {
+                  const nextGenerated: Record<string, string> = {};
+                  const sessionQuestionIds = Array.isArray(session.questionIds)
+                    ? (session.questionIds as string[])
+                    : [];
+                  for (let i = 0; i < exampleAnswers.length; i++) {
+                    const key = sessionQuestionIds[i] ?? `q_${i + 1}`;
+                    const answer = exampleAnswers[i] ?? "";
+                    if (!key) continue;
+                    if (typeof answer !== "string") continue;
+                    const trimmed = answer.trim();
+                    if (!trimmed) continue;
+                    nextGenerated[key] = trimmed;
+                  }
+                  setGeneratedExampleAnswerByQuestionId(nextGenerated);
+                }
               }
 
               const xpResult = await addUserXP(
@@ -1263,7 +1509,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-left-4">
                   <CardHeader className="border-b border-gray-200 dark:border-gray-800">
                     <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      <Award className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                      <Award className="size-5 text-emerald-600 dark:text-emerald-400" />
                       Key Strengths Demonstrated
                     </CardTitle>
                   </CardHeader>
@@ -1300,7 +1546,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-right-4">
                   <CardHeader className="border-b border-gray-200 dark:border-gray-800">
                     <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      <Target className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                      <Target className="size-5 text-amber-600 dark:text-amber-400" />
                       {results.passed === false
                         ? "Critical Development Areas"
                         : "Growth Opportunities"}
@@ -1349,7 +1595,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
               <CardHeader className="border-b border-gray-200 dark:border-gray-800">
                 <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  <BookOpen className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                  <BookOpen className="size-5 text-blue-600 dark:text-blue-400" />
                   Knowledge Gaps & Resources
                 </CardTitle>
                 <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
@@ -1423,11 +1669,11 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             </Card>
           )}
 
-          {practiceQuestionIds.length > 0 && (
+          {qaRows.length > 0 && (
             <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
               <CardHeader className="border-b border-gray-200 dark:border-gray-800">
                 <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  <Lightbulb className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                  <Lightbulb className="size-5 text-amber-600 dark:text-amber-400" />
                   Questions & Example Answers
                 </CardTitle>
                 <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
@@ -1436,16 +1682,35 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               </CardHeader>
               <CardContent className="pt-6">
                 <div className="space-y-6">
-                  {practiceQuestionIds.map((id, idx) => {
-                    const q = practiceQuestionsById[id] ?? null;
-                    const example = q ? getExampleAnswer(q) : null;
-                    const prompt =
-                      q?.prompt?.trim() || q?.description?.trim() || null;
-                    const yourAnswer = answerByQuestionId[id]?.trim() || null;
+                  {qaRows.map((row) => {
+                    const q = row.practiceQuestionId
+                      ? (practiceQuestionsById[row.practiceQuestionId] ?? null)
+                      : null;
+                    const example =
+                      (q ? getExampleAnswer(q) : null) ??
+                      getAiExampleAnswerForRow(row);
+                    const prompt = row.questionText.trim() || null;
+                    const yourAnswer = row.yourAnswer.trim() || null;
+                    const followUps = Array.isArray(row.followUps)
+                      ? row.followUps
+                          .map((f) => ({
+                            question: (f?.question ?? "").trim(),
+                            response: (f?.response ?? "").trim(),
+                            aiExampleAnswer:
+                              typeof (f as { aiExampleAnswer?: unknown })
+                                .aiExampleAnswer === "string"
+                                ? (
+                                    (f as { aiExampleAnswer?: string })
+                                      .aiExampleAnswer ?? ""
+                                  ).trim()
+                                : "",
+                          }))
+                          .filter((f) => f.question.length > 0)
+                      : [];
 
                     return (
                       <Collapsible
-                        key={id}
+                        key={row.practiceQuestionId ?? `q_${row.idx}`}
                         defaultOpen={false}
                         className="border-2 border-border/50 rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-card to-card/50 shadow-md hover:shadow-lg transition-shadow"
                       >
@@ -1456,10 +1721,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                 variant="default"
                                 className="font-semibold"
                               >
-                                Question {idx + 1}
+                                Question {row.idx + 1}
                               </Badge>
                               <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
-                                {q?.title ?? "(failed to load)"}
+                                {q?.title ?? ""}
                               </div>
                             </div>
                             <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
@@ -1502,6 +1767,63 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                           ) : (
                             <div className="text-sm text-gray-600 dark:text-gray-400">
                               No response recorded.
+                            </div>
+                          )}
+
+                          {followUps.length > 0 && (
+                            <div className="mt-5">
+                              <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                <MessageSquare className="size-4 text-primary" />
+                                Follow-ups:
+                              </div>
+                              <div className="space-y-4">
+                                {followUps.map((f, idx) => (
+                                  <div
+                                    key={`${row.practiceQuestionId ?? `q_${row.idx}`}_followup_${idx}`}
+                                    className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50"
+                                  >
+                                    <div className="whitespace-pre-line text-sm">
+                                      <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                        components={
+                                          qaQuestionMarkdownComponents
+                                        }
+                                      >
+                                        {f.question}
+                                      </ReactMarkdown>
+                                    </div>
+                                    {f.response.length > 0 && (
+                                      <div className="mt-3 whitespace-pre-line text-sm">
+                                        <ReactMarkdown
+                                          remarkPlugins={[remarkGfm]}
+                                          components={qaMarkdownComponents}
+                                        >
+                                          {f.response}
+                                        </ReactMarkdown>
+                                      </div>
+                                    )}
+
+                                    {f.aiExampleAnswer.length > 0 && (
+                                      <div className="mt-4">
+                                        <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                          <Lightbulb className="size-4 text-primary" />
+                                          Example Answer:
+                                        </div>
+                                        <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                          <div className="whitespace-pre-line text-sm">
+                                            <ReactMarkdown
+                                              remarkPlugins={[remarkGfm]}
+                                              components={qaMarkdownComponents}
+                                            >
+                                              {f.aiExampleAnswer}
+                                            </ReactMarkdown>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
                             </div>
                           )}
 

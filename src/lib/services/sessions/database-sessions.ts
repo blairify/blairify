@@ -317,8 +317,11 @@ export async function saveInterviewResults(
       type: string;
       content: string;
       timestamp?: Date | string;
+      isFollowUp?: boolean;
     }>;
     questionIds?: string[];
+    exampleAnswers?: string[];
+    followUpExampleAnswers?: string[];
     isComplete: boolean;
     startTime?: Date | string;
     endTime?: Date | string;
@@ -380,43 +383,115 @@ export async function saveInterviewResults(
       parseSeniorityLevel(config.seniority),
     );
 
-    for (let i = 0; i < sessionData.messages.length; i += 2) {
-      const aiMessage = sessionData.messages[i];
-      const userMessage = sessionData.messages[i + 1];
+    let mainQuestionIndex = 0;
+    let cursor = 0;
+    let followUpIndex = 0;
 
-      if (aiMessage?.type === "ai" && userMessage?.type === "user") {
-        const questionIndex = i / 2;
-        const practiceQuestionId = practiceQuestionIds[questionIndex];
-        const questionId =
-          typeof practiceQuestionId === "string" &&
-          practiceQuestionId.length > 0
-            ? practiceQuestionId
-            : `q_${questionIndex + 1}`;
+    while (cursor < sessionData.messages.length) {
+      const aiMessage = sessionData.messages[cursor];
+      const userMessage = sessionData.messages[cursor + 1];
 
-        const subscores = computeResponseSubscores(userMessage.content);
-
-        questions.push({
-          id: questionId,
-          type: config.interviewType as InterviewType,
-          category: config.interviewType,
-          question: aiMessage.content,
-          difficulty:
-            difficultyByQuestionId.get(questionId) ?? sessionDifficulty,
-          expectedDuration: 3, // Default 3 minutes
-          tags: [config.position, config.seniority],
-        });
-
-        responses.push({
-          questionId,
-          response: userMessage.content,
-          duration: 180,
-          confidence: 0,
-          score: subscores.overall,
-          feedback: resolvedFeedback,
-          keyPoints: [],
-          missedPoints: [],
-        });
+      if (!aiMessage || aiMessage.type !== "ai") {
+        cursor += 1;
+        continue;
       }
+
+      const aiContent = (aiMessage.content ?? "").trim();
+      if (!aiContent) {
+        cursor += 1;
+        continue;
+      }
+
+      const explicitFollowUp = aiMessage.isFollowUp === true;
+      const inferredFollowUp =
+        !explicitFollowUp &&
+        practiceQuestionIds.length > 0 &&
+        mainQuestionIndex >= practiceQuestionIds.length &&
+        userMessage?.type === "user";
+
+      const isFollowUp = explicitFollowUp || inferredFollowUp;
+
+      if (isFollowUp) {
+        const current = questions[questions.length - 1];
+        if (!current) {
+          cursor += 1;
+          continue;
+        }
+
+        const followUpResponse =
+          userMessage?.type === "user"
+            ? (userMessage.content ?? "").trim()
+            : "";
+
+        const followUps = Array.isArray(current.followUps)
+          ? current.followUps
+          : [];
+
+        const followUpExample = (() => {
+          const raw = sessionData.followUpExampleAnswers?.[followUpIndex];
+          if (typeof raw !== "string") return undefined;
+          const trimmed = raw.trim();
+          return trimmed.length > 0 ? trimmed : undefined;
+        })();
+
+        followUps.push({
+          question: aiContent,
+          response: followUpResponse,
+          ...(followUpExample ? { aiExampleAnswer: followUpExample } : {}),
+        });
+
+        followUpIndex += 1;
+
+        current.followUps = followUps;
+        cursor += userMessage?.type === "user" ? 2 : 1;
+        continue;
+      }
+
+      if (!userMessage || userMessage.type !== "user") {
+        cursor += 1;
+        continue;
+      }
+
+      const practiceQuestionId = practiceQuestionIds[mainQuestionIndex];
+      const questionId =
+        typeof practiceQuestionId === "string" && practiceQuestionId.length > 0
+          ? practiceQuestionId
+          : `q_${mainQuestionIndex + 1}`;
+
+      const aiExampleAnswer = (() => {
+        const raw = sessionData.exampleAnswers?.[mainQuestionIndex];
+        if (typeof raw !== "string") return undefined;
+        const trimmed = raw.trim();
+        return trimmed.length > 0 ? trimmed : undefined;
+      })();
+
+      const subscores = computeResponseSubscores(userMessage.content);
+
+      questions.push({
+        id: questionId,
+        type: config.interviewType as InterviewType,
+        category: config.interviewType,
+        question: aiMessage.content,
+        difficulty: difficultyByQuestionId.get(questionId) ?? sessionDifficulty,
+        expectedDuration: 3,
+        tags: [config.position, config.seniority],
+        followUps: [],
+        ...(aiExampleAnswer ? { aiExampleAnswer } : {}),
+      });
+
+      responses.push({
+        questionId,
+        response: userMessage.content,
+        duration: 180,
+        confidence: 0,
+        score: subscores.overall,
+        feedback: resolvedFeedback,
+        keyPoints: [],
+        missedPoints: [],
+      });
+
+      mainQuestionIndex += 1;
+      cursor += 2;
     }
 
     // Build session object without undefined values
