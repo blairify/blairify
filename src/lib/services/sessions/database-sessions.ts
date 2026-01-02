@@ -351,10 +351,51 @@ export async function saveInterviewResults(
       userId,
       COLLECTIONS.SESSIONS,
     );
-    const sessionDoc =
-      existingSessionId != null && existingSessionId !== ""
-        ? doc(sessionsRef, existingSessionId)
-        : doc(sessionsRef);
+
+    const startedAtTimestamp = sessionData.startTime
+      ? Timestamp.fromDate(new Date(sessionData.startTime))
+      : Timestamp.now();
+
+    const completedAtTimestamp = sessionData.endTime
+      ? Timestamp.fromDate(new Date(sessionData.endTime))
+      : Timestamp.now();
+
+    const resolvedExistingSessionId = await (async (): Promise<
+      string | null
+    > => {
+      if (existingSessionId != null && existingSessionId !== "") {
+        return existingSessionId;
+      }
+
+      if (!sessionData.startTime) return null;
+
+      const candidateQuery = query(
+        sessionsRef,
+        where("startedAt", "==", startedAtTimestamp),
+        where("config.position", "==", config.position),
+        where("config.seniority", "==", parseSeniorityLevel(config.seniority)),
+        where("config.interviewType", "==", config.interviewType),
+        limit(1),
+      );
+
+      const snapshot = await safeGetDocs(candidateQuery);
+      const match = snapshot.docs[0];
+      if (!match) return null;
+      return match.id;
+    })();
+
+    const existingCreatedAt = await (async (): Promise<Timestamp | null> => {
+      if (!resolvedExistingSessionId) return null;
+      const ref = doc(sessionsRef, resolvedExistingSessionId);
+      const existing = await safeGetDoc(ref);
+      if (!existing.exists()) return null;
+      const data = existing.data() as Partial<InterviewSession>;
+      return data.createdAt ?? null;
+    })();
+
+    const sessionDoc = resolvedExistingSessionId
+      ? doc(sessionsRef, resolvedExistingSessionId)
+      : doc(sessionsRef);
 
     // Convert messages to interview questions and responses
     const questions: InterviewQuestion[] = [];
@@ -494,15 +535,6 @@ export async function saveInterviewResults(
       cursor += 2;
     }
 
-    // Build session object without undefined values
-    const startedAtTimestamp = sessionData.startTime
-      ? Timestamp.fromDate(new Date(sessionData.startTime))
-      : Timestamp.now();
-
-    const completedAtTimestamp = sessionData.endTime
-      ? Timestamp.fromDate(new Date(sessionData.endTime))
-      : Timestamp.now();
-
     const termination = sessionData.termination
       ? {
           reason: sessionData.termination.reason,
@@ -514,7 +546,7 @@ export async function saveInterviewResults(
       : undefined;
 
     const sessionBase = {
-      sessionId: existingSessionId ?? sessionDoc.id,
+      sessionId: resolvedExistingSessionId ?? sessionDoc.id,
       config: {
         position: config.position,
         seniority: parseSeniorityLevel(config.seniority),
@@ -596,7 +628,7 @@ export async function saveInterviewResults(
             }
           : {}),
       },
-      createdAt: Timestamp.now(),
+      createdAt: existingCreatedAt ?? Timestamp.now(),
       updatedAt: Timestamp.now(),
     };
 
