@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+const nextConfig: NextConfig & { serverExternalPackages: string[] } = {
   images: {
     remotePatterns: [
       {
@@ -20,7 +20,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  transpilePackages: ["@react-pdf/renderer"],
+  serverExternalPackages: [
+    "@react-pdf/font",
+    "@react-pdf/layout",
+    "@react-pdf/pdfkit",
+    "@react-pdf/renderer",
+    "@react-pdf/reconciler",
+    "yoga-layout",
+  ],
 };
 
 export default nextConfig;

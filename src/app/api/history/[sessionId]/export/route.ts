@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
-    fontWeight: 700,
+    fontWeight: "bold",
     marginBottom: 8,
   },
   subtitle: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 12,
-    fontWeight: 700,
+    fontWeight: "bold",
     marginBottom: 8,
     color: "#111827",
   },
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
   kvValue: {
     color: "#111827",
-    fontWeight: 600,
+    fontWeight: "bold",
     textAlign: "right",
   },
   section: {
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 13,
-    fontWeight: 700,
+    fontWeight: "bold",
     marginBottom: 10,
   },
   paragraph: {
@@ -120,12 +120,12 @@ const styles = StyleSheet.create({
   },
   questionText: {
     fontSize: 11,
-    fontWeight: 700,
+    fontWeight: "bold",
     marginBottom: 8,
   },
   blockLabel: {
     fontSize: 9,
-    fontWeight: 700,
+    fontWeight: "bold",
     color: "#6B7280",
     marginBottom: 4,
   },
@@ -708,8 +708,40 @@ export async function POST(request: Request, context: RouteContext) {
 
   const fileName = makeFileName(session);
 
-  const document = buildPdfDocument(session);
-  const buffer = (await pdf(document).toBuffer()) as unknown as Uint8Array;
+  let buffer: Uint8Array;
+  try {
+    const document = buildPdfDocument(session);
+    buffer = (await pdf(document).toBuffer()) as unknown as Uint8Array;
+  } catch (error) {
+    const err = error as { stack?: unknown; message?: unknown };
+    let minimalPdfOk: boolean | null = null;
+    try {
+      const el = React.createElement;
+      const minimalDoc = el(
+        Document,
+        null,
+        el(Page, { size: "A4" }, el(Text, null, "-")),
+      );
+      await pdf(minimalDoc).toBuffer();
+      minimalPdfOk = true;
+    } catch {
+      minimalPdfOk = false;
+    }
+
+    console.error("[history export] failed to render pdf", {
+      sessionId,
+      error,
+      stack: typeof err?.stack === "string" ? err.stack : undefined,
+      minimalPdfOk,
+    });
+    return NextResponse.json(
+      {
+        error: "Failed to render PDF",
+        sessionId,
+      },
+      { status: 500 },
+    );
+  }
 
   return new Response(buffer as unknown as BodyInit, {
     headers: {
