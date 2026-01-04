@@ -108,6 +108,12 @@ export function InterviewContent({ user }: InterviewContentProps) {
       getInterviewerForRole(config.position)
     : getInterviewerForRole(config.position);
 
+  const hasAnyUserAnswer = (messages: Message[]): boolean =>
+    messages.some(
+      (m) =>
+        m.type === "user" && typeof m.content === "string" && m.content.trim(),
+    );
+
   const markInterviewComplete = (messagesOverride?: Message[]) => {
     if (session.isComplete || interviewCompletedRef.current) {
       return;
@@ -125,9 +131,26 @@ export function InterviewContent({ user }: InterviewContentProps) {
       isComplete: true,
     };
 
+    const shouldKeepInHistory = hasAnyUserAnswer(sessionData.messages);
+
+    if (!shouldKeepInHistory) {
+      if (databaseSessionId && user?.uid) {
+        void (async () => {
+          try {
+            await DatabaseService.deleteSession(user.uid, databaseSessionId);
+          } catch (error) {
+            console.error("Error deleting empty session from database:", error);
+          }
+        })();
+      }
+
+      localStorage.removeItem("interviewSessionId");
+    }
+
     localStorage.setItem("interviewSession", JSON.stringify(sessionData));
     localStorage.setItem("interviewConfig", JSON.stringify(config));
-    if (databaseSessionId) {
+
+    if (databaseSessionId && shouldKeepInHistory) {
       localStorage.setItem("interviewSessionId", databaseSessionId);
     }
   };

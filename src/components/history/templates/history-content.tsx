@@ -147,10 +147,10 @@ export function HistoryContent({ user }: HistoryContentProps) {
     switch (type) {
       case "technical":
       case "coding":
-        return <Code className="h-4 w-4" />;
+        return <Code className="size-4" />;
       case "bullet":
       case "system-design":
-        return <Target className="h-4 w-4" />;
+        return <Target className="size-4" />;
     }
 
     const _never: never = type;

@@ -39,6 +39,15 @@ import { COLLECTIONS, ensureDatabase } from "../common/database-common";
 
 const SENIORITY_LEVELS: SeniorityLevel[] = ["entry", "junior", "mid", "senior"];
 
+function hasMeaningfulResponses(session: InterviewSession): boolean {
+  const responses = Array.isArray(session.responses) ? session.responses : [];
+  return responses.some((r) => {
+    if (typeof r.response === "string" && r.response.trim().length > 0)
+      return true;
+    return (r.score ?? 0) > 0;
+  });
+}
+
 function clampScore(value: number): number {
   if (!Number.isFinite(value)) return 0;
   return Math.max(0, Math.min(100, Math.round(value)));
@@ -242,10 +251,12 @@ export async function getUserSessions(
       return [];
     }
 
-    return snapshot.docs.map(
+    const sessions = snapshot.docs.map(
       (doc: QueryDocumentSnapshot<DocumentData>) =>
         doc.data() as InterviewSession,
     );
+
+    return sessions.filter(hasMeaningfulResponses);
   } catch (error) {
     console.error("Error getting user sessions:", error);
     // Return empty array for new users rather than throwing
@@ -533,6 +544,18 @@ export async function saveInterviewResults(
 
       mainQuestionIndex += 1;
       cursor += 2;
+    }
+
+    if (responses.length === 0) {
+      if (resolvedExistingSessionId) {
+        try {
+          await safeDeleteDoc(sessionDoc);
+        } catch (deleteError) {
+          console.error("Error deleting empty session:", deleteError);
+        }
+      }
+
+      return "";
     }
 
     const termination = sessionData.termination
