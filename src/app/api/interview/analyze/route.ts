@@ -263,6 +263,7 @@ function extractInterviewerQuestions(conversationHistory: Message[]): string[] {
   const questions: string[] = [];
   for (const msg of conversationHistory) {
     if (msg.type !== "ai") continue;
+    if (msg.isFollowUp === true) continue;
     const lines = msg.content
       .split("\n")
       .map((l) => l.trim())
@@ -271,10 +272,172 @@ function extractInterviewerQuestions(conversationHistory: Message[]): string[] {
     for (const line of lines) {
       if (!line.includes("?")) continue;
       const cleaned = line.replace(/^[-*\d.)\s]+/, "").trim();
+      if (isFollowUpQuestionText(cleaned)) continue;
       if (cleaned.length > 0) questions.push(cleaned);
     }
   }
   return questions.slice(0, 12);
+}
+
+function isFollowUpQuestionText(value: string): boolean {
+  const v = value.trim().toLowerCase();
+  return (
+    v.startsWith("why?") ||
+    v.startsWith("how?") ||
+    v.startsWith("can you") ||
+    v.startsWith("could you") ||
+    v.startsWith("what do you mean") ||
+    v.startsWith("tell me more") ||
+    v.startsWith("go deeper") ||
+    v.startsWith("elaborate") ||
+    v.startsWith("follow up")
+  );
+}
+
+function normalizeTopicReference(value: string): string {
+  return value
+    .trim()
+    .replace(/^[-*\s\d.)]+/g, "")
+    .replace(/\s+/g, " ")
+    .replace(/[?]+$/g, "")
+    .trim();
+}
+
+function questionToTopicReference(question: string | undefined): string {
+  const q = normalizeTopicReference(question ?? "");
+  if (!q) return "this topic";
+
+  const lower = q.toLowerCase();
+  if (lower.includes("alt attribute")) return "the alt attribute in HTML";
+  if (lower.includes("javascript") && lower.includes("html")) {
+    return "JavaScript placement in HTML";
+  }
+  if (lower.includes("error boundary")) return "React error boundaries";
+  if (lower.includes("functional component")) return "React functional components";
+  if (lower.includes("testing") && lower.includes("react")) {
+    return "Testing React components";
+  }
+  if (lower.startsWith("what react is") || /\bwhat\s+is\s+react\b/i.test(q)) {
+    return "React fundamentals";
+  }
+
+  const cleaned = q
+    .replace(/^let['’]s\s+start\s+with\s+something\s+fundamental—?/i, "")
+    .replace(/^now,\s+let['’]s\s+talk\s+about\s+/i, "")
+    .replace(/^let['’]s\s+talk\s+about\s+/i, "")
+    .replace(/^if\s+you\s+were\s+working\s+with\s+/i, "")
+    .trim();
+
+  if (cleaned.length <= 60) return cleaned;
+  return `${cleaned.slice(0, 57).trim()}...`;
+}
+
+function normalizeTag(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function sanitizeModelTags(tags: string[] | undefined): string[] {
+  if (!tags?.length) return [];
+  return tags
+    .map((t) => normalizeTag(t))
+    .filter((t) => {
+      if (t.length === 0) return false;
+      if (t.length > 32) return false;
+      if (t.includes("--")) return false;
+      if (t.startsWith("title-")) return false;
+      if (t.includes("title-")) return false;
+      const dashCount = (t.match(/-/g) ?? []).length;
+      if (dashCount >= 4) return false;
+      return true;
+    })
+    .slice(0, 6);
+}
+
+function deriveConceptTagsFromQuestion(question: string | undefined): string[] {
+  const q = (question ?? "").toLowerCase();
+  const tags: string[] = [];
+
+  const push = (t: string) => {
+    const v = normalizeTag(t);
+    if (!v) return;
+    if (!tags.includes(v)) tags.push(v);
+  };
+
+  if (q.includes("alt attribute")) {
+    push("html");
+    push("accessibility");
+    push("images");
+    return tags;
+  }
+
+  if (q.includes("javascript") && q.includes("html")) {
+    push("html");
+    push("javascript");
+    push("script-tag");
+    return tags;
+  }
+
+  if (q.includes("error boundary")) {
+    push("react");
+    push("error-boundary");
+    push("error-handling");
+    return tags;
+  }
+
+  if (q.includes("functional component")) {
+    push("react");
+    push("functional-components");
+    push("components");
+    return tags;
+  }
+
+  if (q.includes("testing") && q.includes("component")) {
+    push("react");
+    push("testing");
+    push("component-testing");
+
+    if (q.includes("jest")) push("jest");
+    if (q.includes("vitest")) push("vitest");
+    if (q.includes("testing library") || q.includes("testing-library")) {
+      push("testing-library");
+    }
+    if (q.includes("react testing library") || q.includes("react-testing-library")) {
+      push("react-testing-library");
+    }
+    if (q.includes("cypress")) push("cypress");
+    if (q.includes("playwright")) push("playwright");
+    if (q.includes("enzyme")) push("enzyme");
+
+    return tags;
+  }
+
+  if (q.includes("react")) push("react");
+  if (q.includes("css")) push("css");
+  if (q.includes("sql") || q.includes("database")) push("sql");
+  if (q.includes("index")) push("indexes");
+  if (q.includes("http") || q.includes("api")) push("http");
+  if (q.includes("auth") || q.includes("authentication")) push("authentication");
+  if (q.includes("security")) push("security");
+  if (q.includes("testing") || q.includes("test")) push("testing");
+  if (q.includes("performance") || q.includes("optimiz")) push("performance");
+
+  if (tags.length > 0) return tags;
+  return ["fundamentals"];
+}
+
+function normalizeSecondPerson(value: string): string {
+  return value
+    .replace(/\bthe candidate\b/gi, "you")
+    .replace(/\bcandidate\b/gi, "you")
+    .replace(/\bthey\b/gi, "you")
+    .replace(/\btheir\b/gi, "your")
+    .replace(/\bthem\b/gi, "you")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function ensureWhyReferencesTranscript(
@@ -282,13 +445,16 @@ function ensureWhyReferencesTranscript(
   fallbackQuestion: string | undefined,
 ): string {
   const normalized = normalizeWhy(why);
+  const normalizedSecondPerson = normalizeSecondPerson(normalized);
   const alreadySpecific =
-    /\bquestion\s*\d+\b/i.test(normalized) ||
-    /\bwhen\s+i\s+asked\b/i.test(normalized) ||
-    /\bduring\s+the\s+question\b/i.test(normalized);
-  if (alreadySpecific) return normalized;
-  if (!fallbackQuestion) return normalized;
-  return `When I asked “${fallbackQuestion}”, ${normalized || "you didn’t demonstrate this clearly."}`;
+    /\bquestion\s*\d+\b/i.test(normalizedSecondPerson) ||
+    /\bwhen\s+i\s+asked\b/i.test(normalizedSecondPerson) ||
+    /\bduring\s+the\s+question\b/i.test(normalizedSecondPerson);
+  if (alreadySpecific) return normalizedSecondPerson;
+
+  const topic = questionToTopicReference(fallbackQuestion);
+  const rest = normalizedSecondPerson || "you didn’t demonstrate this clearly.";
+  return `When I asked about ${topic}, ${rest}`;
 }
 
 function dedupeKnowledgeGaps(gaps: KnowledgeGap[]): KnowledgeGap[] {
@@ -512,18 +678,32 @@ function ensureMinimumKnowledgeGaps(options: {
   passed?: boolean;
 }): KnowledgeGap[] {
   const questions = extractInterviewerQuestions(options.conversationHistory);
+  const perQuestion: KnowledgeGap[] = questions.map((question, idx) => {
+    const fallbackQuestion = question;
+    const topic = questionToTopicReference(fallbackQuestion);
 
-  const normalized = options.knowledgeGaps.map((g, idx) => {
-    const fallbackQuestion = questions[idx] ?? questions[0];
+    const fromModel = options.knowledgeGaps[idx];
+    const baseTitle = normalizeGapTitle(fromModel?.title ?? "");
+    const title =
+      baseTitle.length >= 5 && baseTitle.length <= 80 && !baseTitle.includes("?")
+        ? baseTitle
+        : topic;
+
+    const priority = fromModel?.priority ?? (options.passed === false ? "high" : "medium");
+    const modelTags = sanitizeModelTags(fromModel?.tags);
+    const tags = modelTags.length > 0 ? modelTags : deriveConceptTagsFromQuestion(fallbackQuestion);
+    const why = ensureWhyReferencesTranscript(fromModel?.why ?? "", fallbackQuestion);
+
     return {
-      ...g,
-      title: normalizeGapTitle(g.title),
-      why: ensureWhyReferencesTranscript(g.why, fallbackQuestion),
+      title,
+      priority,
+      tags,
+      why,
+      resources: fromModel?.resources ?? [],
     };
   });
 
-  const deduped = dedupeKnowledgeGaps(normalized);
-  if (deduped.length >= 2) return deduped;
+  if (perQuestion.length > 0) return perQuestion.slice(0, 12);
 
   const fallback = buildFallbackKnowledgeGaps({
     conversationHistory: options.conversationHistory,
@@ -532,7 +712,7 @@ function ensureMinimumKnowledgeGaps(options: {
     passed: options.passed,
   });
 
-  return dedupeKnowledgeGaps([...deduped, ...fallback]).slice(0, 5);
+  return dedupeKnowledgeGaps(fallback).slice(0, 5);
 }
 
 export async function POST(
