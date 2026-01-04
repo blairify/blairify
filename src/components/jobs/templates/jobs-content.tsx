@@ -397,7 +397,7 @@ export function JobsContent() {
       const companyProfile = normalizeCompanyProfileValue(
         selectedJob.companyProfile,
       );
-      const interviewMode: InterviewMode = "practice";
+      const interviewMode: InterviewMode = "regular";
       const interviewType: InterviewType = "technical";
 
       const domainConfig: DomainInterviewConfig = {

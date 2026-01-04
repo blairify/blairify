@@ -119,7 +119,7 @@ export default function HeroSection() {
                     variant="outline"
                     aria-label="Start practicing for free - Sign up now"
                   >
-                    Start Practicing Free{" "}
+                    Start Practicing for Free{" "}
                     <ArrowRight
                       className="size-3 sm:size-4 ml-2"
                       aria-hidden="true"

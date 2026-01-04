@@ -313,7 +313,8 @@ function questionToTopicReference(question: string | undefined): string {
     return "JavaScript placement in HTML";
   }
   if (lower.includes("error boundary")) return "React error boundaries";
-  if (lower.includes("functional component")) return "React functional components";
+  if (lower.includes("functional component"))
+    return "React functional components";
   if (lower.includes("testing") && lower.includes("react")) {
     return "Testing React components";
   }
@@ -405,7 +406,10 @@ function deriveConceptTagsFromQuestion(question: string | undefined): string[] {
     if (q.includes("testing library") || q.includes("testing-library")) {
       push("testing-library");
     }
-    if (q.includes("react testing library") || q.includes("react-testing-library")) {
+    if (
+      q.includes("react testing library") ||
+      q.includes("react-testing-library")
+    ) {
       push("react-testing-library");
     }
     if (q.includes("cypress")) push("cypress");
@@ -420,7 +424,8 @@ function deriveConceptTagsFromQuestion(question: string | undefined): string[] {
   if (q.includes("sql") || q.includes("database")) push("sql");
   if (q.includes("index")) push("indexes");
   if (q.includes("http") || q.includes("api")) push("http");
-  if (q.includes("auth") || q.includes("authentication")) push("authentication");
+  if (q.includes("auth") || q.includes("authentication"))
+    push("authentication");
   if (q.includes("security")) push("security");
   if (q.includes("testing") || q.includes("test")) push("testing");
   if (q.includes("performance") || q.includes("optimiz")) push("performance");
@@ -685,14 +690,23 @@ function ensureMinimumKnowledgeGaps(options: {
     const fromModel = options.knowledgeGaps[idx];
     const baseTitle = normalizeGapTitle(fromModel?.title ?? "");
     const title =
-      baseTitle.length >= 5 && baseTitle.length <= 80 && !baseTitle.includes("?")
+      baseTitle.length >= 5 &&
+      baseTitle.length <= 80 &&
+      !baseTitle.includes("?")
         ? baseTitle
         : topic;
 
-    const priority = fromModel?.priority ?? (options.passed === false ? "high" : "medium");
+    const priority =
+      fromModel?.priority ?? (options.passed === false ? "high" : "medium");
     const modelTags = sanitizeModelTags(fromModel?.tags);
-    const tags = modelTags.length > 0 ? modelTags : deriveConceptTagsFromQuestion(fallbackQuestion);
-    const why = ensureWhyReferencesTranscript(fromModel?.why ?? "", fallbackQuestion);
+    const tags =
+      modelTags.length > 0
+        ? modelTags
+        : deriveConceptTagsFromQuestion(fallbackQuestion);
+    const why = ensureWhyReferencesTranscript(
+      fromModel?.why ?? "",
+      fallbackQuestion,
+    );
 
     return {
       title,
