@@ -68,7 +68,9 @@ export function InterviewCompleteCard({
       className={
         isTermination
           ? "border-2 border-red-500 bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 shadow-xl"
-          : "border-2 border-green-200 dark:border-green-800 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950 shadow-xl"
+          : canGoToProgress
+            ? "border-2 border-border bg-gradient-to-br from-muted/40 to-background shadow-xl"
+            : "border-2 border-green-200 dark:border-green-800 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950 shadow-xl"
       }
     >
       <CardContent className="pt-6 pb-6">
@@ -77,11 +79,15 @@ export function InterviewCompleteCard({
             className={
               isTermination
                 ? "inline-flex items-center justify-center size-16 sm:size-20 rounded-full bg-red-100 dark:bg-red-900 mb-4"
-                : "inline-flex items-center justify-center size-16 sm:size-20 rounded-full bg-green-100 dark:bg-green-900 mb-4"
+                : canGoToProgress
+                  ? "inline-flex items-center justify-center size-16 sm:size-20 rounded-full bg-muted/60 dark:bg-muted/30 mb-4"
+                  : "inline-flex items-center justify-center size-16 sm:size-20 rounded-full bg-green-100 dark:bg-green-900 mb-4"
             }
           >
             {isTermination ? (
               <AlertTriangle className="size-10 sm:size-12 text-red-700 dark:text-red-300" />
+            ) : canGoToProgress ? (
+              <CheckCircle className="size-10 sm:size-12 text-muted-foreground" />
             ) : (
               <CheckCircle className="size-10 sm:size-12 text-green-600 dark:text-green-400" />
             )}

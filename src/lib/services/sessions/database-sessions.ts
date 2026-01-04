@@ -418,7 +418,7 @@ export async function saveInterviewResults(
         ? analysis.detailedAnalysis
         : analysis.overallScore.trim().length > 0
           ? analysis.overallScore
-          : "Analysis pending";
+          : "";
 
     const practiceQuestionIds = (sessionData.questionIds ?? []).filter(Boolean);
 
@@ -546,7 +546,17 @@ export async function saveInterviewResults(
       cursor += 2;
     }
 
-    if (responses.length === 0) {
+    const termination = sessionData.termination
+      ? {
+          reason: sessionData.termination.reason,
+          message: sessionData.termination.message,
+          ...(sessionData.termination.at
+            ? { at: Timestamp.fromDate(new Date(sessionData.termination.at)) }
+            : {}),
+        }
+      : undefined;
+
+    if (responses.length === 0 || (termination && responses.length <= 1)) {
       if (resolvedExistingSessionId) {
         try {
           await safeDeleteDoc(sessionDoc);
@@ -558,15 +568,16 @@ export async function saveInterviewResults(
       return "";
     }
 
-    const termination = sessionData.termination
-      ? {
-          reason: sessionData.termination.reason,
-          message: sessionData.termination.message,
-          ...(sessionData.termination.at
-            ? { at: Timestamp.fromDate(new Date(sessionData.termination.at)) }
-            : {}),
-        }
-      : undefined;
+    const status: SessionStatus = (() => {
+      if (termination) return "terminated";
+      return sessionData.isComplete ? "completed" : "abandoned";
+    })();
+
+    const analysisStatus: InterviewSession["analysisStatus"] = (() => {
+      if (analysis.detailedAnalysis.trim().length > 0) return "ready";
+      if (analysis.overallScore.trim().length > 0) return "ready";
+      return "pending";
+    })();
 
     const sessionBase = {
       sessionId: resolvedExistingSessionId ?? sessionDoc.id,
@@ -586,9 +597,7 @@ export async function saveInterviewResults(
           specificCompany: config.specificCompany,
         }),
       },
-      status: (sessionData.isComplete
-        ? "completed"
-        : "abandoned") as SessionStatus,
+      status,
       startedAt: startedAtTimestamp,
       completedAt: completedAtTimestamp,
       totalDuration:
@@ -612,7 +621,7 @@ export async function saveInterviewResults(
         ],
         difficulty: sessionDifficulty,
         aiConfidence: 85,
-        summary: analysis.overallScore || "Analysis pending",
+        summary: analysis.overallScore || "",
         detailedAnalysis: analysis.detailedAnalysis?.trim().length
           ? analysis.detailedAnalysis
           : undefined,
@@ -651,6 +660,7 @@ export async function saveInterviewResults(
             }
           : {}),
       },
+      analysisStatus,
       createdAt: existingCreatedAt ?? Timestamp.now(),
       updatedAt: Timestamp.now(),
     };

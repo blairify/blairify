@@ -114,7 +114,71 @@ export function InterviewContent({ user }: InterviewContentProps) {
         m.type === "user" && typeof m.content === "string" && m.content.trim(),
     );
 
-  const markInterviewComplete = (messagesOverride?: Message[]) => {
+  const countUserAnswers = (messages: Message[]): number =>
+    messages.reduce((count, m) => {
+      if (m.type !== "user") return count;
+      if (typeof m.content !== "string") return count;
+      if (m.content.trim().length === 0) return count;
+      return count + 1;
+    }, 0);
+
+  const ensureDatabaseSession = async (messages: Message[]) => {
+    if (!user?.uid) return null;
+    if (databaseSessionId) return databaseSessionId;
+    if (!hasAnyUserAnswer(messages)) return null;
+
+    try {
+      const sessionData = {
+        config: {
+          position: config.position,
+          seniority: config.seniority,
+          interviewMode: config.interviewMode as
+            | "regular"
+            | "practice"
+            | "flash"
+            | "play"
+            | "competitive"
+            | "teacher",
+          interviewType: config.interviewType,
+          duration: Number.parseInt(String(config.duration), 10) || 30,
+          ...(config.specificCompany && {
+            specificCompany: config.specificCompany,
+          }),
+        },
+        status: "in-progress" as const,
+        startedAt: Timestamp.now(),
+        totalDuration: 0,
+        questions: [],
+        responses: [],
+        analysis: {
+          strengths: [],
+          improvements: [],
+          skillsAssessed: [],
+          difficulty: 5,
+          aiConfidence: 50,
+          summary: "Interview in progress...",
+          recommendations: [],
+          nextSteps: [],
+        },
+        analysisStatus: "pending" as const,
+      };
+
+      const sessionId = await DatabaseService.createSession(
+        user.uid,
+        sessionData,
+      );
+      setDatabaseSessionId(sessionId);
+      return sessionId;
+    } catch (error) {
+      console.error("Error creating database session:", error);
+      return null;
+    }
+  };
+
+  const markInterviewComplete = (
+    messagesOverride?: Message[],
+    sessionIdOverride?: string | null,
+  ) => {
     if (session.isComplete || interviewCompletedRef.current) {
       return;
     }
@@ -131,15 +195,22 @@ export function InterviewContent({ user }: InterviewContentProps) {
       isComplete: true,
     };
 
-    const shouldKeepInHistory = hasAnyUserAnswer(sessionData.messages);
+    const userAnswerCount = countUserAnswers(sessionData.messages);
+    const shouldKeepInHistory = (() => {
+      if (userAnswerCount === 0) return false;
+      if (sessionData.termination?.reason && userAnswerCount < 2) return false;
+      return true;
+    })();
+
+    const resolvedSessionId = sessionIdOverride ?? databaseSessionId;
 
     if (!shouldKeepInHistory) {
-      if (databaseSessionId && user?.uid) {
+      if (resolvedSessionId && user?.uid) {
         void (async () => {
           try {
-            await DatabaseService.deleteSession(user.uid, databaseSessionId);
+            await DatabaseService.deleteSession(user.uid, resolvedSessionId);
           } catch (error) {
-            console.error("Error deleting empty session from database:", error);
+            console.error("Error deleting session from database:", error);
           }
         })();
       }
@@ -151,8 +222,8 @@ export function InterviewContent({ user }: InterviewContentProps) {
     localStorage.setItem("interviewSession", JSON.stringify(sessionData));
     localStorage.setItem("interviewConfig", JSON.stringify(config));
 
-    if (databaseSessionId && shouldKeepInHistory) {
-      localStorage.setItem("interviewSessionId", databaseSessionId);
+    if (resolvedSessionId && shouldKeepInHistory) {
+      localStorage.setItem("interviewSessionId", resolvedSessionId);
     }
   };
 
@@ -418,52 +489,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
             ? { totalQuestions: data.questionIds.length }
             : {}),
         });
-
-        if (user?.uid && !databaseSessionId) {
-          try {
-            const sessionData = {
-              config: {
-                position: config.position,
-                seniority: config.seniority,
-                interviewMode: config.interviewMode as
-                  | "regular"
-                  | "practice"
-                  | "flash"
-                  | "play"
-                  | "competitive"
-                  | "teacher",
-                interviewType: config.interviewType,
-                duration: parseInt(config.duration, 10) || 30,
-                ...(config.specificCompany && {
-                  specificCompany: config.specificCompany,
-                }),
-              },
-              status: "in-progress" as const,
-              startedAt: Timestamp.now(),
-              totalDuration: 0,
-              questions: [],
-              responses: [],
-              analysis: {
-                strengths: [],
-                improvements: [],
-                skillsAssessed: [],
-                difficulty: 5,
-                aiConfidence: 50,
-                summary: "Interview in progress...",
-                recommendations: [],
-                nextSteps: [],
-              },
-            };
-
-            const sessionId = await DatabaseService.createSession(
-              user.uid,
-              sessionData,
-            );
-            setDatabaseSessionId(sessionId);
-          } catch (dbError) {
-            console.error("Error creating database session:", dbError);
-          }
-        }
       }
     } catch (error) {
       console.error("Error starting interview:", error);
@@ -502,9 +527,17 @@ export function InterviewContent({ user }: InterviewContentProps) {
           (Date.now() - session.startTime.getTime()) / 1000 / 60,
         );
 
+        const nextStatus = (() => {
+          if (!session.isComplete) return "in-progress" as const;
+          if (session.termination?.reason) return "terminated" as const;
+          if (session.currentQuestionCount >= session.totalQuestions)
+            return "completed" as const;
+          return "abandoned" as const;
+        })();
+
         await DatabaseService.updateSession(user.uid, databaseSessionId, {
           totalDuration: currentDuration,
-          status: session.isComplete ? "completed" : "in-progress",
+          status: nextStatus,
           ...(session.isComplete && { completedAt: Timestamp.now() }),
         });
       } catch (dbError) {
@@ -519,6 +552,9 @@ export function InterviewContent({ user }: InterviewContentProps) {
     session.messages,
     session.startTime,
     session.isComplete,
+    session.termination?.reason,
+    session.currentQuestionCount,
+    session.totalQuestions,
   ]);
 
   const handleSendMessage = async () => {
@@ -598,6 +634,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
         addMessage(aiMessage);
 
+        const ensuredSessionId = await ensureDatabaseSession(
+          conversationHistoryToSend,
+        );
+
         if (data.aiErrorType === "timeout") {
           addMessage({
             id: (Date.now() + 2).toString(),
@@ -648,11 +688,11 @@ export function InterviewContent({ user }: InterviewContentProps) {
             );
             localStorage.setItem("interviewConfig", JSON.stringify(config));
 
-            if (databaseSessionId) {
-              localStorage.setItem("interviewSessionId", databaseSessionId);
+            if (ensuredSessionId) {
+              localStorage.setItem("interviewSessionId", ensuredSessionId);
             }
 
-            markInterviewComplete(nextMessages);
+            markInterviewComplete(nextMessages, ensuredSessionId);
             return;
           }
 
@@ -691,11 +731,11 @@ export function InterviewContent({ user }: InterviewContentProps) {
             );
             localStorage.setItem("interviewConfig", JSON.stringify(config));
 
-            if (databaseSessionId) {
-              localStorage.setItem("interviewSessionId", databaseSessionId);
+            if (ensuredSessionId) {
+              localStorage.setItem("interviewSessionId", ensuredSessionId);
             }
 
-            markInterviewComplete(nextMessages);
+            markInterviewComplete(nextMessages, ensuredSessionId);
             return;
           }
 
@@ -734,15 +774,15 @@ export function InterviewContent({ user }: InterviewContentProps) {
             );
             localStorage.setItem("interviewConfig", JSON.stringify(config));
 
-            if (databaseSessionId) {
-              localStorage.setItem("interviewSessionId", databaseSessionId);
+            if (ensuredSessionId) {
+              localStorage.setItem("interviewSessionId", ensuredSessionId);
             }
 
-            markInterviewComplete(nextMessages);
+            markInterviewComplete(nextMessages, ensuredSessionId);
             return;
           }
 
-          markInterviewComplete(nextMessages);
+          markInterviewComplete(nextMessages, ensuredSessionId);
         }
 
         if (!isFollowUp) {
@@ -815,6 +855,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
 
           addMessage(aiMessage);
 
+          const ensuredSessionId = await ensureDatabaseSession(
+            session.messages,
+          );
+
           if (data.warningCount !== undefined) {
             setWarningCount(data.warningCount);
           }
@@ -847,7 +891,11 @@ export function InterviewContent({ user }: InterviewContentProps) {
               );
               localStorage.setItem("interviewConfig", JSON.stringify(config));
 
-              markInterviewComplete();
+              if (ensuredSessionId) {
+                localStorage.setItem("interviewSessionId", ensuredSessionId);
+              }
+
+              markInterviewComplete(undefined, ensuredSessionId);
               return;
             }
 
@@ -878,15 +926,15 @@ export function InterviewContent({ user }: InterviewContentProps) {
               );
               localStorage.setItem("interviewConfig", JSON.stringify(config));
 
-              if (databaseSessionId) {
-                localStorage.setItem("interviewSessionId", databaseSessionId);
+              if (ensuredSessionId) {
+                localStorage.setItem("interviewSessionId", ensuredSessionId);
               }
 
-              markInterviewComplete();
+              markInterviewComplete(undefined, ensuredSessionId);
               return;
             }
 
-            markInterviewComplete();
+            markInterviewComplete(undefined, ensuredSessionId);
           }
 
           if (!isFollowUp) {

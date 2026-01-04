@@ -668,6 +668,41 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         const interviewData = localStorage.getItem("interviewSession");
         const interviewConfig = localStorage.getItem("interviewConfig");
 
+        const hasMeaningfulAnswers = (messages: unknown): boolean => {
+          if (!Array.isArray(messages)) return false;
+          return messages.some((m) => {
+            if (!m || typeof m !== "object") return false;
+            if (!("type" in m) || !("content" in m)) return false;
+            const type = (m as { type?: unknown }).type;
+            const content = (m as { content?: unknown }).content;
+            return (
+              type === "user" &&
+              typeof content === "string" &&
+              content.trim().length > 0
+            );
+          });
+        };
+
+        const clearInterviewStorage = () => {
+          localStorage.removeItem("interviewSession");
+          localStorage.removeItem("interviewConfig");
+          localStorage.removeItem("interviewSessionId");
+        };
+
+        const countUserAnswers = (messages: unknown): number => {
+          if (!Array.isArray(messages)) return 0;
+          return messages.reduce((count, m) => {
+            if (!m || typeof m !== "object") return count;
+            if (!("type" in m) || !("content" in m)) return count;
+            const type = (m as { type?: unknown }).type;
+            const content = (m as { content?: unknown }).content;
+            if (type !== "user") return count;
+            if (typeof content !== "string") return count;
+            if (content.trim().length === 0) return count;
+            return count + 1;
+          }, 0);
+        };
+
         if (!interviewData || !interviewConfig) {
           console.error("Missing localStorage data:", {
             interviewData: !!interviewData,
@@ -682,6 +717,22 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
         const session = JSON.parse(interviewData);
         const config = JSON.parse(interviewConfig);
+
+        if (!hasMeaningfulAnswers(session?.messages)) {
+          clearInterviewStorage();
+          router.push("/my-progress");
+          setIsAnalyzing(false);
+          return;
+        }
+
+        const userAnswerCount = countUserAnswers(session?.messages);
+        const isTermination = Boolean(session?.termination?.reason);
+        if (isTermination && userAnswerCount < 2) {
+          clearInterviewStorage();
+          router.push("/my-progress");
+          setIsAnalyzing(false);
+          return;
+        }
 
         console.log("📊 Session data loaded:", {
           hasMessages: !!session.messages,
@@ -1031,7 +1082,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     };
 
     loadAnalysis();
-  }, [activeUserId]);
+  }, [activeUserId, router]);
 
   useEffect(() => {
     if (!activeUserId) return;

@@ -446,9 +446,7 @@ function buildPdfDocument(session: InterviewSession) {
       return stripTrailingSeparators(detailedAnalysis);
 
     const unique = new Set(
-      responses
-        .map((r) => safeText(r.feedback))
-        .filter((v) => v.length > 0 && v !== "Analysis pending"),
+      responses.map((r) => safeText(r.feedback)).filter((v) => v.length > 0),
     );
     const list = Array.from(unique);
     return stripTrailingSeparators(list[0] ?? "");

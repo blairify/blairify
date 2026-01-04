@@ -177,6 +177,7 @@ export interface InterviewSession {
   questions: InterviewQuestion[];
   responses: InterviewResponse[];
   analysis: SessionAnalysis;
+  analysisStatus?: "none" | "pending" | "ready" | "failed";
   userFeedback?: UserSessionFeedback;
   createdAt: Timestamp;
   updatedAt: Timestamp;
@@ -231,6 +232,7 @@ export type SessionStatus =
   | "in-progress"
   | "completed"
   | "abandoned"
+  | "terminated"
   | "paused";
 
 export interface SessionScores {

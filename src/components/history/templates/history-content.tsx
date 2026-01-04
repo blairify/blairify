@@ -47,6 +47,8 @@ interface HistoryContentProps {
 
 type HistoryFilterType = "all" | InterviewType;
 
+type HistoryStatusFilter = "completed" | "drafts" | "terminated" | "all";
+
 type HistorySortBy = "date" | "score" | "duration";
 
 export function HistoryContent({ user }: HistoryContentProps) {
@@ -57,19 +59,23 @@ export function HistoryContent({ user }: HistoryContentProps) {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState<HistoryFilterType>("all");
+  const [statusFilter, setStatusFilter] =
+    useState<HistoryStatusFilter>("completed");
   const [sortBy, setSortBy] = useState<HistorySortBy>("date");
   const [viewLayout, setViewLayout] = useState<"grid" | "list">("list");
   const [viewLayoutInitialized, setViewLayoutInitialized] = useState(false);
   const { isMobile, isLoading: isMobileLoading } = useIsMobile();
   const router = useRouter();
 
+  const effectiveViewLayout: "grid" | "list" = isMobile ? "grid" : viewLayout;
+
   useEffect(() => {
     if (viewLayoutInitialized) return;
     if (isMobileLoading) return;
 
-    setViewLayout(isMobile ? "grid" : "list");
+    setViewLayout("list");
     setViewLayoutInitialized(true);
-  }, [isMobile, isMobileLoading, viewLayoutInitialized]);
+  }, [isMobileLoading, viewLayoutInitialized]);
 
   const loadSessions = useCallback(async () => {
     if (!user?.uid) return;
@@ -91,6 +97,27 @@ export function HistoryContent({ user }: HistoryContentProps) {
 
   useEffect(() => {
     let filtered = [...sessions];
+
+    filtered = filtered.filter((session) => {
+      switch (statusFilter) {
+        case "all":
+          return true;
+        case "completed":
+          return session.status === "completed";
+        case "terminated":
+          return session.status === "terminated";
+        case "drafts":
+          return (
+            session.status === "in-progress" ||
+            session.status === "abandoned" ||
+            session.status === "paused"
+          );
+        default: {
+          const _never: never = statusFilter;
+          throw new Error(`Unhandled statusFilter: ${_never}`);
+        }
+      }
+    });
 
     if (searchTerm) {
       filtered = filtered.filter(
@@ -131,7 +158,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
     });
 
     setFilteredSessions(sorted);
-  }, [sessions, searchTerm, filterType, sortBy]);
+  }, [sessions, searchTerm, filterType, sortBy, statusFilter]);
 
   const getScoreColor = (score: number) => {
     if (score >= 90) return "text-green-600 bg-green-100 dark:bg-green-900/20";
@@ -264,35 +291,57 @@ export function HistoryContent({ user }: HistoryContentProps) {
           </div>
 
           <div className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-4 sm:p-6 shadow-lg">
-            <details className="rounded-lg border border-border/50 bg-muted/20">
-              <summary className="list-none [&::-webkit-details-marker]:hidden cursor-pointer select-none px-3 py-2">
-                <div className="flex items-center justify-between gap-3">
+            <details
+              className={
+                isMobile
+                  ? "rounded-lg bg-transparent"
+                  : "rounded-lg border border-border/50 bg-background"
+              }
+            >
+              <summary
+                className={
+                  isMobile
+                    ? "list-none [&::-webkit-details-marker]:hidden cursor-pointer select-none"
+                    : "list-none [&::-webkit-details-marker]:hidden cursor-pointer select-none px-3 py-2"
+                }
+              >
+                <div
+                  className={
+                    isMobile
+                      ? "flex items-center gap-3"
+                      : "flex items-center justify-between gap-3"
+                  }
+                >
                   <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
                     <Filter className="h-4 w-4 text-muted-foreground" />
                     Filters
                   </div>
-                  <div className="flex items-center gap-1 bg-muted/50 border border-border/50 rounded-lg p-1">
-                    <Button
-                      variant={viewLayout === "grid" ? "secondary" : "ghost"}
-                      size="sm"
-                      onClick={() => setViewLayout("grid")}
-                      className="h-8 px-3 hover:bg-secondary/80 transition-colors"
-                    >
-                      <LayoutGrid className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      variant={viewLayout === "list" ? "secondary" : "ghost"}
-                      size="sm"
-                      onClick={() => setViewLayout("list")}
-                      className="h-8 px-3 hover:bg-secondary/80 transition-colors"
-                    >
-                      <List className="h-4 w-4" />
-                    </Button>
-                  </div>
+                  {!isMobile ? (
+                    <div className="flex items-center gap-1 bg-muted/50 border border-border/50 rounded-lg p-1">
+                      <Button
+                        variant={viewLayout === "grid" ? "secondary" : "ghost"}
+                        size="sm"
+                        onClick={() => setViewLayout("grid")}
+                        className="h-8 px-3 hover:bg-secondary/80 transition-colors"
+                      >
+                        <LayoutGrid className="h-4 w-4" />
+                      </Button>
+                      <Button
+                        variant={viewLayout === "list" ? "secondary" : "ghost"}
+                        size="sm"
+                        onClick={() => setViewLayout("list")}
+                        className="h-8 px-3 hover:bg-secondary/80 transition-colors"
+                      >
+                        <List className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  ) : null}
                 </div>
               </summary>
 
-              <div className="space-y-4 px-3 pb-3">
+              <div
+                className={isMobile ? "space-y-4 pt-3" : "space-y-4 px-3 pb-3"}
+              >
                 <div className="flex flex-col sm:flex-row gap-3">
                   <div className="relative flex-1 group">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -324,6 +373,26 @@ export function HistoryContent({ user }: HistoryContentProps) {
                             System Design
                           </SelectItem>
                           <SelectItem value="coding">Coding</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="relative group">
+                      <Filter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
+                      <Select
+                        value={statusFilter}
+                        onValueChange={(value) =>
+                          setStatusFilter(value as HistoryStatusFilter)
+                        }
+                      >
+                        <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
+                          <SelectValue placeholder="Status" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="completed">Completed</SelectItem>
+                          <SelectItem value="drafts">Drafts</SelectItem>
+                          <SelectItem value="terminated">Terminated</SelectItem>
+                          <SelectItem value="all">All</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -371,7 +440,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 py-6">
-        {viewLayout === "list" ? (
+        {effectiveViewLayout === "list" ? (
           <div className="border border-border/50 rounded-xl overflow-hidden shadow-lg bg-card">
             <div className="w-full overflow-x-auto">
               <Table>

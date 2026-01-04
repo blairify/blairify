@@ -326,10 +326,7 @@ export default function SessionDetailsPage() {
     const unique = new Set(
       responses
         .map((r) => r.feedback?.trim())
-        .filter(
-          (v): v is string =>
-            typeof v === "string" && v.length > 0 && v !== "Analysis pending",
-        ),
+        .filter((v): v is string => typeof v === "string" && v.length > 0),
     );
 
     if (unique.size === 0) return null;
