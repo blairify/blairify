@@ -150,6 +150,14 @@ export const safeUpdateDoc = async (
     await updateDoc(docRef, data);
     firebaseMonitor.reportSuccess("firestore-update");
   } catch (error: unknown) {
+    const errorStr = String(error).toLowerCase();
+    if (
+      errorStr.includes("no document to update") ||
+      errorStr.includes("not-found")
+    ) {
+      return;
+    }
+
     console.error(
       `Firestore updateDoc error (attempt ${retryCount + 1}):`,
       error,

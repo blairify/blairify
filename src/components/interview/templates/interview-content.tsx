@@ -144,6 +144,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
         })();
       }
 
+      setDatabaseSessionId(null);
       localStorage.removeItem("interviewSessionId");
     }
 
@@ -1031,6 +1032,11 @@ export function InterviewContent({ user }: InterviewContentProps) {
           session.isComplete ? (
             <InterviewCompleteCard
               onViewResults={handleViewResults}
+              showViewResults={hasAnyUserAnswer(session.messages)}
+              onGoToProgress={() => {
+                allowExitRef.current = true;
+                window.location.href = "/my-progress";
+              }}
               terminationReason={
                 session.termination?.reason ??
                 completionTerminationReason ??

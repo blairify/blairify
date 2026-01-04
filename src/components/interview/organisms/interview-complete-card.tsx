@@ -7,19 +7,25 @@ import type { TerminationReason } from "@/types/interview";
 interface InterviewCompleteCardProps {
   onViewResults: () => void;
   terminationReason?: TerminationReason;
+  showViewResults?: boolean;
+  onGoToProgress?: () => void;
 }
 
 export function InterviewCompleteCard({
   onViewResults,
   terminationReason,
+  showViewResults = true,
+  onGoToProgress,
 }: InterviewCompleteCardProps) {
   const handleConfirmViewResults = () => {
     onViewResults();
   };
 
   const isTermination = terminationReason !== undefined;
+  const canGoToProgress = !isTermination && !showViewResults;
 
   const title = (() => {
+    if (!terminationReason && !showViewResults) return "Interview ended";
     if (!terminationReason) return "Interview Complete!";
     switch (terminationReason) {
       case "language":
@@ -36,6 +42,10 @@ export function InterviewCompleteCard({
   })();
 
   const description = (() => {
+    if (!terminationReason && !showViewResults) {
+      return "You didn't answer any questions, so there's nothing to analyze. This session won't be saved to your history.";
+    }
+
     if (!terminationReason) {
       return "Congratulations! You've successfully completed the interview. Ready to see how you performed?";
     }
@@ -82,18 +92,26 @@ export function InterviewCompleteCard({
           <Typography.Body className="text-sm sm:text-base text-muted-foreground mb-6 max-w-md mx-auto">
             {description}
           </Typography.Body>
-          <Button
-            onClick={handleConfirmViewResults}
-            size="lg"
-            className={
-              isTermination
-                ? "h-11 sm:h-12 px-8 text-base font-semibold bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 shadow-lg"
-                : "h-11 sm:h-12 px-8 text-base font-semibold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg"
-            }
-          >
-            View Results
-            <ArrowRight className="size-5 ml-2" />
-          </Button>
+          {canGoToProgress && onGoToProgress ? (
+            <Button variant="outline" size="lg" onClick={onGoToProgress}>
+              Go to My Progress
+              <ArrowRight className="size-5 ml-2" />
+            </Button>
+          ) : null}
+          {showViewResults ? (
+            <Button
+              onClick={handleConfirmViewResults}
+              size="lg"
+              className={
+                isTermination
+                  ? "h-11 sm:h-12 px-8 text-base font-semibold bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 shadow-lg"
+                  : "h-11 sm:h-12 px-8 text-base font-semibold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg"
+              }
+            >
+              View Results
+              <ArrowRight className="size-5 ml-2" />
+            </Button>
+          ) : null}
         </div>
       </CardContent>
     </Card>
