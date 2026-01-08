@@ -1,11 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Loader2, Rocket, Shield, Zap } from "lucide-react";
+import { ArrowLeft, Check, Loader2, Rocket, Shield, Zap } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -127,27 +126,12 @@ export default function UpgradePage() {
         <div className="absolute bottom-[10%] left-[20%] w-[25%] h-[25%] bg-primary/5 rounded-full blur-[80px]" />
       </div>
 
-      <div className="container relative z-10 max-w-6xl py-20 px-4">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <Typography.Heading1 className="mb-4 bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
-            Upgrade Your Career Journey
-          </Typography.Heading1>
-          <Typography.Body className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Get unlimited mock interviews, advanced AI analysis, and
-            personalized career roadmaps to land your dream job faster.
-          </Typography.Body>
-        </motion.div>
-
+      <div className="container relative z-10 max-w-6xl py-20 px-4 mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid md:grid-cols-2 gap-8 justify-center"
+          className="grid md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto"
         >
           {/* Free Plan */}
           <motion.div variants={itemVariants}>
@@ -199,11 +183,6 @@ export default function UpgradePage() {
           {/* Pro Plan */}
           <motion.div variants={itemVariants}>
             <Card className="group flex flex-col h-full border-primary/40 bg-primary/5 backdrop-blur-md relative overflow-hidden shadow-2xl shadow-primary/10 transition-all duration-500 hover:border-primary hover:shadow-primary/20 hover:-translate-y-2 lg:scale-105">
-              <div className="absolute top-0 right-0 px-3 py-1 bg-primary text-primary-foreground text-[10px] font-bold tracking-wider rounded-bl-lg">
-                MOST POPULAR
-              </div>
-              <div className="absolute -top-10 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors" />
-
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-2xl">
                   Pro{" "}
@@ -272,7 +251,7 @@ export default function UpgradePage() {
                   </Button>
                 ) : (
                   <Button
-                    className="w-full h-11 text-base font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full h-11 text-base font-bold bg-gradient-to-r from-[#FF6B6B] to-[#FF8E53] hover:from-[#FF8E53] hover:to-[#FF6B6B] text-white border-none shadow-[0_10px_20px_-10px_rgba(255,107,107,0.5)] hover:shadow-[0_15px_30px_-10px_rgba(255,107,107,0.6)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                     onClick={handleUpgrade}
                     disabled={loading}
                   >
@@ -293,6 +272,23 @@ export default function UpgradePage() {
               </CardFooter>
             </Card>
           </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mt-12 flex justify-center"
+        >
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-muted-foreground hover:text-foreground transition-colors group"
+            onClick={() => router.push("/my-progress")}
+          >
+            <ArrowLeft className="size-4 mr-2 transition-transform group-hover:-translate-x-1" />
+            Back to my progress
+          </Button>
         </motion.div>
       </div>
     </div>

@@ -163,8 +163,8 @@ export default function DashboardSidebar({
                   collapsed ? "justify-center max-w-10 mx-auto" : "space-x-3"
                 } ${
                   isActive("/upgrade")
-                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
-                    : "bg-primary/5 hover:bg-primary/10 border border-primary/20 hover:border-primary/40"
+                    ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white shadow-[0_10px_20px_-10px_rgba(16,185,129,0.5)]"
+                    : "bg-[#10B981]/5 hover:bg-[#10B981]/10 border border-[#10B981]/30 hover:border-[#10B981]/60 text-[#10B981] shadow-sm"
                 }`}
               >
                 {/* Subtle Pulse Background */}
@@ -179,7 +179,7 @@ export default function DashboardSidebar({
                       duration: 3,
                       ease: "easeInOut",
                     }}
-                    className="absolute inset-0 bg-primary/10 pointer-events-none"
+                    className="absolute inset-0 bg-primary/10 pointer-events-none group-hover:opacity-0 transition-opacity"
                   />
                 )}
 
@@ -187,7 +187,7 @@ export default function DashboardSidebar({
                   className={`relative flex items-center shrink-0 ${collapsed ? "" : "w-5"}`}
                 >
                   <Zap
-                    className={`size-4 ${isActive("/upgrade") ? "fill-primary-foreground text-primary-foreground" : "text-primary fill-primary animate-pulse"}`}
+                    className={`size-4 transition-colors ${isActive("/upgrade") ? "fill-white text-white" : "text-[#10B981] fill-[#10B981]"}`}
                   />
                 </div>
 
@@ -198,7 +198,7 @@ export default function DashboardSidebar({
                 )}
 
                 {/* Shine effect on hover */}
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
               </Link>
             </motion.div>
           )}
