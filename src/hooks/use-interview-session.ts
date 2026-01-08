@@ -43,6 +43,11 @@ export function useInterviewSession(config: InterviewConfig) {
       isDemoMode: config.isDemoMode,
       hasPersonalizedIntro: false,
       interviewerId: interviewer.id,
+      tokenUsage: {
+        prompt_tokens: 0,
+        completion_tokens: 0,
+        total_tokens: 0,
+      },
     };
   });
 
@@ -98,6 +103,24 @@ export function useInterviewSession(config: InterviewConfig) {
     setSession((prev) => ({ ...prev, ...updates }));
   };
 
+  const addTokenUsage = (usage?: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  }) => {
+    if (!usage) return;
+    setSession((prev) => ({
+      ...prev,
+      tokenUsage: {
+        prompt_tokens:
+          (prev.tokenUsage?.prompt_tokens || 0) + usage.prompt_tokens,
+        completion_tokens:
+          (prev.tokenUsage?.completion_tokens || 0) + usage.completion_tokens,
+        total_tokens: (prev.tokenUsage?.total_tokens || 0) + usage.total_tokens,
+      },
+    }));
+  };
+
   const incrementQuestionCount = () => {
     setSession((prev) => ({
       ...prev,
@@ -117,6 +140,7 @@ export function useInterviewSession(config: InterviewConfig) {
     session,
     addMessage,
     updateSession,
+    addTokenUsage,
     incrementQuestionCount,
     togglePause,
     completeInterview,

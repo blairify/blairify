@@ -40,6 +40,7 @@ export interface UserData {
   createdAt: Date;
   lastLoginAt: Date;
   preferences?: UserPreferences;
+  subscription?: UserProfile["subscription"];
 }
 
 const toDateSafe = (value: unknown): Date => {
@@ -67,6 +68,7 @@ const userProfileToUserData = (profile: UserProfile): UserData => ({
   createdAt: toDateSafe(profile.createdAt),
   lastLoginAt: toDateSafe(profile.lastLoginAt),
   preferences: profile.preferences,
+  subscription: profile.subscription,
 });
 
 const GDPR_STORAGE_KEY = "Blairify-gdpr-data";

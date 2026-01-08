@@ -342,6 +342,11 @@ export async function saveInterviewResults(
       message: string;
       at?: Date | string;
     };
+    tokenUsage?: {
+      prompt_tokens: number;
+      completion_tokens: number;
+      total_tokens: number;
+    };
   },
   config: {
     position: string;
@@ -663,6 +668,7 @@ export async function saveInterviewResults(
       analysisStatus,
       createdAt: existingCreatedAt ?? Timestamp.now(),
       updatedAt: Timestamp.now(),
+      tokenUsage: sessionData.tokenUsage,
     };
 
     const shouldWriteScores = shouldPersistScores(

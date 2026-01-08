@@ -48,6 +48,11 @@ export interface InterviewSession {
   endedEarly?: boolean;
   termination?: InterviewTermination;
   interviewerId?: string; // Store interviewer ID for consistency
+  tokenUsage?: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
 }
 
 export type TerminationReason =

@@ -785,6 +785,13 @@ export async function POST(
     );
 
     let analysisText: string;
+    let usage:
+      | {
+          prompt_tokens: number;
+          completion_tokens: number;
+          total_tokens: number;
+        }
+      | undefined;
 
     // Try to get AI analysis
     if (isAvailable(aiClient)) {
@@ -796,6 +803,7 @@ export async function POST(
 
       if (aiResponse.success) {
         analysisText = aiResponse.content;
+        usage = aiResponse.usage;
       } else {
         console.error(
           "AI analysis failed, falling back to mock:",
@@ -848,6 +856,7 @@ export async function POST(
       success: true,
       feedback: enrichedFeedback,
       rawAnalysis: analysisText,
+      usage,
     });
   } catch (error) {
     console.error("❌ Analysis API error:", error);

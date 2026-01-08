@@ -597,6 +597,7 @@ export async function POST(request: NextRequest) {
       isComplete: shouldComplete,
       usedFallback,
       aiErrorType: usedFallback ? (aiResponse.error ?? "fallback") : undefined,
+      usage: aiResponse.usage,
     });
   } catch (error) {
     console.error("Interview message API error:", error);

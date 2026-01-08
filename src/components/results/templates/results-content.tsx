@@ -967,9 +967,36 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   : [],
               );
 
+              // Combine token usage from interview session + analysis
+              const existingTokenUsage = session.tokenUsage || {
+                prompt_tokens: 0,
+                completion_tokens: 0,
+                total_tokens: 0,
+              };
+              const analysisUsage = data.usage || {
+                prompt_tokens: 0,
+                completion_tokens: 0,
+                total_tokens: 0,
+              };
+              const combinedTokenUsage = {
+                prompt_tokens:
+                  existingTokenUsage.prompt_tokens +
+                  analysisUsage.prompt_tokens,
+                completion_tokens:
+                  existingTokenUsage.completion_tokens +
+                  analysisUsage.completion_tokens,
+                total_tokens:
+                  existingTokenUsage.total_tokens + analysisUsage.total_tokens,
+              };
+
               const savedSessionId = await DatabaseService.saveInterviewResults(
                 activeUserId,
-                { ...session, exampleAnswers, followUpExampleAnswers },
+                {
+                  ...session,
+                  exampleAnswers,
+                  followUpExampleAnswers,
+                  tokenUsage: combinedTokenUsage,
+                },
                 config,
                 data.feedback,
                 existingSessionId,

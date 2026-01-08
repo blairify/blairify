@@ -69,9 +69,13 @@ export interface UserProfile {
   lastLoginAt: Timestamp;
   lastActiveAt: Timestamp;
   isActive: boolean;
+  stripeCustomerId?: string;
 
   // Subscription/Plan Info
   subscription: UserSubscription;
+
+  // Usage Tracking
+  usage?: UserUsage;
 }
 
 export interface UserPreferences {
@@ -99,6 +103,12 @@ export interface UserSubscription {
     skillsTracking: number;
     analyticsRetention: number; // days
   };
+}
+
+export interface UserUsage {
+  interviewCount: number;
+  lastInterviewAt: Timestamp;
+  periodStart: Timestamp;
 }
 
 // ================================
@@ -178,6 +188,7 @@ export interface InterviewSession {
   responses: InterviewResponse[];
   analysis: SessionAnalysis;
   analysisStatus?: "none" | "pending" | "ready" | "failed";
+  tokenUsage?: AIUsage;
   userFeedback?: UserSessionFeedback;
   createdAt: Timestamp;
   updatedAt: Timestamp;
@@ -634,4 +645,10 @@ export interface DatabaseConfig {
   };
   indexes: string[];
   rules: string;
+}
+
+export interface AIUsage {
+  prompt_tokens: number;
+  completion_tokens: number;
+  total_tokens: number;
 }

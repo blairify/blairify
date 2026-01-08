@@ -40,6 +40,11 @@ export interface AIResponse {
   content: string;
   success: boolean;
   error?: string;
+  usage?: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
 }
 
 interface AIClientInstance {
@@ -188,6 +193,11 @@ export async function generateInterviewResponse(
       return {
         content,
         success: true,
+        usage: {
+          prompt_tokens: chatResponse.usage.promptTokens ?? 0,
+          completion_tokens: chatResponse.usage.completionTokens ?? 0,
+          total_tokens: chatResponse.usage.totalTokens ?? 0,
+        },
       };
     }
 
@@ -247,6 +257,11 @@ export async function generateAnalysis(
       return {
         content,
         success: true,
+        usage: {
+          prompt_tokens: chatResponse.usage.promptTokens ?? 0,
+          completion_tokens: chatResponse.usage.completionTokens ?? 0,
+          total_tokens: chatResponse.usage.totalTokens ?? 0,
+        },
       };
     }
 

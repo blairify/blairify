@@ -1,6 +1,7 @@
 "use client";
 
-import { History, Plus } from "lucide-react";
+import { motion } from "framer-motion";
+import { History, Plus, Zap } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GiDandelionFlower } from "react-icons/gi";
@@ -13,6 +14,7 @@ import { TbProgressBolt } from "react-icons/tb";
 import { TiFlowChildren } from "react-icons/ti";
 import Logo from "@/components/common/atoms/logo-blairify";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/providers/auth-provider";
 import { useSidebar } from "@/providers/sidebar-provider";
 
 interface DashboardSidebarProps {
@@ -28,6 +30,10 @@ export default function DashboardSidebar({
 }: DashboardSidebarProps) {
   const pathname = usePathname();
   const { collapsed, setCollapsed } = useSidebar();
+  const { userData } = useAuth();
+  const isPro =
+    userData?.subscription?.plan === "pro" &&
+    userData?.subscription?.status === "active";
 
   const isActive = (path: string) => {
     return pathname === path;
@@ -141,6 +147,61 @@ export default function DashboardSidebar({
               History
             </span>
           </Link>
+
+          {!isPro && (
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+              className="px-3 py-2"
+            >
+              <Link
+                href="/upgrade"
+                title="Upgrade to Pro"
+                aria-label="Upgrade to Pro"
+                className={`relative group flex items-center px-3 py-2.5 rounded-xl transition-all duration-300 w-full overflow-hidden ${
+                  collapsed ? "justify-center max-w-10 mx-auto" : "space-x-3"
+                } ${
+                  isActive("/upgrade")
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+                    : "bg-primary/5 hover:bg-primary/10 border border-primary/20 hover:border-primary/40"
+                }`}
+              >
+                {/* Subtle Pulse Background */}
+                {!isActive("/upgrade") && (
+                  <motion.div
+                    animate={{
+                      opacity: [0.1, 0.3, 0.1],
+                      scale: [1, 1.02, 1],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 3,
+                      ease: "easeInOut",
+                    }}
+                    className="absolute inset-0 bg-primary/10 pointer-events-none"
+                  />
+                )}
+
+                <div
+                  className={`relative flex items-center shrink-0 ${collapsed ? "" : "w-5"}`}
+                >
+                  <Zap
+                    className={`size-4 ${isActive("/upgrade") ? "fill-primary-foreground text-primary-foreground" : "text-primary fill-primary animate-pulse"}`}
+                  />
+                </div>
+
+                {!collapsed && (
+                  <span className="relative font-bold text-sm tracking-tight truncate">
+                    Upgrade to Pro
+                  </span>
+                )}
+
+                {/* Shine effect on hover */}
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+              </Link>
+            </motion.div>
+          )}
 
           {/* Progress Section */}
           <div className={`pt-4 pb-2 ${collapsed ? "px-0" : "px-3"}`}>
