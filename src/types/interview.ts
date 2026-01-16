@@ -70,6 +70,12 @@ export interface InterviewResults {
   score: number;
   scoreColor: string;
   overallScore: string;
+  categoryScores?: {
+    technical: number;
+    problemSolving: number;
+    communication: number;
+    professional: number;
+  };
   strengths: string[];
   improvements: string[];
   detailedAnalysis: string;
@@ -99,6 +105,7 @@ export interface KnowledgeGap {
   title: string;
   priority: KnowledgeGapPriority;
   tags: string[];
+  summary?: string;
   why: string;
   resources: ResourceLink[];
 }

@@ -595,6 +595,8 @@ function buildFallbackKnowledgeGaps(options: {
         title: "Optimization: trade-offs and profiling mindset",
         priority: "low",
         tags: ["performance", "profiling", "optimization"],
+        summary:
+          "Explain how you would measure bottlenecks, compare trade-offs, and choose an optimization deliberately.",
         why: ensureWhyReferencesTranscript(
           "you can go beyond correct solutions by explaining how you would measure bottlenecks and choose optimizations.",
           q1,
@@ -605,6 +607,8 @@ function buildFallbackKnowledgeGaps(options: {
         title: "Advanced concepts: edge cases and production hardening",
         priority: "low",
         tags: ["reliability", "testing", "edge-cases"],
+        summary:
+          "Call out failure modes and edge cases, then explain how you would validate assumptions in production.",
         why: ensureWhyReferencesTranscript(
           "a senior-level answer typically calls out failure modes, constraints, and how you’d validate assumptions in production.",
           q2,
@@ -652,6 +656,8 @@ function buildFallbackKnowledgeGaps(options: {
         "Answer structure: definition → example → pitfall",
       priority: options.passed === false ? "high" : "medium",
       tags: selected[0]?.tags ?? [positionTag, "fundamentals"],
+      summary:
+        "Answer with a crisp definition, a tiny example, and one pitfall or best practice.",
       why: ensureWhyReferencesTranscript(
         selected[0]?.why ??
           "aim for a crisp definition, then a tiny example, then one pitfall/best practice.",
@@ -665,6 +671,8 @@ function buildFallbackKnowledgeGaps(options: {
         "Clarify reasoning: assumptions → steps → conclusion",
       priority: options.passed === false ? "high" : "medium",
       tags: selected[1]?.tags ?? ["communication", "problem-solving"],
+      summary:
+        "State assumptions, walk through steps, and end with a short conclusion so your reasoning is easy to verify.",
       why: ensureWhyReferencesTranscript(
         selected[1]?.why ??
           "your answer should state assumptions, walk through steps, and then summarize the conclusion so it’s easy to verify.",
@@ -703,6 +711,8 @@ function ensureMinimumKnowledgeGaps(options: {
       modelTags.length > 0
         ? modelTags
         : deriveConceptTagsFromQuestion(fallbackQuestion);
+
+    const summary = (fromModel?.summary ?? "").trim();
     const why = ensureWhyReferencesTranscript(
       fromModel?.why ?? "",
       fallbackQuestion,
@@ -712,6 +722,7 @@ function ensureMinimumKnowledgeGaps(options: {
       title,
       priority,
       tags,
+      ...(summary.length > 0 ? { summary } : {}),
       why,
       resources: fromModel?.resources ?? [],
     };

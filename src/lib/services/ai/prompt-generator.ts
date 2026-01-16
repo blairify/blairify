@@ -256,12 +256,15 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 - Title: [short gap name]
   Priority: [high | medium | low]
   Tags: [comma-separated kebab-case tags, e.g. react-rendering, sql-indexes]
+  Summary: [1 short, actionable sentence describing what to improve (no small-talk openers, no ellipses)]
   Why: [1 sentence explaining why this is a gap based on the transcript, referencing the specific question by TOPIC only]
 
 Rules for KNOWLEDGE GAPS:
 - Output exactly 1 knowledge gap per interviewer question.
 - NEVER quote the full question text. Use a short topic reference instead (e.g. "JavaScript placement in HTML", "alt attribute in HTML").
 - The Why MUST reference the related question/topic (e.g. "When I asked about JavaScript placement in HTML...").
+- Summary MUST be standalone and useful even without the transcript context.
+- Summary MUST NOT include "..." or "…".
 - Always speak to the candidate as "you" (never "the candidate").
 - Tags MUST be generic skill tags (no URLs, no provider names, no full sentences).
 - If the candidate passed, still output gaps, but prioritize "medium" and "low".

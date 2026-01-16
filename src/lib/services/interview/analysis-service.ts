@@ -51,6 +51,12 @@ const MIN_ITEM_LENGTH = 10;
 type AnalysisSections = {
   decision: "PASS" | "FAIL" | "UNKNOWN";
   overallScore: string;
+  categoryScores: {
+    technical: number;
+    problemSolving: number;
+    communication: number;
+    professional: number;
+  } | null;
   strengths: string[];
   improvements: string[];
   detailedAnalysis: string;
@@ -163,9 +169,12 @@ function extractAnalysisSections(analysis: string): AnalysisSections {
     extractSection(analysis, "KNOWLEDGE GAPS"),
   );
 
+  const categoryScores = extractCategoryScores(analysis);
+
   return {
     decision,
     overallScore,
+    categoryScores,
     whyDecision,
     strengths: extractListItems(analysis, "Strengths"),
     improvements: extractListItems(
@@ -176,6 +185,43 @@ function extractAnalysisSections(analysis: string): AnalysisSections {
     recommendations,
     nextSteps: recommendations,
     knowledgeGaps,
+  };
+}
+
+function extractCategoryScores(
+  analysis: string,
+): AnalysisSections["categoryScores"] {
+  const read = (section: string): number | null => {
+    const regex = new RegExp(
+      `##\\s*${section}\\s*\\(\\s*(\\d{1,3})\\s*\\/\\s*\\d{1,3}\\s*\\)`,
+      "i",
+    );
+    const match = analysis.match(regex);
+    if (!match) return null;
+    const parsed = Number(match[1]);
+    if (!Number.isFinite(parsed)) return null;
+    return parsed;
+  };
+
+  const technical = read("TECHNICAL COMPETENCY");
+  const problemSolving = read("PROBLEM SOLVING");
+  const communication = read("COMMUNICATION");
+  const professional = read("PROFESSIONAL READINESS");
+
+  if (
+    technical === null &&
+    problemSolving === null &&
+    communication === null &&
+    professional === null
+  ) {
+    return null;
+  }
+
+  return {
+    technical: technical ?? 0,
+    problemSolving: problemSolving ?? 0,
+    communication: communication ?? 0,
+    professional: professional ?? 0,
   };
 }
 
@@ -196,6 +242,7 @@ function parseKnowledgeGapChunk(chunk: string): KnowledgeGap | null {
   const titleMatch = chunk.match(/^\s*(.+?)\s*(?:\n|$)/);
   const priorityMatch = chunk.match(/Priority:\s*(high|medium|low)/i);
   const tagsMatch = chunk.match(/Tags:\s*([^\n]+)/i);
+  const summaryMatch = chunk.match(/Summary:\s*([^\n]+)/i);
   const whyMatch = chunk.match(/Why:\s*([^\n]+)/i);
 
   const title = stripInlineMarkdown(titleMatch?.[1]?.trim() ?? "");
@@ -208,12 +255,14 @@ function parseKnowledgeGapChunk(chunk: string): KnowledgeGap | null {
     .map((t) => normalizeGapTag(t))
     .filter(Boolean);
   const fallbackTags = deriveTagsFromTitle(title);
+  const summary = stripInlineMarkdown((summaryMatch?.[1] ?? "").trim());
   const why = stripInlineMarkdown((whyMatch?.[1] ?? "").trim());
 
   return {
     title,
     priority,
     tags: tags.length > 0 ? tags : fallbackTags,
+    ...(summary.length > 0 ? { summary } : {}),
     why,
     resources: [],
   };
@@ -414,6 +463,19 @@ function generateFallbackContent(
 ): Partial<AnalysisSections> {
   const fallback: Partial<AnalysisSections> = {};
 
+  const isLowValueNarrative = (value: string): boolean => {
+    const compact = value.trim().replace(/\s+/g, " ").toLowerCase();
+    if (compact.length < 60) return true;
+    if (compact.includes("analysis parsing failed")) return true;
+    if (
+      compact.includes("final score") &&
+      compact.includes("passing threshold")
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   if (sections.strengths.length === 0) {
     fallback.strengths = [
       "No significant strengths demonstrated in this interview",
@@ -422,6 +484,28 @@ function generateFallbackContent(
 
   if (sections.improvements.length === 0) {
     fallback.improvements = generateDefaultImprovements(config);
+  }
+
+  if (
+    !sections.whyDecision.trim() ||
+    isLowValueNarrative(sections.whyDecision)
+  ) {
+    const s = sections.strengths[0]?.trim() ?? "";
+    const i = sections.improvements[0]?.trim() ?? "";
+    fallback.whyDecision = [
+      s ? `One clear strength was: ${s}.` : "",
+      i ? `The biggest growth lever is: ${i}.` : "",
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .trim();
+  }
+
+  if (
+    !sections.overallScore.trim() ||
+    isLowValueNarrative(sections.overallScore)
+  ) {
+    fallback.overallScore = fallback.whyDecision ?? sections.overallScore;
   }
 
   return fallback;
@@ -451,6 +535,7 @@ function buildInterviewResults(params: {
   return {
     decision,
     overallScore: sections.overallScore,
+    categoryScores: sections.categoryScores ?? undefined,
     strengths: sections.strengths,
     improvements: sections.improvements,
     detailedAnalysis: sections.detailedAnalysis,
@@ -517,19 +602,15 @@ function generateExecutiveSummary(
   passed: boolean,
   passingThreshold: { score: number; description: string },
 ): string {
-  const {
-    substantiveResponses,
-    totalQuestions,
-    effectiveResponseRate,
-    noAnswerResponses,
-  } = responseAnalysis;
+  const { substantiveResponses, effectiveResponseRate, noAnswerResponses } =
+    responseAnalysis;
 
   if (substantiveResponses === 0) {
     return "No substantive responses were provided in this interview. Most answers were 'I don't know', skipped, or off-topic, so it was not possible to reliably assess readiness for this role.";
   }
 
   if (effectiveResponseRate < RESPONSE_RATE_THRESHOLDS.CRITICAL) {
-    return `Only ${substantiveResponses} of ${totalQuestions} questions received substantive answers. This performance highlights significant gaps in core knowledge for a ${config.seniority}-level position.`;
+    return `Most responses were not substantive. This performance highlights significant gaps in core knowledge for a ${config.seniority}-level position.`;
   }
 
   if (effectiveResponseRate < RESPONSE_RATE_THRESHOLDS.LOW) {
@@ -550,26 +631,42 @@ function generateWhyDecision(
   passed: boolean,
   passingThreshold: { score: number; description: string },
 ): string {
-  const {
-    substantiveResponses,
-    totalQuestions,
-    noAnswerResponses,
-    skippedQuestions,
-  } = responseAnalysis;
+  const { substantiveResponses, noAnswerResponses, skippedQuestions } =
+    responseAnalysis;
+
+  const scoreLine = `Score: ${score}/100 (target: ${passingThreshold.score}/100).`;
+  const roleLine = `For a ${config.seniority}-level ${config.position} role, we look for clear fundamentals and consistent reasoning.`;
 
   if (!passed) {
-    let decision = `The candidate did not meet the required standard for this interview, scoring ${score}/${passingThreshold.score}. `;
+    const reliabilityLine = (() => {
+      if (substantiveResponses === 0) {
+        return "Most answers were skipped, 'I don't know', or off-topic, so it was hard to demonstrate competency.";
+      }
+      if (noAnswerResponses + skippedQuestions > 0) {
+        return "Several answers were skipped or non-answers, which reduced the signal in the strongest topics.";
+      }
+      return "The answers showed some understanding, but the depth and consistency weren’t at the expected level.";
+    })();
 
-    if (substantiveResponses < totalQuestions / 2) {
-      decision += `They were unable to provide substantive answers to ${noAnswerResponses + skippedQuestions} of ${totalQuestions} questions, often responding with "I don't know" or skipping them. `;
-    }
-
-    decision += `For a ${config.seniority}-level ${config.position} role, we expect consistent demonstration of core knowledge and the ability to work through unfamiliar problems. This performance falls below that bar, so a hiring recommendation is not appropriate at this time.`;
-
-    return decision;
+    return [
+      "Needs practice before being job-ready.",
+      reliabilityLine,
+      roleLine,
+      scoreLine,
+    ].join(" ");
   }
 
-  return `The candidate met the standard for this interview with a score of ${score}/${passingThreshold.score}. They provided substantive answers to ${substantiveResponses} of ${totalQuestions} questions, showing sufficient command of key ${config.position} concepts for a ${config.seniority}-level role. With focused onboarding and continued practice, they should be able to grow effectively in this position.`;
+  const strengthsLine =
+    substantiveResponses > 0
+      ? "You showed enough signal across the key topics to meet the bar."
+      : "You showed enough signal to meet the bar.";
+
+  return [
+    "Almost there — keep iterating.",
+    strengthsLine,
+    roleLine,
+    scoreLine,
+  ].join(" ");
 }
 
 function generateRecommendations(
@@ -683,12 +780,12 @@ function formatMockAnalysis(data: {
 
   return `## INTERVIEW RESULT
 **DECISION: ${decision}**
-Score: ${score}/100 (Passing threshold: ${passingThreshold})
+Score: ${score} (Passing threshold: ${passingThreshold})
 Performance Level: ${performanceLevel}
 
 ${executiveSummary}
 
-## TECHNICAL COMPETENCY (${categoryScores.technical}/${CATEGORY_WEIGHTS.technical})
+## TECHNICAL COMPETENCY (${categoryScores.technical} pts)
 **Strengths:**
 ${strengthsOrNone(15, "- Attempted to engage with technical questions when knowledgeable")}
 
@@ -696,7 +793,7 @@ ${strengthsOrNone(15, "- Attempted to engage with technical questions when knowl
 - Significant gaps in fundamental knowledge
 - Unable to explain core concepts in depth
 
-## PROBLEM SOLVING (${categoryScores.problemSolving}/${CATEGORY_WEIGHTS.problemSolving})
+## PROBLEM SOLVING (${categoryScores.problemSolving} pts)
 **Strengths:**
 ${categoryScores.problemSolving > 12 ? "- Attempted systematic approaches when comfortable with topics" : "- None demonstrated"}
 
@@ -704,7 +801,7 @@ ${categoryScores.problemSolving > 12 ? "- Attempted systematic approaches when c
 - Unable to work through problems when faced with unknowns
 - Gave up quickly instead of attempting logical reasoning
 
-## COMMUNICATION (${categoryScores.communication}/${CATEGORY_WEIGHTS.communication})
+## COMMUNICATION (${categoryScores.communication} pts)
 **Strengths:**
 ${categoryScores.communication > 12 ? "- Communicated clearly on familiar topics\n- Honest about knowledge gaps" : "- None demonstrated"}
 
@@ -712,7 +809,7 @@ ${categoryScores.communication > 12 ? "- Communicated clearly on familiar topics
 - Could not articulate technical concepts effectively
 - Failed to elaborate or provide examples
 
-## PROFESSIONAL READINESS (${categoryScores.professional}/${CATEGORY_WEIGHTS.professional})
+## PROFESSIONAL READINESS (${categoryScores.professional} pts)
 **Strengths:**
 ${categoryScores.professional > 10 ? "- Showed up and participated in the interview process" : "- None demonstrated"}
 
@@ -744,31 +841,37 @@ function generateMockKnowledgeGaps(
       return `- Title: Data structures fundamentals
   Priority: ${priority}
   Tags: data-structures, algorithms
+  Summary: Practice core data structure operations and explain time/space trade-offs clearly.
   Why: Your answers did not show consistent correctness and depth in core problem-solving fundamentals.
 
 - Title: JavaScript/TypeScript fundamentals
   Priority: ${priority}
   Tags: javascript-fundamentals, typescript-basics
+  Summary: Strengthen language fundamentals so you can reason about runtime behavior and types with confidence.
   Why: Several responses suggested gaps in language fundamentals expected for this role.`;
     case "system-design":
       return `- Title: Scalability fundamentals
   Priority: ${priority}
   Tags: scalability, caching
+  Summary: Build a repeatable approach for scaling, caching, and identifying bottlenecks under load.
   Why: You did not clearly explain how you would scale and cache under load.
 
 - Title: Data storage trade-offs
   Priority: ${priority}
   Tags: sql-indexes, database-design
+  Summary: Practice selecting storage and indexing strategies by comparing concrete trade-offs.
   Why: Key trade-offs around storage and indexing were missing or unclear.`;
     case "bullet":
       return `- Title: Structured communication
   Priority: ${priority}
   Tags: communication, storytelling
+  Summary: Use a consistent structure (context → action → outcome) so your answers are easy to follow and verify.
   Why: Your answers were not consistently structured and outcome-focused.
 
 - Title: Behavioral examples
   Priority: ${priority}
   Tags: star-method, behavioral-interview
+  Summary: Prepare 2 to 3 concrete stories with measurable impact you can adapt to common questions.
   Why: Several answers lacked concrete examples and measurable results.`;
   }
 
