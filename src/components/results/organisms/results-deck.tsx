@@ -495,6 +495,12 @@ const CATEGORY_MAX = {
 
 type CategoryKey = keyof typeof CATEGORY_MAX;
 
+function clampFinite(value: unknown, min: number, max: number): number {
+  const n = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(n)) return min;
+  return Math.max(min, Math.min(max, n));
+}
+
 function getCategoryScores(score: number): Record<CategoryKey, number> {
   const ratio = Math.max(0, Math.min(1, score / 100));
   return {
@@ -509,12 +515,25 @@ function getCategoryScoresForResults(
   results: InterviewResults,
 ): Record<CategoryKey, number> {
   const scores = results.categoryScores;
-  if (!scores) return getCategoryScores(results.score);
+  const overall = clampFinite(results.score, 0, 100);
+  if (!scores) return getCategoryScores(overall);
   return {
-    technical: scores.technical,
-    problemSolving: scores.problemSolving,
-    communication: scores.communication,
-    professional: scores.professional,
+    technical: clampFinite(scores.technical, 0, CATEGORY_MAX.technical),
+    problemSolving: clampFinite(
+      scores.problemSolving,
+      0,
+      CATEGORY_MAX.problemSolving,
+    ),
+    communication: clampFinite(
+      scores.communication,
+      0,
+      CATEGORY_MAX.communication,
+    ),
+    professional: clampFinite(
+      scores.professional,
+      0,
+      CATEGORY_MAX.professional,
+    ),
   };
 }
 
@@ -908,10 +927,13 @@ export function ResultsDeck({
                           case "outcome": {
                             const radius = 45;
                             const circumference = 2 * Math.PI * radius;
-                            const scoreValue =
+                            const rawScore =
                               typeof animatedScore === "number"
                                 ? animatedScore
                                 : step.score;
+                            const scoreValue = Number.isFinite(rawScore)
+                              ? Math.max(0, Math.min(100, rawScore))
+                              : 0;
                             const progress = Math.max(
                               0,
                               Math.min(
@@ -922,7 +944,7 @@ export function ResultsDeck({
                             const dashOffsetTarget =
                               circumference * (1 - progress);
 
-                            const readiness = getReadiness(step.score);
+                            const readiness = getReadiness(scoreValue);
                             const categoryScores =
                               getCategoryScoresForResults(results);
 
@@ -991,7 +1013,7 @@ export function ResultsDeck({
                                       <span
                                         className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${readiness.badgeClass}`}
                                       >
-                                        {step.score}/100
+                                        {scoreValue}/100
                                       </span>
                                     </div>
                                     <Typography.Body className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
@@ -1039,9 +1061,16 @@ export function ResultsDeck({
                                       label: string;
                                     }[]
                                   ).map((c, idx) => {
-                                    const value = categoryScores[c.key];
+                                    const value = clampFinite(
+                                      categoryScores[c.key],
+                                      0,
+                                      CATEGORY_MAX[c.key],
+                                    );
                                     const max = CATEGORY_MAX[c.key];
-                                    const pct = Math.round((value / max) * 100);
+                                    const pct =
+                                      max > 0
+                                        ? Math.round((value / max) * 100)
+                                        : 0;
 
                                     return (
                                       <div

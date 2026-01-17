@@ -674,15 +674,14 @@ export async function saveInterviewResults(
     const shouldWriteScores = shouldPersistScores(
       (sessionBase.config as any).interviewMode,
     );
-    const fallbackScores =
-      shouldWriteScores && resolvedScore > 0
-        ? {
-            overall: resolvedScore,
-            technical: clampScore(resolvedScore * 0.92),
-            communication: clampScore(resolvedScore * 0.86),
-            problemSolving: clampScore(resolvedScore * 0.9),
-          }
-        : null;
+    const fallbackScores = shouldWriteScores
+      ? {
+          overall: resolvedScore,
+          technical: clampScore(resolvedScore * 0.92),
+          communication: clampScore(resolvedScore * 0.86),
+          problemSolving: clampScore(resolvedScore * 0.9),
+        }
+      : null;
 
     const nextScores = fallbackScores;
     const session: InterviewSession = nextScores

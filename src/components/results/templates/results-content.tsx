@@ -53,11 +53,10 @@ import {
 } from "@/lib/utils/interview-normalizers";
 import {
   generateAnalysisMessages,
-  generateOutcomeMessage,
   getResultsCopySeed,
 } from "@/lib/utils/results-copy";
 import { useAuth } from "@/providers/auth-provider";
-import type { UserProfile } from "@/types/firestore";
+import type { InterviewSession, UserProfile } from "@/types/firestore";
 import type {
   InterviewConfig,
   InterviewResults,
@@ -357,6 +356,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [resultsView, setResultsView] = useState<"deck" | "full">("deck");
   const [isLoadingSession, setIsLoadingSession] = useState(false);
   const justCreatedSessionIdRef = useRef<string | null>(null);
+  const [savedSession, setSavedSession] = useState<InterviewSession | null>(
+    null,
+  );
   const [storedSession, setStoredSession] = useState<{
     questionIds?: string[];
     messages?: Array<{
@@ -381,7 +383,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [analysisMessages, setAnalysisMessages] = useState<string[]>([]);
-  const [outcomeMessage, setOutcomeMessage] = useState<string>("");
+  const [outcomeMessage, _setOutcomeMessage] = useState<string>("");
   const [_currentDate, setCurrentDate] = useState<string>("");
   const [copySeed, setCopySeed] = useState<number | null>(null);
   const [
@@ -525,6 +527,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         setTermination(null);
       }
 
+      setSavedSession(null);
+
       const userAnswers = (parsedSession?.messages ?? [])
         .filter((m) => m.type === "user" && m.isFollowUp !== true)
         .map((m) => (m.content ?? "").trim())
@@ -623,6 +627,23 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   };
 
   const qaRows = useMemo(() => {
+    if (savedSession) {
+      return savedSession.questions.map((q, idx) => {
+        const response = savedSession.responses.find(
+          (r) => r.questionId === q.id,
+        );
+        const practiceQuestionId = q.id.startsWith("q_") ? null : q.id;
+        return {
+          idx,
+          practiceQuestionId,
+          questionText: q.question,
+          yourAnswer: response?.response ?? "",
+          followUps: q.followUps ?? [],
+          aiExampleAnswer: q.aiExampleAnswer ?? null,
+        };
+      });
+    }
+
     const messages = Array.isArray(storedSession?.messages)
       ? storedSession.messages
       : [];
@@ -637,6 +658,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         response: string;
         aiExampleAnswer?: string;
       }>;
+      aiExampleAnswer: string | null;
     }> = [];
 
     let mainIdx = 0;
@@ -695,6 +717,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           questionText: aiText,
           yourAnswer: "",
           followUps: [],
+          aiExampleAnswer: null,
         });
         mainIdx += 1;
         cursor += 1;
@@ -707,6 +730,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         questionText: aiText,
         yourAnswer: (user.content ?? "").trim(),
         followUps: [],
+        aiExampleAnswer: null,
       });
 
       mainIdx += 1;
@@ -723,11 +747,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         questionText: row?.questionText ?? "",
         yourAnswer: row?.yourAnswer ?? "",
         followUps: row?.followUps ?? [],
+        aiExampleAnswer: row?.aiExampleAnswer ?? null,
       };
     });
   }, [
     generatedFollowUpExampleAnswers,
     practiceQuestionIds,
+    savedSession,
     storedSession?.messages,
   ]);
 
@@ -783,7 +809,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   useEffect(() => {
     if (!sessionIdFromQuery) return;
 
-    if (justCreatedSessionIdRef.current === sessionIdFromQuery) return;
+    if (justCreatedSessionIdRef.current === sessionIdFromQuery) {
+      justCreatedSessionIdRef.current = null;
+    }
 
     let active = true;
 
@@ -806,6 +834,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         }
 
         setSavedSessionId(sessionIdFromQuery);
+        setSavedSession(session as InterviewSession);
         setResults(session.analysis as unknown as InterviewResults);
 
         const cfg = session.config as unknown;
@@ -917,31 +946,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           throw new Error(data.error || "Analysis failed");
         }
 
-        if (!isMounted) return;
-        setProgress(100);
         setResults(data.feedback);
-
-        const seed = getResultsCopySeed({
-          interviewSessionId: localStorage.getItem("interviewSessionId"),
-          interviewSessionRaw: localStorage.getItem("interviewSession"),
-          interviewConfigRaw: localStorage.getItem("interviewConfig"),
-        });
-
-        setOutcomeMessage(
-          generateOutcomeMessage({
-            seed,
-            results: {
-              score: data.feedback.score,
-              passed: data.feedback.passed ?? false,
-              strengths: data.feedback.strengths,
-              improvements: data.feedback.improvements,
-            },
-            config: {
-              position: normalizePositionValue(config.position),
-              seniority: normalizeSeniorityValue(config.seniority),
-            },
-          }),
-        );
+        setInterviewConfig(config);
 
         const existingSessionId = localStorage.getItem("interviewSessionId");
 
@@ -1647,6 +1653,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                             : null;
                           const example =
                             (q ? getExampleAnswer(q) : null) ??
+                            row.aiExampleAnswer ??
                             getAiExampleAnswerForRow(row);
                           const prompt = row.questionText.trim() || null;
                           const yourAnswer = row.yourAnswer.trim() || null;
@@ -1833,7 +1840,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                     title="AI Feedback"
                     icon={<FileText className="size-4" />}
                     summaryMarkdown={null}
-                    strengths={results.strengths}
+                    strengths={null}
                     improvements={results.improvements}
                     detailsMarkdown={results.detailedAnalysis}
                   />
