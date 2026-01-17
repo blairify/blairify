@@ -161,6 +161,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <noscript>
+          {/* biome-ignore lint/performance/noImgElement: Facebook Pixel requires a raw img tag */}
           <img
             height="1"
             width="1"
