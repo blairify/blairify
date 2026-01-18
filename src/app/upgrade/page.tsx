@@ -206,7 +206,7 @@ export default function UpgradePage() {
                       <Check className="h-3 w-3 text-primary-foreground" />
                     </div>
                     <span className="font-semibold text-foreground">
-                      Unlimited mock interviews
+                      Unlimited interviews
                     </span>
                   </li>
                   <li className="flex items-center gap-3">

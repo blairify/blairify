@@ -26,7 +26,7 @@ import { useAuth } from "@/providers/auth-provider";
 const faqData = [
   {
     id: "getting-started",
-    question: "How do I start my first mock interview?",
+    question: "How do I start my first interview?",
     answer:
       "To start your first interview, click on 'New Interview' from the sidebar or dashboard. You can then configure your interview settings including topic focus, difficulty level, and duration before beginning.",
   },
@@ -40,7 +40,7 @@ const faqData = [
     id: "practice-questions",
     question: "How can I access practice questions?",
     answer:
-      "Start a new mock interview from the 'New Interview' option in the sidebar. The AI interviewer will use curated questions tailored to your role and difficulty. The dedicated Practice Library is being reworked and will return soon.",
+      "Start a new interview from the 'New Interview' option in the sidebar. The AI interviewer will use curated questions tailored to your role and difficulty. The dedicated Practice Library is being reworked and will return soon.",
   },
   {
     id: "results-analysis",
