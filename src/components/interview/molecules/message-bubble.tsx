@@ -62,8 +62,8 @@ export function MessageBubble({
 
     let index = 0;
     let timeout: number | null = null;
-    const baseDelay = 65;
-    const delayVariance = 70;
+    const baseDelay = 30; // Reduced from 65ms
+    const delayVariance = 40; // Reduced from 70ms
 
     const scheduleNext = () => {
       timeout = window.setTimeout(

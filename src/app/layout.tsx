@@ -136,6 +136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </head>
       <body
         className={`${bodyFont.variable} ${headingFont.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
+        suppressHydrationWarning={true}
       >
         <noscript>
           <iframe

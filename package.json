@@ -66,6 +66,7 @@
     "pg": "^8.16.3",
     "prisma": "^6.16.1",
     "react": "19.2.0",
+    "react-aria-components": "^1.14.0",
     "react-dom": "19.2.0",
     "react-hook-form": "^7.65.0",
     "react-icons": "^5.5.0",

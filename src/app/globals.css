@@ -718,6 +718,12 @@ code.hljs {
     font-family: var(--font-heading-var), "Lora", "Times New Roman", serif;
   }
 
+  /* Tooltip text color fix */
+  [data-slot="tooltip-content"],
+  [data-slot="tooltip-content"] * {
+    color: #111827;
+  }
+
   /* Scrollbars */
   ::-webkit-scrollbar {
     width: 8px;
@@ -876,34 +882,6 @@ code.hljs {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
-}
-
-/* ==============================
-   Flashcard 3D Flip Animation
-   ============================== */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.transform-style-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
-.recharts-cartesian-axis-tick text {
-  fill: var(--muted-foreground);
-}
-
-.dark .recharts-cartesian-axis-tick text {
-  fill: var(--foreground);
 }
 
 /* ==============================
