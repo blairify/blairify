@@ -2,7 +2,16 @@
  * User Profile Database Operations
  */
 
-import { deleteDoc, doc, runTransaction, Timestamp } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  runTransaction,
+  Timestamp,
+  where,
+} from "firebase/firestore";
 import { safeGetDoc, safeSetDoc, safeUpdateDoc } from "@/lib/firestore-utils";
 import {
   COLLECTIONS,
@@ -13,6 +22,27 @@ import type { UserProfile } from "@/types/firestore";
 // ================================
 // USER PROFILE OPERATIONS
 // ================================
+
+export async function findUserByStripeCustomerId(
+  customerId: string,
+): Promise<string | null> {
+  try {
+    const database = ensureDatabase();
+    const usersRef = collection(database, COLLECTIONS.USERS);
+    const q = query(usersRef, where("stripeCustomerId", "==", customerId));
+    const querySnapshot = await getDocs(q);
+
+    if (querySnapshot.empty) {
+      console.warn(`⚠️ No user found with stripeCustomerId: ${customerId}`);
+      return null;
+    }
+
+    return querySnapshot.docs[0].id;
+  } catch (error) {
+    console.error("Error finding user by stripeCustomerId:", error);
+    return null;
+  }
+}
 
 export async function getUserProfile(
   userId: string,
@@ -138,6 +168,74 @@ export async function updateLastLogin(userId: string): Promise<void> {
   } catch (error) {
     console.error("Error updating last login:", error);
     throw error;
+  }
+}
+
+export async function checkUsageStatus(userId: string): Promise<{
+  canStart: boolean;
+  currentCount: number;
+  isPro: boolean;
+  remainingMinutes: number;
+}> {
+  try {
+    const database = ensureDatabase();
+    const docRef = doc(database, COLLECTIONS.USERS, userId);
+    const userDoc = await safeGetDoc(docRef);
+
+    if (!userDoc.exists()) {
+      return {
+        canStart: true,
+        currentCount: 0,
+        isPro: false,
+        remainingMinutes: 0,
+      };
+    }
+
+    const userData = userDoc.data() as UserProfile;
+    const subscription = userData.subscription;
+    const usage = userData.usage || {
+      interviewCount: 0,
+      periodStart: Timestamp.now(),
+      lastInterviewAt: Timestamp.now(),
+    };
+
+    const isPro =
+      subscription?.plan === "pro" && subscription?.status === "active";
+
+    if (isPro) {
+      return {
+        canStart: true,
+        currentCount: usage.interviewCount,
+        isPro: true,
+        remainingMinutes: 0,
+      };
+    }
+
+    const now = new Date();
+    const lastInterviewAtDate = usage.lastInterviewAt.toDate();
+    const diffMs = now.getTime() - lastInterviewAtDate.getTime();
+    const diffMin = diffMs / (1000 * 60);
+
+    let currentCount = usage.interviewCount;
+    if (diffMin >= 15) {
+      currentCount = 0;
+    }
+
+    const DAILY_LIMIT = 2;
+    const canStart = currentCount < DAILY_LIMIT;
+    const remainingMinutes = canStart
+      ? 0
+      : Math.max(0, Math.ceil(15 - diffMin));
+
+    return { canStart, currentCount, isPro: false, remainingMinutes };
+  } catch (error) {
+    console.error("Error checking usage status:", error);
+    return {
+      canStart: true,
+      currentCount: 0,
+      isPro: false,
+      remainingMinutes: 0,
+    };
   }
 }
 

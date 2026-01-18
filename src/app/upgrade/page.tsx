@@ -16,7 +16,9 @@ import {
 } from "@/components/ui/card";
 import { useAuth } from "@/providers/auth-provider";
 
-const LOOKUP_KEY = "Pro-a746dd1"; // Matching what the user provided
+const LOOKUP_KEY = process.env.NEXT_PUBLIC_STRIPE_LOOKUP_KEY || "Pro-a746dd1"; // Fallback lookup key
+const PRICE_ID =
+  process.env.NEXT_PUBLIC_STRIPE_PRICE_ID || "price_1SqtVBKUNDmoEPuuxeeZQzXK"; // Live price ID from env
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -69,6 +71,7 @@ export default function UpgradePage() {
         body: JSON.stringify({
           userId: user.uid,
           lookupKey: LOOKUP_KEY,
+          priceId: PRICE_ID,
           email: user.email,
         }),
       });

@@ -3,13 +3,15 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, Loader2, Sparkles } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DatabaseService } from "@/lib/database";
 import { useAuth } from "@/providers/auth-provider";
+
+const MAX_POLL_ATTEMPTS = 30;
+const POLL_INTERVAL_MS = 2000;
 
 function SuccessContent() {
   const router = useRouter();
@@ -18,57 +20,85 @@ function SuccessContent() {
   const [status, setStatus] = useState<"verifying" | "success" | "error">(
     "verifying",
   );
+  const [pollMessage, setPollMessage] = useState(
+    "Waiting for payment confirmation...",
+  );
   const sessionId = searchParams.get("session_id");
+  const pollCountRef = useRef(0);
+  const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const checkSubscriptionStatus = useCallback(async () => {
+    if (!user) return;
+
+    try {
+      const response = await fetch("/api/stripe/subscription-status", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: user.uid }),
+      });
+
+      const data = await response.json();
+
+      if (data.status === "active" && data.plan === "pro") {
+        if (pollIntervalRef.current) {
+          clearInterval(pollIntervalRef.current);
+        }
+        await refreshUserData();
+        setStatus("success");
+        toast.success("Welcome to Pro! Your account has been upgraded.");
+        return true;
+      }
+
+      if (data.status === "failed") {
+        if (pollIntervalRef.current) {
+          clearInterval(pollIntervalRef.current);
+        }
+        setStatus("error");
+        toast.error(data.message || "Subscription activation failed.");
+        return true;
+      }
+
+      setPollMessage(data.message || "Processing your subscription...");
+      return false;
+    } catch (error) {
+      console.error("Status check error:", error);
+      return false;
+    }
+  }, [user, refreshUserData]);
 
   useEffect(() => {
-    async function verifyAndUpgrade() {
-      if (!sessionId || !user) return;
+    if (!user || !sessionId) return;
 
-      try {
-        const response = await fetch("/api/stripe/verify-session", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ sessionId }),
-        });
+    const startPolling = async () => {
+      const isComplete = await checkSubscriptionStatus();
+      if (isComplete) return;
 
-        const data = await response.json();
+      pollIntervalRef.current = setInterval(async () => {
+        pollCountRef.current += 1;
 
-        if (data.success) {
-          await DatabaseService.updateUserProfile(user.uid, {
-            subscription: {
-              plan: "pro",
-              status: "active",
-              features: [
-                "unlimited_interviews",
-                "advanced_analytics",
-                "skill_roadmaps",
-              ],
-              limits: {
-                sessionsPerMonth: 9999,
-                skillsTracking: 9999,
-                analyticsRetention: 365,
-              },
-            },
-            stripeCustomerId: data.stripeCustomerId,
-          });
-
-          await refreshUserData();
-          setStatus("success");
-          toast.success("Welcome to Pro! Your account has been upgraded.");
-        } else {
+        if (pollCountRef.current >= MAX_POLL_ATTEMPTS) {
+          if (pollIntervalRef.current) {
+            clearInterval(pollIntervalRef.current);
+          }
           setStatus("error");
-          toast.error("Could not verify payment session.");
+          toast.error(
+            "Subscription verification timed out. Please refresh or contact support.",
+          );
+          return;
         }
-      } catch (error) {
-        console.error("Verification error:", error);
-        setStatus("error");
-      }
-    }
 
-    if (user && sessionId) {
-      verifyAndUpgrade();
-    }
-  }, [sessionId, user, refreshUserData]);
+        await checkSubscriptionStatus();
+      }, POLL_INTERVAL_MS);
+    };
+
+    startPolling();
+
+    return () => {
+      if (pollIntervalRef.current) {
+        clearInterval(pollIntervalRef.current);
+      }
+    };
+  }, [user, sessionId, checkSubscriptionStatus]);
 
   return (
     <div className="relative min-h-[80vh] flex items-center justify-center py-12 px-4 overflow-hidden">
@@ -98,8 +128,7 @@ function SuccessContent() {
               Activating Your Pro Account
             </Typography.Heading2>
             <Typography.Body className="text-muted-foreground mt-3 text-lg">
-              Finalizing your subscription with Stripe. This will only take a
-              moment...
+              {pollMessage}
             </Typography.Body>
           </motion.div>
         )}

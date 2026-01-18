@@ -1,6 +1,14 @@
 "use client";
 
-import { ArrowRight, Loader2, Shield } from "lucide-react";
+import {
+  AlertCircle,
+  ArrowRight,
+  Crown,
+  Loader2,
+  Shield,
+  Timer,
+} from "lucide-react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { FaJava } from "react-icons/fa";
@@ -58,6 +66,7 @@ import {
   SENIORITY_LEVELS,
 } from "@/constants/configure";
 import useIsMobile from "@/hooks/use-is-mobile";
+import { DatabaseService } from "@/lib/database";
 import {
   buildSearchParamsFromInterviewConfig,
   type InterviewConfig as DomainInterviewConfig,
@@ -67,6 +76,7 @@ import {
 } from "@/lib/interview";
 import type { ExtractedJobDescription } from "@/lib/services/job-description/extractor";
 import { parseSimpleMarkdown } from "@/lib/utils/markdown-parser";
+import { useAuth } from "@/providers/auth-provider";
 import type { CompanyProfileValue, PositionValue } from "@/types/global";
 
 function getTechChoices(position: string): TechChoice[] {
@@ -304,6 +314,13 @@ export function ConfigureContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isMobile } = useIsMobile();
+  const { user } = useAuth();
+  const [usageStatus, setUsageStatus] = useState<{
+    canStart: boolean;
+    remainingMinutes: number;
+    isPro: boolean;
+    checked: boolean;
+  }>({ canStart: true, remainingMinutes: 0, isPro: false, checked: false });
   const resolveInitialFlowMode = () =>
     (searchParams.get("flow") === "paste"
       ? "paste"
@@ -345,6 +362,35 @@ export function ConfigureContent() {
   }, [currentStep, visibleSteps.length]);
 
   const currentStepId = visibleSteps[currentStep]?.id ?? "flow";
+
+  // Check usage status when reaching the last step or analysis step (for paste flow)
+  useEffect(() => {
+    const isLastStep = currentStep === visibleSteps.length - 1;
+    const isAnalysisStepInPaste =
+      currentStepId === "analysis" && config.flowMode === "paste";
+
+    if (
+      (isLastStep || isAnalysisStepInPaste) &&
+      user?.uid &&
+      !usageStatus.checked
+    ) {
+      DatabaseService.checkUsageStatus(user.uid).then((status) => {
+        setUsageStatus({
+          canStart: status.canStart,
+          remainingMinutes: status.remainingMinutes,
+          isPro: status.isPro,
+          checked: true,
+        });
+      });
+    }
+  }, [
+    currentStep,
+    visibleSteps.length,
+    currentStepId,
+    config.flowMode,
+    user?.uid,
+    usageStatus.checked,
+  ]);
 
   const techChoicesForCurrentPosition = getTechChoices(config.position);
 
@@ -468,21 +514,31 @@ export function ConfigureContent() {
       return null;
     }
 
-    if (currentStep === totalSteps - 1) {
+    const isStartStep =
+      currentStep === totalSteps - 1 ||
+      (isAnalysisStep && config.flowMode === "paste");
+
+    // Show upgrade CTA if user hit the limit
+    if (
+      isStartStep &&
+      usageStatus.checked &&
+      !usageStatus.canStart &&
+      !usageStatus.isPro
+    ) {
       return (
-        <Button
-          onClick={handleStartInterview}
-          disabled={!isConfigComplete}
-          size="sm"
-          className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2 "
-        >
-          <span className="inline">Start Interview</span>
-          <ArrowRight className="size-4 sm:size-5" />
-        </Button>
+        <Link href="/upgrade">
+          <Button
+            size="sm"
+            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white flex items-center gap-2"
+          >
+            <Crown className="size-4" />
+            <span>Upgrade to Pro</span>
+          </Button>
+        </Link>
       );
     }
 
-    if (isAnalysisStep && config.flowMode === "paste") {
+    if (isStartStep) {
       return (
         <Button
           onClick={handleStartInterview}
@@ -1224,6 +1280,44 @@ export function ConfigureContent() {
                 </div>
               </div>
             </div>
+
+            {/* Interview Limit Warning */}
+            {usageStatus.checked &&
+              !usageStatus.canStart &&
+              !usageStatus.isPro &&
+              (currentStep === totalSteps - 1 ||
+                (isAnalysisStep && config.flowMode === "paste")) && (
+                <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/50 p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 rounded-full bg-amber-100 dark:bg-amber-900 p-2">
+                      <AlertCircle className="size-5 text-amber-600 dark:text-amber-400" />
+                    </div>
+                    <div className="flex-1">
+                      <Typography.BodyBold className="text-amber-800 dark:text-amber-200">
+                        Interview Limit Reached
+                      </Typography.BodyBold>
+                      <Typography.CaptionMedium className="text-amber-700 dark:text-amber-300 mt-1">
+                        You&apos;ve reached the temporary interview limit.
+                        {usageStatus.remainingMinutes > 0 && (
+                          <span className="flex items-center gap-1 mt-1">
+                            <Timer className="size-3" />
+                            Please wait {usageStatus.remainingMinutes} minute
+                            {usageStatus.remainingMinutes !== 1 ? "s" : ""}{" "}
+                            before starting another session.
+                          </span>
+                        )}
+                      </Typography.CaptionMedium>
+                      <div className="mt-3 flex items-center gap-2">
+                        <Crown className="size-4 text-amber-600 dark:text-amber-400" />
+                        <Typography.CaptionMedium className="text-amber-700 dark:text-amber-300">
+                          Want unlimited interviews? Upgrade to Pro for
+                          unrestricted access.
+                        </Typography.CaptionMedium>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
             <div
               key={currentStepId}

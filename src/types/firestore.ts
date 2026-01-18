@@ -101,8 +101,14 @@ export interface UserSubscription {
   limits: {
     sessionsPerMonth: number;
     skillsTracking: number;
-    analyticsRetention: number; // days
+    analyticsRetention: number;
   };
+  stripeSubscriptionId?: string;
+  currentPeriodEnd?: Timestamp | Date;
+  cancelAtPeriodEnd?: boolean;
+  paymentFailed?: boolean;
+  lastPaymentFailedAt?: Timestamp | Date;
+  lastPaymentSucceededAt?: Timestamp | Date;
 }
 
 export interface UserUsage {

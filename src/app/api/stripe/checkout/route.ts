@@ -4,7 +4,12 @@ import { stripe } from "@/lib/stripe";
 
 export async function POST(req: NextRequest) {
   try {
-    const { userId, lookupKey, email } = await req.json();
+    const {
+      userId,
+      lookupKey,
+      email,
+      priceId: providedPriceId,
+    } = await req.json();
 
     if (!userId) {
       return NextResponse.json(
@@ -34,20 +39,29 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Find the price using the lookup key
-    const prices = await stripe.prices.list({
-      lookup_keys: [lookupKey],
-      expand: ["data.product"],
-    });
+    let priceId: string;
 
-    if (prices.data.length === 0) {
-      return NextResponse.json(
-        { error: "Price not found for lookup key" },
-        { status: 404 },
-      );
+    // Use provided price ID or lookup by key
+    if (providedPriceId) {
+      priceId = providedPriceId;
+      console.log(`🔑 Using provided price ID: ${priceId}`);
+    } else {
+      // Find the price using the lookup key
+      const prices = await stripe.prices.list({
+        lookup_keys: [lookupKey],
+        expand: ["data.product"],
+      });
+
+      if (prices.data.length === 0) {
+        return NextResponse.json(
+          { error: "Price not found for lookup key" },
+          { status: 404 },
+        );
+      }
+
+      priceId = prices.data[0].id;
+      console.log(`🔍 Found price ID via lookup key: ${priceId}`);
     }
-
-    const priceId = prices.data[0].id;
 
     const session = await stripe.checkout.sessions.create({
       billing_address_collection: "auto",
