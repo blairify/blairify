@@ -76,6 +76,7 @@ export async function POST(req: NextRequest) {
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/upgrade?canceled=true`,
       customer_email: userEmail,
       client_reference_id: userId, // This is crucial for the webhook
+      allow_promotion_codes: true,
       metadata: {
         userId: userId,
       },
