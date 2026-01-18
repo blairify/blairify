@@ -28,13 +28,13 @@ function SuccessContent() {
   const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const checkSubscriptionStatus = useCallback(async () => {
-    if (!user) return;
+    if (!user) return false;
 
     try {
       const response = await fetch("/api/stripe/subscription-status", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId: user.uid }),
+        body: JSON.stringify({ userId: user.uid, sessionId }),
       });
 
       const data = await response.json();
@@ -64,7 +64,16 @@ function SuccessContent() {
       console.error("Status check error:", error);
       return false;
     }
-  }, [user, refreshUserData]);
+  }, [user, refreshUserData, sessionId]);
+
+  useEffect(() => {
+    if (status === "success") {
+      const timer = setTimeout(() => {
+        router.push("/configure");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [status, router]);
 
   useEffect(() => {
     if (!user || !sessionId) return;
