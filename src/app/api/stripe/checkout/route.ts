@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { getUserProfile } from "@/lib/services/users/database-users";
 import { stripe } from "@/lib/stripe";
+import { getAppUrl } from "@/lib/utils";
 
 export async function POST(req: NextRequest) {
   try {
@@ -63,6 +64,8 @@ export async function POST(req: NextRequest) {
       console.log(`🔍 Found price ID via lookup key: ${priceId}`);
     }
 
+    const appUrl = getAppUrl();
+
     const session = await stripe.checkout.sessions.create({
       billing_address_collection: "auto",
       line_items: [
@@ -72,8 +75,8 @@ export async function POST(req: NextRequest) {
         },
       ],
       mode: "subscription",
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/upgrade/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/upgrade?canceled=true`,
+      success_url: `${appUrl}/upgrade/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${appUrl}/upgrade?canceled=true`,
       customer_email: userEmail,
       client_reference_id: userId, // This is crucial for the webhook
       allow_promotion_codes: true,

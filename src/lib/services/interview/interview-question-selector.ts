@@ -8,6 +8,7 @@ import type {
   InterviewType,
   SeniorityLevel,
 } from "@/components/interview/types";
+import { getAppUrl } from "@/lib/utils";
 import { shuffleWithSeed } from "@/lib/utils/seeded-random";
 import type { DifficultyLevel, Question } from "@/types/practice-question";
 
@@ -23,12 +24,7 @@ function getQuestionsBaseUrl(explicitBaseUrl?: string) {
     return explicitBaseUrl;
   }
 
-  const publicUrl = process.env.NEXT_PUBLIC_APP_URL;
-  if (publicUrl) {
-    return publicUrl;
-  }
-
-  return "http://localhost:3000";
+  return getAppUrl();
 }
 
 function canonicalizeTech(value: string): string {

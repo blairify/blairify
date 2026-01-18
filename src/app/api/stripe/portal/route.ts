@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { getUserProfile } from "@/lib/services/users/database-users";
 import { stripe } from "@/lib/stripe";
+import { getAppUrl } from "@/lib/utils";
 
 export async function POST(req: NextRequest) {
   try {
@@ -51,9 +52,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const appUrl = getAppUrl();
+
     const portalSession = await stripe.billingPortal.sessions.create({
       customer: stripeCustomerId,
-      return_url: `${process.env.NEXT_PUBLIC_APP_URL}/upgrade`,
+      return_url: `${appUrl}/upgrade`,
     });
 
     return NextResponse.json({ url: portalSession.url });
