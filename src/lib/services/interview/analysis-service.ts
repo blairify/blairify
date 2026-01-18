@@ -57,6 +57,7 @@ type AnalysisSections = {
     communication: number;
     professional: number;
   } | null;
+  technologyScores: Record<string, number> | null;
   strengths: string[];
   improvements: string[];
   detailedAnalysis: string;
@@ -170,11 +171,13 @@ function extractAnalysisSections(analysis: string): AnalysisSections {
   );
 
   const categoryScores = extractCategoryScores(analysis);
+  const technologyScores = extractTechnologyScores(analysis);
 
   return {
     decision,
     overallScore,
     categoryScores,
+    technologyScores,
     whyDecision,
     strengths: extractListItems(analysis, "Strengths"),
     improvements: extractListItems(
@@ -186,6 +189,30 @@ function extractAnalysisSections(analysis: string): AnalysisSections {
     nextSteps: recommendations,
     knowledgeGaps,
   };
+}
+
+function extractTechnologyScores(
+  analysis: string,
+): Record<string, number> | null {
+  const section = extractSection(analysis, "TECHNOLOGY SCORES");
+  if (!section.trim()) return null;
+
+  const scores: Record<string, number> = {};
+  for (const rawLine of section.split("\n")) {
+    const line = rawLine.trim();
+    if (!line) continue;
+    const cleaned = line.replace(/^[-*\s]+/, "").trim();
+    const match = /^(.+?):\s*(\d{1,3})\s*\/\s*100\s*$/i.exec(cleaned);
+    if (!match) continue;
+    const tech = match[1]?.trim();
+    const value = Number(match[2]);
+    if (!tech) continue;
+    if (!Number.isFinite(value)) continue;
+    scores[tech] = Math.max(0, Math.min(100, value));
+  }
+
+  if (Object.keys(scores).length === 0) return null;
+  return scores;
 }
 
 function extractCategoryScores(
@@ -532,10 +559,26 @@ function buildInterviewResults(params: {
   const { sections, score, decision, config } = params;
   const passingThreshold = SENIORITY_EXPECTATIONS[config.seniority];
 
+  const technologyScores = (() => {
+    const selected = (config.technologies ?? []).filter(Boolean);
+    if (selected.length === 0) return undefined;
+
+    const fromModel = sections.technologyScores ?? {};
+    const next: Record<string, number> = {};
+    for (const tech of selected) {
+      const raw = fromModel[tech];
+      const n = typeof raw === "number" ? raw : Number(raw);
+      next[tech] = Number.isFinite(n) ? Math.max(0, Math.min(100, n)) : 0;
+    }
+
+    return next;
+  })();
+
   return {
     decision,
     overallScore: sections.overallScore,
     categoryScores: sections.categoryScores ?? undefined,
+    technologyScores,
     strengths: sections.strengths,
     improvements: sections.improvements,
     detailedAnalysis: sections.detailedAnalysis,
@@ -774,6 +817,11 @@ function formatMockAnalysis(data: {
   } = data;
 
   const knowledgeGaps = generateMockKnowledgeGaps(config, passed);
+  const technologyScores = (config.technologies ?? []).filter(Boolean);
+  const technologyScoresBlock =
+    technologyScores.length > 0
+      ? `\n## TECHNOLOGY SCORES\n${technologyScores.map((t) => `- ${t}: ${Math.max(0, Math.min(100, Math.round(score * 0.7)))}/100`).join("\n")}\n`
+      : "";
 
   const strengthsOrNone = (threshold: number, text: string) =>
     categoryScores.technical > threshold ? text : "- None demonstrated";
@@ -816,6 +864,8 @@ ${categoryScores.professional > 10 ? "- Showed up and participated in the interv
 **Critical Weaknesses:**
 - Knowledge gaps suggest insufficient experience
 - Not ready for ${config.seniority}-level responsibilities
+
+${technologyScoresBlock}
 
 ## KNOWLEDGE GAPS
 ${knowledgeGaps}

@@ -25,6 +25,7 @@ import remarkGfm from "remark-gfm";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
+import { MarkdownContent } from "@/components/common/molecules/markdown-content";
 import {
   PostInterviewSurvey,
   type PostInterviewSurveyController,
@@ -199,6 +200,12 @@ function stripMarkdown(value: string): string {
     .replace(/\[([^\]]+)]\([^)]+\)/g, "$1")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function clampFinite(value: unknown, min: number, max: number): number {
+  const n = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(n)) return min;
+  return Math.max(min, Math.min(max, n));
 }
 
 function normalizeKnowledgeGapTitle(title: string): string {
@@ -1347,102 +1354,114 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
                   <CardHeader className="border-b border-gray-200 dark:border-gray-800">
                     <CardTitle className="flex items-center gap-3 text-xl font-semibold text-gray-900 dark:text-gray-100">
-                      <BarChart3 className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      <BarChart3 className="size-6 text-blue-600 dark:text-blue-400" />
                       Overall Performance Assessment
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-6">
-                    <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 mb-6">
-                      <div className="relative w-28 h-28 flex-shrink-0 mx-auto sm:mx-0">
-                        <svg
-                          className="w-full h-full transform -rotate-90"
-                          viewBox="0 0 100 100"
-                          aria-labelledby="score-chart-title"
-                        >
-                          <title id="score-chart-title">
-                            Interview Score: {results.score} out of 100
-                          </title>
-                          <circle
-                            cx="50"
-                            cy="50"
-                            r="45"
-                            stroke="currentColor"
-                            strokeWidth="8"
-                            fill="none"
-                            className="text-gray-200 dark:text-gray-800"
-                          />
-                          <circle
-                            cx="50"
-                            cy="50"
-                            r="45"
-                            stroke="currentColor"
-                            strokeWidth="8"
-                            fill="none"
-                            strokeDasharray={`${2 * Math.PI * 45}`}
-                            strokeDashoffset={`${2 * Math.PI * 45 * (1 - results.score / 100)}`}
-                            className={
-                              results.passed
-                                ? "text-emerald-600 dark:text-emerald-400"
-                                : "text-red-600 dark:text-red-400"
-                            }
-                            strokeLinecap="round"
-                          />
-                        </svg>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <Typography.BodyBold
-                            className={`text-3xl font-bold ${
-                              results.passed
-                                ? "text-emerald-900 dark:text-emerald-100"
-                                : "text-red-900 dark:text-red-100"
-                            }`}
-                          >
-                            {results.score}
-                          </Typography.BodyBold>
+                    {(() => {
+                      const score = Math.round(
+                        clampFinite(results.score, 0, 100),
+                      );
+                      return (
+                        <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 mb-6">
+                          <div className="relative w-28 h-28 flex-shrink-0 mx-auto sm:mx-0">
+                            <svg
+                              className="w-full h-full transform -rotate-90"
+                              viewBox="0 0 100 100"
+                              aria-labelledby="score-chart-title"
+                            >
+                              <title id="score-chart-title">
+                                Interview Score: {score} out of 100
+                              </title>
+                              <circle
+                                cx="50"
+                                cy="50"
+                                r="45"
+                                stroke="currentColor"
+                                strokeWidth="8"
+                                fill="none"
+                                className="text-gray-200 dark:text-gray-800"
+                              />
+                              <circle
+                                cx="50"
+                                cy="50"
+                                r="45"
+                                stroke="currentColor"
+                                strokeWidth="8"
+                                fill="none"
+                                strokeDasharray={`${2 * Math.PI * 45}`}
+                                strokeDashoffset={`${2 * Math.PI * 45 * (1 - score / 100)}`}
+                                className={
+                                  results.passed
+                                    ? "text-emerald-600 dark:text-emerald-400"
+                                    : "text-red-600 dark:text-red-400"
+                                }
+                                strokeLinecap="round"
+                              />
+                            </svg>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <Typography.BodyBold
+                                className={`text-3xl font-bold ${
+                                  results.passed
+                                    ? "text-emerald-900 dark:text-emerald-100"
+                                    : "text-red-900 dark:text-red-100"
+                                }`}
+                              >
+                                {score}
+                              </Typography.BodyBold>
+                            </div>
+                          </div>
+                          <div className="flex-1 w-full">
+                            <Typography.Heading3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                              {getPerformanceLabel(score, results.passed)}
+                            </Typography.Heading3>
+
+                            {(() => {
+                              const summary = results.overallScore?.trim();
+                              if (summary) {
+                                return (
+                                  <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={
+                                      overallSummaryMarkdownComponents
+                                    }
+                                  >
+                                    {normalizeOverallSummaryMarkdown(summary)}
+                                  </ReactMarkdown>
+                                );
+                              }
+
+                              const fallback = results.detailedAnalysis
+                                ?.trim()
+                                .split(/\n{2,}/)
+                                .map((part) => part.trim())
+                                .filter(Boolean)[0];
+
+                              if (fallback) {
+                                return (
+                                  <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={
+                                      overallSummaryMarkdownComponents
+                                    }
+                                  >
+                                    {normalizeOverallSummaryMarkdown(fallback)}
+                                  </ReactMarkdown>
+                                );
+                              }
+
+                              return (
+                                <Typography.Body className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                  Detailed summary unavailable for this
+                                  interview.
+                                </Typography.Body>
+                              );
+                            })()}
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex-1 w-full">
-                        <Typography.Heading3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
-                          {getPerformanceLabel(results.score, results.passed)}
-                        </Typography.Heading3>
-
-                        {(() => {
-                          const summary = results.overallScore?.trim();
-                          if (summary) {
-                            return (
-                              <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                components={overallSummaryMarkdownComponents}
-                              >
-                                {normalizeOverallSummaryMarkdown(summary)}
-                              </ReactMarkdown>
-                            );
-                          }
-
-                          const fallback = results.detailedAnalysis
-                            ?.trim()
-                            .split(/\n{2,}/)
-                            .map((part) => part.trim())
-                            .filter(Boolean)[0];
-
-                          if (fallback) {
-                            return (
-                              <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                components={overallSummaryMarkdownComponents}
-                              >
-                                {normalizeOverallSummaryMarkdown(fallback)}
-                              </ReactMarkdown>
-                            );
-                          }
-
-                          return (
-                            <Typography.Body className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                              Detailed summary unavailable for this interview.
-                            </Typography.Body>
-                          );
-                        })()}
-                      </div>
-                    </div>
+                      );
+                    })()}
                     {results.passingThreshold && (
                       <div className="text-sm text-gray-600 dark:text-gray-400 pt-4 border-t border-gray-200 dark:border-gray-800">
                         Passing threshold for this position:{" "}
@@ -1587,9 +1606,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                               const summary = getGapSummaryText(gap);
                               if (!summary) return null;
                               return (
-                                <div className="text-sm text-gray-700 dark:text-gray-300 mb-3">
-                                  {summary}
-                                </div>
+                                <MarkdownContent
+                                  className="text-gray-700 dark:text-gray-300 mb-3"
+                                  markdown={gap.summary ?? ""}
+                                />
                               );
                             })()}
 

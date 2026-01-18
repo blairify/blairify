@@ -76,6 +76,7 @@ export interface InterviewResults {
     communication: number;
     professional: number;
   };
+  technologyScores?: Record<string, number>;
   strengths: string[];
   improvements: string[];
   detailedAnalysis: string;

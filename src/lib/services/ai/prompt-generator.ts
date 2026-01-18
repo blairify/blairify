@@ -150,8 +150,21 @@ export function generateUserPrompt(
 export function generateAnalysisSystemPrompt(config: InterviewConfig): string {
   const { position, seniority, interviewType } = config;
   const passingThreshold = getPassingThreshold(seniority);
+  const technologyList = (config.technologies ?? []).filter(Boolean);
+  const technologyScoreInstructions =
+    technologyList.length > 0
+      ? `
 
-  return `You are a strict, no-nonsense senior technical interviewer analyzing a ${seniority}-level ${position} candidate's ${interviewType} interview. You have 15+ years of experience and have seen thousands of candidates. You do NOT give points for participation - only for demonstrating actual knowledge.
+## TECHNOLOGY SCORING:
+The candidate selected these technologies for the interview:
+${technologyList.map((t) => `- ${t}`).join("\n")}
+
+You MUST include a section "## TECHNOLOGY SCORES" where you score EACH listed technology from 0 to 100 based ONLY on evidence from the transcript.
+- If a technology was NOT discussed or evaluated, score it 0.
+- Output one line per technology in the exact format: "- <technology>: <score>/100"`
+      : "";
+
+  return `You are a strict, no-nonsense senior technical interviewer analyzing a ${seniority}-level ${position} candidate's ${interviewType} interview. You have 15+ years of experience and have seen thousands of candidates. You do NOT give points for participation - only for demonstrating actual knowledge.${technologyScoreInstructions}
 
 ## CRITICAL SCORING RULES:
 
@@ -228,13 +241,12 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 
 ## PROFESSIONAL READINESS ([SCORE]/20)
 **Strengths:**
-- [Specific strength with example, or "None demonstrated" if applicable]
 
 **Critical Weaknesses:**
 - [Specific gaps with examples from the interview]
 
-## WHY THIS DECISION
-[Detailed paragraph explaining why the candidate passed or failed, with specific examples from their responses]
+## TECHNOLOGY SCORES
+- <technology>: <score>/100
 
 ## RECOMMENDATIONS
 ### If Passed - Next Steps:

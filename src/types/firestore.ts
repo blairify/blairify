@@ -302,6 +302,7 @@ export interface SessionAnalysis {
   aiConfidence: number; // 1-100
   summary: string;
   detailedAnalysis?: string;
+  technologyScores?: Record<string, number>;
   recommendations: string[];
   nextSteps: string[];
   passed?: boolean;

@@ -10,6 +10,7 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
+import { MarkdownContent } from "@/components/common/molecules/markdown-content";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { InterviewResults } from "@/types/interview";
@@ -238,14 +239,56 @@ function splitActionLines(raw: string, max: number): string[] {
   return parts.slice(0, max);
 }
 
-function describeGapFallback(title: string): string {
-  const cleaned = stripMarkdown(title)
+function stableHash(value: string): number {
+  let hash = 0;
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash * 31 + value.charCodeAt(i)) | 0;
+  }
+  return Math.abs(hash);
+}
+
+function describeGapFallback(params: {
+  title: string;
+  tags?: string[];
+  priority?: string;
+}): string {
+  const cleaned = stripMarkdown(params.title)
     .replace(/\.{3,}/g, " ")
     .replace(/…/g, " ")
     .replace(/\s+/g, " ")
     .trim();
   if (cleaned.length === 0) return "";
-  return `Review ${cleaned} and be able to explain it with a simple example and 1 key trade-off.`;
+
+  const tagHint = (Array.isArray(params.tags) ? params.tags : [])
+    .map((t) => stripMarkdown(t).trim())
+    .filter((t) => t.length > 0)
+    .slice(0, 2)
+    .join(" / ");
+
+  const difficultyHint = (() => {
+    switch (params.priority) {
+      case "high":
+        return "High priority — ";
+      case "medium":
+        return "Priority — ";
+      case "low":
+        return "";
+      default:
+        return "";
+    }
+  })();
+
+  const context = tagHint.length > 0 ? `${cleaned} (${tagHint})` : cleaned;
+  const templates = [
+    `${difficultyHint}Revisit ${context}. Prepare a crisp definition, a concrete example, and one trade-off.`,
+    `${difficultyHint}Strengthen ${context}. Be ready to compare alternatives and explain when you'd choose each.`,
+    `${difficultyHint}Drill ${context}. Practice explaining it out loud end-to-end in under 60 seconds.`,
+    `${difficultyHint}Sharpen ${context}. Focus on common pitfalls and how you'd spot them in an interview.`,
+    `${difficultyHint}Solidify ${context}. Know the key constraints, edge cases, and how you'd validate your approach.`,
+  ];
+
+  const key = [cleaned, tagHint, params.priority ?? ""].join("|");
+  return templates[stableHash(key) % templates.length] ?? templates[0] ?? "";
 }
 
 function isGenericPlanLine(line: string): boolean {
@@ -285,7 +328,11 @@ function buildPlanItems(results: InterviewResults, max: number): string[] {
       const raw =
         typeof g.summary === "string" && g.summary.trim().length > 0
           ? g.summary.trim()
-          : describeGapFallback(g.title);
+          : describeGapFallback({
+              title: g.title,
+              tags: g.tags,
+              priority: g.priority,
+            });
       const cleaned = stripMarkdown(raw)
         .replace(/\.{3,}/g, " ")
         .replace(/…/g, " ")
@@ -404,7 +451,11 @@ function pickFocusAreas(params: {
       const descriptionRaw =
         summaryRaw.length > 0
           ? summaryRaw
-          : describeGapFallback(titleRaw.length > 0 ? titleRaw : title);
+          : describeGapFallback({
+              title: titleRaw.length > 0 ? titleRaw : title,
+              tags: g.tags,
+              priority: g.priority,
+            });
       const why =
         descriptionRaw.length > 0 ? toNoEllipsisSnippet(descriptionRaw) : "";
       if (!title) return null;
@@ -535,6 +586,19 @@ function getCategoryScoresForResults(
       CATEGORY_MAX.professional,
     ),
   };
+}
+
+function getTechnologyScoresForResults(
+  results: InterviewResults,
+): Array<{ tech: string; score: number }> {
+  const raw = results.technologyScores;
+  if (!raw) return [];
+  if (typeof raw !== "object") return [];
+
+  return Object.entries(raw)
+    .map(([tech, score]) => ({ tech, score: clampFinite(score, 0, 100) }))
+    .filter((x) => x.tech.trim().length > 0)
+    .sort((a, b) => b.score - a.score);
 }
 
 function getStepIcon(stepId: DeckStepId) {
@@ -947,6 +1011,8 @@ export function ResultsDeck({
                             const readiness = getReadiness(scoreValue);
                             const categoryScores =
                               getCategoryScoresForResults(results);
+                            const technologyScores =
+                              getTechnologyScoresForResults(results);
 
                             const narrative = sanitizeOutcomeNarrative(
                               results.whyDecision?.trim().length
@@ -1106,6 +1172,57 @@ export function ResultsDeck({
                                     );
                                   })}
                                 </div>
+
+                                {technologyScores.length > 0 ? (
+                                  <div className="rounded-2xl border bg-background/40 px-4 py-3">
+                                    <div className="flex items-center justify-between gap-3">
+                                      <div className="text-sm font-semibold">
+                                        Technology scores
+                                      </div>
+                                      <div className="text-xs tabular-nums text-muted-foreground">
+                                        /100
+                                      </div>
+                                    </div>
+
+                                    <div className="mt-3 space-y-2">
+                                      {technologyScores.slice(0, 6).map((t) => {
+                                        const pct = Math.round(
+                                          clampFinite(t.score, 0, 100),
+                                        );
+                                        return (
+                                          <div
+                                            key={t.tech}
+                                            className="space-y-1"
+                                          >
+                                            <div className="flex items-center justify-between gap-3">
+                                              <div className="text-sm font-medium">
+                                                {t.tech}
+                                              </div>
+                                              <div className="text-xs tabular-nums text-muted-foreground">
+                                                {pct}/100
+                                              </div>
+                                            </div>
+                                            <div className="h-2 overflow-hidden rounded-full bg-muted">
+                                              <motion.div
+                                                className="h-full rounded-full bg-foreground/60"
+                                                initial={{ width: 0 }}
+                                                animate={{
+                                                  width: outcomeLoading
+                                                    ? "0%"
+                                                    : `${pct}%`,
+                                                }}
+                                                transition={{
+                                                  duration: 0.7,
+                                                  ease: "easeOut",
+                                                }}
+                                              />
+                                            </div>
+                                          </div>
+                                        );
+                                      })}
+                                    </div>
+                                  </div>
+                                ) : null}
                               </div>
                             );
                           }
@@ -1173,11 +1290,15 @@ export function ResultsDeck({
                                     </motion.div>
 
                                     <div className="min-w-0">
-                                      <Typography.Body className="text-sm sm:text-base leading-relaxed">
-                                        {step.body.trim().length > 0
-                                          ? step.body
-                                          : "No coach feedback captured."}
-                                      </Typography.Body>
+                                      <div className="text-foreground">
+                                        <MarkdownContent
+                                          markdown={
+                                            step.body.trim().length > 0
+                                              ? step.body
+                                              : "No coach feedback captured."
+                                          }
+                                        />
+                                      </div>
                                     </div>
                                   </div>
                                 </div>

@@ -585,18 +585,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
   };
 
   useEffect(() => {
-    if (mounted && !isInterviewStarted && !isLoading) {
-      void handleStartInterview();
-    }
-  }, [
-    mounted,
-    isInterviewStarted,
-    isLoading,
-    // biome-ignore lint/correctness/useExhaustiveDependencies: handleStartInterview does not need memoization in React 19
-    handleStartInterview,
-  ]);
-
-  useEffect(() => {
     if (!user?.uid || !databaseSessionId || session.messages.length === 0) {
       return;
     }

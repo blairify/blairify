@@ -630,6 +630,9 @@ export async function saveInterviewResults(
         detailedAnalysis: analysis.detailedAnalysis?.trim().length
           ? analysis.detailedAnalysis
           : undefined,
+        ...(analysis.technologyScores
+          ? { technologyScores: analysis.technologyScores }
+          : {}),
         recommendations: analysis.recommendations
           ? analysis.recommendations.split("\n").filter((r) => r.trim())
           : [],

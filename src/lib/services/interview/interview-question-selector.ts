@@ -10,6 +10,7 @@ import type {
 } from "@/components/interview/types";
 import { getAppUrl } from "@/lib/utils";
 import { shuffleWithSeed } from "@/lib/utils/seeded-random";
+
 import type { DifficultyLevel, Question } from "@/types/practice-question";
 
 /**
@@ -485,9 +486,5 @@ export function formatQuestionForPrompt(question: Question): string {
     : "";
 
   // Enhanced format: more comprehensive but AI-readable, without exposing reference answers
-  return `**${question.title}** (${question.difficulty})\nTopic: ${
-    question.topic
-  }\nTech: ${techStack || "General"}\nCompany: ${
-    company
-  }\nQuestion: ${question.prompt}\nTags: ${question.tags.join(", ")}${evaluationHint}`;
+  return `**${question.title}** (${question.difficulty})\nTopic: ${question.topic}\nTech: ${techStack || "General"}\nCompany: ${company}\nQuestion: ${question.prompt}\nTags: ${question.tags.join(", ")}${evaluationHint}`;
 }
