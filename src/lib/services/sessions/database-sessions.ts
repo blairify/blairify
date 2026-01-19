@@ -417,6 +417,8 @@ export async function saveInterviewResults(
     const questions: InterviewQuestion[] = [];
     const responses: InterviewResponse[] = [];
 
+    let derivedOverallScoreSum = 0;
+    let derivedOverallScoreCount = 0;
     const resolvedScore = analysis.score > 0 ? analysis.score : 0;
     const resolvedFeedback =
       analysis.detailedAnalysis.trim().length > 0
@@ -523,6 +525,8 @@ export async function saveInterviewResults(
       })();
 
       const subscores = computeResponseSubscores(userMessage.content);
+      derivedOverallScoreSum += subscores.overall;
+      derivedOverallScoreCount += 1;
 
       questions.push({
         id: questionId,
@@ -677,12 +681,17 @@ export async function saveInterviewResults(
     const shouldWriteScores = shouldPersistScores(
       (sessionBase.config as any).interviewMode,
     );
+    const fallbackOverall = (() => {
+      if (resolvedScore > 0) return resolvedScore;
+      if (derivedOverallScoreCount === 0) return 0;
+      return clampScore(derivedOverallScoreSum / derivedOverallScoreCount);
+    })();
     const fallbackScores = shouldWriteScores
       ? {
-          overall: resolvedScore,
-          technical: clampScore(resolvedScore * 0.92),
-          communication: clampScore(resolvedScore * 0.86),
-          problemSolving: clampScore(resolvedScore * 0.9),
+          overall: fallbackOverall,
+          technical: clampScore(fallbackOverall * 0.92),
+          communication: clampScore(fallbackOverall * 0.86),
+          problemSolving: clampScore(fallbackOverall * 0.9),
         }
       : null;
 

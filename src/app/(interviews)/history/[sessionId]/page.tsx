@@ -587,7 +587,8 @@ export default function SessionDetailsPage() {
                     })();
 
                     const overallScore =
-                      typeof savedOverallScore === "number"
+                      typeof savedOverallScore === "number" &&
+                      savedOverallScore > 0
                         ? savedOverallScore
                         : derivedOverallScore;
                     const hasOverallScore = typeof overallScore === "number";

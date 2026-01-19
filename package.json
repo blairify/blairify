@@ -22,7 +22,8 @@
     "prepare:questions": "ts-node --project scripts/tsconfig.json scripts/prepare-question-bank.ts",
     "questions:normalize": "ts-node --project scripts/tsconfig.json scripts/normalize-prepared-question-banks.ts",
     "questions:validate": "ts-node --project scripts/tsconfig.json scripts/validate-prepared-question-banks.ts",
-    "questions:preimport": "pnpm -s questions:normalize && pnpm -s questions:validate"
+    "questions:preimport": "pnpm -s questions:normalize && pnpm -s questions:validate",
+    "resources:ingest": "ts-node --project scripts/tsconfig.json scripts/resources/ingest-trusted-docs.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

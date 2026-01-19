@@ -61,10 +61,149 @@ import type { InterviewSession, UserProfile } from "@/types/firestore";
 import type {
   InterviewConfig,
   InterviewResults,
+  KnowledgeGap,
   KnowledgeGapPriority,
   TerminationReason,
 } from "@/types/interview";
 import type { Question } from "@/types/practice-question";
+
+function clampFinite(value: unknown, min: number, max: number): number {
+  const n = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(n)) return min;
+  return Math.max(min, Math.min(max, n));
+}
+
+function deriveOverallScoreFromSession(session: InterviewSession): number {
+  const saved = session.scores?.overall;
+  if (typeof saved === "number" && saved > 0) return clampFinite(saved, 0, 100);
+
+  const responseScores = (session.responses ?? [])
+    .map((r) => r.score)
+    .filter((n): n is number => typeof n === "number" && Number.isFinite(n));
+  if (responseScores.length > 0) {
+    const avg =
+      responseScores.reduce((sum, n) => sum + n, 0) / responseScores.length;
+    return clampFinite(Math.round(avg), 0, 100);
+  }
+
+  const techScores = session.analysis?.technologyScores
+    ? Object.values(session.analysis.technologyScores).filter(Number.isFinite)
+    : [];
+  if (techScores.length > 0) {
+    const avg = techScores.reduce((sum, n) => sum + n, 0) / techScores.length;
+    return clampFinite(Math.round(avg), 0, 100);
+  }
+
+  return 0;
+}
+
+function getScoreColor(score: number): string {
+  if (score >= 90) return "text-green-600";
+  if (score >= 80) return "text-green-500";
+  if (score >= 70) return "text-yellow-500";
+  if (score >= 60) return "text-orange-500";
+  return "text-red-500";
+}
+
+function mapKnowledgeGaps(
+  analysis: InterviewSession["analysis"],
+): KnowledgeGap[] | undefined {
+  const gaps = analysis.knowledgeGaps;
+  if (!Array.isArray(gaps) || gaps.length === 0) return undefined;
+
+  const normalized = gaps
+    .map((g) => {
+      const title = typeof g.title === "string" ? g.title.trim() : "";
+      const why = typeof g.why === "string" ? g.why.trim() : "";
+      const priority = g.priority;
+      const tags = Array.isArray(g.tags)
+        ? g.tags.filter(
+            (t): t is string => typeof t === "string" && t.trim().length > 0,
+          )
+        : [];
+
+      if (!title || !why) return null;
+
+      const resources = Array.isArray(g.resources)
+        ? g.resources
+            .map((r) => {
+              const id = typeof r.id === "string" ? r.id.trim() : "";
+              const title = typeof r.title === "string" ? r.title.trim() : "";
+              const url = typeof r.url === "string" ? r.url.trim() : "";
+              const type = r.type;
+              const tags = Array.isArray(r.tags)
+                ? r.tags.filter(
+                    (t): t is string =>
+                      typeof t === "string" && t.trim().length > 0,
+                  )
+                : [];
+              if (!id || !title || !url || !type) return null;
+              if (tags.length === 0) return null;
+              return {
+                id,
+                title,
+                url,
+                type,
+                tags,
+                ...(r.difficulty ? { difficulty: r.difficulty } : {}),
+              };
+            })
+            .filter((r): r is NonNullable<typeof r> => r !== null)
+        : [];
+
+      return {
+        title,
+        priority,
+        tags,
+        why,
+        resources,
+      } satisfies KnowledgeGap;
+    })
+    .filter((g): g is NonNullable<typeof g> => g !== null);
+
+  return normalized.length > 0 ? normalized : undefined;
+}
+
+function mapSessionToInterviewResults(
+  session: InterviewSession,
+): InterviewResults {
+  const score = deriveOverallScoreFromSession(session);
+  const analysis = session.analysis;
+  const knowledgeGaps = mapKnowledgeGaps(analysis);
+
+  const decision = (() => {
+    switch (analysis.decision) {
+      case "PASS":
+        return "PASS";
+      case "FAIL":
+        return "FAIL";
+      case "UNKNOWN":
+      case undefined:
+        return undefined;
+      default: {
+        const _never: never = analysis.decision as never;
+        throw new Error(`Unhandled decision: ${_never}`);
+      }
+    }
+  })();
+
+  return {
+    score,
+    scoreColor: getScoreColor(score),
+    overallScore: analysis.summary ?? "",
+    strengths: analysis.strengths ?? [],
+    improvements: analysis.improvements ?? [],
+    detailedAnalysis: analysis.detailedAnalysis ?? "",
+    technologyScores: analysis.technologyScores ?? undefined,
+    recommendations: (analysis.recommendations ?? []).join("\n"),
+    nextSteps: (analysis.nextSteps ?? []).join("\n"),
+    ...(knowledgeGaps ? { knowledgeGaps } : {}),
+    decision,
+    passed: analysis.passed,
+    passingThreshold: analysis.passingThreshold,
+    whyDecision: analysis.whyDecision,
+  };
+}
 
 function getPriorityLabel(priority: KnowledgeGapPriority): string {
   switch (priority) {
@@ -200,12 +339,6 @@ function stripMarkdown(value: string): string {
     .replace(/\[([^\]]+)]\([^)]+\)/g, "$1")
     .replace(/\s+/g, " ")
     .trim();
-}
-
-function clampFinite(value: unknown, min: number, max: number): number {
-  const n = typeof value === "number" ? value : Number(value);
-  if (!Number.isFinite(n)) return min;
-  return Math.max(min, Math.min(max, n));
 }
 
 function normalizeKnowledgeGapTitle(title: string): string {
@@ -842,7 +975,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
         setSavedSessionId(sessionIdFromQuery);
         setSavedSession(session as InterviewSession);
-        setResults(session.analysis as unknown as InterviewResults);
+        setResults(mapSessionToInterviewResults(session as InterviewSession));
 
         const cfg = session.config as unknown;
         if (cfg && typeof cfg === "object") {

@@ -49,8 +49,9 @@ type DeckStep =
       body: string;
     };
 
-function stripMarkdown(value: string): string {
-  return value
+function stripMarkdown(value: string | null | undefined): string {
+  const safe = typeof value === "string" ? value : "";
+  return safe
     .replace(/\*\*(.*?)\*\*/g, "$1")
     .replace(/__(.*?)__/g, "$1")
     .replace(/`([^`]+)`/g, "$1")
@@ -83,7 +84,7 @@ function buildOutcomeSummary(params: {
   return [focusLine].filter(Boolean).join(" ");
 }
 
-function sanitizeOutcomeNarrative(raw: string): string {
+function sanitizeOutcomeNarrative(raw: string | null | undefined): string {
   const compact = stripMarkdown(raw)
     .replace(/\bscore\b[^.?!]*[.?!]/gi, "")
     .replace(/\bdecision\b[^.?!]*[.?!]/gi, "")
@@ -110,7 +111,7 @@ function sanitizeOutcomeNarrative(raw: string): string {
   return `${safe}.`;
 }
 
-function sanitizeCoachNarrative(raw: string): string {
+function sanitizeCoachNarrative(raw: string | null | undefined): string {
   const compact = stripMarkdown(raw)
     .replace(/\bfinal\s*score\b[^.?!]*[.?!]/gi, "")
     .replace(/\bpassing\s*threshold\b[^.?!]*[.?!]/gi, "")

@@ -1,0 +1,235 @@
+{
+  "sources": [
+    {
+      "host": "nextjs.org",
+      "baseTags": ["nextjs"],
+      "sitemapUrls": ["https://nextjs.org/sitemap.xml"]
+    },
+    {
+      "host": "nodejs.org",
+      "baseTags": ["nodejs", "node"],
+      "sitemapUrls": ["https://nodejs.org/sitemap.xml"]
+    },
+    {
+      "host": "www.typescriptlang.org",
+      "baseTags": ["typescript"],
+      "sitemapUrls": [
+        "https://www.typescriptlang.org/sitemap-index.xml"
+      ]
+    },
+    {
+      "host": "developer.mozilla.org",
+      "baseTags": ["mdn", "javascript", "typescript", "html5", "css", "security"],
+      "sitemapUrls": ["https://developer.mozilla.org/sitemap.xml"]
+    },
+    {
+      "host": "web.dev",
+      "baseTags": ["web", "performance", "accessibility"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "developer.chrome.com",
+      "baseTags": ["web", "chrome"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "vercel.com",
+      "baseTags": ["vercel", "nextjs"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "www.postgresql.org",
+      "baseTags": ["postgresql"],
+      "sitemapUrls": ["https://www.postgresql.org/sitemap.xml"]
+    },
+    {
+      "host": "mariadb.com",
+      "baseTags": ["mariadb", "sql"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "redis.io",
+      "baseTags": ["redis", "cache"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "www.mongodb.com",
+      "baseTags": ["mongodb", "nosql"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "www.prisma.io",
+      "baseTags": ["prisma"],
+      "sitemapUrls": ["https://www.prisma.io/sitemap.xml"]
+    },
+    {
+      "host": "orm.drizzle.team",
+      "baseTags": ["drizzle"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "neon.tech",
+      "baseTags": ["neon", "postgresql"],
+      "sitemapUrls": ["https://neon.tech/sitemap.xml"]
+    },
+    {
+      "host": "typeorm.io",
+      "baseTags": ["typeorm", "typescript"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "firebase.google.com",
+      "baseTags": ["firebase"],
+      "sitemapUrls": ["https://firebase.google.com/sitemap.xml"]
+    },
+    {
+      "host": "cloud.google.com",
+      "baseTags": ["gcp", "google-cloud", "cloud"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "kubernetes.io",
+      "baseTags": ["kubernetes", "k8s"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "docs.docker.com",
+      "baseTags": ["docker", "containers"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "docs.aws.amazon.com",
+      "baseTags": ["aws", "cloud"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "aws.amazon.com",
+      "baseTags": ["aws", "cloud"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "azure.microsoft.com",
+      "baseTags": ["azure", "cloud"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "learn.microsoft.com",
+      "baseTags": [
+        "azure",
+        "cloud",
+        "aspnet-core",
+        "aspnet",
+        "dotnet",
+        "csharp",
+        "entity-framework-core",
+        "ef-core"
+      ],
+      "sitemapUrls": []
+    },
+    {
+      "host": "dotnet.microsoft.com",
+      "baseTags": ["dotnet", "csharp"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "docs.microsoft.com",
+      "baseTags": ["azure", "dotnet", "csharp", "aspnet", "cloud"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "docs.stripe.com",
+      "baseTags": ["stripe"],
+      "sitemapUrls": ["https://docs.stripe.com/sitemap.xml"]
+    },
+    {
+      "host": "spring.io",
+      "baseTags": ["java", "spring"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "docs.python.org",
+      "baseTags": ["python"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "pypi.org",
+      "baseTags": ["python"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "flask.palletsprojects.com",
+      "baseTags": ["python", "flask"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "kotlinlang.org",
+      "baseTags": ["kotlin"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "developer.android.com",
+      "baseTags": ["kotlin", "android"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "docs.flutter.dev",
+      "baseTags": ["flutter", "dart"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "dart.dev",
+      "baseTags": ["dart", "flutter"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "jestjs.io",
+      "baseTags": ["jest", "testing"],
+      "sitemapUrls": ["https://jestjs.io/sitemap.xml"]
+    },
+    {
+      "host": "www.cypress.io",
+      "baseTags": ["cypress", "testing"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "testing-library.com",
+      "baseTags": ["testing-library", "testing"],
+      "sitemapUrls": ["https://testing-library.com/sitemap.xml"]
+    },
+    {
+      "host": "www.apollographql.com",
+      "baseTags": ["graphql", "apollo"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "www.rfc-editor.org",
+      "baseTags": ["networks", "networking", "http"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "grafana.com",
+      "baseTags": ["monitoring", "observability"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "nginx.org",
+      "baseTags": ["cdn", "caching", "devops"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "www.cloudflare.com",
+      "baseTags": ["cdn", "networks", "security"],
+      "sitemapUrls": []
+    },
+    {
+      "host": "greensock.com",
+      "baseTags": ["gsap"],
+      "sitemapUrls": ["https://greensock.com/sitemap.xml"]
+    },
+    {
+      "host": "developer.okta.com",
+      "baseTags": ["security", "authentication"],
+      "sitemapUrls": []
+    }
+  ]
+}

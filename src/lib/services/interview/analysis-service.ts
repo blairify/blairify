@@ -74,8 +74,17 @@ export function parseAnalysis(
 ): InterviewResults {
   try {
     const sections = extractAnalysisSections(analysis);
+    const extractedScore = extractScore(sections.overallScore);
+    const derivedScore = deriveScoreFromCategoryScores(sections.categoryScores);
+    const derivedTechnologyScore = deriveScoreFromTechnologyScores(
+      sections.technologyScores,
+    );
     const score = validateAndCapScore(
-      extractScore(sections.overallScore),
+      extractedScore > 0
+        ? extractedScore
+        : derivedScore > 0
+          ? derivedScore
+          : derivedTechnologyScore,
       responseAnalysis,
     );
     const decision = determineDecision(score, config, sections.decision);
@@ -219,15 +228,23 @@ function extractCategoryScores(
   analysis: string,
 ): AnalysisSections["categoryScores"] {
   const read = (section: string): number | null => {
-    const regex = new RegExp(
-      `##\\s*${section}\\s*\\(\\s*(\\d{1,3})\\s*\\/\\s*\\d{1,3}\\s*\\)`,
-      "i",
-    );
-    const match = analysis.match(regex);
-    if (!match) return null;
-    const parsed = Number(match[1]);
-    if (!Number.isFinite(parsed)) return null;
-    return parsed;
+    const patterns = [
+      new RegExp(`##\\s*${section}\\s*\\(\\s*(\\d{1,3})\\s*pts\\s*\\)`, "i"),
+      new RegExp(
+        `##\\s*${section}\\s*\\(\\s*(\\d{1,3})\\s*\\/\\s*\\d{1,3}\\s*\\)`,
+        "i",
+      ),
+    ];
+
+    for (const pattern of patterns) {
+      const match = analysis.match(pattern);
+      if (!match) continue;
+      const parsed = Number(match[1]);
+      if (!Number.isFinite(parsed)) continue;
+      return parsed;
+    }
+
+    return null;
   };
 
   const technical = read("TECHNICAL COMPETENCY");
@@ -250,6 +267,28 @@ function extractCategoryScores(
     communication: communication ?? 0,
     professional: professional ?? 0,
   };
+}
+
+function deriveScoreFromCategoryScores(
+  scores: AnalysisSections["categoryScores"],
+): number {
+  if (!scores) return 0;
+  const total =
+    (scores.technical ?? 0) +
+    (scores.problemSolving ?? 0) +
+    (scores.communication ?? 0) +
+    (scores.professional ?? 0);
+  return Math.max(0, Math.min(100, Math.round(total)));
+}
+
+function deriveScoreFromTechnologyScores(
+  scores: AnalysisSections["technologyScores"],
+): number {
+  if (!scores) return 0;
+  const values = Object.values(scores).filter((n) => Number.isFinite(n));
+  if (values.length === 0) return 0;
+  const avg = values.reduce((sum, n) => sum + n, 0) / values.length;
+  return Math.max(0, Math.min(100, Math.round(avg)));
 }
 
 function extractKnowledgeGaps(sectionText: string): KnowledgeGap[] {
@@ -419,20 +458,36 @@ function extractCategoryContent(
 
 function extractScore(scoreText: string): number {
   const patterns = [
-    /Score:\s*(\d+)\s*\/\s*100/i,
-    /(\d+)\s*\/\s*100/i,
-    /score[:\s]+(\d+)/i,
-    /(\d+)\s*points?/i,
+    /Score:\s*(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/i,
+    /Score:\s*(\d+(?:\.\d+)?)/i,
+    /(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/i,
+    /score[:\s]+(\d+(?:\.\d+)?)/i,
+    /(\d+(?:\.\d+)?)\s*points?/i,
   ];
 
   for (const pattern of patterns) {
     const match = scoreText.match(pattern);
-    if (match) {
-      const score = parseInt(match[1], 10);
-      if (isValidScore(score)) {
-        return score;
+    if (!match) continue;
+
+    const raw = Number.parseFloat(match[1] ?? "");
+    if (!Number.isFinite(raw)) continue;
+
+    const rawDenominator = match[2];
+    const denominator = rawDenominator
+      ? Number.parseFloat(rawDenominator)
+      : null;
+
+    const normalized = (() => {
+      if (denominator && Number.isFinite(denominator) && denominator > 0) {
+        return Math.round((raw / denominator) * 100);
       }
-    }
+      if (raw >= 0 && raw <= 1) {
+        return Math.round(raw * 100);
+      }
+      return Math.round(raw);
+    })();
+
+    if (isValidScore(normalized)) return normalized;
   }
 
   return 0;

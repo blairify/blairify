@@ -85,15 +85,81 @@ function isPreferredDomain(url: string): boolean {
   try {
     const host = new URL(url).host.toLowerCase();
     return (
+      host.includes("react.dev") ||
+      host.includes("nextjs.org") ||
+      host.includes("vercel.com") ||
+      host.includes("typescriptlang.org") ||
+      host.includes("nodejs.org") ||
+      host.includes("postgresql.org") ||
+      host.includes("prisma.io") ||
+      host.includes("orm.drizzle.team") ||
+      host.includes("neon.tech") ||
+      host.includes("firebase.google.com") ||
+      host.includes("cloud.google.com") ||
+      host.includes("docs.stripe.com") ||
+      host.includes("jestjs.io") ||
+      host.includes("testing-library.com") ||
+      host.includes("tailwindcss.com") ||
       host.includes("roadmap.sh") ||
       host.includes("w3schools.com") ||
       host.includes("developer.mozilla.org") ||
       host.includes("freecodecamp.org") ||
+      host.includes("www.google.com") ||
       host.includes("youtube.com")
     );
   } catch {
     return false;
   }
+}
+
+function getOfficialKnownTopicUrl(
+  tags: string[],
+  title: string,
+): string | null {
+  const normalizedTags = tags.map((t) => t.toLowerCase());
+
+  const known: Record<string, string> = {
+    react: "https://react.dev/learn",
+    nextjs: "https://nextjs.org/docs",
+    "next-js": "https://nextjs.org/docs",
+    typescript: "https://www.typescriptlang.org/docs/",
+    javascript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    node: "https://nodejs.org/en/docs",
+    nodejs: "https://nodejs.org/en/docs",
+    sql: "https://www.postgresql.org/docs/",
+    postgres: "https://www.postgresql.org/docs/",
+    postgresql: "https://www.postgresql.org/docs/",
+    prisma: "https://www.prisma.io/docs",
+    drizzle: "https://orm.drizzle.team/docs/overview",
+    firebase: "https://firebase.google.com/docs",
+    stripe: "https://docs.stripe.com/",
+    jest: "https://jestjs.io/docs/getting-started",
+    "testing-library": "https://testing-library.com/docs/",
+    tailwind: "https://tailwindcss.com/docs/installation",
+    css: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    html: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+  };
+
+  for (const t of normalizedTags) {
+    const hit = known[t];
+    if (hit) return hit;
+  }
+
+  if (/\bnext\.js\b/i.test(title)) return known.nextjs;
+  if (/\breact\b/i.test(title)) return known.react;
+  if (/\btypescript\b/i.test(title)) return known.typescript;
+  if (/\bpostgres\b|\bpostgresql\b/i.test(title)) return known.postgresql;
+
+  return null;
+}
+
+function buildGoogleSearchUrl(title: string, tags: string[]): string {
+  const base = normalizeGapTitle(title);
+  const tag = tags[0] ?? "";
+  const query = encodeURIComponent(
+    `${base}${tag ? ` ${tag}` : ""} official docs`,
+  );
+  return `https://www.google.com/search?q=${query}`;
 }
 
 function getRoadmapKnownRouteUrl(tags: string[]): string | null {
@@ -159,10 +225,37 @@ function buildPreferredResources(
   const topic = encodeURIComponent(normalizeGapTitle(title));
   const tag = tags[0] ?? "";
 
-  const mdn = {
+  const officialKnown = getOfficialKnownTopicUrl(tags, title);
+  if (officialKnown) {
+    return [
+      {
+        id: crypto.randomUUID(),
+        title: `Official docs: ${tag || "topic"}`,
+        url: officialKnown,
+        type: "docs" as const,
+        tags,
+      },
+      {
+        id: crypto.randomUUID(),
+        title: `MDN: ${title}`,
+        url: `https://developer.mozilla.org/en-US/search?q=${topic}`,
+        type: "docs" as const,
+        tags,
+      },
+      {
+        id: crypto.randomUUID(),
+        title: `YouTube: ${title}`,
+        url: `https://www.youtube.com/results?search_query=${topic}`,
+        type: "video" as const,
+        tags,
+      },
+    ];
+  }
+
+  const google = {
     id: crypto.randomUUID(),
-    title: `MDN search: ${title}`,
-    url: `https://developer.mozilla.org/en-US/search?q=${topic}`,
+    title: `Google: ${title}`,
+    url: buildGoogleSearchUrl(title, tags),
     type: "docs" as const,
     tags,
   };
@@ -178,7 +271,7 @@ function buildPreferredResources(
   const roadmapKnown = getRoadmapKnownRouteUrl(tags);
   const w3Known = getW3SchoolsKnownSectionUrl(tags, title);
 
-  const resources: KnowledgeGap["resources"] = [mdn, youtube];
+  const resources: KnowledgeGap["resources"] = [google, youtube];
 
   if (roadmapKnown) {
     resources.push({
@@ -256,7 +349,7 @@ function ensureGapHasMinimumResources(gap: KnowledgeGap): KnowledgeGap {
     }
   }
 
-  return { ...gap, resources: next };
+  return { ...gap, resources: next.slice(0, 3) };
 }
 
 function extractInterviewerQuestions(conversationHistory: Message[]): string[] {
@@ -843,7 +936,7 @@ export async function POST(
     const knowledgeGaps = feedback.knowledgeGaps ?? [];
     const enrichedKnowledgeGapsFromModel: KnowledgeGap[] = await Promise.all(
       knowledgeGaps.map(async (gap) => {
-        const resources = await getResourcesByTags(gap.tags, 5);
+        const resources = await getResourcesByTags(gap.tags, 3);
         return { ...gap, resources };
       }),
     );
