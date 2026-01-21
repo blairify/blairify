@@ -270,6 +270,7 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
   Tags: [comma-separated kebab-case tags, e.g. react-rendering, sql-indexes]
   Summary: [1 short, actionable sentence describing what to improve (no small-talk openers, no ellipses)]
   Why: [1 sentence explaining why this is a gap based on the transcript, referencing the specific question by TOPIC only]
+  Example Answer: [Provide a concise, high-quality ideal answer to the question that demonstrates the expected knowledge for this seniority level]
 
 Rules for KNOWLEDGE GAPS:
 - Output exactly 1 knowledge gap per interviewer question.

@@ -356,7 +356,6 @@ function extractInterviewerQuestions(conversationHistory: Message[]): string[] {
   const questions: string[] = [];
   for (const msg of conversationHistory) {
     if (msg.type !== "ai") continue;
-    if (msg.isFollowUp === true) continue;
     const lines = msg.content
       .split("\n")
       .map((l) => l.trim())
@@ -365,26 +364,10 @@ function extractInterviewerQuestions(conversationHistory: Message[]): string[] {
     for (const line of lines) {
       if (!line.includes("?")) continue;
       const cleaned = line.replace(/^[-*\d.)\s]+/, "").trim();
-      if (isFollowUpQuestionText(cleaned)) continue;
       if (cleaned.length > 0) questions.push(cleaned);
     }
   }
-  return questions.slice(0, 12);
-}
-
-function isFollowUpQuestionText(value: string): boolean {
-  const v = value.trim().toLowerCase();
-  return (
-    v.startsWith("why?") ||
-    v.startsWith("how?") ||
-    v.startsWith("can you") ||
-    v.startsWith("could you") ||
-    v.startsWith("what do you mean") ||
-    v.startsWith("tell me more") ||
-    v.startsWith("go deeper") ||
-    v.startsWith("elaborate") ||
-    v.startsWith("follow up")
-  );
+  return questions.slice(0, 20); // Increased limit to accommodate follow-ups
 }
 
 function normalizeTopicReference(value: string): string {

@@ -9,7 +9,6 @@ import {
   ChevronDown,
   FileText,
   Lightbulb,
-  MessageSquare,
   RotateCcw,
   Target,
   TrendingUp,
@@ -514,7 +513,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     generatedExampleAnswerByQuestionId,
     _setGeneratedExampleAnswerByQuestionId,
   ] = useState<Record<string, string>>({});
-  const [generatedFollowUpExampleAnswers, _setGeneratedFollowUpExampleAnswers] =
+  const [generatedExampleAnswers, setGeneratedExampleAnswers] = useState<
+    string[]
+  >([]);
+  const [generatedFollowUpExampleAnswers, setGeneratedFollowUpExampleAnswers] =
     useState<string[]>([]);
   const [storedConfig, setStoredConfig] = useState<
     Pick<InterviewConfig, "position" | "seniority"> | undefined
@@ -752,20 +754,46 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
   const qaRows = useMemo(() => {
     if (savedSession) {
-      return savedSession.questions.map((q, idx) => {
+      const rows: Array<{
+        type: "main" | "follow-up";
+        idx: number;
+        practiceQuestionId: string | null;
+        questionText: string;
+        yourAnswer: string;
+        aiExampleAnswer: string | null;
+      }> = [];
+
+      savedSession.questions.forEach((q, idx) => {
         const response = savedSession.responses.find(
           (r) => r.questionId === q.id,
         );
         const practiceQuestionId = q.id.startsWith("q_") ? null : q.id;
-        return {
+
+        // Add main question
+        rows.push({
+          type: "main",
           idx,
           practiceQuestionId,
           questionText: q.question,
           yourAnswer: response?.response ?? "",
-          followUps: q.followUps ?? [],
           aiExampleAnswer: q.aiExampleAnswer ?? null,
-        };
+        });
+
+        // Add follow-ups if they exist
+        if (q.followUps && q.followUps.length > 0) {
+          q.followUps.forEach((f) => {
+            rows.push({
+              type: "follow-up",
+              idx: idx, // Keep associated with main question index or use -1? Use main idx for context if needed
+              practiceQuestionId: null,
+              questionText: f.question,
+              yourAnswer: f.response,
+              aiExampleAnswer: f.aiExampleAnswer ?? null,
+            });
+          });
+        }
       });
+      return rows;
     }
 
     const messages = Array.isArray(storedSession?.messages)
@@ -773,15 +801,11 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       : [];
 
     const rows: Array<{
+      type: "main" | "follow-up";
       idx: number;
       practiceQuestionId: string | null;
       questionText: string;
       yourAnswer: string;
-      followUps: Array<{
-        question: string;
-        response: string;
-        aiExampleAnswer?: string;
-      }>;
       aiExampleAnswer: string | null;
     }> = [];
 
@@ -806,25 +830,28 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
       const isFollowUp = ai.isFollowUp === true;
       if (isFollowUp) {
-        const current = rows[rows.length - 1];
-        if (!current) {
-          cursor += 1;
-          continue;
-        }
+        // Find the last main question index to associate with
+        // For now, just using the current mainIdx - 1 as the parent,
+        // effectively treating it as a follow-up to the most recent question.
+        // If mainIdx is 0 (first question hasn't happened?), might be edge case
+        // but logic implies main question comes first.
 
         const responseText =
           user?.type === "user" ? (user.content ?? "").trim() : "";
         const followUpExample = (() => {
           const raw = generatedFollowUpExampleAnswers[followUpIdx];
-          if (typeof raw !== "string") return undefined;
+          if (typeof raw !== "string") return null;
           const trimmed = raw.trim();
-          return trimmed.length > 0 ? trimmed : undefined;
+          return trimmed.length > 0 ? trimmed : null;
         })();
 
-        current.followUps.push({
-          question: aiText,
-          response: responseText,
-          ...(followUpExample ? { aiExampleAnswer: followUpExample } : {}),
+        rows.push({
+          type: "follow-up",
+          idx: Math.max(0, mainIdx - 1),
+          practiceQuestionId: null,
+          questionText: aiText,
+          yourAnswer: responseText,
+          aiExampleAnswer: followUpExample,
         });
 
         followUpIdx += 1;
@@ -832,49 +859,38 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         continue;
       }
 
+      // Main question
       const practiceQuestionId = practiceQuestionIds[mainIdx] ?? null;
 
-      if (!user || user.type !== "user") {
-        rows.push({
-          idx: mainIdx,
-          practiceQuestionId,
-          questionText: aiText,
-          yourAnswer: "",
-          followUps: [],
-          aiExampleAnswer: null,
-        });
-        mainIdx += 1;
-        cursor += 1;
-        continue;
-      }
+      const answerContent =
+        user?.type === "user" ? (user.content ?? "").trim() : "";
 
       rows.push({
+        type: "main",
         idx: mainIdx,
         practiceQuestionId,
         questionText: aiText,
-        yourAnswer: (user.content ?? "").trim(),
-        followUps: [],
-        aiExampleAnswer: null,
+        yourAnswer: answerContent,
+        aiExampleAnswer: generatedExampleAnswers[mainIdx] || null,
       });
 
       mainIdx += 1;
-      cursor += 2;
+      // If user answered, skip 2 messages (AI Q + User A). If not, skip 1 (AI Q only... wait, logic above handled that?)
+      // Original logic:
+      // if (!user || user.type !== "user") { cursor += 1; continue; }
+      // else { cursor += 2; }
+
+      // Replicating original cursor logic:
+      if (!user || user.type !== "user") {
+        cursor += 1;
+      } else {
+        cursor += 2;
+      }
     }
 
-    const expectedCount =
-      practiceQuestionIds.length > 0 ? practiceQuestionIds.length : rows.length;
-    return Array.from({ length: expectedCount }, (_, idx) => {
-      const row = rows[idx];
-      return {
-        idx,
-        practiceQuestionId: practiceQuestionIds[idx] ?? null,
-        questionText: row?.questionText ?? "",
-        yourAnswer: row?.yourAnswer ?? "",
-        followUps: row?.followUps ?? [],
-        aiExampleAnswer: row?.aiExampleAnswer ?? null,
-      };
-    });
+    return rows;
   }, [
+    generatedExampleAnswers,
     generatedFollowUpExampleAnswers,
     practiceQuestionIds,
     savedSession,
@@ -1073,6 +1089,27 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         setResults(data.feedback);
         setInterviewConfig(config);
 
+        // Map knowledge gaps back to questions to get example answers
+        const mainExampleAnswers: string[] = [];
+        const followUpExampleAnswers: string[] = [];
+        let gapIdx = 0;
+
+        (session.messages || []).forEach((m) => {
+          if (m.type === "ai") {
+            const example =
+              data.feedback?.knowledgeGaps?.[gapIdx]?.exampleAnswer || "";
+            if (m.isFollowUp) {
+              followUpExampleAnswers.push(example);
+            } else {
+              mainExampleAnswers.push(example);
+            }
+            gapIdx++;
+          }
+        });
+
+        setGeneratedExampleAnswers(mainExampleAnswers);
+        setGeneratedFollowUpExampleAnswers(followUpExampleAnswers);
+
         const existingSessionId = localStorage.getItem("interviewSessionId");
 
         try {
@@ -1080,10 +1117,16 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             activeUserId,
             {
               ...(session as {
-                messages: Array<{ type: string; content: string }>;
+                messages: Array<{
+                  type: string;
+                  content: string;
+                  isFollowUp?: boolean;
+                }>;
                 questionIds?: string[];
                 isComplete: boolean;
               }),
+              exampleAnswers: mainExampleAnswers,
+              followUpExampleAnswers: followUpExampleAnswers,
               isComplete: true,
             },
             {
@@ -1728,7 +1771,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                     </CardHeader>
                     <CardContent className="pt-6">
                       <div className="space-y-6">
-                        {qaRows.map((row) => {
+                        {qaRows.map((row, uniqueRowIdx) => {
                           const q = row.practiceQuestionId
                             ? (practiceQuestionsById[row.practiceQuestionId] ??
                               null)
@@ -1739,40 +1782,44 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                             getAiExampleAnswerForRow(row);
                           const prompt = row.questionText.trim() || null;
                           const yourAnswer = row.yourAnswer.trim() || null;
-                          const followUps = Array.isArray(row.followUps)
-                            ? row.followUps
-                                .map((f) => ({
-                                  question: (f?.question ?? "").trim(),
-                                  response: (f?.response ?? "").trim(),
-                                  aiExampleAnswer:
-                                    typeof (f as { aiExampleAnswer?: unknown })
-                                      .aiExampleAnswer === "string"
-                                      ? (
-                                          (f as { aiExampleAnswer?: string })
-                                            .aiExampleAnswer ?? ""
-                                        ).trim()
-                                      : "",
-                                }))
-                                .filter((f) => f.question.length > 0)
-                            : [];
 
                           return (
                             <Collapsible
-                              key={row.practiceQuestionId ?? `q_${row.idx}`}
+                              key={
+                                row.practiceQuestionId ?? `row_${uniqueRowIdx}`
+                              }
                               defaultOpen={false}
-                              className="border-2 border-border/50 rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-card to-card/50 shadow-md hover:shadow-lg transition-shadow"
+                              className={`border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow ${
+                                row.type === "follow-up"
+                                  ? "border-l-4 border-l-blue-500/50 bg-gradient-to-br from-blue-50/50 to-blue-50/10 border-y-border/50 border-r-border/50 dark:from-blue-950/20 dark:to-blue-950/5"
+                                  : "border-border/50 bg-gradient-to-br from-card to-card/50"
+                              }`}
                             >
                               <CollapsibleTrigger className="w-full text-left group">
                                 <div className="flex items-center justify-between gap-3">
                                   <div className="flex flex-wrap items-center gap-2 min-w-0">
-                                    <Badge
-                                      variant="default"
-                                      className="font-semibold"
-                                    >
-                                      Question {row.idx + 1}
-                                    </Badge>
+                                    {row.type === "main" ? (
+                                      <Badge
+                                        variant="default"
+                                        className="font-semibold"
+                                      >
+                                        Question {row.idx + 1}
+                                      </Badge>
+                                    ) : (
+                                      <Badge
+                                        variant="secondary"
+                                        className="font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-900/70"
+                                      >
+                                        Follow-up
+                                      </Badge>
+                                    )}
                                     <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
-                                      {q?.title ?? ""}
+                                      {row.type === "main" && q?.title
+                                        ? q.title
+                                        : prompt
+                                          ? prompt.slice(0, 60) +
+                                            (prompt.length > 60 ? "..." : "")
+                                          : "Question Details"}
                                     </div>
                                   </div>
                                   <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
@@ -1815,67 +1862,6 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                 ) : (
                                   <div className="text-sm text-gray-600 dark:text-gray-400">
                                     No response recorded.
-                                  </div>
-                                )}
-
-                                {followUps.length > 0 && (
-                                  <div className="mt-5">
-                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                      <MessageSquare className="size-4 text-primary" />
-                                      Follow-ups:
-                                    </div>
-                                    <div className="space-y-4">
-                                      {followUps.map((f, idx) => (
-                                        <div
-                                          key={`${row.practiceQuestionId ?? `q_${row.idx}`}_followup_${idx}`}
-                                          className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50"
-                                        >
-                                          <div className="whitespace-pre-line text-sm">
-                                            <ReactMarkdown
-                                              remarkPlugins={[remarkGfm]}
-                                              components={
-                                                qaQuestionMarkdownComponents
-                                              }
-                                            >
-                                              {f.question}
-                                            </ReactMarkdown>
-                                          </div>
-                                          {f.response.length > 0 && (
-                                            <div className="mt-3 whitespace-pre-line text-sm">
-                                              <ReactMarkdown
-                                                remarkPlugins={[remarkGfm]}
-                                                components={
-                                                  qaMarkdownComponents
-                                                }
-                                              >
-                                                {f.response}
-                                              </ReactMarkdown>
-                                            </div>
-                                          )}
-
-                                          {f.aiExampleAnswer.length > 0 && (
-                                            <div className="mt-4">
-                                              <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                                <Lightbulb className="size-4 text-primary" />
-                                                Example Answer:
-                                              </div>
-                                              <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                                <div className="whitespace-pre-line text-sm">
-                                                  <ReactMarkdown
-                                                    remarkPlugins={[remarkGfm]}
-                                                    components={
-                                                      qaMarkdownComponents
-                                                    }
-                                                  >
-                                                    {f.aiExampleAnswer}
-                                                  </ReactMarkdown>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          )}
-                                        </div>
-                                      ))}
-                                    </div>
                                   </div>
                                 )}
 

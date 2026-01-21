@@ -108,6 +108,7 @@ export interface KnowledgeGap {
   tags: string[];
   summary?: string;
   why: string;
+  exampleAnswer?: string;
   resources: ResourceLink[];
 }
 

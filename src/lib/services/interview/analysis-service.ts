@@ -310,6 +310,9 @@ function parseKnowledgeGapChunk(chunk: string): KnowledgeGap | null {
   const tagsMatch = chunk.match(/Tags:\s*([^\n]+)/i);
   const summaryMatch = chunk.match(/Summary:\s*([^\n]+)/i);
   const whyMatch = chunk.match(/Why:\s*([^\n]+)/i);
+  const exampleAnswerMatch = chunk.match(
+    /Example\s+Answer:\s*([\s\S]+?)(?=\n[A-Z][a-z]+:|$)/i,
+  );
 
   const title = stripInlineMarkdown(titleMatch?.[1]?.trim() ?? "");
   if (!title) return null;
@@ -323,6 +326,7 @@ function parseKnowledgeGapChunk(chunk: string): KnowledgeGap | null {
   const fallbackTags = deriveTagsFromTitle(title);
   const summary = stripInlineMarkdown((summaryMatch?.[1] ?? "").trim());
   const why = stripInlineMarkdown((whyMatch?.[1] ?? "").trim());
+  const exampleAnswer = (exampleAnswerMatch?.[1] ?? "").trim();
 
   return {
     title,
@@ -330,6 +334,7 @@ function parseKnowledgeGapChunk(chunk: string): KnowledgeGap | null {
     tags: tags.length > 0 ? tags : fallbackTags,
     ...(summary.length > 0 ? { summary } : {}),
     why,
+    ...(exampleAnswer.length > 0 ? { exampleAnswer } : {}),
     resources: [],
   };
 }
