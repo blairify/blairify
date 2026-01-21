@@ -27,6 +27,11 @@ import { Typography } from "@/components/common/atoms/typography";
 import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
 import { MarkdownContent } from "@/components/common/molecules/markdown-content";
 import {
+  CATEGORY_MAX,
+  DetailedScoreCard,
+  getCategoryScores,
+} from "@/components/results/molecules/detailed-score-card";
+import {
   PostInterviewSurvey,
   type PostInterviewSurveyController,
 } from "@/components/results/organisms/post-interview-survey";
@@ -234,27 +239,6 @@ function getPriorityClass(priority: KnowledgeGapPriority): string {
     }
   }
 }
-
-const getPerformanceLabel = (score: number, passed?: boolean): string => {
-  if (passed === true) {
-    if (score >= 90) return "Outstanding Performance";
-    if (score >= 80) return "Strong Performance";
-    if (score >= 70) return "Solid Performance";
-    return "Acceptable Performance";
-  }
-  if (passed === false) {
-    if (score >= 60) return "Below Threshold";
-    if (score >= 40) return "Significant Gaps";
-    return "Insufficient Competency";
-  }
-  // Neutral labels when pass/fail not determined
-  if (score >= 90) return "Exceptional";
-  if (score >= 80) return "Strong";
-  if (score >= 70) return "Good";
-  if (score >= 60) return "Fair";
-  if (score >= 50) return "Developing";
-  return "Needs Improvement";
-};
 
 const qaMarkdownComponents: Components = {
   p({ children }) {
@@ -1484,125 +1468,70 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 {/* ============================================================================ */}
                 {/* OVERALL ASSESSMENT */}
                 {/* ============================================================================ */}
-                <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
-                  <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                    <CardTitle className="flex items-center gap-3 text-xl font-semibold text-gray-900 dark:text-gray-100">
-                      <BarChart3 className="size-6 text-blue-600 dark:text-blue-400" />
+                {/* OVERALL ASSESSMENT (Detailed View) */}
+                {/* ============================================================================ */}
+                <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+                  <div className="mb-4 flex items-center gap-2">
+                    <BarChart3 className="size-5 text-primary" />
+                    <h2 className="text-xl font-bold">
                       Overall Performance Assessment
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-6">
-                    {(() => {
-                      const score = Math.round(
-                        clampFinite(results.score, 0, 100),
-                      );
+                    </h2>
+                  </div>
+                  <DetailedScoreCard
+                    score={results.score}
+                    passed={results.passed}
+                    summary={(() => {
+                      const summary =
+                        results.overallScore?.trim() || outcomeMessage;
+                      if (!summary) return null;
+
                       return (
-                        <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 mb-6">
-                          <div className="relative w-28 h-28 flex-shrink-0 mx-auto sm:mx-0">
-                            <svg
-                              className="w-full h-full transform -rotate-90"
-                              viewBox="0 0 100 100"
-                              aria-labelledby="score-chart-title"
-                            >
-                              <title id="score-chart-title">
-                                Interview Score: {score} out of 100
-                              </title>
-                              <circle
-                                cx="50"
-                                cy="50"
-                                r="45"
-                                stroke="currentColor"
-                                strokeWidth="8"
-                                fill="none"
-                                className="text-gray-200 dark:text-gray-800"
-                              />
-                              <circle
-                                cx="50"
-                                cy="50"
-                                r="45"
-                                stroke="currentColor"
-                                strokeWidth="8"
-                                fill="none"
-                                strokeDasharray={`${2 * Math.PI * 45}`}
-                                strokeDashoffset={`${2 * Math.PI * 45 * (1 - score / 100)}`}
-                                className={
-                                  results.passed
-                                    ? "text-emerald-600 dark:text-emerald-400"
-                                    : "text-red-600 dark:text-red-400"
-                                }
-                                strokeLinecap="round"
-                              />
-                            </svg>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <Typography.BodyBold
-                                className={`text-3xl font-bold ${
-                                  results.passed
-                                    ? "text-emerald-900 dark:text-emerald-100"
-                                    : "text-red-900 dark:text-red-100"
-                                }`}
-                              >
-                                {score}
-                              </Typography.BodyBold>
-                            </div>
-                          </div>
-                          <div className="flex-1 w-full">
-                            <Typography.Heading3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
-                              {getPerformanceLabel(score, results.passed)}
-                            </Typography.Heading3>
-
-                            {(() => {
-                              const summary = results.overallScore?.trim();
-                              if (summary) {
-                                return (
-                                  <ReactMarkdown
-                                    remarkPlugins={[remarkGfm]}
-                                    components={
-                                      overallSummaryMarkdownComponents
-                                    }
-                                  >
-                                    {normalizeOverallSummaryMarkdown(summary)}
-                                  </ReactMarkdown>
-                                );
-                              }
-
-                              const fallback = results.detailedAnalysis
-                                ?.trim()
-                                .split(/\n{2,}/)
-                                .map((part) => part.trim())
-                                .filter(Boolean)[0];
-
-                              if (fallback) {
-                                return (
-                                  <ReactMarkdown
-                                    remarkPlugins={[remarkGfm]}
-                                    components={
-                                      overallSummaryMarkdownComponents
-                                    }
-                                  >
-                                    {normalizeOverallSummaryMarkdown(fallback)}
-                                  </ReactMarkdown>
-                                );
-                              }
-
-                              return (
-                                <Typography.Body className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                                  Detailed summary unavailable for this
-                                  interview.
-                                </Typography.Body>
-                              );
-                            })()}
-                          </div>
-                        </div>
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={overallSummaryMarkdownComponents}
+                        >
+                          {normalizeOverallSummaryMarkdown(summary)}
+                        </ReactMarkdown>
                       );
                     })()}
-                    {results.passingThreshold && (
-                      <div className="text-sm text-gray-600 dark:text-gray-400 pt-4 border-t border-gray-200 dark:border-gray-800">
-                        Passing threshold for this position:{" "}
-                        {results.passingThreshold} points
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
+                    categoryScores={
+                      results.categoryScores
+                        ? {
+                            technical: clampFinite(
+                              results.categoryScores.technical,
+                              0,
+                              CATEGORY_MAX.technical,
+                            ),
+                            problemSolving: clampFinite(
+                              results.categoryScores.problemSolving,
+                              0,
+                              CATEGORY_MAX.problemSolving,
+                            ),
+                            communication: clampFinite(
+                              results.categoryScores.communication,
+                              0,
+                              CATEGORY_MAX.communication,
+                            ),
+                            professional: clampFinite(
+                              results.categoryScores.professional,
+                              0,
+                              CATEGORY_MAX.professional,
+                            ),
+                          }
+                        : getCategoryScores(results.score)
+                    }
+                    technologyScores={
+                      results.technologyScores
+                        ? Object.entries(results.technologyScores)
+                            .map(([tech, score]) => ({
+                              tech,
+                              score: clampFinite(score, 0, 100),
+                            }))
+                            .sort((a, b) => b.score - a.score)
+                        : undefined
+                    }
+                  />
+                </div>
 
                 {/* ============================================================================ */}
                 {/* STRENGTHS & IMPROVEMENTS GRID */}
