@@ -90,7 +90,7 @@ function decodeXml(value: string): string {
 function extractLocs(xml: string): string[] {
   const out: string[] = [];
   const re = /<loc>\s*([^<]+)\s*<\/loc>/gi;
-  for (;;) {
+  for (; ;) {
     const match = re.exec(xml);
     if (!match) break;
     const value = decodeXml(match[1] ?? "").trim();
@@ -285,7 +285,7 @@ async function mapWithConcurrency<T, R>(
 
   const workers = Array.from({ length: Math.min(concurrency, items.length) }).map(
     async () => {
-      for (;;) {
+      for (; ;) {
         const next = idx;
         idx += 1;
         if (next >= items.length) return;
@@ -351,8 +351,19 @@ async function expandSitemapsLimited(params: {
     return [];
   }
 
-  const isIndex = /<sitemapindex[\s>]/i.test(xml);
-  const locs = extractLocs(xml);
+  const isTxt = sitemapUrl.toLowerCase().endsWith(".txt");
+  let locs: string[];
+
+  if (isTxt) {
+    locs = xml
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0 && isHttpUrl(line));
+  } else {
+    locs = extractLocs(xml);
+  }
+
+  const isIndex = !isTxt && /<sitemapindex[\s>]/i.test(xml);
 
   if (!isIndex) {
     const filtered = locs
@@ -452,9 +463,9 @@ async function main(): Promise<void> {
   const shouldWriteToDb = !opts.dryRun && !opts.outFile;
   const db = shouldWriteToDb
     ? await Promise.all([
-        import("../../src/practice-library-db/client"),
-        import("../../src/practice-library-db/schema"),
-      ])
+      import("../../src/practice-library-db/client"),
+      import("../../src/practice-library-db/schema"),
+    ])
     : null;
   const practiceDb = db?.[0].practiceDb;
   const resources = db?.[1].resources;
