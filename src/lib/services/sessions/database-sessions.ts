@@ -557,12 +557,12 @@ export async function saveInterviewResults(
 
     const termination = sessionData.termination
       ? {
-        reason: sessionData.termination.reason,
-        message: sessionData.termination.message,
-        ...(sessionData.termination.at
-          ? { at: Timestamp.fromDate(new Date(sessionData.termination.at)) }
-          : {}),
-      }
+          reason: sessionData.termination.reason,
+          message: sessionData.termination.message,
+          ...(sessionData.termination.at
+            ? { at: Timestamp.fromDate(new Date(sessionData.termination.at)) }
+            : {}),
+        }
       : undefined;
 
     if (responses.length === 0 || (termination && responses.length <= 1)) {
@@ -612,10 +612,10 @@ export async function saveInterviewResults(
       totalDuration:
         sessionData.endTime && sessionData.startTime
           ? Math.round(
-            (new Date(sessionData.endTime).getTime() -
-              new Date(sessionData.startTime).getTime()) /
-            60000,
-          )
+              (new Date(sessionData.endTime).getTime() -
+                new Date(sessionData.startTime).getTime()) /
+                60000,
+            )
           : config.duration,
       ...(termination ? { termination } : {}),
       questions,
@@ -655,21 +655,21 @@ export async function saveInterviewResults(
           : {}),
         ...(Array.isArray(analysis.knowledgeGaps)
           ? {
-            knowledgeGaps: analysis.knowledgeGaps.map((gap) => ({
-              title: gap.title,
-              priority: gap.priority,
-              tags: gap.tags,
-              why: gap.why,
-              resources: gap.resources?.map((r) => ({
-                id: r.id,
-                title: r.title,
-                url: r.url,
-                type: r.type,
-                tags: r.tags,
-                ...(r.difficulty ? { difficulty: r.difficulty } : {}),
+              knowledgeGaps: analysis.knowledgeGaps.map((gap) => ({
+                title: gap.title,
+                priority: gap.priority,
+                tags: gap.tags,
+                why: gap.why,
+                resources: gap.resources?.map((r) => ({
+                  id: r.id,
+                  title: r.title,
+                  url: r.url,
+                  type: r.type,
+                  tags: r.tags,
+                  ...(r.difficulty ? { difficulty: r.difficulty } : {}),
+                })),
               })),
-            })),
-          }
+            }
           : {}),
       },
       analysisStatus,
@@ -688,20 +688,20 @@ export async function saveInterviewResults(
     })();
     const fallbackScores = shouldWriteScores
       ? {
-        overall: fallbackOverall,
-        technical: clampScore(fallbackOverall * 0.92),
-        communication: clampScore(fallbackOverall * 0.86),
-        problemSolving: clampScore(fallbackOverall * 0.9),
-        professional: clampScore(fallbackOverall * 0.88),
-      }
+          overall: fallbackOverall,
+          technical: clampScore(fallbackOverall * 0.92),
+          communication: clampScore(fallbackOverall * 0.86),
+          problemSolving: clampScore(fallbackOverall * 0.9),
+          professional: clampScore(fallbackOverall * 0.88),
+        }
       : null;
 
     const nextScores = fallbackScores;
     const session: InterviewSession = nextScores
       ? {
-        ...sessionBase,
-        scores: nextScores,
-      }
+          ...sessionBase,
+          scores: nextScores,
+        }
       : sessionBase;
 
     await safeSetDoc(sessionDoc, session);

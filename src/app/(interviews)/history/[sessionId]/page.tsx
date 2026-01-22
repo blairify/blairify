@@ -23,7 +23,7 @@ import {
 
 import { useParams, useRouter } from "next/navigation";
 import type { ReactNode } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -365,38 +365,51 @@ export default function SessionDetailsPage() {
     return Array.from(unique)[0] ?? null;
   }, [session?.analysis?.detailedAnalysis, session?.responses]);
 
-  useEffect(() => {
-    const loadSession = async () => {
-      if (!user?.uid || !sessionId) {
-        setError("Missing user or session information");
+  const loadSession = useCallback(async () => {
+    if (!user?.uid || !sessionId) {
+      setError("Missing user or session information");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const sessionData = await DatabaseService.getSession(user.uid, sessionId);
+
+      if (!sessionData) {
+        setError("Session not found");
         setLoading(false);
         return;
       }
 
-      try {
-        setLoading(true);
-        const sessionData = await DatabaseService.getSession(
-          user.uid,
-          sessionId,
-        );
+      setSession(sessionData);
+      setError(null); // Clear any previous errors
+    } catch (err) {
+      console.error("Error loading session:", err);
+      setError("Failed to load session details");
+    } finally {
+      setLoading(false);
+    }
+  }, [user?.uid, sessionId]);
 
-        if (!sessionData) {
-          setError("Session not found");
-          setLoading(false);
-          return;
-        }
+  // Load session on mount
+  useEffect(() => {
+    loadSession();
+  }, [loadSession]);
 
-        setSession(sessionData);
-      } catch (err) {
-        console.error("Error loading session:", err);
-        setError("Failed to load session details");
-      } finally {
-        setLoading(false);
+  // Refresh session when tab becomes visible
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible" && user?.uid && sessionId) {
+        loadSession();
       }
     };
 
-    loadSession();
-  }, [user?.uid, sessionId]);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [loadSession, user?.uid, sessionId]);
 
   useEffect(() => {
     if (!session?.questions || session.questions.length === 0) {
