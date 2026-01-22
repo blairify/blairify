@@ -257,6 +257,7 @@ export interface SessionScores {
   technical: number;
   communication: number;
   problemSolving: number;
+  professional: number;
   codeQuality?: number;
   systemDesign?: number;
   bullet?: number;

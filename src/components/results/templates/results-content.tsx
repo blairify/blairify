@@ -195,6 +195,14 @@ function mapSessionToInterviewResults(
     score,
     scoreColor: getScoreColor(score),
     overallScore: analysis.summary ?? "",
+    categoryScores: session.scores
+      ? {
+          technical: session.scores.technical,
+          problemSolving: session.scores.problemSolving,
+          communication: session.scores.communication,
+          professional: session.scores.professional,
+        }
+      : undefined,
     strengths: analysis.strengths ?? [],
     improvements: analysis.improvements ?? [],
     detailedAnalysis: analysis.detailedAnalysis ?? "",
@@ -1096,8 +1104,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
         (session.messages || []).forEach((m) => {
           if (m.type === "ai") {
-            const example =
-              data.feedback?.knowledgeGaps?.[gapIdx]?.exampleAnswer || "";
+            const gap = data.feedback?.knowledgeGaps?.[gapIdx];
+            const example = gap?.exampleAnswer || "";
             if (m.isFollowUp) {
               followUpExampleAnswers.push(example);
             } else {
@@ -1888,7 +1896,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                   <div className="text-sm text-gray-600 dark:text-gray-400">
                                     {q
                                       ? "No example answer available for this question yet."
-                                      : "Question details unavailable (could not fetch from Neon)."}
+                                      : "No example answer available."}
                                   </div>
                                 )}
                               </CollapsibleContent>

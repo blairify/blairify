@@ -146,11 +146,6 @@ export function DetailedScoreCard({
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
                   {readiness.label}
                 </h2>
-                <span
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${readiness.badgeClass}`}
-                >
-                  {scoreValue}/100
-                </span>
                 {passed !== undefined && passed !== null && (
                   <Badge
                     variant={passed ? "default" : "destructive"}

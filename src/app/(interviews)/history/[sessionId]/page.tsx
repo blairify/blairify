@@ -3,8 +3,8 @@
 import {
   AlertTriangle,
   ArrowLeft,
+  BarChart3,
   BookOpen,
-  Brain,
   Calendar,
   CheckCircle,
   ChevronDown,
@@ -18,6 +18,7 @@ import {
   Target,
   Trophy,
   User,
+  XCircle,
 } from "lucide-react";
 
 import { useParams, useRouter } from "next/navigation";
@@ -45,7 +46,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { DatabaseService } from "@/lib/database";
 import { useAuth } from "@/providers/auth-provider";
@@ -109,44 +109,6 @@ function clampFinite(value: unknown, min: number, max: number): number {
   const n = typeof value === "number" ? value : Number(value);
   if (!Number.isFinite(n)) return min;
   return Math.max(min, Math.min(max, n));
-}
-
-function stripMarkdown(value: string | null | undefined): string {
-  const safe = typeof value === "string" ? value : "";
-  return safe
-    .replace(/\*\*(.*?)\*\*/g, "$1")
-    .replace(/__(.*?)__/g, "$1")
-    .replace(/`([^`]+)`/g, "$1") // code blocks
-    .replace(/[#>*_~-]/g, " ") // markdown chars
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function sanitizeOutcomeNarrative(raw: string | null | undefined): string {
-  const compact = stripMarkdown(raw)
-    .replace(/\bscore\b[^.?!]*[.?!]/gi, "")
-    .replace(/\bdecision\b[^.?!]*[.?!]/gi, "")
-    .replace(/\bpassing\s*threshold\b[^.?!]*[.?!]/gi, "")
-    .replace(/\b\d+\s*\/\s*\d+\b/g, "")
-    .replace(/\b\d+\s*(of|\/|out of)\s*\d+\b/gi, "")
-    .replace(/\b\d+\b/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  if (compact.length === 0) return "";
-
-  const sentences = compact
-    .split(/(?<=[.!?])\s+/)
-    .map((s) => s.trim())
-    .filter(Boolean);
-  const first = sentences[0] ?? compact;
-
-  const max = 180;
-  if (first.length <= max) return first;
-  const slice = first.slice(0, max);
-  const cut = slice.lastIndexOf(" ");
-  const safe = (cut > 80 ? slice.slice(0, cut) : slice).trimEnd();
-  return `${safe}.`;
 }
 
 function getCategoryScores(score: number): Record<CategoryKey, number> {
@@ -635,124 +597,224 @@ export default function SessionDetailsPage() {
                 </div>
 
                 <div className="w-full">
-                  {(() => {
-                    const savedOverallScore = session.scores?.overall;
-                    const derivedOverallScore = (() => {
-                      const scores = session.responses
-                        .map((r) => r.score)
-                        .filter(
-                          (n): n is number =>
-                            typeof n === "number" && Number.isFinite(n),
-                        );
-                      if (scores.length === 0) return null;
-                      const avg =
-                        scores.reduce((sum, n) => sum + n, 0) / scores.length;
-                      return Math.round(avg);
-                    })();
-
-                    const overallScore =
-                      typeof savedOverallScore === "number" &&
-                      savedOverallScore > 0
-                        ? savedOverallScore
-                        : derivedOverallScore;
-                    const hasOverallScore = typeof overallScore === "number";
-                    const summary = session.analysis.summary.trim();
-                    const detailed = (
-                      session.analysis.detailedAnalysis ?? ""
-                    ).trim();
-                    const _isAnalysisReady =
-                      session.analysisStatus === "ready" ||
-                      summary.length > 0 ||
-                      detailed.length > 0;
-
-                    return (
-                      <div className="mt-8 mb-12">
-                        {hasOverallScore ? (
-                          <DetailedScoreCard
-                            score={overallScore}
-                            passed={
-                              session.analysis?.passed ??
-                              (session.analysis?.decision === "PASS"
-                                ? true
-                                : session.analysis?.decision === "FAIL"
-                                  ? false
-                                  : null)
-                            }
-                            summary={sanitizeOutcomeNarrative(
-                              session.analysis?.whyDecision?.trim().length
-                                ? session.analysis.whyDecision
-                                : (session.analysis?.summary ?? ""),
-                            )}
-                            categoryScores={(() => {
-                              const rawCat = session.scores;
-                              return rawCat
-                                ? {
-                                    technical: clampFinite(
-                                      rawCat.technical,
-                                      0,
-                                      CATEGORY_MAX.technical,
-                                    ),
-                                    problemSolving: clampFinite(
-                                      rawCat.problemSolving,
-                                      0,
-                                      CATEGORY_MAX.problemSolving,
-                                    ),
-                                    communication: clampFinite(
-                                      rawCat.communication,
-                                      0,
-                                      CATEGORY_MAX.communication,
-                                    ),
-                                    professional: clampFinite(
-                                      (rawCat as any).professional ?? 0,
-                                      0,
-                                      CATEGORY_MAX.professional,
-                                    ),
-                                  }
-                                : getCategoryScores(overallScore);
-                            })()}
-                            technologyScores={(() => {
-                              const rawTech =
-                                session.analysis?.technologyScores;
-                              return rawTech && typeof rawTech === "object"
-                                ? Object.entries(rawTech)
-                                    .map(([tech, score]) => ({
-                                      tech,
-                                      score: clampFinite(score, 0, 100),
-                                    }))
-                                    .filter((x) => x.tech.trim().length > 0)
-                                    .sort((a, b) => b.score - a.score)
-                                : [];
-                            })()}
-                          />
-                        ) : session.analysisStatus === "pending" ||
-                          session.analysisStatus === "ready" ? (
-                          <Card className="border-dashed border-2 p-8">
-                            <div className="flex flex-col items-center justify-center text-center gap-4">
-                              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-                              <div className="space-y-1">
-                                <h3 className="font-semibold text-lg">
-                                  Analyzing Interview
-                                </h3>
-                                <p className="text-sm text-muted-foreground max-w-md">
-                                  Our AI is currently grading your responses and
-                                  generating feedback. This usually takes less
-                                  than a minute.
-                                </p>
+                  {/* ============================================================================ */}
+                  {/* OUTCOME DECISION BANNER (Matches Results Page) */}
+                  {/* ============================================================================ */}
+                  {session.analysis?.passed !== undefined && (
+                    <Card
+                      className={`mb-8 border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
+                        session.analysis.passed
+                          ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
+                          : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
+                      }`}
+                    >
+                      <CardContent className="py-8">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                          <div className="flex items-center gap-6">
+                            <div
+                              className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${
+                                session.analysis.passed
+                                  ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
+                                  : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                              }`}
+                            >
+                              {session.analysis.passed ? (
+                                <CheckCircle className="h-8 w-8" />
+                              ) : (
+                                <XCircle className="h-8 w-8" />
+                              )}
+                            </div>
+                            <div className="text-center sm:text-left">
+                              <div
+                                className={`text-3xl font-bold ${
+                                  session.analysis.passed
+                                    ? "text-emerald-900 dark:text-emerald-100"
+                                    : "text-red-900 dark:text-red-100"
+                                }`}
+                              >
+                                {session.analysis.passed
+                                  ? "Interview Passed"
+                                  : "Not Passed"}
                               </div>
                             </div>
-                          </Card>
-                        ) : (
-                          <Card className="bg-muted/30 border-none p-8 text-center">
-                            <Typography.Body className="text-muted-foreground">
-                              {session.analysisStatus === "failed"
-                                ? "Score analysis failed."
-                                : "Score unavailable for this session."}
-                            </Typography.Body>
-                          </Card>
-                        )}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {/* Interview Configuration */}
+                  <Card className="mb-8 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
+                    <CardHeader className="px-6 py-4 border-b border-border/30">
+                      <CardTitle className="flex items-center gap-2 text-xl font-bold">
+                        <User className="size-5 text-primary" />
+                        Interview Configuration
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                            Position
+                          </div>
+                          <div className="font-bold text-base capitalize text-foreground">
+                            {session.config.position}
+                          </div>
+                        </div>
+                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                            Seniority Level
+                          </div>
+                          <div className="font-bold text-base capitalize text-foreground">
+                            {session.config.seniority}
+                          </div>
+                        </div>
+                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                            Interview Type
+                          </div>
+                          <div className="font-bold text-base capitalize text-foreground">
+                            {session.config.interviewType}
+                          </div>
+                        </div>
+                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                            Mode
+                          </div>
+                          <Badge
+                            variant="default"
+                            className="capitalize font-semibold"
+                          >
+                            {session.config.interviewMode}
+                          </Badge>
+                        </div>
+                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                            Duration
+                          </div>
+                          <div className="font-bold text-base text-foreground">
+                            {session.config.duration} minutes
+                          </div>
+                        </div>
+                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
+                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                            Status
+                          </div>
+                          <Badge
+                            variant={
+                              session.status === "completed"
+                                ? "default"
+                                : "secondary"
+                            }
+                            className="capitalize font-semibold"
+                          >
+                            {session.status}
+                          </Badge>
+                        </div>
                       </div>
-                    );
-                  })()}
+                    </CardContent>
+                  </Card>
+
+                  {/* Detailed Performance Assessment */}
+                  <div className="mb-4 flex items-center gap-2">
+                    <BarChart3 className="size-5 text-primary" />
+                    <h2 className="text-xl font-bold text-foreground">
+                      Overall Performance Assessment
+                    </h2>
+                  </div>
+                  <div className="mb-8">
+                    {(() => {
+                      const overallScore =
+                        typeof session.scores?.overall === "number" &&
+                        session.scores.overall > 0
+                          ? session.scores.overall
+                          : 0;
+
+                      return session.analysisStatus === "ready" &&
+                        session.analysis ? (
+                        <DetailedScoreCard
+                          score={overallScore}
+                          passed={session.analysis.passed}
+                          summary={
+                            session.analysis.summary && (
+                              <div className="prose prose-sm dark:prose-invert max-w-none">
+                                <ReactMarkdown
+                                  remarkPlugins={[remarkGfm]}
+                                  components={readableMarkdownComponents}
+                                >
+                                  {session.analysis.summary}
+                                </ReactMarkdown>
+                              </div>
+                            )
+                          }
+                          categoryScores={(() => {
+                            const rawCat = session.scores;
+                            return rawCat
+                              ? {
+                                  technical: clampFinite(
+                                    rawCat.technical,
+                                    0,
+                                    CATEGORY_MAX.technical,
+                                  ),
+                                  problemSolving: clampFinite(
+                                    rawCat.problemSolving,
+                                    0,
+                                    CATEGORY_MAX.problemSolving,
+                                  ),
+                                  communication: clampFinite(
+                                    rawCat.communication,
+                                    0,
+                                    CATEGORY_MAX.communication,
+                                  ),
+                                  professional: clampFinite(
+                                    (rawCat as any).professional ?? 0,
+                                    0,
+                                    CATEGORY_MAX.professional,
+                                  ),
+                                }
+                              : getCategoryScores(overallScore);
+                          })()}
+                          technologyScores={(() => {
+                            const rawTech = session.analysis?.technologyScores;
+                            return rawTech && typeof rawTech === "object"
+                              ? Object.entries(rawTech)
+                                  .map(([tech, score]) => ({
+                                    tech,
+                                    score: clampFinite(score, 0, 100),
+                                  }))
+                                  .filter((x) => x.tech.trim().length > 0)
+                                  .sort((a, b) => b.score - a.score)
+                              : [];
+                          })()}
+                        />
+                      ) : session.analysisStatus === "pending" ||
+                        session.analysisStatus === "ready" ? (
+                        <Card className="border-dashed border-2 p-8">
+                          <div className="flex flex-col items-center justify-center text-center gap-4">
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+                            <div className="space-y-1">
+                              <h3 className="font-semibold text-lg">
+                                Analyzing Interview
+                              </h3>
+                              <p className="text-sm text-muted-foreground m-0 max-w-md">
+                                Our AI is currently grading your responses and
+                                generating feedback. This usually takes less
+                                than a minute.
+                              </p>
+                            </div>
+                          </div>
+                        </Card>
+                      ) : (
+                        <Card className="bg-muted/30 border-none p-8 text-center">
+                          <Typography.Body className="text-muted-foreground">
+                            {session.analysisStatus === "failed"
+                              ? "Score analysis failed."
+                              : "Score unavailable for this session."}
+                          </Typography.Body>
+                        </Card>
+                      );
+                    })()}
+                  </div>
                 </div>
               </div>
             </div>
@@ -792,168 +854,6 @@ export default function SessionDetailsPage() {
                 </Card>
               );
             })()}
-
-            {session.analysis?.passed !== undefined && (
-              <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-                <CardHeader className="px-3 pt-2 pb-0">
-                  <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                    <Trophy className="size-5 text-primary" />
-                    Result
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-3 pt-0 pb-3">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div>
-                      <div className="text-2xl font-bold">
-                        {session.analysis.passed ? "Passed" : "Not passed"}
-                      </div>
-                      {typeof session.scores?.overall === "number" && (
-                        <div className="text-sm font-semibold text-muted-foreground mt-1">
-                          {session.scores.overall} points
-                        </div>
-                      )}
-                    </div>
-
-                    {session.analysis.decision && (
-                      <Badge variant="secondary" className="font-semibold">
-                        {session.analysis.decision}
-                      </Badge>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Interview Configuration */}
-            <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-              <CardHeader className="px-3 pt-2 pb-0">
-                <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                  <User className="size-5 text-primary" />
-                  Interview Configuration
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="px-3 pt-0 pb-3">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Position
-                    </div>
-                    <div className="font-bold text-base capitalize text-foreground">
-                      {session.config.position}
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Seniority Level
-                    </div>
-                    <div className="font-bold text-base capitalize text-foreground">
-                      {session.config.seniority}
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Interview Type
-                    </div>
-                    <div className="font-bold text-base capitalize text-foreground">
-                      {session.config.interviewType}
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Mode
-                    </div>
-                    <Badge
-                      variant="default"
-                      className="capitalize font-semibold"
-                    >
-                      {session.config.interviewMode}
-                    </Badge>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Duration
-                    </div>
-                    <div className="font-bold text-base text-foreground">
-                      {session.config.duration} minutes
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Status
-                    </div>
-                    <Badge
-                      variant={
-                        session.status === "completed" ? "default" : "secondary"
-                      }
-                      className="capitalize font-semibold"
-                    >
-                      {session.status}
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {(session.analysis?.summary ||
-              (session.scores && session.scores.overall > 0)) && (
-              <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-                <CardHeader className="px-3 pt-2 pb-0">
-                  <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                    <Brain className="size-5 text-primary" />
-                    Overall Performance Assessment
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-3 pt-0 pb-3">
-                  {session.analysis?.summary && (
-                    <div className="mb-5">
-                      <ReactMarkdown
-                        remarkPlugins={[remarkGfm]}
-                        components={readableMarkdownComponents}
-                      >
-                        {session.analysis.summary}
-                      </ReactMarkdown>
-                    </div>
-                  )}
-
-                  {session.scores && session.scores.overall > 0 && (
-                    <div className="space-y-4">
-                      {Object.entries(session.scores).map(([key, value]) => {
-                        if (key === "overall" || !value) return null;
-
-                        const formatKey = (str: string) => {
-                          return str
-                            .split(/(?=[A-Z])/)
-                            .map(
-                              (word) =>
-                                word.charAt(0).toUpperCase() + word.slice(1),
-                            )
-                            .join(" ");
-                        };
-
-                        return (
-                          <div
-                            key={key}
-                            className="space-y-3 p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30"
-                          >
-                            <div className="flex justify-between items-center">
-                              <span className="text-sm font-bold text-foreground">
-                                {formatKey(key)}
-                              </span>
-                              <span
-                                className={`text-lg font-bold px-2.5 py-0.5 rounded-lg ${getScoreColor(value)}`}
-                              >
-                                {value}%
-                              </span>
-                            </div>
-                            <Progress value={value} className="h-2.5" />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            )}
 
             {session.analysis?.knowledgeGaps &&
               session.analysis.knowledgeGaps.length > 0 && (

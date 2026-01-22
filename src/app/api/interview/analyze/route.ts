@@ -356,18 +356,11 @@ function extractInterviewerQuestions(conversationHistory: Message[]): string[] {
   const questions: string[] = [];
   for (const msg of conversationHistory) {
     if (msg.type !== "ai") continue;
-    const lines = msg.content
-      .split("\n")
-      .map((l) => l.trim())
-      .filter(Boolean);
-
-    for (const line of lines) {
-      if (!line.includes("?")) continue;
-      const cleaned = line.replace(/^[-*\d.)\s]+/, "").trim();
-      if (cleaned.length > 0) questions.push(cleaned);
-    }
+    // Return the full message content or a truncated version as the "question"
+    // This ensures a 1:1 mapping with AI messages as expected by the frontend
+    questions.push(msg.content.trim());
   }
-  return questions.slice(0, 20); // Increased limit to accommodate follow-ups
+  return questions;
 }
 
 function normalizeTopicReference(value: string): string {
@@ -800,11 +793,14 @@ function ensureMinimumKnowledgeGaps(options: {
       tags,
       ...(summary.length > 0 ? { summary } : {}),
       why,
+      ...(fromModel?.exampleAnswer
+        ? { exampleAnswer: fromModel.exampleAnswer }
+        : {}),
       resources: fromModel?.resources ?? [],
     };
   });
 
-  if (perQuestion.length > 0) return perQuestion.slice(0, 12);
+  if (perQuestion.length > 0) return perQuestion;
 
   const fallback = buildFallbackKnowledgeGaps({
     conversationHistory: options.conversationHistory,
