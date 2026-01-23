@@ -1562,9 +1562,6 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                 ? "Interview Passed"
                                 : "Not Passed"}
                             </div>
-                            <div className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                              {results.score} points
-                            </div>
                             <Typography.Body
                               className={`text-lg leading-relaxed mb-2 ${
                                 results.passed
