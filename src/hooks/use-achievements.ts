@@ -18,11 +18,21 @@ import {
 } from "@/lib/ranks";
 
 const TIER_ORDER: AchievementTier[] = [
-  "bronze",
-  "silver",
-  "gold",
-  "platinum",
-  "diamond",
+  "bronze_i",
+  "bronze_ii",
+  "bronze_iii",
+  "silver_i",
+  "silver_ii",
+  "silver_iii",
+  "gold_i",
+  "gold_ii",
+  "gold_iii",
+  "platinum_i",
+  "platinum_ii",
+  "platinum_iii",
+  "diamond_i",
+  "diamond_ii",
+  "diamond_iii",
 ];
 
 const CATEGORY_ORDER: AchievementCategory[] = [

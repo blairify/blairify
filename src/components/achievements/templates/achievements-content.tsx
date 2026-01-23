@@ -7,6 +7,7 @@ import {
   ACHIEVEMENT_FALLBACK_ICON,
   ACHIEVEMENT_ICON_MAP,
 } from "@/components/achievements/constants/icon-map";
+import { AchievementDetailModal } from "@/components/achievements/molecules/achievement-detail-modal";
 import { NextAchievementCard } from "@/components/achievements/molecules/next-achievement-card";
 import { Typography } from "@/components/common/atoms/typography";
 import { RankBadge } from "@/components/ranks/organisms/rank-badge";
@@ -20,45 +21,97 @@ import {
 } from "@/hooks/use-achievements";
 import type { AchievementTier, UserStats } from "@/lib/achievements";
 import { DatabaseService } from "@/lib/database";
-import { formatXP } from "@/lib/ranks";
+import { formatRankLevel, formatXP } from "@/lib/ranks";
 import type { UserData } from "@/lib/services/auth/auth";
 import { cn } from "@/lib/utils";
 
 type IconKey = keyof typeof ACHIEVEMENT_ICON_MAP;
 
+const getBaseTier = (tier: AchievementTier): string => tier.split("_")[0];
+
+const formatTier = (tier: AchievementTier): string => {
+  const [base, level] = tier.split("_");
+  const levelMap: Record<string, string> = { i: "I", ii: "II", iii: "III" };
+  return `${base.charAt(0).toUpperCase()}${base.slice(1)} ${levelMap[level]}`;
+};
+
 const TIER_STYLES: Record<
-  AchievementTier,
-  { bg: string; border: string; text: string; badge: string }
+  string,
+  {
+    unlocked: { bg: string; border: string; text: string; glow: string };
+    locked: { bg: string; border: string; text: string };
+    badge: string;
+  }
 > = {
   bronze: {
-    bg: "bg-amber-950/20",
-    border: "border-amber-700/50",
-    text: "text-amber-600",
-    badge: "bg-amber-900/30 text-amber-500 border-amber-700/50",
+    unlocked: {
+      bg: "bg-orange-500/10",
+      border: "border-orange-600",
+      text: "text-orange-500",
+      glow: "shadow-lg shadow-orange-500/30",
+    },
+    locked: {
+      bg: "bg-gray-800/10",
+      border: "border-gray-700",
+      text: "text-gray-500",
+    },
+    badge: "bg-orange-500/15 text-foreground border-orange-600/50",
   },
   silver: {
-    bg: "bg-slate-900/20",
-    border: "border-slate-500/50",
-    text: "text-slate-400",
-    badge: "bg-slate-800/30 text-slate-300 border-slate-600/50",
+    unlocked: {
+      bg: "bg-slate-500/10",
+      border: "border-slate-400",
+      text: "text-slate-300",
+      glow: "shadow-lg shadow-slate-400/30",
+    },
+    locked: {
+      bg: "bg-gray-800/10",
+      border: "border-gray-700",
+      text: "text-gray-500",
+    },
+    badge: "bg-slate-500/15 text-foreground border-slate-500/50",
   },
   gold: {
-    bg: "bg-yellow-950/20",
-    border: "border-yellow-600/50",
-    text: "text-yellow-500",
-    badge: "bg-yellow-900/30 text-yellow-400 border-yellow-700/50",
+    unlocked: {
+      bg: "bg-yellow-500/10",
+      border: "border-yellow-500",
+      text: "text-yellow-400",
+      glow: "shadow-lg shadow-yellow-500/30",
+    },
+    locked: {
+      bg: "bg-gray-800/10",
+      border: "border-gray-700",
+      text: "text-gray-500",
+    },
+    badge: "bg-yellow-500/15 text-foreground border-yellow-600/50",
   },
   platinum: {
-    bg: "bg-cyan-950/20",
-    border: "border-cyan-500/50",
-    text: "text-cyan-400",
-    badge: "bg-cyan-900/30 text-cyan-300 border-cyan-600/50",
+    unlocked: {
+      bg: "bg-cyan-500/10",
+      border: "border-cyan-400",
+      text: "text-cyan-300",
+      glow: "shadow-lg shadow-cyan-400/30",
+    },
+    locked: {
+      bg: "bg-gray-800/10",
+      border: "border-gray-700",
+      text: "text-gray-500",
+    },
+    badge: "bg-cyan-500/15 text-foreground border-cyan-500/50",
   },
   diamond: {
-    bg: "bg-purple-950/20",
-    border: "border-purple-500/50",
-    text: "text-purple-400",
-    badge: "bg-purple-900/30 text-purple-300 border-purple-600/50",
+    unlocked: {
+      bg: "bg-purple-500/10",
+      border: "border-purple-400",
+      text: "text-purple-300",
+      glow: "shadow-lg shadow-purple-400/30",
+    },
+    locked: {
+      bg: "bg-gray-800/10",
+      border: "border-gray-700",
+      text: "text-gray-500",
+    },
+    badge: "bg-purple-500/15 text-foreground border-purple-500/50",
   },
 };
 
@@ -168,9 +221,8 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
         </div>
         <Card
           className={cn(
-            "border-2 overflow-hidden relative",
+            "border-2 overflow-hidden relative bg-card",
             rank.badge.border,
-            rank.badge.bg,
           )}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
@@ -184,12 +236,19 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
                 >
                   Current Rank
                 </Typography.CaptionMedium>
-                <RankBadge rank={rank} size="xl" showGlow showLabel animated />
+                <RankBadge
+                  rank={rank}
+                  size="xl"
+                  showGlow
+                  showLabel
+                  showLevel={false}
+                  animated
+                />
                 <div className="space-y-1">
                   <Typography.Heading2
                     className={cn("text-2xl", rank.badge.text)}
                   >
-                    {rank.name} {rank.level}
+                    {rank.name} {formatRankLevel(rank.level)}
                   </Typography.Heading2>
                   <Typography.SubCaptionMedium color="secondary">
                     {formatXP(totalXP)} Total XP
@@ -228,10 +287,8 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
                           key={index}
                           variant="outline"
                           className={cn(
-                            rank.badge.bg,
-                            rank.badge.text,
                             rank.badge.border,
-                            "border",
+                            "border bg-background/70 text-foreground",
                           )}
                         >
                           {perk}
@@ -252,7 +309,7 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
                         <Typography.BodyMedium
                           className={cn(nextRank.badge.text, "font-semibold")}
                         >
-                          {nextRank.name} {nextRank.level}
+                          {nextRank.name} {formatRankLevel(nextRank.level)}
                         </Typography.BodyMedium>
                       </div>
                       <RankBadge
@@ -284,7 +341,9 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
               ACHIEVEMENT_ICON_MAP[nextAchievement.icon as IconKey] ??
               ACHIEVEMENT_FALLBACK_ICON
             }
-            badgeClassName={TIER_STYLES[nextAchievement.tier].badge}
+            badgeClassName={
+              TIER_STYLES[getBaseTier(nextAchievement.tier)].badge
+            }
           />
         )}
 
@@ -296,7 +355,7 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
               {achievementStats.totalAchievements} unlocked
             </Typography.SubCaptionMedium>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {achievementsWithProgress.map((item) => (
               <AchievementCard key={item.achievement.id} item={item} />
             ))}
@@ -314,90 +373,183 @@ interface AchievementCardProps {
 
 function AchievementCard({ item }: AchievementCardProps) {
   const { achievement, isUnlocked, progress } = item;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const Icon =
     ACHIEVEMENT_ICON_MAP[achievement.icon as IconKey] ??
     ACHIEVEMENT_FALLBACK_ICON;
-  const tierStyle = TIER_STYLES[achievement.tier];
+  const tierStyle = TIER_STYLES[getBaseTier(achievement.tier)];
+  const currentStyle = isUnlocked ? tierStyle.unlocked : tierStyle.locked;
+
+  // Comprehensive ARIA label for screen readers
+  const ariaLabel = isUnlocked
+    ? `${achievement.name} - Unlocked - ${achievement.description} - Worth ${achievement.xpReward} XP`
+    : `${achievement.name} - Locked - ${Math.round(progress)}% progress - ${achievement.description} - Requires ${achievement.requirement} ${achievement.requirementUnit}${achievement.requirement && achievement.requirement > 1 ? "s" : ""} - Worth ${achievement.xpReward} XP`;
+
+  const handleClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setIsModalOpen(true);
+    }
+  };
 
   return (
-    <Card
-      className={cn(
-        "transition-all duration-300 border-2 group hover:shadow-lg",
-        isUnlocked
-          ? `${tierStyle.border} ${tierStyle.bg} hover:scale-[1.02]`
-          : "border-border/50 bg-card/40 opacity-70 hover:opacity-85",
-      )}
-    >
-      <CardContent className="p-5 flex flex-col h-full">
-        <div className="flex items-start gap-3 mb-3">
-          <div
+    <>
+      <Card
+        className={cn(
+          "transition-all duration-300 border-2 group cursor-pointer",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+          isUnlocked
+            ? `${currentStyle.border} ${currentStyle.bg} ${tierStyle.unlocked.glow} hover:scale-[1.03]`
+            : "border-border/60 bg-card/70 hover:bg-card/80",
+        )}
+        onClick={handleClick}
+        onKeyDown={handleKeyPress}
+        tabIndex={0}
+        role="button"
+        aria-label={ariaLabel}
+      >
+        <CardContent className="p-5 flex flex-col h-full relative">
+          {/* Lock/Unlock Icon Overlay */}
+          <div className="absolute top-3 right-3">
+            {isUnlocked ? (
+              <div
+                className="p-1 rounded-full bg-green-500/20"
+                aria-hidden="true"
+              >
+                <svg
+                  className="size-4 text-green-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <title>Unlocked</title>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+            ) : (
+              <div className="p-1 rounded-full bg-muted/50" aria-hidden="true">
+                <svg
+                  className="size-4 text-muted-foreground"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <title>Locked</title>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  />
+                </svg>
+              </div>
+            )}
+          </div>
+
+          <div className="flex items-start gap-3 mb-3">
+            <div
+              className={cn(
+                "p-2.5 rounded-lg transition-transform group-hover:scale-110",
+                currentStyle.bg,
+              )}
+            >
+              <Icon
+                className={cn(
+                  "size-5 transition-transform group-hover:scale-110",
+                  currentStyle.text,
+                )}
+                aria-hidden="true"
+              />
+            </div>
+            <div className="flex-1 min-w-0">
+              <Typography.BodyMedium
+                className={cn(
+                  "truncate",
+                  isUnlocked ? "text-foreground" : "text-foreground",
+                )}
+              >
+                {achievement.name}
+              </Typography.BodyMedium>
+              <Badge
+                variant="outline"
+                className={cn(
+                  "text-xs mt-1",
+                  isUnlocked
+                    ? tierStyle.badge
+                    : "bg-background/60 text-foreground border-border/70",
+                )}
+              >
+                {formatTier(achievement.tier)}
+              </Badge>
+            </div>
+          </div>
+
+          <Typography.Body
+            color="secondary"
             className={cn(
-              "p-2.5 rounded-lg transition-transform group-hover:scale-110",
-              isUnlocked ? tierStyle.bg : "bg-muted/30",
+              "text-sm mb-4 line-clamp-2",
+              isUnlocked ? "text-foreground/80" : "text-foreground/80",
             )}
           >
-            <Icon
-              className={cn(
-                "size-5 transition-transform group-hover:scale-110",
-                isUnlocked ? tierStyle.text : "text-muted-foreground/60",
-              )}
-            />
-          </div>
-          <div className="flex-1 min-w-0">
-            <Typography.BodyMedium
-              className={cn(
-                "truncate",
-                isUnlocked ? "text-foreground" : "text-muted-foreground",
-              )}
-            >
-              {achievement.name}
-            </Typography.BodyMedium>
-            <Badge
-              variant="outline"
-              className={cn("text-xs mt-1", tierStyle.badge)}
-            >
-              {achievement.tier}
-            </Badge>
-          </div>
-        </div>
+            {achievement.description}
+          </Typography.Body>
 
-        <Typography.Body
-          color="secondary"
-          className="text-sm mb-4 line-clamp-2"
-        >
-          {achievement.description}
-        </Typography.Body>
-
-        {/* Progress Bar for Locked Achievements */}
-        {!isUnlocked && progress > 0 && (
-          <div className="mb-3 space-y-1">
-            <div className="flex justify-between text-xs text-muted-foreground">
-              <Typography.SubCaption>Progress</Typography.SubCaption>
-              <Typography.SubCaption>
-                {Math.round(progress)}%
-              </Typography.SubCaption>
+          {/* Progress Bar for Locked Achievements */}
+          {!isUnlocked && progress > 0 && (
+            <div className="mb-3 space-y-1">
+              <div className="flex justify-between text-xs text-muted-foreground">
+                <Typography.SubCaption>Progress</Typography.SubCaption>
+                <Typography.SubCaption>
+                  {Math.round(progress)}%
+                </Typography.SubCaption>
+              </div>
+              <Progress value={progress} className="h-1.5" />
             </div>
-            <Progress value={progress} className="h-1.5" />
-          </div>
-        )}
-        <div className="mt-auto flex items-center justify-between">
-          {isUnlocked ? (
-            <Badge
-              variant="default"
-              className="bg-primary/20 text-primary border-primary/30"
-            >
-              ✓ Unlocked
-            </Badge>
-          ) : (
-            <Badge variant="secondary" className="bg-muted/50">
-              Locked
-            </Badge>
           )}
-          <Typography.SubCaptionMedium color="secondary">
-            +{achievement.xpReward} XP
-          </Typography.SubCaptionMedium>
-        </div>
-      </CardContent>
-    </Card>
+          <div className="mt-auto flex items-center justify-between">
+            {isUnlocked ? (
+              <Badge
+                variant="default"
+                className="bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30"
+              >
+                ✓ Unlocked
+              </Badge>
+            ) : (
+              <Badge
+                variant="secondary"
+                className="bg-muted/50 text-muted-foreground border-muted"
+              >
+                🔒 Locked
+              </Badge>
+            )}
+            <Typography.SubCaptionMedium color="secondary">
+              +{achievement.xpReward} XP
+            </Typography.SubCaptionMedium>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Achievement Detail Modal */}
+      <AchievementDetailModal
+        achievement={achievement}
+        isUnlocked={isUnlocked}
+        progress={progress}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        Icon={Icon}
+      />
+    </>
   );
 }

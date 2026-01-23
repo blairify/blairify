@@ -186,7 +186,7 @@ export function JobCard({
                   <div className="flex items-center gap-1">
                     <MapPin
                       className={`flex-shrink-0 text-muted-foreground ${
-                        layout === "compact" ? "h-3 w-3" : "h-4 w-4"
+                        layout === "compact" ? "size-3" : "size-4"
                       }`}
                     />
                     <span

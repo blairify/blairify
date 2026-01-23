@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
-import { RankBadge } from "@/components/ranks/organisms/rank-badge";
+import { RankBadgeInline } from "@/components/ranks/organisms/rank-badge";
 import { XPProgressBarCompact } from "@/components/ranks/organisms/xp-progress-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -170,26 +170,19 @@ export default function DashboardNavbar({
 
               {/* User info - name, rank, and XP */}
               {!isMobile && (
-                <div className="flex items-center gap-2">
-                  <RankBadge
-                    rank={rank}
-                    size="lg"
-                    showGlow={false}
-                    showContainer={false}
-                  />
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-foreground">
-                        {userData?.displayName || user?.displayName || "User"}
-                      </span>
-                    </div>
-                    <XPProgressBarCompact
-                      currentXP={totalXP}
-                      rank={rank}
-                      progress={progressToNextRank}
-                      className="max-w-[200px]"
-                    />
+                <div className="flex flex-col gap-1 min-w-0">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="text-sm font-medium text-foreground truncate">
+                      {userData?.displayName || user?.displayName || "User"}
+                    </span>
+                    <RankBadgeInline rank={rank} className="shrink-0" />
                   </div>
+                  <XPProgressBarCompact
+                    currentXP={totalXP}
+                    rank={rank}
+                    progress={progressToNextRank}
+                    className="max-w-[240px]"
+                  />
                 </div>
               )}
             </div>

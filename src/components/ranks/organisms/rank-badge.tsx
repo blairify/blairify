@@ -4,6 +4,7 @@ import { Crown, Flame, Gem, Star, Trophy } from "lucide-react";
 import { GiFlowerTwirl, GiTurtleShell } from "react-icons/gi";
 
 import type { Rank } from "@/lib/ranks";
+import { formatRankLevel } from "@/lib/ranks";
 import { cn } from "@/lib/utils";
 
 interface RankBadgeProps {
@@ -11,6 +12,7 @@ interface RankBadgeProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   showGlow?: boolean;
   showLabel?: boolean;
+  showLevel?: boolean;
   animated?: boolean;
   className?: string;
   showContainer?: boolean;
@@ -64,6 +66,7 @@ export function RankBadge({
   size = "md",
   showGlow = false,
   showLabel = false,
+  showLevel = true,
   animated = true,
   className,
   showContainer = true,
@@ -112,7 +115,7 @@ export function RankBadge({
           />
 
           {/* Level indicator (small badge) */}
-          {size !== "xs" && size !== "sm" && (
+          {showLevel && size !== "xs" && size !== "sm" && (
             <div
               className={cn(
                 "absolute -bottom-1 -right-1",
@@ -134,7 +137,7 @@ export function RankBadge({
                   size === "xl" && "text-sm",
                 )}
               >
-                {rank.level}
+                {formatRankLevel(rank.level)}
               </span>
             </div>
           )}
@@ -177,16 +180,16 @@ export function RankBadgeInline({
   return (
     <div
       className={cn(
-        "flex items-center gap-1.5 px-2 py-1 rounded-full",
-        rank.badge.bg,
+        "flex items-center gap-1.5 rounded-full",
+        "px-2 py-0.5",
+        "bg-background/70 border",
         rank.badge.border,
-        "border",
         className,
       )}
     >
-      <Icon className={cn("w-3.5 h-3.5", rank.badge.text)} />
-      <span className={cn("text-xs font-semibold", rank.badge.text)}>
-        {rank.name}
+      <Icon className={cn("size-4", rank.badge.text)} />
+      <span className="text-xs font-semibold text-foreground">
+        {rank.name} {formatRankLevel(rank.level)}
       </span>
       {showXP && xp !== undefined && (
         <>

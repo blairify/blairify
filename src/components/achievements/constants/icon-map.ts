@@ -15,17 +15,22 @@ import {
   GiLotus,
   GiMeepleKing,
   GiMetronome,
+  GiPodiumWinner,
   GiProgression,
+  GiRank3,
+  GiRibbonMedal,
   GiSandsOfTime,
   GiSparkles,
   GiSparkSpirit,
   GiStarMedal,
+  GiSwordsEmblem,
   GiTargetShot,
   GiTimeTrap,
   GiTrophyCup,
 } from "react-icons/gi";
 
 export const ACHIEVEMENT_ICON_MAP: Record<string, IconType> = {
+  // Original icon names (for backward compatibility)
   Gi3dMeeple,
   GiProgression,
   GiHourglass,
@@ -42,6 +47,11 @@ export const ACHIEVEMENT_ICON_MAP: Record<string, IconType> = {
   GiSparkles,
   GiLotus,
   GiFlowerTwirl,
+  GiPodiumWinner,
+  GiRibbonMedal,
+  GiSwordsEmblem,
+  GiRank3,
+  // Friendly name aliases
   Trophy: GiTrophyCup,
   Target: GiTargetShot,
   Star: GiStarMedal,
@@ -50,6 +60,10 @@ export const ACHIEVEMENT_ICON_MAP: Record<string, IconType> = {
   Zap: GiLightningTrio,
   Flame: GiFire,
   Sparkles: GiSparkles,
+  Medal: GiRibbonMedal,
+  Podium: GiPodiumWinner,
+  Sword: GiSwordsEmblem,
+  Rank: GiRank3,
 };
 
 export const ACHIEVEMENT_FALLBACK_ICON = GiAchievement;
