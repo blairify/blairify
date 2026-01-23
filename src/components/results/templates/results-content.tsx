@@ -21,6 +21,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { toast } from "sonner";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
@@ -50,8 +51,10 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
+import { ACHIEVEMENTS } from "@/lib/achievements";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
+import { addUserXP } from "@/lib/services/users/user-xp";
 import {
   normalizePositionValue,
   normalizeSeniorityValue,
@@ -70,6 +73,11 @@ import type {
   TerminationReason,
 } from "@/types/interview";
 import type { Question } from "@/types/practice-question";
+
+type RewardsPayload = {
+  xpGained: number;
+  newAchievementIds: string[];
+};
 
 function clampFinite(value: unknown, min: number, max: number): number {
   const n = typeof value === "number" ? value : Number(value);
@@ -532,10 +540,38 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [interviewConfig, setInterviewConfig] =
     useState<InterviewConfig | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [rewardsPayload, setRewardsPayload] = useState<RewardsPayload | null>(
+    null,
+  );
   const backgroundClass = "bg-gradient-to-b from-background to-muted/20";
   const surveyControllerRef = useRef<PostInterviewSurveyController | null>(
     null,
   );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = window.sessionStorage.getItem("postInterviewRewards");
+    if (!raw) return;
+    try {
+      const parsed = JSON.parse(raw) as unknown;
+      if (!parsed || typeof parsed !== "object") return;
+      const maybe = parsed as Partial<RewardsPayload>;
+      const xpGained =
+        typeof maybe.xpGained === "number" && Number.isFinite(maybe.xpGained)
+          ? maybe.xpGained
+          : null;
+      const newAchievementIds = Array.isArray(maybe.newAchievementIds)
+        ? maybe.newAchievementIds.filter(
+            (id): id is string => typeof id === "string" && id.length > 0,
+          )
+        : [];
+
+      if (xpGained === null) return;
+      setRewardsPayload({ xpGained, newAchievementIds });
+    } catch {
+      return;
+    }
+  }, []);
 
   const getDeckCompletedKey = useCallback(
     (sessionId: string) => `resultsDeckCompleted:${sessionId}`,
@@ -545,7 +581,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const getDeckCompleted = useCallback(
     (sessionId: string): boolean => {
       try {
-        return localStorage.getItem(getDeckCompletedKey(sessionId)) === "true";
+        return (
+          window.sessionStorage.getItem(getDeckCompletedKey(sessionId)) ===
+          "true"
+        );
       } catch {
         return false;
       }
@@ -556,7 +595,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const markDeckCompleted = useCallback(
     (sessionId: string) => {
       try {
-        localStorage.setItem(getDeckCompletedKey(sessionId), "true");
+        window.sessionStorage.setItem(getDeckCompletedKey(sessionId), "true");
       } catch {
         // ignore
       }
@@ -946,7 +985,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       setProgress((prevProgress) => {
         // Simulate realistic progress - slower at start, faster in middle, slower at end
         const increment = prevProgress < 20 ? 2 : prevProgress < 80 ? 3 : 1;
-        const newProgress = Math.min(prevProgress + increment, 95);
+        const newProgress = Math.min(prevProgress + increment, 99);
         return newProgress;
       });
     }, 800);
@@ -1014,6 +1053,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       try {
         const interviewData = localStorage.getItem("interviewSession");
         const interviewConfig = localStorage.getItem("interviewConfig");
+        const interviewSessionId = localStorage.getItem("interviewSessionId");
 
         const clearInterviewStorage = () => {
           localStorage.removeItem("interviewSession");
@@ -1022,6 +1062,20 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         };
 
         if (!interviewData || !interviewConfig) {
+          if (retryCount < 6) {
+            await new Promise((r) => setTimeout(r, 250));
+            return loadAnalysis(retryCount + 1);
+          }
+
+          if (
+            typeof interviewSessionId === "string" &&
+            interviewSessionId.trim().length > 0
+          ) {
+            router.replace(`/results?sessionId=${interviewSessionId}`);
+            setIsAnalyzing(false);
+            return;
+          }
+
           if (!isMounted) return;
           setError(
             "No interview data found. Please complete an interview first.",
@@ -1094,6 +1148,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           throw new Error(data.error || "Analysis failed");
         }
 
+        setProgress(100);
         setResults(data.feedback);
         setInterviewConfig(config);
 
@@ -1151,6 +1206,71 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             existingSessionId,
           );
 
+          try {
+            const shouldAwardXP = (() => {
+              if (
+                typeof nextSavedSessionId !== "string" ||
+                nextSavedSessionId.trim().length === 0
+              ) {
+                return true;
+              }
+              const awardKey = `xpAwarded:${nextSavedSessionId}`;
+              return window.sessionStorage.getItem(awardKey) !== "1";
+            })();
+
+            if (!shouldAwardXP) {
+              await refreshUserData();
+              return;
+            }
+
+            const durationMinutes = (() => {
+              const rawDuration = (session as { totalDuration?: unknown })
+                .totalDuration;
+              return typeof rawDuration === "number" &&
+                Number.isFinite(rawDuration)
+                ? rawDuration
+                : Number(config.duration);
+            })();
+
+            const xp = await addUserXP(
+              activeUserId,
+              data.feedback.score,
+              durationMinutes,
+            );
+
+            toast.success(
+              xp.newAchievements.length > 0
+                ? `+${xp.xpGained} XP · ${xp.newAchievements.length} achievement${xp.newAchievements.length === 1 ? "" : "s"}`
+                : `+${xp.xpGained} XP`,
+            );
+
+            if (
+              typeof nextSavedSessionId === "string" &&
+              nextSavedSessionId.trim().length > 0
+            ) {
+              window.sessionStorage.setItem(
+                `xpAwarded:${nextSavedSessionId}`,
+                "1",
+              );
+            }
+
+            window.sessionStorage.setItem(
+              "postInterviewRewards",
+              JSON.stringify({
+                xpGained: xp.xpGained,
+                newAchievementIds: xp.newAchievements,
+              } satisfies RewardsPayload),
+            );
+            setRewardsPayload({
+              xpGained: xp.xpGained,
+              newAchievementIds: xp.newAchievements,
+            });
+            await refreshUserData();
+          } catch (xpError) {
+            console.error("Error awarding XP:", xpError);
+            toast.error("Failed to award XP. Please retry.");
+          }
+
           if (!isMounted) return;
           if (typeof nextSavedSessionId === "string" && nextSavedSessionId) {
             setSavedSessionId(nextSavedSessionId);
@@ -1176,7 +1296,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     return () => {
       isMounted = false;
     };
-  }, [activeUserId, router, sessionIdFromQuery]);
+  }, [activeUserId, refreshUserData, router, sessionIdFromQuery]);
 
   // ...
 
@@ -1332,6 +1452,14 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
   const showDeck = resultsView === "deck" && Boolean(savedSessionId);
 
+  const rewards = (() => {
+    if (!rewardsPayload) return null;
+    const achievements = ACHIEVEMENTS.filter((a) =>
+      rewardsPayload.newAchievementIds.includes(a.id),
+    );
+    return { xpGained: rewardsPayload.xpGained, achievements };
+  })();
+
   return (
     <div className="flex flex-1 min-h-0 flex-col">
       <AnimatePresence mode="wait" initial={false}>
@@ -1348,6 +1476,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               <ResultsDeck
                 results={results}
                 sessionId={savedSessionId}
+                rewards={rewards}
+                onRewardsConsumed={() => {
+                  window.sessionStorage.removeItem("postInterviewRewards");
+                }}
                 onOpenFullReport={() =>
                   router.push(`/history/${savedSessionId}`)
                 }

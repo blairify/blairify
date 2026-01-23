@@ -9,18 +9,29 @@ import {
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  ACHIEVEMENT_FALLBACK_ICON,
+  ACHIEVEMENT_ICON_MAP,
+} from "@/components/achievements/constants/icon-map";
 import { Typography } from "@/components/common/atoms/typography";
 import { MarkdownContent } from "@/components/common/molecules/markdown-content";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import type { Achievement } from "@/lib/achievements";
 import type { InterviewResults } from "@/types/interview";
 
 const AUTO_ADVANCE_MS = 10_000;
 const INTERACTION_PAUSE_MS = 12_000;
 
-type DeckStepId = "outcome" | "takeaway" | "growth" | "next";
+type DeckStepId = "rewards" | "outcome" | "takeaway" | "growth" | "next";
 
 type DeckStep =
+  | {
+      id: "rewards";
+      title: string;
+      xpGained: number;
+      achievements: Achievement[];
+    }
   | {
       id: "outcome";
       title: string;
@@ -360,6 +371,8 @@ function buildPlanItems(results: InterviewResults, max: number): string[] {
 interface ResultsDeckProps {
   results: InterviewResults;
   sessionId: string;
+  rewards: { xpGained: number; achievements: Achievement[] } | null;
+  onRewardsConsumed: () => void;
   onOpenFullReport: () => void;
   onDone: () => void;
 }
@@ -604,6 +617,8 @@ function getTechnologyScoresForResults(
 
 function getStepIcon(stepId: DeckStepId) {
   switch (stepId) {
+    case "rewards":
+      return <Sparkles className="size-4" />;
     case "outcome":
       return <Sparkles className="size-4" />;
     case "takeaway":
@@ -622,6 +637,8 @@ function getStepIcon(stepId: DeckStepId) {
 export function ResultsDeck({
   results,
   sessionId,
+  rewards,
+  onRewardsConsumed,
   onOpenFullReport,
   onDone,
 }: ResultsDeckProps) {
@@ -642,7 +659,7 @@ export function ResultsDeck({
       narrative: narrativeSource,
     });
 
-    return [
+    const base: DeckStep[] = [
       {
         id: "outcome",
         title: "Summary",
@@ -674,7 +691,18 @@ export function ResultsDeck({
         body: typeof results.nextSteps === "string" ? results.nextSteps : "",
       },
     ];
-  }, [results]);
+
+    if (!rewards) return base;
+    return [
+      {
+        id: "rewards",
+        title: "Rewards",
+        xpGained: rewards.xpGained,
+        achievements: rewards.achievements,
+      },
+      ...base,
+    ];
+  }, [results, rewards]);
 
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
@@ -685,6 +713,9 @@ export function ResultsDeck({
   const [animatedScore, setAnimatedScore] = useState<number | null>(null);
   const scoreRafRef = useRef<number | null>(null);
   const scoreTimeoutRef = useRef<number | null>(null);
+
+  const [animatedXP, setAnimatedXP] = useState<number | null>(null);
+  const xpRafRef = useRef<number | null>(null);
 
   const isDraggingRef = useRef(false);
   const dragStartXRef = useRef<number | null>(null);
@@ -740,6 +771,42 @@ export function ResultsDeck({
       if (scoreRafRef.current) window.cancelAnimationFrame(scoreRafRef.current);
       scoreTimeoutRef.current = null;
       scoreRafRef.current = null;
+    };
+  }, [step]);
+
+  useEffect(() => {
+    if (step?.id !== "rewards") {
+      setAnimatedXP(null);
+      if (xpRafRef.current) window.cancelAnimationFrame(xpRafRef.current);
+      xpRafRef.current = null;
+      return;
+    }
+
+    if (xpRafRef.current) window.cancelAnimationFrame(xpRafRef.current);
+    xpRafRef.current = null;
+
+    const from = 0;
+    const to = Math.max(0, Math.round(step.xpGained));
+    setAnimatedXP(from);
+
+    const start = performance.now();
+    const duration = 900;
+
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - (1 - t) * (1 - t);
+      const next = Math.round(from + (to - from) * eased);
+      setAnimatedXP(next);
+      if (t < 1) {
+        xpRafRef.current = window.requestAnimationFrame(tick);
+      }
+    };
+
+    xpRafRef.current = window.requestAnimationFrame(tick);
+
+    return () => {
+      if (xpRafRef.current) window.cancelAnimationFrame(xpRafRef.current);
+      xpRafRef.current = null;
     };
   }, [step]);
 
@@ -843,6 +910,7 @@ export function ResultsDeck({
   useEffect(() => {
     if (autoPaused) return;
     if (isDraggingRef.current) return;
+    if (step?.id === "rewards") return;
     if (index >= lastIndex) return;
 
     const t = window.setTimeout(() => {
@@ -851,7 +919,7 @@ export function ResultsDeck({
     }, AUTO_ADVANCE_MS);
 
     return () => window.clearTimeout(t);
-  }, [autoPaused, index, lastIndex]);
+  }, [autoPaused, index, lastIndex, step?.id]);
 
   if (!step) return null;
 
@@ -989,6 +1057,150 @@ export function ResultsDeck({
                     <div className="w-full">
                       {(() => {
                         switch (step.id) {
+                          case "rewards": {
+                            type IconKey = keyof typeof ACHIEVEMENT_ICON_MAP;
+
+                            const xpValue =
+                              typeof animatedXP === "number"
+                                ? animatedXP
+                                : Math.round(step.xpGained);
+
+                            const achievements = Array.isArray(
+                              step.achievements,
+                            )
+                              ? step.achievements
+                              : [];
+
+                            const primaryAchievement = achievements[0] ?? null;
+                            const PrimaryIcon = primaryAchievement
+                              ? (ACHIEVEMENT_ICON_MAP[
+                                  primaryAchievement.icon as IconKey
+                                ] ?? ACHIEVEMENT_FALLBACK_ICON)
+                              : null;
+
+                            const particles = Array.from({ length: 18 }).map(
+                              (_, i) => ({
+                                key: `p_${i}`,
+                                left: `${Math.random() * 100}%`,
+                                delay: `${Math.random() * 0.8}s`,
+                                duration: `${2.2 + Math.random() * 1.2}s`,
+                                size: 4 + Math.round(Math.random() * 5),
+                              }),
+                            );
+
+                            return (
+                              <div className="relative space-y-8">
+                                <div
+                                  aria-hidden
+                                  className="pointer-events-none absolute -inset-6 rounded-[32px] bg-gradient-to-br from-primary/25 via-emerald-400/10 to-transparent blur-2xl"
+                                />
+                                <div
+                                  aria-hidden
+                                  className="pointer-events-none absolute -inset-6 rounded-[32px] bg-gradient-to-tr from-amber-400/15 via-transparent to-transparent blur-3xl"
+                                />
+                                <div
+                                  aria-hidden
+                                  className="pointer-events-none absolute inset-0 overflow-hidden"
+                                >
+                                  {particles.map((p) => (
+                                    <div
+                                      key={p.key}
+                                      className="absolute rounded-full bg-white/60 animate-confetti"
+                                      style={{
+                                        left: p.left,
+                                        width: `${p.size}px`,
+                                        height: `${p.size}px`,
+                                        top: "-8px",
+                                        animationDelay: p.delay,
+                                        animationDuration: p.duration,
+                                      }}
+                                    />
+                                  ))}
+                                </div>
+
+                                <div className="text-center">
+                                  <Typography.Heading2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
+                                    Rewards
+                                  </Typography.Heading2>
+                                  <Typography.Body className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                                    You earned XP for completing this interview.
+                                  </Typography.Body>
+                                </div>
+
+                                <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                  <div className="rounded-3xl border bg-gradient-to-br from-primary/15 via-background/40 to-background/40 p-6 shadow-sm">
+                                    <div className="text-sm font-semibold text-muted-foreground">
+                                      XP gained
+                                    </div>
+                                    <div className="mt-2 text-6xl font-bold tabular-nums text-foreground">
+                                      +{xpValue}
+                                    </div>
+                                    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted/30">
+                                      <motion.div
+                                        aria-hidden
+                                        className="h-full bg-gradient-to-r from-primary to-emerald-400"
+                                        initial={{ width: "0%" }}
+                                        animate={{ width: "100%" }}
+                                        transition={{
+                                          duration: 0.9,
+                                          ease: "easeOut",
+                                        }}
+                                      />
+                                    </div>
+                                  </div>
+
+                                  <div className="rounded-3xl border bg-background/40 p-6">
+                                    <div className="text-sm font-semibold text-muted-foreground">
+                                      Achievements
+                                    </div>
+                                    {primaryAchievement ? (
+                                      <div className="mt-4 flex items-start gap-4">
+                                        <div className="size-12 rounded-2xl border bg-primary/10 flex items-center justify-center">
+                                          {PrimaryIcon ? (
+                                            <PrimaryIcon
+                                              className="size-7 text-primary"
+                                              aria-hidden="true"
+                                            />
+                                          ) : null}
+                                        </div>
+                                        <div className="min-w-0">
+                                          <div className="text-lg font-semibold text-foreground truncate">
+                                            {primaryAchievement.name}
+                                          </div>
+                                          <div className="mt-1 text-sm text-muted-foreground line-clamp-2">
+                                            {primaryAchievement.description}
+                                          </div>
+                                          {achievements.length > 1 ? (
+                                            <div className="mt-2 text-xs text-muted-foreground">
+                                              +{achievements.length - 1} more
+                                            </div>
+                                          ) : null}
+                                        </div>
+                                      </div>
+                                    ) : (
+                                      <div className="mt-4 text-sm text-muted-foreground">
+                                        No new achievements this time.
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+
+                                <div className="flex justify-center">
+                                  <Button
+                                    type="button"
+                                    size="lg"
+                                    onClick={() => {
+                                      onRewardsConsumed();
+                                      pauseForInteraction(INTERACTION_PAUSE_MS);
+                                      goNext();
+                                    }}
+                                  >
+                                    Continue
+                                  </Button>
+                                </div>
+                              </div>
+                            );
+                          }
                           case "outcome": {
                             const radius = 45;
                             const circumference = 2 * Math.PI * radius;

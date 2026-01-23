@@ -3,7 +3,6 @@
 import { HelpCircle, LogOut, Menu, Settings } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
@@ -17,9 +16,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useAchievements } from "@/hooks/use-achievements";
 import useIsMobile from "@/hooks/use-is-mobile";
-import { DatabaseService } from "@/lib/database";
+import { getProgressToNextRank, getRankByXP } from "@/lib/ranks";
 import { useAuth } from "@/providers/auth-provider";
 
 interface DashboardNavbarProps {
@@ -32,45 +30,13 @@ export default function DashboardNavbar({
   const router = useRouter();
   const { user, userData, signOut } = useAuth();
   const { isMobile, isLoading } = useIsMobile();
-  const [stats, setStats] = useState({
-    avgScore: 0,
-    totalSessions: 0,
-    totalTime: 0,
-  });
-
-  // Load user stats for rank calculation
-  useEffect(() => {
-    async function loadUserStats() {
-      if (!user?.uid) return;
-      try {
-        const sessions = await DatabaseService.getUserSessions(user.uid, 100);
-        if (!sessions.length) return;
-
-        const avgScore =
-          sessions.reduce(
-            (sum, session) => sum + (session.scores?.overall || 0),
-            0,
-          ) / sessions.length;
-        const totalSessions = sessions.length;
-        const totalTime = sessions.reduce(
-          (sum, session) => sum + (session.totalDuration || 0),
-          0,
-        );
-
-        setStats({
-          avgScore: Math.round(avgScore),
-          totalSessions,
-          totalTime,
-        });
-      } catch (error) {
-        console.error("Error loading stats:", error);
-      }
-    }
-
-    loadUserStats();
-  }, [user?.uid]);
-
-  const { rank, progressToNextRank, totalXP } = useAchievements(stats);
+  const totalXP =
+    typeof userData?.experiencePoints === "number" &&
+    Number.isFinite(userData.experiencePoints)
+      ? userData.experiencePoints
+      : 0;
+  const rank = getRankByXP(totalXP);
+  const progressToNextRank = getProgressToNextRank(totalXP, rank);
 
   const getInitials = (name: string | null) => {
     if (!name) return "U";

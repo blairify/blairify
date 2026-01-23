@@ -36,6 +36,9 @@ export interface UserData {
   avatarIcon?: string;
   role?: string;
   experience?: string;
+  experiencePoints?: number;
+  level?: number;
+  title?: string;
   onboardingCompleted?: boolean;
   createdAt: Date;
   lastLoginAt: Date;
@@ -64,6 +67,9 @@ const userProfileToUserData = (profile: UserProfile): UserData => ({
   avatarIcon: profile.avatarIcon,
   role: profile.role,
   experience: profile.experience,
+  experiencePoints: profile.experiencePoints,
+  level: profile.level,
+  title: profile.title,
   onboardingCompleted: profile.onboardingCompleted,
   createdAt: toDateSafe(profile.createdAt),
   lastLoginAt: toDateSafe(profile.lastLoginAt),

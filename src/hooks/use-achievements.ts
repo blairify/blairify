@@ -87,12 +87,12 @@ export function useAchievements(stats: UserStats) {
     },
   );
 
-  const totalXP = calculateTotalXP(
+  const achievementXP = calculateTotalXP(
     unlocked.map((achievement) => achievement.id),
   );
-  const level = Math.floor(totalXP / 100) + 1;
+  const level = Math.floor(achievementXP / 100) + 1;
   const xpForNextLevel = level * 100;
-  const xpProgress = totalXP % 100;
+  const xpProgress = achievementXP % 100;
 
   const achievementsByTier = TIER_ORDER.reduce(
     (acc, tier) => {
@@ -155,17 +155,17 @@ export function useAchievements(stats: UserStats) {
     totalAchievements,
     unlockedCount,
     lockedCount,
-    totalXP,
+    totalXP: achievementXP,
     completionPercentage,
     byTier,
     byCategory,
   };
 
   const nextAchievement = getNextAchievement(stats);
-  const rank = getRankByXP(totalXP);
+  const rank = getRankByXP(achievementXP);
   const nextRank = getNextRank(rank);
-  const progressToNextRank = getProgressToNextRank(totalXP, rank);
-  const xpToNextRank = getXPToNextRank(totalXP, rank);
+  const progressToNextRank = getProgressToNextRank(achievementXP, rank);
+  const xpToNextRank = getXPToNextRank(achievementXP, rank);
 
   return {
     // Basic lists
@@ -179,7 +179,8 @@ export function useAchievements(stats: UserStats) {
     achievementsByCategory,
 
     // XP and leveling
-    totalXP,
+    achievementXP,
+    totalXP: achievementXP,
     level,
     xpForNextLevel,
     xpProgress,
