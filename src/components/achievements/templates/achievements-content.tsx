@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { GiLightningTrio } from "react-icons/gi";
 import { TiFlowChildren } from "react-icons/ti";
 import {
@@ -16,18 +16,35 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   type AchievementProgress,
   useAchievements,
 } from "@/hooks/use-achievements";
 import type { AchievementTier, UserStats } from "@/lib/achievements";
 import { DatabaseService } from "@/lib/database";
-import { getProgressToNextRank, getRankByXP } from "@/lib/ranks";
-import { formatRankLevel, formatXP, getNextRank, getXPToNextRank } from "@/lib/ranks";
+import {
+  formatRankLevel,
+  formatXP,
+  getNextRank,
+  getProgressToNextRank,
+  getRankByXP,
+  getXPToNextRank,
+} from "@/lib/ranks";
 import type { UserData } from "@/lib/services/auth/auth";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/providers/auth-provider";
 
 type IconKey = keyof typeof ACHIEVEMENT_ICON_MAP;
+
+type TierBase = "bronze" | "silver" | "gold" | "platinum" | "diamond";
+type StatusFilter = "all" | "unlocked" | "locked";
+type TierFilter = "all" | TierBase;
 
 const getBaseTier = (tier: AchievementTier): string => tier.split("_")[0];
 
@@ -36,6 +53,27 @@ const formatTier = (tier: AchievementTier): string => {
   const levelMap: Record<string, string> = { i: "I", ii: "II", iii: "III" };
   return `${base.charAt(0).toUpperCase()}${base.slice(1)} ${levelMap[level]}`;
 };
+
+function formatRequirement(requirement?: number, unit?: string): string | null {
+  if (typeof requirement !== "number" || !Number.isFinite(requirement))
+    return null;
+  if (typeof unit !== "string" || unit.trim().length === 0) return null;
+
+  const trimmed = unit.trim();
+  const isSimpleWord = /^[A-Za-z]+$/.test(trimmed);
+  if (requirement === 1) {
+    const singular =
+      isSimpleWord && trimmed.endsWith("s") ? trimmed.slice(0, -1) : trimmed;
+    return `${requirement} ${singular}`;
+  }
+
+  if (!isSimpleWord) {
+    return `${requirement} ${trimmed}`;
+  }
+
+  const plural = trimmed.endsWith("s") ? trimmed : `${trimmed}s`;
+  return `${requirement} ${plural}`;
+}
 
 const TIER_STYLES: Record<
   string,
@@ -129,6 +167,8 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
     totalTime: 0,
   });
   const [loading, setLoading] = useState(true);
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [tierFilter, setTierFilter] = useState<TierFilter>("all");
 
   useEffect(() => {
     async function loadUserStats() {
@@ -188,6 +228,51 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
     stats: achievementStats,
     nextAchievement,
   } = achievementData;
+
+  const tierOrder = useMemo<AchievementTier[]>(
+    () => [
+      "bronze_i",
+      "bronze_ii",
+      "bronze_iii",
+      "silver_i",
+      "silver_ii",
+      "silver_iii",
+      "gold_i",
+      "gold_ii",
+      "gold_iii",
+      "platinum_i",
+      "platinum_ii",
+      "platinum_iii",
+      "diamond_i",
+      "diamond_ii",
+      "diamond_iii",
+    ],
+    [],
+  );
+
+  const filteredAchievements = useMemo(() => {
+    const tierIndex = new Map<AchievementTier, number>(
+      tierOrder.map((tier, idx) => [tier, idx]),
+    );
+
+    const filtered = achievementsWithProgress.filter((item) => {
+      if (statusFilter === "unlocked" && !item.isUnlocked) return false;
+      if (statusFilter === "locked" && item.isUnlocked) return false;
+
+      if (tierFilter === "all") return true;
+      return getBaseTier(item.achievement.tier) === tierFilter;
+    });
+
+    return filtered.sort((a, b) => {
+      if (a.isUnlocked !== b.isUnlocked) return a.isUnlocked ? -1 : 1;
+
+      const aTier = tierIndex.get(a.achievement.tier) ?? 999;
+      const bTier = tierIndex.get(b.achievement.tier) ?? 999;
+      if (aTier !== bTier) return aTier - bTier;
+
+      return a.achievement.name.localeCompare(b.achievement.name);
+    });
+  }, [achievementsWithProgress, statusFilter, tierFilter, tierOrder]);
 
   const totalXP =
     typeof userData?.experiencePoints === "number" &&
@@ -366,8 +451,56 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
               {achievementStats.totalAchievements} unlocked
             </Typography.SubCaptionMedium>
           </div>
+
+          <div className="rounded-2xl border border-border/60 bg-card/60 p-3 shadow-sm">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="space-y-2">
+                <Typography.SubCaptionMedium color="secondary">
+                  Status
+                </Typography.SubCaptionMedium>
+                <Select
+                  value={statusFilter}
+                  onValueChange={(value) =>
+                    setStatusFilter(value as StatusFilter)
+                  }
+                >
+                  <SelectTrigger className="h-11 border-2 border-border/70 bg-background/70 shadow-sm">
+                    <SelectValue placeholder="Status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All</SelectItem>
+                    <SelectItem value="unlocked">Unlocked</SelectItem>
+                    <SelectItem value="locked">Locked</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Typography.SubCaptionMedium color="secondary">
+                  Tier
+                </Typography.SubCaptionMedium>
+                <Select
+                  value={tierFilter}
+                  onValueChange={(value) => setTierFilter(value as TierFilter)}
+                >
+                  <SelectTrigger className="h-11 border-2 border-border/70 bg-background/70 shadow-sm">
+                    <SelectValue placeholder="Tier" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All tiers</SelectItem>
+                    <SelectItem value="bronze">Bronze</SelectItem>
+                    <SelectItem value="silver">Silver</SelectItem>
+                    <SelectItem value="gold">Gold</SelectItem>
+                    <SelectItem value="platinum">Platinum</SelectItem>
+                    <SelectItem value="diamond">Diamond</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {achievementsWithProgress.map((item) => (
+            {filteredAchievements.map((item) => (
               <AchievementCard key={item.achievement.id} item={item} />
             ))}
           </div>
@@ -393,9 +526,19 @@ function AchievementCard({ item }: AchievementCardProps) {
   const currentStyle = isUnlocked ? tierStyle.unlocked : tierStyle.locked;
 
   // Comprehensive ARIA label for screen readers
-  const ariaLabel = isUnlocked
-    ? `${achievement.name} - Unlocked - ${achievement.description} - Worth ${achievement.xpReward} XP`
-    : `${achievement.name} - Locked - ${Math.round(progress)}% progress - ${achievement.description} - Requires ${achievement.requirement} ${achievement.requirementUnit}${achievement.requirement && achievement.requirement > 1 ? "s" : ""} - Worth ${achievement.xpReward} XP`;
+  const ariaLabel = (() => {
+    if (isUnlocked) {
+      return `${achievement.name} - Unlocked - ${achievement.description} - Worth ${achievement.xpReward} XP`;
+    }
+
+    const formatted = formatRequirement(
+      achievement.requirement,
+      achievement.requirementUnit,
+    );
+    const requires = formatted ? ` - Requires ${formatted}` : "";
+
+    return `${achievement.name} - Locked - ${Math.round(progress)}% progress - ${achievement.description}${requires} - Worth ${achievement.xpReward} XP`;
+  })();
 
   const handleClick = () => {
     setIsModalOpen(true);
@@ -425,37 +568,23 @@ function AchievementCard({ item }: AchievementCardProps) {
         aria-label={ariaLabel}
       >
         <CardContent className="p-5 flex flex-col h-full relative">
-          {/* Lock/Unlock Icon Overlay */}
-          <div className="absolute top-3 right-3">
-            {isUnlocked ? (
-              <div
-                className="p-1 rounded-full bg-green-500/20"
-                aria-hidden="true"
-              >
+          {!isUnlocked && (
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 rounded-xl bg-background/45 backdrop-blur-[2px]"
+            />
+          )}
+          {!isUnlocked && (
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 flex items-center justify-center"
+            >
+              <div className="rounded-full border bg-background/70 p-3 shadow-sm">
                 <svg
-                  className="size-4 text-green-500"
+                  className="size-6 text-foreground/80"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <title>Unlocked</title>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-            ) : (
-              <div className="p-1 rounded-full bg-muted/50" aria-hidden="true">
-                <svg
-                  className="size-4 text-muted-foreground"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
                 >
                   <title>Locked</title>
                   <path
@@ -466,37 +595,31 @@ function AchievementCard({ item }: AchievementCardProps) {
                   />
                 </svg>
               </div>
-            )}
-          </div>
+            </div>
+          )}
 
-          <div className="flex items-start gap-3 mb-3">
+          <div className="flex flex-col items-center text-center gap-3">
             <div
               className={cn(
-                "p-2.5 rounded-lg transition-transform group-hover:scale-110",
+                "p-3 rounded-2xl",
                 currentStyle.bg,
+                !isUnlocked && "grayscale",
               )}
             >
               <Icon
-                className={cn(
-                  "size-5 transition-transform group-hover:scale-110",
-                  currentStyle.text,
-                )}
+                className={cn("size-6", currentStyle.text)}
                 aria-hidden="true"
               />
             </div>
-            <div className="flex-1 min-w-0">
-              <Typography.BodyMedium
-                className={cn(
-                  "truncate",
-                  isUnlocked ? "text-foreground" : "text-foreground",
-                )}
-              >
+
+            <div className="space-y-1">
+              <Typography.BodyMedium className="line-clamp-2">
                 {achievement.name}
               </Typography.BodyMedium>
               <Badge
                 variant="outline"
                 className={cn(
-                  "text-xs mt-1",
+                  "text-xs",
                   isUnlocked
                     ? tierStyle.badge
                     : "bg-background/60 text-foreground border-border/70",
@@ -505,46 +628,31 @@ function AchievementCard({ item }: AchievementCardProps) {
                 {formatTier(achievement.tier)}
               </Badge>
             </div>
+
+            {!isUnlocked && (
+              <div className="w-full space-y-2">
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <Typography.SubCaption>Progress</Typography.SubCaption>
+                  <Typography.SubCaption>
+                    {Math.round(progress)}%
+                  </Typography.SubCaption>
+                </div>
+                <Progress value={progress} className="h-2" />
+              </div>
+            )}
           </div>
 
-          <Typography.Body
-            color="secondary"
-            className={cn(
-              "text-sm mb-4 line-clamp-2",
-              isUnlocked ? "text-foreground/80" : "text-foreground/80",
-            )}
-          >
-            {achievement.description}
-          </Typography.Body>
-
-          {/* Progress Bar for Locked Achievements */}
-          {!isUnlocked && progress > 0 && (
-            <div className="mb-3 space-y-1">
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <Typography.SubCaption>Progress</Typography.SubCaption>
-                <Typography.SubCaption>
-                  {Math.round(progress)}%
-                </Typography.SubCaption>
-              </div>
-              <Progress value={progress} className="h-1.5" />
-            </div>
-          )}
-          <div className="mt-auto flex items-center justify-between">
-            {isUnlocked ? (
-              <Badge
-                variant="default"
-                className="bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30"
-              >
-                ✓ Unlocked
-              </Badge>
-            ) : (
-              <Badge
-                variant="secondary"
-                className="bg-muted/50 text-muted-foreground border-muted"
-              >
-                🔒 Locked
-              </Badge>
-            )}
+          <div className="mt-4 flex items-center justify-between">
+            <Badge
+              variant={isUnlocked ? "default" : "secondary"}
+              className={cn(
+                isUnlocked
+                  ? "bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30"
+                  : "bg-muted/50 text-muted-foreground border-muted",
+              )}
+            >
+              {isUnlocked ? "Unlocked" : "Locked"}
+            </Badge>
             <Typography.SubCaptionMedium color="secondary">
               +{achievement.xpReward} XP
             </Typography.SubCaptionMedium>
