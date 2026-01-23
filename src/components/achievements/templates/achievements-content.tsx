@@ -21,9 +21,11 @@ import {
 } from "@/hooks/use-achievements";
 import type { AchievementTier, UserStats } from "@/lib/achievements";
 import { DatabaseService } from "@/lib/database";
-import { formatRankLevel, formatXP } from "@/lib/ranks";
+import { getProgressToNextRank, getRankByXP } from "@/lib/ranks";
+import { formatRankLevel, formatXP, getNextRank, getXPToNextRank } from "@/lib/ranks";
 import type { UserData } from "@/lib/services/auth/auth";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/providers/auth-provider";
 
 type IconKey = keyof typeof ACHIEVEMENT_ICON_MAP;
 
@@ -120,6 +122,7 @@ interface AchievementsContentProps {
 }
 
 export function AchievementsContent({ user }: AchievementsContentProps) {
+  const { userData } = useAuth();
   const [stats, setStats] = useState<UserStats>({
     avgScore: 0,
     totalSessions: 0,
@@ -182,14 +185,22 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
   const achievementData = useAchievements(stats);
   const {
     achievementsWithProgress,
-    totalXP,
     stats: achievementStats,
     nextAchievement,
-    rank,
-    nextRank,
-    progressToNextRank,
-    xpToNextRank,
   } = achievementData;
+
+  const totalXP =
+    typeof userData?.experiencePoints === "number" &&
+    Number.isFinite(userData.experiencePoints)
+      ? userData.experiencePoints
+      : typeof user.experiencePoints === "number" &&
+          Number.isFinite(user.experiencePoints)
+        ? user.experiencePoints
+        : 0;
+  const rank = getRankByXP(totalXP);
+  const nextRank = getNextRank(rank);
+  const progressToNextRank = getProgressToNextRank(totalXP, rank);
+  const xpToNextRank = getXPToNextRank(totalXP, rank);
 
   if (loading) {
     return (
