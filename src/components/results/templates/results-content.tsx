@@ -1470,7 +1470,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="flex-1 min-h-0"
+            className="flex-1 min-h-0 overflow-hidden"
           >
             {savedSessionId ? (
               <ResultsDeck
