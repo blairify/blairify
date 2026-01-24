@@ -723,6 +723,25 @@ export function ResultsDeck({
   const [hoverPaused, setHoverPaused] = useState(false);
   const [interactionPaused, setInteractionPaused] = useState(false);
 
+  const prevStepIdRef = useRef<DeckStepId | null>(null);
+  const rewardsConsumedRef = useRef(false);
+
+  useEffect(() => {
+    if (!rewards) return;
+    if (rewardsConsumedRef.current) return;
+    if (!step) return;
+
+    const prev = prevStepIdRef.current;
+    prevStepIdRef.current = step.id;
+
+    if (prev === null) return;
+    if (prev !== "rewards") return;
+    if (step.id === "rewards") return;
+
+    rewardsConsumedRef.current = true;
+    onRewardsConsumed();
+  }, [onRewardsConsumed, rewards, step]);
+
   useEffect(() => {
     if (step?.id !== "outcome") {
       setOutcomeLoading(false);
@@ -925,7 +944,7 @@ export function ResultsDeck({
 
   return (
     <main
-      className="group relative flex-1 overflow-hidden bg-background"
+      className="group relative flex-1 overflow-hidden bg-background cursor-default touch-pan-y overscroll-x-none"
       aria-label="Interview results deck"
       onMouseEnter={() => setHoverPaused(true)}
       onMouseLeave={() => setHoverPaused(false)}
@@ -935,30 +954,7 @@ export function ResultsDeck({
         dragStartXRef.current = e.clientX;
       }}
     >
-      <div className="relative h-full overflow-auto">
-        <div className="absolute inset-y-0 left-0 z-30 w-1/3">
-          <button
-            type="button"
-            aria-label="Previous slide"
-            className="h-full w-full cursor-w-resize bg-transparent border-0 p-0 outline-none focus:outline-none focus-visible:outline-none appearance-none"
-            onClick={() => {
-              pauseForInteraction(INTERACTION_PAUSE_MS);
-              goPrev();
-            }}
-          />
-        </div>
-        <div className="absolute inset-y-0 right-0 z-30 w-1/3">
-          <button
-            type="button"
-            aria-label="Next slide"
-            className="h-full w-full cursor-e-resize bg-transparent border-0 p-0 outline-none focus:outline-none focus-visible:outline-none appearance-none"
-            onClick={() => {
-              pauseForInteraction(INTERACTION_PAUSE_MS);
-              goNext();
-            }}
-          />
-        </div>
-
+      <div className="relative h-full min-h-0 overflow-y-auto overflow-x-hidden">
         <motion.div
           aria-hidden
           className="pointer-events-none absolute inset-0"
@@ -971,6 +967,44 @@ export function ResultsDeck({
         />
 
         <div className="relative mx-auto max-w-6xl px-4 py-6 sm:py-8">
+          <div className="pointer-events-none absolute inset-y-0 left-0 hidden items-center sm:flex">
+            <div className="pointer-events-auto -translate-x-3 md:-translate-x-10">
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                aria-label="Previous slide"
+                className="rounded-full border-border/60 bg-background/80 backdrop-blur shadow-sm hover:bg-background"
+                disabled={index === 0}
+                onPointerDown={(e) => e.stopPropagation()}
+                onClick={() => {
+                  pauseForInteraction(INTERACTION_PAUSE_MS);
+                  goPrev();
+                }}
+              >
+                <ChevronLeft className="size-5" />
+              </Button>
+            </div>
+          </div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center sm:flex">
+            <div className="pointer-events-auto translate-x-3 md:translate-x-10">
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                aria-label="Next slide"
+                className="rounded-full border-border/60 bg-background/80 backdrop-blur shadow-sm hover:bg-background"
+                disabled={index >= lastIndex}
+                onPointerDown={(e) => e.stopPropagation()}
+                onClick={() => {
+                  pauseForInteraction(INTERACTION_PAUSE_MS);
+                  goNext();
+                }}
+              >
+                <ChevronRight className="size-5" />
+              </Button>
+            </div>
+          </div>
           <div className="flex items-center justify-between gap-3">
             <Badge variant="secondary" className="font-semibold">
               Session: {sessionId.slice(0, 6)}
@@ -1027,17 +1061,6 @@ export function ResultsDeck({
                     transition={{ duration: 1.4, ease: "easeOut" }}
                   />
                 </motion.div>
-
-                <div className="pointer-events-none absolute inset-y-0 left-0 hidden items-center sm:flex">
-                  <div className="-translate-x-3 rounded-full border border-border/60 bg-background/70 p-2 opacity-0 shadow-sm backdrop-blur transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
-                    <ChevronLeft className="size-5 text-muted-foreground" />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center sm:flex">
-                  <div className="translate-x-3 rounded-full border border-border/60 bg-background/70 p-2 opacity-0 shadow-sm backdrop-blur transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
-                    <ChevronRight className="size-5 text-muted-foreground" />
-                  </div>
-                </div>
 
                 <div className="px-6 py-8 sm:px-12 sm:py-12 min-h-[64vh] flex flex-col">
                   <div className="flex items-center justify-between gap-4">
@@ -1185,19 +1208,6 @@ export function ResultsDeck({
                                   </div>
                                 </div>
 
-                                <div className="flex justify-center">
-                                  <Button
-                                    type="button"
-                                    size="lg"
-                                    onClick={() => {
-                                      onRewardsConsumed();
-                                      pauseForInteraction(INTERACTION_PAUSE_MS);
-                                      goNext();
-                                    }}
-                                  >
-                                    Continue
-                                  </Button>
-                                </div>
                               </div>
                             );
                           }
@@ -1666,6 +1676,36 @@ export function ResultsDeck({
                         />
                       ))}
                     </div>
+                  </div>
+
+                  <div className="mt-8 flex items-center justify-center">
+                    {index < lastIndex ? (
+                      <Button
+                        type="button"
+                        className="h-11 px-8"
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onClick={() => {
+                          pauseForInteraction(INTERACTION_PAUSE_MS);
+                          goNext();
+                        }}
+                      >
+                        Next
+                        <ArrowRight className="ml-2 size-4" />
+                      </Button>
+                    ) : (
+                      <Button
+                        type="button"
+                        className="h-11 px-8"
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onClick={() => {
+                          pauseForInteraction(INTERACTION_PAUSE_MS);
+                          onDone();
+                        }}
+                      >
+                        Done
+                        <ArrowRight className="ml-2 size-4" />
+                      </Button>
+                    )}
                   </div>
                 </div>
               </motion.section>
