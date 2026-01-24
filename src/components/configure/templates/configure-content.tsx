@@ -249,11 +249,14 @@ type ExtractDescriptionResponse = {
   data?: ExtractedJobDescription;
 };
 
-function getVisibleStepsForFlow(flowMode: ConfigureFlowMode) {
+function getVisibleStepsForFlow(flowMode: ConfigureFlowMode | null) {
   if (flowMode === "paste") {
     return CONFIGURE_STEPS.filter((step) => PASTE_FLOW_STEP_IDS.has(step.id));
   }
-  return CONFIGURE_STEPS.filter((step) => !PASTE_ONLY_STEP_IDS.has(step.id));
+  if (flowMode === "custom") {
+    return CONFIGURE_STEPS.filter((step) => !PASTE_ONLY_STEP_IDS.has(step.id));
+  }
+  return [];
 }
 
 function formatAnalysisError(error: unknown): string {
@@ -321,10 +324,12 @@ export function ConfigureContent() {
     isPro: boolean;
     checked: boolean;
   }>({ canStart: true, remainingMinutes: 0, isPro: false, checked: false });
-  const resolveInitialFlowMode = () =>
-    (searchParams.get("flow") === "paste"
-      ? "paste"
-      : "custom") as ConfigureFlowMode;
+  const resolveInitialFlowMode = () => {
+    const flow = searchParams.get("flow");
+    if (flow === "paste") return "paste";
+    if (flow === "custom") return "custom";
+    return null;
+  };
   const [config, setConfig] = useState<InterviewConfig>(() => ({
     flowMode: resolveInitialFlowMode(),
     position: "",
@@ -504,14 +509,14 @@ export function ConfigureContent() {
     }
   };
 
-  const renderPrimaryAction = () => {
+  const renderNextButton = () => {
     const shouldHidePrimaryAction =
       currentStepId === "technologies" &&
       !!autoAdvanceTechChoices &&
       autoAdvanceTechChoices.length === 1;
 
     if (shouldHidePrimaryAction) {
-      return null;
+      return <div className="w-[70px]" />; // Spacer for mobile layout alignment
     }
 
     const isStartStep =
@@ -529,10 +534,11 @@ export function ConfigureContent() {
         <Link href="/upgrade">
           <Button
             size="sm"
-            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white flex items-center gap-2"
+            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white flex items-center gap-2 !min-h-0"
           >
             <Crown className="size-4" />
-            <span>Upgrade to Pro</span>
+            <span className="hidden sm:inline">Upgrade to Pro</span>
+            <span className="sm:hidden">Upgrade</span>
           </Button>
         </Link>
       );
@@ -544,16 +550,16 @@ export function ConfigureContent() {
           onClick={handleStartInterview}
           disabled={!isConfigComplete}
           size="sm"
-          className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2"
+          className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2 !min-h-0"
         >
-          <span className="inline">Start Interview</span>
+          <span className="inline">Start</span>
           <ArrowRight className="size-4 sm:size-5" />
         </Button>
       );
     }
 
     if (isDescriptionStep && config.flowMode === "paste") {
-      return null;
+      return <div className="w-[70px]" />; // Spacer
     }
 
     return (
@@ -561,12 +567,24 @@ export function ConfigureContent() {
         onClick={handleNext}
         disabled={!canGoNext()}
         size="sm"
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 !min-h-0"
       >
         Next
       </Button>
     );
   };
+
+  const renderPreviousButton = () => (
+    <Button
+      variant="outline"
+      onClick={handlePrevious}
+      disabled={currentStep === 0}
+      size="sm"
+      className={`flex items-center gap-2 !min-h-0 ${currentStep === 0 ? "invisible" : ""}`}
+    >
+      <span className="inline">Previous</span>
+    </Button>
+  );
 
   const handleFlowSelect = (mode: ConfigureFlowMode) => {
     setConfig((prev) => ({
@@ -577,7 +595,8 @@ export function ConfigureContent() {
     setAnalysisError(null);
 
     // Auto-advance to next step after flow selection
-    if (currentStep < visibleSteps.length - 1) {
+    const nextVisibleSteps = getVisibleStepsForFlow(mode);
+    if (currentStep < nextVisibleSteps.length - 1) {
       setCurrentStep(currentStep + 1);
     }
   };
@@ -747,14 +766,14 @@ export function ConfigureContent() {
         <div
           className={`space-y-8 ${isAnalyzingDescription ? "pointer-events-none opacity-50" : ""}`}
         >
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-col md:flex-row">
             {FLOW_OPTIONS.map((option) => {
               const Icon = option.icon;
               const isSelected = config.flowMode === option.value;
               return (
                 <Card
                   key={option.value}
-                  className={`cursor-pointer w-60 transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
+                  className={`cursor-pointer w-full md:w-60 transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
                     isSelected
                       ? "ring-1 ring-primary border-primary bg-primary/5"
                       : ""
@@ -785,7 +804,7 @@ export function ConfigureContent() {
         <Card>
           <CardContent className="space-y-3">
             <Typography.BodyBold>No description needed</Typography.BodyBold>
-            <Typography.CaptionMedium className="text-muted-foreground">
+            <Typography.CaptionMedium color="secondary">
               You chose manual setup. Skip ahead or switch back to paste flow to
               use AI.
             </Typography.CaptionMedium>
@@ -855,7 +874,10 @@ export function ConfigureContent() {
                 >
                   Reset
                 </Button>
-                <Typography.Caption className="text-muted-foreground text-center sm:hidden">
+                <Typography.Caption
+                  color="secondary"
+                  className="text-center sm:hidden"
+                >
                   Paste the full job post. We’ll extract role, seniority, tech
                   stack, and company.
                 </Typography.Caption>
@@ -866,7 +888,10 @@ export function ConfigureContent() {
 
         {analysisError && (
           <div className="mt-3 rounded-md border border-destructive/20 bg-destructive/5 p-3">
-            <Typography.CaptionMedium className="text-destructive flex items-center gap-2">
+            <Typography.CaptionMedium
+              color="error"
+              className="flex items-center gap-2"
+            >
               <svg
                 className="size-4"
                 fill="none"
@@ -1085,13 +1110,14 @@ export function ConfigureContent() {
             }`}
             onClick={() => updateConfig("seniority", level.value)}
           >
-            <CardContent className="flex flex-col items-left gap-1">
-              <div className="flex items-center gap-3 mb-3">
+            <CardContent className="flex flex-col items-left gap-2">
+              <div className="flex flex-col items-left gap-4">
+                {level.icon && <level.icon className="size-5 text-primary" />}
                 <Typography.BodyBold>{level.label}</Typography.BodyBold>
               </div>
-              <Typography.CaptionMedium>
+              <Typography.Caption color="secondary">
                 {level.description}
-              </Typography.CaptionMedium>
+              </Typography.Caption>
             </CardContent>
           </Card>
         ))}
@@ -1104,7 +1130,7 @@ export function ConfigureContent() {
       return (
         <div className="space-y-3">
           <Typography.BodyBold>Tech</Typography.BodyBold>
-          <Typography.CaptionMedium className="text-muted-foreground">
+          <Typography.CaptionMedium color="secondary">
             Not required for this role.
           </Typography.CaptionMedium>
         </div>
@@ -1135,25 +1161,25 @@ export function ConfigureContent() {
         );
       }
 
-      return <tech.icon className="size-6 text-primary mr-2 flex-shrink-0" />;
+      return <tech.icon className="size-6 text-primary flex-shrink-0" />;
     };
 
     return (
       <div className="space-y-6">
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-4 max-w-fit">
+        <div className="flex flex-wrap gap-4 max-w-fit">
           {filteredTechChoices.map((tech) => (
             <Card
               key={tech.value}
-              className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
+              className={`cursor-pointer py-0 transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
                 selected.has(tech.value)
                   ? "ring-1 border-primary ring-primary bg-primary/10"
                   : "border-border"
               }`}
               onClick={() => handleToggleTechnology(tech.value)}
             >
-              <CardContent className="flex flex-row items-center gap-2">
+              <CardContent className="flex flex-row items-center gap-4 p-4">
                 {renderTechIcon(tech)}
-                <div className="flex-1">
+                <div className="flex-1 text-left">
                   <Typography.BodyBold>{tech.label}</Typography.BodyBold>
                 </div>
               </CardContent>
@@ -1167,7 +1193,7 @@ export function ConfigureContent() {
   function renderModeStep() {
     return (
       <div className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-fit ">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-fit ">
           {INTERVIEW_MODES.map((mode) => {
             const isComingSoon = mode.description.includes("Coming soon");
             return (
@@ -1199,9 +1225,9 @@ export function ConfigureContent() {
                       >
                         {mode.label}
                       </Typography.BodyBold>
-                      <Typography.CaptionMedium className="mt-2">
+                      <Typography.Caption color="secondary">
                         {mode.description}
-                      </Typography.CaptionMedium>
+                      </Typography.Caption>
                     </div>
                   </div>
                 </CardContent>
@@ -1262,22 +1288,17 @@ export function ConfigureContent() {
   return (
     <main className="flex-1 flex flex-col h-full overflow-hidden">
       <div className="flex-1 flex flex-col h-full max-w-6xl mx-auto w-full">
-        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6">
+        <div className="flex-1 overflow-y-auto p-6 sm:p-6">
           <div className="max-w-5xl mx-auto">
-            <div className="mb-6 space-y-4">
-              <div className="flex flex-col gap-4 lg:items-start lg:justify-between">
-                <div className="flex-1 text-left">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Typography.Heading1>
-                      {visibleSteps[currentStep]?.title ??
-                        CONFIGURE_STEPS[0].title}
-                    </Typography.Heading1>
-                  </div>
-                  <Typography.Body className="text-muted-foreground text-sm sm:text-base">
-                    {visibleSteps[currentStep]?.description ??
-                      CONFIGURE_STEPS[0].description}
-                  </Typography.Body>
-                </div>
+            <div className="mb-6 space-y-4 hidden lg:block">
+              <div className="flex flex-col gap-2 lg:items-start lg:justify-between text-center lg:text-left">
+                <Typography.BodyBold className="text-2xl">
+                  {visibleSteps[currentStep]?.title ?? CONFIGURE_STEPS[0].title}
+                </Typography.BodyBold>
+                <Typography.Body className="text-muted-foreground text-sm sm:text-base">
+                  {visibleSteps[currentStep]?.description ??
+                    CONFIGURE_STEPS[0].description}
+                </Typography.Body>
               </div>
             </div>
 
@@ -1327,18 +1348,10 @@ export function ConfigureContent() {
             </div>
 
             {currentStepId !== "flow" && (
-              <div className="mt-6 flex justify-start">
+              <div className="mt-6 hidden sm:flex justify-start">
                 <div className="flex flex-row items-stretch gap-2 sm:gap-3">
-                  <Button
-                    variant="outline"
-                    onClick={handlePrevious}
-                    disabled={currentStep === 0}
-                    size="sm"
-                    className="flex items-center gap-2"
-                  >
-                    <span className="inline">Previous</span>
-                  </Button>
-                  {renderPrimaryAction()}
+                  {renderPreviousButton()}
+                  {renderNextButton()}
                 </div>
               </div>
             )}
@@ -1346,8 +1359,10 @@ export function ConfigureContent() {
         </div>
 
         <div className="px-4 sm:px-6 py-6">
-          <div className="max-w-5xl mx-auto flex justify-center">
+          <div className="max-w-5xl mx-auto flex items-center justify-between sm:justify-center w-full">
+            <div className="sm:hidden">{renderPreviousButton()}</div>
             <PaginationIndicator total={totalSteps} current={currentStep} />
+            <div className="sm:hidden">{renderNextButton()}</div>
           </div>
         </div>
       </div>

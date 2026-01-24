@@ -8,7 +8,6 @@ import {
   Crown,
   Diamond,
   Flame,
-  Gamepad2,
   Heart,
   Music,
   Palette,
@@ -18,6 +17,7 @@ import {
   Trophy,
   User,
 } from "lucide-react";
+import { TbLayersDifference } from "react-icons/tb";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -90,7 +90,7 @@ const avatarIcons: AvatarIcon[] = [
   {
     id: "gamepad",
     name: "Gamer",
-    icon: Gamepad2,
+    icon: TbLayersDifference,
     color: "text-indigo-600",
     bgColor: "bg-indigo-100",
   },

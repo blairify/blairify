@@ -3,7 +3,7 @@ import type { JobContext } from "@/types/global";
 export type ConfigureFlowMode = "custom" | "paste";
 
 export interface InterviewConfig extends JobContext {
-  flowMode: ConfigureFlowMode;
+  flowMode: ConfigureFlowMode | null;
   position: string;
   seniority: string;
   technologies: string[];
