@@ -35,6 +35,7 @@ import { toast } from "sonner";
 import { PaginationIndicator } from "@/components/common/atoms/pagination-indicator";
 import { Typography } from "@/components/common/atoms/typography";
 import { EditableExtractedTags } from "@/components/configure/molecules/editable-extracted-tags";
+import { ModeSelectionStep } from "@/components/configure/templates/mode-selection-step";
 import type { MarkdownField } from "@/components/configure/types/markdown";
 import type { TechChoice } from "@/components/configure/types/tech-choice";
 import {
@@ -61,7 +62,6 @@ import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import {
   CONFIGURE_STEPS,
-  INTERVIEW_MODES,
   POSITIONS,
   SENIORITY_LEVELS,
 } from "@/constants/configure";
@@ -465,31 +465,37 @@ export function ConfigureContent() {
     });
   }, []);
 
-  const handleStartInterview = () => {
-    if (!canStartInterview(config)) return;
+  const handleStartInterview = useCallback(
+    (overrideConfig?: InterviewConfig) => {
+      const interviewConfig = overrideConfig || config;
+      if (!canStartInterview(interviewConfig)) return;
 
-    const domainConfig: DomainInterviewConfig = {
-      position: (config.position || "frontend") as PositionValue,
-      seniority: (config.seniority || "mid") as SeniorityLevel,
-      technologies: config.technologies || [],
-      companyProfile: (config.companyProfile ||
-        "generic") as CompanyProfileValue,
-      company: config.company || undefined,
-      interviewMode: (config.interviewMode || "regular") as InterviewMode,
-      interviewType: (config.interviewType || "technical") as InterviewType,
-      duration: config.duration || "30",
-      isDemoMode: false,
-      contextType: config.contextType || undefined,
-      jobId: config.jobId || undefined,
-      jobDescription: config.jobDescription || undefined,
-      jobRequirements: config.jobRequirements || undefined,
-      jobLocation: config.jobLocation || undefined,
-      jobType: config.jobType || undefined,
-    };
+      const domainConfig: DomainInterviewConfig = {
+        position: (interviewConfig.position || "frontend") as PositionValue,
+        seniority: (interviewConfig.seniority || "mid") as SeniorityLevel,
+        technologies: interviewConfig.technologies || [],
+        companyProfile: (interviewConfig.companyProfile ||
+          "generic") as CompanyProfileValue,
+        company: interviewConfig.company || undefined,
+        interviewMode: (interviewConfig.interviewMode ||
+          "regular") as InterviewMode,
+        interviewType: (interviewConfig.interviewType ||
+          "technical") as InterviewType,
+        duration: interviewConfig.duration || "30",
+        isDemoMode: false,
+        contextType: interviewConfig.contextType || undefined,
+        jobId: interviewConfig.jobId || undefined,
+        jobDescription: interviewConfig.jobDescription || undefined,
+        jobRequirements: interviewConfig.jobRequirements || undefined,
+        jobLocation: interviewConfig.jobLocation || undefined,
+        jobType: interviewConfig.jobType || undefined,
+      };
 
-    const urlParams = buildSearchParamsFromInterviewConfig(domainConfig);
-    router.push(`/interview?${urlParams.toString()}`);
-  };
+      const urlParams = buildSearchParamsFromInterviewConfig(domainConfig);
+      router.push(`/interview?${urlParams.toString()}`);
+    },
+    [config, router],
+  );
 
   const isConfigComplete = checkIsConfigComplete(config);
   const isDescriptionStep = currentStepId === DESCRIPTION_STEP_ID;
@@ -547,7 +553,7 @@ export function ConfigureContent() {
     if (isStartStep) {
       return (
         <Button
-          onClick={handleStartInterview}
+          onClick={() => handleStartInterview()}
           disabled={!isConfigComplete}
           size="sm"
           className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2 !min-h-0"
@@ -1115,7 +1121,10 @@ export function ConfigureContent() {
                 {level.icon && <level.icon className="size-5 text-primary" />}
                 <Typography.BodyBold>{level.label}</Typography.BodyBold>
               </div>
-              <Typography.Caption color="secondary">
+              <Typography.Caption
+                color="secondary"
+                className="max-sm:text-xs max-sm:break-words"
+              >
                 {level.description}
               </Typography.Caption>
             </CardContent>
@@ -1166,7 +1175,7 @@ export function ConfigureContent() {
 
     return (
       <div className="space-y-6">
-        <div className="flex flex-wrap gap-4 max-w-fit">
+        <div className="flex flex-wrap gap-2 max-w-fit">
           {filteredTechChoices.map((tech) => (
             <Card
               key={tech.value}
@@ -1177,7 +1186,7 @@ export function ConfigureContent() {
               }`}
               onClick={() => handleToggleTechnology(tech.value)}
             >
-              <CardContent className="flex flex-row items-center gap-4 p-4">
+              <CardContent className="flex flex-row items-center gap-4 px-4 py-3">
                 {renderTechIcon(tech)}
                 <div className="flex-1 text-left">
                   <Typography.BodyBold>{tech.label}</Typography.BodyBold>
@@ -1193,48 +1202,27 @@ export function ConfigureContent() {
   function renderModeStep() {
     return (
       <div className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-fit ">
-          {INTERVIEW_MODES.map((mode) => {
-            const isComingSoon = mode.description.includes("Coming soon");
-            return (
-              <Card
-                key={mode.value}
-                className={`transition-all  ${
-                  isComingSoon
-                    ? "opacity-60 cursor-not-allowed"
-                    : `cursor-pointer hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
-                        config.interviewMode === mode.value
-                          ? "ring-1 border-primary ring-primary bg-primary/10"
-                          : "border-border"
-                      }`
-                }`}
-                onClick={() => {
-                  if (!isComingSoon) {
-                    setConfig((prev) => ({
-                      ...prev,
-                      interviewMode: mode.value,
-                    }));
-                  }
-                }}
-              >
-                <CardContent className="px-4 h-full flex flex-col ">
-                  <div className="flex items-start gap-3 flex-1">
-                    <div className="flex-1">
-                      <Typography.BodyBold
-                        className={`${isComingSoon ? "text-muted-foreground" : ""}`}
-                      >
-                        {mode.label}
-                      </Typography.BodyBold>
-                      <Typography.Caption color="secondary">
-                        {mode.description}
-                      </Typography.Caption>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+        <ModeSelectionStep
+          config={config}
+          onSelect={(mode) => {
+            const updatedConfig = {
+              ...config,
+              interviewMode: mode,
+            };
+            setConfig(updatedConfig);
+
+            // Auto-start if all conditions met
+            const canAutoStart =
+              canStartInterview(updatedConfig) &&
+              (!usageStatus.checked ||
+                usageStatus.canStart ||
+                usageStatus.isPro);
+
+            if (canAutoStart) {
+              handleStartInterview(updatedConfig);
+            }
+          }}
+        />
 
         {config.interviewMode === "timed" && (
           <div className="animate-in slide-in-from-top-4 fade-in duration-300">

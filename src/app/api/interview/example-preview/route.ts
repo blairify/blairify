@@ -30,6 +30,7 @@ function sanitizeExampleAnswer(value: string): string {
 
   return withoutFencedAnalysis
     .replace(/^\s*(example\s+answer|answer)\s*:\s*/i, "")
+    .replace(/Copy code/gi, "")
     .trim();
 }
 
@@ -108,8 +109,7 @@ export async function POST(request: NextRequest) {
       example: {
         question: {
           id: question.id,
-          title: question.title,
-          prompt: question.prompt,
+          description: question.description,
         },
         answer,
       },

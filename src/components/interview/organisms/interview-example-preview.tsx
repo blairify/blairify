@@ -1,11 +1,11 @@
 "use client";
 
+import { Lightbulb, MessageSquare, Sparkles } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Typography } from "@/components/common/atoms/typography";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { InterviewConfig } from "../types";
 
 interface InterviewExamplePreviewProps {
@@ -13,33 +13,26 @@ interface InterviewExamplePreviewProps {
   onLoadingChange?: (isLoading: boolean) => void;
 }
 
-interface ExampleQuestion {
-  id: string;
-  title: string;
-  prompt: string;
-}
-
-interface ExamplePreview {
-  question: ExampleQuestion;
+type ExampleData = {
+  description: string;
   answer: string;
-}
+};
 
-type ExamplePreviewResponse =
-  | {
-      success: true;
-      example: ExamplePreview | null;
-    }
-  | {
-      success: false;
-      error: string;
-    };
+type ApiResponse = {
+  success: boolean;
+  example?: {
+    question: { description: string };
+    answer: string;
+  } | null;
+  error?: string;
+};
 
 export function InterviewExamplePreview({
   config,
   onLoadingChange,
 }: InterviewExamplePreviewProps) {
   const [isLoading, setIsLoading] = useState(true);
-  const [example, setExample] = useState<ExamplePreview | null>(null);
+  const [data, setData] = useState<ExampleData | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
 
   const markdownComponents = useMemo<Components>(() => {
@@ -64,9 +57,16 @@ export function InterviewExamplePreview({
       },
       pre({ children }) {
         return (
-          <pre className="my-2 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
-            {children}
-          </pre>
+          <div className="relative group my-6 overflow-hidden rounded-xl border border-emerald-500/10 bg-black shadow-2xl">
+            <div className="absolute top-0 right-0 px-3 py-1 bg-emerald-500/5 border-l border-b border-emerald-500/10 rounded-bl-lg">
+              <Typography.SubCaptionBold className="text-[9px] text-emerald-500/60 uppercase tracking-widest font-mono">
+                Console
+              </Typography.SubCaptionBold>
+            </div>
+            <pre className="p-4 sm:p-5 overflow-x-auto font-mono text-xs sm:text-[13px] leading-relaxed text-emerald-400/90 selection:bg-emerald-500/20 whitespace-pre">
+              {children}
+            </pre>
+          </div>
         );
       },
       code({ children }) {
@@ -90,7 +90,7 @@ export function InterviewExamplePreview({
       if (!active) return;
       setIsLoading(true);
       onLoadingChange?.(true);
-      setExample(null);
+      setData(null);
       setLoadError(null);
 
       try {
@@ -101,25 +101,28 @@ export function InterviewExamplePreview({
           signal: controller.signal,
         });
 
-        const data = (await res.json()) as ExamplePreviewResponse;
+        const payload = (await res.json()) as ApiResponse;
         if (!res.ok) {
           if (!active) return;
           setLoadError("Failed to load example answer.");
           return;
         }
 
-        if (!data.success) {
+        if (!payload.success) {
           if (!active) return;
-          setLoadError(data.error || "Failed to load example answer.");
+          setLoadError(payload.error || "Failed to load example answer.");
           return;
         }
 
-        if (!data.example) {
+        if (!payload.example) {
           return;
         }
 
         if (!active) return;
-        setExample(data.example);
+        setData({
+          description: payload.example.question.description,
+          answer: payload.example.answer,
+        });
       } catch {
         if (!active) return;
         setLoadError("Failed to load example answer.");
@@ -141,75 +144,86 @@ export function InterviewExamplePreview({
 
   if (isLoading) {
     return (
-      <Card>
-        <CardHeader className="py-4 sm:py-5">
-          <CardTitle className="text-lg sm:text-xl">Example</CardTitle>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <div className="space-y-3">
-            <div className="h-4 w-2/3 bg-muted rounded" />
-            <div className="h-3 w-full bg-muted rounded" />
-            <div className="h-3 w-11/12 bg-muted rounded" />
-            <div className="h-3 w-5/6 bg-muted rounded" />
+      <div className="relative bg-[#0A0A0A] border border-white/10 rounded-[32px] overflow-hidden backdrop-blur-xl p-8 sm:p-10">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+            <Sparkles className="size-5 text-primary/40" />
           </div>
-        </CardContent>
-      </Card>
+          <div className="h-5 w-32 bg-white/5 animate-pulse rounded-md" />
+        </div>
+        <div className="space-y-4">
+          <div className="h-4 w-2/3 bg-white/5 rounded animate-pulse" />
+          <div className="h-3 w-full bg-white/5 rounded animate-pulse" />
+          <div className="h-3 w-11/12 bg-white/5 rounded animate-pulse" />
+        </div>
+      </div>
     );
   }
 
-  if (!example) {
+  if (!data) {
     return (
-      <Card>
-        <CardHeader className="py-4 sm:py-5">
-          <CardTitle className="text-lg sm:text-xl">Example</CardTitle>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <Typography.Body className="text-sm sm:text-base text-muted-foreground">
-            {loadError ??
-              "No example answer available for this configuration yet."}
-          </Typography.Body>
-        </CardContent>
-      </Card>
+      <div className="bg-white/5 border border-white/10 rounded-[32px] p-8 text-center">
+        <Typography.Body className="text-gray-500 italic">
+          {loadError ?? "Sample data is not available for this configuration."}
+        </Typography.Body>
+      </div>
     );
   }
 
   return (
-    <Card>
-      <CardHeader className="py-4 sm:py-5">
-        <CardTitle className="text-lg sm:text-xl">Example</CardTitle>
-      </CardHeader>
-      <CardContent className="pt-0 space-y-5">
-        <section className="space-y-2" aria-label="Example Question">
-          <Typography.CaptionBold className="text-muted-foreground">
-            Example Question
-          </Typography.CaptionBold>
-          <Typography.BodyBold className="text-sm sm:text-base">
-            {example.question.title}
-          </Typography.BodyBold>
-          <Typography.Body className="text-sm sm:text-base text-foreground">
-            {example.question.prompt}
-          </Typography.Body>
-        </section>
-
-        <section
-          className="space-y-2"
-          aria-label="What a good answer looks like"
-        >
-          <Typography.CaptionBold className="text-muted-foreground">
-            What a good answer looks like
-          </Typography.CaptionBold>
-          <div className="rounded-lg border bg-muted/30 p-3 sm:p-4">
-            <div className="text-foreground">
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                components={markdownComponents}
-              >
-                {example.answer || "Example answer unavailable."}
-              </ReactMarkdown>
+    <div className="group relative">
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500/10 to-primary/10 rounded-[32px] blur opacity-30 group-hover:opacity-50 transition duration-1000" />
+      <div className="relative bg-[#0A0A0A] border border-white/10 rounded-[32px] overflow-hidden backdrop-blur-xl">
+        <div className="p-8 sm:p-10">
+          <div className="flex items-center gap-3 mb-10">
+            <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+              <Lightbulb className="size-5" />
             </div>
+            <Typography.BodyBold className="text-xl font-bold tracking-tight text-white uppercase">
+              Interview Preview
+            </Typography.BodyBold>
           </div>
-        </section>
-      </CardContent>
-    </Card>
+
+          <div className="space-y-10">
+            <section className="space-y-4" aria-label="Example Question">
+              <div className="flex items-center gap-2">
+                <MessageSquare className="size-3.5 text-gray-500" />
+                <Typography.SubCaptionMedium className="font-mono text-gray-500 uppercase tracking-widest">
+                  Sample Question
+                </Typography.SubCaptionMedium>
+              </div>
+              <div className="pl-6 border-l-2 border-primary/20">
+                <Typography.BodyBold className="text-lg sm:text-xl text-white mb-2 block">
+                  {data.description}
+                </Typography.BodyBold>
+              </div>
+            </section>
+
+            <section className="space-y-4" aria-label="Reference Answer">
+              <Typography.SubCaptionBold className="text-emerald-500 uppercase tracking-[0.2em] flex items-center gap-2">
+                <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Reference Response
+              </Typography.SubCaptionBold>
+              <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-6 sm:p-8 relative overflow-hidden group/ans">
+                {/* Technical Grid Accent */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
+
+                <div className="relative z-10 prose prose-invert prose-emerald max-w-none">
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={markdownComponents}
+                  >
+                    {data.answer || "No preview content available."}
+                  </ReactMarkdown>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        {/* Holographic accent */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-3xl rounded-full" />
+      </div>
+    </div>
   );
 }

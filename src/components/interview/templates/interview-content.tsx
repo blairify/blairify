@@ -31,6 +31,7 @@ import type { Message, QuestionType } from "../types";
 
 interface InterviewContentProps {
   user: UserData;
+  onInterviewStart?: () => void;
 }
 
 interface StartInterviewResponse {
@@ -84,7 +85,10 @@ function getUserFacingInterviewErrorMessage(error: unknown) {
   return "I ran into an issue processing that. Your answer is saved in the transcript. Please try again in a moment.";
 }
 
-export function InterviewContent({ user }: InterviewContentProps) {
+export function InterviewContent({
+  user,
+  onInterviewStart,
+}: InterviewContentProps) {
   const { config, mounted } = useInterviewConfig();
   const [isInterviewStarted, setIsInterviewStarted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -451,6 +455,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
     });
 
   const handleStartInterview = async () => {
+    onInterviewStart?.();
     setCompletionTerminationReason(null);
     setIsInterviewStarted(true);
     setIsLoading(true);

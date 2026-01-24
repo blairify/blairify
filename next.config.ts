@@ -18,6 +18,10 @@ const nextConfig: NextConfig & { serverExternalPackages: string[] } = {
         hostname: "d2q79iu7y748jz.cloudfront.net",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
   serverExternalPackages: [

@@ -11,7 +11,14 @@ import {
   Smartphone,
 } from "lucide-react";
 import { FaGoogle, FaMicrosoft } from "react-icons/fa";
-import { LuSprout } from "react-icons/lu";
+import { IoIosFlash } from "react-icons/io";
+import {
+  LuBookMarked,
+  LuGamepad2,
+  LuGraduationCap,
+  LuSprout,
+  LuSwords,
+} from "react-icons/lu";
 import { RiBookMarkedLine, RiBookShelfLine } from "react-icons/ri";
 import {
   SiAirbnb,
@@ -51,7 +58,7 @@ import {
   SiZapier,
   SiZcool,
 } from "react-icons/si";
-import { TbLayersDifference } from "react-icons/tb";
+import { TbLayersDifference, TbTimeDuration30 } from "react-icons/tb";
 
 export interface ConfigStep {
   id: string;
@@ -115,14 +122,14 @@ export const SENIORITY_LEVELS = [
   {
     value: "mid",
     label: "Mid-level",
-    description: "Working independently and solving most tasks alone",
+    description: "Independent and confident in their skills",
     color: "bg-orange-500",
     icon: RiBookShelfLine,
   },
   {
     value: "senior",
     label: "Senior",
-    description: "Strong expertise with deep system-level understanding",
+    description: "Strong expertise with deep system understanding",
     color: "bg-red-500",
     icon: SiZcool,
   },
@@ -607,33 +614,40 @@ export const TECHNOLOGY_GROUPS = {
 
 export const INTERVIEW_MODES = [
   {
+    value: "flash",
+    label: "Quick",
+    description: "Quick 3-question session",
+    icon: IoIosFlash,
+  },
+  {
     value: "regular",
     label: "Regular",
     description: "Realistic time pressure",
+    icon: TbTimeDuration30,
   },
   {
     value: "practice",
-    label: "Practice Mode",
+    label: "Practice",
     description: "Take your time to think",
+    icon: LuBookMarked,
   },
-  {
-    value: "flash",
-    label: "Flash Interview",
-    description: "Quick 3-question session",
-  },
+
   {
     value: "play",
     label: "Play Mode",
     description: "Coming soon...",
+    icon: LuGamepad2,
   },
   {
     value: "competitive",
-    label: "Competitive Interview",
+    label: "Competitive",
     description: "Coming soon...",
+    icon: LuSwords,
   },
   {
     value: "teacher",
-    label: "Teacher Mode",
+    label: "Teacher",
     description: "Coming soon...",
+    icon: LuGraduationCap,
   },
 ];

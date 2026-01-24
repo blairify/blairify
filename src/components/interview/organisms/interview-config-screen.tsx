@@ -1,12 +1,11 @@
 "use client";
 
-import { Building, Play, Target } from "lucide-react";
+import { Building, Clock, Loader2, Play, Shield } from "lucide-react";
 import { useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { InterviewBadge } from "../atoms/interview-badge";
+import { POSITIONS } from "@/constants/configure";
+import { cn } from "@/lib/utils";
 import type { InterviewConfig } from "../types";
 import { InterviewExamplePreview } from "./interview-example-preview";
 
@@ -25,128 +24,163 @@ export function InterviewConfigScreen({
 
   const isStartDisabled = isLoading || isExampleLoading;
 
+  // Get the icon for the current position
+  const positionData = POSITIONS.find((p) => p.value === config.position);
+  const PositionIcon = positionData?.icon || Shield;
+
   return (
-    <main className="flex-1 overflow-y-auto">
-      <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-4xl">
-        <div className="text-center mb-6 sm:mb-8">
-          <Typography.Heading1 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
-            Ready to Start Your Interview?
+    <main className="flex-1 overflow-y-auto relative">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 max-w-5xl relative z-10">
+        {/* Hero Section */}
+        <div className="text-center mb-12 sm:mb-16">
+          <Typography.Heading1 className="text-4xl sm:text-6xl font-black tracking-tighter text-white uppercase mb-6 leading-none">
+            Ready for your{" "}
+            <span className="text-primary italic">Interview?</span>
           </Typography.Heading1>
-          <Typography.Body className="text-sm sm:text-base text-muted-foreground">
-            Your personalized interview session is configured and ready to
-            begin.
+          <Typography.Body className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto font-medium">
+            Your technical session is ready. Please review the configuration
+            details below before beginning the assessment.
           </Typography.Body>
         </div>
 
-        <div className="space-y-6">
-          <Card>
-            <CardHeader className="py-4 sm:py-5">
-              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-                <Target className="size-4 sm:size-5" />
-                Interview Configuration
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">
-                    Position
-                  </p>
-                  <p className="font-semibold text-sm sm:text-base capitalize">
-                    {config.position}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">
-                    Seniority
-                  </p>
-                  <Badge
-                    variant="secondary"
-                    className="font-semibold capitalize"
-                  >
-                    {config.seniority}
-                  </Badge>
-                </div>
-                <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">
-                    Interview Type
-                  </p>
-                  <InterviewBadge type={config.interviewType} showLabel />
-                </div>
-                <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">
-                    Duration
-                  </p>
-                  <Badge variant="outline" className="font-semibold">
-                    {config.interviewMode === "practice" ||
-                    config.interviewMode === "teacher"
-                      ? "Untimed"
-                      : config.duration
-                        ? `${config.duration} minutes`
-                        : "Standard"}
-                  </Badge>
-                </div>
-              </div>
-              {config.contextType === "job-specific" && config.company && (
-                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-primary/10 border border-primary/20 rounded-lg">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Building className="size-4 sm:size-5 text-primary" />
-                    <Typography.Heading3 className="font-semibold text-sm sm:text-base text-primary">
-                      Job-Specific Interview
-                    </Typography.Heading3>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          {/* Left Column: Configuration Parameters */}
+          <div className="lg:col-span-2 space-y-8">
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-[32px] blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
+              <div className="relative bg-[#0A0A0A] border border-white/10 rounded-[32px] overflow-hidden backdrop-blur-xl">
+                <div className="p-8 sm:p-10">
+                  <div className="grid grid-cols-3 gap-x-12 gap-y-10 items-center justify-center">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-center gap-2">
+                        <PositionIcon className="size-5 text-primary/50" />
+                        <Typography.BodyBold className=" text-white capitalize leading-none">
+                          {config.position}
+                        </Typography.BodyBold>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-center gap-2">
+                        <Shield className="size-5 text-primary/50" />
+
+                        <Typography.BodyBold className=" text-white capitalize leading-none">
+                          {config.seniority}
+                        </Typography.BodyBold>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 justify-center text-white">
+                        <Clock className="size-5 text-gray-400" />
+                        <Typography.BodyBold className="leading-none">
+                          {config.interviewMode === "practice" ||
+                          config.interviewMode === "teacher"
+                            ? "Infinite"
+                            : `${config.duration || "30"}m`}
+                        </Typography.BodyBold>
+                      </div>
+                    </div>
                   </div>
-                  <Typography.Body className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3">
-                    This interview is tailored for the{" "}
-                    <strong>{config.position}</strong> position at{" "}
-                    <strong>{config.company}</strong>
-                  </Typography.Body>
-                  {config.jobDescription && (
-                    <div className="text-xs text-muted-foreground">
-                      <p className="font-medium mb-1">Job Focus:</p>
-                      <p className="line-clamp-2">
-                        {config.jobDescription.substring(0, 150)}...
-                      </p>
+
+                  {config.contextType === "job-specific" && config.company && (
+                    <div className="mt-12 pt-10 border-t border-white/5 relative">
+                      <Typography.SubCaptionBold className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 bg-[#0A0A0A] text-primary uppercase tracking-[0.3em]">
+                        Job Details
+                      </Typography.SubCaptionBold>
+                      <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+                        <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                          <Building className="size-8 text-primary/80" />
+                        </div>
+                        <div className="flex-1">
+                          <Typography.BodyBold className="text-white text-lg mb-1">
+                            Tailored for {config.company}
+                          </Typography.BodyBold>
+                          <Typography.Caption className="text-gray-400 leading-relaxed line-clamp-2 italic">
+                            "{config.jobDescription}"
+                          </Typography.Caption>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
-              )}
-            </CardContent>
-          </Card>
+              </div>
+            </div>
 
-          <InterviewExamplePreview
-            config={config}
-            onLoadingChange={setIsExampleLoading}
-          />
+            <InterviewExamplePreview
+              config={config}
+              onLoadingChange={setIsExampleLoading}
+            />
+          </div>
 
-          <div className="text-center pt-1">
-            <Button
-              onClick={onStart}
-              disabled={isStartDisabled}
-              className="h-11 sm:h-12 px-6 sm:px-8 text-base sm:text-lg w-full sm:w-auto"
-            >
-              {isLoading ? (
-                <>
-                  <div className="size-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
-                  Starting Interview...
-                </>
-              ) : isExampleLoading ? (
-                <>
-                  <div className="size-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
-                  Loading example...
-                </>
-              ) : (
-                <>
-                  <Play className="size-4 sm:size-5 mr-2" />
-                  Start Interview
-                </>
-              )}
-            </Button>
+          {/* Right Column: Ignition / Call to Action */}
+          <div className="lg:sticky lg:top-8 space-y-6">
+            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#0A0A0A] via-[#0A0A0A] to-primary/5 backdrop-blur-xl shadow-2xl">
+              {/* Animated gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 
-            {isExampleLoading ? (
-              <Typography.Body className="mt-2 text-xs text-muted-foreground">
-                Please wait for the example answer to load.
-              </Typography.Body>
-            ) : null}
+              {/* Radial glow effect */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+
+              <div className="relative z-10 p-12 flex flex-col items-center gap-8">
+                {/* Start Button */}
+                <Button
+                  onClick={onStart}
+                  disabled={isStartDisabled}
+                  className={cn(
+                    "size-28 bg-primary text-black rounded-full hover:scale-110 active:scale-95 transition-all duration-500 shadow-[0_0_50px_-5px_rgba(var(--primary),0.4)] hover:shadow-[0_0_80px_-5px_rgba(var(--primary),0.6)] disabled:opacity-50 disabled:grayscale p-0 flex items-center justify-center group/play-btn relative",
+                  )}
+                >
+                  {/* Button glow ring */}
+                  <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl group-hover/play-btn:bg-primary/30 transition-all" />
+
+                  {isLoading ? (
+                    <Loader2 className="size-10 animate-spin relative z-10" />
+                  ) : isExampleLoading ? (
+                    <div className="flex flex-col items-center gap-1.5 relative z-10">
+                      <Loader2 className="size-7 animate-spin" />
+                      <Typography.SubCaptionBold className="uppercase tracking-tighter text-black text-[9px]">
+                        Calibrating
+                      </Typography.SubCaptionBold>
+                    </div>
+                  ) : (
+                    <Play className="size-12 fill-current ml-1.5 transition-transform group-hover/play-btn:scale-110 relative z-10" />
+                  )}
+                </Button>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl border border-white/5 bg-white/[0.02]">
+              <Typography.SubCaptionBold className="font-mono text-gray-500 uppercase tracking-widest mb-3 block">
+                Protips
+              </Typography.SubCaptionBold>
+              <ul className="space-y-2 list-none">
+                <li className="flex gap-2">
+                  <Typography.SubCaptionBold className="text-primary">
+                    01
+                  </Typography.SubCaptionBold>
+                  <Typography.SubCaptionMedium className="text-gray-400">
+                    Speak clearly and concisely.
+                  </Typography.SubCaptionMedium>
+                </li>
+                <li className="flex gap-2">
+                  <Typography.SubCaptionBold className="text-primary">
+                    02
+                  </Typography.SubCaptionBold>
+                  <Typography.SubCaptionMedium className="text-gray-400">
+                    Use the Star Method for behavioral.
+                  </Typography.SubCaptionMedium>
+                </li>
+                <li className="flex gap-2">
+                  <Typography.SubCaptionBold className="text-primary">
+                    03
+                  </Typography.SubCaptionBold>
+                  <Typography.SubCaptionMedium className="text-gray-400">
+                    Thinking out loud is encouraged.
+                  </Typography.SubCaptionMedium>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
