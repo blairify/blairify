@@ -301,9 +301,11 @@ pre code.hljs {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -784,9 +786,11 @@ code.hljs {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -830,14 +834,6 @@ code.hljs {
    Mobile Optimizations
    ============================== */
 @media (max-width: 768px) {
-  button,
-  [role="button"],
-  input[type="button"],
-  input[type="submit"],
-  input[type="reset"] {
-    min-height: 44px;
-  }
-
   h1 {
     font-size: 1.75rem;
     line-height: 1.2;
@@ -856,12 +852,6 @@ code.hljs {
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  a,
-  button {
-    min-height: 44px;
-    min-width: 44px;
   }
 
   input,
@@ -1028,10 +1018,12 @@ code.hljs {
     left: calc(0 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   8.333% {
     left: calc(0 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   100% {
     left: calc(0 * var(--offset));
     top: calc(1 * var(--offset));
@@ -1043,26 +1035,32 @@ code.hljs {
     left: calc(0 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   8.333% {
     left: calc(0 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   16.67% {
     left: calc(1 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   25.00% {
     left: calc(1 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   83.33% {
     left: calc(1 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   91.67% {
     left: calc(1 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   100% {
     left: calc(0 * var(--offset));
     top: calc(0 * var(--offset));
@@ -1075,34 +1073,42 @@ code.hljs {
     left: calc(1 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   16.67% {
     left: calc(1 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   25.00% {
     left: calc(1 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   33.33% {
     left: calc(2 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   41.67% {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   66.67% {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   75.00% {
     left: calc(2 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   83.33% {
     left: calc(1 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   91.67% {
     left: calc(1 * var(--offset));
     top: calc(1 * var(--offset));
@@ -1114,22 +1120,27 @@ code.hljs {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   33.33% {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   41.67% {
     left: calc(2 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   50.00% {
     left: calc(3 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   58.33% {
     left: calc(3 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   100% {
     left: calc(3 * var(--offset));
     top: calc(1 * var(--offset));
@@ -1141,22 +1152,27 @@ code.hljs {
     left: calc(3 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   50.00% {
     left: calc(3 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   58.33% {
     left: calc(3 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   66.67% {
     left: calc(2 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   75.00% {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   100% {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
@@ -1168,6 +1184,7 @@ code.hljs {
     transform: scale(0.75);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;

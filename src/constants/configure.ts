@@ -615,8 +615,8 @@ export const TECHNOLOGY_GROUPS = {
 export const INTERVIEW_MODES = [
   {
     value: "flash",
-    label: "Quick",
-    description: "Quick 3-question session",
+    label: "Flash",
+    description: "Quick warm up session",
     icon: IoIosFlash,
   },
   {

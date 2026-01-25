@@ -102,15 +102,15 @@ export default function DashboardNavbar({
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link aria-label="View Profile" href="/profile">
-                    <div className="size-10 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
+                    <div className="size-9 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
                       {userData?.avatarIcon ? (
                         <AvatarIconDisplay
                           iconId={userData.avatarIcon}
                           size="sm"
-                          className="size-10"
+                          className="size-9"
                         />
                       ) : (
-                        <Avatar className="size-10 my-auto border-2 border-primary/20">
+                        <Avatar className="size-9 my-auto border-2 border-primary/20">
                           <AvatarImage
                             src={user?.photoURL || userData?.photoURL}
                             alt={

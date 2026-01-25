@@ -9,6 +9,7 @@ import {
   CheckCircle,
   ChevronDown,
   Clock,
+  Clock9,
   Code,
   FileDown,
   Lightbulb,
@@ -47,6 +48,11 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
+import {
+  INTERVIEW_MODES,
+  POSITIONS,
+  SENIORITY_LEVELS,
+} from "@/constants/configure";
 import { DatabaseService } from "@/lib/database";
 import { useAuth } from "@/providers/auth-provider";
 import type { InterviewQuestion, InterviewSession } from "@/types/firestore";
@@ -657,76 +663,89 @@ export default function SessionDetailsPage() {
                   )}
 
                   {/* Interview Configuration */}
-                  <Card className="mb-8 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-                    <CardHeader className="px-6 py-4 border-b border-border/30">
-                      <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                        <User className="size-5 text-primary" />
+                  <div className="mb-12">
+                    <div className="flex items-center gap-2 mb-6">
+                      <Typography.BodyBold className="text-xl">
                         Interview Configuration
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-6">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                            Position
-                          </div>
-                          <div className="font-bold text-base capitalize text-foreground">
-                            {session.config.position}
-                          </div>
-                        </div>
-                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                            Seniority Level
-                          </div>
-                          <div className="font-bold text-base capitalize text-foreground">
-                            {session.config.seniority}
-                          </div>
-                        </div>
-                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                            Interview Type
-                          </div>
-                          <div className="font-bold text-base capitalize text-foreground">
-                            {session.config.interviewType}
-                          </div>
-                        </div>
-                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                            Mode
-                          </div>
-                          <Badge
-                            variant="default"
-                            className="capitalize font-semibold"
-                          >
-                            {session.config.interviewMode}
-                          </Badge>
-                        </div>
-                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                            Duration
-                          </div>
-                          <div className="font-bold text-base text-foreground">
-                            {session.config.duration} minutes
-                          </div>
-                        </div>
-                        <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                          <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                            Status
-                          </div>
-                          <Badge
-                            variant={
-                              session.status === "completed"
-                                ? "default"
-                                : "secondary"
-                            }
-                            className="capitalize font-semibold"
-                          >
-                            {session.status}
-                          </Badge>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </Typography.BodyBold>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                      {(() => {
+                        const positionInfo = POSITIONS.find(
+                          (p: any) => p.value === session.config.position,
+                        );
+                        const seniorityInfo = SENIORITY_LEVELS.find(
+                          (s: any) => s.value === session.config.seniority,
+                        );
+                        const modeInfo = INTERVIEW_MODES.find(
+                          (m: any) => m.value === session.config.interviewMode,
+                        );
+
+                        const items = [
+                          {
+                            label: "Position",
+                            value:
+                              positionInfo?.label || session.config.position,
+                            icon: positionInfo?.icon || Code,
+                          },
+                          {
+                            label: "Seniority",
+                            value:
+                              seniorityInfo?.label || session.config.seniority,
+                            icon: seniorityInfo?.icon || Trophy,
+                          },
+                          {
+                            label: "Type",
+                            value: session.config.interviewType,
+                            icon: Target,
+                          },
+                          {
+                            label: "Mode",
+                            value:
+                              modeInfo?.label || session.config.interviewMode,
+                            icon: modeInfo?.icon || Clock,
+                          },
+                          {
+                            label: "Duration",
+                            value: `${session.config.duration}m`,
+                            icon: Clock9,
+                          },
+                          {
+                            label: "Status",
+                            value: session.status,
+                            icon: CheckCircle,
+                          },
+                        ];
+
+                        return items.map((item, idx) => {
+                          const Icon = item.icon;
+                          return (
+                            <Card
+                              key={idx}
+                              className="border-border/60 bg-card/50 shadow-none"
+                            >
+                              <CardContent className="flex flex-col items-start gap-4 p-4">
+                                <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                                  <Icon className="size-4 flex-shrink-0" />
+                                </div>
+                                <div className="space-y-1">
+                                  <Typography.Caption
+                                    color="secondary"
+                                    className="uppercase tracking-wider font-semibold text-[10px]"
+                                  >
+                                    {item.label}
+                                  </Typography.Caption>
+                                  <div className="font-bold text-sm capitalize truncate w-full">
+                                    {item.value}
+                                  </div>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          );
+                        });
+                      })()}
+                    </div>
+                  </div>
 
                   {/* Detailed Performance Assessment */}
                   <div className="mb-4 flex items-center gap-2">

@@ -428,23 +428,8 @@ export function ConfigureContent() {
     const [onlyChoice] = autoAdvanceTechChoices;
     if (!config.technologies.includes(onlyChoice.value)) {
       updateConfig("technologies", [onlyChoice.value]);
-      return;
     }
-    if (
-      currentStepId === "technologies" &&
-      checkCanGoNext(currentStepId, config) &&
-      currentStep < visibleSteps.length - 1
-    ) {
-      setCurrentStep((prev) => Math.min(prev + 1, visibleSteps.length - 1));
-    }
-  }, [
-    autoAdvanceTechChoices,
-    config,
-    currentStep,
-    currentStepId,
-    updateConfig,
-    visibleSteps.length,
-  ]);
+  }, [autoAdvanceTechChoices, config.technologies, updateConfig]);
 
   const filteredTechChoices = (() => {
     if (!isTechRequired(config.position)) return [];
@@ -558,7 +543,7 @@ export function ConfigureContent() {
           size="sm"
           className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2 !min-h-0"
         >
-          <span className="inline">Start</span>
+          <span className="inline">Next</span>
           <ArrowRight className="size-4 sm:size-5" />
         </Button>
       );
@@ -600,11 +585,8 @@ export function ConfigureContent() {
     }));
     setAnalysisError(null);
 
-    // Auto-advance to next step after flow selection
-    const nextVisibleSteps = getVisibleStepsForFlow(mode);
-    if (currentStep < nextVisibleSteps.length - 1) {
-      setCurrentStep(currentStep + 1);
-    }
+    // Auto-advance to next step
+    setCurrentStep(1);
   };
 
   const handleAnalyzeDescription = async (
@@ -1154,7 +1136,7 @@ export function ConfigureContent() {
           <span
             aria-label={`${tech.label} logo`}
             role="img"
-            className="size-6 flex-shrink-0 rounded-sm text-primary"
+            className="size-5 flex-shrink-0 rounded-sm text-primary"
             style={{
               backgroundColor: "currentColor",
               WebkitMaskImage: `url(${tech.icon})`,
@@ -1170,7 +1152,7 @@ export function ConfigureContent() {
         );
       }
 
-      return <tech.icon className="size-6 text-primary flex-shrink-0" />;
+      return <tech.icon className="size-5 text-primary flex-shrink-0" />;
     };
 
     return (
@@ -1179,18 +1161,16 @@ export function ConfigureContent() {
           {filteredTechChoices.map((tech) => (
             <Card
               key={tech.value}
-              className={`cursor-pointer py-0 transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
+              className={`cursor-pointer my-auto py-0 rounded-md transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
                 selected.has(tech.value)
                   ? "ring-1 border-primary ring-primary bg-primary/10"
                   : "border-border"
               }`}
               onClick={() => handleToggleTechnology(tech.value)}
             >
-              <CardContent className="flex flex-row items-center gap-4 px-4 py-3">
+              <CardContent className="flex flex-row items-center gap-4 px-4 py-2">
                 {renderTechIcon(tech)}
-                <div className="flex-1 text-left">
-                  <Typography.BodyBold>{tech.label}</Typography.BodyBold>
-                </div>
+                <Typography.BodyBold>{tech.label}</Typography.BodyBold>
               </CardContent>
             </Card>
           ))}
@@ -1205,22 +1185,10 @@ export function ConfigureContent() {
         <ModeSelectionStep
           config={config}
           onSelect={(mode) => {
-            const updatedConfig = {
-              ...config,
+            setConfig((prev) => ({
+              ...prev,
               interviewMode: mode,
-            };
-            setConfig(updatedConfig);
-
-            // Auto-start if all conditions met
-            const canAutoStart =
-              canStartInterview(updatedConfig) &&
-              (!usageStatus.checked ||
-                usageStatus.canStart ||
-                usageStatus.isPro);
-
-            if (canAutoStart) {
-              handleStartInterview(updatedConfig);
-            }
+            }));
           }}
         />
 
@@ -1348,9 +1316,13 @@ export function ConfigureContent() {
 
         <div className="px-4 sm:px-6 py-6">
           <div className="max-w-5xl mx-auto flex items-center justify-between sm:justify-center w-full">
-            <div className="sm:hidden">{renderPreviousButton()}</div>
+            <div className="sm:hidden">
+              {currentStepId !== "flow" && renderPreviousButton()}
+            </div>
             <PaginationIndicator total={totalSteps} current={currentStep} />
-            <div className="sm:hidden">{renderNextButton()}</div>
+            <div className="sm:hidden">
+              {currentStepId !== "flow" && renderNextButton()}
+            </div>
           </div>
         </div>
       </div>

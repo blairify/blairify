@@ -1,11 +1,20 @@
 "use client";
 
-import { Building, Clock, Loader2, Play, Shield } from "lucide-react";
+import {
+  Building,
+  CheckCircle,
+  Clock,
+  Lightbulb,
+  Loader2,
+  Play,
+  Shield,
+  Trophy,
+} from "lucide-react";
 import { useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
-import { POSITIONS } from "@/constants/configure";
-import { cn } from "@/lib/utils";
+import { Card, CardContent } from "@/components/ui/card";
+import { POSITIONS, SENIORITY_LEVELS } from "@/constants/configure";
 import type { InterviewConfig } from "../types";
 import { InterviewExamplePreview } from "./interview-example-preview";
 
@@ -24,88 +33,100 @@ export function InterviewConfigScreen({
 
   const isStartDisabled = isLoading || isExampleLoading;
 
-  // Get the icon for the current position
-  const positionData = POSITIONS.find((p) => p.value === config.position);
-  const PositionIcon = positionData?.icon || Shield;
-
   return (
-    <main className="flex-1 overflow-y-auto relative">
-      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 max-w-5xl relative z-10">
-        {/* Hero Section */}
-        <div className="text-center mb-12 sm:mb-16">
-          <Typography.Heading1 className="text-4xl sm:text-6xl font-black tracking-tighter text-white uppercase mb-6 leading-none">
-            Ready for your{" "}
-            <span className="text-primary italic">Interview?</span>
-          </Typography.Heading1>
-          <Typography.Body className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto font-medium">
-            Your technical session is ready. Please review the configuration
-            details below before beginning the assessment.
+    <main className="flex-1 overflow-y-auto bg-background/50">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-5xl">
+        {/* Header Section */}
+        <div className="flex flex-col gap-2 mb-10 text-left">
+          <Typography.BodyBold className="text-3xl sm:text-4xl">
+            Preview your <span className="text-primary italic">Interview</span>
+          </Typography.BodyBold>
+          <Typography.Body className="text-muted-foreground">
+            Review your configuration and sample questions before beginning.
           </Typography.Body>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Left Column: Configuration Parameters */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-[32px] blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
-              <div className="relative bg-[#0A0A0A] border border-white/10 rounded-[32px] overflow-hidden backdrop-blur-xl">
-                <div className="p-8 sm:p-10">
-                  <div className="grid grid-cols-3 gap-x-12 gap-y-10 items-center justify-center">
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-center gap-2">
-                        <PositionIcon className="size-5 text-primary/50" />
-                        <Typography.BodyBold className=" text-white capitalize leading-none">
-                          {config.position}
-                        </Typography.BodyBold>
-                      </div>
+            {/* Config Summary Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {(() => {
+                const positionInfo = POSITIONS.find(
+                  (p) => p.value === config.position,
+                );
+                const seniorityInfo = SENIORITY_LEVELS.find(
+                  (s) => s.value === config.seniority,
+                );
+
+                const stats = [
+                  {
+                    label: "Position",
+                    value: positionInfo?.label || config.position,
+                    icon: positionInfo?.icon || Shield,
+                  },
+                  {
+                    label: "Seniority",
+                    value: seniorityInfo?.label || config.seniority,
+                    icon: seniorityInfo?.icon || Trophy,
+                  },
+                  {
+                    label: "Duration",
+                    value:
+                      config.interviewMode === "practice" ||
+                      config.interviewMode === "teacher"
+                        ? "Infinite"
+                        : `${config.duration || "30"}m`,
+                    icon: Clock,
+                  },
+                ];
+
+                return stats.map((stat, idx) => {
+                  const Icon = stat.icon;
+                  return (
+                    <Card
+                      key={idx}
+                      className="border-border/60 bg-card/50 shadow-none"
+                    >
+                      <CardContent className="flex flex-col items-start gap-3">
+                        <Icon className="size-5 flex-shrink-0" />
+                        <div className="space-y-1">
+                          <Typography.Caption
+                            color="secondary"
+                            className="uppercase tracking-wider font-semibold text-[10px]"
+                          >
+                            {stat.label}
+                          </Typography.Caption>
+                          <div className="font-bold text-sm capitalize truncate">
+                            {stat.value}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                });
+              })()}
+            </div>
+
+            {config.contextType === "job-specific" && config.company && (
+              <Card className="border-border/60 bg-card/50 shadow-none overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex gap-5 items-start">
+                    <div className="p-3 rounded-2xl bg-muted text-muted-foreground flex-shrink-0">
+                      <Building className="size-6" />
                     </div>
-
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-center gap-2">
-                        <Shield className="size-5 text-primary/50" />
-
-                        <Typography.BodyBold className=" text-white capitalize leading-none">
-                          {config.seniority}
-                        </Typography.BodyBold>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2 justify-center text-white">
-                        <Clock className="size-5 text-gray-400" />
-                        <Typography.BodyBold className="leading-none">
-                          {config.interviewMode === "practice" ||
-                          config.interviewMode === "teacher"
-                            ? "Infinite"
-                            : `${config.duration || "30"}m`}
-                        </Typography.BodyBold>
-                      </div>
+                    <div className="space-y-2">
+                      <Typography.BodyBold className="text-lg">
+                        Tailored for {config.company}
+                      </Typography.BodyBold>
+                      <Typography.Caption className="text-muted-foreground leading-relaxed line-clamp-3 italic">
+                        "{config.jobDescription}"
+                      </Typography.Caption>
                     </div>
                   </div>
-
-                  {config.contextType === "job-specific" && config.company && (
-                    <div className="mt-12 pt-10 border-t border-white/5 relative">
-                      <Typography.SubCaptionBold className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 bg-[#0A0A0A] text-primary uppercase tracking-[0.3em]">
-                        Job Details
-                      </Typography.SubCaptionBold>
-                      <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                        <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                          <Building className="size-8 text-primary/80" />
-                        </div>
-                        <div className="flex-1">
-                          <Typography.BodyBold className="text-white text-lg mb-1">
-                            Tailored for {config.company}
-                          </Typography.BodyBold>
-                          <Typography.Caption className="text-gray-400 leading-relaxed line-clamp-2 italic">
-                            "{config.jobDescription}"
-                          </Typography.Caption>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
+                </CardContent>
+              </Card>
+            )}
 
             <InterviewExamplePreview
               config={config}
@@ -113,73 +134,67 @@ export function InterviewConfigScreen({
             />
           </div>
 
-          {/* Right Column: Ignition / Call to Action */}
-          <div className="lg:sticky lg:top-8 space-y-6">
-            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#0A0A0A] via-[#0A0A0A] to-primary/5 backdrop-blur-xl shadow-2xl">
-              {/* Animated gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+          {/* Sidebar Actions */}
+          <div className="space-y-6">
+            <Card className="border-border/60 bg-card shadow-sm">
+              <CardContent className="space-y-6">
+                <div className="space-y-2">
+                  <Typography.BodyBold className="text-lg">
+                    Ready to start?
+                  </Typography.BodyBold>
+                  <Typography.Caption color="secondary">
+                    Your assessment is calibrated and ready for your responses.
+                  </Typography.Caption>
+                </div>
 
-              {/* Radial glow effect */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-
-              <div className="relative z-10 p-12 flex flex-col items-center gap-8">
-                {/* Start Button */}
-                <Button
-                  onClick={onStart}
-                  disabled={isStartDisabled}
-                  className={cn(
-                    "size-28 bg-primary text-black rounded-full hover:scale-110 active:scale-95 transition-all duration-500 shadow-[0_0_50px_-5px_rgba(var(--primary),0.4)] hover:shadow-[0_0_80px_-5px_rgba(var(--primary),0.6)] disabled:opacity-50 disabled:grayscale p-0 flex items-center justify-center group/play-btn relative",
-                  )}
-                >
-                  {/* Button glow ring */}
-                  <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl group-hover/play-btn:bg-primary/30 transition-all" />
-
+                <Button onClick={onStart} disabled={isStartDisabled} size="lg">
                   {isLoading ? (
-                    <Loader2 className="size-10 animate-spin relative z-10" />
+                    <Loader2 className="size-5 animate-spin" />
                   ) : isExampleLoading ? (
-                    <div className="flex flex-col items-center gap-1.5 relative z-10">
-                      <Loader2 className="size-7 animate-spin" />
-                      <Typography.SubCaptionBold className="uppercase tracking-tighter text-black text-[9px]">
-                        Calibrating
-                      </Typography.SubCaptionBold>
-                    </div>
+                    <>
+                      <Loader2 className="size-5 animate-spin" />
+                      Calibrating...
+                    </>
                   ) : (
-                    <Play className="size-12 fill-current ml-1.5 transition-transform group-hover/play-btn:scale-110 relative z-10" />
+                    <>
+                      <Play className="size-3 fill-current" />
+                      Start Interview
+                    </>
                   )}
                 </Button>
-              </div>
-            </div>
 
-            <div className="p-6 rounded-2xl border border-white/5 bg-white/[0.02]">
-              <Typography.SubCaptionBold className="font-mono text-gray-500 uppercase tracking-widest mb-3 block">
-                Protips
-              </Typography.SubCaptionBold>
-              <ul className="space-y-2 list-none">
-                <li className="flex gap-2">
-                  <Typography.SubCaptionBold className="text-primary">
-                    01
-                  </Typography.SubCaptionBold>
-                  <Typography.SubCaptionMedium className="text-gray-400">
-                    Speak clearly and concisely.
-                  </Typography.SubCaptionMedium>
-                </li>
-                <li className="flex gap-2">
-                  <Typography.SubCaptionBold className="text-primary">
-                    02
-                  </Typography.SubCaptionBold>
-                  <Typography.SubCaptionMedium className="text-gray-400">
-                    Use the Star Method for behavioral.
-                  </Typography.SubCaptionMedium>
-                </li>
-                <li className="flex gap-2">
-                  <Typography.SubCaptionBold className="text-primary">
-                    03
-                  </Typography.SubCaptionBold>
-                  <Typography.SubCaptionMedium className="text-gray-400">
-                    Thinking out loud is encouraged.
-                  </Typography.SubCaptionMedium>
-                </li>
-              </ul>
+                <div className="pt-6 border-t border-border/40">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Lightbulb className="size-4 text-amber-500" />
+                    <Typography.CaptionBold className="uppercase tracking-widest text-[10px] text-muted-foreground">
+                      Interview Tips
+                    </Typography.CaptionBold>
+                  </div>
+                  <ul className="space-y-4">
+                    {[
+                      "Speak clearly and concisely.",
+                      "Use the STAR Method for behavioral answers.",
+                      "Thinking out loud is highly encouraged.",
+                    ].map((tip, i) => (
+                      <li key={i} className="flex gap-3 items-start">
+                        <div className="size-5 rounded-full bg-primary/5 border border-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <CheckCircle className="size-3 text-primary" />
+                        </div>
+                        <Typography.Caption className="text-muted-foreground leading-snug">
+                          {tip}
+                        </Typography.Caption>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="p-4 px-6 rounded-2xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50">
+              <Typography.Caption className="text-amber-800 dark:text-amber-400 italic text-xs leading-relaxed">
+                Tip: Ensure you are in a quiet environment with a stable
+                connection before proceeding.
+              </Typography.Caption>
             </div>
           </div>
         </div>

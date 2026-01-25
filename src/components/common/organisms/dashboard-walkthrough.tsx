@@ -322,5 +322,5 @@ export function DashboardWalkthrough(): ReactNode {
     portalTarget,
   );
 
-  return portal;
+  return portal as ReactNode;
 }
