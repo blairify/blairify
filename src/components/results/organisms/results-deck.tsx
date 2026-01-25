@@ -15,7 +15,6 @@ import {
 } from "@/components/achievements/constants/icon-map";
 import { Typography } from "@/components/common/atoms/typography";
 import { MarkdownContent } from "@/components/common/molecules/markdown-content";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Achievement } from "@/lib/achievements";
 import type { InterviewResults } from "@/types/interview";
@@ -370,7 +369,6 @@ function buildPlanItems(results: InterviewResults, max: number): string[] {
 
 interface ResultsDeckProps {
   results: InterviewResults;
-  sessionId: string;
   rewards: { xpGained: number; achievements: Achievement[] } | null;
   onRewardsConsumed: () => void;
   onOpenFullReport: () => void;
@@ -636,7 +634,6 @@ function getStepIcon(stepId: DeckStepId) {
 
 export function ResultsDeck({
   results,
-  sessionId,
   rewards,
   onRewardsConsumed,
   onOpenFullReport,
@@ -1004,11 +1001,6 @@ export function ResultsDeck({
                 <ChevronRight className="size-5" />
               </Button>
             </div>
-          </div>
-          <div className="flex items-center justify-between gap-3">
-            <Badge variant="secondary" className="font-semibold">
-              Session: {sessionId.slice(0, 6)}
-            </Badge>
           </div>
 
           <AnimatePresence mode="wait" initial={false}>

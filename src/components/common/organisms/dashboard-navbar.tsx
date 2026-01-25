@@ -136,13 +136,10 @@ export default function DashboardNavbar({
                 </TooltipContent>
               </Tooltip>
 
-              {/* User info - name, rank, and XP */}
+              {/* User info - rank and XP only */}
               {!isMobile && (
                 <div className="flex flex-col gap-1 min-w-0">
                   <div className="flex items-center gap-2 min-w-0">
-                    <span className="text-sm font-medium text-foreground truncate">
-                      {userData?.displayName || user?.displayName || "User"}
-                    </span>
                     <RankBadgeInline rank={rank} className="shrink-0" />
                   </div>
                   <XPProgressBarCompact

@@ -1475,7 +1475,6 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             {savedSessionId ? (
               <ResultsDeck
                 results={results}
-                sessionId={savedSessionId}
                 rewards={rewards}
                 onRewardsConsumed={() => {
                   window.sessionStorage.removeItem("postInterviewRewards");
