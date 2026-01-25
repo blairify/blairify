@@ -1,6 +1,14 @@
 "use client";
 
-import { Award, Clock, ExternalLink, Flame, Target, X } from "lucide-react";
+import {
+  Activity,
+  BarChart3,
+  ExternalLink,
+  Flame,
+  Target,
+  Timer,
+  X,
+} from "lucide-react";
 import { useMemo, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 import {
@@ -61,19 +69,19 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
-              icon: Target,
+              icon: BarChart3,
               label: "Total Interviews",
               value: "0",
               subtext: "Get started today",
             },
             {
-              icon: Award,
+              icon: Activity,
               label: "Average Score",
               value: "-",
               subtext: "Complete an interview",
             },
             {
-              icon: Clock,
+              icon: Timer,
               label: "Practice Time",
               value: "0m",
               subtext: "Start practicing",
@@ -95,9 +103,9 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
                 <stat.icon className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <Typography.Heading2 className="text-2xl font-bold">
+                <span className="text-2xl font-bold text-foreground block">
                   {stat.value}
-                </Typography.Heading2>
+                </span>
                 <Typography.Caption className="text-muted-foreground mt-1 block">
                   {stat.subtext}
                 </Typography.Caption>

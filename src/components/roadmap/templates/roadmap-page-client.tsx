@@ -1,5 +1,14 @@
 "use client";
 
+import {
+  ArrowUp,
+  Check,
+  Rocket,
+  Sparkles,
+  Trash2,
+  TrendingUp,
+  Zap,
+} from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import LoadingPage from "@/components/common/atoms/loading-page";
@@ -7,7 +16,6 @@ import { Typography } from "@/components/common/atoms/typography";
 import { DashboardLayout } from "@/components/my-progress/templates/dashboard-layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -24,7 +32,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { isAdmin } from "@/lib/services/auth/auth-roles";
 import {
@@ -264,11 +271,15 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
   };
 
   const candidateIdeas = useMemo(() => {
-    return ideas.filter((idea) => idea.audience === "candidate");
+    return ideas
+      .filter((idea) => idea.audience === "candidate")
+      .sort((a, b) => b.voteCount - a.voteCount);
   }, [ideas]);
 
   const recruiterIdeas = useMemo(() => {
-    return ideas.filter((idea) => idea.audience === "recruiter");
+    return ideas
+      .filter((idea) => idea.audience === "recruiter")
+      .sort((a, b) => b.voteCount - a.voteCount);
   }, [ideas]);
 
   const selectedIdeas = useMemo(() => {
@@ -284,17 +295,32 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
     }
   }, [candidateIdeas, recruiterIdeas, selectedAudience]);
 
-  const renderIdeaCard = (idea: RoadmapIdea) => {
+  const renderIdeaCard = (idea: RoadmapIdea, index: number) => {
     const upvoted = upvotedByIdeaId[idea.id] ?? false;
     const isBumping = bumpIdeaId === idea.id;
     const isDeleting = deletingIdeaId === idea.id;
+    const isTopVoted = index === 0 && idea.voteCount > 0;
 
-    const statusLabel = (() => {
+    const statusConfig = (() => {
       switch (idea.status) {
         case "planned":
-          return "Planned";
+          return {
+            label: "Planned",
+            icon: Sparkles,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+            border: "border-blue-500/30",
+            glow: "from-blue-500/20 to-cyan-500/20",
+          };
         case "in_progress":
-          return "In Progress";
+          return {
+            label: "In Progress",
+            icon: Zap,
+            color: "text-primary",
+            bg: "bg-primary/10",
+            border: "border-primary/30",
+            glow: "from-primary/20 to-yellow-500/20",
+          };
         default: {
           const _never: never = idea.status;
           throw new Error(`Unhandled status: ${_never}`);
@@ -303,47 +329,128 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
     })();
 
     return (
-      <Card key={idea.id}>
-        <CardHeader className="pb-3">
-          <div className="flex items-start justify-between gap-4">
-            <div className="space-y-2">
-              <CardTitle className="text-base">{idea.title}</CardTitle>
-              <Badge variant="secondary">{statusLabel}</Badge>
-            </div>
-            <div className="flex items-center gap-2">
-              {canManageRoadmap ? (
-                <Button
-                  size="sm"
-                  variant="destructive"
-                  onClick={() => onRequestDeleteIdea(idea.id)}
-                  disabled={isDeleting}
-                >
-                  Delete
-                </Button>
-              ) : null}
-              <Button
-                size="sm"
-                variant={upvoted ? "secondary" : "outline"}
-                onClick={() => onToggleUpvote(idea.id)}
-                disabled={votingIdeaId === idea.id || isDeleting}
-                aria-pressed={upvoted}
-                className={
-                  isBumping
-                    ? "transition-transform duration-150 scale-105"
-                    : undefined
-                }
-              >
-                {upvoted ? "Upvoted" : "Upvote"} · {idea.voteCount}
-              </Button>
+      <div
+        key={idea.id}
+        className="group relative animate-in fade-in slide-in-from-bottom-4"
+        style={{ animationDelay: `${index * 75}ms`, animationFillMode: "both" }}
+      >
+        {/* Enhanced gradient glow */}
+        <div
+          className={`absolute -inset-1 bg-gradient-to-r ${statusConfig.glow} rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition duration-700 ${isTopVoted ? "opacity-50" : ""}`}
+        />
+
+        {/* Top voted indicator */}
+        {isTopVoted && (
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-primary to-yellow-500 shadow-lg shadow-primary/50">
+              <TrendingUp className="size-3.5 text-black" />
+              <Typography.SubCaptionBold className="text-black text-xs uppercase tracking-wider">
+                Most Requested
+              </Typography.SubCaptionBold>
             </div>
           </div>
-        </CardHeader>
-        <CardContent>
-          <Typography.Body color="secondary" className="text-sm">
-            {idea.description}
-          </Typography.Body>
-        </CardContent>
-      </Card>
+        )}
+
+        <div
+          className={`relative bg-gradient-to-br from-[#0D0D0D] to-[#0A0A0A] border ${isTopVoted ? "border-primary/40" : "border-white/10"} rounded-3xl overflow-hidden backdrop-blur-xl transition-all duration-300 ${isTopVoted ? "shadow-2xl shadow-primary/20" : ""}`}
+        >
+          {/* Animated gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+          {/* Status indicator line */}
+
+          <div className="relative p-8 space-y-6">
+            {/* Header */}
+            <div className="flex items-start justify-between gap-6">
+              <div className="flex-1 space-y-4">
+                {/* Status badge */}
+                <div className="flex items-center gap-3">
+                  <Badge
+                    variant="secondary"
+                    className={`${statusConfig.bg} ${statusConfig.color} border ${statusConfig.border} font-semibold px-3 py-1`}
+                  >
+                    {statusConfig.label}
+                  </Badge>
+                </div>
+
+                {/* Title */}
+                <Typography.Heading2 className="text-2xl font-black text-white leading-tight tracking-tight">
+                  {idea.title}
+                </Typography.Heading2>
+
+                {/* Description */}
+                <Typography.Body className="text-base text-gray-300 leading-relaxed">
+                  {idea.description}
+                </Typography.Body>
+              </div>
+
+              {/* Admin delete button */}
+              {canManageRoadmap && (
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => onRequestDeleteIdea(idea.id)}
+                  disabled={isDeleting}
+                  className="text-red-400 hover:text-red-300 hover:bg-red-500/10 shrink-0"
+                >
+                  <Trash2 className="size-4" />
+                </Button>
+              )}
+            </div>
+
+            {/* Footer with voting */}
+            <div className="flex items-center justify-between pt-6">
+              <div className="flex items-center gap-3">
+                {/* Upvote button */}
+                <button
+                  type="button"
+                  onClick={() => onToggleUpvote(idea.id)}
+                  disabled={votingIdeaId === idea.id || isDeleting}
+                  className={`group/vote relative flex items-center gap-3 px-5 py-3 rounded-2xl font-semibold transition-all duration-300 ${
+                    upvoted
+                      ? "bg-gradient-to-r from-primary to-yellow-500 text-black shadow-lg shadow-primary/30"
+                      : "bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10 hover:border-white/20 hover:text-white hover:shadow-lg hover:shadow-white/10"
+                  } ${isBumping ? "scale-110" : ""} disabled:opacity-50 disabled:cursor-not-allowed`}
+                >
+                  {/* Glow effect */}
+                  {upvoted && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-yellow-500 rounded-2xl blur-xl opacity-50" />
+                  )}
+
+                  <div className="relative flex items-center gap-3">
+                    <ArrowUp
+                      className={`size-5 transition-all duration-300 ${upvoted ? "fill-current" : "group-hover/vote:-translate-y-1"}`}
+                    />
+                    <div className="flex flex-col items-start">
+                      <Typography.SubCaptionBold className="text-xs uppercase tracking-wider">
+                        {upvoted ? "Upvoted" : "Upvote"}
+                      </Typography.SubCaptionBold>
+                      <Typography.CaptionBold className="text-lg leading-none">
+                        {idea.voteCount}
+                      </Typography.CaptionBold>
+                    </div>
+                  </div>
+                </button>
+
+                {/* Upvoted indicator */}
+                {upvoted && (
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 animate-in fade-in zoom-in duration-300">
+                    <Check className="size-4 text-emerald-400" />
+                    <Typography.SubCaptionMedium className="text-emerald-400 text-xs font-semibold">
+                      You voted
+                    </Typography.SubCaptionMedium>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Decorative corner gradient */}
+          <div
+            className={`absolute bottom-0 right-0 w-48 h-48 bg-gradient-to-tl ${statusConfig.glow} rounded-tl-full opacity-5 group-hover:opacity-10 transition-opacity duration-500`}
+          />
+        </div>
+      </div>
     );
   };
 
@@ -390,174 +497,229 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-      <div className="space-y-6">
-        <div className="space-y-2">
-          <Typography.Heading1 className="tracking-tight">
-            Roadmap
-          </Typography.Heading1>
-          <Typography.Body color="secondary">
-            Suggest features and upvote what you want next.
-          </Typography.Body>
+
+      <div className="relative min-h-screen">
+        {/* Animated background gradients */}
+        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+          <div
+            className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] animate-pulse"
+            style={{ animationDelay: "1s" }}
+          />
         </div>
 
-        <Tabs
-          value={selectedAudience}
-          onValueChange={(value) => {
-            if (value === "candidate") {
-              setSelectedAudience("candidate");
-              return;
-            }
-            if (value === "recruiter") {
-              setSelectedAudience("recruiter");
-              return;
-            }
+        <div className="space-y-16 max-w-6xl mx-auto pb-20">
+          {/* Hero Section - Minimal Side-by-Side */}
+          <div className="relative overflow-hidden rounded-[32px] border border-white/5">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent" />
 
-            const _never: never = value as never;
-            throw new Error(`Unhandled audience tab: ${_never}`);
-          }}
-        >
-          <TabsList>
-            <TabsTrigger value="candidate">B2C</TabsTrigger>
-            <TabsTrigger value="recruiter">B2B</TabsTrigger>
-          </TabsList>
-        </Tabs>
+            <div className="relative z-10 p-12 sm:p-16">
+              <div className="grid lg:grid-cols-[1.2fr_1fr] gap-16 items-center">
+                {/* Left: Content */}
+                <div className="space-y-8">
+                  <div className="space-y-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                      <div className="size-2 rounded-full bg-primary animate-pulse" />
+                      <Typography.SubCaptionBold className="text-primary uppercase tracking-[0.2em] text-xs">
+                        Live Roadmap
+                      </Typography.SubCaptionBold>
+                    </div>
 
-        {canManageRoadmap ? (
-          <Card>
-            <CardHeader>
-              <CardTitle>Add roadmap item</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Typography.CaptionMedium>Audience</Typography.CaptionMedium>
-                  <Select
-                    value={audience}
-                    onValueChange={(value) =>
-                      setAudience(value as RoadmapIdeaAudience)
-                    }
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select audience" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="candidate">
-                        For Candidate (B2C)
-                      </SelectItem>
-                      <SelectItem value="recruiter">
-                        For Recruiter (B2B)
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
+                    <Typography.Heading1 className="text-5xl sm:text-6xl font-black text-white leading-[1.1] tracking-tight">
+                      Shape What's
+                      <br />
+                      <span className="text-primary">Coming Next</span>
+                    </Typography.Heading1>
+
+                    <Typography.Body className="text-lg text-gray-400 leading-relaxed max-w-xl">
+                      Vote on features, track development progress, and help us
+                      build the product you need.
+                    </Typography.Body>
+                  </div>
+
+                  {/* Audience selector - minimal pills */}
+                  <div className="flex flex-wrap gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedAudience("candidate")}
+                      className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                        selectedAudience === "candidate"
+                          ? "bg-white text-black shadow-lg shadow-white/20"
+                          : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10"
+                      }`}
+                    >
+                      Candidates
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedAudience("recruiter")}
+                      className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                        selectedAudience === "recruiter"
+                          ? "bg-white text-black shadow-lg shadow-white/20"
+                          : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10"
+                      }`}
+                    >
+                      Recruiters
+                    </button>
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Typography.CaptionMedium>Status</Typography.CaptionMedium>
-                  <Select
-                    value={status}
-                    onValueChange={(value) =>
-                      setStatus(value as RoadmapIdeaStatus)
-                    }
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select status" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="planned">Planned</SelectItem>
-                      <SelectItem value="in_progress">In Progress</SelectItem>
-                    </SelectContent>
-                  </Select>
+                {/* Right: Visual element */}
+                <div className="relative hidden lg:block">
+                  <div className="relative aspect-square max-w-md ml-auto">
+                    {/* Animated rings */}
+                    <div
+                      className="absolute inset-0 rounded-full border border-primary/20 animate-ping"
+                      style={{ animationDuration: "3s" }}
+                    />
+                    <div
+                      className="absolute inset-8 rounded-full border border-primary/30 animate-ping"
+                      style={{
+                        animationDuration: "2.5s",
+                        animationDelay: "0.5s",
+                      }}
+                    />
+                    <div
+                      className="absolute inset-16 rounded-full border border-primary/40 animate-ping"
+                      style={{ animationDuration: "2s", animationDelay: "1s" }}
+                    />
+
+                    {/* Center icon */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary to-yellow-500 rounded-full blur-3xl opacity-50" />
+                        <div className="relative p-8 rounded-full bg-gradient-to-br from-primary to-yellow-500">
+                          <Rocket className="size-16 text-black" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <div className="space-y-2">
-                <Typography.CaptionMedium>Title</Typography.CaptionMedium>
-                <Input
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  placeholder="Short, specific title"
-                  maxLength={80}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Typography.CaptionMedium>Description</Typography.CaptionMedium>
-                <Textarea
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  placeholder="What problem does it solve? What would good look like?"
-                  maxLength={2000}
-                />
-              </div>
-
-              <div className="flex justify-end">
-                <Button
-                  onClick={onCreateIdea}
-                  disabled={submitting || !title.trim() || !description.trim()}
-                >
-                  Add
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        ) : null}
-
-        <div className="space-y-8">
-          <section className="space-y-3">
-            <div className="space-y-1">
-              {(() => {
-                switch (selectedAudience) {
-                  case "candidate":
-                    return (
-                      <>
-                        <Typography.Heading2>For Candidate</Typography.Heading2>
-                        <Typography.Body color="secondary" className="text-sm">
-                          B2C roadmap items.
-                        </Typography.Body>
-                      </>
-                    );
-                  case "recruiter":
-                    return (
-                      <>
-                        <Typography.Heading2>For Recruiter</Typography.Heading2>
-                        <Typography.Body color="secondary" className="text-sm">
-                          B2B roadmap items.
-                        </Typography.Body>
-                      </>
-                    );
-                  default: {
-                    const _never: never = selectedAudience;
-                    throw new Error(`Unhandled audience: ${_never}`);
-                  }
-                }
-              })()}
             </div>
+          </div>
 
+          {/* Admin: Add New Item */}
+
+          {/* Roadmap Items */}
+          <div className="space-y-8">
             {selectedIdeas.length === 0 ? (
-              <Card>
-                <CardContent>
-                  <Typography.Body color="secondary">
-                    {(() => {
-                      switch (selectedAudience) {
-                        case "candidate":
-                          return "No candidate features yet.";
-                        case "recruiter":
-                          return "No recruiter features yet.";
-                        default: {
-                          const _never: never = selectedAudience;
-                          throw new Error(`Unhandled audience: ${_never}`);
-                        }
-                      }
-                    })()}
-                  </Typography.Body>
-                </CardContent>
-              </Card>
+              <div className="text-center py-24 px-8 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.02] to-transparent">
+                <div className="inline-flex p-6 rounded-3xl bg-white/5 border border-white/10 mb-6">
+                  <Sparkles className="size-12 text-gray-500" />
+                </div>
+                <Typography.Heading2 className="text-3xl font-black text-white mb-3">
+                  No features yet
+                </Typography.Heading2>
+                <Typography.Body className="text-gray-400 text-lg">
+                  {selectedAudience === "candidate"
+                    ? "No candidate features planned yet. Be the first to suggest one!"
+                    : "No recruiter features planned yet. Be the first to suggest one!"}
+                </Typography.Body>
+              </div>
             ) : (
-              selectedIdeas.map(renderIdeaCard)
+              <div className="grid gap-8">
+                {selectedIdeas.map((idea, index) =>
+                  renderIdeaCard(idea, index),
+                )}
+              </div>
             )}
-          </section>
+          </div>
         </div>
       </div>
+      {canManageRoadmap && (
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/30 to-primary/30 rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition duration-700" />
+          <div className="relative bg-gradient-to-br from-[#0D0D0D] to-[#0A0A0A] border border-white/10 rounded-3xl p-10 space-y-8">
+            <Typography.Heading2 className="text-2xl font-black text-white uppercase tracking-tight">
+              Add Roadmap Item
+            </Typography.Heading2>
+
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="space-y-3">
+                <Typography.CaptionBold className="text-gray-300 uppercase tracking-wider text-xs">
+                  Audience
+                </Typography.CaptionBold>
+                <Select
+                  value={audience}
+                  onValueChange={(value) =>
+                    setAudience(value as RoadmapIdeaAudience)
+                  }
+                >
+                  <SelectTrigger className="w-full h-12">
+                    <SelectValue placeholder="Select audience" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="candidate">
+                      For Candidate (B2C)
+                    </SelectItem>
+                    <SelectItem value="recruiter">
+                      For Recruiter (B2B)
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-3">
+                <Typography.CaptionBold className="text-gray-300 uppercase tracking-wider text-xs">
+                  Status
+                </Typography.CaptionBold>
+                <Select
+                  value={status}
+                  onValueChange={(value) =>
+                    setStatus(value as RoadmapIdeaStatus)
+                  }
+                >
+                  <SelectTrigger className="w-full h-12">
+                    <SelectValue placeholder="Select status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="planned">Planned</SelectItem>
+                    <SelectItem value="in_progress">In Progress</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <Typography.CaptionBold className="text-gray-300 uppercase tracking-wider text-xs">
+                Title
+              </Typography.CaptionBold>
+              <Input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Short, specific title"
+                maxLength={80}
+                className="h-12 text-base"
+              />
+            </div>
+
+            <div className="space-y-3">
+              <Typography.CaptionBold className="text-gray-300 uppercase tracking-wider text-xs">
+                Description
+              </Typography.CaptionBold>
+              <Textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="What problem does it solve? What would good look like?"
+                maxLength={2000}
+                rows={5}
+                className="text-base"
+              />
+            </div>
+
+            <div className="flex justify-end pt-4">
+              <Button
+                onClick={onCreateIdea}
+                disabled={submitting || !title.trim() || !description.trim()}
+                className="bg-gradient-to-r from-primary to-yellow-500 text-black hover:opacity-90 font-bold px-8 py-6 text-base shadow-xl shadow-primary/30"
+              >
+                Add to Roadmap
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </DashboardLayout>
   );
 }

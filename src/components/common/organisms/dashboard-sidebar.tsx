@@ -255,26 +255,6 @@ export default function DashboardSidebar({
               Achievements
             </span>
           </Link>
-
-          <button
-            type="button"
-            disabled
-            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
-              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
-            }`}
-            aria-label="Docs coming soon"
-          >
-            <LuBookAudio className="size-5 flex-shrink-0" />
-            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
-              Docs
-            </span>
-            {!collapsed && (
-              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-                Soon
-              </span>
-            )}
-          </button>
-
           <Link
             href="/roadmap"
             title="Roadmap"
@@ -296,6 +276,24 @@ export default function DashboardSidebar({
               Roadmap
             </span>
           </Link>
+          <button
+            type="button"
+            disabled
+            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
+              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            }`}
+            aria-label="Docs coming soon"
+          >
+            <LuBookAudio className="size-5 flex-shrink-0" />
+            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
+              Docs
+            </span>
+            {!collapsed && (
+              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+                Soon
+              </span>
+            )}
+          </button>
 
           <button
             type="button"

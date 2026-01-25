@@ -1207,7 +1207,6 @@ export function ResultsDeck({
                                     )}
                                   </div>
                                 </div>
-
                               </div>
                             );
                           }

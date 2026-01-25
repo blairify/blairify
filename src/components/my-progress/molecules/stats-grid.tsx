@@ -1,4 +1,4 @@
-import { Award, BarChart3, Clock, Flame, Target } from "lucide-react";
+import { Activity, Award, BarChart3, Flame, Timer } from "lucide-react";
 import { Typography } from "@/components/common/atoms/typography";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { DashboardStats } from "@/lib/services/dashboard/dashboard-analytics";
@@ -21,9 +21,9 @@ export function StatsGrid({ stats }: StatsGridProps) {
           <BarChart3 className="size-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <Typography.Heading2 className="text-2xl font-bold">
+          <span className="text-2xl font-bold text-foreground">
             {stats.totalSessions}
-          </Typography.Heading2>
+          </span>
         </CardContent>
       </Card>
 
@@ -34,12 +34,12 @@ export function StatsGrid({ stats }: StatsGridProps) {
               Total Practice Time
             </Typography.SubCaptionMedium>
           </CardTitle>
-          <Clock className="h-4 w-4 text-muted-foreground" />
+          <Timer className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <Typography.Heading2 className="text-2xl font-bold">
+          <span className="text-2xl font-bold text-foreground">
             {formatTime(stats.totalTime)}
-          </Typography.Heading2>
+          </span>
         </CardContent>
       </Card>
 
@@ -50,12 +50,12 @@ export function StatsGrid({ stats }: StatsGridProps) {
               Average Score
             </Typography.SubCaptionMedium>
           </CardTitle>
-          <Target className="h-4 w-4 text-muted-foreground" />
+          <Activity className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <Typography.Heading2 className="text-2xl font-bold">
+          <span className="text-2xl font-bold text-foreground">
             {stats.averageScore}%
-          </Typography.Heading2>
+          </span>
         </CardContent>
       </Card>
 
@@ -69,9 +69,9 @@ export function StatsGrid({ stats }: StatsGridProps) {
           <Flame className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <Typography.Heading2 className="text-2xl font-bold">
+          <span className="text-2xl font-bold text-foreground">
             {stats.streakDays} days
-          </Typography.Heading2>
+          </span>
         </CardContent>
       </Card>
 
@@ -85,9 +85,9 @@ export function StatsGrid({ stats }: StatsGridProps) {
           <Award className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <Typography.Heading2 className="text-2xl font-bold">
+          <span className="text-2xl font-bold text-foreground">
             {stats.totalXP}
-          </Typography.Heading2>
+          </span>
         </CardContent>
       </Card>
     </div>
