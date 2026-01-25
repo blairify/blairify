@@ -22,6 +22,7 @@ export interface UserProfile {
   experience?: string;
 
   onboardingCompleted?: boolean;
+  hasSeenDashboardTour?: boolean;
 
   // Gamification
   experiencePoints?: number;

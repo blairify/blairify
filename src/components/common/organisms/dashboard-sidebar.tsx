@@ -87,6 +87,7 @@ export default function DashboardSidebar({
             href="/configure"
             title="New Interview"
             aria-label="New Interview"
+            data-tour="start-interview"
             className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
@@ -108,6 +109,7 @@ export default function DashboardSidebar({
             href="/jobs"
             title="Real Offers"
             aria-label="Real Offers"
+            data-tour="real-offers"
             className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
@@ -130,6 +132,7 @@ export default function DashboardSidebar({
             href="/history"
             title="History"
             aria-label="History"
+            data-tour="interview-history"
             className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
@@ -217,6 +220,7 @@ export default function DashboardSidebar({
             href="/my-progress"
             title="My Progress"
             aria-label="My Progress"
+            data-tour="my-progress"
             className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${

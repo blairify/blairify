@@ -8,6 +8,7 @@ import {
   Mail,
   MessageSquare,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
@@ -88,6 +89,7 @@ const faqData = [
 
 export default function SupportPage() {
   const { user, loading } = useAuth();
+  const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [openItems, setOpenItems] = useState<string[]>([]);
 
@@ -130,6 +132,24 @@ export default function SupportPage() {
                     Find answers to common questions and get assistance
                   </p>
                 </div>
+              </div>
+
+              <div className="mt-6">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      window.localStorage.setItem(
+                        "blairify-dashboard-tour-force",
+                        "1",
+                      );
+                    }
+                    router.push("/my-progress");
+                  }}
+                >
+                  Restart Tutorial
+                </Button>
               </div>
             </div>
 

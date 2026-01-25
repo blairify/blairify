@@ -40,6 +40,7 @@ export interface UserData {
   level?: number;
   title?: string;
   onboardingCompleted?: boolean;
+  hasSeenDashboardTour?: boolean;
   createdAt: Date;
   lastLoginAt: Date;
   preferences?: UserPreferences;
@@ -71,6 +72,7 @@ const userProfileToUserData = (profile: UserProfile): UserData => ({
   level: profile.level,
   title: profile.title,
   onboardingCompleted: profile.onboardingCompleted,
+  hasSeenDashboardTour: profile.hasSeenDashboardTour,
   createdAt: toDateSafe(profile.createdAt),
   lastLoginAt: toDateSafe(profile.lastLoginAt),
   preferences: profile.preferences,

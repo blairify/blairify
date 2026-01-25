@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
+import { DashboardWalkthrough } from "@/components/common/organisms/dashboard-walkthrough";
 import { RankBadgeInline } from "@/components/ranks/organisms/rank-badge";
 import { XPProgressBarCompact } from "@/components/ranks/organisms/xp-progress-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -84,6 +85,7 @@ export default function DashboardNavbar({
   return (
     <TooltipProvider>
       <nav className="relative z-40 border-b border-border lg:bg-card/50 backdrop-blur-sm">
+        <DashboardWalkthrough />
         <div className="px-4 h-16 flex items-center justify-between w-full">
           <div className="flex my-auto items-center space-x-4">
             <Button
@@ -171,12 +173,13 @@ export default function DashboardNavbar({
                   <TooltipTrigger asChild>
                     <Button
                       aria-label="Settings"
+                      data-tour="profile-settings"
                       onClick={() => router.push("/settings")}
                       variant="outline"
                       size="icon"
                       className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
                     >
-                      <Settings className="h-4 w-4" />
+                      <Settings className="size-4" />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -193,7 +196,7 @@ export default function DashboardNavbar({
                       size="icon"
                       className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
                     >
-                      <HelpCircle className="h-4 w-4" />
+                      <HelpCircle className="size-4" />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -209,7 +212,7 @@ export default function DashboardNavbar({
                       className="border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
                       onClick={handleSignOut}
                     >
-                      <LogOut className="h-4 w-4" />
+                      <LogOut className="size-4" />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
