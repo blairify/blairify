@@ -65,7 +65,7 @@ export function canGoNext(
  */
 export function canStartInterview(config: InterviewConfig): boolean {
   if (config.flowMode === "paste") {
-    return !!config.jobDescription?.trim();
+    return !!config.jobDescription?.trim() && !!config.interviewMode;
   }
 
   return !!(

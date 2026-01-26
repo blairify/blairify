@@ -241,6 +241,7 @@ const PASTE_FLOW_STEP_IDS = new Set([
   "flow",
   DESCRIPTION_STEP_ID,
   ANALYSIS_STEP_ID,
+  "mode",
 ]);
 const ANALYSIS_DOTS = [0, 1, 2];
 type ExtractDescriptionResponse = {
@@ -368,17 +369,11 @@ export function ConfigureContent() {
 
   const currentStepId = visibleSteps[currentStep]?.id ?? "flow";
 
-  // Check usage status when reaching the last step or analysis step (for paste flow)
+  // Check usage status when reaching the last step (mode step)
   useEffect(() => {
     const isLastStep = currentStep === visibleSteps.length - 1;
-    const isAnalysisStepInPaste =
-      currentStepId === "analysis" && config.flowMode === "paste";
 
-    if (
-      (isLastStep || isAnalysisStepInPaste) &&
-      user?.uid &&
-      !usageStatus.checked
-    ) {
+    if (isLastStep && user?.uid && !usageStatus.checked) {
       DatabaseService.checkUsageStatus(user.uid).then((status) => {
         setUsageStatus({
           canStart: status.canStart,
@@ -388,14 +383,7 @@ export function ConfigureContent() {
         });
       });
     }
-  }, [
-    currentStep,
-    visibleSteps.length,
-    currentStepId,
-    config.flowMode,
-    user?.uid,
-    usageStatus.checked,
-  ]);
+  }, [currentStep, visibleSteps.length, user?.uid, usageStatus.checked]);
 
   const techChoicesForCurrentPosition = getTechChoices(config.position);
 
@@ -484,7 +472,6 @@ export function ConfigureContent() {
 
   const isConfigComplete = checkIsConfigComplete(config);
   const isDescriptionStep = currentStepId === DESCRIPTION_STEP_ID;
-  const isAnalysisStep = currentStepId === ANALYSIS_STEP_ID;
   const totalSteps = visibleSteps.length;
   const canGoNext = () => checkCanGoNext(currentStepId, config);
 
@@ -510,9 +497,7 @@ export function ConfigureContent() {
       return <div className="w-[70px]" />; // Spacer for mobile layout alignment
     }
 
-    const isStartStep =
-      currentStep === totalSteps - 1 ||
-      (isAnalysisStep && config.flowMode === "paste");
+    const isStartStep = currentStep === totalSteps - 1;
 
     // Show upgrade CTA if user hit the limit
     if (
@@ -1262,8 +1247,7 @@ export function ConfigureContent() {
             {usageStatus.checked &&
               !usageStatus.canStart &&
               !usageStatus.isPro &&
-              (currentStep === totalSteps - 1 ||
-                (isAnalysisStep && config.flowMode === "paste")) && (
+              currentStep === totalSteps - 1 && (
                 <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/50 p-4">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 rounded-full bg-amber-100 dark:bg-amber-900 p-2">
