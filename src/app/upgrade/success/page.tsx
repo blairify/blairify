@@ -163,9 +163,9 @@ function SuccessContent() {
               size="lg"
               variant="outline"
               className="w-full"
-              onClick={() => router.push("/upgrade")}
+              onClick={() => router.push("/settings?tab=subscription")}
             >
-              Return to Pricing
+              Return to Settings
             </Button>
           </motion.div>
         )}

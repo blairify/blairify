@@ -1,6 +1,6 @@
 "use client";
 
-import { HelpCircle, LogOut, Menu, Settings } from "lucide-react";
+import { Crown, HelpCircle, LogOut, Menu, Settings } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
@@ -10,6 +10,7 @@ import { DashboardWalkthrough } from "@/components/common/organisms/dashboard-wa
 import { RankBadgeInline } from "@/components/ranks/organisms/rank-badge";
 import { XPProgressBarCompact } from "@/components/ranks/organisms/xp-progress-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -18,7 +19,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import useIsMobile from "@/hooks/use-is-mobile";
+import { useUsageStatus } from "@/hooks/use-usage-status";
 import { getProgressToNextRank, getRankByXP } from "@/lib/ranks";
+import { cn } from "@/lib/utils";
 import { useAuth } from "@/providers/auth-provider";
 
 interface DashboardNavbarProps {
@@ -31,6 +34,7 @@ export default function DashboardNavbar({
   const router = useRouter();
   const { user, userData, signOut } = useAuth();
   const { isMobile, isLoading } = useIsMobile();
+  const { isPro } = useUsageStatus();
   const totalXP =
     typeof userData?.experiencePoints === "number" &&
     Number.isFinite(userData.experiencePoints)
@@ -102,7 +106,13 @@ export default function DashboardNavbar({
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link aria-label="View Profile" href="/profile">
-                    <div className="size-9 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
+                    <div
+                      className={cn(
+                        "relative size-9 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer",
+                        isPro &&
+                          "ring-2 ring-[#10B981] ring-offset-2 ring-offset-background",
+                      )}
+                    >
                       {userData?.avatarIcon ? (
                         <AvatarIconDisplay
                           iconId={userData.avatarIcon}
@@ -110,7 +120,12 @@ export default function DashboardNavbar({
                           className="size-9"
                         />
                       ) : (
-                        <Avatar className="size-9 my-auto border-2 border-primary/20">
+                        <Avatar
+                          className={cn(
+                            "size-9 my-auto border-2",
+                            isPro ? "border-[#10B981]" : "border-primary/20",
+                          )}
+                        >
                           <AvatarImage
                             src={user?.photoURL || userData?.photoURL}
                             alt={
@@ -135,6 +150,26 @@ export default function DashboardNavbar({
                   <p>View Profile</p>
                 </TooltipContent>
               </Tooltip>
+
+              {/* Plan Badge */}
+              <Badge
+                variant={isPro ? "default" : "secondary"}
+                className={cn(
+                  "text-xs font-semibold px-2 py-0.5",
+                  isPro
+                    ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white border-0"
+                    : "bg-muted text-muted-foreground",
+                )}
+              >
+                {isPro ? (
+                  <span className="flex items-center gap-1">
+                    <Crown className="size-3" />
+                    PRO
+                  </span>
+                ) : (
+                  "FREE"
+                )}
+              </Badge>
 
               {/* User info - rank and XP only */}
               {!isMobile && (
@@ -171,7 +206,7 @@ export default function DashboardNavbar({
                     <Button
                       aria-label="Settings"
                       data-tour="profile-settings"
-                      onClick={() => router.push("/settings")}
+                      onClick={() => router.push("/settings?tab=subscription")}
                       variant="outline"
                       size="icon"
                       className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"

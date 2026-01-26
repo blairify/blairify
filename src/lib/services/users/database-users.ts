@@ -216,8 +216,10 @@ export async function checkUsageStatus(userId: string): Promise<{
     const diffMs = now.getTime() - lastInterviewAtDate.getTime();
     const diffMin = diffMs / (1000 * 60);
 
+    // Reset period: 60 minutes (1 hour)
+    const RESET_PERIOD_MINUTES = 60;
     let currentCount = usage.interviewCount;
-    if (diffMin >= 15) {
+    if (diffMin >= RESET_PERIOD_MINUTES) {
       currentCount = 0;
     }
 
@@ -225,7 +227,7 @@ export async function checkUsageStatus(userId: string): Promise<{
     const canStart = currentCount < DAILY_LIMIT;
     const remainingMinutes = canStart
       ? 0
-      : Math.max(0, Math.ceil(15 - diffMin));
+      : Math.max(0, Math.ceil(RESET_PERIOD_MINUTES - diffMin));
 
     return { canStart, currentCount, isPro: false, remainingMinutes };
   } catch (error) {
@@ -281,13 +283,15 @@ export async function checkAndIncrementUsage(userId: string): Promise<{
         };
       }
 
-      // 2. CHECK 15-MINUTE RESET
+      // 2. CHECK 1-HOUR RESET
       const diffMs = now.getTime() - lastInterviewAtDate.getTime();
       const diffMin = diffMs / (1000 * 60);
 
+      // Reset period: 60 minutes (1 hour)
+      const RESET_PERIOD_MINUTES = 60;
       let currentCount = usage.interviewCount;
 
-      if (diffMin >= 15) {
+      if (diffMin >= RESET_PERIOD_MINUTES) {
         currentCount = 0;
       }
 

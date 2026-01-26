@@ -1,7 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { History, Plus, Zap } from "lucide-react";
+import {
+  Clock,
+  History,
+  Infinity as InfinityIcon,
+  Plus,
+  Zap,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GiDandelionFlower } from "react-icons/gi";
@@ -14,7 +20,14 @@ import { TbProgressBolt } from "react-icons/tb";
 import { TiFlowChildren } from "react-icons/ti";
 import Logo from "@/components/common/atoms/logo-blairify";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/providers/auth-provider";
+import { Progress } from "@/components/ui/progress";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { useUsageStatus } from "@/hooks/use-usage-status";
 import { useSidebar } from "@/providers/sidebar-provider";
 
 interface DashboardSidebarProps {
@@ -30,10 +43,15 @@ export default function DashboardSidebar({
 }: DashboardSidebarProps) {
   const pathname = usePathname();
   const { collapsed, setCollapsed } = useSidebar();
-  const { userData } = useAuth();
-  const isPro =
-    userData?.subscription?.plan === "pro" &&
-    userData?.subscription?.status === "active";
+  const {
+    isPro,
+    currentCount,
+    maxInterviews,
+    remainingInterviews,
+    timeRemaining,
+    usagePercentage,
+    isLoading: usageLoading,
+  } = useUsageStatus();
 
   const isActive = (path: string) => {
     return pathname === path;
@@ -159,13 +177,13 @@ export default function DashboardSidebar({
               className="px-3 py-2"
             >
               <Link
-                href="/upgrade"
+                href="/settings?tab=subscription"
                 title="Upgrade to Pro"
                 aria-label="Upgrade to Pro"
                 className={`relative group flex items-center px-3 py-2.5 rounded-xl transition-all duration-300 w-full overflow-hidden ${
                   collapsed ? "justify-center max-w-10 mx-auto" : "space-x-3"
                 } ${
-                  isActive("/upgrade")
+                  isActive("/settings")
                     ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white shadow-[0_10px_20px_-10px_rgba(16,185,129,0.5)]"
                     : "bg-[#10B981]/5 hover:bg-[#10B981]/10 border border-[#10B981]/30 hover:border-[#10B981]/60 text-[#10B981] shadow-sm"
                 }`}
@@ -338,15 +356,101 @@ export default function DashboardSidebar({
           </button>
         </nav>
 
-        {/* Footer - Sticky at bottom */}
-        <div className="mt-auto p-4 border-t border-sidebar-border">
-          <p
-            className={`text-xs text-sidebar-foreground/60 text-center ${
-              collapsed ? "sr-only" : ""
-            }`}
-          >
-            &copy; Rights Reserved Blairify
-          </p>
+        {/* Footer - Sticky at bottom with Usage Counter */}
+        <div className="mt-auto border-t border-sidebar-border">
+          {/* Interview Usage Counter */}
+          <TooltipProvider>
+            <div className={`p-4 ${collapsed ? "px-2" : ""}`}>
+              {collapsed ? (
+                /* Collapsed view - show icon with tooltip */
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className="flex justify-center">
+                      {isPro ? (
+                        <div className="flex items-center justify-center size-9 rounded-lg bg-[#10B981]/10">
+                          <InfinityIcon className="size-4 text-[#10B981]" />
+                        </div>
+                      ) : (
+                        <div className="relative flex items-center justify-center size-9 rounded-lg bg-sidebar-accent/20">
+                          <span className="text-xs font-bold text-sidebar-foreground">
+                            {remainingInterviews}/{maxInterviews}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent side="right" className="max-w-[200px]">
+                    {isPro ? (
+                      <p className="text-sm">Unlimited Interviews</p>
+                    ) : (
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium">
+                          Interviews: {currentCount}/{maxInterviews}
+                        </p>
+                        {timeRemaining.formatted && (
+                          <p className="text-xs text-muted-foreground">
+                            Limits reset in {timeRemaining.formatted}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </TooltipContent>
+                </Tooltip>
+              ) : (
+                /* Expanded view - show full counter */
+                <div className="space-y-3">
+                  {isPro ? (
+                    /* Pro user - show unlimited */
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#10B981]/10">
+                      <InfinityIcon className="size-4 text-[#10B981] flex-shrink-0" />
+                      <span className="text-sm font-medium text-[#10B981]">
+                        Unlimited Interviews
+                      </span>
+                    </div>
+                  ) : (
+                    /* Free user - show counter with reset timer */
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium text-sidebar-foreground/80">
+                          Interviews
+                        </span>
+                        <span className="text-xs font-bold text-sidebar-foreground">
+                          {currentCount}/{maxInterviews}
+                        </span>
+                      </div>
+
+                      {/* Progress bar */}
+                      {!usageLoading && (
+                        <Progress
+                          value={usagePercentage}
+                          className="h-1.5 bg-sidebar-accent/30"
+                        />
+                      )}
+
+                      {/* Reset timer */}
+                      {timeRemaining.formatted && (
+                        <div className="flex items-center gap-1.5 text-xs text-sidebar-foreground/60">
+                          <Clock className="size-3" />
+                          <span>Limits reset in {timeRemaining.formatted}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </TooltipProvider>
+
+          {/* Copyright */}
+          <div className="px-4 pb-4">
+            <p
+              className={`text-xs text-sidebar-foreground/60 text-center ${
+                collapsed ? "sr-only" : ""
+              }`}
+            >
+              &copy; Rights Reserved Blairify
+            </p>
+          </div>
         </div>
       </div>
 

@@ -75,8 +75,8 @@ export async function POST(req: NextRequest) {
         },
       ],
       mode: "subscription",
-      success_url: `${appUrl}/upgrade/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${appUrl}/upgrade?canceled=true`,
+      success_url: `${appUrl}/settings?tab=subscription&success=true`,
+      cancel_url: `${appUrl}/settings?tab=subscription&canceled=true`,
       customer_email: userEmail,
       client_reference_id: userId, // This is crucial for the webhook
       allow_promotion_codes: true,

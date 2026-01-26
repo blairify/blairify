@@ -522,7 +522,7 @@ export function ConfigureContent() {
       !usageStatus.isPro
     ) {
       return (
-        <Link href="/upgrade">
+        <Link href="/settings?tab=subscription">
           <Button
             size="sm"
             className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white flex items-center gap-2 !min-h-0"

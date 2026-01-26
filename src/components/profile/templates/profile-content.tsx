@@ -22,8 +22,9 @@ import {
   User,
   Zap,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import {
   AvatarIconDisplay,
   AvatarIconSelector,
@@ -51,6 +52,7 @@ import type { UserPreferences } from "@/types/firestore";
 
 interface ProfileContentProps {
   user: UserData;
+  initialTab?: "subscription" | "profile" | "account";
 }
 
 const ROLE_OPTIONS = [
@@ -72,9 +74,17 @@ const EXPERIENCE_OPTIONS = [
   "Senior (5-8 years)",
 ];
 
-export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
+const LOOKUP_KEY = process.env.NEXT_PUBLIC_STRIPE_LOOKUP_KEY || "Pro-a746dd1";
+const PRICE_ID =
+  process.env.NEXT_PUBLIC_STRIPE_PRICE_ID || "price_1SqtVBKUNDmoEPuuxeeZQzXK";
+
+export function ProfileContent({
+  user: _serverUser,
+  initialTab = "subscription",
+}: ProfileContentProps) {
   const { user, userData, refreshUserData } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [isEditing, setIsEditing] = useState(false);
   const [saving, setSaving] = useState(false);
   const [resettingPassword, setResettingPassword] = useState(false);
@@ -91,7 +101,20 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
   const [selectedIcon, setSelectedIcon] = useState<string>("");
   const [activeTab, setActiveTab] = useState<
     "subscription" | "profile" | "account"
-  >("subscription");
+  >(initialTab);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+
+  useEffect(() => {
+    const success = searchParams.get("success");
+    const canceled = searchParams.get("canceled");
+
+    if (success) {
+      toast.success("Subscription successful! Welcome to Pro.");
+    }
+    if (canceled) {
+      toast.error("Subscription canceled. No charges were made.");
+    }
+  }, [searchParams]);
 
   const SETTINGS_TABS = [
     { id: "subscription", label: "Subscription", icon: CreditCard },
@@ -277,15 +300,6 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
   return (
     <main className="flex-1 overflow-y-auto bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 max-w-7xl">
-        <div className="mb-8">
-          <Typography.Heading1 className="tracking-tight">
-            Profile Settings
-          </Typography.Heading1>
-          <Typography.Body color="secondary" className="mt-2">
-            Manage your account settings and preferences
-          </Typography.Body>
-        </div>
-
         {statusMessage && (
           <div
             className={`mb-6 p-3 text-sm border rounded-md ${
@@ -490,7 +504,7 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                               </div>
                             </div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                               <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
                                 <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
                                   Current Plan
@@ -498,6 +512,14 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                                 <Typography.BodyBold className="text-lg flex items-center gap-2">
                                   Pro Monthly{" "}
                                   <Zap className="size-4 fill-primary text-primary" />
+                                </Typography.BodyBold>
+                              </div>
+                              <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
+                                <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
+                                  Billing Price
+                                </Typography.Caption>
+                                <Typography.BodyBold className="text-lg text-primary">
+                                  $4.99 / month
                                 </Typography.BodyBold>
                               </div>
                               <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
@@ -557,6 +579,18 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                               </div>
                             </div>
 
+                            <div className="p-4 rounded-xl border border-primary/20 bg-primary/5 flex flex-col gap-1">
+                              <Typography.Caption className="text-primary font-medium uppercase tracking-widest text-[10px]">
+                                Pro Plan Price
+                              </Typography.Caption>
+                              <Typography.BodyBold className="text-2xl text-primary">
+                                $4.99{" "}
+                                <Typography.Caption className="text-primary/70 font-normal">
+                                  per month
+                                </Typography.Caption>
+                              </Typography.BodyBold>
+                            </div>
+
                             <div className="space-y-4">
                               <Typography.CaptionBold className="uppercase tracking-[0.2em] text-[10px] text-primary">
                                 Pro Unlockables
@@ -585,15 +619,63 @@ export function ProfileContent({ user: _serverUser }: ProfileContentProps) {
                               </div>
                             </div>
 
-                            <div className="pt-2">
+                            <div className="pt-2 space-y-3">
                               <Button
                                 variant="outline"
-                                className="w-full h-12 text-base border-primary text-primary font-bold"
-                                onClick={() => router.push("/upgrade")}
+                                className="w-full h-12 text-base border-green-300 text-green-300 font-bold"
+                                onClick={async () => {
+                                  if (!user) {
+                                    toast.error("Please sign in to upgrade");
+                                    router.push(
+                                      "/auth/login?redirect=/settings",
+                                    );
+                                    return;
+                                  }
+
+                                  setCheckoutLoading(true);
+                                  try {
+                                    const response = await fetch(
+                                      "/api/stripe/checkout",
+                                      {
+                                        method: "POST",
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                        },
+                                        body: JSON.stringify({
+                                          userId: user.uid,
+                                          lookupKey: LOOKUP_KEY,
+                                          priceId: PRICE_ID,
+                                          email: user.email,
+                                        }),
+                                      },
+                                    );
+
+                                    const data = await response.json();
+                                    if (data.url) {
+                                      window.location.href = data.url;
+                                    } else {
+                                      throw new Error(
+                                        data.error ||
+                                          "Failed to create checkout session",
+                                      );
+                                    }
+                                  } catch (error: any) {
+                                    toast.error(error.message);
+                                  } finally {
+                                    setCheckoutLoading(false);
+                                  }
+                                }}
+                                disabled={checkoutLoading}
                               >
                                 <Zap className="size-4 mr-2 fill-current" />
-                                Upgrade to Pro Now
+                                {checkoutLoading
+                                  ? "Processing..."
+                                  : "Upgrade to Pro Now"}
                               </Button>
+
+                              <Typography.Caption className="text-center text-muted-foreground">
+                                Secure payment powered by Stripe
+                              </Typography.Caption>
                             </div>
                           </div>
                         )}

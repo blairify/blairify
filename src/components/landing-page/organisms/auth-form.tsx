@@ -818,7 +818,7 @@ export default function AuthForm({
                           <Button
                             onClick={handleRegisterSubmit}
                             disabled={!canProceedToNextStep() || isLoading}
-                            className="bg-primary text-primary-foreground hover:bg-primary/90"
+                            size="sm"
                           >
                             {isLoading
                               ? "Creating Account..."
@@ -1071,7 +1071,7 @@ export default function AuthForm({
                             <Button
                               onClick={handleRegisterSubmit}
                               disabled={!canProceedToNextStep() || isLoading}
-                              className="bg-primary text-primary-foreground hover:bg-primary/90"
+                              size="sm"
                             >
                               {isLoading
                                 ? "Creating Account..."

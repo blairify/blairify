@@ -462,25 +462,20 @@ export function InterviewContent({
 
     try {
       if (user?.uid) {
-        const usageResult = await DatabaseService.checkAndIncrementUsage(
-          user.uid,
-        );
-        if (!usageResult.allowed) {
-          // Calculate time until 15 minutes have passed since lastInterviewAt
-          const now = new Date();
-          const lastUsed = usageResult.lastInterviewAt || now;
-          const nextAllowed = new Date(lastUsed.getTime() + 15 * 60 * 1000);
-          const msUntilReset = nextAllowed.getTime() - now.getTime();
-
-          const minutesUntilReset = Math.max(
-            0,
-            Math.ceil(msUntilReset / (1000 * 60)),
-          );
+        const usageResult = await DatabaseService.checkUsageStatus(user.uid);
+        if (!usageResult.canStart) {
+          // Format the time remaining
+          const hoursRemaining = Math.floor(usageResult.remainingMinutes / 60);
+          const minsRemaining = usageResult.remainingMinutes % 60;
+          const timeDisplay =
+            hoursRemaining > 0
+              ? `${hoursRemaining}h ${minsRemaining}m`
+              : `${minsRemaining} minutes`;
 
           addMessage({
             id: Date.now().toString(),
             type: "ai",
-            content: `🚫 **Interview Limit Reached**\n\nYou've reached the temporary interview limit. Please wait **${minutesUntilReset} minutes** before starting another session.\n\n💡 **Want unlimited interviews?** Upgrade to Pro for unrestricted access to all interview modes and features.`,
+            content: `🚫 **Interview Limit Reached**\n\nYou've reached the temporary interview limit. Please wait **${timeDisplay}** before starting another session.\n\n💡 **Want unlimited interviews?** Upgrade to Pro for unrestricted access to all interview modes and features.`,
             timestamp: new Date(),
           });
           setIsLoading(false);

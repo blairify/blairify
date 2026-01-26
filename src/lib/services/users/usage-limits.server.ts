@@ -64,23 +64,23 @@ export async function checkAndIncrementUsage(userId: string): Promise<boolean> {
         return true;
       }
 
-      // 2. CHECK DAILY RESET (UTC)
+      // 2. CHECK 1-HOUR RESET
       const now = new Date();
-      const periodStart =
-        usage.periodStart instanceof Date
-          ? usage.periodStart
-          : (usage.periodStart as { toDate?: () => Date })?.toDate?.() ||
+      const lastInterviewAt =
+        usage.lastInterviewAt instanceof Date
+          ? usage.lastInterviewAt
+          : (usage.lastInterviewAt as { toDate?: () => Date })?.toDate?.() ||
             new Date();
 
-      const isSameDay =
-        now.getUTCFullYear() === periodStart.getUTCFullYear() &&
-        now.getUTCMonth() === periodStart.getUTCMonth() &&
-        now.getUTCDate() === periodStart.getUTCDate();
+      const diffMs = now.getTime() - lastInterviewAt.getTime();
+      const diffMin = diffMs / (1000 * 60);
 
+      // Reset period: 60 minutes (1 hour)
+      const RESET_PERIOD_MINUTES = 60;
       let currentCount = usage.interviewCount;
 
-      if (!isSameDay) {
-        console.log("🔄 New day detected, resetting count");
+      if (diffMin >= RESET_PERIOD_MINUTES) {
+        console.log("🔄 1-hour reset period passed, resetting count");
         currentCount = 0;
       }
 
@@ -96,12 +96,14 @@ export async function checkAndIncrementUsage(userId: string): Promise<boolean> {
       }
 
       // 4. INCREMENT USAGE
+      // Reset periodStart when the count was reset (new period started)
+      const shouldResetPeriod = diffMin >= RESET_PERIOD_MINUTES;
       transaction.update(userRef, {
         "usage.interviewCount": currentCount + 1,
         "usage.lastInterviewAt": FieldValue.serverTimestamp(),
-        ...(isSameDay
-          ? {}
-          : { "usage.periodStart": FieldValue.serverTimestamp() }),
+        ...(shouldResetPeriod
+          ? { "usage.periodStart": FieldValue.serverTimestamp() }
+          : {}),
       });
 
       return true;
