@@ -59,6 +59,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import {
   CONFIGURE_STEPS,
@@ -339,7 +340,7 @@ export function ConfigureContent() {
     companyProfile: "generic",
     specificCompany: "",
     interviewMode: "",
-    interviewType: "technical",
+    interviewType: "mixed",
     duration: "30",
     company: "",
     jobDescription: "",
@@ -1165,8 +1166,57 @@ export function ConfigureContent() {
   }
 
   function renderModeStep() {
+    const isRandomized = config.interviewType === "mixed";
+
     return (
       <div className="space-y-6">
+        <div className="space-y-3 max-w-sm">
+          <div className="flex items-center justify-between gap-4">
+            <Label htmlFor="randomizeInterviewType">
+              Randomize interview types
+            </Label>
+            <Switch
+              id="randomizeInterviewType"
+              checked={isRandomized}
+              onCheckedChange={(checked) => {
+                setConfig((prev) => ({
+                  ...prev,
+                  interviewType: checked ? "mixed" : "technical",
+                }));
+              }}
+            />
+          </div>
+
+          {!isRandomized && (
+            <div className="space-y-2">
+              <Label htmlFor="interviewType">Interview Type</Label>
+              <Select
+                value={config.interviewType}
+                onValueChange={(value) =>
+                  setConfig((prev) => ({
+                    ...prev,
+                    interviewType: value,
+                  }))
+                }
+              >
+                <SelectTrigger
+                  id="interviewType"
+                  className="w-full bg-input border-border"
+                >
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="technical">Technical</SelectItem>
+                  <SelectItem value="system-design">System design</SelectItem>
+                  <SelectItem value="coding">Coding</SelectItem>
+                  <SelectItem value="bullet">Bullet</SelectItem>
+                  <SelectItem value="situational">Situational</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          )}
+        </div>
+
         <ModeSelectionStep
           config={config}
           onSelect={(mode) => {

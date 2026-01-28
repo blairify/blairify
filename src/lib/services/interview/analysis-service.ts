@@ -963,16 +963,24 @@ function generateMockKnowledgeGaps(
       return `- Title: Scalability fundamentals
   Priority: ${priority}
   Tags: scalability, caching
-  Summary: Build a repeatable approach for scaling, caching, and identifying bottlenecks under load.
-  Why: You did not clearly explain how you would scale and cache under load.
+  Summary: Improve your ability to reason about load, latency, and bottlenecks using concrete trade-offs.
+  Why: Your responses did not consistently connect design choices to measurable performance and reliability outcomes.
 
 - Title: Data storage trade-offs
   Priority: ${priority}
   Tags: sql-indexes, database-design
   Summary: Practice selecting storage and indexing strategies by comparing concrete trade-offs.
   Why: Key trade-offs around storage and indexing were missing or unclear.`;
+    case "situational":
+    case "mixed":
     case "bullet":
-      return `- Title: Structured communication
+      return `- Title: Incident debugging process
+  Priority: ${priority}
+  Tags: debugging, incident-response
+  Summary: Practice describing a concrete end-to-end debugging workflow using logs, metrics, and validation steps.
+  Why: Your answers did not consistently demonstrate a realistic cause-and-effect investigation path.
+
+- Title: Communication structure
   Priority: ${priority}
   Tags: communication, storytelling
   Summary: Use a consistent structure (context → action → outcome) so your answers are easy to follow and verify.

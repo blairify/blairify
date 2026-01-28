@@ -91,12 +91,16 @@ export async function POST(request: NextRequest) {
 
     const baseUrl = request.nextUrl.origin;
 
-    const { prompt: questionsPrompt, questionIds } =
-      await getDatabaseQuestionsPrompt(
-        interviewConfig,
-        totalQuestions,
-        baseUrl,
-      );
+    const shouldUseQuestionBank =
+      interviewConfig.interviewType !== "situational" &&
+      interviewConfig.interviewType !== "mixed";
+    const { prompt: questionsPrompt, questionIds } = shouldUseQuestionBank
+      ? await getDatabaseQuestionsPrompt(
+          interviewConfig,
+          totalQuestions,
+          baseUrl,
+        )
+      : { prompt: "", questionIds: [] };
 
     console.log("📚 Loaded questions from database:", {
       totalQuestions,

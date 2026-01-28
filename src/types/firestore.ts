@@ -243,7 +243,13 @@ export type InterviewMode =
   | "competitive"
   | "teacher";
 
-export type InterviewType = "technical" | "bullet" | "coding" | "system-design";
+export type InterviewType =
+  | "technical"
+  | "bullet"
+  | "coding"
+  | "system-design"
+  | "situational"
+  | "mixed";
 
 export type SessionStatus =
   | "scheduled"

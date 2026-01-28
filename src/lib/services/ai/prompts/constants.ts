@@ -21,6 +21,10 @@ export const CATEGORY_DESCRIPTION: Record<InterviewType, string> = {
   "system-design": "system architecture and design principles",
   coding: "programming and coding challenges",
   bullet: "behavioral and soft skills",
+  situational:
+    "scenario-based engineering judgment (debugging, incident response, trade-offs)",
+  mixed:
+    "mixed interview (rotate across technical, coding, system design, and situational prompts)",
 };
 
 export const PASSING_THRESHOLDS: Record<
@@ -131,4 +135,14 @@ export const TYPE_SPECIFIC_PROMPTS: Record<
 - Start with basic architecture for ${seniority} level
 - Focus on fundamental design principles
 - Keep complexity appropriate to their experience`,
+
+  situational: () => `
+- Ask realistic engineering scenarios (production incidents, debugging, system failures)
+- Require step-by-step reasoning, evidence, and cause/effect
+- Challenge vague claims with targeted follow-ups`,
+
+  mixed: () => `
+- Rotate question types across technical, coding, system-design, and situational.
+- Avoid repeating the same type twice in a row.
+- Keep questions realistic and seniority-appropriate`,
 };

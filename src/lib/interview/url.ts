@@ -23,6 +23,8 @@ const INTERVIEW_TYPES: InterviewType[] = [
   "bullet",
   "coding",
   "system-design",
+  "situational",
+  "mixed",
 ];
 
 const SENIORITY_LEVELS: SeniorityLevel[] = ["entry", "junior", "mid", "senior"];

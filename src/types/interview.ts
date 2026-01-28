@@ -134,7 +134,13 @@ export type InterviewMode =
   | "play" // Unlimited, ABCD multiple choice, gamified
   | "competitive" // 10 questions, hardest difficulty
   | "teacher"; // Unlimited, has "Show Answer" button, not scored
-export type InterviewType = "technical" | "bullet" | "coding" | "system-design";
+export type InterviewType =
+  | "technical"
+  | "bullet"
+  | "coding"
+  | "system-design"
+  | "situational"
+  | "mixed";
 export type QuestionType =
   | "technical"
   | "bullet"

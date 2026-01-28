@@ -11,9 +11,18 @@ import type {
 
 export const runtime = "nodejs";
 
-type ExamplePreviewRequest = {
-  interviewConfig: InterviewConfig;
-};
+async function safeReadJson(
+  request: NextRequest,
+): Promise<Record<string, unknown> | null> {
+  try {
+    const parsed = (await request.json()) as unknown;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed))
+      return null;
+    return parsed as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
 
 function sanitizeExampleAnswer(value: string): string {
   const raw = value.trim();
@@ -66,16 +75,37 @@ function getExampleAnswerFromQuestion(question: Question): string {
 
 export async function POST(request: NextRequest) {
   try {
-    const body = (await request.json()) as Partial<ExamplePreviewRequest>;
+    const body = await safeReadJson(request);
+    const interviewConfig = body?.interviewConfig as
+      | InterviewConfig
+      | undefined;
 
-    if (!body?.interviewConfig) {
+    if (!interviewConfig) {
       return NextResponse.json(
         { success: false, error: "Missing interviewConfig" },
         { status: 400 },
       );
     }
 
-    const config = body.interviewConfig;
+    const config = interviewConfig;
+
+    if (
+      config.interviewType === "situational" ||
+      config.interviewType === "mixed"
+    ) {
+      return NextResponse.json({
+        success: true,
+        example: {
+          question: {
+            id: "situational-preview",
+            description:
+              "You’re on-call and a critical user flow starts failing in production. Walk me through how you would detect impact, form hypotheses, investigate with metrics/logs/traces, mitigate, and prevent recurrence.",
+          },
+          answer: "",
+        },
+      });
+    }
+
     const normalizedConfig: InterviewConfig = {
       ...config,
       technologies: Array.isArray(config.technologies)

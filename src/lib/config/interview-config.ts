@@ -158,6 +158,8 @@ export const QUESTION_TYPE_MAPPINGS: Record<InterviewType, QuestionType[]> = {
   bullet: ["core-concept", "quick-assessment", "essential-skill"],
   coding: ["algorithms", "data-structures", "optimization", "implementation"],
   "system-design": ["architecture", "scalability", "trade-offs", "components"],
+  situational: ["debugging", "practical", "architectural", "trade-offs"],
+  mixed: ["practical", "debugging", "architecture", "trade-offs"],
 };
 
 // Interview Mode Configurations

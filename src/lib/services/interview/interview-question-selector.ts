@@ -408,6 +408,44 @@ function matchCategoryToInterviewType(
       "debugging",
       "product",
     ],
+    situational: [
+      "debugging",
+      "performance",
+      "testing",
+      "incident-response",
+      "reliability",
+      "architecture",
+      "system-design",
+      "api-design",
+      "database",
+      "cloud",
+    ],
+    mixed: [
+      "frontend",
+      "backend",
+      "fullstack",
+      "devops",
+      "mobile",
+      "data-engineer",
+      "data-scientist",
+      "cybersecurity",
+      "algorithms",
+      "data-structures",
+      "database",
+      "performance",
+      "testing",
+      "debugging",
+      "api-design",
+      "architecture",
+      "cloud",
+      "system-design",
+      "scalability",
+      "incident-response",
+      "reliability",
+      "product",
+      "communication",
+      "problem-solving",
+    ],
   };
 
   return categoryMap[interviewType].includes(category);
@@ -420,6 +458,8 @@ function matchCategoryToInterviewTypeForRoleSelection(
     case "technical":
     case "coding":
     case "system-design":
+    case "situational":
+    case "mixed":
       return true;
     case "bullet":
       return false;
