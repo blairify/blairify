@@ -81,18 +81,32 @@ function toResourceLink(row: ResourceRow): ResourceLink {
   };
 }
 
+function normalizeTag(value: string): string {
+  const cleaned = value.trim().toLowerCase();
+  if (!cleaned) return "";
+  return cleaned
+    .replace(/[_/]/g, " ")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function hasAnyTag(resourceTags: string[], queryTags: string[]): boolean {
   if (resourceTags.length === 0 || queryTags.length === 0) return false;
-  const set = new Set(resourceTags.map((t) => t.toLowerCase()));
-  return queryTags.some((t) => set.has(t.toLowerCase()));
+  const set = new Set(resourceTags.map((t) => normalizeTag(t)).filter(Boolean));
+  return queryTags
+    .map((t) => normalizeTag(t))
+    .filter(Boolean)
+    .some((t) => set.has(t));
 }
 
 function countTagMatches(resourceTags: string[], queryTags: string[]): number {
   if (resourceTags.length === 0 || queryTags.length === 0) return 0;
-  const set = new Set(resourceTags.map((t) => t.toLowerCase()));
+  const set = new Set(resourceTags.map((t) => normalizeTag(t)).filter(Boolean));
   let count = 0;
-  for (const t of queryTags) {
-    if (set.has(t.toLowerCase())) count += 1;
+  for (const t of queryTags.map((x) => normalizeTag(x)).filter(Boolean)) {
+    if (set.has(t)) count += 1;
   }
   return count;
 }

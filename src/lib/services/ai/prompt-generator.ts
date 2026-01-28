@@ -269,19 +269,22 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
   Priority: [high | medium | low]
   Tags: [comma-separated kebab-case tags, e.g. react-rendering, sql-indexes]
   Summary: [1 short, actionable sentence describing what to improve (no small-talk openers, no ellipses)]
-  Why: [1 sentence explaining why this is a gap based on the transcript, referencing the specific question by TOPIC only]
+  Why: [1 sentence explaining why this is a gap based on the candidate's response, referencing the TOPIC only]
   Example Answer: [Provide a concise, high-quality ideal answer to the question that demonstrates the expected knowledge for this seniority level]
 
 Rules for KNOWLEDGE GAPS:
 - Output exactly 1 knowledge gap per interviewer question.
 - NEVER quote the full question text. Use a short topic reference instead (e.g. "JavaScript placement in HTML", "alt attribute in HTML").
-- The Why MUST reference the related question/topic (e.g. "When I asked about JavaScript placement in HTML...").
+- Title MUST be a SHORT topic noun-phrase: 2-5 words.
+  - No verbs (no "Explain", "Implement", "Use"), no "you", no "can you", no question marks.
+  - Examples: "Progressive Web Apps", "JSX compilation", "React Hooks rules", "SQL indexes".
+- The Why MUST be about what the candidate did/did not demonstrate in their answer about the topic. Do NOT say "When I asked...".
 - Summary MUST be standalone and useful even without the transcript context.
 - Summary MUST NOT include "..." or "…".
 - Always speak to the candidate as "you" (never "the candidate").
 - Tags MUST be generic skill tags (no URLs, no provider names, no full sentences).
 - If the candidate passed, still output gaps, but prioritize "medium" and "low".
-- Prefer including 2+ learning resources per gap as markdown links (prioritize roadmap.sh, W3Schools, MDN Web Docs, freeCodeCamp, and YouTube).
+- Do NOT include learning resource links in the knowledge gaps. The app will attach curated links based on tags.
 
 ## CRITICAL REMINDERS FOR SCORING:
 1. If a candidate answered mostly "I don't know" - score should be 0-20 maximum

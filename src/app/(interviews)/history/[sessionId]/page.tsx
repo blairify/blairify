@@ -54,6 +54,10 @@ import {
   SENIORITY_LEVELS,
 } from "@/constants/configure";
 import { DatabaseService } from "@/lib/database";
+import {
+  formatKnowledgeGapBlurb,
+  formatKnowledgeGapTitle,
+} from "@/lib/utils/interview-normalizers";
 import { useAuth } from "@/providers/auth-provider";
 import type { InterviewQuestion, InterviewSession } from "@/types/firestore";
 import type { Question } from "@/types/practice-question";
@@ -88,14 +92,6 @@ function getPriorityClass(priority: "high" | "medium" | "low"): string {
   }
 }
 
-function normalizeKnowledgeGapTitle(title: string): string {
-  return title
-    .trim()
-    .replace(/^\s*\d+\s*[.)]\s*/g, "")
-    .replace(/^\s*title\s*:\s*/i, "")
-    .trim();
-}
-
 function getMarkdownNodeText(node: ReactNode): string {
   if (node == null || typeof node === "boolean") return "";
   if (typeof node === "string" || typeof node === "number") return String(node);
@@ -105,6 +101,13 @@ function getMarkdownNodeText(node: ReactNode): string {
     return getMarkdownNodeText(n.props?.children);
   }
   return "";
+}
+
+function isGeneratedSearchResourceUrl(url: string): boolean {
+  const u = url.toLowerCase();
+  if (u.includes("google.com/search")) return true;
+  if (u.includes("youtube.com/results")) return true;
+  return false;
 }
 
 // --- Scoring Helpers ---
@@ -905,7 +908,7 @@ export default function SessionDetailsPage() {
                         >
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                             <div className="text-sm font-bold text-foreground">
-                              {normalizeKnowledgeGapTitle(gap.title)}
+                              {formatKnowledgeGapTitle(gap.title, gap.tags)}
                             </div>
                             <Badge
                               variant="secondary"
@@ -917,22 +920,44 @@ export default function SessionDetailsPage() {
                             </Badge>
                           </div>
 
-                          {gap.resources && gap.resources.length > 0 && (
-                            <ul className="space-y-2">
-                              {gap.resources.map((r) => (
-                                <li key={r.id} className="text-sm">
-                                  <a
-                                    className="text-blue-700 dark:text-blue-300 hover:underline"
-                                    href={r.url}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                  >
-                                    {r.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
+                          <div className="text-sm text-muted-foreground">
+                            {formatKnowledgeGapBlurb({
+                              title: gap.title,
+                              tags: gap.tags,
+                              priority: gap.priority,
+                            })}
+                          </div>
+
+                          {(() => {
+                            const resources = (gap.resources ?? []).filter(
+                              (r) => !isGeneratedSearchResourceUrl(r.url),
+                            );
+
+                            if (resources.length === 0) {
+                              return (
+                                <div className="text-sm text-muted-foreground italic">
+                                  No curated links yet.
+                                </div>
+                              );
+                            }
+
+                            return (
+                              <ul className="space-y-2">
+                                {resources.map((r) => (
+                                  <li key={r.id} className="text-sm">
+                                    <a
+                                      className="text-blue-700 dark:text-blue-300 hover:underline"
+                                      href={r.url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      {r.title}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            );
+                          })()}
                         </div>
                       ))}
                     </div>

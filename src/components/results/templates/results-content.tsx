@@ -56,6 +56,9 @@ import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import { addUserXP } from "@/lib/services/users/user-xp";
 import {
+  formatKnowledgeGapBlurb,
+  formatKnowledgeGapDescription,
+  formatKnowledgeGapTitle,
   normalizePositionValue,
   normalizeSeniorityValue,
 } from "@/lib/utils/interview-normalizers";
@@ -120,6 +123,13 @@ function getScoreColor(score: number): string {
 function mapKnowledgeGaps(
   analysis: InterviewSession["analysis"],
 ): KnowledgeGap[] | undefined {
+  const isGeneratedSearchResourceUrl = (url: string): boolean => {
+    const u = url.toLowerCase();
+    if (u.includes("google.com/search")) return true;
+    if (u.includes("youtube.com/results")) return true;
+    return false;
+  };
+
   const gaps = analysis.knowledgeGaps;
   if (!Array.isArray(gaps) || gaps.length === 0) return undefined;
 
@@ -150,6 +160,7 @@ function mapKnowledgeGaps(
                   )
                 : [];
               if (!id || !title || !url || !type) return null;
+              if (isGeneratedSearchResourceUrl(url)) return null;
               if (tags.length === 0) return null;
               return {
                 id,
@@ -340,28 +351,8 @@ function stripMarkdown(value: string): string {
     .trim();
 }
 
-function normalizeKnowledgeGapTitle(title: string): string {
-  return title
-    .trim()
-    .replace(/^\s*\d+\s*[.)]\s*/g, "")
-    .replace(/^\s*title\s*:\s*/i, "")
-    .trim();
-}
-
-function toShortTopicTitle(raw: string): string {
-  const cleaned = normalizeKnowledgeGapTitle(raw)
-    .replace(/\.{3,}/g, " ")
-    .replace(/…/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  const firstClause = cleaned.split(/[:.\n]/)[0]?.trim() ?? cleaned;
-  const maxLen = 52;
-  if (firstClause.length <= maxLen) return firstClause;
-  const slice = firstClause.slice(0, maxLen);
-  const cut = slice.lastIndexOf(" ");
-  const safe = (cut > 18 ? slice.slice(0, cut) : slice).trimEnd();
-  return safe;
+function toShortTopicTitle(raw: string, tags?: string[]): string {
+  return formatKnowledgeGapTitle(raw, tags);
 }
 
 function shouldHideGapDescription(raw: string): boolean {
@@ -389,6 +380,25 @@ function getGapSummaryText(gap: { summary?: string }): string {
   if (!cleaned) return "";
   if (shouldHideGapDescription(cleaned)) return "";
   return cleaned;
+}
+
+function getGapSummaryTextWithFallback(gap: KnowledgeGap): string {
+  const fromSummary = getGapSummaryText(gap);
+  if (fromSummary) return fromSummary;
+  return formatKnowledgeGapDescription({
+    title: gap.title,
+    tags: gap.tags,
+    priority: gap.priority,
+    summary: gap.summary,
+  });
+}
+
+function getGapBlurbText(gap: KnowledgeGap): string {
+  return formatKnowledgeGapBlurb({
+    title: gap.title,
+    tags: gap.tags,
+    priority: gap.priority,
+  });
 }
 
 function getMarkdownText(node: unknown): string {
@@ -810,7 +820,20 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         aiExampleAnswer: string | null;
       }> = [];
 
+      const isOutroLine = (value: string): boolean => {
+        const t = value.trim().toLowerCase();
+        if (!t) return true;
+        if (t.startsWith("thanks")) return true;
+        if (t.includes("that's all the questions")) return true;
+        if (t.includes("that is all the questions")) return true;
+        if (t.includes("thats all the questions")) return true;
+        if (t.includes("good luck")) return true;
+        if (t.includes("end of this interview")) return true;
+        return false;
+      };
+
       savedSession.questions.forEach((q, idx) => {
+        if (isOutroLine(q.question ?? "")) return;
         const response = savedSession.responses.find(
           (r) => r.questionId === q.id,
         );
@@ -847,6 +870,18 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       ? storedSession.messages
       : [];
 
+    const isOutroLine = (value: string): boolean => {
+      const t = value.trim().toLowerCase();
+      if (!t) return true;
+      if (t.startsWith("thanks")) return true;
+      if (t.includes("that's all the questions")) return true;
+      if (t.includes("that is all the questions")) return true;
+      if (t.includes("thats all the questions")) return true;
+      if (t.includes("good luck")) return true;
+      if (t.includes("end of this interview")) return true;
+      return false;
+    };
+
     const rows: Array<{
       type: "main" | "follow-up";
       idx: number;
@@ -871,6 +906,11 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
       const aiText = (ai.content ?? "").trim();
       if (!aiText) {
+        cursor += 1;
+        continue;
+      }
+
+      if (isOutroLine(aiText)) {
         cursor += 1;
         continue;
       }
@@ -1474,6 +1514,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           >
             {savedSessionId ? (
               <ResultsDeck
+                key={savedSessionId}
                 results={results}
                 rewards={rewards}
                 onRewardsConsumed={() => {
@@ -1832,7 +1873,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                           >
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
                               <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
-                                {toShortTopicTitle(gap.title)}
+                                {toShortTopicTitle(gap.title, gap.tags)}
                               </div>
                               <Typography.CaptionMedium
                                 className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getPriorityClass(
@@ -1844,12 +1885,15 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                             </div>
 
                             {(() => {
-                              const summary = getGapSummaryText(gap);
-                              if (!summary) return null;
+                              const summary =
+                                getGapSummaryTextWithFallback(gap);
+                              const blurb = getGapBlurbText(gap);
+                              const content = blurb || summary;
+                              if (!content) return null;
                               return (
                                 <MarkdownContent
                                   className="text-gray-700 dark:text-gray-300 mb-3"
-                                  markdown={gap.summary ?? ""}
+                                  markdown={content}
                                 />
                               );
                             })()}
@@ -1884,7 +1928,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                               </ul>
                             ) : (
                               <div className="text-sm text-gray-500 dark:text-gray-500 italic">
-                                No resources found for these tags yet.
+                                No curated links yet.
                               </div>
                             )}
                           </div>

@@ -17,7 +17,11 @@ import { Typography } from "@/components/common/atoms/typography";
 import { MarkdownContent } from "@/components/common/molecules/markdown-content";
 import { Button } from "@/components/ui/button";
 import type { Achievement } from "@/lib/achievements";
-import type { InterviewResults } from "@/types/interview";
+import {
+  formatKnowledgeGapBlurb,
+  formatKnowledgeGapTitle,
+} from "@/lib/utils/interview-normalizers";
+import type { InterviewResults, ResourceLink } from "@/types/interview";
 
 const AUTO_ADVANCE_MS = 10_000;
 const INTERACTION_PAUSE_MS = 12_000;
@@ -51,6 +55,7 @@ type DeckStep =
         why: string;
         priority?: string;
         tags?: string[];
+        resources?: Pick<ResourceLink, "id" | "title" | "url">[];
       }[];
     }
   | {
@@ -151,6 +156,42 @@ function buildCoachSummary(params: {
   improvements: string[];
   narrative: string;
 }): string {
+  const normalizeCue = (value: string): string => {
+    const t = stripMarkdown(value)
+      .replace(/\.{3,}/g, " ")
+      .replace(/…/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!t) return "";
+
+    const rewritten = t
+      .replace(/^(?:you\s+)?could\s+not\s+explain\s+/i, "Explaining ")
+      .replace(/^(?:you\s+)?could\s+not\s+describe\s+/i, "Describing ")
+      .replace(/^(?:you\s+)?could\s+not\s+define\s+/i, "Defining ")
+      .replace(/^(?:you\s+)?did\s+not\s+explain\s+/i, "Explaining ")
+      .replace(/^(?:you\s+)?did\s+not\s+describe\s+/i, "Describing ")
+      .replace(/^(?:you\s+)?did\s+not\s+define\s+/i, "Defining ")
+      .replace(/^unable\s+to\s+explain\s+/i, "Explaining ")
+      .replace(/^unable\s+to\s+describe\s+/i, "Describing ")
+      .replace(/^unable\s+to\s+define\s+/i, "Defining ")
+      .replace(/^next\s*,?\s*focus\s+on\s*:\s*/i, "")
+      .replace(/^biggest\s+growth\s+lever\s+is\s*:\s*/i, "")
+      .trim();
+
+    const capped =
+      rewritten.length > 0
+        ? rewritten[0].toUpperCase() + rewritten.slice(1)
+        : "";
+    return capped.replace(/[.!]+$/g, "");
+  };
+
+  const norm = (value: string): string =>
+    normalizeCue(value)
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
   const rejectPlaceholder = (s: string): boolean => {
     const t = s.toLowerCase();
     if (t.includes("none demonstrated")) return true;
@@ -170,6 +211,23 @@ function buildCoachSummary(params: {
       .find((x) => x && !rejectPlaceholder(x)) ?? "";
   const n = sanitizeCoachNarrative(params.narrative);
 
+  const strengthCue = normalizeCue(s);
+  const improvementCue = normalizeCue(i);
+  const narrativeCue = normalizeCue(n);
+
+  const strengthNorm = norm(strengthCue);
+  const improvementNorm = norm(improvementCue);
+  const narrativeNorm = norm(narrativeCue);
+  const narrativeOverlaps =
+    (improvementNorm.length > 0 &&
+      narrativeNorm.length > 0 &&
+      (narrativeNorm.includes(improvementNorm) ||
+        improvementNorm.includes(narrativeNorm))) ||
+    (strengthNorm.length > 0 &&
+      narrativeNorm.length > 0 &&
+      (narrativeNorm.includes(strengthNorm) ||
+        strengthNorm.includes(narrativeNorm)));
+
   const tone = (() => {
     if (params.score >= 85)
       return "Strong performance — keep momentum and polish a couple edges.";
@@ -184,9 +242,9 @@ function buildCoachSummary(params: {
   })();
 
   const parts = [
-    s.length > 0 ? `You did well on: ${s}.` : "",
-    i.length > 0 ? `Next, focus on: ${i}.` : "",
-    n.length > 0 ? n : "",
+    strengthCue.length > 0 ? `You did well on: ${strengthCue}.` : "",
+    improvementCue.length > 0 ? `Next, focus on: ${improvementCue}.` : "",
+    !narrativeOverlaps && narrativeCue.length > 0 ? `${narrativeCue}.` : "",
     tone,
   ].filter(Boolean);
 
@@ -250,58 +308,6 @@ function splitActionLines(raw: string, max: number): string[] {
   return parts.slice(0, max);
 }
 
-function stableHash(value: string): number {
-  let hash = 0;
-  for (let i = 0; i < value.length; i += 1) {
-    hash = (hash * 31 + value.charCodeAt(i)) | 0;
-  }
-  return Math.abs(hash);
-}
-
-function describeGapFallback(params: {
-  title: string;
-  tags?: string[];
-  priority?: string;
-}): string {
-  const cleaned = stripMarkdown(params.title)
-    .replace(/\.{3,}/g, " ")
-    .replace(/…/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-  if (cleaned.length === 0) return "";
-
-  const tagHint = (Array.isArray(params.tags) ? params.tags : [])
-    .map((t) => stripMarkdown(t).trim())
-    .filter((t) => t.length > 0)
-    .slice(0, 2)
-    .join(" / ");
-
-  const difficultyHint = (() => {
-    switch (params.priority) {
-      case "high":
-        return "High priority — ";
-      case "medium":
-        return "Priority — ";
-      case "low":
-        return "";
-      default:
-        return "";
-    }
-  })();
-
-  const context = tagHint.length > 0 ? `${cleaned} (${tagHint})` : cleaned;
-  const templates = [
-    `${difficultyHint}Revisit ${context}. Prepare a crisp definition, a concrete example, and one trade-off.`,
-    `${difficultyHint}Strengthen ${context}. Be ready to compare alternatives and explain when you'd choose each.`,
-    `${difficultyHint}Drill ${context}. Practice explaining it out loud end-to-end in under 60 seconds.`,
-    `${difficultyHint}Sharpen ${context}. Focus on common pitfalls and how you'd spot them in an interview.`,
-    `${difficultyHint}Solidify ${context}. Know the key constraints, edge cases, and how you'd validate your approach.`,
-  ];
-
-  const key = [cleaned, tagHint, params.priority ?? ""].join("|");
-  return templates[stableHash(key) % templates.length] ?? templates[0] ?? "";
-}
-
 function isGenericPlanLine(line: string): boolean {
   const t = stripMarkdown(line).toLowerCase();
   if (t.includes("study fundamental")) return true;
@@ -336,14 +342,11 @@ function buildPlanItems(results: InterviewResults, max: number): string[] {
   const gapItems = gaps
     .slice(0, max)
     .map((g) => {
-      const raw =
-        typeof g.summary === "string" && g.summary.trim().length > 0
-          ? g.summary.trim()
-          : describeGapFallback({
-              title: g.title,
-              tags: g.tags,
-              priority: g.priority,
-            });
+      const raw = formatKnowledgeGapBlurb({
+        title: g.title,
+        tags: g.tags,
+        priority: g.priority,
+      });
       const cleaned = stripMarkdown(raw)
         .replace(/\.{3,}/g, " ")
         .replace(/…/g, " ")
@@ -390,7 +393,13 @@ function pickFocusAreas(params: {
   knowledgeGaps: InterviewResults["knowledgeGaps"] | undefined;
   improvements: string[];
   max: number;
-}): { title: string; why: string; priority?: string; tags?: string[] }[] {
+}): {
+  title: string;
+  why: string;
+  priority?: string;
+  tags?: string[];
+  resources?: Pick<ResourceLink, "id" | "title" | "url">[];
+}[] {
   const toShortTopic = (raw: string): string => {
     const cleaned = stripMarkdown(raw)
       .replace(/\.{3,}/g, " ")
@@ -440,6 +449,13 @@ function pickFocusAreas(params: {
 
   const gaps = Array.isArray(params.knowledgeGaps) ? params.knowledgeGaps : [];
 
+  const isGeneratedSearchResourceUrl = (url: string): boolean => {
+    const u = url.toLowerCase();
+    if (u.includes("google.com/search")) return true;
+    if (u.includes("youtube.com/results")) return true;
+    return false;
+  };
+
   const priorityRank = (p: string | undefined): number => {
     switch (p) {
       case "high":
@@ -457,25 +473,36 @@ function pickFocusAreas(params: {
     .slice()
     .sort((a, b) => priorityRank(a.priority) - priorityRank(b.priority))
     .map((g) => {
-      const titleRaw = typeof g.title === "string" ? g.title.trim() : "";
-      const title = titleRaw.length > 0 ? toShortTopic(titleRaw) : "";
-      const summaryRaw = typeof g.summary === "string" ? g.summary.trim() : "";
-      const descriptionRaw =
-        summaryRaw.length > 0
-          ? summaryRaw
-          : describeGapFallback({
-              title: titleRaw.length > 0 ? titleRaw : title,
-              tags: g.tags,
-              priority: g.priority,
-            });
-      const why =
-        descriptionRaw.length > 0 ? toNoEllipsisSnippet(descriptionRaw) : "";
+      const title = toShortTopic(formatKnowledgeGapTitle(g.title, g.tags));
+      const why = toNoEllipsisSnippet(
+        formatKnowledgeGapBlurb({
+          title: g.title,
+          tags: g.tags,
+          priority: g.priority,
+        }),
+      );
       if (!title) return null;
+
+      const resources = Array.isArray(g.resources)
+        ? g.resources
+            .map((r) => {
+              const id = typeof r.id === "string" ? r.id.trim() : "";
+              const title = typeof r.title === "string" ? r.title.trim() : "";
+              const url = typeof r.url === "string" ? r.url.trim() : "";
+              if (!id || !title || !url) return null;
+              if (isGeneratedSearchResourceUrl(url)) return null;
+              return { id, title, url };
+            })
+            .filter((r): r is NonNullable<typeof r> => r !== null)
+            .slice(0, 2)
+        : [];
+
       return {
         title,
         why,
         priority: g.priority,
         tags: Array.isArray(g.tags) ? g.tags : undefined,
+        resources: resources.length > 0 ? resources : undefined,
       };
     })
     .filter((x): x is NonNullable<typeof x> => x !== null)
@@ -703,8 +730,13 @@ export function ResultsDeck({
 
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
-  const lastIndex = steps.length - 1;
-  const step = steps[index];
+  const lastIndex = Math.max(0, steps.length - 1);
+  const safeIndex = clampIndex(index, lastIndex);
+  const step = steps[safeIndex];
+
+  useEffect(() => {
+    setIndex((i) => clampIndex(i, lastIndex));
+  }, [lastIndex]);
 
   const [outcomeLoading, setOutcomeLoading] = useState(false);
   const [animatedScore, setAnimatedScore] = useState<number | null>(null);
@@ -716,6 +748,9 @@ export function ResultsDeck({
 
   const isDraggingRef = useRef(false);
   const dragStartXRef = useRef<number | null>(null);
+  const dragStartYRef = useRef<number | null>(null);
+  const swipeLockedRef = useRef<"horizontal" | "vertical" | null>(null);
+  const pointerIdRef = useRef<number | null>(null);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [hoverPaused, setHoverPaused] = useState(false);
   const [interactionPaused, setInteractionPaused] = useState(false);
@@ -852,27 +887,51 @@ export function ResultsDeck({
     [lastIndex],
   );
 
-  useEffect(() => {
-    const onMove = (e: PointerEvent) => {
+  const onPointerMove = useCallback(
+    (e: PointerEvent) => {
       if (!isDraggingRef.current) return;
+      if (pointerIdRef.current !== e.pointerId) return;
+
+      const startX = dragStartXRef.current;
+      const startY = dragStartYRef.current;
+      if (typeof startX !== "number" || typeof startY !== "number") return;
+
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+
+      const locked = swipeLockedRef.current;
+      if (locked === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+        swipeLockedRef.current =
+          Math.abs(dx) > Math.abs(dy) ? "horizontal" : "vertical";
+      }
+
+      if (swipeLockedRef.current !== "horizontal") return;
+
+      e.preventDefault();
       setFromPointer(e.clientX);
-    };
+    },
+    [setFromPointer],
+  );
 
-    const onUp = () => {
-      isDraggingRef.current = false;
-      dragStartXRef.current = null;
-    };
+  const endPointerDrag = useCallback(() => {
+    isDraggingRef.current = false;
+    dragStartXRef.current = null;
+    dragStartYRef.current = null;
+    swipeLockedRef.current = null;
+    pointerIdRef.current = null;
+  }, []);
 
-    window.addEventListener("pointermove", onMove);
-    window.addEventListener("pointerup", onUp);
-    window.addEventListener("pointercancel", onUp);
+  useEffect(() => {
+    window.addEventListener("pointermove", onPointerMove, { passive: false });
+    window.addEventListener("pointerup", endPointerDrag);
+    window.addEventListener("pointercancel", endPointerDrag);
 
     return () => {
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerup", onUp);
-      window.removeEventListener("pointercancel", onUp);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", endPointerDrag);
+      window.removeEventListener("pointercancel", endPointerDrag);
     };
-  }, [setFromPointer]);
+  }, [endPointerDrag, onPointerMove]);
 
   const autoPaused = hoverPaused || interactionPaused;
 
@@ -913,15 +972,12 @@ export function ResultsDeck({
       }
 
       if (e.key !== "Enter") return;
-      if (index < lastIndex) return;
-
-      e.preventDefault();
-      onDone();
+      if (index >= lastIndex) return;
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [goNext, goPrev, index, lastIndex, onDone, pauseForInteraction]);
+  }, [goNext, goPrev, index, lastIndex, pauseForInteraction]);
 
   useEffect(() => {
     if (autoPaused) return;
@@ -939,39 +995,51 @@ export function ResultsDeck({
 
   if (!step) return null;
 
+  const isTintedSlide = step.id === "rewards";
+  const mainStyle = isTintedSlide
+    ? {
+        background:
+          "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 78%, hsl(var(--background) / 0.92) 100%), radial-gradient(1100px circle at 22% 18%, rgba(16,185,129,0.26), rgba(16,185,129,0) 60%), radial-gradient(900px circle at 78% 22%, rgba(245,158,11,0.22), rgba(245,158,11,0) 56%), radial-gradient(1100px circle at 80% 86%, rgba(59,130,246,0.18), rgba(59,130,246,0) 62%)",
+      }
+    : undefined;
+
   return (
     <main
-      className="group relative flex-1 overflow-hidden bg-background cursor-default touch-pan-y overscroll-x-none"
+      className={`group relative flex-1 min-h-0 w-full max-w-full overflow-hidden cursor-default select-none touch-pan-y overscroll-x-none ${
+        isTintedSlide ? "bg-transparent" : "bg-background"
+      }`}
+      style={mainStyle}
       aria-label="Interview results deck"
       onMouseEnter={() => setHoverPaused(true)}
       onMouseLeave={() => setHoverPaused(false)}
       onPointerDown={(e) => {
+        const target = e.target;
+        if (target instanceof HTMLElement) {
+          if (target.closest("button,a,input,textarea,select")) return;
+        }
+
         pauseForInteraction(INTERACTION_PAUSE_MS);
         isDraggingRef.current = true;
         dragStartXRef.current = e.clientX;
-      }}
-    >
-      <div className="relative h-full min-h-0 overflow-y-auto overflow-x-hidden">
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          animate={{ opacity: [0.55, 0.8, 0.6] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          style={{
-            background:
-              "radial-gradient(900px circle at 30% 20%, rgba(0,0,0,0.02), rgba(0,0,0,0) 55%), radial-gradient(900px circle at 70% 80%, rgba(0,0,0,0.03), rgba(0,0,0,0) 55%)",
-          }}
-        />
+        dragStartYRef.current = e.clientY;
+        swipeLockedRef.current = null;
+        pointerIdRef.current = e.pointerId;
 
-        <div className="relative mx-auto max-w-6xl px-4 py-6 sm:py-8">
+        e.currentTarget.setPointerCapture(e.pointerId);
+      }}
+      onPointerUp={() => endPointerDrag()}
+      onPointerCancel={() => endPointerDrag()}
+    >
+      <div className="relative h-full min-h-0 overflow-hidden">
+        <div className="relative mx-auto flex h-full min-h-0 max-w-6xl flex-col px-4 py-6 sm:px-14 sm:py-8">
           <div className="pointer-events-none absolute inset-y-0 left-0 hidden items-center sm:flex">
-            <div className="pointer-events-auto -translate-x-3 md:-translate-x-10">
+            <div className="pointer-events-auto -translate-x-6 md:-translate-x-10">
               <Button
                 type="button"
                 variant="outline"
                 size="icon"
                 aria-label="Previous slide"
-                className="rounded-full border-border/60 bg-background/80 backdrop-blur shadow-sm hover:bg-background"
+                className="rounded-full border-border/60 bg-background/80 backdrop-blur shadow-sm hover:bg-background cursor-pointer"
                 disabled={index === 0}
                 onPointerDown={(e) => e.stopPropagation()}
                 onClick={() => {
@@ -984,13 +1052,13 @@ export function ResultsDeck({
             </div>
           </div>
           <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center sm:flex">
-            <div className="pointer-events-auto translate-x-3 md:translate-x-10">
+            <div className="pointer-events-auto translate-x-6 md:translate-x-10">
               <Button
                 type="button"
                 variant="outline"
                 size="icon"
                 aria-label="Next slide"
-                className="rounded-full border-border/60 bg-background/80 backdrop-blur shadow-sm hover:bg-background"
+                className="rounded-full border-border/60 bg-background/80 backdrop-blur shadow-sm hover:bg-background cursor-pointer"
                 disabled={index >= lastIndex}
                 onPointerDown={(e) => e.stopPropagation()}
                 onClick={() => {
@@ -1003,705 +1071,740 @@ export function ResultsDeck({
             </div>
           </div>
 
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={step.id}
-              className="relative mt-6"
-              custom={direction}
-              variants={{
-                enter: (d: 1 | -1) => ({
-                  opacity: 0,
-                  x: d === 1 ? 70 : -70,
-                  filter: "blur(10px)",
-                }),
-                center: {
-                  opacity: 1,
-                  x: 0,
-                  filter: "blur(0px)",
-                },
-                exit: (d: 1 | -1) => ({
-                  opacity: 0,
-                  x: d === 1 ? -70 : 70,
-                  filter: "blur(10px)",
-                }),
-              }}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ type: "spring", stiffness: 260, damping: 28 }}
-            >
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -inset-3"
+          <div className="min-h-0 flex-1">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={step.id}
+                className="relative mt-6"
+                custom={direction}
+                variants={{
+                  enter: (d: 1 | -1) => ({
+                    opacity: 0,
+                    x: d === 1 ? 70 : -70,
+                    filter: "blur(10px)",
+                  }),
+                  center: {
+                    opacity: 1,
+                    x: 0,
+                    filter: "blur(0px)",
+                  },
+                  exit: (d: 1 | -1) => ({
+                    opacity: 0,
+                    x: d === 1 ? -70 : 70,
+                    filter: "blur(10px)",
+                  }),
+                }}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ type: "spring", stiffness: 260, damping: 28 }}
               >
-                <div className="absolute inset-0 rounded-[28px] bg-gradient-to-br from-primary/10 via-transparent to-emerald-400/10 blur-2xl dark:from-primary/15 dark:to-emerald-400/15" />
-                <div className="absolute inset-0 rounded-[28px] bg-gradient-to-tr from-amber-400/10 via-transparent to-transparent blur-3xl dark:from-amber-400/15" />
-              </div>
-
-              <motion.section className="relative rounded-3xl border bg-card shadow-sm">
-                <motion.div
+                <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 rounded-3xl"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.18 }}
+                  className="pointer-events-none absolute -inset-3"
                 >
-                  <motion.div
-                    className="absolute -inset-x-24 -inset-y-10 rotate-12 bg-gradient-to-r from-transparent via-foreground/5 to-transparent"
-                    initial={{ x: "-40%" }}
-                    animate={{ x: "140%" }}
-                    transition={{ duration: 1.4, ease: "easeOut" }}
+                  {isTintedSlide ? (
+                    <>
+                      <div className="absolute inset-0 rounded-[28px] bg-gradient-to-br from-primary/10 via-transparent to-emerald-400/12 blur-2xl" />
+                      <div className="absolute inset-0 rounded-[28px] bg-gradient-to-tr from-amber-400/10 via-transparent to-transparent blur-3xl" />
+                    </>
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 rounded-[28px] bg-gradient-to-br from-primary/5 via-transparent to-emerald-400/5 blur-xl dark:from-primary/10 dark:to-emerald-400/10" />
+                      <div className="absolute inset-0 rounded-[28px] bg-gradient-to-tr from-amber-400/5 via-transparent to-transparent blur-2xl dark:from-amber-400/10" />
+                    </>
+                  )}
+                </div>
+
+                <motion.section
+                  className={
+                    isTintedSlide
+                      ? "relative overflow-hidden rounded-3xl border border-border/40 bg-background/50 backdrop-blur-sm shadow-sm"
+                      : "relative overflow-hidden rounded-3xl border border-border/40 bg-background/80 backdrop-blur-sm shadow-sm"
+                  }
+                >
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 rounded-3xl"
+                    style={{
+                      background: isTintedSlide
+                        ? "radial-gradient(900px circle at 18% 20%, rgba(16,185,129,0.18), rgba(16,185,129,0) 58%), radial-gradient(900px circle at 82% 18%, rgba(245,158,11,0.14), rgba(245,158,11,0) 54%), radial-gradient(900px circle at 78% 86%, rgba(59,130,246,0.12), rgba(59,130,246,0) 60%)"
+                        : "radial-gradient(900px circle at 18% 20%, rgba(16,185,129,0.16), rgba(16,185,129,0) 58%), radial-gradient(900px circle at 82% 18%, rgba(245,158,11,0.12), rgba(245,158,11,0) 54%), radial-gradient(900px circle at 78% 86%, rgba(59,130,246,0.09), rgba(59,130,246,0) 60%)",
+                      opacity: 0.22,
+                    }}
                   />
-                </motion.div>
 
-                <div className="px-6 py-8 sm:px-12 sm:py-12 min-h-[64vh] flex flex-col">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      {getStepIcon(step.id)}
-                      <Typography.CaptionMedium className="uppercase tracking-wider">
-                        {step.title}
-                      </Typography.CaptionMedium>
+                  {!isTintedSlide ? (
+                    <motion.div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 rounded-3xl"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.18 }}
+                    >
+                      <motion.div
+                        className="absolute -inset-x-24 -inset-y-10 rotate-12 bg-gradient-to-r from-transparent via-foreground/5 to-transparent"
+                        initial={{ x: "-40%" }}
+                        animate={{ x: "140%" }}
+                        transition={{ duration: 1.4, ease: "easeOut" }}
+                      />
+                    </motion.div>
+                  ) : null}
+
+                  <div className="relative z-10 px-6 py-8 sm:px-12 sm:py-12 flex min-h-0 flex-col">
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        {getStepIcon(step.id)}
+                        <Typography.CaptionMedium className="uppercase tracking-wider">
+                          {step.title}
+                        </Typography.CaptionMedium>
+                      </div>
+
+                      <div className="text-xs tabular-nums text-muted-foreground">
+                        {index + 1}/{steps.length}
+                      </div>
                     </div>
 
-                    <div className="text-xs tabular-nums text-muted-foreground">
-                      {index + 1}/{steps.length}
-                    </div>
-                  </div>
+                    <div className="flex min-h-0 flex-1 items-center justify-center">
+                      <div className="w-full max-w-full min-h-0 overflow-y-auto">
+                        {(() => {
+                          switch (step.id) {
+                            case "rewards": {
+                              type IconKey = keyof typeof ACHIEVEMENT_ICON_MAP;
 
-                  <div className="flex-1 flex items-center justify-center">
-                    <div className="w-full">
-                      {(() => {
-                        switch (step.id) {
-                          case "rewards": {
-                            type IconKey = keyof typeof ACHIEVEMENT_ICON_MAP;
+                              const xpValue =
+                                typeof animatedXP === "number"
+                                  ? animatedXP
+                                  : Math.round(step.xpGained);
 
-                            const xpValue =
-                              typeof animatedXP === "number"
-                                ? animatedXP
-                                : Math.round(step.xpGained);
+                              const achievements = Array.isArray(
+                                step.achievements,
+                              )
+                                ? step.achievements
+                                : [];
 
-                            const achievements = Array.isArray(
-                              step.achievements,
-                            )
-                              ? step.achievements
-                              : [];
+                              const primaryAchievement =
+                                achievements[0] ?? null;
+                              const PrimaryIcon = primaryAchievement
+                                ? (ACHIEVEMENT_ICON_MAP[
+                                    primaryAchievement.icon as IconKey
+                                  ] ?? ACHIEVEMENT_FALLBACK_ICON)
+                                : null;
 
-                            const primaryAchievement = achievements[0] ?? null;
-                            const PrimaryIcon = primaryAchievement
-                              ? (ACHIEVEMENT_ICON_MAP[
-                                  primaryAchievement.icon as IconKey
-                                ] ?? ACHIEVEMENT_FALLBACK_ICON)
-                              : null;
+                              const particles = Array.from({ length: 18 }).map(
+                                (_, i) => ({
+                                  key: `p_${i}`,
+                                  left: `${Math.random() * 100}%`,
+                                  delay: `${Math.random() * 0.8}s`,
+                                  duration: `${2.2 + Math.random() * 1.2}s`,
+                                  size: 4 + Math.round(Math.random() * 5),
+                                }),
+                              );
 
-                            const particles = Array.from({ length: 18 }).map(
-                              (_, i) => ({
-                                key: `p_${i}`,
-                                left: `${Math.random() * 100}%`,
-                                delay: `${Math.random() * 0.8}s`,
-                                duration: `${2.2 + Math.random() * 1.2}s`,
-                                size: 4 + Math.round(Math.random() * 5),
-                              }),
-                            );
-
-                            return (
-                              <div className="relative space-y-8">
-                                <div
-                                  aria-hidden
-                                  className="pointer-events-none absolute -inset-6 rounded-[32px] bg-gradient-to-br from-primary/25 via-emerald-400/10 to-transparent blur-2xl"
-                                />
-                                <div
-                                  aria-hidden
-                                  className="pointer-events-none absolute -inset-6 rounded-[32px] bg-gradient-to-tr from-amber-400/15 via-transparent to-transparent blur-3xl"
-                                />
-                                <div
-                                  aria-hidden
-                                  className="pointer-events-none absolute inset-0 overflow-hidden"
-                                >
-                                  {particles.map((p) => (
-                                    <div
-                                      key={p.key}
-                                      className="absolute rounded-full bg-white/60 animate-confetti"
-                                      style={{
-                                        left: p.left,
-                                        width: `${p.size}px`,
-                                        height: `${p.size}px`,
-                                        top: "-8px",
-                                        animationDelay: p.delay,
-                                        animationDuration: p.duration,
-                                      }}
-                                    />
-                                  ))}
-                                </div>
-
-                                <div className="text-center">
-                                  <Typography.Heading2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
-                                    Rewards
-                                  </Typography.Heading2>
-                                  <Typography.Body className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                                    You earned XP for completing this interview.
-                                  </Typography.Body>
-                                </div>
-
-                                <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                                  <div className="rounded-3xl border bg-gradient-to-br from-primary/15 via-background/40 to-background/40 p-6 shadow-sm">
-                                    <div className="text-sm font-semibold text-muted-foreground">
-                                      XP gained
-                                    </div>
-                                    <div className="mt-2 text-6xl font-bold tabular-nums text-foreground">
-                                      +{xpValue}
-                                    </div>
-                                    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted/30">
-                                      <motion.div
-                                        aria-hidden
-                                        className="h-full bg-gradient-to-r from-primary to-emerald-400"
-                                        initial={{ width: "0%" }}
-                                        animate={{ width: "100%" }}
-                                        transition={{
-                                          duration: 0.9,
-                                          ease: "easeOut",
-                                        }}
-                                      />
-                                    </div>
-                                  </div>
-
-                                  <div className="rounded-3xl border bg-background/40 p-6">
-                                    <div className="text-sm font-semibold text-muted-foreground">
-                                      Achievements
-                                    </div>
-                                    {primaryAchievement ? (
-                                      <div className="mt-4 flex items-start gap-4">
-                                        <div className="size-12 rounded-2xl border bg-primary/10 flex items-center justify-center">
-                                          {PrimaryIcon ? (
-                                            <PrimaryIcon
-                                              className="size-7 text-primary"
-                                              aria-hidden="true"
-                                            />
-                                          ) : null}
-                                        </div>
-                                        <div className="min-w-0">
-                                          <div className="text-lg font-semibold text-foreground truncate">
-                                            {primaryAchievement.name}
-                                          </div>
-                                          <div className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                                            {primaryAchievement.description}
-                                          </div>
-                                          {achievements.length > 1 ? (
-                                            <div className="mt-2 text-xs text-muted-foreground">
-                                              +{achievements.length - 1} more
-                                            </div>
-                                          ) : null}
-                                        </div>
-                                      </div>
-                                    ) : (
-                                      <div className="mt-4 text-sm text-muted-foreground">
-                                        No new achievements this time.
-                                      </div>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          }
-                          case "outcome": {
-                            const radius = 45;
-                            const circumference = 2 * Math.PI * radius;
-                            const rawScore =
-                              typeof animatedScore === "number"
-                                ? animatedScore
-                                : step.score;
-                            const scoreValue = Number.isFinite(rawScore)
-                              ? Math.max(0, Math.min(100, rawScore))
-                              : 0;
-                            const progress = Math.max(
-                              0,
-                              Math.min(
-                                1,
-                                (outcomeLoading ? 0 : scoreValue) / 100,
-                              ),
-                            );
-                            const dashOffsetTarget =
-                              circumference * (1 - progress);
-
-                            const readiness = getReadiness(scoreValue);
-                            const categoryScores =
-                              getCategoryScoresForResults(results);
-                            const technologyScores =
-                              getTechnologyScoresForResults(results);
-
-                            const narrative = sanitizeOutcomeNarrative(
-                              results.whyDecision?.trim().length
-                                ? results.whyDecision
-                                : results.overallScore,
-                            );
-
-                            return (
-                              <div className="space-y-6">
-                                <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
-                                  <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex-shrink-0">
-                                    <svg
-                                      className="w-full h-full transform -rotate-90"
-                                      viewBox="0 0 100 100"
-                                      aria-hidden
-                                      focusable="false"
-                                    >
-                                      <title>Score progress</title>
-                                      <circle
-                                        cx="50"
-                                        cy="50"
-                                        r={radius}
-                                        stroke="currentColor"
-                                        strokeWidth="8"
-                                        fill="none"
-                                        className="text-gray-200 dark:text-gray-800"
-                                      />
-                                      <motion.circle
-                                        cx="50"
-                                        cy="50"
-                                        r={radius}
-                                        stroke="currentColor"
-                                        strokeWidth="8"
-                                        fill="none"
-                                        strokeDasharray={circumference}
-                                        initial={{
-                                          strokeDashoffset: circumference,
-                                        }}
-                                        animate={{
-                                          strokeDashoffset: dashOffsetTarget,
-                                        }}
-                                        transition={{
-                                          duration: 0.9,
-                                          ease: "easeOut",
-                                        }}
-                                        className={readiness.ringClass}
-                                        strokeLinecap="round"
-                                      />
-                                    </svg>
-                                    <div className="absolute inset-0 flex items-center justify-center">
+                              return (
+                                <div className="relative space-y-8">
+                                  <div
+                                    aria-hidden
+                                    className="pointer-events-none absolute inset-0 overflow-hidden"
+                                  >
+                                    {particles.map((p) => (
                                       <div
-                                        className={`text-4xl sm:text-5xl font-bold tabular-nums ${getScoreTextClass(step.passed)}`}
-                                      >
-                                        {scoreValue}
-                                      </div>
-                                    </div>
+                                        key={p.key}
+                                        className="absolute rounded-full bg-white/60 animate-confetti"
+                                        style={{
+                                          left: p.left,
+                                          width: `${p.size}px`,
+                                          height: `${p.size}px`,
+                                          top: "-8px",
+                                          animationDelay: p.delay,
+                                          animationDuration: p.duration,
+                                        }}
+                                      />
+                                    ))}
                                   </div>
 
-                                  <div className="text-center sm:text-left max-w-2xl">
-                                    <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-center">
-                                      <Typography.Heading2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
-                                        {readiness.label}
-                                      </Typography.Heading2>
-                                      <span
-                                        className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${readiness.badgeClass}`}
-                                      >
-                                        {scoreValue}/100
-                                      </span>
-                                    </div>
+                                  <div className="text-center">
+                                    <Typography.Heading2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
+                                      Rewards
+                                    </Typography.Heading2>
                                     <Typography.Body className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                                      {step.summary.trim().length > 0
-                                        ? step.summary
-                                        : ""}
+                                      You earned XP for completing this
+                                      interview.
                                     </Typography.Body>
-
-                                    {narrative.length > 0 ? (
-                                      <Typography.Body className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                                        {narrative}
-                                      </Typography.Body>
-                                    ) : null}
                                   </div>
-                                </div>
 
-                                {outcomeLoading ? (
-                                  <div className="rounded-2xl border bg-background/40 px-4 py-3 animate-pulse">
-                                    <div className="h-4 w-40 rounded bg-muted" />
-                                    <div className="mt-3 h-2 w-full rounded-full bg-muted" />
-                                  </div>
-                                ) : null}
-
-                                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                                  {(
-                                    [
-                                      {
-                                        key: "technical" as const,
-                                        label: "Technical",
-                                      },
-                                      {
-                                        key: "problemSolving" as const,
-                                        label: "Problem solving",
-                                      },
-                                      {
-                                        key: "communication" as const,
-                                        label: "Communication",
-                                      },
-                                      {
-                                        key: "professional" as const,
-                                        label: "Professional",
-                                      },
-                                    ] satisfies {
-                                      key: CategoryKey;
-                                      label: string;
-                                    }[]
-                                  ).map((c, idx) => {
-                                    const value = clampFinite(
-                                      categoryScores[c.key],
-                                      0,
-                                      CATEGORY_MAX[c.key],
-                                    );
-                                    const max = CATEGORY_MAX[c.key];
-                                    const pct =
-                                      max > 0
-                                        ? Math.round((value / max) * 100)
-                                        : 0;
-
-                                    return (
-                                      <div
-                                        key={c.key}
-                                        className="rounded-2xl border bg-background/40 px-4 py-3"
-                                      >
-                                        <div className="flex items-center justify-between gap-3">
-                                          <div className="text-sm font-semibold">
-                                            {c.label}
-                                          </div>
-                                          <div className="text-xs tabular-nums text-muted-foreground">
-                                            {value}/{max}
-                                          </div>
-                                        </div>
-
-                                        <div className="mt-2 h-2 overflow-hidden rounded-full bg-muted">
-                                          <motion.div
-                                            className="h-full rounded-full bg-foreground/60"
-                                            initial={{ width: 0 }}
-                                            animate={{
-                                              width: outcomeLoading
-                                                ? "0%"
-                                                : `${pct}%`,
-                                            }}
-                                            transition={{
-                                              duration: 0.7,
-                                              ease: "easeOut",
-                                              delay: 0.12 + idx * 0.06,
-                                            }}
-                                          />
-                                        </div>
+                                  <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                    <div className="rounded-3xl border bg-gradient-to-br from-primary/15 via-background/40 to-background/40 p-6 shadow-sm">
+                                      <div className="text-sm font-semibold text-muted-foreground">
+                                        XP gained
                                       </div>
-                                    );
-                                  })}
-                                </div>
-
-                                {technologyScores.length > 0 ? (
-                                  <div className="rounded-2xl border bg-background/40 px-4 py-3">
-                                    <div className="flex items-center justify-between gap-3">
-                                      <div className="text-sm font-semibold">
-                                        Technology scores
+                                      <div className="mt-2 text-6xl font-bold tabular-nums text-foreground">
+                                        +{xpValue}
                                       </div>
-                                      <div className="text-xs tabular-nums text-muted-foreground">
-                                        /100
-                                      </div>
-                                    </div>
-
-                                    <div className="mt-3 space-y-2">
-                                      {technologyScores.slice(0, 6).map((t) => {
-                                        const pct = Math.round(
-                                          clampFinite(t.score, 0, 100),
-                                        );
-                                        return (
-                                          <div
-                                            key={t.tech}
-                                            className="space-y-1"
-                                          >
-                                            <div className="flex items-center justify-between gap-3">
-                                              <div className="text-sm font-medium">
-                                                {t.tech}
-                                              </div>
-                                              <div className="text-xs tabular-nums text-muted-foreground">
-                                                {pct}/100
-                                              </div>
-                                            </div>
-                                            <div className="h-2 overflow-hidden rounded-full bg-muted">
-                                              <motion.div
-                                                className="h-full rounded-full bg-foreground/60"
-                                                initial={{ width: 0 }}
-                                                animate={{
-                                                  width: outcomeLoading
-                                                    ? "0%"
-                                                    : `${pct}%`,
-                                                }}
-                                                transition={{
-                                                  duration: 0.7,
-                                                  ease: "easeOut",
-                                                }}
-                                              />
-                                            </div>
-                                          </div>
-                                        );
-                                      })}
-                                    </div>
-                                  </div>
-                                ) : null}
-                              </div>
-                            );
-                          }
-
-                          case "takeaway":
-                            return (
-                              <div className="space-y-6">
-                                <div>
-                                  <Typography.Heading2 className="text-2xl sm:text-4xl font-semibold tracking-tight">
-                                    Coach's feedback
-                                  </Typography.Heading2>
-                                  <Typography.Body className="mt-2 text-sm text-muted-foreground">
-                                    A quick debrief — what you did well, and
-                                    what to focus on next.
-                                  </Typography.Body>
-                                </div>
-
-                                <div className="rounded-3xl border bg-background/40 p-5 sm:p-6">
-                                  <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-                                    <motion.div
-                                      className="shrink-0"
-                                      initial={{ opacity: 0, y: 6 }}
-                                      animate={{ opacity: 1, y: 0 }}
-                                      transition={{
-                                        duration: 0.35,
-                                        ease: "easeOut",
-                                      }}
-                                    >
-                                      <motion.div
-                                        aria-hidden
-                                        className="relative size-12 rounded-full border bg-background/70"
-                                        animate={{ y: [0, -2, 0] }}
-                                        transition={{
-                                          duration: 2.2,
-                                          repeat: Infinity,
-                                          ease: "easeInOut",
-                                        }}
-                                      >
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                          <div className="relative size-8 rounded-full bg-foreground/5" />
-                                          <motion.div
-                                            className="absolute left-[14px] top-[18px] size-1.5 rounded-full bg-foreground/60"
-                                            animate={{
-                                              scaleY: [1, 1, 0.2, 1, 1],
-                                            }}
-                                            transition={{
-                                              duration: 3.6,
-                                              repeat: Infinity,
-                                              times: [0, 0.42, 0.46, 0.5, 1],
-                                            }}
-                                          />
-                                          <motion.div
-                                            className="absolute right-[14px] top-[18px] size-1.5 rounded-full bg-foreground/60"
-                                            animate={{
-                                              scaleY: [1, 1, 0.2, 1, 1],
-                                            }}
-                                            transition={{
-                                              duration: 3.6,
-                                              repeat: Infinity,
-                                              times: [0, 0.42, 0.46, 0.5, 1],
-                                            }}
-                                          />
-                                        </div>
-                                      </motion.div>
-                                    </motion.div>
-
-                                    <div className="min-w-0">
-                                      <div className="text-foreground">
-                                        <MarkdownContent
-                                          markdown={
-                                            step.body.trim().length > 0
-                                              ? step.body
-                                              : "No coach feedback captured."
-                                          }
+                                      <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted/30">
+                                        <motion.div
+                                          aria-hidden
+                                          className="h-full bg-gradient-to-r from-primary to-emerald-400"
+                                          initial={{ width: "0%" }}
+                                          animate={{ width: "100%" }}
+                                          transition={{
+                                            duration: 0.9,
+                                            ease: "easeOut",
+                                          }}
                                         />
                                       </div>
                                     </div>
+
+                                    <div className="rounded-3xl border bg-background/40 p-6">
+                                      <div className="text-sm font-semibold text-muted-foreground">
+                                        Achievements
+                                      </div>
+                                      {primaryAchievement ? (
+                                        <div className="mt-4 flex items-start gap-4">
+                                          <div className="size-12 rounded-2xl border bg-primary/10 flex items-center justify-center">
+                                            {PrimaryIcon ? (
+                                              <PrimaryIcon
+                                                className="size-7 text-primary"
+                                                aria-hidden="true"
+                                              />
+                                            ) : null}
+                                          </div>
+                                          <div className="min-w-0">
+                                            <div className="text-lg font-semibold text-foreground truncate">
+                                              {primaryAchievement.name}
+                                            </div>
+                                            <div className="mt-1 text-sm text-muted-foreground line-clamp-2">
+                                              {primaryAchievement.description}
+                                            </div>
+                                            {achievements.length > 1 ? (
+                                              <div className="mt-2 text-xs text-muted-foreground">
+                                                +{achievements.length - 1} more
+                                              </div>
+                                            ) : null}
+                                          </div>
+                                        </div>
+                                      ) : (
+                                        <div className="mt-4 text-sm text-muted-foreground">
+                                          No new achievements this time.
+                                        </div>
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            );
+                              );
+                            }
+                            case "outcome": {
+                              const radius = 45;
+                              const circumference = 2 * Math.PI * radius;
+                              const rawScore =
+                                typeof animatedScore === "number"
+                                  ? animatedScore
+                                  : step.score;
+                              const scoreValue = Number.isFinite(rawScore)
+                                ? Math.max(0, Math.min(100, rawScore))
+                                : 0;
+                              const progress = Math.max(
+                                0,
+                                Math.min(
+                                  1,
+                                  (outcomeLoading ? 0 : scoreValue) / 100,
+                                ),
+                              );
+                              const dashOffsetTarget =
+                                circumference * (1 - progress);
 
-                          case "growth":
-                            if (step.focusAreas.length === 0) {
+                              const readiness = getReadiness(scoreValue);
+                              const categoryScores =
+                                getCategoryScoresForResults(results);
+                              const technologyScores =
+                                getTechnologyScoresForResults(results);
+
+                              const narrative = sanitizeOutcomeNarrative(
+                                results.whyDecision?.trim().length
+                                  ? results.whyDecision
+                                  : results.overallScore,
+                              );
+
                               return (
-                                <Typography.Body className="text-sm text-muted-foreground">
-                                  No focus areas captured.
-                                </Typography.Body>
+                                <div className="space-y-6">
+                                  <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex-shrink-0">
+                                      <svg
+                                        className="w-full h-full transform -rotate-90"
+                                        viewBox="0 0 100 100"
+                                        aria-hidden
+                                        focusable="false"
+                                      >
+                                        <title>Score progress</title>
+                                        <circle
+                                          cx="50"
+                                          cy="50"
+                                          r={radius}
+                                          stroke="currentColor"
+                                          strokeWidth="8"
+                                          fill="none"
+                                          className="text-gray-200 dark:text-gray-800"
+                                        />
+                                        <motion.circle
+                                          cx="50"
+                                          cy="50"
+                                          r={radius}
+                                          stroke="currentColor"
+                                          strokeWidth="8"
+                                          fill="none"
+                                          strokeDasharray={circumference}
+                                          initial={{
+                                            strokeDashoffset: circumference,
+                                          }}
+                                          animate={{
+                                            strokeDashoffset: dashOffsetTarget,
+                                          }}
+                                          transition={{
+                                            duration: 0.9,
+                                            ease: "easeOut",
+                                          }}
+                                          className={readiness.ringClass}
+                                          strokeLinecap="round"
+                                        />
+                                      </svg>
+                                      <div className="absolute inset-0 flex items-center justify-center">
+                                        <div
+                                          className={`text-4xl sm:text-5xl font-bold tabular-nums ${getScoreTextClass(step.passed)}`}
+                                        >
+                                          {scoreValue}
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div className="text-center sm:text-left max-w-2xl">
+                                      <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-center">
+                                        <Typography.Heading2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
+                                          {readiness.label}
+                                        </Typography.Heading2>
+                                        <span
+                                          className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${readiness.badgeClass}`}
+                                        >
+                                          {scoreValue}/100
+                                        </span>
+                                      </div>
+                                      <Typography.Body className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                                        {step.summary.trim().length > 0
+                                          ? step.summary
+                                          : ""}
+                                      </Typography.Body>
+
+                                      {narrative.length > 0 ? (
+                                        <Typography.Body className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                                          {narrative}
+                                        </Typography.Body>
+                                      ) : null}
+                                    </div>
+                                  </div>
+
+                                  {outcomeLoading ? (
+                                    <div className="rounded-2xl border bg-background/40 px-4 py-3 animate-pulse">
+                                      <div className="h-4 w-40 rounded bg-muted" />
+                                      <div className="mt-3 h-2 w-full rounded-full bg-muted" />
+                                    </div>
+                                  ) : null}
+
+                                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                                    {(
+                                      [
+                                        {
+                                          key: "technical" as const,
+                                          label: "Technical",
+                                        },
+                                        {
+                                          key: "problemSolving" as const,
+                                          label: "Problem solving",
+                                        },
+                                        {
+                                          key: "communication" as const,
+                                          label: "Communication",
+                                        },
+                                        {
+                                          key: "professional" as const,
+                                          label: "Professional",
+                                        },
+                                      ] satisfies {
+                                        key: CategoryKey;
+                                        label: string;
+                                      }[]
+                                    ).map((c, idx) => {
+                                      const value = clampFinite(
+                                        categoryScores[c.key],
+                                        0,
+                                        CATEGORY_MAX[c.key],
+                                      );
+                                      const max = CATEGORY_MAX[c.key];
+                                      const pct =
+                                        max > 0
+                                          ? Math.round((value / max) * 100)
+                                          : 0;
+
+                                      return (
+                                        <div
+                                          key={c.key}
+                                          className="rounded-2xl border bg-background/40 px-4 py-3"
+                                        >
+                                          <div className="flex items-center justify-between gap-3">
+                                            <div className="text-sm font-semibold">
+                                              {c.label}
+                                            </div>
+                                            <div className="text-xs tabular-nums text-muted-foreground">
+                                              {value}/{max}
+                                            </div>
+                                          </div>
+
+                                          <div className="mt-2 h-2 overflow-hidden rounded-full bg-muted">
+                                            <motion.div
+                                              className="h-full rounded-full bg-foreground/60"
+                                              initial={{ width: 0 }}
+                                              animate={{
+                                                width: outcomeLoading
+                                                  ? "0%"
+                                                  : `${pct}%`,
+                                              }}
+                                              transition={{
+                                                duration: 0.7,
+                                                ease: "easeOut",
+                                                delay: 0.12 + idx * 0.06,
+                                              }}
+                                            />
+                                          </div>
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+
+                                  {technologyScores.length > 0 ? (
+                                    <div className="rounded-2xl border bg-background/40 px-4 py-3">
+                                      <div className="flex items-center justify-between gap-3">
+                                        <div className="text-sm font-semibold">
+                                          Technology scores
+                                        </div>
+                                        <div className="text-xs tabular-nums text-muted-foreground">
+                                          /100
+                                        </div>
+                                      </div>
+
+                                      <div className="mt-3 space-y-2">
+                                        {technologyScores
+                                          .slice(0, 6)
+                                          .map((t) => {
+                                            const pct = Math.round(
+                                              clampFinite(t.score, 0, 100),
+                                            );
+                                            return (
+                                              <div
+                                                key={t.tech}
+                                                className="space-y-1"
+                                              >
+                                                <div className="flex items-center justify-between gap-3">
+                                                  <div className="text-sm font-medium">
+                                                    {t.tech}
+                                                  </div>
+                                                  <div className="text-xs tabular-nums text-muted-foreground">
+                                                    {pct}/100
+                                                  </div>
+                                                </div>
+                                                <div className="h-2 overflow-hidden rounded-full bg-muted">
+                                                  <motion.div
+                                                    className="h-full rounded-full bg-foreground/60"
+                                                    initial={{ width: 0 }}
+                                                    animate={{
+                                                      width: outcomeLoading
+                                                        ? "0%"
+                                                        : `${pct}%`,
+                                                    }}
+                                                    transition={{
+                                                      duration: 0.7,
+                                                      ease: "easeOut",
+                                                    }}
+                                                  />
+                                                </div>
+                                              </div>
+                                            );
+                                          })}
+                                      </div>
+                                    </div>
+                                  ) : null}
+                                </div>
                               );
                             }
 
-                            return (
-                              <div className="space-y-6">
-                                <div>
-                                  <Typography.Heading2 className="text-2xl sm:text-4xl font-semibold tracking-tight">
-                                    Top areas for growth
-                                  </Typography.Heading2>
-                                  <Typography.Body className="mt-2 text-sm text-muted-foreground">
-                                    Review these topics — they’ll move your
-                                    score the fastest.
-                                  </Typography.Body>
-                                </div>
+                            case "takeaway":
+                              return (
+                                <div className="space-y-6">
+                                  <div>
+                                    <Typography.Heading2 className="text-2xl sm:text-4xl font-semibold tracking-tight">
+                                      Coach's feedback
+                                    </Typography.Heading2>
+                                    <Typography.Body className="mt-2 text-sm text-muted-foreground">
+                                      A quick debrief — what you did well, and
+                                      what to focus on next.
+                                    </Typography.Body>
+                                  </div>
 
-                                <div className="rounded-3xl border bg-background/40">
-                                  <div className="divide-y">
-                                    {step.focusAreas.map((a, i) => (
+                                  <div className="rounded-3xl border bg-background/40 p-5 sm:p-6">
+                                    <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
                                       <motion.div
-                                        key={`${i}-${a.title}`}
-                                        className="px-5 py-4 sm:px-6"
-                                        initial={{ opacity: 0, y: 10 }}
+                                        className="shrink-0"
+                                        initial={{ opacity: 0, y: 6 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{
                                           duration: 0.35,
                                           ease: "easeOut",
-                                          delay: i * 0.06,
                                         }}
                                       >
-                                        <div className="flex items-start gap-4">
-                                          <div className="min-w-0">
-                                            <div className="flex flex-wrap items-center gap-2">
-                                              <div className="text-sm sm:text-base font-semibold leading-relaxed">
-                                                {a.title}
-                                              </div>
-                                              {(() => {
-                                                const p = getPriorityBadge(
-                                                  a.priority,
-                                                );
-                                                if (!p) return null;
-                                                return (
-                                                  <span
-                                                    className={`inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold ${p.className}`}
-                                                  >
-                                                    {p.label}
-                                                  </span>
-                                                );
-                                              })()}
-                                            </div>
-
-                                            {Array.isArray(a.tags) &&
-                                            a.tags.length > 0 ? (
-                                              <div className="mt-2 flex flex-wrap gap-1.5">
-                                                {a.tags.slice(0, 4).map((t) => (
-                                                  <span
-                                                    key={t}
-                                                    className="rounded-full border bg-background/60 px-2 py-0.5 text-[11px] font-semibold text-muted-foreground"
-                                                  >
-                                                    {t}
-                                                  </span>
-                                                ))}
-                                              </div>
-                                            ) : null}
-                                            {a.why.trim().length > 0 ? (
-                                              <Typography.Body className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                                                {a.why}
-                                              </Typography.Body>
-                                            ) : null}
+                                        <motion.div
+                                          aria-hidden
+                                          className="relative size-12 rounded-full border bg-background/70"
+                                          animate={{ y: [0, -2, 0] }}
+                                          transition={{
+                                            duration: 2.2,
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                          }}
+                                        >
+                                          <div className="absolute inset-0 flex items-center justify-center">
+                                            <div className="relative size-8 rounded-full bg-foreground/5" />
+                                            <motion.div
+                                              className="absolute left-[14px] top-[18px] size-1.5 rounded-full bg-foreground/60"
+                                              animate={{
+                                                scaleY: [1, 1, 0.2, 1, 1],
+                                              }}
+                                              transition={{
+                                                duration: 3.6,
+                                                repeat: Infinity,
+                                                times: [0, 0.42, 0.46, 0.5, 1],
+                                              }}
+                                            />
+                                            <motion.div
+                                              className="absolute right-[14px] top-[18px] size-1.5 rounded-full bg-foreground/60"
+                                              animate={{
+                                                scaleY: [1, 1, 0.2, 1, 1],
+                                              }}
+                                              transition={{
+                                                duration: 3.6,
+                                                repeat: Infinity,
+                                                times: [0, 0.42, 0.46, 0.5, 1],
+                                              }}
+                                            />
                                           </div>
-                                        </div>
+                                        </motion.div>
                                       </motion.div>
-                                    ))}
+
+                                      <div className="min-w-0">
+                                        <div className="text-foreground">
+                                          <MarkdownContent
+                                            markdown={
+                                              step.body.trim().length > 0
+                                                ? step.body
+                                                : "No coach feedback captured."
+                                            }
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            );
+                              );
 
-                          case "next":
-                            return (
-                              <div className="space-y-6">
-                                <div className="flex items-start justify-between gap-4">
+                            case "growth":
+                              if (step.focusAreas.length === 0) {
+                                return (
+                                  <Typography.Body className="text-sm text-muted-foreground">
+                                    No focus areas captured.
+                                  </Typography.Body>
+                                );
+                              }
+
+                              return (
+                                <div className="space-y-6">
                                   <div>
-                                    <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                                      Next session
-                                    </div>
-                                    <Typography.Heading2 className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight">
-                                      Your plan
+                                    <Typography.Heading2 className="text-2xl sm:text-4xl font-semibold tracking-tight">
+                                      Top areas for growth
                                     </Typography.Heading2>
                                     <Typography.Body className="mt-2 text-sm text-muted-foreground">
-                                      A simple, repeatable focus list.
+                                      Review these topics — they’ll move your
+                                      score the fastest.
                                     </Typography.Body>
                                   </div>
 
-                                  <div className="rounded-full border bg-background/40 px-3 py-1 text-xs font-semibold">
-                                    Ready
+                                  <div className="rounded-3xl border bg-background/40">
+                                    <div className="divide-y">
+                                      {step.focusAreas.map((a, i) => (
+                                        <motion.div
+                                          key={`${i}-${a.title}`}
+                                          className="px-5 py-4 sm:px-6"
+                                          initial={{ opacity: 0, y: 10 }}
+                                          animate={{ opacity: 1, y: 0 }}
+                                          transition={{
+                                            duration: 0.35,
+                                            ease: "easeOut",
+                                            delay: i * 0.06,
+                                          }}
+                                        >
+                                          <div className="flex items-start gap-4">
+                                            <div className="min-w-0">
+                                              <div className="flex flex-wrap items-center gap-2">
+                                                <div className="text-sm sm:text-base font-semibold leading-relaxed">
+                                                  {a.title}
+                                                </div>
+                                                {(() => {
+                                                  const p = getPriorityBadge(
+                                                    a.priority,
+                                                  );
+                                                  if (!p) return null;
+                                                  return (
+                                                    <span
+                                                      className={`inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold ${p.className}`}
+                                                    >
+                                                      {p.label}
+                                                    </span>
+                                                  );
+                                                })()}
+                                              </div>
+
+                                              {Array.isArray(a.tags) &&
+                                              a.tags.length > 0 ? (
+                                                <div className="mt-2 flex flex-wrap gap-1.5">
+                                                  {a.tags
+                                                    .slice(0, 4)
+                                                    .map((t) => (
+                                                      <span
+                                                        key={t}
+                                                        className="rounded-full border bg-background/60 px-2 py-0.5 text-[11px] font-semibold text-muted-foreground"
+                                                      >
+                                                        {t}
+                                                      </span>
+                                                    ))}
+                                                </div>
+                                              ) : null}
+                                              {a.why.trim().length > 0 ? (
+                                                <Typography.Body className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                                                  {a.why}
+                                                </Typography.Body>
+                                              ) : null}
+
+                                              {Array.isArray(a.resources) &&
+                                              a.resources.length > 0 ? (
+                                                <div className="mt-3 space-y-1">
+                                                  {a.resources.map((r) => (
+                                                    <a
+                                                      key={r.id}
+                                                      href={r.url}
+                                                      target="_blank"
+                                                      rel="noreferrer"
+                                                      className="block text-sm text-primary hover:underline"
+                                                      onPointerDown={(e) =>
+                                                        e.stopPropagation()
+                                                      }
+                                                    >
+                                                      {r.title}
+                                                    </a>
+                                                  ))}
+                                                </div>
+                                              ) : null}
+                                            </div>
+                                          </div>
+                                        </motion.div>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
+                              );
 
-                                <div className="rounded-3xl border bg-background/40 px-5 py-3 sm:px-6">
-                                  <KineticListLines
-                                    items={buildPlanItems(results, 3)}
-                                  />
+                            case "next":
+                              return (
+                                <div className="space-y-6">
+                                  <div className="flex items-start justify-between gap-4">
+                                    <div>
+                                      <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                                        Next session
+                                      </div>
+                                      <Typography.Heading2 className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight">
+                                        Your plan
+                                      </Typography.Heading2>
+                                      <Typography.Body className="mt-2 text-sm text-muted-foreground">
+                                        A simple, repeatable focus list.
+                                      </Typography.Body>
+                                    </div>
+
+                                    <div className="rounded-full border bg-background/40 px-3 py-1 text-xs font-semibold">
+                                      Ready
+                                    </div>
+                                  </div>
+
+                                  <div className="rounded-3xl border bg-background/40 px-5 py-3 sm:px-6">
+                                    <KineticListLines
+                                      items={buildPlanItems(results, 3)}
+                                    />
+                                  </div>
+
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    <Button className="h-11" onClick={onDone}>
+                                      See Details
+                                      <ArrowRight className="size-4 ml-2" />
+                                    </Button>
+                                    <Button
+                                      className="h-11"
+                                      variant="outline"
+                                      onClick={onOpenFullReport}
+                                    >
+                                      Open saved report in history
+                                    </Button>
+                                  </div>
                                 </div>
+                              );
 
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                  <Button className="h-11" onClick={onDone}>
-                                    See Details
-                                    <ArrowRight className="size-4 ml-2" />
-                                  </Button>
-                                  <Button
-                                    className="h-11"
-                                    variant="outline"
-                                    onClick={onOpenFullReport}
-                                  >
-                                    Open saved report in history
-                                  </Button>
-                                </div>
-                              </div>
-                            );
-
-                          default: {
-                            const _never: never = step;
-                            throw new Error(`Unhandled step: ${_never}`);
+                            default: {
+                              const _never: never = step;
+                              throw new Error(`Unhandled step: ${_never}`);
+                            }
                           }
-                        }
-                      })()}
+                        })()}
+                      </div>
+                    </div>
+
+                    <div className="mt-6">
+                      <div className="flex items-center justify-center gap-1">
+                        {steps.map((s, idx) => (
+                          <div
+                            key={s.id}
+                            className={
+                              idx === index
+                                ? "h-1.5 w-8 rounded-full bg-foreground/60"
+                                : "h-1.5 w-2 rounded-full bg-muted"
+                            }
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-8 flex items-center justify-center">
+                      {index < lastIndex ? (
+                        <Button
+                          type="button"
+                          className="h-11 px-8"
+                          onPointerDown={(e) => e.stopPropagation()}
+                          onClick={() => {
+                            pauseForInteraction(INTERACTION_PAUSE_MS);
+                            goNext();
+                          }}
+                        >
+                          Next
+                          <ArrowRight className="ml-2 size-4" />
+                        </Button>
+                      ) : null}
                     </div>
                   </div>
-
-                  <div className="mt-6">
-                    <div className="flex items-center justify-center gap-1">
-                      {steps.map((s, idx) => (
-                        <div
-                          key={s.id}
-                          className={
-                            idx === index
-                              ? "h-1.5 w-8 rounded-full bg-foreground/60"
-                              : "h-1.5 w-2 rounded-full bg-muted"
-                          }
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-8 flex items-center justify-center">
-                    {index < lastIndex ? (
-                      <Button
-                        type="button"
-                        className="h-11 px-8"
-                        onPointerDown={(e) => e.stopPropagation()}
-                        onClick={() => {
-                          pauseForInteraction(INTERACTION_PAUSE_MS);
-                          goNext();
-                        }}
-                      >
-                        Next
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
-                    ) : (
-                      <Button
-                        type="button"
-                        className="h-11 px-8"
-                        onPointerDown={(e) => e.stopPropagation()}
-                        onClick={() => {
-                          pauseForInteraction(INTERACTION_PAUSE_MS);
-                          onDone();
-                        }}
-                      >
-                        Done
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </motion.section>
-            </motion.div>
-          </AnimatePresence>
+                </motion.section>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </main>
