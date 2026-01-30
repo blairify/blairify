@@ -1195,20 +1195,78 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         // Map knowledge gaps back to questions to get example answers
         const mainExampleAnswers: string[] = [];
         const followUpExampleAnswers: string[] = [];
-        let gapIdx = 0;
+        const messages = Array.isArray(session.messages) ? session.messages : [];
+        const practiceQuestionIds = Array.isArray(session.questionIds)
+          ? session.questionIds.filter((id): id is string =>
+              typeof id === "string" && id.length > 0,
+            )
+          : [];
+        const gaps = Array.isArray(data.feedback?.knowledgeGaps)
+          ? data.feedback.knowledgeGaps
+          : [];
 
-        (session.messages || []).forEach((m) => {
-          if (m.type === "ai") {
-            const gap = data.feedback?.knowledgeGaps?.[gapIdx];
-            const example = gap?.exampleAnswer || "";
-            if (m.isFollowUp) {
-              followUpExampleAnswers.push(example);
-            } else {
-              mainExampleAnswers.push(example);
-            }
-            gapIdx++;
+        const isOutroLine = (value: string): boolean => {
+          const t = value.trim().toLowerCase();
+          if (!t) return true;
+          if (t.startsWith("thanks")) return true;
+          if (t.includes("that's all the questions")) return true;
+          if (t.includes("that is all the questions")) return true;
+          if (t.includes("that\u001fs all the questions")) return true;
+          if (t.includes("good luck")) return true;
+          if (t.includes("end of this interview")) return true;
+          return false;
+        };
+
+        let gapIdx = 0;
+        let mainIdx = 0;
+        let cursor = 0;
+
+        while (cursor < messages.length) {
+          const ai = messages[cursor];
+          const user = messages[cursor + 1];
+
+          if (!ai || ai.type !== "ai") {
+            cursor += 1;
+            continue;
           }
-        });
+
+          const aiText = (ai.content ?? "").trim();
+          if (!aiText || isOutroLine(aiText)) {
+            cursor += 1;
+            continue;
+          }
+
+          const explicitFollowUp = ai.isFollowUp === true;
+          const inferredFollowUp =
+            !explicitFollowUp &&
+            practiceQuestionIds.length > 0 &&
+            mainIdx >= practiceQuestionIds.length &&
+            user?.type === "user";
+          const isFollowUp = explicitFollowUp || inferredFollowUp;
+
+          const gap = gaps[gapIdx];
+          const example =
+            typeof gap?.exampleAnswer === "string" ? gap.exampleAnswer : "";
+
+          if (isFollowUp) {
+            if (mainIdx > 0) {
+              followUpExampleAnswers.push(example);
+              gapIdx += 1;
+            }
+            cursor += user?.type === "user" ? 2 : 1;
+            continue;
+          }
+
+          if (!user || user.type !== "user") {
+            cursor += 1;
+            continue;
+          }
+
+          mainExampleAnswers.push(example);
+          gapIdx += 1;
+          mainIdx += 1;
+          cursor += 2;
+        }
 
         setGeneratedExampleAnswers(mainExampleAnswers);
         setGeneratedFollowUpExampleAnswers(followUpExampleAnswers);
