@@ -32,6 +32,10 @@ const categoryDescription: Record<string, string> = {
   "system-design": "system architecture and design principles",
   coding: "programming and coding challenges",
   bullet: "behavioral and soft skills",
+  situational:
+    "scenario-based engineering judgment (debugging, incident response, trade-offs)",
+  mixed:
+    "mixed interview (rotate across technical, coding, system design, and situational prompts)",
 };
 export function generateSystemPrompt(
   config: InterviewConfig,
@@ -150,8 +154,21 @@ export function generateUserPrompt(
 export function generateAnalysisSystemPrompt(config: InterviewConfig): string {
   const { position, seniority, interviewType } = config;
   const passingThreshold = getPassingThreshold(seniority);
+  const technologyList = (config.technologies ?? []).filter(Boolean);
+  const technologyScoreInstructions =
+    technologyList.length > 0
+      ? `
 
-  return `You are a strict, no-nonsense senior technical interviewer analyzing a ${seniority}-level ${position} candidate's ${interviewType} interview. You have 15+ years of experience and have seen thousands of candidates. You do NOT give points for participation - only for demonstrating actual knowledge.
+## TECHNOLOGY SCORING:
+The candidate selected these technologies for the interview:
+${technologyList.map((t) => `- ${t}`).join("\n")}
+
+You MUST include a section "## TECHNOLOGY SCORES" where you score EACH listed technology from 0 to 100 based ONLY on evidence from the transcript.
+- If a technology was NOT discussed or evaluated, score it 0.
+- Output one line per technology in the exact format: "- <technology>: <score>/100"`
+      : "";
+
+  return `You are a strict, no-nonsense senior technical interviewer analyzing a ${seniority}-level ${position} candidate's ${interviewType} interview. You have 15+ years of experience and have seen thousands of candidates. You do NOT give points for participation - only for demonstrating actual knowledge.${technologyScoreInstructions}
 
 ## CRITICAL SCORING RULES:
 
@@ -228,13 +245,12 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 
 ## PROFESSIONAL READINESS ([SCORE]/20)
 **Strengths:**
-- [Specific strength with example, or "None demonstrated" if applicable]
 
 **Critical Weaknesses:**
 - [Specific gaps with examples from the interview]
 
-## WHY THIS DECISION
-[Detailed paragraph explaining why the candidate passed or failed, with specific examples from their responses]
+## TECHNOLOGY SCORES
+- <technology>: <score>/100
 
 ## RECOMMENDATIONS
 ### If Passed - Next Steps:
@@ -256,16 +272,23 @@ Performance Level: [Far Below Expectations | Below Expectations | Meets Expectat
 - Title: [short gap name]
   Priority: [high | medium | low]
   Tags: [comma-separated kebab-case tags, e.g. react-rendering, sql-indexes]
-  Why: [1 sentence explaining why this is a gap based on the transcript, referencing the specific question by TOPIC only]
+  Summary: [1 short, actionable sentence describing what to improve (no small-talk openers, no ellipses)]
+  Why: [1 sentence explaining why this is a gap based on the candidate's response, referencing the TOPIC only]
+  Example Answer: [Provide a concise, high-quality ideal answer to the question that demonstrates the expected knowledge for this seniority level]
 
 Rules for KNOWLEDGE GAPS:
 - Output exactly 1 knowledge gap per interviewer question.
 - NEVER quote the full question text. Use a short topic reference instead (e.g. "JavaScript placement in HTML", "alt attribute in HTML").
-- The Why MUST reference the related question/topic (e.g. "When I asked about JavaScript placement in HTML...").
+- Title MUST be a SHORT topic noun-phrase: 2-5 words.
+  - No verbs (no "Explain", "Implement", "Use"), no "you", no "can you", no question marks.
+  - Examples: "Progressive Web Apps", "JSX compilation", "React Hooks rules", "SQL indexes".
+- The Why MUST be about what the candidate did/did not demonstrate in their answer about the topic. Do NOT say "When I asked...".
+- Summary MUST be standalone and useful even without the transcript context.
+- Summary MUST NOT include "..." or "…".
 - Always speak to the candidate as "you" (never "the candidate").
 - Tags MUST be generic skill tags (no URLs, no provider names, no full sentences).
 - If the candidate passed, still output gaps, but prioritize "medium" and "low".
-- Prefer including 2+ learning resources per gap as markdown links (prioritize roadmap.sh, W3Schools, MDN Web Docs, freeCodeCamp, and YouTube).
+- Do NOT include learning resource links in the knowledge gaps. The app will attach curated links based on tags.
 
 ## CRITICAL REMINDERS FOR SCORING:
 1. If a candidate answered mostly "I don't know" - score should be 0-20 maximum
@@ -428,6 +451,18 @@ function getTypeSpecificPrompt(
 - Start with basic architecture for ${seniority} level
 - Focus on fundamental design principles
 - Keep complexity appropriate to their experience`,
+
+    situational: `
+- Ask realistic engineering scenarios (production incidents, debugging, system failures)
+- Require step-by-step reasoning, evidence, and cause/effect
+- Challenge vague claims with targeted follow-ups
+- Prefer practical signals: metrics, logs, traces, rollback plans, and validation steps`,
+
+    mixed: `
+- Each new primary question must be randomly chosen from ONE of: technical, coding, system-design, situational.
+- Keep a balanced distribution (avoid repeating the same type twice in a row).
+- Keep questions realistic and seniority-appropriate.
+- If you ask a situational scenario, enforce evidence and cause/effect.`,
   };
 
   return prompts[type] || "";
@@ -512,6 +547,27 @@ function generateFirstQuestionPrompt(
   questionText?: string,
 ): string {
   const interviewerName = interviewer?.name || "TEST2";
+
+  if (
+    config.interviewType === "situational" ||
+    config.interviewType === "mixed"
+  ) {
+    const companyContext = config.company ? ` at ${config.company}` : "";
+    return `You are about to start a ${config.interviewType} interview for a ${config.seniority}-level ${config.position} position${companyContext}.
+
+In your next message to the candidate you must:
+- Introduce yourself as ${interviewerName} and briefly mention your background.
+- Ask ONE realistic scenario-based question about a real-life engineering situation (for example: incident response, debugging a production failure, latency spike, memory leak, bad deploy, data inconsistency).
+- The scenario MUST be plausible for a ${config.seniority}-level ${config.position}.
+- Require them to walk through their reasoning and decision-making.
+- Use a natural, conversational tone and speak directly to the candidate.
+
+Important:
+- Your reply must only contain what you say to the candidate.
+- Do NOT mention any "practice library" or that you are following a list.
+- Do NOT append any internal markers (no "[BANK_QUESTION_INDEX: ...]").
+- Do NOT prefix your response with "${interviewerName}:" or wrap it in quotes.`;
+  }
 
   if (config.contextType === "job-specific" && config.company) {
     return `You are about to start a ${config.interviewType} interview for a ${config.position} position at ${config.company}.
@@ -651,6 +707,21 @@ function generateUnknownResponsePrompt(
   questionCount: number,
   currentQuestionPrompt?: string,
 ): string {
+  if (
+    config.interviewType === "situational" ||
+    config.interviewType === "mixed"
+  ) {
+    return `The candidate's latest response (for your internal reference only) was:
+"${userMessage}"
+
+In your next message spoken to the candidate you must:
+- Acknowledge professionally that they don't know the answer or chose to skip.
+- Ask a NEW realistic scenario-based question (do not repeat the last scenario).
+- Keep it concise, but require step-by-step reasoning.
+- Do NOT mention any "practice library" or that you are following a list.
+- Do NOT append any internal markers.`;
+  }
+
   return `The candidate's latest response (for your internal reference only) was:
 "${userMessage}"
 
@@ -719,6 +790,31 @@ function generateNextQuestionPrompt(
         `${msg.type === "ai" ? "Interviewer" : "Candidate"}: ${msg.content}`,
     )
     .join("\n");
+
+  if (
+    config.interviewType === "situational" ||
+    config.interviewType === "mixed"
+  ) {
+    return `You are about to ask the next primary interview question.
+
+Candidate's previous response (for your internal reference only):
+"${userMessage}"
+
+Internal context: this is question ${questionCount + 1} of the interview.
+
+In your next message spoken to the candidate you must:
+- Ask ONE NEW realistic scenario-based question about a real-life engineering situation.
+- The scenario must be distinct from earlier topics and not a rephrasing of a previous question.
+- Require them to explain their reasoning, evidence, and trade-offs.
+- Keep it concise and conversational.
+
+Recent conversation for context (do NOT quote this back to the candidate):
+${recentContext}
+
+Important:
+- Do NOT mention any "practice library" or that you are following a list.
+- Do NOT append any internal markers (no "[BANK_QUESTION_INDEX: ...]").`;
+  }
 
   const coveredTopics = extractCoveredTopics(conversationHistory);
 

@@ -2,7 +2,7 @@
 
 import { Progress } from "@/components/ui/progress";
 import type { Rank } from "@/lib/ranks";
-import { formatXP } from "@/lib/ranks";
+import { formatRankLevel, formatXP } from "@/lib/ranks";
 import { cn } from "@/lib/utils";
 
 interface XPProgressBarProps {
@@ -64,7 +64,7 @@ export function XPProgressBar({
           )}
         >
           <span className={cn("font-medium", rank.badge.text, sizeConfig.text)}>
-            {rank.name} {rank.level}
+            {rank.name} {formatRankLevel(rank.level)}
           </span>
           {nextRank && (
             <span
@@ -73,7 +73,7 @@ export function XPProgressBar({
                 sizeConfig.text,
               )}
             >
-              {nextRank.name} {nextRank.level}
+              {nextRank.name} {formatRankLevel(nextRank.level)}
             </span>
           )}
         </div>

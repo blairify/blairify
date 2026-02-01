@@ -1,7 +1,14 @@
 "use client";
 
 import type { User } from "firebase/auth";
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import type { UserData } from "@/lib/services/auth/auth";
 import { getUserData, onAuthStateChange } from "@/lib/services/auth/auth";
 import { cookieUtils } from "@/lib/utils/cookies";
@@ -106,33 +113,35 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return () => unsubscribe();
   }, []);
 
-  const handleSignOut = async () => {
+  const handleSignOut = useCallback(async () => {
     try {
       const { signOutUser } = await import("@/lib/services/auth/auth");
       await signOutUser();
     } catch (error) {
       console.error("Error signing out:", error);
     }
-  };
+  }, []);
 
-  const refreshUserData = async () => {
-    if (user) {
-      try {
-        const data = await getUserData(user.uid);
-        setUserData(data);
-      } catch (error) {
-        console.warn("Failed to refresh user data:", error);
-      }
+  const refreshUserData = useCallback(async () => {
+    if (!user) return;
+    try {
+      const data = await getUserData(user.uid);
+      setUserData(data);
+    } catch (error) {
+      console.warn("Failed to refresh user data:", error);
     }
-  };
+  }, [user]);
 
-  const value = {
-    user,
-    userData,
-    loading,
-    signOut: handleSignOut,
-    refreshUserData,
-  };
+  const value = useMemo(
+    () => ({
+      user,
+      userData,
+      loading,
+      signOut: handleSignOut,
+      refreshUserData,
+    }),
+    [user, userData, loading, refreshUserData, handleSignOut],
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

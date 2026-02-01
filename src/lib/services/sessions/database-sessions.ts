@@ -342,6 +342,11 @@ export async function saveInterviewResults(
       message: string;
       at?: Date | string;
     };
+    tokenUsage?: {
+      prompt_tokens: number;
+      completion_tokens: number;
+      total_tokens: number;
+    };
   },
   config: {
     position: string;
@@ -412,6 +417,8 @@ export async function saveInterviewResults(
     const questions: InterviewQuestion[] = [];
     const responses: InterviewResponse[] = [];
 
+    let derivedOverallScoreSum = 0;
+    let derivedOverallScoreCount = 0;
     const resolvedScore = analysis.score > 0 ? analysis.score : 0;
     const resolvedFeedback =
       analysis.detailedAnalysis.trim().length > 0
@@ -518,6 +525,8 @@ export async function saveInterviewResults(
       })();
 
       const subscores = computeResponseSubscores(userMessage.content);
+      derivedOverallScoreSum += subscores.overall;
+      derivedOverallScoreCount += 1;
 
       questions.push({
         id: questionId,
@@ -625,6 +634,9 @@ export async function saveInterviewResults(
         detailedAnalysis: analysis.detailedAnalysis?.trim().length
           ? analysis.detailedAnalysis
           : undefined,
+        ...(analysis.technologyScores
+          ? { technologyScores: analysis.technologyScores }
+          : {}),
         recommendations: analysis.recommendations
           ? analysis.recommendations.split("\n").filter((r) => r.trim())
           : [],
@@ -663,20 +675,26 @@ export async function saveInterviewResults(
       analysisStatus,
       createdAt: existingCreatedAt ?? Timestamp.now(),
       updatedAt: Timestamp.now(),
+      tokenUsage: sessionData.tokenUsage,
     };
 
     const shouldWriteScores = shouldPersistScores(
       (sessionBase.config as any).interviewMode,
     );
-    const fallbackScores =
-      shouldWriteScores && resolvedScore > 0
-        ? {
-            overall: resolvedScore,
-            technical: clampScore(resolvedScore * 0.92),
-            communication: clampScore(resolvedScore * 0.86),
-            problemSolving: clampScore(resolvedScore * 0.9),
-          }
-        : null;
+    const fallbackOverall = (() => {
+      if (resolvedScore > 0) return resolvedScore;
+      if (derivedOverallScoreCount === 0) return 0;
+      return clampScore(derivedOverallScoreSum / derivedOverallScoreCount);
+    })();
+    const fallbackScores = shouldWriteScores
+      ? {
+          overall: fallbackOverall,
+          technical: clampScore(fallbackOverall * 0.92),
+          communication: clampScore(fallbackOverall * 0.86),
+          problemSolving: clampScore(fallbackOverall * 0.9),
+          professional: clampScore(fallbackOverall * 0.88),
+        }
+      : null;
 
     const nextScores = fallbackScores;
     const session: InterviewSession = nextScores

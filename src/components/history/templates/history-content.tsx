@@ -1,55 +1,21 @@
 "use client";
 
-import {
-  Calendar,
-  Clock,
-  Code,
-  Eye,
-  Filter,
-  Grid3x3,
-  LayoutGrid,
-  List,
-  Search,
-  Target,
-  Trophy,
-} from "lucide-react";
+import { Calendar, Clock, Eye, Trophy } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { useIsMobile } from "@/hooks/use-is-mobile";
+import { Card } from "@/components/ui/card";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
-import type { InterviewSession, InterviewType } from "@/types/firestore";
+import { cn } from "@/lib/utils";
+import type { InterviewSession } from "@/types/firestore";
 
 interface HistoryContentProps {
   user: UserData;
 }
-
-type HistoryFilterType = "all" | InterviewType;
-
-type HistoryStatusFilter = "completed" | "drafts" | "terminated" | "all";
-
-type HistorySortBy = "date" | "score" | "duration";
 
 export function HistoryContent({ user }: HistoryContentProps) {
   const [sessions, setSessions] = useState<InterviewSession[]>([]);
@@ -57,25 +23,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
     [],
   );
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filterType, setFilterType] = useState<HistoryFilterType>("all");
-  const [statusFilter, setStatusFilter] =
-    useState<HistoryStatusFilter>("completed");
-  const [sortBy, setSortBy] = useState<HistorySortBy>("date");
-  const [viewLayout, setViewLayout] = useState<"grid" | "list">("list");
-  const [viewLayoutInitialized, setViewLayoutInitialized] = useState(false);
-  const { isMobile, isLoading: isMobileLoading } = useIsMobile();
   const router = useRouter();
-
-  const effectiveViewLayout: "grid" | "list" = isMobile ? "grid" : viewLayout;
-
-  useEffect(() => {
-    if (viewLayoutInitialized) return;
-    if (isMobileLoading) return;
-
-    setViewLayout("list");
-    setViewLayoutInitialized(true);
-  }, [isMobileLoading, viewLayoutInitialized]);
 
   const loadSessions = useCallback(async () => {
     if (!user?.uid) return;
@@ -96,93 +44,8 @@ export function HistoryContent({ user }: HistoryContentProps) {
   }, [loadSessions]);
 
   useEffect(() => {
-    let filtered = [...sessions];
-
-    filtered = filtered.filter((session) => {
-      switch (statusFilter) {
-        case "all":
-          return true;
-        case "completed":
-          return session.status === "completed";
-        case "terminated":
-          return session.status === "terminated";
-        case "drafts":
-          return (
-            session.status === "in-progress" ||
-            session.status === "abandoned" ||
-            session.status === "paused"
-          );
-        default: {
-          const _never: never = statusFilter;
-          throw new Error(`Unhandled statusFilter: ${_never}`);
-        }
-      }
-    });
-
-    if (searchTerm) {
-      filtered = filtered.filter(
-        (session) =>
-          session.config.position
-            ?.toLowerCase()
-            .includes(searchTerm.toLowerCase()) ||
-          session.config.interviewType
-            ?.toLowerCase()
-            .includes(searchTerm.toLowerCase()) ||
-          session.config.specificCompany
-            ?.toLowerCase()
-            .includes(searchTerm.toLowerCase()),
-      );
-    }
-
-    if (filterType !== "all") {
-      filtered = filtered.filter(
-        (session) => session.config.interviewType === filterType,
-      );
-    }
-
-    const sorted = filtered.sort((a, b) => {
-      switch (sortBy) {
-        case "date":
-          return (
-            new Date(b.createdAt.toDate()).getTime() -
-            new Date(a.createdAt.toDate()).getTime()
-          );
-        case "score":
-          return (b.scores?.overall || 0) - (a.scores?.overall || 0);
-        case "duration":
-          return b.totalDuration - a.totalDuration;
-      }
-
-      const _never: never = sortBy;
-      throw new Error(`Unhandled sortBy: ${_never}`);
-    });
-
-    setFilteredSessions(sorted);
-  }, [sessions, searchTerm, filterType, sortBy, statusFilter]);
-
-  const getScoreColor = (score: number) => {
-    if (score >= 90) return "text-green-600 bg-green-100 dark:bg-green-900/20";
-    if (score >= 80) return "text-green-500 bg-green-50 dark:bg-green-900/10";
-    if (score >= 70)
-      return "text-yellow-600 bg-yellow-100 dark:bg-yellow-900/20";
-    if (score >= 60)
-      return "text-orange-500 bg-orange-50 dark:bg-orange-900/10";
-    return "text-red-500 bg-red-50 dark:bg-red-900/10";
-  };
-
-  const getInterviewIcon = (type: InterviewType) => {
-    switch (type) {
-      case "technical":
-      case "coding":
-        return <Code className="size-4" />;
-      case "bullet":
-      case "system-design":
-        return <Target className="size-4" />;
-    }
-
-    const _never: never = type;
-    throw new Error(`Unhandled interview type: ${_never}`);
-  };
+    setFilteredSessions(sessions);
+  }, [sessions]);
 
   const formatDate = (timestamp: { toDate: () => Date }) => {
     return new Date(timestamp.toDate()).toLocaleDateString("en-US", {
@@ -198,36 +61,6 @@ export function HistoryContent({ user }: HistoryContentProps) {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(" ");
   };
-
-  const calculateStats = () => {
-    if (sessions.length === 0)
-      return { avgScore: 0, totalSessions: 0, totalTime: 0 };
-
-    const avgScore =
-      sessions.reduce(
-        (sum, session) => sum + (session.scores?.overall || 0),
-        0,
-      ) / sessions.length;
-    const totalSessions = sessions.length;
-    const totalTime = sessions.reduce((sum, session) => {
-      const duration = session.totalDuration || 0;
-
-      if (
-        typeof duration !== "number" ||
-        !Number.isFinite(duration) ||
-        duration <= 0 ||
-        duration > 480
-      ) {
-        return sum;
-      }
-
-      return sum + duration;
-    }, 0);
-
-    return { avgScore: Math.round(avgScore), totalSessions, totalTime };
-  };
-
-  const stats = calculateStats();
 
   if (loading) {
     return (
@@ -245,449 +78,167 @@ export function HistoryContent({ user }: HistoryContentProps) {
   }
 
   return (
-    <main className="flex-1 overflow-y-auto bg-background">
-      <div className="border-b bg-gradient-to-br from-muted/30 via-muted/20 to-background">
-        <div className="container mx-auto px-4 sm:px-6 py-6">
-          <div className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-4 sm:p-6 shadow-lg mb-6">
-            <div className="grid grid-cols-3 items-center divide-x divide-border/50">
-              <div className="flex flex-col items-center gap-2 px-2 md:px-6 md:flex-row md:items-center md:justify-center md:gap-4">
-                <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg border border-primary/20">
-                  <Trophy className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-primary">
-                    {stats.avgScore}%
-                  </div>
-                  <p className="text-sm text-muted-foreground">Average Score</p>
-                </div>
-              </div>
+    <main className="flex-1 overflow-y-auto bg-background animate-in fade-in duration-700">
+      <div className="relative border-b bg-card overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[80px] pointer-events-none" />
 
-              <div className="flex flex-col items-center gap-2 px-2 md:px-6 md:flex-row md:items-center md:justify-center md:gap-4">
-                <div className="p-3 bg-gradient-to-br from-blue-500/20 to-blue-500/10 rounded-lg border border-blue-500/20">
-                  <Target className="h-6 w-6 text-blue-500" />
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-foreground">
-                    {stats.totalSessions}
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Total Sessions
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center gap-2 px-2 md:px-6 md:flex-row md:items-center md:justify-center md:gap-4">
-                <div className="p-3 bg-gradient-to-br from-purple-500/20 to-purple-500/10 rounded-lg border border-purple-500/20">
-                  <Clock className="h-6 w-6 text-purple-500" />
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-foreground">
-                    {Math.round(stats.totalTime / 60)}h
-                  </div>
-                  <p className="text-sm text-muted-foreground">Practice Time</p>
-                </div>
-              </div>
+        <div className="container mx-auto px-4 sm:px-6 py-12 relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-center gap-6 text-center md:text-left">
+            <div className="space-y-2">
+              <Typography.Heading1 className="text-4xl font-black text-foreground tracking-tight">
+                Previous <span className="text-primary">Sessions</span>
+              </Typography.Heading1>
+              <Typography.Body className="text-muted-foreground text-lg">
+                A comprehensive record of your technical interview performances.
+              </Typography.Body>
             </div>
-          </div>
 
-          <div className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-4 sm:p-6 shadow-lg">
-            <details
-              className={
-                isMobile
-                  ? "rounded-lg bg-transparent"
-                  : "rounded-lg border border-border/50 bg-background"
-              }
+            <Button
+              onClick={() => router.push("/configure")}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-black px-8 h-12 rounded-xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
             >
-              <summary
-                className={
-                  isMobile
-                    ? "list-none [&::-webkit-details-marker]:hidden cursor-pointer select-none"
-                    : "list-none [&::-webkit-details-marker]:hidden cursor-pointer select-none px-3 py-2"
-                }
-              >
-                <div
-                  className={
-                    isMobile
-                      ? "flex items-center gap-3"
-                      : "flex items-center justify-between gap-3"
-                  }
-                >
-                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-                    <Filter className="h-4 w-4 text-muted-foreground" />
-                    Filters
-                  </div>
-                  {!isMobile ? (
-                    <div className="flex items-center gap-1 bg-muted/50 border border-border/50 rounded-lg p-1">
-                      <Button
-                        variant={viewLayout === "grid" ? "secondary" : "ghost"}
-                        size="sm"
-                        onClick={() => setViewLayout("grid")}
-                        className="h-8 px-3 hover:bg-secondary/80 transition-colors"
-                      >
-                        <LayoutGrid className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant={viewLayout === "list" ? "secondary" : "ghost"}
-                        size="sm"
-                        onClick={() => setViewLayout("list")}
-                        className="h-8 px-3 hover:bg-secondary/80 transition-colors"
-                      >
-                        <List className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  ) : null}
-                </div>
-              </summary>
-
-              <div
-                className={isMobile ? "space-y-4 pt-3" : "space-y-4 px-3 pb-3"}
-              >
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <div className="relative flex-1 group">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <Input
-                      placeholder="Search by position, company, or interview type..."
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="pl-10 h-11 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all"
-                    />
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <div className="relative group">
-                      <Filter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
-                      <Select
-                        value={filterType}
-                        onValueChange={(value) =>
-                          setFilterType(value as HistoryFilterType)
-                        }
-                      >
-                        <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
-                          <SelectValue placeholder="Interview Type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="all">All Types</SelectItem>
-                          <SelectItem value="technical">Technical</SelectItem>
-                          <SelectItem value="bullet">Bullet</SelectItem>
-                          <SelectItem value="system-design">
-                            System Design
-                          </SelectItem>
-                          <SelectItem value="coding">Coding</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="relative group">
-                      <Filter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
-                      <Select
-                        value={statusFilter}
-                        onValueChange={(value) =>
-                          setStatusFilter(value as HistoryStatusFilter)
-                        }
-                      >
-                        <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
-                          <SelectValue placeholder="Status" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="completed">Completed</SelectItem>
-                          <SelectItem value="drafts">Drafts</SelectItem>
-                          <SelectItem value="terminated">Terminated</SelectItem>
-                          <SelectItem value="all">All</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="relative group">
-                      <Grid3x3 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
-                      <Select
-                        value={sortBy}
-                        onValueChange={(value) =>
-                          setSortBy(value as HistorySortBy)
-                        }
-                      >
-                        <SelectTrigger className="w-full sm:w-48 h-11 pl-10 border-border/50 bg-background/50 hover:bg-background hover:border-primary/30 transition-all">
-                          <SelectValue placeholder="Sort By" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="date">Date</SelectItem>
-                          <SelectItem value="score">Score</SelectItem>
-                          <SelectItem value="duration">Duration</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="text-sm text-muted-foreground">
-                  {filteredSessions.length > 10 && (
-                    <>
-                      Showing{" "}
-                      <span className="font-semibold text-foreground">
-                        {filteredSessions.length}
-                      </span>{" "}
-                      of{" "}
-                      <span className="font-semibold text-foreground">
-                        {sessions.length}
-                      </span>{" "}
-                      sessions
-                    </>
-                  )}
-                </div>
-              </div>
-            </details>
+              New Interview
+            </Button>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 py-6">
-        {effectiveViewLayout === "list" ? (
-          <div className="border border-border/50 rounded-xl overflow-hidden shadow-lg bg-card">
-            <div className="w-full overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-muted/50 hover:bg-muted/50">
-                    <TableHead className="font-semibold pl-6 text-xs sm:text-sm whitespace-nowrap">
-                      Position
-                    </TableHead>
-                    <TableHead className="font-semibold text-xs sm:text-sm whitespace-nowrap">
-                      Type
-                    </TableHead>
-                    <TableHead className="font-semibold text-xs sm:text-sm whitespace-nowrap">
-                      Company
-                    </TableHead>
-                    <TableHead className="font-semibold text-xs sm:text-sm whitespace-nowrap">
-                      Date
-                    </TableHead>
-                    <TableHead className="font-semibold text-xs sm:text-sm whitespace-nowrap">
-                      Duration
-                    </TableHead>
-                    <TableHead className="font-semibold text-xs sm:text-sm whitespace-nowrap">
-                      Score
-                    </TableHead>
-                    <TableHead className="text-right font-semibold pr-6 text-xs sm:text-sm whitespace-nowrap">
-                      Action
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {filteredSessions.length === 0 ? (
-                    <TableRow>
-                      <TableCell colSpan={7} className="text-center py-12 px-4">
-                        <div className="flex flex-col items-center gap-4">
-                          <div className="p-4 bg-muted/50 rounded-full">
-                            <Trophy className="h-12 w-12 text-muted-foreground/50" />
-                          </div>
-                          <div>
-                            <Typography.Heading2
-                              color="primary"
-                              className="mb-2"
-                            >
-                              No interviews found
-                            </Typography.Heading2>
-                            <Typography.Body color="secondary" className="mb-4">
-                              {sessions.length === 0
-                                ? "Start your first interview to see your history here."
-                                : "Try adjusting your search or filter criteria."}
-                            </Typography.Body>
-                            <Button
-                              onClick={() => router.push("/configure")}
-                              size="lg"
-                              className="shadow-lg hover:shadow-xl transition-shadow"
-                            >
-                              Start First Interview
-                            </Button>
-                          </div>
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ) : (
-                    filteredSessions.map((session) => (
-                      <TableRow
-                        key={session.sessionId}
-                        className="cursor-pointer hover:bg-muted/30 transition-colors"
-                        onClick={() =>
-                          router.push(`/history/${session.sessionId}`)
-                        }
+      <div className="container mx-auto px-4 sm:px-6 py-6 pb-24">
+        <div className="space-y-4">
+          {filteredSessions.length === 0 ? (
+            <Card className="border-2 border-dashed border-border/50 bg-card text-center p-12 sm:p-20 rounded-[32px]">
+              <div className="size-20 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
+                <Trophy className="size-10 text-muted-foreground/40" />
+              </div>
+              <Typography.Heading3 className="text-2xl font-black text-foreground mb-3">
+                No sessions found
+              </Typography.Heading3>
+              <Typography.Body className="text-muted-foreground mb-8 max-w-sm mx-auto">
+                {sessions.length === 0
+                  ? "Your journey is waiting to begin. Start your first session to see your progress here."
+                  : "Start a new session to see your history."}
+              </Typography.Body>
+              <Button
+                onClick={() => router.push("/configure")}
+                className="bg-primary text-primary-foreground font-black px-10 h-14 rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105"
+              >
+                Launch New Session
+              </Button>
+            </Card>
+          ) : (
+            filteredSessions.map((session) => {
+              const score = session.scores?.overall || 0;
+              const isHigh = score >= 80;
+
+              return (
+                <div key={session.sessionId} className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/10 to-transparent rounded-3xl blur opacity-0 group-hover:opacity-100 transition duration-500" />
+
+                  <Link
+                    href={`/history/${session.sessionId}`}
+                    className="relative flex flex-col md:flex-row items-center gap-6 p-5 sm:p-6 bg-card border border-border/50 rounded-3xl hover:border-border transition-all duration-300"
+                  >
+                    {/* Score Circle */}
+                    <div className="relative size-20 shrink-0">
+                      <svg
+                        className="size-full transform -rotate-90"
+                        viewBox="0 0 80 80"
+                        aria-label="Performance score gauge"
+                        role="img"
                       >
-                        <TableCell className="pl-6 pr-4 py-3 text-xs sm:text-sm whitespace-nowrap">
-                          <div className="font-semibold text-foreground">
-                            {capitalizeTitle(session.config.position)}
-                          </div>
-                        </TableCell>
-                        <TableCell className="px-4 py-3 text-xs sm:text-sm whitespace-nowrap">
-                          <div className="flex items-center gap-2">
-                            <div className="p-1.5 bg-primary/10 rounded border border-primary/20">
-                              {getInterviewIcon(session.config.interviewType)}
-                            </div>
-                            <span className="capitalize text-sm">
-                              {session.config.interviewType}
-                            </span>
-                          </div>
-                        </TableCell>
-                        <TableCell className="px-4 py-3 text-xs sm:text-sm whitespace-nowrap">
-                          {session.config.specificCompany ? (
-                            <Badge variant="secondary" className="font-medium">
-                              {session.config.specificCompany}
-                            </Badge>
-                          ) : (
-                            <span className="text-muted-foreground text-sm">
-                              -
-                            </span>
+                        <title>Performance score gauge</title>
+                        <circle
+                          cx="40"
+                          cy="40"
+                          r="36"
+                          className="stroke-muted fill-none"
+                          strokeWidth="6"
+                        />
+                        <circle
+                          cx="40"
+                          cy="40"
+                          r="36"
+                          className={cn(
+                            "fill-none transition-all duration-1000",
+                            isHigh ? "stroke-emerald-500" : "stroke-primary",
                           )}
-                        </TableCell>
-                        <TableCell className="px-4 py-3 text-xs sm:text-sm whitespace-nowrap">
-                          <div className="flex items-center gap-1.5">
-                            <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
-                            {formatDate(session.createdAt)}
-                          </div>
-                        </TableCell>
-                        <TableCell className="px-4 py-3 text-xs sm:text-sm whitespace-nowrap">
-                          <div className="flex items-center gap-1.5">
-                            <Clock className="h-3.5 w-3.5 text-muted-foreground" />
-                            {session.totalDuration} min
-                          </div>
-                        </TableCell>
-                        <TableCell className="px-4 py-3 text-xs sm:text-sm whitespace-nowrap">
-                          <div
-                            className={`inline-flex items-center justify-center px-3 py-1.5 rounded-lg font-bold text-sm shadow-sm ${getScoreColor(session.scores?.overall || 0)}`}
-                          >
-                            {session.scores?.overall || 0}%
-                          </div>
-                        </TableCell>
-                        <TableCell className="px-4 py-3 text-right whitespace-nowrap">
-                          <Button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              router.push(`/history/${session.sessionId}`);
-                            }}
-                            variant="default"
-                            size="sm"
-                            className="h-9 shadow-sm hover:shadow-md transition-shadow"
-                          >
-                            <Eye className="h-3.5 w-3.5 mr-1.5" />
-                            View
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    ))
-                  )}
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {filteredSessions.length === 0 ? (
-              <Card className="border-2 border-dashed border-border/50 bg-card/50 col-span-full shadow-lg">
-                <CardContent className="text-center py-16">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-muted/50 mb-6">
-                    <Trophy className="h-10 w-10 text-muted-foreground" />
-                  </div>
-                  <Typography.Heading2 color="primary" className="mb-3">
-                    No interviews found
-                  </Typography.Heading2>
-                  <Typography.Body
-                    color="secondary"
-                    className="mb-6 max-w-md mx-auto"
-                  >
-                    {sessions.length === 0
-                      ? "Start your first interview to see your history here."
-                      : "Try adjusting your search or filter criteria."}
-                  </Typography.Body>
-                  <Button
-                    onClick={() => router.push("/configure")}
-                    aria-label="Start First Interview"
-                    size="lg"
-                    className="h-11 px-8 font-semibold shadow-lg hover:shadow-xl transition-shadow"
-                  >
-                    Start First Interview
-                  </Button>
-                </CardContent>
-              </Card>
-            ) : (
-              filteredSessions.map((session) => (
-                <Link
-                  key={session.sessionId}
-                  href={`/history/${session.sessionId}`}
-                  className="group border border-border/50 bg-gradient-to-br from-card to-card/50 hover:border-primary/50 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden rounded-xl"
-                >
-                  <div className="p-4 sm:p-5">
-                    {/* Header with Icon and Score */}
-                    <div className="flex items-start justify-between gap-3 mb-3">
-                      <div className="flex items-center gap-2 min-w-0">
-                        <div className="p-2 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg border border-primary/20">
-                          {getInterviewIcon(session.config.interviewType)}
-                        </div>
-                        <Badge
-                          variant="secondary"
-                          className="text-xs capitalize font-medium"
-                        >
-                          {session.config.interviewType}
-                        </Badge>
+                          strokeWidth="6"
+                          strokeDasharray={226}
+                          strokeDashoffset={226 - (226 * score) / 100}
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-lg font-black text-foreground">
+                          {score}%
+                        </span>
                       </div>
-                      <div
-                        className={`text-xl font-bold px-3 py-1.5 rounded-lg shadow-sm border border-border/60 ${getScoreColor(session.scores?.overall || 0)}`}
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0 text-center md:text-left">
+                      <div className="flex flex-col md:flex-row md:items-center gap-3 mb-2">
+                        <Typography.Heading3 className="text-xl font-black text-foreground tracking-tight truncate">
+                          {capitalizeTitle(session.config.position)}
+                        </Typography.Heading3>
+                        <div
+                          className={cn(
+                            "inline-flex self-center md:self-auto px-2 py-0.5 rounded-lg border text-[10px] font-black uppercase tracking-widest",
+                            isHigh
+                              ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-500"
+                              : "bg-primary/10 border-primary/20 text-primary",
+                          )}
+                        >
+                          {isHigh ? "Excellent" : "Developing"}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 text-muted-foreground">
+                        <div className="flex items-center gap-1.5">
+                          <Calendar className="size-4" />
+                          <span className="text-xs font-semibold">
+                            {formatDate(session.createdAt)}
+                          </span>
+                        </div>
+                        <div className="size-1 rounded-full bg-border" />
+                        <div className="flex items-center gap-1.5">
+                          <Clock className="size-4" />
+                          <span className="text-xs font-semibold">
+                            {session.totalDuration} min
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Action */}
+                    <div className="flex items-center gap-4 shrink-0 w-full md:w-auto md:border-l border-border/50 md:pl-8">
+                      {session.config.specificCompany && (
+                        <Badge
+                          variant="outline"
+                          className="hidden lg:flex border-border bg-muted/30 text-muted-foreground font-bold px-3 py-1"
+                        >
+                          {session.config.specificCompany}
+                        </Badge>
+                      )}
+                      <Button
+                        variant="outline"
+                        asChild
+                        className="flex-1 md:flex-none rounded-2xl border-border bg-card hover:bg-primary hover:text-primary-foreground hover:border-primary px-8 h-12 font-black transition-all group/btn"
                       >
-                        {session.scores?.overall || 0}%
-                      </div>
+                        <Link href={`/history/${session.sessionId}`}>
+                          View Report
+                          <Eye className="size-4 ml-2 group-hover/btn:scale-110 transition-transform" />
+                        </Link>
+                      </Button>
                     </div>
-
-                    {/* Title */}
-                    <Typography.Heading3
-                      color="primary"
-                      className="mb-1 line-clamp-2 group-hover:text-primary transition-colors"
-                    >
-                      {capitalizeTitle(session.config.position)}
-                    </Typography.Heading3>
-
-                    {session.config.specificCompany && (
-                      <div className="text-sm text-muted-foreground mb-2 line-clamp-1">
-                        {session.config.specificCompany}
-                      </div>
-                    )}
-
-                    <div className="flex items-center justify-between gap-3 pt-3 border-t border-border/50 mb-3">
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-2">
-                          <Calendar className="h-3.5 w-3.5" />
-                          <span className="text-xs">
-                            {formatDate(session.createdAt)}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Clock className="h-3.5 w-3.5" />
-                          <span className="text-xs">
-                            {session.totalDuration} min
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-2 text-xs flex-shrink-0">
-                        <Badge
-                          variant="outline"
-                          className="text-xs font-medium capitalize"
-                        >
-                          {session.config.seniority}
-                        </Badge>
-                        <Badge
-                          variant="outline"
-                          className="text-xs font-medium"
-                        >
-                          {session.questions?.length || 0}
-                        </Badge>
-                      </div>
-                    </div>
-
-                    <div className="w-full inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all">
-                      <Eye className="h-3.5 w-3.5 mr-1.5" />
-                      View Details
-                    </div>
-                  </div>
-                </Link>
-              ))
-            )}
-          </div>
-        )}
+                  </Link>
+                </div>
+              );
+            })
+          )}
+        </div>
       </div>
     </main>
   );

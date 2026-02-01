@@ -25,6 +25,7 @@ export enum MistralModel {
   // Powerful models for analysis
   MISTRAL_MEDIUM = "mistral-medium-latest",
   MISTRAL_LARGE = "mistral-large-latest",
+  MISTRAL_LARGE_2512 = "mistral-large-2512",
 
   // Specialized coding model
   CODESTRAL = "codestral-latest",
@@ -40,6 +41,11 @@ export interface AIResponse {
   content: string;
   success: boolean;
   error?: string;
+  usage?: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
 }
 
 interface AIClientInstance {
@@ -53,21 +59,21 @@ interface AIClientInstance {
 export function createAIClient(config: AIClientConfig = {}): AIClientInstance {
   const fullConfig: Required<AIClientConfig> = {
     apiKey: config.apiKey || process.env.MISTRAL_API_KEY || "",
-    model: config.model || MistralModel.MISTRAL_SMALL,
+    model: config.model || MistralModel.MISTRAL_LARGE_2512,
     temperature: config.temperature ?? 0.7,
     maxTokens: config.maxTokens ?? 800,
     interviewModel:
       config.interviewModel ||
       process.env.MISTRAL_INTERVIEW_MODEL ||
-      MistralModel.MINISTRAL_8B,
+      MistralModel.MISTRAL_LARGE_2512,
     analysisModel:
       config.analysisModel ||
       process.env.MISTRAL_ANALYSIS_MODEL ||
-      MistralModel.MISTRAL_MEDIUM,
+      MistralModel.MISTRAL_LARGE_2512,
     codingModel:
       config.codingModel ||
       process.env.MISTRAL_CODING_MODEL ||
-      MistralModel.CODESTRAL,
+      MistralModel.MISTRAL_LARGE_2512,
   };
 
   const client = fullConfig.apiKey
@@ -85,6 +91,8 @@ function getModelForUseCase(
   useCase: UseCase,
   interviewType?: string,
 ): string {
+  if (config.model) return config.model;
+
   switch (useCase) {
     case UseCase.INTERVIEW:
       // Use coding model for coding interviews, otherwise use lightweight model
@@ -188,6 +196,11 @@ export async function generateInterviewResponse(
       return {
         content,
         success: true,
+        usage: {
+          prompt_tokens: chatResponse.usage.promptTokens ?? 0,
+          completion_tokens: chatResponse.usage.completionTokens ?? 0,
+          total_tokens: chatResponse.usage.totalTokens ?? 0,
+        },
       };
     }
 
@@ -247,6 +260,11 @@ export async function generateAnalysis(
       return {
         content,
         success: true,
+        usage: {
+          prompt_tokens: chatResponse.usage.promptTokens ?? 0,
+          completion_tokens: chatResponse.usage.completionTokens ?? 0,
+          total_tokens: chatResponse.usage.totalTokens ?? 0,
+        },
       };
     }
 

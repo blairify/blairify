@@ -1,10 +1,9 @@
 import { Clock, MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
 import { RiChatAiLine } from "react-icons/ri";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { InterviewerAvatar } from "@/components/common/interviewer-avatar";
+import { MarkdownContent } from "@/components/common/molecules/markdown-content";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import type { InterviewerProfile } from "@/lib/config/interviewers";
 import { useAuth } from "@/providers/auth-provider";
@@ -62,8 +61,8 @@ export function MessageBubble({
 
     let index = 0;
     let timeout: number | null = null;
-    const baseDelay = 65;
-    const delayVariance = 70;
+    const baseDelay = 30; // Reduced from 65ms
+    const delayVariance = 40; // Reduced from 70ms
 
     const scheduleNext = () => {
       timeout = window.setTimeout(
@@ -147,9 +146,9 @@ export function MessageBubble({
                 isUser ? "prose-invert" : "dark:prose-invert"
               } prose-p:my-2 prose-p:leading-relaxed prose-headings:my-2 prose-ul:my-2 prose-ol:my-2`}
             >
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {isAI ? displayedContent : message.content}
-              </ReactMarkdown>
+              <MarkdownContent
+                markdown={isAI ? displayedContent : message.content}
+              />
             </div>
           </div>
 

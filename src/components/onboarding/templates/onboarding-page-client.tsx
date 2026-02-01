@@ -32,7 +32,6 @@ import {
   normalizeCompanyProfileValue,
   normalizePositionValue,
 } from "@/lib/utils/interview-normalizers";
-import type { Job } from "@/lib/validators";
 import { useAuth } from "@/providers/auth-provider";
 import type { UserPreferences } from "@/types/firestore";
 import type { PositionValue } from "@/types/global";
@@ -303,14 +302,10 @@ export function OnboardingPageClient({
   const [earlyJobMatchingEnabled, setEarlyJobMatchingEnabled] = useState(false);
   const [hasHover, setHasHover] = useState(false);
 
-  const [nextActionView, setNextActionView] = useState<
-    "choose" | "offers" | "paste"
-  >("choose");
+  const [nextActionView, setNextActionView] = useState<"choose" | "paste">(
+    "choose",
+  );
   const [isStartingNextAction, setIsStartingNextAction] = useState(false);
-  const [offersStatus, setOffersStatus] = useState<
-    "idle" | "loading" | "error" | "success"
-  >("idle");
-  const [offers, setOffers] = useState<Job[]>([]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -408,10 +403,6 @@ export function OnboardingPageClient({
     }
 
     setter([...state, value]);
-  };
-
-  const handleSelectNextActionView = (view: "choose" | "offers" | "paste") => {
-    setNextActionView(view);
   };
 
   const startPasteDescriptionFlow = async () => {
@@ -523,76 +514,6 @@ export function OnboardingPageClient({
     router.push(`/interview?${buildTrainingInterviewParams().toString()}`);
   };
 
-  const startOffersFlow = async () => {
-    handleSelectNextActionView("offers");
-    setOffersStatus("loading");
-
-    try {
-      const params = new URLSearchParams({
-        page: "1",
-        per_page: "8",
-      });
-
-      if (role) params.set("role", role);
-      if (experience) params.set("level", experience);
-      params.set("remote", "true");
-
-      const res = await fetch(`/api/jobs?${params.toString()}`);
-      const data: unknown = await res.json();
-
-      if (!res.ok) {
-        setOffersStatus("error");
-        return;
-      }
-
-      if (!data || typeof data !== "object") {
-        setOffersStatus("error");
-        return;
-      }
-
-      if ("results" in data && Array.isArray(data.results)) {
-        setOffers(data.results as Job[]);
-        setOffersStatus("success");
-        return;
-      }
-
-      setOffersStatus("error");
-    } catch {
-      setOffersStatus("error");
-    }
-  };
-
-  const startInterviewForOffer = async (job: Job) => {
-    setIsStartingNextAction(true);
-    await completeOnboarding();
-
-    const seniority = (experience || "mid") as SeniorityLevel;
-    const interviewMode: InterviewMode = "regular";
-    const interviewType: InterviewType = "technical";
-
-    const config: InterviewConfig = {
-      position: normalizePositionValue(job.title),
-      seniority,
-      technologies: [],
-      companyProfile: normalizeCompanyProfileValue(job.companyProfile),
-      specificCompany: undefined,
-      interviewMode,
-      interviewType,
-      duration: "30",
-      isDemoMode: false,
-      contextType: "job-specific",
-      jobId: job.id,
-      company: job.company,
-      jobDescription: job.description || "",
-      jobRequirements: job.tags?.join(", ") || "",
-      jobLocation: job.location || "",
-      jobType: job.type || "",
-    };
-
-    const interviewParams = buildSearchParamsFromInterviewConfig(config);
-    router.push(`/interview?${interviewParams.toString()}`);
-  };
-
   const handleNext = async () => {
     if (!canNext) return;
 
@@ -611,14 +532,21 @@ export function OnboardingPageClient({
   };
 
   const infoChipClassName =
-    "inline-flex items-center gap-2 rounded-full border bg-background/70 px-3 py-1.5 shadow-sm hover:bg-background";
+    "inline-flex items-center gap-2 rounded-sm border bg-background/70 px-3 py-1.5 shadow-sm hover:bg-background";
   const infoContentClassName = "max-w-sm p-3";
 
   const onlyOurBestContent = (
-    <Typography.SubCaption color="secondary" className="leading-snug">
-      This is not guaranteed. We pitch to companies only our best users with
-      actual progress tracking and strong performance.
-    </Typography.SubCaption>
+    <div className="flex flex-col">
+      <Typography.SubCaption color="secondary" className="leading-snug">
+        This is not guaranteed.
+      </Typography.SubCaption>
+      <Typography.SubCaption color="secondary" className="leading-snug">
+        We pitch to companies only our best users with
+      </Typography.SubCaption>
+      <Typography.SubCaption color="secondary" className="leading-snug">
+        actual progress tracking and strong performance.
+      </Typography.SubCaption>
+    </div>
   );
 
   const whatGetsSharedContent = (
@@ -641,8 +569,7 @@ export function OnboardingPageClient({
         </li>
       </ul>
       <Typography.SubCaption color="secondary" className="leading-snug">
-        You control everything. Change this setting anytime in your profile, and
-        you decide which opportunities to pursue.
+        You control everything. Change this setting anytime in your profile.
       </Typography.SubCaption>
     </div>
   );
@@ -652,6 +579,22 @@ export function OnboardingPageClient({
     ariaLabel: string;
     content: ReactNode;
   }) => {
+    if (hasHover) {
+      return (
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger className={infoChipClassName}>
+              <Typography.SubCaptionMedium color="secondary">
+                {params.label}
+              </Typography.SubCaptionMedium>
+              <Info className="size-4 " />
+            </TooltipTrigger>
+            <TooltipContent>{params.content}</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      );
+    }
+
     const trigger = (
       <button
         type="button"
@@ -665,17 +608,6 @@ export function OnboardingPageClient({
         <Info className="size-4 text-muted-foreground" />
       </button>
     );
-
-    if (hasHover) {
-      return (
-        <Tooltip>
-          <TooltipTrigger asChild>{trigger}</TooltipTrigger>
-          <TooltipContent className={infoContentClassName}>
-            {params.content}
-          </TooltipContent>
-        </Tooltip>
-      );
-    }
 
     return (
       <Popover>
@@ -701,7 +633,7 @@ export function OnboardingPageClient({
         <div className="mb-8">
           {currentStep === "next-action" ? (
             <div className="flex justify-end">
-              {stepIndex === 0 ? null : (
+              {stepIndex === 7 ? null : (
                 <Button
                   type="button"
                   variant="outline"
@@ -717,37 +649,14 @@ export function OnboardingPageClient({
               )}
             </div>
           ) : (
-            <>
-              <div className="space-y-4 md:space-y-0">
-                <div className="flex flex-col items-center gap-3 md:flex-row md:items-baseline md:justify-between md:gap-4">
-                  <Typography.Heading1 className="text-center sm:text-3xl md:text-left">
-                    Personalize your{" "}
-                    <span className="text-primary">Blairify</span> experience
-                  </Typography.Heading1>
-
-                  {stepIndex === 0 ? null : (
-                    <Button
-                      type="button"
-                      variant="outline"
-                      size="sm"
-                      onClick={handleBack}
-                      disabled={isSaving}
-                      aria-label="Go back"
-                      className="hidden gap-1 md:inline-flex"
-                    >
-                      <ChevronLeft className="size-4" />
-                      Back
-                    </Button>
-                  )}
-                </div>
+            <div className="space-y-4 md:space-y-0">
+              <div className="flex flex-col items-center gap-3 md:flex-row md:items-baseline md:justify-between md:gap-4">
+                <Typography.Heading1 className="text-center sm:text-3xl md:text-left">
+                  Personalize your{" "}
+                  <span className="text-primary">Blairify</span> experience
+                </Typography.Heading1>
               </div>
-              <Typography.Caption
-                color="secondary"
-                className="mt-3 block text-center md:mt-2 md:text-left"
-              >
-                Complete onboarding to unlock the platform.
-              </Typography.Caption>
-            </>
+            </div>
           )}
         </div>
 
@@ -818,9 +727,14 @@ export function OnboardingPageClient({
 
             {currentStep === "employment-type" && (
               <div className="space-y-4">
-                <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
-                  Employment type
-                </Typography.CaptionMedium>
+                <div className="flex flex-row gap-4 items-baseline">
+                  <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
+                    Employment type
+                  </Typography.CaptionMedium>
+                  <Typography.SubCaption color="secondary" className="italic">
+                    Feel free to pick more than one
+                  </Typography.SubCaption>
+                </div>
                 <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                   {EMPLOYMENT_TYPE_OPTIONS.map((option) => (
                     <button
@@ -849,9 +763,14 @@ export function OnboardingPageClient({
 
             {currentStep === "work-mode" && (
               <div className="space-y-4">
-                <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
-                  Work mode
-                </Typography.CaptionMedium>
+                <div className="flex flex-row gap-4 items-baseline">
+                  <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
+                    Work mode
+                  </Typography.CaptionMedium>
+                  <Typography.SubCaption color="secondary" className="italic">
+                    Feel free to pick more than one
+                  </Typography.SubCaption>
+                </div>
                 <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                   {WORK_MODE_OPTIONS.map((option) => (
                     <button
@@ -876,9 +795,14 @@ export function OnboardingPageClient({
 
             {currentStep === "struggle-areas" && (
               <div className="space-y-4">
-                <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
-                  Main areas you struggle with
-                </Typography.CaptionMedium>
+                <div className="flex flex-row gap-4 items-baseline">
+                  <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
+                    Main areas you struggle with
+                  </Typography.CaptionMedium>
+                  <Typography.SubCaption color="secondary" className="italic">
+                    Feel free to pick more than one
+                  </Typography.SubCaption>
+                </div>
                 <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                   {STRUGGLE_OPTIONS.map((option) => (
                     <button
@@ -907,9 +831,14 @@ export function OnboardingPageClient({
 
             {currentStep === "career-goals" && (
               <div className="space-y-4">
-                <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
-                  What are you looking for right now?
-                </Typography.CaptionMedium>
+                <div className="flex flex-row gap-4 items-baseline">
+                  <Typography.CaptionMedium className="mb-2 block text-center md:text-left">
+                    What are you looking for right now?
+                  </Typography.CaptionMedium>
+                  <Typography.SubCaption color="secondary" className="italic">
+                    Feel free to pick more than one
+                  </Typography.SubCaption>
+                </div>
                 <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                   {GOAL_OPTIONS.map((option) => (
                     <button
@@ -936,18 +865,14 @@ export function OnboardingPageClient({
               <div className="ejm-gradient-animate rounded-xl border p-5 shadow-sm">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="flex flex-col">
-                      <Typography.Heading2 className="italic font-extrabold">
+                    <div className="flex flex-col gap-4">
+                      <Typography.Heading2 className=" font-extrabold">
                         Early Job Matching
                       </Typography.Heading2>
                       <Typography.SubCaption className="text-sm">
-                        Get matched with jobs before they’re even posted. We
-                        work closely with top companies to proactively identify
-                        their hiring needs and present them with the strongest
-                        candidates. At the same time, we partner with you to
-                        understand your skills, goals, and preferences, so we
-                        can connect you with high-quality opportunities that
-                        truly fit-often before they reach the public job market.{" "}
+                        We work closely with top companies to proactively
+                        identify their hiring needs and present them with the
+                        strongest candidates.{" "}
                       </Typography.SubCaption>
                     </div>
                   </div>
@@ -956,39 +881,22 @@ export function OnboardingPageClient({
                     checked={earlyJobMatchingEnabled}
                     onCheckedChange={setEarlyJobMatchingEnabled}
                     disabled={isSaving}
-                    className="h-7 w-12 rounded-full border-0 bg-zinc-200 shadow-inner transition-colors data-[state=checked]:bg-emerald-500 dark:bg-emerald-700 [&_[data-slot=switch-thumb]]:size-6 [&_[data-slot=switch-thumb]]:bg-white [&_[data-slot=switch-thumb]]:shadow-md [&_[data-slot=switch-thumb]]:ring-1 [&_[data-slot=switch-thumb]]:ring-black/5 dark:[&_[data-slot=switch-thumb]]:ring-white/10 [&_[data-slot=switch-thumb]]:data-[state=unchecked]:!translate-x-0.5 [&_[data-slot=switch-thumb]]:data-[state=checked]:!translate-x-[20px]"
+                    className="h-7 w-12 rounded-full border-0 shadow-inner transition-colors data-[state=unchecked]:bg-red-500 dark:data-[state=unchecked]:bg-red-500 data-[state=checked]:bg-emerald-500 dark:bg-emerald-700 [&_[data-slot=switch-thumb]]:size-6 [&_[data-slot=switch-thumb]]:bg-white [&_[data-slot=switch-thumb]]:shadow-md [&_[data-slot=switch-thumb]]:ring-1 [&_[data-slot=switch-thumb]]:ring-black/5 dark:[&_[data-slot=switch-thumb]]:ring-white/10 [&_[data-slot=switch-thumb]]:data-[state=unchecked]:!translate-x-0.5 [&_[data-slot=switch-thumb]]:data-[state=checked]:!translate-x-[20px]"
                   />
                 </div>
 
-                {hasHover ? (
-                  <TooltipProvider delayDuration={150}>
-                    <div className="mt-5 flex flex-wrap items-center gap-3">
-                      {renderInfoOverlay({
-                        label: "Only Our Best",
-                        ariaLabel: "Only Our Best",
-                        content: onlyOurBestContent,
-                      })}
-                      {renderInfoOverlay({
-                        label: "What gets shared",
-                        ariaLabel: "What gets shared",
-                        content: whatGetsSharedContent,
-                      })}
-                    </div>
-                  </TooltipProvider>
-                ) : (
-                  <div className="mt-5 flex flex-wrap items-center gap-3">
-                    {renderInfoOverlay({
-                      label: "Only Our Best",
-                      ariaLabel: "Only Our Best",
-                      content: onlyOurBestContent,
-                    })}
-                    {renderInfoOverlay({
-                      label: "What gets shared",
-                      ariaLabel: "What gets shared",
-                      content: whatGetsSharedContent,
-                    })}
-                  </div>
-                )}
+                <div className="mt-5 flex flex-wrap items-center gap-3">
+                  {renderInfoOverlay({
+                    label: "Only Our Best",
+                    ariaLabel: "Only Our Best",
+                    content: onlyOurBestContent,
+                  })}
+                  {renderInfoOverlay({
+                    label: "What gets shared",
+                    ariaLabel: "What gets shared",
+                    content: whatGetsSharedContent,
+                  })}
+                </div>
               </div>
             )}
 
@@ -1000,7 +908,7 @@ export function OnboardingPageClient({
                   </Typography.Heading1>
                 </div>
 
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-3 sm:grid-cols-2 mb-16">
                   <button
                     type="button"
                     onClick={startPasteDescriptionFlow}
@@ -1043,104 +951,47 @@ export function OnboardingPageClient({
                       <span>and begin learning about your career.</span>
                     </Typography.SubCaption>
                   </button>
-
-                  <button
-                    type="button"
-                    onClick={startOffersFlow}
-                    disabled={isSaving || isStartingNextAction}
-                    className={`rounded-xl border bg-background/70 p-4 text-left shadow-sm transition-colors hover:border-primary hover:bg-background ${
-                      nextActionView === "offers"
-                        ? "border-primary bg-primary/5"
-                        : ""
-                    }`}
-                  >
-                    <Typography.Heading3 className="text-left mb-3">
-                      Real offers
-                    </Typography.Heading3>
-                    <div className="flex flex-col gap-1">
-                      <Typography.SubCaption className="mt-1 text-left ">
-                        <span>
-                          See a couple of{" "}
-                          <span className="text-primary">matching roles </span>
-                          and
-                        </span>
-                      </Typography.SubCaption>
-                      <Typography.SubCaption className="mt-1 text-left ">
-                        <span> choose the most interesting one.</span>
-                      </Typography.SubCaption>
-                    </div>
-                  </button>
                 </div>
-
-                {nextActionView === "offers" ? (
-                  <div className="rounded-xl border bg-background/70 p-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <Typography.CaptionMedium>
-                        Matched offers
-                      </Typography.CaptionMedium>
-                    </div>
-
-                    {offersStatus === "loading" ? (
-                      <Typography.SubCaption color="secondary" className="mt-3">
-                        Loading offers...
-                      </Typography.SubCaption>
-                    ) : offersStatus === "error" ? (
-                      <Typography.SubCaption color="secondary" className="mt-3">
-                        Could not load offers. Try again.
-                      </Typography.SubCaption>
-                    ) : offers.length === 0 ? (
-                      <Typography.SubCaption color="secondary" className="mt-3">
-                        No offers found.
-                      </Typography.SubCaption>
-                    ) : (
-                      <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                        {offers.map((job) => (
-                          <button
-                            key={job.id}
-                            type="button"
-                            onClick={() => startInterviewForOffer(job)}
-                            disabled={isSaving || isStartingNextAction}
-                            className="w-full rounded-lg border bg-background px-3 py-3 text-left transition-colors hover:border-primary/40"
-                          >
-                            <Typography.CaptionMedium className="line-clamp-1">
-                              {job.title || "Role"}
-                            </Typography.CaptionMedium>
-                            <Typography.SubCaption
-                              color="secondary"
-                              className="mt-0.5 line-clamp-1"
-                            >
-                              {job.company}
-                            </Typography.SubCaption>
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : null}
+                <div className="flex justify-center">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleBack}
+                    disabled={isSaving}
+                    aria-label="Go back"
+                    className="gap-1"
+                  >
+                    <ChevronLeft className="size-4" />
+                    Back
+                  </Button>
+                </div>
               </div>
             )}
           </div>
 
-          {stepIndex === 0 ? null : (
-            <div className="mt-10 flex justify-center md:hidden">
+          {shouldAutoAdvance ? null : (
+            <div className="mt-6 flex justify-center md:justify-start gap-2">
+              {stepIndex === 0 ? null : (
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={handleBack}
+                  disabled={isSaving}
+                  aria-label="Go back"
+                  className="gap-1 !min-h-0 !min-w-0 !h-auto rounded-md border px-2.5 py-1.5 text-xs text-muted-foreground"
+                >
+                  <ChevronLeft className="size-4" />
+                  Back
+                </Button>
+              )}
               <Button
                 type="button"
-                variant="outline"
                 size="sm"
-                onClick={handleBack}
-                disabled={isSaving}
-                aria-label="Go back"
-                className="gap-1 !min-h-0 !min-w-0 !h-auto rounded-md border px-2.5 py-1.5 text-xs text-muted-foreground"
+                onClick={handleNext}
+                disabled={!canNext}
               >
-                <ChevronLeft className="size-4" />
-                Back
-              </Button>
-            </div>
-          )}
-
-          {shouldAutoAdvance ? null : (
-            <div className="mt-6 flex justify-center md:justify-start">
-              <Button type="button" onClick={handleNext} disabled={!canNext}>
                 {stepIndex === totalSteps - 1
                   ? isSaving
                     ? "Saving..."

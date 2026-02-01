@@ -150,7 +150,7 @@ const buildSurveyDismissRecord = (
   interviewCount: Math.max(interviewCount, 1),
 });
 
-const SURVEY_DELAY_MS = 12_000;
+const SURVEY_DELAY_MS = 20_000;
 
 export type PostInterviewSurveyController = {
   requestNavigation: (path: string) => void;

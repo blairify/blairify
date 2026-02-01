@@ -3,11 +3,13 @@
 import {
   AlertTriangle,
   ArrowLeft,
+  BarChart3,
   BookOpen,
-  Brain,
   Calendar,
   CheckCircle,
+  ChevronDown,
   Clock,
+  Clock9,
   Code,
   FileDown,
   Lightbulb,
@@ -17,10 +19,12 @@ import {
   Target,
   Trophy,
   User,
+  XCircle,
 } from "lucide-react";
+
 import { useParams, useRouter } from "next/navigation";
 import type { ReactNode } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -30,14 +34,32 @@ import { Typography } from "@/components/common/atoms/typography";
 import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
+import {
+  CATEGORY_MAX,
+  type CategoryKey,
+  DetailedScoreCard,
+} from "@/components/results/molecules/detailed-score-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
+import {
+  INTERVIEW_MODES,
+  POSITIONS,
+  SENIORITY_LEVELS,
+} from "@/constants/configure";
 import { DatabaseService } from "@/lib/database";
+import {
+  formatKnowledgeGapBlurb,
+  formatKnowledgeGapTitle,
+} from "@/lib/utils/interview-normalizers";
 import { useAuth } from "@/providers/auth-provider";
-import type { InterviewSession } from "@/types/firestore";
+import type { InterviewQuestion, InterviewSession } from "@/types/firestore";
 import type { Question } from "@/types/practice-question";
 
 function getPriorityLabel(priority: "high" | "medium" | "low"): string {
@@ -70,14 +92,6 @@ function getPriorityClass(priority: "high" | "medium" | "low"): string {
   }
 }
 
-function normalizeKnowledgeGapTitle(title: string): string {
-  return title
-    .trim()
-    .replace(/^\s*\d+\s*[.)]\s*/g, "")
-    .replace(/^\s*title\s*:\s*/i, "")
-    .trim();
-}
-
 function getMarkdownNodeText(node: ReactNode): string {
   if (node == null || typeof node === "boolean") return "";
   if (typeof node === "string" || typeof node === "number") return String(node);
@@ -87,6 +101,33 @@ function getMarkdownNodeText(node: ReactNode): string {
     return getMarkdownNodeText(n.props?.children);
   }
   return "";
+}
+
+function isGeneratedSearchResourceUrl(url: string): boolean {
+  const u = url.toLowerCase();
+  if (u.includes("google.com/search")) return true;
+  if (u.includes("youtube.com/results")) return true;
+  return false;
+}
+
+// --- Scoring Helpers ---
+
+// --- Scoring Helpers ---
+
+function clampFinite(value: unknown, min: number, max: number): number {
+  const n = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(n)) return min;
+  return Math.max(min, Math.min(max, n));
+}
+
+function getCategoryScores(score: number): Record<CategoryKey, number> {
+  const ratio = Math.max(0, Math.min(1, score / 100));
+  return {
+    technical: Math.round(ratio * CATEGORY_MAX.technical),
+    problemSolving: Math.round(ratio * CATEGORY_MAX.problemSolving),
+    communication: Math.round(ratio * CATEGORY_MAX.communication),
+    professional: Math.round(ratio * CATEGORY_MAX.professional),
+  };
 }
 
 export default function SessionDetailsPage() {
@@ -333,38 +374,51 @@ export default function SessionDetailsPage() {
     return Array.from(unique)[0] ?? null;
   }, [session?.analysis?.detailedAnalysis, session?.responses]);
 
-  useEffect(() => {
-    const loadSession = async () => {
-      if (!user?.uid || !sessionId) {
-        setError("Missing user or session information");
+  const loadSession = useCallback(async () => {
+    if (!user?.uid || !sessionId) {
+      setError("Missing user or session information");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const sessionData = await DatabaseService.getSession(user.uid, sessionId);
+
+      if (!sessionData) {
+        setError("Session not found");
         setLoading(false);
         return;
       }
 
-      try {
-        setLoading(true);
-        const sessionData = await DatabaseService.getSession(
-          user.uid,
-          sessionId,
-        );
+      setSession(sessionData);
+      setError(null); // Clear any previous errors
+    } catch (err) {
+      console.error("Error loading session:", err);
+      setError("Failed to load session details");
+    } finally {
+      setLoading(false);
+    }
+  }, [user?.uid, sessionId]);
 
-        if (!sessionData) {
-          setError("Session not found");
-          setLoading(false);
-          return;
-        }
+  // Load session on mount
+  useEffect(() => {
+    loadSession();
+  }, [loadSession]);
 
-        setSession(sessionData);
-      } catch (err) {
-        console.error("Error loading session:", err);
-        setError("Failed to load session details");
-      } finally {
-        setLoading(false);
+  // Refresh session when tab becomes visible
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible" && user?.uid && sessionId) {
+        loadSession();
       }
     };
 
-    loadSession();
-  }, [user?.uid, sessionId]);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [loadSession, user?.uid, sessionId]);
 
   useEffect(() => {
     if (!session?.questions || session.questions.length === 0) {
@@ -524,12 +578,12 @@ export default function SessionDetailsPage() {
                   size="sm"
                   disabled={exporting}
                 >
-                  <FileDown className="size-4 mr-2" />
+                  <FileDown className="h-4 w-4 mr-2" />
                   Export PDF
                 </Button>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              <div className="flex flex-col gap-8">
                 <div className="flex items-start sm:items-center gap-4">
                   <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border-2 border-primary/20 shadow-sm flex-shrink-0">
                     {getInterviewIcon(session.config.interviewType)}
@@ -564,28 +618,238 @@ export default function SessionDetailsPage() {
                   </div>
                 </div>
 
-                <div className="text-center sm:text-right">
-                  {session.scores?.overall ? (
-                    <>
-                      <div
-                        className={`text-5xl sm:text-6xl font-bold px-6 py-3 rounded-2xl shadow-lg border border-border/60 bg-card/50 ${getScoreColor(session.scores.overall)}`}
-                      >
-                        {session.scores.overall}%
-                      </div>
-                      <div className="text-sm font-semibold text-muted-foreground mt-2">
-                        Overall Score
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="text-5xl sm:text-6xl font-bold text-muted-foreground px-6 py-3 rounded-2xl bg-muted/50">
-                        N/A
-                      </div>
-                      <div className="text-sm font-semibold text-muted-foreground mt-2">
-                        Analysis Pending
-                      </div>
-                    </>
+                <div className="w-full">
+                  {/* ============================================================================ */}
+                  {/* OUTCOME DECISION BANNER (Matches Results Page) */}
+                  {/* ============================================================================ */}
+                  {session.analysis?.passed !== undefined && (
+                    <Card
+                      className={`mb-8 border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
+                        session.analysis.passed
+                          ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
+                          : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
+                      }`}
+                    >
+                      <CardContent className="py-8">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                          <div className="flex items-center gap-6">
+                            <div
+                              className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${
+                                session.analysis.passed
+                                  ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
+                                  : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                              }`}
+                            >
+                              {session.analysis.passed ? (
+                                <CheckCircle className="h-8 w-8" />
+                              ) : (
+                                <XCircle className="h-8 w-8" />
+                              )}
+                            </div>
+                            <div className="text-center sm:text-left">
+                              <div
+                                className={`text-3xl font-bold ${
+                                  session.analysis.passed
+                                    ? "text-emerald-900 dark:text-emerald-100"
+                                    : "text-red-900 dark:text-red-100"
+                                }`}
+                              >
+                                {session.analysis.passed
+                                  ? "Interview Passed"
+                                  : "Not Passed"}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   )}
+
+                  {/* Interview Configuration */}
+                  <div className="mb-12">
+                    <div className="flex items-center gap-2 mb-6">
+                      <Typography.BodyBold className="text-xl">
+                        Interview Configuration
+                      </Typography.BodyBold>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                      {(() => {
+                        const positionInfo = POSITIONS.find(
+                          (p: any) => p.value === session.config.position,
+                        );
+                        const seniorityInfo = SENIORITY_LEVELS.find(
+                          (s: any) => s.value === session.config.seniority,
+                        );
+                        const modeInfo = INTERVIEW_MODES.find(
+                          (m: any) => m.value === session.config.interviewMode,
+                        );
+
+                        const items = [
+                          {
+                            label: "Position",
+                            value:
+                              positionInfo?.label || session.config.position,
+                            icon: positionInfo?.icon || Code,
+                          },
+                          {
+                            label: "Seniority",
+                            value:
+                              seniorityInfo?.label || session.config.seniority,
+                            icon: seniorityInfo?.icon || Trophy,
+                          },
+                          {
+                            label: "Type",
+                            value: session.config.interviewType,
+                            icon: Target,
+                          },
+                          {
+                            label: "Mode",
+                            value:
+                              modeInfo?.label || session.config.interviewMode,
+                            icon: modeInfo?.icon || Clock,
+                          },
+                          {
+                            label: "Duration",
+                            value: `${session.config.duration}m`,
+                            icon: Clock9,
+                          },
+                          {
+                            label: "Status",
+                            value: session.status,
+                            icon: CheckCircle,
+                          },
+                        ];
+
+                        return items.map((item, idx) => {
+                          const Icon = item.icon;
+                          return (
+                            <Card
+                              key={idx}
+                              className="border-border/60 bg-card/50 shadow-none"
+                            >
+                              <CardContent className="flex flex-col items-start gap-4 p-4">
+                                <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                                  <Icon className="size-4 flex-shrink-0" />
+                                </div>
+                                <div className="space-y-1">
+                                  <Typography.Caption
+                                    color="secondary"
+                                    className="uppercase tracking-wider font-semibold text-[10px]"
+                                  >
+                                    {item.label}
+                                  </Typography.Caption>
+                                  <div className="font-bold text-sm capitalize truncate w-full">
+                                    {item.value}
+                                  </div>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          );
+                        });
+                      })()}
+                    </div>
+                  </div>
+
+                  {/* Detailed Performance Assessment */}
+                  <div className="mb-4 flex items-center gap-2">
+                    <BarChart3 className="size-5 text-primary" />
+                    <h2 className="text-xl font-bold text-foreground">
+                      Overall Performance Assessment
+                    </h2>
+                  </div>
+                  <div className="mb-8">
+                    {(() => {
+                      const overallScore =
+                        typeof session.scores?.overall === "number" &&
+                        session.scores.overall > 0
+                          ? session.scores.overall
+                          : 0;
+
+                      return session.analysisStatus === "ready" &&
+                        session.analysis ? (
+                        <DetailedScoreCard
+                          score={overallScore}
+                          passed={session.analysis.passed}
+                          summary={
+                            session.analysis.summary && (
+                              <div className="prose prose-sm dark:prose-invert max-w-none">
+                                <ReactMarkdown
+                                  remarkPlugins={[remarkGfm]}
+                                  components={readableMarkdownComponents}
+                                >
+                                  {session.analysis.summary}
+                                </ReactMarkdown>
+                              </div>
+                            )
+                          }
+                          categoryScores={(() => {
+                            const rawCat = session.scores;
+                            return rawCat
+                              ? {
+                                  technical: clampFinite(
+                                    rawCat.technical,
+                                    0,
+                                    CATEGORY_MAX.technical,
+                                  ),
+                                  problemSolving: clampFinite(
+                                    rawCat.problemSolving,
+                                    0,
+                                    CATEGORY_MAX.problemSolving,
+                                  ),
+                                  communication: clampFinite(
+                                    rawCat.communication,
+                                    0,
+                                    CATEGORY_MAX.communication,
+                                  ),
+                                  professional: clampFinite(
+                                    (rawCat as any).professional ?? 0,
+                                    0,
+                                    CATEGORY_MAX.professional,
+                                  ),
+                                }
+                              : getCategoryScores(overallScore);
+                          })()}
+                          technologyScores={(() => {
+                            const rawTech = session.analysis?.technologyScores;
+                            return rawTech && typeof rawTech === "object"
+                              ? Object.entries(rawTech)
+                                  .map(([tech, score]) => ({
+                                    tech,
+                                    score: clampFinite(score, 0, 100),
+                                  }))
+                                  .filter((x) => x.tech.trim().length > 0)
+                                  .sort((a, b) => b.score - a.score)
+                              : [];
+                          })()}
+                        />
+                      ) : session.analysisStatus === "pending" ||
+                        session.analysisStatus === "ready" ? (
+                        <Card className="border-dashed border-2 p-8">
+                          <div className="flex flex-col items-center justify-center text-center gap-4">
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+                            <div className="space-y-1">
+                              <h3 className="font-semibold text-lg">
+                                Analyzing Interview
+                              </h3>
+                              <p className="text-sm text-muted-foreground m-0 max-w-md">
+                                Our AI is currently grading your responses and
+                                generating feedback. This usually takes less
+                                than a minute.
+                              </p>
+                            </div>
+                          </div>
+                        </Card>
+                      ) : (
+                        <Card className="bg-muted/30 border-none p-8 text-center">
+                          <Typography.Body className="text-muted-foreground">
+                            {session.analysisStatus === "failed"
+                              ? "Score analysis failed."
+                              : "Score unavailable for this session."}
+                          </Typography.Body>
+                        </Card>
+                      );
+                    })()}
+                  </div>
                 </div>
               </div>
             </div>
@@ -626,168 +890,6 @@ export default function SessionDetailsPage() {
               );
             })()}
 
-            {session.analysis?.passed !== undefined && (
-              <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-                <CardHeader className="px-3 pt-2 pb-0">
-                  <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                    <Trophy className="size-5 text-primary" />
-                    Result
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-3 pt-0 pb-3">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div>
-                      <div className="text-2xl font-bold">
-                        {session.analysis.passed ? "Passed" : "Not passed"}
-                      </div>
-                      {typeof session.scores?.overall === "number" && (
-                        <div className="text-sm font-semibold text-muted-foreground mt-1">
-                          {session.scores.overall} points
-                        </div>
-                      )}
-                    </div>
-
-                    {session.analysis.decision && (
-                      <Badge variant="secondary" className="font-semibold">
-                        {session.analysis.decision}
-                      </Badge>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Interview Configuration */}
-            <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-              <CardHeader className="px-3 pt-2 pb-0">
-                <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                  <User className="size-5 text-primary" />
-                  Interview Configuration
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="px-3 pt-0 pb-3">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Position
-                    </div>
-                    <div className="font-bold text-base capitalize text-foreground">
-                      {session.config.position}
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Seniority Level
-                    </div>
-                    <div className="font-bold text-base capitalize text-foreground">
-                      {session.config.seniority}
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Interview Type
-                    </div>
-                    <div className="font-bold text-base capitalize text-foreground">
-                      {session.config.interviewType}
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Mode
-                    </div>
-                    <Badge
-                      variant="default"
-                      className="capitalize font-semibold"
-                    >
-                      {session.config.interviewMode}
-                    </Badge>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Duration
-                    </div>
-                    <div className="font-bold text-base text-foreground">
-                      {session.config.duration} minutes
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                      Status
-                    </div>
-                    <Badge
-                      variant={
-                        session.status === "completed" ? "default" : "secondary"
-                      }
-                      className="capitalize font-semibold"
-                    >
-                      {session.status}
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {(session.analysis?.summary ||
-              (session.scores && session.scores.overall > 0)) && (
-              <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-                <CardHeader className="px-3 pt-2 pb-0">
-                  <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                    <Brain className="size-5 text-primary" />
-                    Overall Performance Assessment
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-3 pt-0 pb-3">
-                  {session.analysis?.summary && (
-                    <div className="mb-5">
-                      <ReactMarkdown
-                        remarkPlugins={[remarkGfm]}
-                        components={readableMarkdownComponents}
-                      >
-                        {session.analysis.summary}
-                      </ReactMarkdown>
-                    </div>
-                  )}
-
-                  {session.scores && session.scores.overall > 0 && (
-                    <div className="space-y-4">
-                      {Object.entries(session.scores).map(([key, value]) => {
-                        if (key === "overall" || !value) return null;
-
-                        const formatKey = (str: string) => {
-                          return str
-                            .split(/(?=[A-Z])/)
-                            .map(
-                              (word) =>
-                                word.charAt(0).toUpperCase() + word.slice(1),
-                            )
-                            .join(" ");
-                        };
-
-                        return (
-                          <div
-                            key={key}
-                            className="space-y-3 p-4 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border/30"
-                          >
-                            <div className="flex justify-between items-center">
-                              <span className="text-sm font-bold text-foreground">
-                                {formatKey(key)}
-                              </span>
-                              <span
-                                className={`text-lg font-bold px-2.5 py-0.5 rounded-lg ${getScoreColor(value)}`}
-                              >
-                                {value}%
-                              </span>
-                            </div>
-                            <Progress value={value} className="h-2.5" />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            )}
-
             {session.analysis?.knowledgeGaps &&
               session.analysis.knowledgeGaps.length > 0 && (
                 <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
@@ -806,7 +908,7 @@ export default function SessionDetailsPage() {
                         >
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                             <div className="text-sm font-bold text-foreground">
-                              {normalizeKnowledgeGapTitle(gap.title)}
+                              {formatKnowledgeGapTitle(gap.title, gap.tags)}
                             </div>
                             <Badge
                               variant="secondary"
@@ -818,28 +920,44 @@ export default function SessionDetailsPage() {
                             </Badge>
                           </div>
 
-                          {gap.why && (
-                            <Typography.Body className="text-sm text-muted-foreground">
-                              {gap.why}
-                            </Typography.Body>
-                          )}
+                          <div className="text-sm text-muted-foreground">
+                            {formatKnowledgeGapBlurb({
+                              title: gap.title,
+                              tags: gap.tags,
+                              priority: gap.priority,
+                            })}
+                          </div>
 
-                          {gap.resources && gap.resources.length > 0 && (
-                            <ul className="space-y-2">
-                              {gap.resources.map((r) => (
-                                <li key={r.id} className="text-sm">
-                                  <a
-                                    className="text-blue-700 dark:text-blue-300 hover:underline"
-                                    href={r.url}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                  >
-                                    {r.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
+                          {(() => {
+                            const resources = (gap.resources ?? []).filter(
+                              (r) => !isGeneratedSearchResourceUrl(r.url),
+                            );
+
+                            if (resources.length === 0) {
+                              return (
+                                <div className="text-sm text-muted-foreground italic">
+                                  No curated links yet.
+                                </div>
+                              );
+                            }
+
+                            return (
+                              <ul className="space-y-2">
+                                {resources.map((r) => (
+                                  <li key={r.id} className="text-sm">
+                                    <a
+                                      className="text-blue-700 dark:text-blue-300 hover:underline"
+                                      href={r.url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      {r.title}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            );
+                          })()}
                         </div>
                       ))}
                     </div>
@@ -847,12 +965,39 @@ export default function SessionDetailsPage() {
                 </Card>
               )}
 
-            {/* Questions and Responses */}
             {session.questions && session.questions.length > 0 && (
               <Card className="mb-6 border-2 border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
-                <CardHeader className="px-3 pt-2 pb-0">
-                  <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                    <MessageSquare className="size-5 text-primary" />
+                <CardHeader className="px-3 pt-2 pb-0 select-none">
+                  <CardTitle className="flex items-center justify-between gap-3 text-xl font-bold">
+                    <div className="flex items-center gap-2">
+                      <MessageSquare className="size-5 text-primary" />
+                      {(() => {
+                        const visibleQuestions = session.questions.filter(
+                          (q) => {
+                            const r = session.responses?.find(
+                              (x) => x.questionId === q.id,
+                            );
+
+                            if (!r) return false;
+                            if ((r.response ?? "").trim().length > 0)
+                              return true;
+                            return r.score > 0;
+                          },
+                        );
+
+                        return (
+                          <>
+                            Questions & Example Answers (
+                            {visibleQuestions.length})
+                          </>
+                        );
+                      })()}
+                    </div>
+                  </CardTitle>
+                </CardHeader>
+
+                <CardContent className="px-3 pt-4 pb-3">
+                  <div className="space-y-4">
                     {(() => {
                       const visibleQuestions = session.questions.filter((q) => {
                         const r = session.responses?.find(
@@ -864,41 +1009,185 @@ export default function SessionDetailsPage() {
                         return r.score > 0;
                       });
 
-                      return (
-                        <>
-                          Questions & Example Answers ({visibleQuestions.length}
-                          )
-                        </>
-                      );
-                    })()}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-3 pt-0 pb-3">
-                  <div className="space-y-6 sm:space-y-8">
-                    {session.questions
-                      .filter((q) => {
-                        const r = session.responses?.find(
-                          (x) => x.questionId === q.id,
-                        );
+                      const qaRows: Array<{
+                        type: "main" | "follow-up";
+                        mainIdx: number;
+                        question: InterviewQuestion;
+                        practiceQuestion: Question | null;
+                        response: string | null;
+                        score: number | null;
+                        followUpQuestionText?: string;
+                        followUpResponse?: string;
+                        followUpAiExample?: string;
+                      }> = [];
 
-                        if (!r) return false;
-                        if ((r.response ?? "").trim().length > 0) return true;
-                        return r.score > 0;
-                      })
-                      .map((question, index) => {
+                      visibleQuestions.forEach((question, index) => {
                         const response = session.responses?.find(
                           (r) => r.questionId === question.id,
                         );
 
                         const practiceQuestion =
                           practiceQuestionsById[question.id] ?? null;
-                        const exampleAnswer = practiceQuestion
-                          ? getExampleAnswer(practiceQuestion)
+
+                        qaRows.push({
+                          type: "main",
+                          mainIdx: index,
+                          question,
+                          practiceQuestion,
+                          response: response?.response ?? null,
+                          score:
+                            typeof response?.score === "number"
+                              ? response.score
+                              : null,
+                        });
+
+                        if (
+                          Array.isArray(question.followUps) &&
+                          question.followUps.length > 0
+                        ) {
+                          question.followUps.forEach((f) => {
+                            const fQuestion = (f?.question ?? "").trim();
+                            const fResponse = (f?.response ?? "").trim();
+                            const fAiExampleRaw =
+                              typeof (f as { aiExampleAnswer?: unknown })
+                                .aiExampleAnswer === "string"
+                                ? (
+                                    (f as { aiExampleAnswer?: string })
+                                      .aiExampleAnswer ?? ""
+                                  ).trim()
+                                : "";
+
+                            const fAiExample = fAiExampleRaw
+                              ? fAiExampleRaw
+                                  .replace(
+                                    /^\s*(Example\s+Answer|Example)\s*:\s*/i,
+                                    "",
+                                  )
+                                  .replace(
+                                    /^\s*(Example\s+Answer|Example)\s*\n+/i,
+                                    "",
+                                  )
+                                  .trim()
+                              : "";
+
+                            if (fQuestion.length > 0) {
+                              qaRows.push({
+                                type: "follow-up",
+                                mainIdx: index,
+                                question,
+                                practiceQuestion,
+                                response: null,
+                                score: null,
+                                followUpQuestionText: fQuestion,
+                                followUpResponse: fResponse,
+                                followUpAiExample: fAiExample,
+                              });
+                            }
+                          });
+                        }
+                      });
+
+                      return qaRows.map((row, rowIdx) => {
+                        if (row.type === "follow-up") {
+                          return (
+                            <Collapsible
+                              key={`${row.question.id}_followup_${rowIdx}`}
+                              defaultOpen={false}
+                              className="border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-l-blue-500/50 bg-gradient-to-br from-blue-50/50 to-blue-50/10 border-y-border/50 border-r-border/50 dark:from-blue-950/20 dark:to-blue-950/5"
+                            >
+                              <CollapsibleTrigger className="w-full text-left group">
+                                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                                  <div className="flex-1 min-w-0">
+                                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                                      <Badge
+                                        variant="secondary"
+                                        className="font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-900/70"
+                                      >
+                                        Follow-up
+                                      </Badge>
+                                    </div>
+
+                                    <div className="font-semibold text-foreground line-clamp-1">
+                                      {row.followUpQuestionText}
+                                    </div>
+                                  </div>
+
+                                  <div className="flex items-center gap-3 self-start sm:self-center">
+                                    <ChevronDown className="size-5 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
+                                  </div>
+                                </div>
+                              </CollapsibleTrigger>
+
+                              <CollapsibleContent className="pt-4 mt-2 border-t border-border/40">
+                                <div className="whitespace-pre-line mb-5">
+                                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                                    Prompt
+                                  </div>
+                                  <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={qaQuestionMarkdownComponents}
+                                  >
+                                    {row.followUpQuestionText}
+                                  </ReactMarkdown>
+                                </div>
+
+                                {(row.followUpResponse ?? "").length > 0 && (
+                                  <div className="mb-5 last:mb-0">
+                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                      <User className="size-4 text-primary" />
+                                      Your Response:
+                                    </div>
+                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                      <div className="whitespace-pre-line text-sm">
+                                        <ReactMarkdown
+                                          remarkPlugins={[remarkGfm]}
+                                          components={
+                                            readableMarkdownComponents
+                                          }
+                                        >
+                                          {row.followUpResponse}
+                                        </ReactMarkdown>
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+
+                                {(row.followUpAiExample ?? "").length > 0 && (
+                                  <>
+                                    <Separator className="my-5" />
+                                    <div>
+                                      <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                        <Lightbulb className="size-4 text-primary" />
+                                        Example Answer:
+                                      </div>
+                                      <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                        <div className="whitespace-pre-line text-sm">
+                                          <ReactMarkdown
+                                            remarkPlugins={[remarkGfm]}
+                                            components={
+                                              readableMarkdownComponents
+                                            }
+                                          >
+                                            {row.followUpAiExample}
+                                          </ReactMarkdown>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </>
+                                )}
+                              </CollapsibleContent>
+                            </Collapsible>
+                          );
+                        }
+
+                        // Main Question
+                        const exampleAnswer = row.practiceQuestion
+                          ? getExampleAnswer(row.practiceQuestion)
                           : null;
 
                         const storedAiExampleAnswer =
-                          typeof question.aiExampleAnswer === "string"
-                            ? question.aiExampleAnswer.trim()
+                          typeof row.question.aiExampleAnswer === "string"
+                            ? row.question.aiExampleAnswer.trim()
                             : null;
 
                         const normalizedExampleAnswer = exampleAnswer
@@ -933,191 +1222,112 @@ export default function SessionDetailsPage() {
                           normalizedStoredAiExampleAnswer ??
                           null;
 
-                        const followUps = Array.isArray(question.followUps)
-                          ? question.followUps
-                              .map((f) => ({
-                                question: (f?.question ?? "").trim(),
-                                response: (f?.response ?? "").trim(),
-                                aiExampleAnswer:
-                                  typeof (f as { aiExampleAnswer?: unknown })
-                                    .aiExampleAnswer === "string"
-                                    ? (
-                                        (f as { aiExampleAnswer?: string })
-                                          .aiExampleAnswer ?? ""
-                                      ).trim()
-                                    : "",
-                              }))
-                              .filter((f) => f.question.length > 0)
-                          : [];
-
                         return (
-                          <div
-                            key={question.id}
-                            className="border-2 border-border/50 rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-card to-card/50 shadow-md hover:shadow-lg transition-shadow"
+                          <Collapsible
+                            key={row.question.id}
+                            defaultOpen={false}
+                            className="border-2 border-border/50 rounded-2xl p-4 sm:p-5 bg-gradient-to-br from-card to-card/50 shadow-sm hover:shadow-md transition-shadow"
                           >
-                            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-start justify-between gap-3 mb-3">
-                                  <div className="flex flex-wrap items-center gap-2">
+                            <CollapsibleTrigger className="w-full text-left group">
+                              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex flex-wrap items-center gap-2 mb-2">
                                     <Badge
                                       variant="default"
                                       className="font-semibold"
                                     >
-                                      Question {index + 1}
+                                      Question {row.mainIdx + 1}
                                     </Badge>
                                     <Badge
                                       variant="secondary"
                                       className="capitalize font-medium"
                                     >
-                                      {question.type}
+                                      {row.question.type}
                                     </Badge>
                                     <Badge
                                       variant="outline"
                                       className="font-medium"
                                     >
-                                      Difficulty:{" "}
-                                      {practiceQuestion?.difficulty
-                                        ? practiceQuestion.difficulty
+                                      {row.practiceQuestion?.difficulty
+                                        ? row.practiceQuestion.difficulty
                                             .charAt(0)
                                             .toUpperCase() +
-                                          practiceQuestion.difficulty.slice(1)
+                                          row.practiceQuestion.difficulty.slice(
+                                            1,
+                                          )
                                         : getDifficultyLabel(
-                                            question.difficulty,
+                                            row.question.difficulty,
                                           )}
                                     </Badge>
                                   </div>
 
-                                  {response && (
-                                    <div className="sm:hidden text-right flex-shrink-0">
-                                      {response.score > 0 ? (
-                                        <div
-                                          className={`inline-flex text-2xl font-bold px-3 py-1.5 rounded-xl shadow-sm border border-border/60 bg-card/50 ${getScoreColor(response.score)}`}
-                                        >
-                                          {response.score}%
-                                        </div>
-                                      ) : (
-                                        <div className="inline-flex text-2xl font-bold text-muted-foreground px-3 py-1.5 rounded-xl bg-muted/50">
-                                          N/A
-                                        </div>
-                                      )}
+                                  <div className="font-semibold text-foreground line-clamp-1">
+                                    {row.practiceQuestion?.title ||
+                                      row.question.question}
+                                  </div>
+                                </div>
+
+                                <div className="flex items-center gap-3 self-start sm:self-center">
+                                  {row.score !== null && (
+                                    <div className="flex-shrink-0">
+                                      <div
+                                        className={`text-lg font-bold px-3 py-1 rounded-lg border border-border/60 bg-card/50 ${getScoreColor(
+                                          row.score,
+                                        )}`}
+                                      >
+                                        {row.score}%
+                                      </div>
                                     </div>
                                   )}
-                                </div>
-                                <div className="whitespace-pre-line mb-3">
-                                  <ReactMarkdown
-                                    remarkPlugins={[remarkGfm]}
-                                    components={qaQuestionMarkdownComponents}
-                                  >
-                                    {question.question}
-                                  </ReactMarkdown>
-                                </div>
-                              </div>
-                              {response && (
-                                <div className="hidden sm:block text-center sm:text-right flex-shrink-0">
-                                  {response.score > 0 ? (
-                                    <div
-                                      className={`text-3xl sm:text-4xl font-bold px-4 py-2 rounded-xl shadow-sm border border-border/60 bg-card/50 ${getScoreColor(response.score)}`}
-                                    >
-                                      {response.score}%
-                                    </div>
-                                  ) : (
-                                    <div className="text-3xl sm:text-4xl font-bold text-muted-foreground px-4 py-2 rounded-xl bg-muted/50">
+                                  {row.score === null && row.response && (
+                                    <div className="text-lg font-bold text-muted-foreground px-3 py-1 rounded-lg bg-muted/50">
                                       N/A
                                     </div>
                                   )}
+                                  <ChevronDown className="size-5 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
                                 </div>
-                              )}
-                            </div>
+                              </div>
+                            </CollapsibleTrigger>
 
-                            {effectiveExampleAnswer && (
-                              <div className="mt-4">
-                                <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                  <Lightbulb className="size-4 text-primary" />
-                                  Example Answer:
+                            <CollapsibleContent className="pt-4 mt-2 border-t border-border/40">
+                              <div className="whitespace-pre-line mb-5">
+                                <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                                  Prompt
                                 </div>
-                                <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                  <div className="whitespace-pre-line text-sm">
-                                    <ReactMarkdown
-                                      remarkPlugins={[remarkGfm]}
-                                      components={readableMarkdownComponents}
-                                    >
-                                      {effectiveExampleAnswer}
-                                    </ReactMarkdown>
+                                <ReactMarkdown
+                                  remarkPlugins={[remarkGfm]}
+                                  components={qaQuestionMarkdownComponents}
+                                >
+                                  {row.question.question}
+                                </ReactMarkdown>
+                              </div>
+
+                              {row.response && (
+                                <div className="mb-5 last:mb-0">
+                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                    <User className="size-4 text-primary" />
+                                    Your Response:
+                                  </div>
+                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                    <div className="whitespace-pre-line text-sm">
+                                      <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                        components={readableMarkdownComponents}
+                                      >
+                                        {row.response || "No response recorded"}
+                                      </ReactMarkdown>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            )}
+                              )}
 
-                            {followUps.length > 0 && (
-                              <div className="mt-4">
-                                <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                  <MessageSquare className="size-4 text-primary" />
-                                  Follow-ups:
-                                </div>
-                                <div className="space-y-4">
-                                  {followUps.map((f, idx) => (
-                                    <div
-                                      key={`${question.id}_followup_${idx}`}
-                                      className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50"
-                                    >
-                                      <div className="whitespace-pre-line text-sm">
-                                        <ReactMarkdown
-                                          remarkPlugins={[remarkGfm]}
-                                          components={
-                                            readableMarkdownComponents
-                                          }
-                                        >
-                                          {f.question}
-                                        </ReactMarkdown>
-                                      </div>
-
-                                      {f.response.length > 0 && (
-                                        <div className="mt-3 whitespace-pre-line text-sm">
-                                          <ReactMarkdown
-                                            remarkPlugins={[remarkGfm]}
-                                            components={
-                                              readableMarkdownComponents
-                                            }
-                                          >
-                                            {f.response}
-                                          </ReactMarkdown>
-                                        </div>
-                                      )}
-
-                                      {f.aiExampleAnswer.length > 0 && (
-                                        <div className="mt-4">
-                                          <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                            <Lightbulb className="size-4 text-primary" />
-                                            Example Answer:
-                                          </div>
-                                          <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                            <div className="whitespace-pre-line text-sm">
-                                              <ReactMarkdown
-                                                remarkPlugins={[remarkGfm]}
-                                                components={
-                                                  readableMarkdownComponents
-                                                }
-                                              >
-                                                {f.aiExampleAnswer}
-                                              </ReactMarkdown>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      )}
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-
-                            {response && (
-                              <>
-                                <Separator className="my-5" />
-                                <div className="space-y-5">
+                              {effectiveExampleAnswer && (
+                                <>
+                                  <Separator className="my-5" />
                                   <div>
                                     <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                      <User className="size-4 text-primary" />
-                                      Your Response:
+                                      <Lightbulb className="size-4 text-primary" />
+                                      Example Answer:
                                     </div>
                                     <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
                                       <div className="whitespace-pre-line text-sm">
@@ -1127,18 +1337,18 @@ export default function SessionDetailsPage() {
                                             readableMarkdownComponents
                                           }
                                         >
-                                          {response.response ||
-                                            "No response recorded"}
+                                          {effectiveExampleAnswer}
                                         </ReactMarkdown>
                                       </div>
                                     </div>
                                   </div>
-                                </div>
-                              </>
-                            )}
-                          </div>
+                                </>
+                              )}
+                            </CollapsibleContent>
+                          </Collapsible>
                         );
-                      })}
+                      });
+                    })()}
                   </div>
                 </CardContent>
               </Card>

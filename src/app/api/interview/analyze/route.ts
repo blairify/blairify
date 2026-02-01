@@ -17,10 +17,12 @@ import {
   validateInterviewConfig,
 } from "@/lib/services/interview/interview-service";
 import { getResourcesByTags } from "@/lib/services/resources/neon-resource-repository";
+import { formatKnowledgeGapTitle } from "@/lib/utils/interview-normalizers";
 import type {
   AnalyzeApiRequest,
   AnalyzeApiResponse,
   InterviewConfig,
+  InterviewResults,
   KnowledgeGap,
   Message,
   ResponseAnalysis,
@@ -37,261 +39,146 @@ function normalizeGapTitle(value: string): string {
     .trim();
 }
 
+function stripInlineMarkdown(value: string): string {
+  return value
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/__(.*?)__/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function isAcceptableGapTitle(title: string): boolean {
+  const t = title.trim();
+  if (t.length < 5 || t.length > 52) return false;
+  if (t.includes("?")) return false;
+
+  const lower = t.toLowerCase();
+  const wordCount = lower.split(/\s+/).filter(Boolean).length;
+  if (wordCount < 2 || wordCount > 5) return false;
+
+  const bannedStarts = [
+    "let's ",
+    "lets ",
+    "whether ",
+    "thanks",
+    "you ",
+    "can you ",
+    "could you ",
+    "would you ",
+    "explain ",
+    "describe ",
+    "define ",
+    "summarize ",
+    "implement ",
+    "use ",
+    "build ",
+    "create ",
+    "when i asked",
+    "during the question",
+    "i asked",
+    "we asked",
+    "the candidate",
+  ];
+  if (bannedStarts.some((p) => lower.startsWith(p))) return false;
+
+  const bannedContains = [
+    "let's try",
+    "different angle",
+    "you described",
+    "you said",
+    "you mentioned",
+    "you explained",
+    "you answered",
+    "you didn",
+    "you did not",
+    "when i asked",
+    "can you",
+  ];
+  if (bannedContains.some((p) => lower.includes(p))) return false;
+
+  if (/[.!]$/.test(t)) return false;
+  return true;
+}
+
 function normalizeWhy(value: string): string {
   return value.trim().replace(/\s+/g, " ");
 }
 
-function normalizeResourceTitle(value: string): string {
-  return value.trim().replace(/\s+/g, " ");
-}
-
-function normalizeResourceUrl(value: string): string {
-  const trimmed = value.trim();
-  if (trimmed.length === 0) return "";
-
-  if (/^https?:\/\//i.test(trimmed)) return trimmed;
-
-  const known = [
-    "roadmap.sh",
-    "w3schools.com",
-    "developer.mozilla.org",
-    "freecodecamp.org",
-    "youtube.com",
-    "www.youtube.com",
-  ];
-
-  const lower = trimmed.toLowerCase();
-  const isKnown = known.some(
-    (d) =>
-      lower === d || lower.startsWith(`${d}/`) || lower.startsWith(`www.${d}/`),
-  );
-
-  if (lower.startsWith("www.")) return `https://${trimmed}`;
-  if (isKnown) return `https://${trimmed}`;
-
-  return "";
-}
-
-function isValidHttpUrl(url: string): boolean {
-  try {
-    const parsed = new URL(url);
-    return parsed.protocol === "http:" || parsed.protocol === "https:";
-  } catch {
-    return false;
+function stableHash(value: string): number {
+  let hash = 0;
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash * 31 + value.charCodeAt(i)) | 0;
   }
-}
-
-function isPreferredDomain(url: string): boolean {
-  try {
-    const host = new URL(url).host.toLowerCase();
-    return (
-      host.includes("roadmap.sh") ||
-      host.includes("w3schools.com") ||
-      host.includes("developer.mozilla.org") ||
-      host.includes("freecodecamp.org") ||
-      host.includes("youtube.com")
-    );
-  } catch {
-    return false;
-  }
-}
-
-function getRoadmapKnownRouteUrl(tags: string[]): string | null {
-  const normalizedTags = tags.map((t) => t.toLowerCase());
-  const knownRoutes: Record<string, string> = {
-    frontend: "https://roadmap.sh/frontend",
-    backend: "https://roadmap.sh/backend",
-    devops: "https://roadmap.sh/devops",
-    react: "https://roadmap.sh/react",
-    node: "https://roadmap.sh/nodejs",
-    nodejs: "https://roadmap.sh/nodejs",
-    javascript: "https://roadmap.sh/javascript",
-    typescript: "https://roadmap.sh/typescript",
-    sql: "https://roadmap.sh/sql",
-    docker: "https://roadmap.sh/docker",
-    kubernetes: "https://roadmap.sh/kubernetes",
-    systemdesign: "https://roadmap.sh/system-design",
-    "system-design": "https://roadmap.sh/system-design",
-  };
-
-  for (const t of normalizedTags) {
-    const hit = knownRoutes[t];
-    if (hit) return hit;
-  }
-
-  return null;
-}
-
-function getW3SchoolsKnownSectionUrl(
-  tags: string[],
-  title: string,
-): string | null {
-  const normalizedTags = tags.map((t) => t.toLowerCase());
-
-  const knownSections: Record<string, string> = {
-    html: "https://www.w3schools.com/html/",
-    css: "https://www.w3schools.com/css/",
-    javascript: "https://www.w3schools.com/js/",
-    js: "https://www.w3schools.com/js/",
-    typescript: "https://www.w3schools.com/js/",
-    react: "https://www.w3schools.com/react/",
-    sql: "https://www.w3schools.com/sql/",
-    node: "https://www.w3schools.com/nodejs/",
-    nodejs: "https://www.w3schools.com/nodejs/",
-    python: "https://www.w3schools.com/python/",
-    java: "https://www.w3schools.com/java/",
-    git: "https://www.w3schools.com/git/",
-  };
-
-  for (const t of normalizedTags) {
-    const hit = knownSections[t];
-    if (hit) return hit;
-  }
-
-  if (/\btypescript\b/i.test(title)) return "https://www.w3schools.com/js/";
-  return null;
-}
-
-function buildPreferredResources(
-  title: string,
-  tags: string[],
-): KnowledgeGap["resources"] {
-  const topic = encodeURIComponent(normalizeGapTitle(title));
-  const tag = tags[0] ?? "";
-
-  const mdn = {
-    id: crypto.randomUUID(),
-    title: `MDN search: ${title}`,
-    url: `https://developer.mozilla.org/en-US/search?q=${topic}`,
-    type: "docs" as const,
-    tags,
-  };
-
-  const youtube = {
-    id: crypto.randomUUID(),
-    title: `YouTube: ${title}`,
-    url: `https://www.youtube.com/results?search_query=${topic}`,
-    type: "video" as const,
-    tags,
-  };
-
-  const roadmapKnown = getRoadmapKnownRouteUrl(tags);
-  const w3Known = getW3SchoolsKnownSectionUrl(tags, title);
-
-  const resources: KnowledgeGap["resources"] = [mdn, youtube];
-
-  if (roadmapKnown) {
-    resources.push({
-      id: crypto.randomUUID(),
-      title: `roadmap.sh: ${tag || "learning paths"}`,
-      url: roadmapKnown,
-      type: "docs",
-      tags,
-    });
-  }
-
-  if (w3Known) {
-    resources.push({
-      id: crypto.randomUUID(),
-      title: "W3Schools",
-      url: w3Known,
-      type: "docs",
-      tags,
-    });
-  }
-
-  if (resources.length < 3) {
-    resources.push({
-      id: crypto.randomUUID(),
-      title: `freeCodeCamp: ${title}`,
-      url: `https://www.freecodecamp.org/news/search/?query=${topic}`,
-      type: "course",
-      tags,
-    });
-  }
-
-  return resources;
-}
-
-function ensureGapHasMinimumResources(gap: KnowledgeGap): KnowledgeGap {
-  const existing = Array.isArray(gap.resources) ? gap.resources : [];
-  const sanitized = existing
-    .map((r) => {
-      const url = normalizeResourceUrl(r.url);
-      const title = normalizeResourceTitle(r.title);
-      if (!url || !title) return null;
-      if (!isValidHttpUrl(url)) return null;
-      return { ...r, url, title };
-    })
-    .filter((r): r is NonNullable<typeof r> => r !== null);
-
-  const preferredExisting = sanitized.filter((r) => isPreferredDomain(r.url));
-  const nonPreferredExisting = sanitized.filter(
-    (r) => !isPreferredDomain(r.url),
-  );
-
-  const next: KnowledgeGap["resources"] = [];
-  const seen = new Set<string>();
-  const push = (r: (typeof sanitized)[number]) => {
-    if (!r?.url || !r.title) return;
-    if (seen.has(r.url)) return;
-    seen.add(r.url);
-    next.push(r);
-  };
-
-  for (const r of preferredExisting) push(r);
-
-  if (next.length < 2) {
-    const preferredFallback = buildPreferredResources(gap.title, gap.tags);
-    for (const r of preferredFallback) {
-      push(r);
-      if (next.length >= 2) break;
-    }
-  }
-
-  if (next.length < 2) {
-    for (const r of nonPreferredExisting) {
-      push(r);
-      if (next.length >= 2) break;
-    }
-  }
-
-  return { ...gap, resources: next };
+  return Math.abs(hash);
 }
 
 function extractInterviewerQuestions(conversationHistory: Message[]): string[] {
   const questions: string[] = [];
-  for (const msg of conversationHistory) {
-    if (msg.type !== "ai") continue;
-    if (msg.isFollowUp === true) continue;
-    const lines = msg.content
-      .split("\n")
+
+  const isOutroLine = (value: string): boolean => {
+    const t = value.trim().toLowerCase();
+    if (!t) return true;
+    if (t.startsWith("thanks")) return true;
+    if (t.includes("that's all the questions")) return true;
+    if (t.includes("thats all the questions")) return true;
+    if (t.includes("that is all the questions")) return true;
+    if (t.includes("that concludes")) return true;
+    if (t.includes("end of the interview")) return true;
+    if (t.includes("good luck")) return true;
+    if (t.includes("anything else")) return true;
+    if (t.includes("any questions for me")) return true;
+    return false;
+  };
+
+  const extractQuestion = (content: string): string | null => {
+    const raw = content.trim();
+    if (!raw) return null;
+    if (isOutroLine(raw)) return null;
+
+    const lines = raw
+      .split(/\n+/)
       .map((l) => l.trim())
-      .filter(Boolean);
+      .filter(Boolean)
+      .slice(0, 6);
 
     for (const line of lines) {
-      if (!line.includes("?")) continue;
-      const cleaned = line.replace(/^[-*\d.)\s]+/, "").trim();
-      if (isFollowUpQuestionText(cleaned)) continue;
-      if (cleaned.length > 0) questions.push(cleaned);
+      if (isOutroLine(line)) continue;
+      if (line.includes("?")) return line;
     }
-  }
-  return questions.slice(0, 12);
-}
 
-function isFollowUpQuestionText(value: string): boolean {
-  const v = value.trim().toLowerCase();
-  return (
-    v.startsWith("why?") ||
-    v.startsWith("how?") ||
-    v.startsWith("can you") ||
-    v.startsWith("could you") ||
-    v.startsWith("what do you mean") ||
-    v.startsWith("tell me more") ||
-    v.startsWith("go deeper") ||
-    v.startsWith("elaborate") ||
-    v.startsWith("follow up")
-  );
+    const joined = lines.join(" ").trim();
+    if (!joined) return null;
+    if (isOutroLine(joined)) return null;
+
+    const lead = joined.toLowerCase();
+    const looksLikeQuestion =
+      lead.startsWith("what ") ||
+      lead.startsWith("why ") ||
+      lead.startsWith("how ") ||
+      lead.startsWith("when ") ||
+      lead.startsWith("where ") ||
+      lead.startsWith("which ") ||
+      lead.startsWith("can you ") ||
+      lead.startsWith("could you ") ||
+      lead.startsWith("walk me ") ||
+      lead.startsWith("tell me ") ||
+      lead.startsWith("describe ") ||
+      lead.startsWith("explain ");
+    if (looksLikeQuestion) return joined;
+
+    return null;
+  };
+
+  for (const msg of conversationHistory) {
+    if (msg.type !== "ai") continue;
+    // Return the full message content or a truncated version as the "question"
+    // This ensures a 1:1 mapping with AI messages as expected by the frontend
+    const q = extractQuestion(msg.content);
+    if (!q) continue;
+    questions.push(q);
+  }
+  return questions;
 }
 
 function normalizeTopicReference(value: string): string {
@@ -327,10 +214,35 @@ function questionToTopicReference(question: string | undefined): string {
     .replace(/^now,\s+let['’]s\s+talk\s+about\s+/i, "")
     .replace(/^let['’]s\s+talk\s+about\s+/i, "")
     .replace(/^if\s+you\s+were\s+working\s+with\s+/i, "")
+    .replace(
+      /^(?:can|could|would)\s+you\s+(?:quickly\s+)?(?:explain|describe|walk\s+me\s+through|tell\s+me\s+about)\s+/i,
+      "",
+    )
+    .replace(
+      /^(?:explain|describe|walk\s+me\s+through|tell\s+me\s+about)\s+/i,
+      "",
+    )
+    .replace(
+      /^(?:what|why|how|when|where|which)\s+(?:is|are|was|were|do|does|did|can|could|would|should)\s+/i,
+      "",
+    )
+    .replace(/^(?:what|why|how|when|where|which)\s+/i, "")
+    .replace(/^(?:the|a|an)\s+/i, "")
+    .replace(/\s+/g, " ")
     .trim();
 
-  if (cleaned.length <= 60) return cleaned;
-  return `${cleaned.slice(0, 57).trim()}...`;
+  const clause = cleaned.split(/[:.]/)[0]?.trim() ?? cleaned;
+  if (!clause) return "this topic";
+
+  const maxLen = 60;
+  if (clause.length <= maxLen) return clause;
+
+  const slice = clause.slice(0, maxLen);
+  const cut = slice.lastIndexOf(" ");
+  const safe = (cut > 18 ? slice.slice(0, cut) : slice)
+    .replace(/[,:;\-–—]+\s*$/g, "")
+    .trim();
+  return safe.length > 0 ? safe : "this topic";
 }
 
 function normalizeTag(value: string): string {
@@ -445,21 +357,95 @@ function normalizeSecondPerson(value: string): string {
     .trim();
 }
 
+function sanitizeGapSummary(summary: string): string {
+  const s = stripInlineMarkdown(summary)
+    .replace(/\.{3,}/g, " ")
+    .replace(/…/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!s) return "";
+
+  const normalized = normalizeSecondPerson(s);
+  const lower = normalized.toLowerCase();
+  const looksBad =
+    lower.startsWith("when i asked") ||
+    lower.startsWith("during the question") ||
+    lower.startsWith("thanks") ||
+    lower.startsWith("let's ") ||
+    lower.startsWith("lets ") ||
+    lower.startsWith("whether ");
+  if (looksBad) return "";
+
+  const maxLen = 180;
+  if (normalized.length <= maxLen) return normalized;
+
+  const slice = normalized.slice(0, maxLen);
+  const cut = slice.lastIndexOf(" ");
+  const safe = (cut > 80 ? slice.slice(0, cut) : slice).trimEnd();
+  return safe.length > 0 ? `${safe}.` : "";
+}
+
+function buildGapSummaryFallback(params: {
+  title: string;
+  tags: string[];
+  priority: KnowledgeGap["priority"];
+}): string {
+  const topic = normalizeGapTitle(params.title);
+  const tagHint = (Array.isArray(params.tags) ? params.tags : [])
+    .map((t) => t.replace(/-/g, " ").replace(/\s+/g, " ").trim())
+    .filter(Boolean)
+    .slice(0, 2)
+    .join(" / ");
+  const base = tagHint.length > 0 ? `${topic} (${tagHint})` : topic;
+
+  const prefix = (() => {
+    switch (params.priority) {
+      case "high":
+        return "High priority — ";
+      case "medium":
+        return "Priority — ";
+      case "low":
+        return "";
+      default: {
+        const _never: never = params.priority;
+        throw new Error(`Unhandled priority: ${_never}`);
+      }
+    }
+  })();
+
+  const templates = [
+    `${prefix}Practice a crisp definition, a tiny example, and one trade-off for ${base}.`,
+    `${prefix}Explain ${base} end-to-end in under 60 seconds, then add one common pitfall.`,
+    `${prefix}Strengthen ${base} by comparing alternatives and when you’d choose each.`,
+  ];
+
+  const key = [topic, tagHint, params.priority].join("|");
+  const pick =
+    templates[stableHash(key) % templates.length] ?? templates[0] ?? "";
+  return pick;
+}
+
 function ensureWhyReferencesTranscript(
   why: string,
   fallbackQuestion: string | undefined,
 ): string {
   const normalized = normalizeWhy(why);
   const normalizedSecondPerson = normalizeSecondPerson(normalized);
-  const alreadySpecific =
-    /\bquestion\s*\d+\b/i.test(normalizedSecondPerson) ||
-    /\bwhen\s+i\s+asked\b/i.test(normalizedSecondPerson) ||
-    /\bduring\s+the\s+question\b/i.test(normalizedSecondPerson);
-  if (alreadySpecific) return normalizedSecondPerson;
+  const lower = normalizedSecondPerson.toLowerCase();
+  const banned =
+    lower.startsWith("when i asked") ||
+    lower.startsWith("during the question") ||
+    lower.startsWith("thanks") ||
+    lower.includes("that's all the questions") ||
+    lower.includes("let's try") ||
+    lower.includes("different angle");
+  const safeRest = banned
+    ? "you didn’t demonstrate this clearly."
+    : normalizedSecondPerson;
 
   const topic = questionToTopicReference(fallbackQuestion);
-  const rest = normalizedSecondPerson || "you didn’t demonstrate this clearly.";
-  return `When I asked about ${topic}, ${rest}`;
+  const rest = safeRest || "you didn’t demonstrate this clearly.";
+  return `In your answer about ${topic}, ${rest}`;
 }
 
 function dedupeKnowledgeGaps(gaps: KnowledgeGap[]): KnowledgeGap[] {
@@ -568,7 +554,7 @@ function deriveFallbackGapsFromQuestion(question: string): FallbackGapSeed[] {
     {
       title: "Answer structure: definition → example → pitfall",
       tags: ["fundamentals", "examples"],
-      why: "aim for a crisp definition, then a tiny example, then one pitfall/best practice — this makes answers easy to score.",
+      why: "aim for a crisp definition, then a tiny example, then one pitfall or best practice — this makes answers easy to score.",
     },
     {
       title: "Trade-offs and edge cases",
@@ -595,6 +581,8 @@ function buildFallbackKnowledgeGaps(options: {
         title: "Optimization: trade-offs and profiling mindset",
         priority: "low",
         tags: ["performance", "profiling", "optimization"],
+        summary:
+          "Explain how you would measure bottlenecks, compare trade-offs, and choose an optimization deliberately.",
         why: ensureWhyReferencesTranscript(
           "you can go beyond correct solutions by explaining how you would measure bottlenecks and choose optimizations.",
           q1,
@@ -605,6 +593,8 @@ function buildFallbackKnowledgeGaps(options: {
         title: "Advanced concepts: edge cases and production hardening",
         priority: "low",
         tags: ["reliability", "testing", "edge-cases"],
+        summary:
+          "Call out failure modes and edge cases, then explain how you would validate assumptions in production.",
         why: ensureWhyReferencesTranscript(
           "a senior-level answer typically calls out failure modes, constraints, and how you’d validate assumptions in production.",
           q2,
@@ -652,6 +642,8 @@ function buildFallbackKnowledgeGaps(options: {
         "Answer structure: definition → example → pitfall",
       priority: options.passed === false ? "high" : "medium",
       tags: selected[0]?.tags ?? [positionTag, "fundamentals"],
+      summary:
+        "Answer with a crisp definition, a tiny example, and one pitfall or best practice.",
       why: ensureWhyReferencesTranscript(
         selected[0]?.why ??
           "aim for a crisp definition, then a tiny example, then one pitfall/best practice.",
@@ -665,6 +657,8 @@ function buildFallbackKnowledgeGaps(options: {
         "Clarify reasoning: assumptions → steps → conclusion",
       priority: options.passed === false ? "high" : "medium",
       tags: selected[1]?.tags ?? ["communication", "problem-solving"],
+      summary:
+        "State assumptions, walk through steps, and end with a short conclusion so your reasoning is easy to verify.",
       why: ensureWhyReferencesTranscript(
         selected[1]?.why ??
           "your answer should state assumptions, walk through steps, and then summarize the conclusion so it’s easy to verify.",
@@ -689,12 +683,7 @@ function ensureMinimumKnowledgeGaps(options: {
 
     const fromModel = options.knowledgeGaps[idx];
     const baseTitle = normalizeGapTitle(fromModel?.title ?? "");
-    const title =
-      baseTitle.length >= 5 &&
-      baseTitle.length <= 80 &&
-      !baseTitle.includes("?")
-        ? baseTitle
-        : topic;
+    const title = isAcceptableGapTitle(baseTitle) ? baseTitle : topic;
 
     const priority =
       fromModel?.priority ?? (options.passed === false ? "high" : "medium");
@@ -703,6 +692,12 @@ function ensureMinimumKnowledgeGaps(options: {
       modelTags.length > 0
         ? modelTags
         : deriveConceptTagsFromQuestion(fallbackQuestion);
+
+    const baseSummary = sanitizeGapSummary(fromModel?.summary ?? "");
+    const summary =
+      baseSummary.length > 0
+        ? baseSummary
+        : buildGapSummaryFallback({ title, tags, priority });
     const why = ensureWhyReferencesTranscript(
       fromModel?.why ?? "",
       fallbackQuestion,
@@ -712,12 +707,16 @@ function ensureMinimumKnowledgeGaps(options: {
       title,
       priority,
       tags,
+      ...(summary.length > 0 ? { summary } : {}),
       why,
+      ...(fromModel?.exampleAnswer
+        ? { exampleAnswer: fromModel.exampleAnswer }
+        : {}),
       resources: fromModel?.resources ?? [],
     };
   });
 
-  if (perQuestion.length > 0) return perQuestion.slice(0, 12);
+  if (perQuestion.length > 0) return perQuestion;
 
   const fallback = buildFallbackKnowledgeGaps({
     conversationHistory: options.conversationHistory,
@@ -785,6 +784,13 @@ export async function POST(
     );
 
     let analysisText: string;
+    let usage:
+      | {
+          prompt_tokens: number;
+          completion_tokens: number;
+          total_tokens: number;
+        }
+      | undefined;
 
     // Try to get AI analysis
     if (isAvailable(aiClient)) {
@@ -796,6 +802,7 @@ export async function POST(
 
       if (aiResponse.success) {
         analysisText = aiResponse.content;
+        usage = aiResponse.usage;
       } else {
         console.error(
           "AI analysis failed, falling back to mock:",
@@ -815,16 +822,18 @@ export async function POST(
     }
 
     // Parse analysis into structured feedback
-    const feedback = parseAnalysis(
+    const feedback: InterviewResults = parseAnalysis(
       analysisText,
       responseAnalysis,
       interviewConfig,
     );
 
-    const knowledgeGaps = feedback.knowledgeGaps ?? [];
+    const knowledgeGaps: KnowledgeGap[] = Array.isArray(feedback.knowledgeGaps)
+      ? feedback.knowledgeGaps
+      : [];
     const enrichedKnowledgeGapsFromModel: KnowledgeGap[] = await Promise.all(
       knowledgeGaps.map(async (gap) => {
-        const resources = await getResourcesByTags(gap.tags, 5);
+        const resources = await getResourcesByTags(gap.tags, 3);
         return { ...gap, resources };
       }),
     );
@@ -835,12 +844,22 @@ export async function POST(
       config: interviewConfig,
       score: feedback.score,
       passed: feedback.passed,
-    }).map(ensureGapHasMinimumResources);
+    });
 
-    const enrichedFeedback = {
+    const normalizedKnowledgeGaps: KnowledgeGap[] = ensuredKnowledgeGaps.map(
+      (g) => {
+        const rawTitle = normalizeGapTitle(g.title);
+        const title = isAcceptableGapTitle(rawTitle)
+          ? rawTitle
+          : formatKnowledgeGapTitle(rawTitle, g.tags);
+        return { ...g, title };
+      },
+    );
+
+    const enrichedFeedback: InterviewResults = {
       ...feedback,
-      ...(ensuredKnowledgeGaps.length > 0
-        ? { knowledgeGaps: ensuredKnowledgeGaps }
+      ...(normalizedKnowledgeGaps.length > 0
+        ? { knowledgeGaps: normalizedKnowledgeGaps }
         : {}),
     };
 
@@ -848,6 +867,7 @@ export async function POST(
       success: true,
       feedback: enrichedFeedback,
       rawAnalysis: analysisText,
+      usage,
     });
   } catch (error) {
     console.error("❌ Analysis API error:", error);

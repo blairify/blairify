@@ -10,7 +10,7 @@ export function useInterviewConfig() {
     companyProfile: "faang",
     specificCompany: "",
     interviewMode: "regular",
-    interviewType: "technical",
+    interviewType: "mixed",
     duration: "30",
     isDemoMode: false,
     contextType: "",

@@ -19,8 +19,11 @@ import {
 } from "./services/skills/database-skills";
 import { createUserWithCompleteProfile } from "./services/users/database-batch";
 import {
+  checkAndIncrementUsage,
+  checkUsageStatus,
   createUserProfile,
   deleteUserProfile,
+  findUserByStripeCustomerId,
   getUserProfile,
   updateLastLogin,
   updateUserProfile,
@@ -33,7 +36,10 @@ export {
   createUserProfile,
   updateUserProfile,
   deleteUserProfile,
+  findUserByStripeCustomerId,
   updateLastLogin,
+  checkAndIncrementUsage,
+  checkUsageStatus,
   // Skills operations
   getUserSkills,
   getSkillsByCategory,
@@ -60,6 +66,8 @@ export const DatabaseService = {
   createUserProfile,
   updateUserProfile,
   updateLastLogin,
+  checkAndIncrementUsage,
+  checkUsageStatus,
 
   // Skills operations
   getUserSkills,

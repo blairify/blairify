@@ -7,6 +7,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import type { AchievementTier } from "@/lib/achievements";
 
+const formatTier = (tier: AchievementTier): string => {
+  const [base, level] = tier.split("_");
+  const levelMap: Record<string, string> = { i: "I", ii: "II", iii: "III" };
+  return `${base.charAt(0).toUpperCase()}${base.slice(1)} ${levelMap[level]}`;
+};
+
 export type AchievementIcon = IconType;
 
 interface NextAchievementCardProps {
@@ -45,7 +51,7 @@ export function NextAchievementCard({
             <div className="flex items-center gap-2 mb-1">
               <h3 className="font-semibold text-lg">{name}</h3>
               <Badge variant="outline" className={badgeClassName}>
-                {tier}
+                {formatTier(tier)}
               </Badge>
             </div>
             <p className="text-sm text-muted-foreground mb-3">{description}</p>

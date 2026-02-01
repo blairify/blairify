@@ -93,7 +93,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
         aria-label="Main navigation"
         data-analytics-id="home-navbar"
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
             <div className="flex-shrink-0">
               <Logo />
@@ -285,7 +285,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             role="menu"
             aria-label="Mobile navigation menu"
           >
-            <div className="container mx-auto px-4 py-6">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-6">
               {!loading && user ? (
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/50">

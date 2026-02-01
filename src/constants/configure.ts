@@ -5,13 +5,21 @@ import {
   Cloud,
   Code,
   Database,
-  Gamepad2,
   Rocket,
   Server,
   Shield,
   Smartphone,
 } from "lucide-react";
 import { FaGoogle, FaMicrosoft } from "react-icons/fa";
+import { IoIosFlash } from "react-icons/io";
+import {
+  LuBookMarked,
+  LuGamepad2,
+  LuGraduationCap,
+  LuSprout,
+  LuSwords,
+} from "react-icons/lu";
+import { RiBookMarkedLine, RiBookShelfLine } from "react-icons/ri";
 import {
   SiAirbnb,
   SiAllegro,
@@ -48,7 +56,9 @@ import {
   SiUber,
   SiWise,
   SiZapier,
+  SiZcool,
 } from "react-icons/si";
+import { TbLayersDifference, TbTimeDuration30 } from "react-icons/tb";
 
 export interface ConfigStep {
   id: string;
@@ -59,8 +69,8 @@ export interface ConfigStep {
 export const CONFIGURE_STEPS: ConfigStep[] = [
   {
     id: "flow",
-    title: "Interview Setup",
-    description: "Choose how you want to configure your practice session",
+    title: "Setup",
+    description: "Let's begin configuring your practice session",
   },
   {
     id: "description",
@@ -98,26 +108,30 @@ export const SENIORITY_LEVELS = [
   {
     value: "entry",
     label: "Entry Level",
-    description: "0 years experience",
+    description: "Just starting out and learning the fundamentals",
     color: "bg-green-500",
+    icon: LuSprout,
   },
   {
     value: "junior",
     label: "Junior",
-    description: "1-2 years experience",
+    description: "Gaining experience while building confidence",
     color: "bg-yellow-500",
+    icon: RiBookMarkedLine,
   },
   {
     value: "mid",
     label: "Mid-level",
-    description: "2-5 years experience",
+    description: "Independent and confident in their skills",
     color: "bg-orange-500",
+    icon: RiBookShelfLine,
   },
   {
     value: "senior",
     label: "Senior",
-    description: "5+ years experience",
+    description: "Strong expertise with deep system understanding",
     color: "bg-red-500",
+    icon: SiZcool,
   },
 ];
 
@@ -156,7 +170,7 @@ export const POSITIONS = [
   {
     value: "fullstack",
     label: "Full Stack Developer",
-    icon: Gamepad2,
+    icon: TbLayersDifference,
   },
   {
     value: "devops",
@@ -600,33 +614,40 @@ export const TECHNOLOGY_GROUPS = {
 
 export const INTERVIEW_MODES = [
   {
+    value: "flash",
+    label: "Flash",
+    description: "Quick warm up session",
+    icon: IoIosFlash,
+  },
+  {
     value: "regular",
     label: "Regular",
     description: "Realistic time pressure",
+    icon: TbTimeDuration30,
   },
   {
     value: "practice",
-    label: "Practice Mode",
+    label: "Practice",
     description: "Take your time to think",
+    icon: LuBookMarked,
   },
-  {
-    value: "flash",
-    label: "Flash Interview",
-    description: "Quick 3-question session",
-  },
+
   {
     value: "play",
     label: "Play Mode",
     description: "Coming soon...",
+    icon: LuGamepad2,
   },
   {
     value: "competitive",
-    label: "Competitive Interview",
+    label: "Competitive",
     description: "Coming soon...",
+    icon: LuSwords,
   },
   {
     value: "teacher",
-    label: "Teacher Mode",
+    label: "Teacher",
     description: "Coming soon...",
+    icon: LuGraduationCap,
   },
 ];

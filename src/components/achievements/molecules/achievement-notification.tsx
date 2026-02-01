@@ -1,16 +1,11 @@
 "use client";
 
-import {
-  Award,
-  Crown,
-  Flame,
-  Sparkles,
-  Star,
-  Target,
-  Trophy,
-  Zap,
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import {
+  ACHIEVEMENT_FALLBACK_ICON,
+  ACHIEVEMENT_ICON_MAP,
+} from "@/components/achievements/constants/icon-map";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Achievement, AchievementTier } from "@/lib/achievements";
@@ -23,47 +18,44 @@ interface AchievementNotificationProps {
   autoCloseDelay?: number;
 }
 
-const icons: Record<string, React.ElementType> = {
-  Trophy,
-  Target,
-  Star,
-  Award,
-  Crown,
-  Zap,
-  Flame,
-  Sparkles,
+type IconKey = keyof typeof ACHIEVEMENT_ICON_MAP;
+
+const getBaseTier = (tier: AchievementTier): string => tier.split("_")[0];
+
+const formatTier = (tier: AchievementTier): string => {
+  const [base, level] = tier.split("_");
+  const levelMap: Record<string, string> = { i: "I", ii: "II", iii: "III" };
+  return `${base.charAt(0).toUpperCase()}${base.slice(1)} ${levelMap[level]}`;
 };
 
-const tierColors: Record<
-  AchievementTier,
-  { bg: string; border: string; text: string }
-> = {
-  bronze: {
-    bg: "bg-gradient-to-br from-amber-950/90 to-amber-900/90",
-    border: "border-amber-600",
-    text: "text-amber-400",
-  },
-  silver: {
-    bg: "bg-gradient-to-br from-slate-900/90 to-slate-800/90",
-    border: "border-slate-400",
-    text: "text-slate-300",
-  },
-  gold: {
-    bg: "bg-gradient-to-br from-yellow-950/90 to-yellow-900/90",
-    border: "border-yellow-500",
-    text: "text-yellow-400",
-  },
-  platinum: {
-    bg: "bg-gradient-to-br from-cyan-950/90 to-cyan-900/90",
-    border: "border-cyan-400",
-    text: "text-cyan-300",
-  },
-  diamond: {
-    bg: "bg-gradient-to-br from-purple-950/90 to-purple-900/90",
-    border: "border-purple-400",
-    text: "text-purple-300",
-  },
-};
+const tierColors: Record<string, { bg: string; border: string; text: string }> =
+  {
+    bronze: {
+      bg: "bg-gradient-to-br from-amber-950/90 to-amber-900/90",
+      border: "border-amber-600",
+      text: "text-amber-400",
+    },
+    silver: {
+      bg: "bg-gradient-to-br from-slate-900/90 to-slate-800/90",
+      border: "border-slate-400",
+      text: "text-slate-300",
+    },
+    gold: {
+      bg: "bg-gradient-to-br from-yellow-950/90 to-yellow-900/90",
+      border: "border-yellow-500",
+      text: "text-yellow-400",
+    },
+    platinum: {
+      bg: "bg-gradient-to-br from-cyan-950/90 to-cyan-900/90",
+      border: "border-cyan-400",
+      text: "text-cyan-300",
+    },
+    diamond: {
+      bg: "bg-gradient-to-br from-purple-950/90 to-purple-900/90",
+      border: "border-purple-400",
+      text: "text-purple-300",
+    },
+  };
 
 export function AchievementNotification({
   achievement,
@@ -100,8 +92,10 @@ export function AchievementNotification({
     return () => clearTimeout(timer);
   }, [autoClose, autoCloseDelay, handleClose]);
 
-  const Icon = icons[achievement.icon] || Trophy;
-  const tierColor = tierColors[achievement.tier];
+  const Icon =
+    ACHIEVEMENT_ICON_MAP[achievement.icon as IconKey] ??
+    ACHIEVEMENT_FALLBACK_ICON;
+  const tierColor = tierColors[getBaseTier(achievement.tier)];
 
   return (
     <div
@@ -157,7 +151,7 @@ export function AchievementNotification({
                 "bg-white/10",
               )}
             >
-              <Icon className="h-8 w-8" />
+              <Icon className="size-8" />
             </div>
 
             <div className="flex-1 min-w-0">
@@ -165,7 +159,7 @@ export function AchievementNotification({
                 <h3 className="font-bold text-lg text-white">
                   Achievement Unlocked!
                 </h3>
-                <Sparkles className="h-4 w-4 text-yellow-400 animate-pulse" />
+                <Sparkles className="size-4 text-yellow-400 animate-pulse" />
               </div>
 
               <h4
@@ -186,7 +180,7 @@ export function AchievementNotification({
                     tierColor.text,
                   )}
                 >
-                  {achievement.tier}
+                  {formatTier(achievement.tier)}
                 </Badge>
                 <span className="text-xs font-medium text-yellow-400">
                   +{achievement.xpReward} XP

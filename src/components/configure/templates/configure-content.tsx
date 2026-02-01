@@ -1,6 +1,14 @@
 "use client";
 
-import { ArrowRight, Loader2, Shield } from "lucide-react";
+import {
+  AlertCircle,
+  ArrowRight,
+  Crown,
+  Loader2,
+  Shield,
+  Timer,
+} from "lucide-react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { FaJava } from "react-icons/fa";
@@ -27,6 +35,7 @@ import { toast } from "sonner";
 import { PaginationIndicator } from "@/components/common/atoms/pagination-indicator";
 import { Typography } from "@/components/common/atoms/typography";
 import { EditableExtractedTags } from "@/components/configure/molecules/editable-extracted-tags";
+import { ModeSelectionStep } from "@/components/configure/templates/mode-selection-step";
 import type { MarkdownField } from "@/components/configure/types/markdown";
 import type { TechChoice } from "@/components/configure/types/tech-choice";
 import {
@@ -53,11 +62,11 @@ import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import {
   CONFIGURE_STEPS,
-  INTERVIEW_MODES,
   POSITIONS,
   SENIORITY_LEVELS,
 } from "@/constants/configure";
 import useIsMobile from "@/hooks/use-is-mobile";
+import { DatabaseService } from "@/lib/database";
 import {
   buildSearchParamsFromInterviewConfig,
   type InterviewConfig as DomainInterviewConfig,
@@ -67,6 +76,7 @@ import {
 } from "@/lib/interview";
 import type { ExtractedJobDescription } from "@/lib/services/job-description/extractor";
 import { parseSimpleMarkdown } from "@/lib/utils/markdown-parser";
+import { useAuth } from "@/providers/auth-provider";
 import type { CompanyProfileValue, PositionValue } from "@/types/global";
 
 function getTechChoices(position: string): TechChoice[] {
@@ -231,6 +241,7 @@ const PASTE_FLOW_STEP_IDS = new Set([
   "flow",
   DESCRIPTION_STEP_ID,
   ANALYSIS_STEP_ID,
+  "mode",
 ]);
 const ANALYSIS_DOTS = [0, 1, 2];
 type ExtractDescriptionResponse = {
@@ -239,11 +250,14 @@ type ExtractDescriptionResponse = {
   data?: ExtractedJobDescription;
 };
 
-function getVisibleStepsForFlow(flowMode: ConfigureFlowMode) {
+function getVisibleStepsForFlow(flowMode: ConfigureFlowMode | null) {
   if (flowMode === "paste") {
     return CONFIGURE_STEPS.filter((step) => PASTE_FLOW_STEP_IDS.has(step.id));
   }
-  return CONFIGURE_STEPS.filter((step) => !PASTE_ONLY_STEP_IDS.has(step.id));
+  if (flowMode === "custom") {
+    return CONFIGURE_STEPS.filter((step) => !PASTE_ONLY_STEP_IDS.has(step.id));
+  }
+  return [];
 }
 
 function formatAnalysisError(error: unknown): string {
@@ -304,10 +318,19 @@ export function ConfigureContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isMobile } = useIsMobile();
-  const resolveInitialFlowMode = () =>
-    (searchParams.get("flow") === "paste"
-      ? "paste"
-      : "custom") as ConfigureFlowMode;
+  const { user } = useAuth();
+  const [usageStatus, setUsageStatus] = useState<{
+    canStart: boolean;
+    remainingMinutes: number;
+    isPro: boolean;
+    checked: boolean;
+  }>({ canStart: true, remainingMinutes: 0, isPro: false, checked: false });
+  const resolveInitialFlowMode = () => {
+    const flow = searchParams.get("flow");
+    if (flow === "paste") return "paste";
+    if (flow === "custom") return "custom";
+    return null;
+  };
   const [config, setConfig] = useState<InterviewConfig>(() => ({
     flowMode: resolveInitialFlowMode(),
     position: "",
@@ -316,7 +339,7 @@ export function ConfigureContent() {
     companyProfile: "generic",
     specificCompany: "",
     interviewMode: "",
-    interviewType: "technical",
+    interviewType: "mixed",
     duration: "30",
     company: "",
     jobDescription: "",
@@ -345,6 +368,22 @@ export function ConfigureContent() {
   }, [currentStep, visibleSteps.length]);
 
   const currentStepId = visibleSteps[currentStep]?.id ?? "flow";
+
+  // Check usage status when reaching the last step (mode step)
+  useEffect(() => {
+    const isLastStep = currentStep === visibleSteps.length - 1;
+
+    if (isLastStep && user?.uid && !usageStatus.checked) {
+      DatabaseService.checkUsageStatus(user.uid).then((status) => {
+        setUsageStatus({
+          canStart: status.canStart,
+          remainingMinutes: status.remainingMinutes,
+          isPro: status.isPro,
+          checked: true,
+        });
+      });
+    }
+  }, [currentStep, visibleSteps.length, user?.uid, usageStatus.checked]);
 
   const techChoicesForCurrentPosition = getTechChoices(config.position);
 
@@ -377,23 +416,8 @@ export function ConfigureContent() {
     const [onlyChoice] = autoAdvanceTechChoices;
     if (!config.technologies.includes(onlyChoice.value)) {
       updateConfig("technologies", [onlyChoice.value]);
-      return;
     }
-    if (
-      currentStepId === "technologies" &&
-      checkCanGoNext(currentStepId, config) &&
-      currentStep < visibleSteps.length - 1
-    ) {
-      setCurrentStep((prev) => Math.min(prev + 1, visibleSteps.length - 1));
-    }
-  }, [
-    autoAdvanceTechChoices,
-    config,
-    currentStep,
-    currentStepId,
-    updateConfig,
-    visibleSteps.length,
-  ]);
+  }, [autoAdvanceTechChoices, config.technologies, updateConfig]);
 
   const filteredTechChoices = (() => {
     if (!isTechRequired(config.position)) return [];
@@ -414,35 +438,40 @@ export function ConfigureContent() {
     });
   }, []);
 
-  const handleStartInterview = () => {
-    if (!canStartInterview(config)) return;
+  const handleStartInterview = useCallback(
+    (overrideConfig?: InterviewConfig) => {
+      const interviewConfig = overrideConfig || config;
+      if (!canStartInterview(interviewConfig)) return;
 
-    const domainConfig: DomainInterviewConfig = {
-      position: (config.position || "frontend") as PositionValue,
-      seniority: (config.seniority || "mid") as SeniorityLevel,
-      technologies: config.technologies || [],
-      companyProfile: (config.companyProfile ||
-        "generic") as CompanyProfileValue,
-      company: config.company || undefined,
-      interviewMode: (config.interviewMode || "regular") as InterviewMode,
-      interviewType: (config.interviewType || "technical") as InterviewType,
-      duration: config.duration || "30",
-      isDemoMode: false,
-      contextType: config.contextType || undefined,
-      jobId: config.jobId || undefined,
-      jobDescription: config.jobDescription || undefined,
-      jobRequirements: config.jobRequirements || undefined,
-      jobLocation: config.jobLocation || undefined,
-      jobType: config.jobType || undefined,
-    };
+      const domainConfig: DomainInterviewConfig = {
+        position: (interviewConfig.position || "frontend") as PositionValue,
+        seniority: (interviewConfig.seniority || "mid") as SeniorityLevel,
+        technologies: interviewConfig.technologies || [],
+        companyProfile: (interviewConfig.companyProfile ||
+          "generic") as CompanyProfileValue,
+        company: interviewConfig.company || undefined,
+        interviewMode: (interviewConfig.interviewMode ||
+          "regular") as InterviewMode,
+        interviewType: (interviewConfig.interviewType ||
+          "technical") as InterviewType,
+        duration: interviewConfig.duration || "30",
+        isDemoMode: false,
+        contextType: interviewConfig.contextType || undefined,
+        jobId: interviewConfig.jobId || undefined,
+        jobDescription: interviewConfig.jobDescription || undefined,
+        jobRequirements: interviewConfig.jobRequirements || undefined,
+        jobLocation: interviewConfig.jobLocation || undefined,
+        jobType: interviewConfig.jobType || undefined,
+      };
 
-    const urlParams = buildSearchParamsFromInterviewConfig(domainConfig);
-    router.push(`/interview?${urlParams.toString()}`);
-  };
+      const urlParams = buildSearchParamsFromInterviewConfig(domainConfig);
+      router.push(`/interview?${urlParams.toString()}`);
+    },
+    [config, router],
+  );
 
   const isConfigComplete = checkIsConfigComplete(config);
   const isDescriptionStep = currentStepId === DESCRIPTION_STEP_ID;
-  const isAnalysisStep = currentStepId === ANALYSIS_STEP_ID;
   const totalSteps = visibleSteps.length;
   const canGoNext = () => checkCanGoNext(currentStepId, config);
 
@@ -458,46 +487,55 @@ export function ConfigureContent() {
     }
   };
 
-  const renderPrimaryAction = () => {
+  const renderNextButton = () => {
     const shouldHidePrimaryAction =
       currentStepId === "technologies" &&
       !!autoAdvanceTechChoices &&
       autoAdvanceTechChoices.length === 1;
 
     if (shouldHidePrimaryAction) {
-      return null;
+      return <div className="w-[70px]" />; // Spacer for mobile layout alignment
     }
 
-    if (currentStep === totalSteps - 1) {
+    const isStartStep = currentStep === totalSteps - 1;
+
+    // Show upgrade CTA if user hit the limit
+    if (
+      isStartStep &&
+      usageStatus.checked &&
+      !usageStatus.canStart &&
+      !usageStatus.isPro
+    ) {
       return (
-        <Button
-          onClick={handleStartInterview}
-          disabled={!isConfigComplete}
-          size="sm"
-          className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2 "
-        >
-          <span className="inline">Start Interview</span>
-          <ArrowRight className="size-4 sm:size-5" />
-        </Button>
+        <Link href="/settings?tab=subscription">
+          <Button
+            size="sm"
+            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white flex items-center gap-2 !min-h-0"
+          >
+            <Crown className="size-4" />
+            <span className="hidden sm:inline">Upgrade to Pro</span>
+            <span className="sm:hidden">Upgrade</span>
+          </Button>
+        </Link>
       );
     }
 
-    if (isAnalysisStep && config.flowMode === "paste") {
+    if (isStartStep) {
       return (
         <Button
-          onClick={handleStartInterview}
+          onClick={() => handleStartInterview()}
           disabled={!isConfigComplete}
           size="sm"
-          className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2"
+          className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2 !min-h-0"
         >
-          <span className="inline">Start Interview</span>
+          <span className="inline">Next</span>
           <ArrowRight className="size-4 sm:size-5" />
         </Button>
       );
     }
 
     if (isDescriptionStep && config.flowMode === "paste") {
-      return null;
+      return <div className="w-[70px]" />; // Spacer
     }
 
     return (
@@ -505,12 +543,24 @@ export function ConfigureContent() {
         onClick={handleNext}
         disabled={!canGoNext()}
         size="sm"
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 !min-h-0"
       >
         Next
       </Button>
     );
   };
+
+  const renderPreviousButton = () => (
+    <Button
+      variant="outline"
+      onClick={handlePrevious}
+      disabled={currentStep === 0}
+      size="sm"
+      className={`flex items-center gap-2 !min-h-0 ${currentStep === 0 ? "invisible" : ""}`}
+    >
+      <span className="inline">Previous</span>
+    </Button>
+  );
 
   const handleFlowSelect = (mode: ConfigureFlowMode) => {
     setConfig((prev) => ({
@@ -520,10 +570,8 @@ export function ConfigureContent() {
     }));
     setAnalysisError(null);
 
-    // Auto-advance to next step after flow selection
-    if (currentStep < visibleSteps.length - 1) {
-      setCurrentStep(currentStep + 1);
-    }
+    // Auto-advance to next step
+    setCurrentStep(1);
   };
 
   const handleAnalyzeDescription = async (
@@ -691,14 +739,14 @@ export function ConfigureContent() {
         <div
           className={`space-y-8 ${isAnalyzingDescription ? "pointer-events-none opacity-50" : ""}`}
         >
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-col md:flex-row">
             {FLOW_OPTIONS.map((option) => {
               const Icon = option.icon;
               const isSelected = config.flowMode === option.value;
               return (
                 <Card
                   key={option.value}
-                  className={`cursor-pointer w-60 transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
+                  className={`cursor-pointer w-full md:w-60 transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
                     isSelected
                       ? "ring-1 ring-primary border-primary bg-primary/5"
                       : ""
@@ -729,7 +777,7 @@ export function ConfigureContent() {
         <Card>
           <CardContent className="space-y-3">
             <Typography.BodyBold>No description needed</Typography.BodyBold>
-            <Typography.CaptionMedium className="text-muted-foreground">
+            <Typography.CaptionMedium color="secondary">
               You chose manual setup. Skip ahead or switch back to paste flow to
               use AI.
             </Typography.CaptionMedium>
@@ -799,7 +847,10 @@ export function ConfigureContent() {
                 >
                   Reset
                 </Button>
-                <Typography.Caption className="text-muted-foreground text-center sm:hidden">
+                <Typography.Caption
+                  color="secondary"
+                  className="text-center sm:hidden"
+                >
                   Paste the full job post. We’ll extract role, seniority, tech
                   stack, and company.
                 </Typography.Caption>
@@ -810,7 +861,10 @@ export function ConfigureContent() {
 
         {analysisError && (
           <div className="mt-3 rounded-md border border-destructive/20 bg-destructive/5 p-3">
-            <Typography.CaptionMedium className="text-destructive flex items-center gap-2">
+            <Typography.CaptionMedium
+              color="error"
+              className="flex items-center gap-2"
+            >
               <svg
                 className="size-4"
                 fill="none"
@@ -1029,13 +1083,17 @@ export function ConfigureContent() {
             }`}
             onClick={() => updateConfig("seniority", level.value)}
           >
-            <CardContent className="flex flex-col items-left gap-1">
-              <div className="flex items-center gap-3 mb-3">
+            <CardContent className="flex flex-col items-left gap-2">
+              <div className="flex flex-col items-left gap-4">
+                {level.icon && <level.icon className="size-5 text-primary" />}
                 <Typography.BodyBold>{level.label}</Typography.BodyBold>
               </div>
-              <Typography.CaptionMedium>
+              <Typography.Caption
+                color="secondary"
+                className="max-sm:text-xs max-sm:break-words"
+              >
                 {level.description}
-              </Typography.CaptionMedium>
+              </Typography.Caption>
             </CardContent>
           </Card>
         ))}
@@ -1048,7 +1106,7 @@ export function ConfigureContent() {
       return (
         <div className="space-y-3">
           <Typography.BodyBold>Tech</Typography.BodyBold>
-          <Typography.CaptionMedium className="text-muted-foreground">
+          <Typography.CaptionMedium color="secondary">
             Not required for this role.
           </Typography.CaptionMedium>
         </div>
@@ -1063,7 +1121,7 @@ export function ConfigureContent() {
           <span
             aria-label={`${tech.label} logo`}
             role="img"
-            className="size-6 flex-shrink-0 rounded-sm text-primary"
+            className="size-5 flex-shrink-0 rounded-sm text-primary"
             style={{
               backgroundColor: "currentColor",
               WebkitMaskImage: `url(${tech.icon})`,
@@ -1079,27 +1137,25 @@ export function ConfigureContent() {
         );
       }
 
-      return <tech.icon className="size-6 text-primary mr-2 flex-shrink-0" />;
+      return <tech.icon className="size-5 text-primary flex-shrink-0" />;
     };
 
     return (
       <div className="space-y-6">
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-4 max-w-fit">
+        <div className="flex flex-wrap gap-2 max-w-fit">
           {filteredTechChoices.map((tech) => (
             <Card
               key={tech.value}
-              className={`cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
+              className={`cursor-pointer my-auto py-0 rounded-md transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
                 selected.has(tech.value)
                   ? "ring-1 border-primary ring-primary bg-primary/10"
                   : "border-border"
               }`}
               onClick={() => handleToggleTechnology(tech.value)}
             >
-              <CardContent className="flex flex-row items-center gap-2">
+              <CardContent className="flex flex-row items-center gap-4 px-4 py-2">
                 {renderTechIcon(tech)}
-                <div className="flex-1">
-                  <Typography.BodyBold>{tech.label}</Typography.BodyBold>
-                </div>
+                <Typography.BodyBold>{tech.label}</Typography.BodyBold>
               </CardContent>
             </Card>
           ))}
@@ -1111,48 +1167,15 @@ export function ConfigureContent() {
   function renderModeStep() {
     return (
       <div className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-fit ">
-          {INTERVIEW_MODES.map((mode) => {
-            const isComingSoon = mode.description.includes("Coming soon");
-            return (
-              <Card
-                key={mode.value}
-                className={`transition-all  ${
-                  isComingSoon
-                    ? "opacity-60 cursor-not-allowed"
-                    : `cursor-pointer hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
-                        config.interviewMode === mode.value
-                          ? "ring-1 border-primary ring-primary bg-primary/10"
-                          : "border-border"
-                      }`
-                }`}
-                onClick={() => {
-                  if (!isComingSoon) {
-                    setConfig((prev) => ({
-                      ...prev,
-                      interviewMode: mode.value,
-                    }));
-                  }
-                }}
-              >
-                <CardContent className="px-4 h-full flex flex-col ">
-                  <div className="flex items-start gap-3 flex-1">
-                    <div className="flex-1">
-                      <Typography.BodyBold
-                        className={`${isComingSoon ? "text-muted-foreground" : ""}`}
-                      >
-                        {mode.label}
-                      </Typography.BodyBold>
-                      <Typography.CaptionMedium className="mt-2">
-                        {mode.description}
-                      </Typography.CaptionMedium>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+        <ModeSelectionStep
+          config={config}
+          onSelect={(mode) => {
+            setConfig((prev) => ({
+              ...prev,
+              interviewMode: mode,
+            }));
+          }}
+        />
 
         {config.interviewMode === "timed" && (
           <div className="animate-in slide-in-from-top-4 fade-in duration-300">
@@ -1206,24 +1229,56 @@ export function ConfigureContent() {
   return (
     <main className="flex-1 flex flex-col h-full overflow-hidden">
       <div className="flex-1 flex flex-col h-full max-w-6xl mx-auto w-full">
-        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6">
+        <div className="flex-1 overflow-y-auto p-6 sm:p-6">
           <div className="max-w-5xl mx-auto">
-            <div className="mb-6 space-y-4">
-              <div className="flex flex-col gap-4 lg:items-start lg:justify-between">
-                <div className="flex-1 text-left">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Typography.Heading1>
-                      {visibleSteps[currentStep]?.title ??
-                        CONFIGURE_STEPS[0].title}
-                    </Typography.Heading1>
-                  </div>
-                  <Typography.Body className="text-muted-foreground text-sm sm:text-base">
-                    {visibleSteps[currentStep]?.description ??
-                      CONFIGURE_STEPS[0].description}
-                  </Typography.Body>
-                </div>
+            <div className="mb-6 space-y-4 hidden lg:block">
+              <div className="flex flex-col gap-2 lg:items-start lg:justify-between text-center lg:text-left">
+                <Typography.BodyBold className="text-2xl">
+                  {visibleSteps[currentStep]?.title ?? CONFIGURE_STEPS[0].title}
+                </Typography.BodyBold>
+                <Typography.Body className="text-muted-foreground text-sm sm:text-base">
+                  {visibleSteps[currentStep]?.description ??
+                    CONFIGURE_STEPS[0].description}
+                </Typography.Body>
               </div>
             </div>
+
+            {/* Interview Limit Warning */}
+            {usageStatus.checked &&
+              !usageStatus.canStart &&
+              !usageStatus.isPro &&
+              currentStep === totalSteps - 1 && (
+                <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/50 p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 rounded-full bg-amber-100 dark:bg-amber-900 p-2">
+                      <AlertCircle className="size-5 text-amber-600 dark:text-amber-400" />
+                    </div>
+                    <div className="flex-1">
+                      <Typography.BodyBold className="text-amber-800 dark:text-amber-200">
+                        Interview Limit Reached
+                      </Typography.BodyBold>
+                      <Typography.CaptionMedium className="text-amber-700 dark:text-amber-300 mt-1">
+                        You&apos;ve reached the temporary interview limit.
+                        {usageStatus.remainingMinutes > 0 && (
+                          <span className="flex items-center gap-1 mt-1">
+                            <Timer className="size-3" />
+                            Please wait {usageStatus.remainingMinutes} minute
+                            {usageStatus.remainingMinutes !== 1 ? "s" : ""}{" "}
+                            before starting another session.
+                          </span>
+                        )}
+                      </Typography.CaptionMedium>
+                      <div className="mt-3 flex items-center gap-2">
+                        <Crown className="size-4 text-amber-600 dark:text-amber-400" />
+                        <Typography.CaptionMedium className="text-amber-700 dark:text-amber-300">
+                          Want unlimited interviews? Upgrade to Pro for
+                          unrestricted access.
+                        </Typography.CaptionMedium>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
             <div
               key={currentStepId}
@@ -1233,18 +1288,10 @@ export function ConfigureContent() {
             </div>
 
             {currentStepId !== "flow" && (
-              <div className="mt-6 flex justify-start">
+              <div className="mt-6 hidden sm:flex justify-start">
                 <div className="flex flex-row items-stretch gap-2 sm:gap-3">
-                  <Button
-                    variant="outline"
-                    onClick={handlePrevious}
-                    disabled={currentStep === 0}
-                    size="sm"
-                    className="flex items-center gap-2"
-                  >
-                    <span className="inline">Previous</span>
-                  </Button>
-                  {renderPrimaryAction()}
+                  {renderPreviousButton()}
+                  {renderNextButton()}
                 </div>
               </div>
             )}
@@ -1252,8 +1299,14 @@ export function ConfigureContent() {
         </div>
 
         <div className="px-4 sm:px-6 py-6">
-          <div className="max-w-5xl mx-auto flex justify-center">
+          <div className="max-w-5xl mx-auto flex items-center justify-between sm:justify-center w-full">
+            <div className="sm:hidden">
+              {currentStepId !== "flow" && renderPreviousButton()}
+            </div>
             <PaginationIndicator total={totalSteps} current={currentStep} />
+            <div className="sm:hidden">
+              {currentStepId !== "flow" && renderNextButton()}
+            </div>
           </div>
         </div>
       </div>

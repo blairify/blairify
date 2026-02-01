@@ -22,6 +22,7 @@ export interface UserProfile {
   experience?: string;
 
   onboardingCompleted?: boolean;
+  hasSeenDashboardTour?: boolean;
 
   // Gamification
   experiencePoints?: number;
@@ -69,9 +70,13 @@ export interface UserProfile {
   lastLoginAt: Timestamp;
   lastActiveAt: Timestamp;
   isActive: boolean;
+  stripeCustomerId?: string;
 
   // Subscription/Plan Info
   subscription: UserSubscription;
+
+  // Usage Tracking
+  usage?: UserUsage;
 }
 
 export interface UserPreferences {
@@ -97,8 +102,20 @@ export interface UserSubscription {
   limits: {
     sessionsPerMonth: number;
     skillsTracking: number;
-    analyticsRetention: number; // days
+    analyticsRetention: number;
   };
+  stripeSubscriptionId?: string;
+  currentPeriodEnd?: Timestamp | Date;
+  cancelAtPeriodEnd?: boolean;
+  paymentFailed?: boolean;
+  lastPaymentFailedAt?: Timestamp | Date;
+  lastPaymentSucceededAt?: Timestamp | Date;
+}
+
+export interface UserUsage {
+  interviewCount: number;
+  lastInterviewAt: Timestamp;
+  periodStart: Timestamp;
 }
 
 // ================================
@@ -178,6 +195,7 @@ export interface InterviewSession {
   responses: InterviewResponse[];
   analysis: SessionAnalysis;
   analysisStatus?: "none" | "pending" | "ready" | "failed";
+  tokenUsage?: AIUsage;
   userFeedback?: UserSessionFeedback;
   createdAt: Timestamp;
   updatedAt: Timestamp;
@@ -225,7 +243,13 @@ export type InterviewMode =
   | "competitive"
   | "teacher";
 
-export type InterviewType = "technical" | "bullet" | "coding" | "system-design";
+export type InterviewType =
+  | "technical"
+  | "bullet"
+  | "coding"
+  | "system-design"
+  | "situational"
+  | "mixed";
 
 export type SessionStatus =
   | "scheduled"
@@ -240,6 +264,7 @@ export interface SessionScores {
   technical: number;
   communication: number;
   problemSolving: number;
+  professional: number;
   codeQuality?: number;
   systemDesign?: number;
   bullet?: number;
@@ -285,6 +310,7 @@ export interface SessionAnalysis {
   aiConfidence: number; // 1-100
   summary: string;
   detailedAnalysis?: string;
+  technologyScores?: Record<string, number>;
   recommendations: string[];
   nextSteps: string[];
   passed?: boolean;
@@ -634,4 +660,10 @@ export interface DatabaseConfig {
   };
   indexes: string[];
   rules: string;
+}
+
+export interface AIUsage {
+  prompt_tokens: number;
+  completion_tokens: number;
+  total_tokens: number;
 }

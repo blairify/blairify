@@ -14,17 +14,50 @@ import {
   getFallbackResponse,
 } from "@/lib/services/ai/ai-client";
 import { validateAIResponse } from "@/lib/services/ai/response-validator";
+import { checkAndIncrementUsage } from "@/lib/services/users/usage-limits.server";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { interviewConfig } = body;
+    const { interviewConfig, userId } = body;
 
     if (!interviewConfig) {
       return NextResponse.json(
         { success: false, error: "Interview configuration is required" },
         { status: 400 },
       );
+    }
+
+    if (userId) {
+      try {
+        console.log("🔍 Checking usage limits for userId:", userId);
+        const allowed = await checkAndIncrementUsage(userId);
+        console.log("🔍 Usage check result:", { userId, allowed });
+        if (!allowed) {
+          console.log("🚫 User hit daily limit, blocking interview start");
+          return NextResponse.json(
+            {
+              success: false,
+              error:
+                "Daily interview limit reached (20/20). Upgrade to Pro for unlimited access.",
+              code: "LIMIT_EXCEEDED",
+            },
+            { status: 403 },
+          );
+        }
+      } catch (error) {
+        console.error("❌ Failed to check usage limits:", error);
+        // Fail closed - if we can't verify limits, don't allow the interview
+        return NextResponse.json(
+          {
+            success: false,
+            error: "Unable to verify usage limits. Please try again.",
+          },
+          { status: 500 },
+        );
+      }
+    } else {
+      console.log("⚠️ No userId provided, skipping usage check");
     }
 
     const configValidation = validateInterviewConfig(interviewConfig);
@@ -58,12 +91,16 @@ export async function POST(request: NextRequest) {
 
     const baseUrl = request.nextUrl.origin;
 
-    const { prompt: questionsPrompt, questionIds } =
-      await getDatabaseQuestionsPrompt(
-        interviewConfig,
-        totalQuestions,
-        baseUrl,
-      );
+    const shouldUseQuestionBank =
+      interviewConfig.interviewType !== "situational" &&
+      interviewConfig.interviewType !== "mixed";
+    const { prompt: questionsPrompt, questionIds } = shouldUseQuestionBank
+      ? await getDatabaseQuestionsPrompt(
+          interviewConfig,
+          totalQuestions,
+          baseUrl,
+        )
+      : { prompt: "", questionIds: [] };
 
     console.log("📚 Loaded questions from database:", {
       totalQuestions,
@@ -154,6 +191,7 @@ export async function POST(request: NextRequest) {
         avatarConfig: interviewer.avatarConfig,
       },
       questionIds,
+      usage: aiResponse.usage,
     });
   } catch (error) {
     console.error("Interview start API error:", error);

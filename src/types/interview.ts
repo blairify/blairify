@@ -48,6 +48,11 @@ export interface InterviewSession {
   endedEarly?: boolean;
   termination?: InterviewTermination;
   interviewerId?: string; // Store interviewer ID for consistency
+  tokenUsage?: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
 }
 
 export type TerminationReason =
@@ -65,6 +70,13 @@ export interface InterviewResults {
   score: number;
   scoreColor: string;
   overallScore: string;
+  categoryScores?: {
+    technical: number;
+    problemSolving: number;
+    communication: number;
+    professional: number;
+  };
+  technologyScores?: Record<string, number>;
   strengths: string[];
   improvements: string[];
   detailedAnalysis: string;
@@ -94,7 +106,9 @@ export interface KnowledgeGap {
   title: string;
   priority: KnowledgeGapPriority;
   tags: string[];
+  summary?: string;
   why: string;
+  exampleAnswer?: string;
   resources: ResourceLink[];
 }
 
@@ -120,7 +134,13 @@ export type InterviewMode =
   | "play" // Unlimited, ABCD multiple choice, gamified
   | "competitive" // 10 questions, hardest difficulty
   | "teacher"; // Unlimited, has "Show Answer" button, not scored
-export type InterviewType = "technical" | "bullet" | "coding" | "system-design";
+export type InterviewType =
+  | "technical"
+  | "bullet"
+  | "coding"
+  | "system-design"
+  | "situational"
+  | "mixed";
 export type QuestionType =
   | "technical"
   | "bullet"

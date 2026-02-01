@@ -7,22 +7,40 @@ type ServiceAccount = {
   privateKey: string;
 };
 
+interface RawServiceAccount {
+  project_id?: string;
+  client_email?: string;
+  private_key?: string;
+}
+
 function getServiceAccount(): ServiceAccount | null {
   const raw = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
-  if (!raw) return null;
+  if (!raw) {
+    console.error("FIREBASE_SERVICE_ACCOUNT_KEY is not set");
+    return null;
+  }
 
   try {
-    const parsed = JSON.parse(raw) as Partial<ServiceAccount>;
-    if (!parsed.projectId || !parsed.clientEmail || !parsed.privateKey) {
+    const parsed = JSON.parse(raw) as RawServiceAccount;
+    if (!parsed.project_id || !parsed.client_email || !parsed.private_key) {
+      console.error(
+        "FIREBASE_SERVICE_ACCOUNT_KEY is missing required fields:",
+        {
+          hasProjectId: !!parsed.project_id,
+          hasClientEmail: !!parsed.client_email,
+          hasPrivateKey: !!parsed.private_key,
+        },
+      );
       return null;
     }
 
     return {
-      projectId: parsed.projectId,
-      clientEmail: parsed.clientEmail,
-      privateKey: parsed.privateKey.replace(/\\n/g, "\n"),
+      projectId: parsed.project_id,
+      clientEmail: parsed.client_email,
+      privateKey: parsed.private_key.replace(/\\n/g, "\n"),
     };
-  } catch {
+  } catch (e) {
+    console.error("Failed to parse FIREBASE_SERVICE_ACCOUNT_KEY:", e);
     return null;
   }
 }

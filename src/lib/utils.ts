@@ -6,14 +6,12 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getAppUrl() {
-  if (process.env.NEXT_PUBLIC_APP_URL) {
-    return process.env.NEXT_PUBLIC_APP_URL;
-  }
-
+  // Local development takes priority
   if (process.env.NODE_ENV === "development") {
     return process.env.NEXT_PUBLIC_APP_URL_LOCAL || "http://localhost:3000";
   }
 
+  // Vercel preview/development deployments
   if (
     process.env.NEXT_PUBLIC_VERCEL_ENV === "preview" ||
     process.env.NEXT_PUBLIC_VERCEL_ENV === "development"
@@ -26,5 +24,6 @@ export function getAppUrl() {
     );
   }
 
+  // Production
   return process.env.NEXT_PUBLIC_APP_URL || "https://blairify.com";
 }

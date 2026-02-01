@@ -96,6 +96,21 @@ export function getTopicForInterviewType(
         "Backend Development",
         "General Programming",
       ];
+    case "situational":
+      return [
+        "Backend Development",
+        "Frontend Development",
+        "System Design",
+        "General Programming",
+      ];
+    case "mixed":
+      return [
+        "Frontend Development",
+        "Backend Development",
+        "Algorithms & Data Structures",
+        "System Design",
+        "General Programming",
+      ];
   }
 
   const _never: never = interviewType;

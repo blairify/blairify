@@ -301,9 +301,11 @@ pre code.hljs {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -709,13 +711,19 @@ code.hljs {
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
     font-family:
       var(--font-body-var), "Noto Sans", system-ui, -apple-system, sans-serif;
   }
 
   .font-heading {
     font-family: var(--font-heading-var), "Lora", "Times New Roman", serif;
+  }
+
+  /* Tooltip text color fix */
+  [data-slot="tooltip-content"],
+  [data-slot="tooltip-content"] * {
+    color: #111827;
   }
 
   /* Scrollbars */
@@ -778,9 +786,11 @@ code.hljs {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -824,14 +834,6 @@ code.hljs {
    Mobile Optimizations
    ============================== */
 @media (max-width: 768px) {
-  button,
-  [role="button"],
-  input[type="button"],
-  input[type="submit"],
-  input[type="reset"] {
-    min-height: 44px;
-  }
-
   h1 {
     font-size: 1.75rem;
     line-height: 1.2;
@@ -852,12 +854,6 @@ code.hljs {
     padding-right: 1rem;
   }
 
-  a,
-  button {
-    min-height: 44px;
-    min-width: 44px;
-  }
-
   input,
   select,
   textarea {
@@ -876,34 +872,6 @@ code.hljs {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
-}
-
-/* ==============================
-   Flashcard 3D Flip Animation
-   ============================== */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.transform-style-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
-.recharts-cartesian-axis-tick text {
-  fill: var(--muted-foreground);
-}
-
-.dark .recharts-cartesian-axis-tick text {
-  fill: var(--foreground);
 }
 
 /* ==============================
@@ -1050,10 +1018,12 @@ code.hljs {
     left: calc(0 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   8.333% {
     left: calc(0 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   100% {
     left: calc(0 * var(--offset));
     top: calc(1 * var(--offset));
@@ -1065,26 +1035,32 @@ code.hljs {
     left: calc(0 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   8.333% {
     left: calc(0 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   16.67% {
     left: calc(1 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   25.00% {
     left: calc(1 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   83.33% {
     left: calc(1 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   91.67% {
     left: calc(1 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   100% {
     left: calc(0 * var(--offset));
     top: calc(0 * var(--offset));
@@ -1097,34 +1073,42 @@ code.hljs {
     left: calc(1 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   16.67% {
     left: calc(1 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   25.00% {
     left: calc(1 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   33.33% {
     left: calc(2 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   41.67% {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   66.67% {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   75.00% {
     left: calc(2 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   83.33% {
     left: calc(1 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   91.67% {
     left: calc(1 * var(--offset));
     top: calc(1 * var(--offset));
@@ -1136,22 +1120,27 @@ code.hljs {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   33.33% {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   41.67% {
     left: calc(2 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   50.00% {
     left: calc(3 * var(--offset));
     top: calc(2 * var(--offset));
   }
+
   58.33% {
     left: calc(3 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   100% {
     left: calc(3 * var(--offset));
     top: calc(1 * var(--offset));
@@ -1163,22 +1152,27 @@ code.hljs {
     left: calc(3 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   50.00% {
     left: calc(3 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   58.33% {
     left: calc(3 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   66.67% {
     left: calc(2 * var(--offset));
     top: calc(0 * var(--offset));
   }
+
   75.00% {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
   }
+
   100% {
     left: calc(2 * var(--offset));
     top: calc(1 * var(--offset));
@@ -1190,6 +1184,7 @@ code.hljs {
     transform: scale(0.75);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;

@@ -6,6 +6,7 @@ import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Rank } from "@/lib/ranks";
+import { getRankDisplayName } from "@/lib/ranks";
 import { cn } from "@/lib/utils";
 import { RankBadge } from "./rank-badge";
 
@@ -128,14 +129,14 @@ export function RankUpModal({
                     "animate-bounce",
                   )}
                 >
-                  <Trophy className={cn("w-8 h-8", newRank.badge.text)} />
+                  <Trophy className={cn("size-8", newRank.badge.text)} />
                 </div>
               </div>
 
               {/* Title */}
               <Typography.Heading2 className="mb-2 flex items-center justify-center gap-2">
                 Rank Up!
-                <Sparkles className="w-6 h-6 text-yellow-500 animate-pulse" />
+                <Sparkles className="size-6 text-yellow-500 animate-pulse" />
               </Typography.Heading2>
 
               <Typography.Body color="secondary" className="mb-6">
@@ -153,7 +154,7 @@ export function RankUpModal({
                     animated={false}
                   />
                   <span className="text-sm text-muted-foreground mt-2">
-                    {oldRank.name}
+                    {getRankDisplayName(oldRank)}
                   </span>
                 </div>
 
@@ -175,7 +176,7 @@ export function RankUpModal({
                       newRank.badge.text,
                     )}
                   >
-                    {newRank.name}
+                    {getRankDisplayName(newRank)}
                   </span>
                 </div>
               </div>
@@ -195,7 +196,7 @@ export function RankUpModal({
                         key={index}
                         className="text-sm flex items-center justify-center gap-2"
                       >
-                        <Sparkles className="w-3 h-3 text-yellow-500" />
+                        <Sparkles className="size-3 text-yellow-500" />
                         <span>{perk}</span>
                       </li>
                     ))}

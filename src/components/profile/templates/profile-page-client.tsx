@@ -8,9 +8,13 @@ import type { UserData } from "@/lib/services/auth/auth";
 
 interface ProfilePageClientProps {
   user: UserData;
+  initialTab?: "subscription" | "profile" | "account";
 }
 
-export function ProfilePageClient({ user }: ProfilePageClientProps) {
+export function ProfilePageClient({
+  user,
+  initialTab = "subscription",
+}: ProfilePageClientProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -21,7 +25,7 @@ export function ProfilePageClient({ user }: ProfilePageClientProps) {
       />
       <div className="flex-1 lg:ml-0 flex flex-col overflow-hidden">
         <DashboardNavbar setSidebarOpen={setSidebarOpen} />
-        <ProfileContent user={user} />
+        <ProfileContent user={user} initialTab={initialTab} />
       </div>
     </div>
   );

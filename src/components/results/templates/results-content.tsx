@@ -9,24 +9,33 @@ import {
   ChevronDown,
   FileText,
   Lightbulb,
-  MessageSquare,
   RotateCcw,
   Target,
   TrendingUp,
   User,
   XCircle,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { AnimatePresence, motion } from "motion/react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { toast } from "sonner";
+import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
+import { MarkdownContent } from "@/components/common/molecules/markdown-content";
+import {
+  CATEGORY_MAX,
+  DetailedScoreCard,
+  getCategoryScores,
+} from "@/components/results/molecules/detailed-score-card";
 import {
   PostInterviewSurvey,
   type PostInterviewSurveyController,
 } from "@/components/results/organisms/post-interview-survey";
+import { ResultsDeck } from "@/components/results/organisms/results-deck";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -42,27 +51,190 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
+import { ACHIEVEMENTS } from "@/lib/achievements";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import { addUserXP } from "@/lib/services/users/user-xp";
 import {
+  formatKnowledgeGapBlurb,
+  formatKnowledgeGapDescription,
+  formatKnowledgeGapTitle,
   normalizePositionValue,
   normalizeSeniorityValue,
 } from "@/lib/utils/interview-normalizers";
 import {
   generateAnalysisMessages,
-  generateOutcomeMessage,
   getResultsCopySeed,
 } from "@/lib/utils/results-copy";
 import { useAuth } from "@/providers/auth-provider";
-import type { UserProfile } from "@/types/firestore";
+import type { InterviewSession, UserProfile } from "@/types/firestore";
 import type {
   InterviewConfig,
   InterviewResults,
+  KnowledgeGap,
   KnowledgeGapPriority,
   TerminationReason,
 } from "@/types/interview";
 import type { Question } from "@/types/practice-question";
+
+type RewardsPayload = {
+  xpGained: number;
+  newAchievementIds: string[];
+};
+
+function clampFinite(value: unknown, min: number, max: number): number {
+  const n = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(n)) return min;
+  return Math.max(min, Math.min(max, n));
+}
+
+function deriveOverallScoreFromSession(session: InterviewSession): number {
+  const saved = session.scores?.overall;
+  if (typeof saved === "number" && saved > 0) return clampFinite(saved, 0, 100);
+
+  const responseScores = (session.responses ?? [])
+    .map((r) => r.score)
+    .filter((n): n is number => typeof n === "number" && Number.isFinite(n));
+  if (responseScores.length > 0) {
+    const avg =
+      responseScores.reduce((sum, n) => sum + n, 0) / responseScores.length;
+    return clampFinite(Math.round(avg), 0, 100);
+  }
+
+  const techScores = session.analysis?.technologyScores
+    ? Object.values(session.analysis.technologyScores).filter(Number.isFinite)
+    : [];
+  if (techScores.length > 0) {
+    const avg = techScores.reduce((sum, n) => sum + n, 0) / techScores.length;
+    return clampFinite(Math.round(avg), 0, 100);
+  }
+
+  return 0;
+}
+
+function getScoreColor(score: number): string {
+  if (score >= 90) return "text-green-600";
+  if (score >= 80) return "text-green-500";
+  if (score >= 70) return "text-yellow-500";
+  if (score >= 60) return "text-orange-500";
+  return "text-red-500";
+}
+
+function mapKnowledgeGaps(
+  analysis: InterviewSession["analysis"],
+): KnowledgeGap[] | undefined {
+  const isGeneratedSearchResourceUrl = (url: string): boolean => {
+    const u = url.toLowerCase();
+    if (u.includes("google.com/search")) return true;
+    if (u.includes("youtube.com/results")) return true;
+    return false;
+  };
+
+  const gaps = analysis.knowledgeGaps;
+  if (!Array.isArray(gaps) || gaps.length === 0) return undefined;
+
+  const normalized = gaps
+    .map((g) => {
+      const title = typeof g.title === "string" ? g.title.trim() : "";
+      const why = typeof g.why === "string" ? g.why.trim() : "";
+      const priority = g.priority;
+      const tags = Array.isArray(g.tags)
+        ? g.tags.filter(
+            (t): t is string => typeof t === "string" && t.trim().length > 0,
+          )
+        : [];
+
+      if (!title || !why) return null;
+
+      const resources = Array.isArray(g.resources)
+        ? g.resources
+            .map((r) => {
+              const id = typeof r.id === "string" ? r.id.trim() : "";
+              const title = typeof r.title === "string" ? r.title.trim() : "";
+              const url = typeof r.url === "string" ? r.url.trim() : "";
+              const type = r.type;
+              const tags = Array.isArray(r.tags)
+                ? r.tags.filter(
+                    (t): t is string =>
+                      typeof t === "string" && t.trim().length > 0,
+                  )
+                : [];
+              if (!id || !title || !url || !type) return null;
+              if (isGeneratedSearchResourceUrl(url)) return null;
+              if (tags.length === 0) return null;
+              return {
+                id,
+                title,
+                url,
+                type,
+                tags,
+                ...(r.difficulty ? { difficulty: r.difficulty } : {}),
+              };
+            })
+            .filter((r): r is NonNullable<typeof r> => r !== null)
+        : [];
+
+      return {
+        title,
+        priority,
+        tags,
+        why,
+        resources,
+      } satisfies KnowledgeGap;
+    })
+    .filter((g): g is NonNullable<typeof g> => g !== null);
+
+  return normalized.length > 0 ? normalized : undefined;
+}
+
+function mapSessionToInterviewResults(
+  session: InterviewSession,
+): InterviewResults {
+  const score = deriveOverallScoreFromSession(session);
+  const analysis = session.analysis;
+  const knowledgeGaps = mapKnowledgeGaps(analysis);
+
+  const decision = (() => {
+    switch (analysis.decision) {
+      case "PASS":
+        return "PASS";
+      case "FAIL":
+        return "FAIL";
+      case "UNKNOWN":
+      case undefined:
+        return undefined;
+      default: {
+        const _never: never = analysis.decision as never;
+        throw new Error(`Unhandled decision: ${_never}`);
+      }
+    }
+  })();
+
+  return {
+    score,
+    scoreColor: getScoreColor(score),
+    overallScore: analysis.summary ?? "",
+    categoryScores: session.scores
+      ? {
+          technical: session.scores.technical,
+          problemSolving: session.scores.problemSolving,
+          communication: session.scores.communication,
+          professional: session.scores.professional,
+        }
+      : undefined,
+    strengths: analysis.strengths ?? [],
+    improvements: analysis.improvements ?? [],
+    detailedAnalysis: analysis.detailedAnalysis ?? "",
+    technologyScores: analysis.technologyScores ?? undefined,
+    recommendations: (analysis.recommendations ?? []).join("\n"),
+    nextSteps: (analysis.nextSteps ?? []).join("\n"),
+    ...(knowledgeGaps ? { knowledgeGaps } : {}),
+    decision,
+    passed: analysis.passed,
+    passingThreshold: analysis.passingThreshold,
+    whyDecision: analysis.whyDecision,
+  };
+}
 
 function getPriorityLabel(priority: KnowledgeGapPriority): string {
   switch (priority) {
@@ -93,27 +265,6 @@ function getPriorityClass(priority: KnowledgeGapPriority): string {
     }
   }
 }
-
-const getPerformanceLabel = (score: number, passed?: boolean): string => {
-  if (passed === true) {
-    if (score >= 90) return "Outstanding Performance";
-    if (score >= 80) return "Strong Performance";
-    if (score >= 70) return "Solid Performance";
-    return "Acceptable Performance";
-  }
-  if (passed === false) {
-    if (score >= 60) return "Below Threshold";
-    if (score >= 40) return "Significant Gaps";
-    return "Insufficient Competency";
-  }
-  // Neutral labels when pass/fail not determined
-  if (score >= 90) return "Exceptional";
-  if (score >= 80) return "Strong";
-  if (score >= 70) return "Good";
-  if (score >= 60) return "Fair";
-  if (score >= 50) return "Developing";
-  return "Needs Improvement";
-};
 
 const qaMarkdownComponents: Components = {
   p({ children }) {
@@ -188,12 +339,66 @@ function stripLinks(value: string): string {
   return withoutUrls.replace(/\s{2,}/g, " ").trim();
 }
 
-function normalizeKnowledgeGapTitle(title: string): string {
-  return title
-    .trim()
-    .replace(/^\s*\d+\s*[.)]\s*/g, "")
-    .replace(/^\s*title\s*:\s*/i, "")
+function stripMarkdown(value: string): string {
+  return value
+    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/_([^_]+)_/g, "$1")
+    .replace(/~{2}([^~]+)~{2}/g, "$1")
+    .replace(/\[([^\]]+)]\([^)]+\)/g, "$1")
+    .replace(/\s+/g, " ")
     .trim();
+}
+
+function toShortTopicTitle(raw: string, tags?: string[]): string {
+  return formatKnowledgeGapTitle(raw, tags);
+}
+
+function shouldHideGapDescription(raw: string): boolean {
+  const t = raw.toLowerCase();
+  if (t.includes("didn't demonstrate")) return true;
+  if (t.includes("did not demonstrate")) return true;
+  if (t.includes("when i asked")) return true;
+  if (t.includes("this candidate")) return true;
+  if (t.includes("no significant")) return true;
+  if (t.includes("none demonstrated")) return true;
+  if (t.length < 18) return true;
+  return false;
+}
+
+function getGapSummaryText(gap: { summary?: string }): string {
+  const source =
+    typeof gap.summary === "string" && gap.summary.trim().length > 0
+      ? gap.summary
+      : "";
+  const cleaned = stripLinks(stripMarkdown(source))
+    .replace(/\.{3,}/g, " ")
+    .replace(/…/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!cleaned) return "";
+  if (shouldHideGapDescription(cleaned)) return "";
+  return cleaned;
+}
+
+function getGapSummaryTextWithFallback(gap: KnowledgeGap): string {
+  const fromSummary = getGapSummaryText(gap);
+  if (fromSummary) return fromSummary;
+  return formatKnowledgeGapDescription({
+    title: gap.title,
+    tags: gap.tags,
+    priority: gap.priority,
+    summary: gap.summary,
+  });
+}
+
+function getGapBlurbText(gap: KnowledgeGap): string {
+  return formatKnowledgeGapBlurb({
+    title: gap.title,
+    tags: gap.tags,
+    priority: gap.priority,
+  });
 }
 
 function getMarkdownText(node: unknown): string {
@@ -292,9 +497,17 @@ interface ResultsContentProps {
 
 export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { user: authUser, refreshUserData } = useAuth();
   const [isAnalyzing, setIsAnalyzing] = useState(true);
   const [results, setResults] = useState<InterviewResults | null>(null);
+  const [savedSessionId, setSavedSessionId] = useState<string | null>(null);
+  const [resultsView, setResultsView] = useState<"deck" | "full">("deck");
+  const [isLoadingSession, setIsLoadingSession] = useState(false);
+  const justCreatedSessionIdRef = useRef<string | null>(null);
+  const [savedSession, setSavedSession] = useState<InterviewSession | null>(
+    null,
+  );
   const [storedSession, setStoredSession] = useState<{
     questionIds?: string[];
     messages?: Array<{
@@ -319,13 +532,16 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [analysisMessages, setAnalysisMessages] = useState<string[]>([]);
-  const [outcomeMessage, setOutcomeMessage] = useState<string>("");
+  const [outcomeMessage, _setOutcomeMessage] = useState<string>("");
   const [_currentDate, setCurrentDate] = useState<string>("");
   const [copySeed, setCopySeed] = useState<number | null>(null);
   const [
     generatedExampleAnswerByQuestionId,
-    setGeneratedExampleAnswerByQuestionId,
+    _setGeneratedExampleAnswerByQuestionId,
   ] = useState<Record<string, string>>({});
+  const [generatedExampleAnswers, setGeneratedExampleAnswers] = useState<
+    string[]
+  >([]);
   const [generatedFollowUpExampleAnswers, setGeneratedFollowUpExampleAnswers] =
     useState<string[]>([]);
   const [storedConfig, setStoredConfig] = useState<
@@ -334,9 +550,86 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [interviewConfig, setInterviewConfig] =
     useState<InterviewConfig | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [rewardsPayload, setRewardsPayload] = useState<RewardsPayload | null>(
+    null,
+  );
   const backgroundClass = "bg-gradient-to-b from-background to-muted/20";
   const surveyControllerRef = useRef<PostInterviewSurveyController | null>(
     null,
+  );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = window.sessionStorage.getItem("postInterviewRewards");
+    if (!raw) return;
+    try {
+      const parsed = JSON.parse(raw) as unknown;
+      if (!parsed || typeof parsed !== "object") return;
+      const maybe = parsed as Partial<RewardsPayload>;
+      const xpGained =
+        typeof maybe.xpGained === "number" && Number.isFinite(maybe.xpGained)
+          ? maybe.xpGained
+          : null;
+      const newAchievementIds = Array.isArray(maybe.newAchievementIds)
+        ? maybe.newAchievementIds.filter(
+            (id): id is string => typeof id === "string" && id.length > 0,
+          )
+        : [];
+
+      if (xpGained === null) return;
+      setRewardsPayload({ xpGained, newAchievementIds });
+    } catch {
+      return;
+    }
+  }, []);
+
+  const getDeckCompletedKey = useCallback(
+    (sessionId: string) => `resultsDeckCompleted:${sessionId}`,
+    [],
+  );
+
+  const getDeckCompleted = useCallback(
+    (sessionId: string): boolean => {
+      try {
+        return (
+          window.sessionStorage.getItem(getDeckCompletedKey(sessionId)) ===
+          "true"
+        );
+      } catch {
+        return false;
+      }
+    },
+    [getDeckCompletedKey],
+  );
+
+  const markDeckCompleted = useCallback(
+    (sessionId: string) => {
+      try {
+        window.sessionStorage.setItem(getDeckCompletedKey(sessionId), "true");
+      } catch {
+        // ignore
+      }
+    },
+    [getDeckCompletedKey],
+  );
+
+  const handleSurveyNavigation = useCallback(
+    (path: string) => {
+      router.push(path);
+    },
+    [router],
+  );
+
+  const handleNavigationRequest = useCallback(
+    (path: string) => {
+      const controller = surveyControllerRef.current;
+      if (controller) {
+        controller.requestNavigation(path);
+        return;
+      }
+      handleSurveyNavigation(path);
+    },
+    [handleSurveyNavigation],
   );
   const activeUserId = useMemo(
     () => authUser?.uid ?? initialUser.uid,
@@ -347,6 +640,11 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     [authUser?.email, initialUser.email],
   );
 
+  const sessionIdFromQuery = useMemo(() => {
+    const raw = searchParams.get("sessionId");
+    return typeof raw === "string" && raw.trim().length > 0 ? raw : null;
+  }, [searchParams]);
+
   // Set current date and analysis messages on client side only to avoid hydration mismatch
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString());
@@ -354,6 +652,11 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     const interviewSessionRaw = localStorage.getItem("interviewSession");
     const interviewConfigRaw = localStorage.getItem("interviewConfig");
     const interviewSessionId = localStorage.getItem("interviewSessionId");
+
+    if (!interviewSessionRaw && !sessionIdFromQuery) {
+      router.replace("/history");
+      return;
+    }
 
     try {
       const parsedSession = interviewSessionRaw
@@ -406,6 +709,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       } else {
         setTermination(null);
       }
+
+      setSavedSession(null);
 
       const userAnswers = (parsedSession?.messages ?? [])
         .filter((m) => m.type === "user" && m.isFollowUp !== true)
@@ -484,7 +789,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     } catch {
       // noop
     }
-  }, []);
+  }, [router, sessionIdFromQuery]);
 
   const getExampleAnswer = (question: Question): string | null => {
     switch (question.type) {
@@ -505,20 +810,85 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   };
 
   const qaRows = useMemo(() => {
+    if (savedSession) {
+      const rows: Array<{
+        type: "main" | "follow-up";
+        idx: number;
+        practiceQuestionId: string | null;
+        questionText: string;
+        yourAnswer: string;
+        aiExampleAnswer: string | null;
+      }> = [];
+
+      const isOutroLine = (value: string): boolean => {
+        const t = value.trim().toLowerCase();
+        if (!t) return true;
+        if (t.startsWith("thanks")) return true;
+        if (t.includes("that's all the questions")) return true;
+        if (t.includes("that is all the questions")) return true;
+        if (t.includes("thats all the questions")) return true;
+        if (t.includes("good luck")) return true;
+        if (t.includes("end of this interview")) return true;
+        return false;
+      };
+
+      savedSession.questions.forEach((q, idx) => {
+        if (isOutroLine(q.question ?? "")) return;
+        const response = savedSession.responses.find(
+          (r) => r.questionId === q.id,
+        );
+        const practiceQuestionId = q.id.startsWith("q_") ? null : q.id;
+
+        // Add main question
+        rows.push({
+          type: "main",
+          idx,
+          practiceQuestionId,
+          questionText: q.question,
+          yourAnswer: response?.response ?? "",
+          aiExampleAnswer: q.aiExampleAnswer ?? null,
+        });
+
+        // Add follow-ups if they exist
+        if (q.followUps && q.followUps.length > 0) {
+          q.followUps.forEach((f) => {
+            rows.push({
+              type: "follow-up",
+              idx: idx, // Keep associated with main question index or use -1? Use main idx for context if needed
+              practiceQuestionId: null,
+              questionText: f.question,
+              yourAnswer: f.response,
+              aiExampleAnswer: f.aiExampleAnswer ?? null,
+            });
+          });
+        }
+      });
+      return rows;
+    }
+
     const messages = Array.isArray(storedSession?.messages)
       ? storedSession.messages
       : [];
 
+    const isOutroLine = (value: string): boolean => {
+      const t = value.trim().toLowerCase();
+      if (!t) return true;
+      if (t.startsWith("thanks")) return true;
+      if (t.includes("that's all the questions")) return true;
+      if (t.includes("that is all the questions")) return true;
+      if (t.includes("thats all the questions")) return true;
+      if (t.includes("good luck")) return true;
+      if (t.includes("end of this interview")) return true;
+      return false;
+    };
+
     const rows: Array<{
+      type: "main" | "follow-up";
       idx: number;
       practiceQuestionId: string | null;
       questionText: string;
       yourAnswer: string;
-      followUps: Array<{
-        question: string;
-        response: string;
-        aiExampleAnswer?: string;
-      }>;
+      aiExampleAnswer: string | null;
     }> = [];
 
     let mainIdx = 0;
@@ -540,27 +910,35 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         continue;
       }
 
+      if (isOutroLine(aiText)) {
+        cursor += 1;
+        continue;
+      }
+
       const isFollowUp = ai.isFollowUp === true;
       if (isFollowUp) {
-        const current = rows[rows.length - 1];
-        if (!current) {
-          cursor += 1;
-          continue;
-        }
+        // Find the last main question index to associate with
+        // For now, just using the current mainIdx - 1 as the parent,
+        // effectively treating it as a follow-up to the most recent question.
+        // If mainIdx is 0 (first question hasn't happened?), might be edge case
+        // but logic implies main question comes first.
 
         const responseText =
           user?.type === "user" ? (user.content ?? "").trim() : "";
         const followUpExample = (() => {
           const raw = generatedFollowUpExampleAnswers[followUpIdx];
-          if (typeof raw !== "string") return undefined;
+          if (typeof raw !== "string") return null;
           const trimmed = raw.trim();
-          return trimmed.length > 0 ? trimmed : undefined;
+          return trimmed.length > 0 ? trimmed : null;
         })();
 
-        current.followUps.push({
-          question: aiText,
-          response: responseText,
-          ...(followUpExample ? { aiExampleAnswer: followUpExample } : {}),
+        rows.push({
+          type: "follow-up",
+          idx: Math.max(0, mainIdx - 1),
+          practiceQuestionId: null,
+          questionText: aiText,
+          yourAnswer: responseText,
+          aiExampleAnswer: followUpExample,
         });
 
         followUpIdx += 1;
@@ -568,48 +946,41 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         continue;
       }
 
+      // Main question
       const practiceQuestionId = practiceQuestionIds[mainIdx] ?? null;
 
-      if (!user || user.type !== "user") {
-        rows.push({
-          idx: mainIdx,
-          practiceQuestionId,
-          questionText: aiText,
-          yourAnswer: "",
-          followUps: [],
-        });
-        mainIdx += 1;
-        cursor += 1;
-        continue;
-      }
+      const answerContent =
+        user?.type === "user" ? (user.content ?? "").trim() : "";
 
       rows.push({
+        type: "main",
         idx: mainIdx,
         practiceQuestionId,
         questionText: aiText,
-        yourAnswer: (user.content ?? "").trim(),
-        followUps: [],
+        yourAnswer: answerContent,
+        aiExampleAnswer: generatedExampleAnswers[mainIdx] || null,
       });
 
       mainIdx += 1;
-      cursor += 2;
+      // If user answered, skip 2 messages (AI Q + User A). If not, skip 1 (AI Q only... wait, logic above handled that?)
+      // Original logic:
+      // if (!user || user.type !== "user") { cursor += 1; continue; }
+      // else { cursor += 2; }
+
+      // Replicating original cursor logic:
+      if (!user || user.type !== "user") {
+        cursor += 1;
+      } else {
+        cursor += 2;
+      }
     }
 
-    const expectedCount =
-      practiceQuestionIds.length > 0 ? practiceQuestionIds.length : rows.length;
-    return Array.from({ length: expectedCount }, (_, idx) => {
-      const row = rows[idx];
-      return {
-        idx,
-        practiceQuestionId: practiceQuestionIds[idx] ?? null,
-        questionText: row?.questionText ?? "",
-        yourAnswer: row?.yourAnswer ?? "",
-        followUps: row?.followUps ?? [],
-      };
-    });
+    return rows;
   }, [
+    generatedExampleAnswers,
     generatedFollowUpExampleAnswers,
     practiceQuestionIds,
+    savedSession,
     storedSession?.messages,
   ]);
 
@@ -654,7 +1025,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       setProgress((prevProgress) => {
         // Simulate realistic progress - slower at start, faster in middle, slower at end
         const increment = prevProgress < 20 ? 2 : prevProgress < 80 ? 3 : 1;
-        const newProgress = Math.min(prevProgress + increment, 95);
+        const newProgress = Math.min(prevProgress + increment, 99);
         return newProgress;
       });
     }, 800);
@@ -663,25 +1034,66 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   }, [isAnalyzing]);
 
   useEffect(() => {
+    if (!sessionIdFromQuery) return;
+
+    if (justCreatedSessionIdRef.current === sessionIdFromQuery) {
+      justCreatedSessionIdRef.current = null;
+    }
+
+    let active = true;
+
+    void (async () => {
+      try {
+        setResultsView(getDeckCompleted(sessionIdFromQuery) ? "full" : "deck");
+        setIsLoadingSession(true);
+        setIsAnalyzing(false);
+
+        const session = await DatabaseService.getSession(
+          activeUserId,
+          sessionIdFromQuery,
+        );
+
+        if (!active) return;
+
+        if (!session || !session.analysis) {
+          router.replace("/history");
+          return;
+        }
+
+        setSavedSessionId(sessionIdFromQuery);
+        setSavedSession(session as InterviewSession);
+        setResults(mapSessionToInterviewResults(session as InterviewSession));
+
+        const cfg = session.config as unknown;
+        if (cfg && typeof cfg === "object") {
+          setInterviewConfig(cfg as InterviewConfig);
+        }
+      } catch (e) {
+        console.error("Failed to load saved session for results:", e);
+        router.replace("/history");
+      } finally {
+        if (active) setIsLoadingSession(false);
+      }
+    })();
+
+    return () => {
+      active = false;
+    };
+  }, [activeUserId, getDeckCompleted, router, sessionIdFromQuery]);
+
+  useEffect(() => {
+    if (sessionIdFromQuery) {
+      setIsAnalyzing(false);
+      return;
+    }
+
+    let isMounted = true;
+
     const loadAnalysis = async (retryCount = 0) => {
       try {
         const interviewData = localStorage.getItem("interviewSession");
         const interviewConfig = localStorage.getItem("interviewConfig");
-
-        const hasMeaningfulAnswers = (messages: unknown): boolean => {
-          if (!Array.isArray(messages)) return false;
-          return messages.some((m) => {
-            if (!m || typeof m !== "object") return false;
-            if (!("type" in m) || !("content" in m)) return false;
-            const type = (m as { type?: unknown }).type;
-            const content = (m as { content?: unknown }).content;
-            return (
-              type === "user" &&
-              typeof content === "string" &&
-              content.trim().length > 0
-            );
-          });
-        };
+        const interviewSessionId = localStorage.getItem("interviewSessionId");
 
         const clearInterviewStorage = () => {
           localStorage.removeItem("interviewSession");
@@ -689,25 +1101,22 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           localStorage.removeItem("interviewSessionId");
         };
 
-        const countUserAnswers = (messages: unknown): number => {
-          if (!Array.isArray(messages)) return 0;
-          return messages.reduce((count, m) => {
-            if (!m || typeof m !== "object") return count;
-            if (!("type" in m) || !("content" in m)) return count;
-            const type = (m as { type?: unknown }).type;
-            const content = (m as { content?: unknown }).content;
-            if (type !== "user") return count;
-            if (typeof content !== "string") return count;
-            if (content.trim().length === 0) return count;
-            return count + 1;
-          }, 0);
-        };
-
         if (!interviewData || !interviewConfig) {
-          console.error("Missing localStorage data:", {
-            interviewData: !!interviewData,
-            interviewConfig: !!interviewConfig,
-          });
+          if (retryCount < 6) {
+            await new Promise((r) => setTimeout(r, 250));
+            return loadAnalysis(retryCount + 1);
+          }
+
+          if (
+            typeof interviewSessionId === "string" &&
+            interviewSessionId.trim().length > 0
+          ) {
+            router.replace(`/results?sessionId=${interviewSessionId}`);
+            setIsAnalyzing(false);
+            return;
+          }
+
+          if (!isMounted) return;
           setError(
             "No interview data found. Please complete an interview first.",
           );
@@ -715,56 +1124,32 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           return;
         }
 
-        const session = JSON.parse(interviewData);
-        const config = JSON.parse(interviewConfig);
+        const session = JSON.parse(interviewData) as {
+          messages?: unknown;
+          startTime?: unknown;
+          endTime?: unknown;
+          endedEarly?: unknown;
+          termination?: unknown;
+          tokenUsage?: unknown;
+          questionIds?: unknown;
+        };
+        const config = JSON.parse(interviewConfig) as InterviewConfig;
 
-        if (!hasMeaningfulAnswers(session?.messages)) {
-          clearInterviewStorage();
-          router.push("/my-progress");
-          setIsAnalyzing(false);
-          return;
-        }
-
-        const userAnswerCount = countUserAnswers(session?.messages);
-        const isTermination = Boolean(session?.termination?.reason);
-        if (isTermination && userAnswerCount < 2) {
-          clearInterviewStorage();
-          router.push("/my-progress");
-          setIsAnalyzing(false);
-          return;
-        }
-
-        console.log("📊 Session data loaded:", {
-          hasMessages: !!session.messages,
-          messageCount: session.messages?.length || 0,
-          sessionKeys: Object.keys(session),
-          isComplete: session.isComplete,
-        });
-
-        if (!session.messages || session.messages.length === 0) {
-          console.error("No messages in session data:", {
-            session,
-            sessionKeys: Object.keys(session),
-            messagesType: typeof session.messages,
-            messagesValue: session.messages,
-          });
+        if (!Array.isArray(session.messages) || session.messages.length === 0) {
+          if (!isMounted) return;
           setError("No interview responses found to analyze.");
           setIsAnalyzing(false);
           return;
         }
 
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => {
-          controller.abort();
-        }, 90000);
+        const timeoutId = setTimeout(() => controller.abort(), 90000);
 
         let response: Response;
         try {
           response = await fetch("/api/interview/analyze", {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               conversationHistory: session.messages,
               interviewConfig: config,
@@ -774,374 +1159,252 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         } catch (fetchError) {
           clearTimeout(timeoutId);
 
-          if (fetchError instanceof Error && fetchError.name === "AbortError") {
-            throw new Error(
-              "Analysis request timed out. The AI service may be experiencing high load. Please try again.",
-            );
+          if (
+            fetchError instanceof Error &&
+            fetchError.name === "AbortError" &&
+            retryCount < 2
+          ) {
+            await new Promise((r) => setTimeout(r, 1500));
+            return loadAnalysis(retryCount + 1);
           }
+
           throw fetchError;
         }
 
         clearTimeout(timeoutId);
 
         if (!response.ok) {
-          const errorData = await response.json();
-          console.error("❌ Analysis API error response:", {
-            status: response.status,
-            error: errorData.error,
-            details: errorData.details,
-            config,
-            messageCount: session.messages.length,
-          });
+          const errorData = (await response.json()) as { error?: string };
           throw new Error(errorData.error || `HTTP ${response.status}`);
         }
 
-        const data = await response.json();
+        const data = (await response.json()) as {
+          success: boolean;
+          feedback?: InterviewResults;
+          error?: string;
+        };
 
-        if (data.success) {
-          setProgress(100);
-          setResults(data.feedback);
+        if (!data.success || !data.feedback) {
+          throw new Error(data.error || "Analysis failed");
+        }
 
-          const seed = getResultsCopySeed({
-            interviewSessionId: localStorage.getItem("interviewSessionId"),
-            interviewSessionRaw: localStorage.getItem("interviewSession"),
-            interviewConfigRaw: localStorage.getItem("interviewConfig"),
-          });
+        setProgress(100);
+        setResults(data.feedback);
+        setInterviewConfig(config);
 
-          let configFromStorage:
-            | Pick<InterviewConfig, "position" | "seniority">
-            | undefined;
-          try {
-            const raw = localStorage.getItem("interviewConfig");
-            const parsed = raw
-              ? (JSON.parse(raw) as Partial<
-                  Pick<InterviewConfig, "position" | "seniority">
-                >)
-              : null;
+        // Map knowledge gaps back to questions to get example answers
+        const mainExampleAnswers: string[] = [];
+        const followUpExampleAnswers: string[] = [];
+        const messages = Array.isArray(session.messages)
+          ? session.messages
+          : [];
+        const practiceQuestionIds = Array.isArray(session.questionIds)
+          ? session.questionIds.filter(
+              (id): id is string => typeof id === "string" && id.length > 0,
+            )
+          : [];
+        const gaps = Array.isArray(data.feedback?.knowledgeGaps)
+          ? data.feedback.knowledgeGaps
+          : [];
 
-            if (parsed?.position && parsed?.seniority) {
-              configFromStorage = {
-                position: normalizePositionValue(parsed.position),
-                seniority: normalizeSeniorityValue(parsed.seniority),
-              };
-            }
-          } catch {
-            // noop
+        const isOutroLine = (value: string): boolean => {
+          const t = value.trim().toLowerCase();
+          if (!t) return true;
+          if (t.startsWith("thanks")) return true;
+          if (t.includes("that's all the questions")) return true;
+          if (t.includes("that is all the questions")) return true;
+          if (t.includes("that\u001fs all the questions")) return true;
+          if (t.includes("good luck")) return true;
+          if (t.includes("end of this interview")) return true;
+          return false;
+        };
+
+        let gapIdx = 0;
+        let mainIdx = 0;
+        let cursor = 0;
+
+        while (cursor < messages.length) {
+          const ai = messages[cursor];
+          const user = messages[cursor + 1];
+
+          if (!ai || ai.type !== "ai") {
+            cursor += 1;
+            continue;
           }
 
-          setOutcomeMessage(
-            generateOutcomeMessage({
-              seed,
-              results: {
-                score: data.feedback.score,
-                passed: data.feedback.passed ?? false,
-                strengths: data.feedback.strengths,
-                improvements: data.feedback.improvements,
-              },
-              config: configFromStorage,
-            }),
+          const aiText = (ai.content ?? "").trim();
+          if (!aiText || isOutroLine(aiText)) {
+            cursor += 1;
+            continue;
+          }
+
+          const explicitFollowUp = ai.isFollowUp === true;
+          const inferredFollowUp =
+            !explicitFollowUp &&
+            practiceQuestionIds.length > 0 &&
+            mainIdx >= practiceQuestionIds.length &&
+            user?.type === "user";
+          const isFollowUp = explicitFollowUp || inferredFollowUp;
+
+          const gap = gaps[gapIdx];
+          const example =
+            typeof gap?.exampleAnswer === "string" ? gap.exampleAnswer : "";
+
+          if (isFollowUp) {
+            if (mainIdx > 0) {
+              followUpExampleAnswers.push(example);
+              gapIdx += 1;
+            }
+            cursor += user?.type === "user" ? 2 : 1;
+            continue;
+          }
+
+          if (!user || user.type !== "user") {
+            cursor += 1;
+            continue;
+          }
+
+          mainExampleAnswers.push(example);
+          gapIdx += 1;
+          mainIdx += 1;
+          cursor += 2;
+        }
+
+        setGeneratedExampleAnswers(mainExampleAnswers);
+        setGeneratedFollowUpExampleAnswers(followUpExampleAnswers);
+
+        const existingSessionId = localStorage.getItem("interviewSessionId");
+
+        try {
+          const nextSavedSessionId = await DatabaseService.saveInterviewResults(
+            activeUserId,
+            {
+              ...(session as {
+                messages: Array<{
+                  type: string;
+                  content: string;
+                  isFollowUp?: boolean;
+                }>;
+                questionIds?: string[];
+                isComplete: boolean;
+              }),
+              exampleAnswers: mainExampleAnswers,
+              followUpExampleAnswers: followUpExampleAnswers,
+              isComplete: true,
+            },
+            {
+              position: config.position,
+              seniority: config.seniority,
+              interviewType: config.interviewType,
+              interviewMode: config.interviewMode,
+              duration: Number(config.duration),
+              ...(config.specificCompany
+                ? { specificCompany: config.specificCompany }
+                : {}),
+            },
+            data.feedback,
+            existingSessionId,
           );
 
-          if (activeUserId) {
-            const hasAnyUserAnswer =
-              Array.isArray(session.messages) &&
-              session.messages.some(
-                (message: { type?: unknown; content?: unknown }) =>
-                  message.type === "user" &&
-                  typeof message.content === "string" &&
-                  message.content.trim().length > 0,
-              );
-
-            const existingSessionId =
-              localStorage.getItem("interviewSessionId");
-
-            if (!hasAnyUserAnswer) {
-              if (existingSessionId) {
-                try {
-                  await DatabaseService.deleteSession(
-                    activeUserId,
-                    existingSessionId,
-                  );
-                } catch (deleteError) {
-                  console.error(
-                    "Error deleting empty session from database:",
-                    deleteError,
-                  );
-                }
+          try {
+            const shouldAwardXP = (() => {
+              if (
+                typeof nextSavedSessionId !== "string" ||
+                nextSavedSessionId.trim().length === 0
+              ) {
+                return true;
               }
+              const awardKey = `xpAwarded:${nextSavedSessionId}`;
+              return window.sessionStorage.getItem(awardKey) !== "1";
+            })();
 
-              localStorage.removeItem("interviewSessionId");
+            if (!shouldAwardXP) {
+              await refreshUserData();
               return;
             }
 
-            try {
-              const mainQuestionPrompts = (session.messages ?? [])
-                .filter(
-                  (m: { type?: unknown; isFollowUp?: unknown }) =>
-                    m.type === "ai" && m.isFollowUp !== true,
-                )
-                .map((m: { content?: unknown }) =>
-                  typeof m.content === "string" ? m.content.trim() : "",
-                )
-                .filter(Boolean);
+            const durationMinutes = (() => {
+              const rawDuration = (session as { totalDuration?: unknown })
+                .totalDuration;
+              return typeof rawDuration === "number" &&
+                Number.isFinite(rawDuration)
+                ? rawDuration
+                : Number(config.duration);
+            })();
 
-              const followUpPrompts = (session.messages ?? [])
-                .filter(
-                  (m: { type?: unknown; isFollowUp?: unknown }) =>
-                    m.type === "ai" && m.isFollowUp === true,
-                )
-                .map((m: { content?: unknown }) =>
-                  typeof m.content === "string" ? m.content.trim() : "",
-                )
-                .filter(Boolean);
+            const xp = await addUserXP(
+              activeUserId,
+              data.feedback.score,
+              durationMinutes,
+            );
 
-              let exampleAnswers: string[] = [];
-              if (mainQuestionPrompts.length > 0) {
-                try {
-                  const exampleRes = await fetch(
-                    "/api/interview/example-answers",
-                    {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({
-                        interviewConfig: config,
-                        questions: mainQuestionPrompts,
-                      }),
-                    },
-                  );
+            toast.success(
+              xp.newAchievements.length > 0
+                ? `+${xp.xpGained} XP · ${xp.newAchievements.length} achievement${xp.newAchievements.length === 1 ? "" : "s"}`
+                : `+${xp.xpGained} XP`,
+            );
 
-                  if (exampleRes.ok) {
-                    const payload = (await exampleRes.json()) as {
-                      success: boolean;
-                      answers?: string[];
-                    };
-
-                    if (payload.success && Array.isArray(payload.answers)) {
-                      exampleAnswers = payload.answers;
-                    }
-                  }
-                } catch (exampleError) {
-                  console.error(
-                    "Failed to generate example answers for results:",
-                    exampleError,
-                  );
-                }
-              }
-
-              let followUpExampleAnswers: string[] = [];
-              if (followUpPrompts.length > 0) {
-                try {
-                  const exampleRes = await fetch(
-                    "/api/interview/example-answers",
-                    {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({
-                        interviewConfig: config,
-                        questions: followUpPrompts,
-                      }),
-                    },
-                  );
-
-                  if (exampleRes.ok) {
-                    const payload = (await exampleRes.json()) as {
-                      success: boolean;
-                      answers?: string[];
-                    };
-
-                    if (payload.success && Array.isArray(payload.answers)) {
-                      followUpExampleAnswers = payload.answers;
-                    }
-                  }
-                } catch (exampleError) {
-                  console.error(
-                    "Failed to generate follow-up example answers for results:",
-                    exampleError,
-                  );
-                }
-              }
-
-              setGeneratedFollowUpExampleAnswers(
-                Array.isArray(followUpExampleAnswers)
-                  ? followUpExampleAnswers
-                  : [],
+            if (
+              typeof nextSavedSessionId === "string" &&
+              nextSavedSessionId.trim().length > 0
+            ) {
+              window.sessionStorage.setItem(
+                `xpAwarded:${nextSavedSessionId}`,
+                "1",
               );
-
-              const savedSessionId = await DatabaseService.saveInterviewResults(
-                activeUserId,
-                { ...session, exampleAnswers, followUpExampleAnswers },
-                config,
-                data.feedback,
-                existingSessionId,
-              );
-
-              if (
-                typeof savedSessionId === "string" &&
-                savedSessionId.length > 0
-              ) {
-                localStorage.setItem("interviewSessionId", savedSessionId);
-
-                if (exampleAnswers.length > 0) {
-                  const nextGenerated: Record<string, string> = {};
-                  const sessionQuestionIds = Array.isArray(session.questionIds)
-                    ? (session.questionIds as string[])
-                    : [];
-                  for (let i = 0; i < exampleAnswers.length; i++) {
-                    const key = sessionQuestionIds[i] ?? `q_${i + 1}`;
-                    const answer = exampleAnswers[i] ?? "";
-                    if (!key) continue;
-                    if (typeof answer !== "string") continue;
-                    const trimmed = answer.trim();
-                    if (!trimmed) continue;
-                    nextGenerated[key] = trimmed;
-                  }
-                  setGeneratedExampleAnswerByQuestionId(nextGenerated);
-                }
-              }
-
-              const xpResult = await addUserXP(
-                activeUserId,
-                data.feedback.score,
-                data.feedback.totalDuration || 0,
-              );
-
-              console.log("XP Update:", xpResult);
-
-              try {
-                const latestProfile =
-                  await DatabaseService.getUserProfile(activeUserId);
-                setUserProfile(latestProfile);
-              } catch (profileRefreshError) {
-                console.error(
-                  "Failed to refresh user profile after XP update:",
-                  profileRefreshError,
-                );
-                setUserProfile((prev) =>
-                  prev
-                    ? {
-                        ...prev,
-                        totalInterviews: (prev.totalInterviews ?? 0) + 1,
-                      }
-                    : prev,
-                );
-              }
-            } catch (dbError) {
-              console.error("Error saving to database:", dbError);
             }
-          }
-        } else {
-          throw new Error(data.error || "Analysis failed");
-        }
-      } catch (error) {
-        console.error("Analysis error:", error);
 
-        const shouldRetry =
-          retryCount < 2 &&
-          error instanceof Error &&
-          (error.message.includes("timed out") ||
-            error.message.includes("timeout") ||
-            error.message.includes("AbortError") ||
-            error.message.includes("429") ||
-            error.message.includes("rate limit"));
-
-        if (shouldRetry) {
-          const delay = 2 ** retryCount * 2000;
-
-          setTimeout(() => {
-            loadAnalysis(retryCount + 1);
-          }, delay);
-          return;
-        }
-
-        if (error instanceof Error) {
-          if (
-            error.name === "AbortError" ||
-            error.message.includes("timed out")
-          ) {
-            setError(
-              "Analysis timed out after multiple attempts. The AI service may be experiencing high load. Please try again later.",
+            window.sessionStorage.setItem(
+              "postInterviewRewards",
+              JSON.stringify({
+                xpGained: xp.xpGained,
+                newAchievementIds: xp.newAchievements,
+              } satisfies RewardsPayload),
             );
-          } else if (error.message.includes("401")) {
-            setError("API authentication failed. Please check configuration.");
-          } else if (
-            error.message.includes("429") ||
-            error.message.includes("rate limit")
-          ) {
-            setError(
-              "AI service is currently at capacity. Please try again in a few minutes.",
-            );
-          } else {
-            setError(error.message || "Failed to analyze interview responses");
+            setRewardsPayload({
+              xpGained: xp.xpGained,
+              newAchievementIds: xp.newAchievements,
+            });
+            await refreshUserData();
+          } catch (xpError) {
+            console.error("Error awarding XP:", xpError);
+            toast.error("Failed to award XP. Please retry.");
           }
-        } else {
-          setError("Failed to analyze interview responses");
+
+          if (!isMounted) return;
+          if (typeof nextSavedSessionId === "string" && nextSavedSessionId) {
+            setSavedSessionId(nextSavedSessionId);
+            clearInterviewStorage();
+            justCreatedSessionIdRef.current = nextSavedSessionId;
+            router.replace(`/results?sessionId=${nextSavedSessionId}`);
+            setResultsView("deck");
+          }
+        } catch (dbError) {
+          console.error("Error saving to database:", dbError);
         }
+      } catch (e) {
+        console.error("Analysis error:", e);
+        if (!isMounted) return;
+        setError("Failed to analyze interview responses");
       } finally {
-        setIsAnalyzing(false);
+        if (isMounted) setIsAnalyzing(false);
       }
     };
 
-    loadAnalysis();
-  }, [activeUserId, router]);
-
-  useEffect(() => {
-    if (!activeUserId) return;
-
-    let isMounted = true;
-    (async () => {
-      try {
-        const profile = await DatabaseService.getUserProfile(activeUserId);
-        if (!isMounted) return;
-        setUserProfile((prev) => {
-          if (!profile) {
-            return prev ?? null;
-          }
-
-          if (prev) {
-            const prevInterviews = prev.totalInterviews ?? 0;
-            const nextInterviews = profile.totalInterviews ?? 0;
-            if (prevInterviews > nextInterviews) {
-              return prev;
-            }
-          }
-
-          return profile;
-        });
-      } catch (profileError) {
-        console.error(
-          "Failed to load user profile for survey gating:",
-          profileError,
-        );
-      }
-    })();
+    void loadAnalysis();
 
     return () => {
       isMounted = false;
     };
-  }, [activeUserId]);
+  }, [activeUserId, refreshUserData, router, sessionIdFromQuery]);
 
-  const handleSurveyNavigation = useCallback(
-    (path: string) => {
-      router.push(path);
-    },
-    [router],
-  );
+  // ...
 
-  const handleNavigationRequest = useCallback(
-    (path: string) => {
-      const controller = surveyControllerRef.current;
-      if (controller) {
-        controller.requestNavigation(path);
-        return;
-      }
-      handleSurveyNavigation(path);
-    },
-    [handleSurveyNavigation],
-  );
+  if (isLoadingSession) {
+    return <LoadingPage message="Loading results..." />;
+  }
 
-  // ============================================================================
-  // RENDER: LOADING STATE
-  // ============================================================================
+  // ...
 
   if (isAnalyzing) {
     return (
@@ -1287,222 +1550,221 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     }
   })();
 
+  const showDeck = resultsView === "deck" && Boolean(savedSessionId);
+
+  const rewards = (() => {
+    if (!rewardsPayload) return null;
+    const achievements = ACHIEVEMENTS.filter((a) =>
+      rewardsPayload.newAchievementIds.includes(a.id),
+    );
+    return { xpGained: rewardsPayload.xpGained, achievements };
+  })();
+
   return (
-    <>
-      <main className={`flex-1 overflow-auto ${backgroundClass}`}>
-        <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
-          {termination && terminationTitle && (
-            <Card className="border-2 border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700">
-              <CardContent className="py-6">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300">
-                      <AlertTriangle className="size-6" />
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-red-900 dark:text-red-100 mb-1">
-                        {terminationTitle}
+    <div className="flex flex-1 min-h-0 flex-col">
+      <AnimatePresence mode="wait" initial={false}>
+        {showDeck ? (
+          <motion.div
+            key="results_deck"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+            className="flex-1 min-h-0 overflow-hidden"
+          >
+            {savedSessionId ? (
+              <ResultsDeck
+                key={savedSessionId}
+                results={results}
+                rewards={rewards}
+                onRewardsConsumed={() => {
+                  window.sessionStorage.removeItem("postInterviewRewards");
+                }}
+                onOpenFullReport={() =>
+                  router.push(`/history/${savedSessionId}`)
+                }
+                onDone={() => {
+                  markDeckCompleted(savedSessionId);
+                  setResultsView("full");
+                }}
+              />
+            ) : null}
+          </motion.div>
+        ) : (
+          <motion.div
+            key="results_full"
+            initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -8, filter: "blur(8px)" }}
+            transition={{ duration: 0.28, ease: "easeOut" }}
+            className="flex flex-1 min-h-0 flex-col"
+          >
+            <div className={`flex-1 min-h-0 overflow-auto ${backgroundClass}`}>
+              <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
+                {termination && terminationTitle && (
+                  <Card className="border-2 border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700">
+                    <CardContent className="py-6">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300">
+                            <AlertTriangle className="size-6" />
+                          </div>
+                          <div>
+                            <div className="text-lg font-bold text-red-900 dark:text-red-100 mb-1">
+                              {terminationTitle}
+                            </div>
+                            <Typography.Body className="text-sm leading-relaxed text-red-700 dark:text-red-300">
+                              {termination.message}
+                            </Typography.Body>
+                          </div>
+                        </div>
                       </div>
-                      <Typography.Body className="text-sm leading-relaxed text-red-700 dark:text-red-300">
-                        {termination.message}
-                      </Typography.Body>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+                    </CardContent>
+                  </Card>
+                )}
 
-          {/* ============================================================================ */}
-          {/* OUTCOME DECISION BANNER */}
-          {/* ============================================================================ */}
-          {results.passed !== undefined && (
-            <Card
-              className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
-                results.passed
-                  ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
-                  : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
-              }`}
-            >
-              <CardContent className="py-8">
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                  <div className="flex items-center gap-6">
-                    <div
-                      className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${
-                        results.passed
-                          ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
-                          : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                      }`}
-                    >
-                      {results.passed ? (
-                        <CheckCircle className="h-8 w-8" />
-                      ) : (
-                        <XCircle className="h-8 w-8" />
-                      )}
-                    </div>
-                    <div className="text-center sm:text-left">
-                      <div
-                        className={`text-3xl font-bold mb-3 ${
-                          results.passed
-                            ? "text-emerald-900 dark:text-emerald-100"
-                            : "text-red-900 dark:text-red-100"
-                        }`}
-                      >
-                        {results.passed ? "Interview Passed" : "Not Passed"}
-                      </div>
-                      <div className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                        {results.score} points
-                      </div>
-                      <Typography.Body
-                        className={`text-lg leading-relaxed mb-2 ${
-                          results.passed
-                            ? "text-emerald-700 dark:text-emerald-300"
-                            : "text-red-700 dark:text-red-300"
-                        }`}
-                      >
-                        {outcomeMessage}
-                      </Typography.Body>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {interviewConfig && (
-            <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
-              <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  <User className="size-4 text-blue-600 dark:text-blue-400" />
-                  Interview Configuration
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <div>
-                    <div className="text-xs font-medium text-muted-foreground mb-1">
-                      Position
-                    </div>
-                    <div className="text-sm font-semibold capitalize">
-                      {interviewConfig.position}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium text-muted-foreground mb-1">
-                      Seniority
-                    </div>
-                    <div className="text-sm font-semibold capitalize">
-                      {interviewConfig.seniority}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium text-muted-foreground mb-1">
-                      Interview Type
-                    </div>
-                    <div className="text-sm font-semibold capitalize">
-                      {interviewConfig.interviewType}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium text-muted-foreground mb-1">
-                      Mode
-                    </div>
-                    <div className="text-sm font-semibold capitalize">
-                      {interviewConfig.interviewMode}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium text-muted-foreground mb-1">
-                      Duration
-                    </div>
-                    <div className="text-sm font-semibold">
-                      {interviewConfig.duration} minutes
-                    </div>
-                  </div>
-                  {(interviewConfig.specificCompany ||
-                    interviewConfig.company) && (
-                    <div>
-                      <div className="text-xs font-medium text-muted-foreground mb-1">
-                        Company
-                      </div>
-                      <div className="text-sm font-semibold">
-                        {interviewConfig.specificCompany ??
-                          interviewConfig.company}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* ============================================================================ */}
-          {/* OVERALL ASSESSMENT */}
-          {/* ============================================================================ */}
-          <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
-            <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-              <CardTitle className="flex items-center gap-3 text-xl font-semibold text-gray-900 dark:text-gray-100">
-                <BarChart3 className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-                Overall Performance Assessment
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 mb-6">
-                <div className="relative w-28 h-28 flex-shrink-0 mx-auto sm:mx-0">
-                  <svg
-                    className="w-full h-full transform -rotate-90"
-                    viewBox="0 0 100 100"
-                    aria-labelledby="score-chart-title"
+                {/* ============================================================================ */}
+                {/* OUTCOME DECISION BANNER */}
+                {/* ============================================================================ */}
+                {results.passed !== undefined && (
+                  <Card
+                    className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
+                      results.passed
+                        ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
+                        : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
+                    }`}
                   >
-                    <title id="score-chart-title">
-                      Interview Score: {results.score} out of 100
-                    </title>
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      stroke="currentColor"
-                      strokeWidth="8"
-                      fill="none"
-                      className="text-gray-200 dark:text-gray-800"
-                    />
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      stroke="currentColor"
-                      strokeWidth="8"
-                      fill="none"
-                      strokeDasharray={`${2 * Math.PI * 45}`}
-                      strokeDashoffset={`${2 * Math.PI * 45 * (1 - results.score / 100)}`}
-                      className={
-                        results.passed
-                          ? "text-emerald-600 dark:text-emerald-400"
-                          : "text-red-600 dark:text-red-400"
-                      }
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Typography.BodyBold
-                      className={`text-3xl font-bold ${
-                        results.passed
-                          ? "text-emerald-900 dark:text-emerald-100"
-                          : "text-red-900 dark:text-red-100"
-                      }`}
-                    >
-                      {results.score}
-                    </Typography.BodyBold>
-                  </div>
-                </div>
-                <div className="flex-1 w-full">
-                  <Typography.Heading3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
-                    {getPerformanceLabel(results.score, results.passed)}
-                  </Typography.Heading3>
+                    <CardContent className="py-8">
+                      <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div className="flex items-center gap-6">
+                          <div
+                            className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${
+                              results.passed
+                                ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
+                                : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                            }`}
+                          >
+                            {results.passed ? (
+                              <CheckCircle className="h-8 w-8" />
+                            ) : (
+                              <XCircle className="h-8 w-8" />
+                            )}
+                          </div>
+                          <div className="text-center sm:text-left">
+                            <div
+                              className={`text-3xl font-bold mb-3 ${
+                                results.passed
+                                  ? "text-emerald-900 dark:text-emerald-100"
+                                  : "text-red-900 dark:text-red-100"
+                              }`}
+                            >
+                              {results.passed
+                                ? "Interview Passed"
+                                : "Not Passed"}
+                            </div>
+                            <Typography.Body
+                              className={`text-lg leading-relaxed mb-2 ${
+                                results.passed
+                                  ? "text-emerald-700 dark:text-emerald-300"
+                                  : "text-red-700 dark:text-red-300"
+                              }`}
+                            >
+                              {outcomeMessage}
+                            </Typography.Body>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
 
-                  {(() => {
-                    const summary = results.overallScore?.trim();
-                    if (summary) {
+                {interviewConfig && (
+                  <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
+                    <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                      <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        <User className="size-4 text-blue-600 dark:text-blue-400" />
+                        Interview Configuration
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div>
+                          <div className="text-xs font-medium text-muted-foreground mb-1">
+                            Position
+                          </div>
+                          <div className="text-sm font-semibold capitalize">
+                            {interviewConfig.position}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="text-xs font-medium text-muted-foreground mb-1">
+                            Seniority
+                          </div>
+                          <div className="text-sm font-semibold capitalize">
+                            {interviewConfig.seniority}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="text-xs font-medium text-muted-foreground mb-1">
+                            Interview Type
+                          </div>
+                          <div className="text-sm font-semibold capitalize">
+                            {interviewConfig.interviewType}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="text-xs font-medium text-muted-foreground mb-1">
+                            Mode
+                          </div>
+                          <div className="text-sm font-semibold capitalize">
+                            {interviewConfig.interviewMode}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="text-xs font-medium text-muted-foreground mb-1">
+                            Duration
+                          </div>
+                          <div className="text-sm font-semibold">
+                            {interviewConfig.duration} minutes
+                          </div>
+                        </div>
+                        {(interviewConfig.specificCompany ||
+                          interviewConfig.company) && (
+                          <div>
+                            <div className="text-xs font-medium text-muted-foreground mb-1">
+                              Company
+                            </div>
+                            <div className="text-sm font-semibold">
+                              {interviewConfig.specificCompany ??
+                                interviewConfig.company}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {/* ============================================================================ */}
+                {/* OVERALL ASSESSMENT */}
+                {/* ============================================================================ */}
+                {/* OVERALL ASSESSMENT (Detailed View) */}
+                {/* ============================================================================ */}
+                <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+                  <div className="mb-4 flex items-center gap-2">
+                    <BarChart3 className="size-5 text-primary" />
+                    <h2 className="text-xl font-bold">
+                      Overall Performance Assessment
+                    </h2>
+                  </div>
+                  <DetailedScoreCard
+                    score={results.score}
+                    passed={results.passed}
+                    summary={(() => {
+                      const summary =
+                        results.overallScore?.trim() || outcomeMessage;
+                      if (!summary) return null;
+
                       return (
                         <ReactMarkdown
                           remarkPlugins={[remarkGfm]}
@@ -1511,461 +1773,428 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                           {normalizeOverallSummaryMarkdown(summary)}
                         </ReactMarkdown>
                       );
+                    })()}
+                    categoryScores={
+                      results.categoryScores
+                        ? {
+                            technical: clampFinite(
+                              results.categoryScores.technical,
+                              0,
+                              CATEGORY_MAX.technical,
+                            ),
+                            problemSolving: clampFinite(
+                              results.categoryScores.problemSolving,
+                              0,
+                              CATEGORY_MAX.problemSolving,
+                            ),
+                            communication: clampFinite(
+                              results.categoryScores.communication,
+                              0,
+                              CATEGORY_MAX.communication,
+                            ),
+                            professional: clampFinite(
+                              results.categoryScores.professional,
+                              0,
+                              CATEGORY_MAX.professional,
+                            ),
+                          }
+                        : getCategoryScores(results.score)
                     }
-
-                    const fallback = results.detailedAnalysis
-                      ?.trim()
-                      .split(/\n{2,}/)
-                      .map((part) => part.trim())
-                      .filter(Boolean)[0];
-
-                    if (fallback) {
-                      return (
-                        <ReactMarkdown
-                          remarkPlugins={[remarkGfm]}
-                          components={overallSummaryMarkdownComponents}
-                        >
-                          {normalizeOverallSummaryMarkdown(fallback)}
-                        </ReactMarkdown>
-                      );
+                    technologyScores={
+                      results.technologyScores
+                        ? Object.entries(results.technologyScores)
+                            .map(([tech, score]) => ({
+                              tech,
+                              score: clampFinite(score, 0, 100),
+                            }))
+                            .sort((a, b) => b.score - a.score)
+                        : undefined
                     }
-
-                    return (
-                      <Typography.Body className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Detailed summary unavailable for this interview.
-                      </Typography.Body>
-                    );
-                  })()}
+                  />
                 </div>
-              </div>
-              {results.passingThreshold && (
-                <div className="text-sm text-gray-600 dark:text-gray-400 pt-4 border-t border-gray-200 dark:border-gray-800">
-                  Passing threshold for this position:{" "}
-                  {results.passingThreshold} points
-                </div>
-              )}
-            </CardContent>
-          </Card>
 
-          {/* ============================================================================ */}
-          {/* STRENGTHS & IMPROVEMENTS GRID */}
-          {/* ============================================================================ */}
-          {(() => {
-            const showStrengthsAndGrowth = false;
+                {/* ============================================================================ */}
+                {/* STRENGTHS & IMPROVEMENTS GRID */}
+                {/* ============================================================================ */}
+                {(() => {
+                  const showStrengthsAndGrowth = false;
 
-            if (!showStrengthsAndGrowth) return null;
+                  if (!showStrengthsAndGrowth) return null;
 
-            return (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-left-4">
-                  <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                    <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      <Award className="size-5 text-emerald-600 dark:text-emerald-400" />
-                      Key Strengths Demonstrated
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-6">
-                    {results.strengths.length > 0 ? (
-                      <ul className="space-y-4">
-                        {results.strengths.map((strength, index) => (
-                          <li
-                            key={`strength-${index}`}
-                            className="flex items-start gap-3 group animate-in fade-in slide-in-from-left-2 duration-500"
-                            style={{ animationDelay: `${index * 100}ms` }}
-                          >
-                            <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
-                              <CheckCircle className="w-3 h-3" />
+                  return (
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                      <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-left-4">
+                        <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                          <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                            <Award className="size-5 text-emerald-600 dark:text-emerald-400" />
+                            Key Strengths Demonstrated
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="pt-6">
+                          {results.strengths.length > 0 ? (
+                            <ul className="space-y-4">
+                              {results.strengths.map((strength, index) => (
+                                <li
+                                  key={`strength-${index}`}
+                                  className="flex items-start gap-3 group animate-in fade-in slide-in-from-left-2 duration-500"
+                                  style={{ animationDelay: `${index * 100}ms` }}
+                                >
+                                  <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
+                                    <CheckCircle className="w-3 h-3" />
+                                  </div>
+                                  <Typography.Body className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                    {strength}
+                                  </Typography.Body>
+                                </li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <div className="text-center py-8">
+                              <Award className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+                              <Typography.Body className="text-sm text-gray-500 dark:text-gray-500 italic">
+                                Building foundational skills - keep developing
+                                your technical expertise!
+                              </Typography.Body>
                             </div>
-                            <Typography.Body className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                              {strength}
-                            </Typography.Body>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <div className="text-center py-8">
-                        <Award className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                        <Typography.Body className="text-sm text-gray-500 dark:text-gray-500 italic">
-                          Building foundational skills - keep developing your
-                          technical expertise!
-                        </Typography.Body>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
+                          )}
+                        </CardContent>
+                      </Card>
 
-                <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-right-4">
-                  <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                    <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      <Target className="size-5 text-amber-600 dark:text-amber-400" />
-                      {results.passed === false
-                        ? "Critical Development Areas"
-                        : "Growth Opportunities"}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-6">
-                    {results.improvements.length > 0 ? (
-                      <ul className="space-y-4">
-                        {results.improvements.map((improvement, index) => (
-                          <li
-                            key={`improvement-${index}`}
-                            className="flex items-start gap-3 group animate-in fade-in slide-in-from-right-2 duration-500"
-                            style={{ animationDelay: `${index * 100}ms` }}
-                          >
-                            <div
-                              className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${
-                                results.passed === false
-                                  ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                                  : "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300"
-                              }`}
-                            >
-                              <TrendingUp className="w-3 h-3" />
+                      <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-right-4">
+                        <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                          <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                            <Target className="size-5 text-amber-600 dark:text-amber-400" />
+                            {results.passed === false
+                              ? "Critical Development Areas"
+                              : "Growth Opportunities"}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="pt-6">
+                          {results.improvements.length > 0 ? (
+                            <ul className="space-y-4">
+                              {results.improvements.map(
+                                (improvement, index) => (
+                                  <li
+                                    key={`improvement-${index}`}
+                                    className="flex items-start gap-3 group animate-in fade-in slide-in-from-right-2 duration-500"
+                                    style={{
+                                      animationDelay: `${index * 100}ms`,
+                                    }}
+                                  >
+                                    <div
+                                      className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${
+                                        results.passed === false
+                                          ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                                          : "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300"
+                                      }`}
+                                    >
+                                      <TrendingUp className="w-3 h-3" />
+                                    </div>
+                                    <Typography.Body className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                      {stripLinks(improvement)}
+                                    </Typography.Body>
+                                  </li>
+                                ),
+                              )}
+                            </ul>
+                          ) : (
+                            <div className="text-center py-8">
+                              <Target className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+                              <Typography.Body className="text-sm text-gray-500 dark:text-gray-500 italic">
+                                Excellent foundation - continue building
+                                advanced competencies!
+                              </Typography.Body>
                             </div>
-                            <Typography.Body className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                              {stripLinks(improvement)}
-                            </Typography.Body>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <div className="text-center py-8">
-                        <Target className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                        <Typography.Body className="text-sm text-gray-500 dark:text-gray-500 italic">
-                          Excellent foundation - continue building advanced
-                          competencies!
-                        </Typography.Body>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              </div>
-            );
-          })()}
-
-          {results.knowledgeGaps && results.knowledgeGaps.length > 0 && (
-            <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  <BookOpen className="size-5 text-blue-600 dark:text-blue-400" />
-                  Knowledge Gaps & Resources
-                </CardTitle>
-                <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Focus on the high-priority items first. Each gap has curated
-                  links from the resource library.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="space-y-6">
-                  {results.knowledgeGaps.map((gap, index) => (
-                    <div
-                      key={`${gap.title}-${index}`}
-                      className="rounded-lg border border-gray-200 dark:border-gray-800 p-4"
-                    >
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                        <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
-                          {normalizeKnowledgeGapTitle(gap.title)}
-                        </div>
-                        <Typography.CaptionMedium
-                          className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getPriorityClass(
-                            gap.priority,
-                          )}`}
-                        >
-                          {getPriorityLabel(gap.priority)}
-                        </Typography.CaptionMedium>
-                      </div>
-
-                      {gap.why && (
-                        <div className="text-sm text-gray-700 dark:text-gray-300 mb-3">
-                          {gap.why}
-                        </div>
-                      )}
-
-                      {gap.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mb-3">
-                          {gap.tags.map((tag) => (
-                            <Typography.Caption
-                              key={tag}
-                              className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                            >
-                              {tag}
-                            </Typography.Caption>
-                          ))}
-                        </div>
-                      )}
-
-                      {gap.resources.length > 0 ? (
-                        <ul className="space-y-2">
-                          {gap.resources.map((r) => (
-                            <li key={r.id} className="text-sm">
-                              <a
-                                className="text-blue-700 dark:text-blue-300 hover:underline"
-                                href={r.url}
-                                target="_blank"
-                                rel="noreferrer"
-                              >
-                                {r.title}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <div className="text-sm text-gray-500 dark:text-gray-500 italic">
-                          No resources found for these tags yet.
-                        </div>
-                      )}
+                          )}
+                        </CardContent>
+                      </Card>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
+                  );
+                })()}
 
-          {qaRows.length > 0 && (
-            <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
-              <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  <Lightbulb className="size-5 text-amber-600 dark:text-amber-400" />
-                  Questions & Example Answers
-                </CardTitle>
-                <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Practice-library examples to benchmark your responses.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="space-y-6">
-                  {qaRows.map((row) => {
-                    const q = row.practiceQuestionId
-                      ? (practiceQuestionsById[row.practiceQuestionId] ?? null)
-                      : null;
-                    const example =
-                      (q ? getExampleAnswer(q) : null) ??
-                      getAiExampleAnswerForRow(row);
-                    const prompt = row.questionText.trim() || null;
-                    const yourAnswer = row.yourAnswer.trim() || null;
-                    const followUps = Array.isArray(row.followUps)
-                      ? row.followUps
-                          .map((f) => ({
-                            question: (f?.question ?? "").trim(),
-                            response: (f?.response ?? "").trim(),
-                            aiExampleAnswer:
-                              typeof (f as { aiExampleAnswer?: unknown })
-                                .aiExampleAnswer === "string"
-                                ? (
-                                    (f as { aiExampleAnswer?: string })
-                                      .aiExampleAnswer ?? ""
-                                  ).trim()
-                                : "",
-                          }))
-                          .filter((f) => f.question.length > 0)
-                      : [];
-
-                    return (
-                      <Collapsible
-                        key={row.practiceQuestionId ?? `q_${row.idx}`}
-                        defaultOpen={false}
-                        className="border-2 border-border/50 rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-card to-card/50 shadow-md hover:shadow-lg transition-shadow"
-                      >
-                        <CollapsibleTrigger className="w-full text-left group">
-                          <div className="flex items-center justify-between gap-3">
-                            <div className="flex flex-wrap items-center gap-2 min-w-0">
-                              <Badge
-                                variant="default"
-                                className="font-semibold"
-                              >
-                                Question {row.idx + 1}
-                              </Badge>
-                              <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
-                                {q?.title ?? ""}
+                {results.knowledgeGaps && results.knowledgeGaps.length > 0 && (
+                  <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                      <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        <BookOpen className="size-5 text-blue-600 dark:text-blue-400" />
+                        Knowledge Gaps & Resources
+                      </CardTitle>
+                      <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                        Focus on the high-priority items first. Each gap has
+                        curated links from the resource library.
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <div className="space-y-6">
+                        {results.knowledgeGaps.map((gap, index) => (
+                          <div
+                            key={`${gap.title}-${index}`}
+                            className="rounded-lg border border-gray-200 dark:border-gray-800 p-4"
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                              <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                                {toShortTopicTitle(gap.title, gap.tags)}
                               </div>
-                            </div>
-                            <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
-                          </div>
-                        </CollapsibleTrigger>
-
-                        <CollapsibleContent className="pt-4">
-                          <div className="whitespace-pre-line mb-3">
-                            {prompt ? (
-                              <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                components={qaQuestionMarkdownComponents}
+                              <Typography.CaptionMedium
+                                className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getPriorityClass(
+                                  gap.priority,
+                                )}`}
                               >
-                                {prompt}
-                              </ReactMarkdown>
+                                {getPriorityLabel(gap.priority)}
+                              </Typography.CaptionMedium>
+                            </div>
+
+                            {(() => {
+                              const summary =
+                                getGapSummaryTextWithFallback(gap);
+                              const blurb = getGapBlurbText(gap);
+                              const content = blurb || summary;
+                              if (!content) return null;
+                              return (
+                                <MarkdownContent
+                                  className="text-gray-700 dark:text-gray-300 mb-3"
+                                  markdown={content}
+                                />
+                              );
+                            })()}
+
+                            {gap.tags.length > 0 && (
+                              <div className="flex flex-wrap gap-2 mb-3">
+                                {gap.tags.map((tag) => (
+                                  <Typography.Caption
+                                    key={tag}
+                                    className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
+                                  >
+                                    {tag}
+                                  </Typography.Caption>
+                                ))}
+                              </div>
+                            )}
+
+                            {gap.resources.length > 0 ? (
+                              <ul className="space-y-2">
+                                {gap.resources.map((r) => (
+                                  <li key={r.id} className="text-sm">
+                                    <a
+                                      className="text-blue-700 dark:text-blue-300 hover:underline"
+                                      href={r.url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      {r.title}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
                             ) : (
-                              <div className="text-sm text-gray-600 dark:text-gray-400">
-                                Question prompt unavailable.
+                              <div className="text-sm text-gray-500 dark:text-gray-500 italic">
+                                No curated links yet.
                               </div>
                             )}
                           </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
 
-                          {yourAnswer ? (
-                            <>
-                              <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                <User className="size-4 text-primary" />
-                                Your Response:
-                              </div>
-                              <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                <div className="whitespace-pre-line text-sm">
-                                  <ReactMarkdown
-                                    remarkPlugins={[remarkGfm]}
-                                    components={qaMarkdownComponents}
-                                  >
-                                    {yourAnswer}
-                                  </ReactMarkdown>
-                                </div>
-                              </div>
-                            </>
-                          ) : (
-                            <div className="text-sm text-gray-600 dark:text-gray-400">
-                              No response recorded.
-                            </div>
-                          )}
+                {qaRows.length > 0 && (
+                  <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
+                    <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                      <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        <Lightbulb className="size-5 text-amber-600 dark:text-amber-400" />
+                        Questions & Example Answers
+                      </CardTitle>
+                      <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                        Practice-library examples to benchmark your responses.
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <div className="space-y-6">
+                        {qaRows.map((row, uniqueRowIdx) => {
+                          const q = row.practiceQuestionId
+                            ? (practiceQuestionsById[row.practiceQuestionId] ??
+                              null)
+                            : null;
+                          const example =
+                            (q ? getExampleAnswer(q) : null) ??
+                            row.aiExampleAnswer ??
+                            getAiExampleAnswerForRow(row);
+                          const prompt = row.questionText.trim() || null;
+                          const yourAnswer = row.yourAnswer.trim() || null;
 
-                          {followUps.length > 0 && (
-                            <div className="mt-5">
-                              <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                <MessageSquare className="size-4 text-primary" />
-                                Follow-ups:
-                              </div>
-                              <div className="space-y-4">
-                                {followUps.map((f, idx) => (
-                                  <div
-                                    key={`${row.practiceQuestionId ?? `q_${row.idx}`}_followup_${idx}`}
-                                    className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50"
-                                  >
-                                    <div className="whitespace-pre-line text-sm">
-                                      <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                        components={
-                                          qaQuestionMarkdownComponents
-                                        }
+                          return (
+                            <Collapsible
+                              key={
+                                row.practiceQuestionId ?? `row_${uniqueRowIdx}`
+                              }
+                              defaultOpen={false}
+                              className={`border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow ${
+                                row.type === "follow-up"
+                                  ? "border-l-4 border-l-blue-500/50 bg-gradient-to-br from-blue-50/50 to-blue-50/10 border-y-border/50 border-r-border/50 dark:from-blue-950/20 dark:to-blue-950/5"
+                                  : "border-border/50 bg-gradient-to-br from-card to-card/50"
+                              }`}
+                            >
+                              <CollapsibleTrigger className="w-full text-left group">
+                                <div className="flex items-center justify-between gap-3">
+                                  <div className="flex flex-wrap items-center gap-2 min-w-0">
+                                    {row.type === "main" ? (
+                                      <Badge
+                                        variant="default"
+                                        className="font-semibold"
                                       >
-                                        {f.question}
-                                      </ReactMarkdown>
+                                        Question {row.idx + 1}
+                                      </Badge>
+                                    ) : (
+                                      <Badge
+                                        variant="secondary"
+                                        className="font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-900/70"
+                                      >
+                                        Follow-up
+                                      </Badge>
+                                    )}
+                                    <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
+                                      {row.type === "main" && q?.title
+                                        ? q.title
+                                        : prompt
+                                          ? prompt.slice(0, 60) +
+                                            (prompt.length > 60 ? "..." : "")
+                                          : "Question Details"}
                                     </div>
-                                    {f.response.length > 0 && (
-                                      <div className="mt-3 whitespace-pre-line text-sm">
+                                  </div>
+                                  <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
+                                </div>
+                              </CollapsibleTrigger>
+
+                              <CollapsibleContent className="pt-4">
+                                <div className="whitespace-pre-line mb-3">
+                                  {prompt ? (
+                                    <ReactMarkdown
+                                      remarkPlugins={[remarkGfm]}
+                                      components={qaQuestionMarkdownComponents}
+                                    >
+                                      {prompt}
+                                    </ReactMarkdown>
+                                  ) : (
+                                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                                      Question prompt unavailable.
+                                    </div>
+                                  )}
+                                </div>
+
+                                {yourAnswer ? (
+                                  <>
+                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                      <User className="size-4 text-primary" />
+                                      Your Response:
+                                    </div>
+                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                      <div className="whitespace-pre-line text-sm">
                                         <ReactMarkdown
                                           remarkPlugins={[remarkGfm]}
                                           components={qaMarkdownComponents}
                                         >
-                                          {f.response}
+                                          {yourAnswer}
                                         </ReactMarkdown>
                                       </div>
-                                    )}
-
-                                    {f.aiExampleAnswer.length > 0 && (
-                                      <div className="mt-4">
-                                        <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                          <Lightbulb className="size-4 text-primary" />
-                                          Example Answer:
-                                        </div>
-                                        <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                          <div className="whitespace-pre-line text-sm">
-                                            <ReactMarkdown
-                                              remarkPlugins={[remarkGfm]}
-                                              components={qaMarkdownComponents}
-                                            >
-                                              {f.aiExampleAnswer}
-                                            </ReactMarkdown>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    )}
+                                    </div>
+                                  </>
+                                ) : (
+                                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                                    No response recorded.
                                   </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
+                                )}
 
-                          <Separator className="my-5" />
+                                <Separator className="my-5" />
 
-                          {example ? (
-                            <div>
-                              <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                <Lightbulb className="size-4 text-primary" />
-                                Example Answer:
-                              </div>
-                              <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                <div className="whitespace-pre-line text-sm">
-                                  <ReactMarkdown
-                                    remarkPlugins={[remarkGfm]}
-                                    components={qaMarkdownComponents}
-                                  >
-                                    {example}
-                                  </ReactMarkdown>
-                                </div>
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="text-sm text-gray-600 dark:text-gray-400">
-                              {q
-                                ? "No example answer available for this question yet."
-                                : "Question details unavailable (could not fetch from Neon)."}
-                            </div>
-                          )}
-                        </CollapsibleContent>
-                      </Collapsible>
-                    );
-                  })}
+                                {example ? (
+                                  <div>
+                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                      <Lightbulb className="size-4 text-primary" />
+                                      Example Answer:
+                                    </div>
+                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                      <div className="whitespace-pre-line text-sm">
+                                        <ReactMarkdown
+                                          remarkPlugins={[remarkGfm]}
+                                          components={qaMarkdownComponents}
+                                        >
+                                          {example}
+                                        </ReactMarkdown>
+                                      </div>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                                    {q
+                                      ? "No example answer available for this question yet."
+                                      : "No example answer available."}
+                                  </div>
+                                )}
+                              </CollapsibleContent>
+                            </Collapsible>
+                          );
+                        })}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {(Boolean(results.overallScore?.trim()) ||
+                  Boolean(results.detailedAnalysis?.trim()) ||
+                  results.strengths.length > 0 ||
+                  results.improvements.length > 0) && (
+                  <AiFeedbackCard
+                    title="AI Feedback"
+                    icon={<FileText className="size-4" />}
+                    summaryMarkdown={null}
+                    strengths={null}
+                    improvements={results.improvements}
+                    detailsMarkdown={results.detailedAnalysis}
+                  />
+                )}
+
+                {/* ============================================================================ */}
+                {/* DETAILED PERFORMANCE ANALYSIS */}
+                {/* ============================================================================ */}
+
+                {/* ============================================================================ */}
+                {/* ACTION BUTTONS */}
+                {/* ============================================================================ */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center py-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                  <Button
+                    onClick={() => handleNavigationRequest("/configure")}
+                    variant={results.passed ? "default" : "outline"}
+                    className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
+                  >
+                    <RotateCcw className="size-4 mr-2" />
+                    {results.passed ? "Take Another Interview" : "Try Again"}
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    onClick={() => handleNavigationRequest("/history")}
+                    className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
+                  >
+                    <BookOpen className="size-4 mr-2" />
+                    View Interview History
+                  </Button>
                 </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {(Boolean(results.overallScore?.trim()) ||
-            Boolean(results.detailedAnalysis?.trim()) ||
-            results.strengths.length > 0 ||
-            results.improvements.length > 0) && (
-            <AiFeedbackCard
-              title="AI Feedback"
-              icon={<FileText className="size-4" />}
-              summaryMarkdown={null}
-              strengths={results.strengths}
-              improvements={results.improvements}
-              detailsMarkdown={results.detailedAnalysis}
-            />
-          )}
-
-          {/* ============================================================================ */}
-          {/* DETAILED PERFORMANCE ANALYSIS */}
-          {/* ============================================================================ */}
-
-          {/* ============================================================================ */}
-          {/* ACTION BUTTONS */}
-          {/* ============================================================================ */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center py-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <Button
-              onClick={() => handleNavigationRequest("/configure")}
-              variant={results.passed ? "default" : "outline"}
-              className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
-            >
-              <RotateCcw className="size-4 mr-2" />
-              {results.passed ? "Take Another Interview" : "Try Again"}
-            </Button>
-
-            <Button
-              variant="outline"
-              onClick={() => handleNavigationRequest("/history")}
-              className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
-            >
-              <BookOpen className="size-4 mr-2" />
-              View Interview History
-            </Button>
-          </div>
-        </div>
-      </main>
-
-      <PostInterviewSurvey
-        activeUserId={activeUserId}
-        activeUserEmail={activeUserEmail}
-        userProfile={userProfile}
-        setUserProfile={setUserProfile}
-        results={results}
-        refreshUserData={refreshUserData}
-        onNavigate={handleSurveyNavigation}
-        controllerRef={surveyControllerRef}
-      />
-    </>
+              </div>
+              <PostInterviewSurvey
+                activeUserId={activeUserId}
+                activeUserEmail={activeUserEmail}
+                userProfile={userProfile}
+                setUserProfile={setUserProfile}
+                results={results}
+                refreshUserData={refreshUserData}
+                onNavigate={handleSurveyNavigation}
+                controllerRef={surveyControllerRef}
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

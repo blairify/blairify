@@ -31,14 +31,21 @@ import type { Message, QuestionType } from "../types";
 
 interface InterviewContentProps {
   user: UserData;
+  onInterviewStart?: () => void;
 }
 
 interface StartInterviewResponse {
   success: boolean;
   message: string;
   error?: string;
+  code?: string;
   details?: unknown;
   questionIds?: string[];
+  usage?: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
 }
 
 interface ChatInterviewResponse {
@@ -54,6 +61,11 @@ interface ChatInterviewResponse {
   terminatedForBehavior?: boolean;
   aiErrorType?: string;
   matchedBehaviorPatterns?: string[];
+  usage?: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
 }
 
 function getUserFacingInterviewErrorMessage(error: unknown) {
@@ -73,7 +85,10 @@ function getUserFacingInterviewErrorMessage(error: unknown) {
   return "I ran into an issue processing that. Your answer is saved in the transcript. Please try again in a moment.";
 }
 
-export function InterviewContent({ user }: InterviewContentProps) {
+export function InterviewContent({
+  user,
+  onInterviewStart,
+}: InterviewContentProps) {
   const { config, mounted } = useInterviewConfig();
   const [isInterviewStarted, setIsInterviewStarted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -98,6 +113,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
     session,
     addMessage,
     updateSession,
+    addTokenUsage,
     incrementQuestionCount,
     togglePause,
     completeInterview,
@@ -439,11 +455,34 @@ export function InterviewContent({ user }: InterviewContentProps) {
     });
 
   const handleStartInterview = async () => {
+    onInterviewStart?.();
     setCompletionTerminationReason(null);
     setIsInterviewStarted(true);
     setIsLoading(true);
 
     try {
+      if (user?.uid) {
+        const usageResult = await DatabaseService.checkUsageStatus(user.uid);
+        if (!usageResult.canStart) {
+          // Format the time remaining
+          const hoursRemaining = Math.floor(usageResult.remainingMinutes / 60);
+          const minsRemaining = usageResult.remainingMinutes % 60;
+          const timeDisplay =
+            hoursRemaining > 0
+              ? `${hoursRemaining}h ${minsRemaining}m`
+              : `${minsRemaining} minutes`;
+
+          addMessage({
+            id: Date.now().toString(),
+            type: "ai",
+            content: `🚫 **Interview Limit Reached**\n\nYou've reached the temporary interview limit. Please wait **${timeDisplay}** before starting another session.\n\n💡 **Want unlimited interviews?** Upgrade to Pro for unrestricted access to all interview modes and features.`,
+            timestamp: new Date(),
+          });
+          setIsLoading(false);
+          return;
+        }
+      }
+
       const response = await fetch("/api/interview/start", {
         method: "POST",
         headers: {
@@ -461,9 +500,46 @@ export function InterviewContent({ user }: InterviewContentProps) {
         console.error("❌ Failed to start interview:", {
           status: response.status,
           error: data.error,
+          code: data.code,
           details: data.details,
           config,
         });
+
+        // Handle daily limit exceeded with user-friendly message
+        if (data.code === "LIMIT_EXCEEDED") {
+          // Calculate time until midnight UTC
+          const now = new Date();
+          const midnightUTC = new Date(
+            Date.UTC(
+              now.getUTCFullYear(),
+              now.getUTCMonth(),
+              now.getUTCDate() + 1,
+              0,
+              0,
+              0,
+            ),
+          );
+          const msUntilReset = midnightUTC.getTime() - now.getTime();
+          const hoursUntilReset = Math.floor(msUntilReset / (1000 * 60 * 60));
+          const minutesUntilReset = Math.floor(
+            (msUntilReset % (1000 * 60 * 60)) / (1000 * 60),
+          );
+
+          const resetTimeMessage =
+            hoursUntilReset > 0
+              ? `${hoursUntilReset}h ${minutesUntilReset}m`
+              : `${minutesUntilReset} minutes`;
+
+          addMessage({
+            id: Date.now().toString(),
+            type: "ai",
+            content: `🚫 **Daily Interview Limit Reached**\n\nYou've used all your free interviews for today. Your limit resets in **${resetTimeMessage}** (at midnight UTC).\n\n💡 **Want unlimited interviews?** Upgrade to Pro for unrestricted access to all interview modes and features.`,
+            timestamp: new Date(),
+          });
+          setIsLoading(false);
+          return;
+        }
+
         throw new Error(data.error || "Failed to start interview");
       }
 
@@ -489,6 +565,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
             ? { totalQuestions: data.questionIds.length }
             : {}),
         });
+
+        if (data.usage) {
+          addTokenUsage(data.usage);
+        }
       }
     } catch (error) {
       console.error("Error starting interview:", error);
@@ -503,18 +583,6 @@ export function InterviewContent({ user }: InterviewContentProps) {
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (mounted && !isInterviewStarted && !isLoading) {
-      void handleStartInterview();
-    }
-  }, [
-    mounted,
-    isInterviewStarted,
-    isLoading,
-    // biome-ignore lint/correctness/useExhaustiveDependencies: handleStartInterview does not need memoization in React 19
-    handleStartInterview,
-  ]);
 
   useEffect(() => {
     if (!user?.uid || !databaseSessionId || session.messages.length === 0) {
@@ -538,6 +606,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
         await DatabaseService.updateSession(user.uid, databaseSessionId, {
           totalDuration: currentDuration,
           status: nextStatus,
+          tokenUsage: session.tokenUsage,
           ...(session.isComplete && { completedAt: Timestamp.now() }),
         });
       } catch (dbError) {
@@ -555,6 +624,7 @@ export function InterviewContent({ user }: InterviewContentProps) {
     session.termination?.reason,
     session.currentQuestionCount,
     session.totalQuestions,
+    session.tokenUsage,
   ]);
 
   const handleSendMessage = async () => {
@@ -633,6 +703,10 @@ export function InterviewContent({ user }: InterviewContentProps) {
         const nextMessages = [...conversationHistoryToSend, aiMessage];
 
         addMessage(aiMessage);
+
+        if (data.usage) {
+          addTokenUsage(data.usage);
+        }
 
         const ensuredSessionId = await ensureDatabaseSession(
           conversationHistoryToSend,

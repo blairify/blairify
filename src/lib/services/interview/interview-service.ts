@@ -37,6 +37,14 @@ export function determineQuestionType(
       const typeArray = QUESTION_TYPE_MAPPINGS["system-design"];
       return typeArray[questionCount % typeArray.length];
     }
+    case "situational": {
+      const typeArray = QUESTION_TYPE_MAPPINGS.situational;
+      return typeArray[questionCount % typeArray.length];
+    }
+    case "mixed": {
+      const typeArray = QUESTION_TYPE_MAPPINGS.mixed;
+      return typeArray[questionCount % typeArray.length];
+    }
   }
 
   const _never: never = interviewType;
@@ -212,9 +220,14 @@ export function validateInterviewConfig(config: Partial<InterviewConfig>): {
 
   if (
     !config.interviewType ||
-    !["technical", "bullet", "coding", "system-design"].includes(
-      config.interviewType,
-    )
+    ![
+      "technical",
+      "bullet",
+      "coding",
+      "system-design",
+      "situational",
+      "mixed",
+    ].includes(config.interviewType)
   ) {
     errors.push("Valid interview type is required");
   }

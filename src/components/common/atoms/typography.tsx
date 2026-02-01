@@ -117,10 +117,10 @@ const Heading1: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "Heading1",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
   return (
     <h1
@@ -145,10 +145,10 @@ const Heading2: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "Heading2",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
   return (
     <h2
@@ -173,10 +173,10 @@ const Heading3: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "Heading3",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
   return (
     <h3
@@ -201,10 +201,10 @@ const Body: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "Body",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
   return (
     <p className={typographyClass} data-clickable={!!props.onClick} {...props}>
@@ -224,10 +224,10 @@ const BodyMedium: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "BodyMedium",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
   return (
     <p className={typographyClass} data-clickable={!!props.onClick} {...props}>
@@ -247,10 +247,10 @@ const BodyBold: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "BodyBold",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
   return (
     <p className={typographyClass} data-clickable={!!props.onClick} {...props}>
@@ -270,10 +270,10 @@ const Caption: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "Caption",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
   return (
     <span
@@ -297,10 +297,10 @@ const CaptionMedium: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "CaptionMedium",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
   return (
     <span
@@ -324,10 +324,10 @@ const CaptionBold: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "CaptionBold",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
   return (
     <span
@@ -351,10 +351,10 @@ const SubCaption: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "SubCaption",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
   return (
     <span
@@ -378,10 +378,10 @@ const SubCaptionMedium: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "SubCaptionMedium",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
 
   return (
@@ -406,10 +406,10 @@ const SubCaptionBold: TypographyComponent = ({
     typographyVariants({
       color,
       variant: "SubCaptionBold",
-      className,
       clickable: !!props.onClick,
       disabled,
     }),
+    className,
   );
 
   return (

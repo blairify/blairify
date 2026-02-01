@@ -29,6 +29,71 @@ import {
 } from "@/lib/services/interview/message-moderation";
 import type { Message } from "@/types/interview";
 
+function safeParseJsonObject(value: string): Record<string, unknown> | null {
+  const raw = value.trim();
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed))
+      return null;
+    return parsed as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
+function buildSituationalEvaluatorPrompt(options: {
+  lastScenario: string | null;
+  candidateAnswer: string;
+  seniority: string;
+  position: string;
+}): { system: string; user: string } {
+  const scenarioContext = options.lastScenario
+    ? `Last scenario/question you asked (for context):\n${options.lastScenario}`
+    : "";
+
+  const system = `You are a strict interview coach.
+
+You must evaluate the candidate answer on TWO PARALLEL LAYERS:
+LayerA: communication structure + clarity (STAR: Situation, Task, Action, Result).
+LayerB: technical logic realism (cause/effect plausibility). Detect BS.
+
+Return JSON ONLY with this exact shape:
+{
+  "layerA": {
+    "structureScore": 0-10,
+    "clarityScore": 0-10,
+    "missingStar": ["Situation"|"Task"|"Action"|"Result"],
+    "notes": [string]
+  },
+  "layerB": {
+    "logicScore": 0-10,
+    "redFlags": [string],
+    "missingEvidence": [string],
+    "notes": [string]
+  },
+  "overall": {
+    "isVague": boolean,
+    "hasTechnicalInconsistency": boolean,
+    "topFix": string
+  },
+  "followUpQuestion": string
+}
+
+Rules:
+- followUpQuestion must be ONE question ending with '?'.
+- If answer is vague, ask for concrete steps, tools, metrics, timeline.
+- If technical mismatch exists, directly challenge the inconsistency.
+- No markdown. No extra keys.`;
+
+  const user = `Role: ${options.position} (${options.seniority}).
+${scenarioContext}
+
+Candidate answer:\n${options.candidateAnswer}`;
+
+  return { system, user };
+}
+
 function buildFollowUpRepairPrompt(
   baseUserPrompt: string,
   draft: string,
@@ -102,15 +167,14 @@ function normalizeOpening(
 }
 
 function getFollowUpsSinceLastMainQuestion(
-  conversationHistory: Message[],
+  history: Message[],
 ):
   | { count: number; hasMainQuestion: boolean }
   | { count: 0; hasMainQuestion: false } {
   let count = 0;
 
-  for (let i = conversationHistory.length - 1; i >= 0; i--) {
-    const msg = conversationHistory[i];
-
+  for (let i = history.length - 1; i >= 0; i--) {
+    const msg = history[i];
     if (msg.type !== "ai") continue;
 
     if (msg.isFollowUp) {
@@ -299,17 +363,20 @@ export async function POST(request: NextRequest) {
       followUpCountState.hasMainQuestion &&
       followUpCountState.count >= maxFollowUpsPerQuestion;
 
+    const isSituational = interviewConfig.interviewType === "situational";
     const autoFollowUp =
       !isFollowUp &&
       !interviewConfig.isDemoMode &&
       Array.isArray(conversationHistory) &&
       !reachedFollowUpCap &&
-      shouldGenerateFollowUp(
-        processedMessage,
-        conversationHistory as Message[],
-        interviewConfig,
-        currentQuestionCount,
-      );
+      (isSituational
+        ? processedMessage.trim().length >= 20
+        : shouldGenerateFollowUp(
+            processedMessage,
+            conversationHistory as Message[],
+            interviewConfig,
+            currentQuestionCount,
+          ));
 
     const requestedFollowUp = isFollowUp && !reachedFollowUpCap;
     let effectiveIsFollowUp = requestedFollowUp || autoFollowUp;
@@ -338,11 +405,13 @@ export async function POST(request: NextRequest) {
     const safeQuestionIds: string[] =
       Array.isArray(questionIds) && questionIds.length > 0 ? questionIds : [];
 
-    if (
+    const shouldUseQuestionBank =
       safeQuestionIds.length > 0 &&
-      !effectiveIsFollowUp &&
-      !interviewConfig.isDemoMode
-    ) {
+      interviewConfig.interviewType !== "situational" &&
+      interviewConfig.interviewType !== "mixed" &&
+      !interviewConfig.isDemoMode;
+
+    if (shouldUseQuestionBank && !effectiveIsFollowUp) {
       const nextIndex = currentQuestionCount;
 
       if (nextIndex >= 0 && nextIndex < safeQuestionIds.length) {
@@ -364,22 +433,54 @@ export async function POST(request: NextRequest) {
     }
 
     const systemPrompt = generateSystemPrompt(interviewConfig, interviewer);
-    const userPrompt = generateUserPrompt(
-      processedMessage,
-      conversationHistory || [],
-      interviewConfig,
-      currentQuestionCount,
-      effectiveIsFollowUp,
-      interviewer,
-      currentQuestionPrompt,
-    );
 
-    const aiResponse = await generateInterviewResponse(
-      aiClient,
-      systemPrompt,
-      userPrompt,
-      interviewConfig.interviewType,
-    );
+    let userPrompt: string | undefined;
+
+    const shouldRunSituationalEvaluator =
+      interviewConfig.interviewType === "situational" &&
+      effectiveIsFollowUp &&
+      Array.isArray(conversationHistory);
+
+    const evaluatorScenario = shouldRunSituationalEvaluator
+      ? ([...((conversationHistory as Message[]) ?? [])]
+          .reverse()
+          .find((m) => m.type === "ai" && !m.isFollowUp)?.content ?? null)
+      : null;
+
+    const aiResponse = shouldRunSituationalEvaluator
+      ? await (async () => {
+          const prompts = buildSituationalEvaluatorPrompt({
+            lastScenario: evaluatorScenario,
+            candidateAnswer: processedMessage,
+            seniority: String(interviewConfig.seniority),
+            position: String(interviewConfig.position),
+          });
+
+          return generateInterviewResponse(
+            aiClient,
+            prompts.system,
+            prompts.user,
+            interviewConfig.interviewType,
+          );
+        })()
+      : await (async () => {
+          userPrompt = generateUserPrompt(
+            processedMessage,
+            conversationHistory || [],
+            interviewConfig,
+            currentQuestionCount,
+            effectiveIsFollowUp,
+            interviewer,
+            currentQuestionPrompt,
+          );
+
+          return generateInterviewResponse(
+            aiClient,
+            systemPrompt,
+            userPrompt,
+            interviewConfig.interviewType,
+          );
+        })();
 
     let finalMessage: string;
     let usedFallback = false;
@@ -394,88 +495,121 @@ export async function POST(request: NextRequest) {
         forceServeNextBankedQuestion = true;
       }
     } else {
-      const validation = validateAIResponse(
-        aiResponse.content,
-        interviewConfig,
-        effectiveIsFollowUp,
-      );
+      if (shouldRunSituationalEvaluator) {
+        const parsed = safeParseJsonObject(aiResponse.content);
+        const followUpQuestion =
+          typeof parsed?.followUpQuestion === "string"
+            ? parsed.followUpQuestion.trim()
+            : "Could you walk me through the exact steps you took, including what signals (metrics/logs/traces) led you to the root cause?";
 
-      if (!validation.isValid) {
-        if (effectiveIsFollowUp && !interviewConfig.isDemoMode) {
-          console.warn(
-            `AI follow-up validation failed, attempting repair: ${validation.reason}`,
-          );
+        const layerA = parsed?.layerA as Record<string, unknown> | undefined;
+        const layerB = parsed?.layerB as Record<string, unknown> | undefined;
 
-          const repaired = await generateInterviewResponse(
-            aiClient,
-            systemPrompt,
-            buildFollowUpRepairPrompt(userPrompt, aiResponse.content),
-            interviewConfig.interviewType,
-          );
+        const aNotes = Array.isArray(layerA?.notes)
+          ? (layerA?.notes as unknown[]).filter((n) => typeof n === "string")
+          : [];
+        const bNotes = Array.isArray(layerB?.notes)
+          ? (layerB?.notes as unknown[]).filter((n) => typeof n === "string")
+          : [];
 
-          if (repaired.success && repaired.content) {
-            const repairedValidation = validateAIResponse(
-              repaired.content,
-              interviewConfig,
-              true,
+        const redFlags = Array.isArray(layerB?.redFlags)
+          ? (layerB?.redFlags as unknown[]).filter((n) => typeof n === "string")
+          : [];
+
+        const feedbackLines = [
+          ...aNotes.slice(0, 2),
+          ...bNotes.slice(0, 2),
+          ...redFlags.slice(0, 2),
+        ].slice(0, 4);
+
+        finalMessage =
+          feedbackLines.length > 0
+            ? `Feedback:\n- ${feedbackLines.join("\n- ")}\n\n${followUpQuestion}`
+            : followUpQuestion;
+      } else {
+        const validation = validateAIResponse(
+          aiResponse.content,
+          interviewConfig,
+          effectiveIsFollowUp,
+        );
+
+        if (!validation.isValid) {
+          if (effectiveIsFollowUp && !interviewConfig.isDemoMode) {
+            console.warn(
+              `AI follow-up validation failed, attempting repair: ${validation.reason}`,
             );
 
-            if (repairedValidation.isValid) {
-              finalMessage = repairedValidation.sanitized ?? repaired.content;
-            } else {
-              console.warn(
-                `AI follow-up repair failed validation: ${repairedValidation.reason}`,
+            const repaired = await generateInterviewResponse(
+              aiClient,
+              systemPrompt,
+              buildFollowUpRepairPrompt(userPrompt ?? "", aiResponse.content),
+              interviewConfig.interviewType,
+            );
+
+            if (repaired.success && repaired.content) {
+              const repairedValidation = validateAIResponse(
+                repaired.content,
+                interviewConfig,
+                true,
               );
+
+              if (repairedValidation.isValid) {
+                finalMessage = repairedValidation.sanitized ?? repaired.content;
+              } else {
+                console.warn(
+                  `AI follow-up repair failed validation: ${repairedValidation.reason}`,
+                );
+                finalMessage = getFallbackResponse(interviewConfig, true);
+                usedFallback = true;
+                forceServeNextBankedQuestion = true;
+              }
+            } else {
+              console.warn("AI follow-up repair call failed, using fallback");
               finalMessage = getFallbackResponse(interviewConfig, true);
               usedFallback = true;
               forceServeNextBankedQuestion = true;
             }
           } else {
-            console.warn("AI follow-up repair call failed, using fallback");
-            finalMessage = getFallbackResponse(interviewConfig, true);
+            console.warn(`AI response validation failed: ${validation.reason}`);
+            finalMessage = getFallbackResponse(
+              interviewConfig,
+              effectiveIsFollowUp,
+            );
             usedFallback = true;
-            forceServeNextBankedQuestion = true;
           }
         } else {
-          console.warn(`AI response validation failed: ${validation.reason}`);
-          finalMessage = getFallbackResponse(
-            interviewConfig,
-            effectiveIsFollowUp,
-          );
-          usedFallback = true;
-        }
-      } else {
-        const contentForSequence = validation.sanitized ?? aiResponse.content;
+          const contentForSequence = validation.sanitized ?? aiResponse.content;
 
-        if (!interviewConfig.isDemoMode) {
-          if (safeQuestionIds.length > 0) {
-            const expectPrimaryQuestion =
-              !effectiveIsFollowUp && !shouldComplete;
-            const expectedIndex = currentQuestionCount + 1;
+          if (!interviewConfig.isDemoMode) {
+            if (safeQuestionIds.length > 0) {
+              const expectPrimaryQuestion =
+                !effectiveIsFollowUp && !shouldComplete;
+              const expectedIndex = currentQuestionCount + 1;
 
-            const sequenceCheck = validateQuestionSequence(
-              contentForSequence,
-              expectedIndex,
-              expectPrimaryQuestion,
-            );
-
-            if (!sequenceCheck.isValid) {
-              console.warn(
-                `AI question sequence validation failed: ${sequenceCheck.reason}`,
+              const sequenceCheck = validateQuestionSequence(
+                contentForSequence,
+                expectedIndex,
+                expectPrimaryQuestion,
               );
-              finalMessage = getFallbackResponse(
-                interviewConfig,
-                effectiveIsFollowUp,
-              );
-              usedFallback = true;
+
+              if (!sequenceCheck.isValid) {
+                console.warn(
+                  `AI question sequence validation failed: ${sequenceCheck.reason}`,
+                );
+                finalMessage = getFallbackResponse(
+                  interviewConfig,
+                  effectiveIsFollowUp,
+                );
+                usedFallback = true;
+              } else {
+                finalMessage = contentForSequence;
+              }
             } else {
               finalMessage = contentForSequence;
             }
           } else {
             finalMessage = contentForSequence;
           }
-        } else {
-          finalMessage = contentForSequence;
         }
       }
     }
@@ -597,6 +731,7 @@ export async function POST(request: NextRequest) {
       isComplete: shouldComplete,
       usedFallback,
       aiErrorType: usedFallback ? (aiResponse.error ?? "fallback") : undefined,
+      usage: aiResponse.usage,
     });
   } catch (error) {
     console.error("Interview message API error:", error);

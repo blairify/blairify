@@ -10,6 +10,7 @@ import type {
 } from "@/components/interview/types";
 import { getAppUrl } from "@/lib/utils";
 import { shuffleWithSeed } from "@/lib/utils/seeded-random";
+
 import type { DifficultyLevel, Question } from "@/types/practice-question";
 
 /**
@@ -407,6 +408,44 @@ function matchCategoryToInterviewType(
       "debugging",
       "product",
     ],
+    situational: [
+      "debugging",
+      "performance",
+      "testing",
+      "incident-response",
+      "reliability",
+      "architecture",
+      "system-design",
+      "api-design",
+      "database",
+      "cloud",
+    ],
+    mixed: [
+      "frontend",
+      "backend",
+      "fullstack",
+      "devops",
+      "mobile",
+      "data-engineer",
+      "data-scientist",
+      "cybersecurity",
+      "algorithms",
+      "data-structures",
+      "database",
+      "performance",
+      "testing",
+      "debugging",
+      "api-design",
+      "architecture",
+      "cloud",
+      "system-design",
+      "scalability",
+      "incident-response",
+      "reliability",
+      "product",
+      "communication",
+      "problem-solving",
+    ],
   };
 
   return categoryMap[interviewType].includes(category);
@@ -419,6 +458,8 @@ function matchCategoryToInterviewTypeForRoleSelection(
     case "technical":
     case "coding":
     case "system-design":
+    case "situational":
+    case "mixed":
       return true;
     case "bullet":
       return false;
@@ -485,9 +526,5 @@ export function formatQuestionForPrompt(question: Question): string {
     : "";
 
   // Enhanced format: more comprehensive but AI-readable, without exposing reference answers
-  return `**${question.title}** (${question.difficulty})\nTopic: ${
-    question.topic
-  }\nTech: ${techStack || "General"}\nCompany: ${
-    company
-  }\nQuestion: ${question.prompt}\nTags: ${question.tags.join(", ")}${evaluationHint}`;
+  return `**${question.title}** (${question.difficulty})\nTopic: ${question.topic}\nTech: ${techStack || "General"}\nCompany: ${company}\nQuestion: ${question.prompt}\nTags: ${question.tags.join(", ")}${evaluationHint}`;
 }
