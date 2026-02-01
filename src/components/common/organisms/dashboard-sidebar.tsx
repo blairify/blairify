@@ -277,27 +277,25 @@ export default function DashboardSidebar({
               Achievements
             </span>
           </Link>
-          <Link
-            href="/roadmap"
-            title="Roadmap"
-            aria-label="Roadmap"
-            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+          <button
+            type="button"
+            disabled
+            title="Roadmap (Temporarily Disabled)"
+            aria-label="Roadmap (Temporarily Disabled)"
+            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
-            } ${
-              isActive("/roadmap")
-                ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             }`}
           >
             <GrFlows className="size-5 flex-shrink-0" />
-            <span
-              className={`${collapsed ? "sr-only" : "truncate"} ${
-                isActive("/roadmap") ? "font-medium" : ""
-              }`}
-            >
+            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
               Roadmap
             </span>
-          </Link>
+            {!collapsed && (
+              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+                Soon
+              </span>
+            )}
+          </button>
           <button
             type="button"
             disabled

@@ -1195,10 +1195,12 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         // Map knowledge gaps back to questions to get example answers
         const mainExampleAnswers: string[] = [];
         const followUpExampleAnswers: string[] = [];
-        const messages = Array.isArray(session.messages) ? session.messages : [];
+        const messages = Array.isArray(session.messages)
+          ? session.messages
+          : [];
         const practiceQuestionIds = Array.isArray(session.questionIds)
-          ? session.questionIds.filter((id): id is string =>
-              typeof id === "string" && id.length > 0,
+          ? session.questionIds.filter(
+              (id): id is string => typeof id === "string" && id.length > 0,
             )
           : [];
         const gaps = Array.isArray(data.feedback?.knowledgeGaps)

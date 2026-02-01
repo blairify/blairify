@@ -18,16 +18,17 @@ export const metadata: Metadata = {
 };
 
 interface SettingsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     tab?: "subscription" | "profile" | "account";
-  };
+  }>;
 }
 
 export default async function SettingsPage({
   searchParams,
 }: SettingsPageProps) {
   const user = await requireAuth("/settings");
-  const tab = searchParams.tab || "subscription";
+  const resolvedSearchParams = await searchParams;
+  const tab = resolvedSearchParams.tab || "subscription";
 
   return (
     <ErrorBoundary>

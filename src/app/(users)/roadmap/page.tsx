@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import LoadingPage from "@/components/common/atoms/loading-page";
 import { ErrorBoundary } from "@/components/common/error-boundary";
-import { RoadmapPageClient } from "@/components/roadmap/templates/roadmap-page-client";
 import { requireAuth } from "@/lib/server-auth";
 
 export const dynamic = "force-dynamic";
@@ -16,13 +13,27 @@ export const metadata: Metadata = {
 };
 
 export default async function RoadmapPage() {
-  const user = await requireAuth("/roadmap");
+  const _user = await requireAuth("/roadmap");
 
   return (
     <ErrorBoundary>
-      <Suspense fallback={<LoadingPage message="Loading roadmap..." />}>
-        <RoadmapPageClient userId={user.uid} />
-      </Suspense>
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="text-center space-y-4 p-8">
+          <h1 className="text-2xl font-bold text-foreground">
+            Roadmap Temporarily Disabled
+          </h1>
+          <p className="text-muted-foreground max-w-md">
+            The roadmap feature is currently under maintenance. We'll be back as
+            soon with improvements!
+          </p>
+          <a
+            href="/dashboard"
+            className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-6 py-3 font-medium hover:bg-primary/90 transition-colors"
+          >
+            Return to Dashboard
+          </a>
+        </div>
+      </div>
     </ErrorBoundary>
   );
 }
