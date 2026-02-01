@@ -1,8 +1,11 @@
-import { Timestamp } from "firebase/firestore";
+import { FieldValue } from "firebase-admin/firestore";
 import { type NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
-import { DatabaseService } from "@/lib/database";
-import { findUserByStripeCustomerId } from "@/lib/services/users/database-users";
+import {
+  findUserByStripeCustomerIdAdmin,
+  getUserProfileAdmin,
+  updateUserProfileAdmin,
+} from "@/lib/services/users/database-users.server";
 import { stripe } from "@/lib/stripe";
 
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -48,19 +51,13 @@ const FREE_SUBSCRIPTION: SubscriptionUpdate = {
 async function updateUserSubscription(
   userId: string,
   subscription: Partial<SubscriptionUpdate>,
-  additionalData?: Record<string, unknown>,
+  additionalData?: { stripeCustomerId?: string },
 ): Promise<void> {
   try {
-    const updateData: Record<string, unknown> = {
+    await updateUserProfileAdmin(userId, {
       subscription,
-      lastActiveAt: new Date(),
-    };
-
-    if (additionalData) {
-      Object.assign(updateData, additionalData);
-    }
-
-    await DatabaseService.updateUserProfile(userId, updateData);
+      stripeCustomerId: additionalData?.stripeCustomerId,
+    });
     console.log(`✅ Updated subscription for user ${userId}:`, subscription);
   } catch (error) {
     console.error(`Error updating subscription for user ${userId}:`, error);
@@ -71,6 +68,14 @@ async function updateUserSubscription(
 async function handleCheckoutCompleted(
   session: Stripe.Checkout.Session,
 ): Promise<void> {
+  console.log("🔍 handleCheckoutCompleted called with session:", {
+    id: session.id,
+    client_reference_id: session.client_reference_id,
+    customer: session.customer,
+    subscription: session.subscription,
+    payment_status: session.payment_status,
+  });
+
   const userId = session.client_reference_id;
   const stripeCustomerId = session.customer as string;
   const subscriptionId = session.subscription as string;
@@ -81,6 +86,9 @@ async function handleCheckoutCompleted(
   }
 
   console.log(`🎉 Checkout completed for user ${userId}`);
+  console.log(
+    `📋 Customer ID: ${stripeCustomerId}, Subscription ID: ${subscriptionId}`,
+  );
 
   let currentPeriodEnd: Date | undefined;
   let cancelAtPeriodEnd = false;
@@ -111,7 +119,7 @@ async function handleSubscriptionUpdated(
   subscription: Stripe.Subscription,
 ): Promise<void> {
   const customerId = subscription.customer as string;
-  const userId = await findUserByStripeCustomerId(customerId);
+  const userId = await findUserByStripeCustomerIdAdmin(customerId);
 
   if (!userId) {
     console.error(
@@ -181,7 +189,7 @@ async function handleSubscriptionDeleted(
   subscription: Stripe.Subscription,
 ): Promise<void> {
   const customerId = subscription.customer as string;
-  const userId = await findUserByStripeCustomerId(customerId);
+  const userId = await findUserByStripeCustomerIdAdmin(customerId);
 
   if (!userId) {
     console.error(
@@ -204,7 +212,7 @@ async function handleInvoicePaymentFailed(
   invoice: Stripe.Invoice,
 ): Promise<void> {
   const customerId = invoice.customer as string;
-  const userId = await findUserByStripeCustomerId(customerId);
+  const userId = await findUserByStripeCustomerIdAdmin(customerId);
 
   if (!userId) {
     console.error(
@@ -216,19 +224,19 @@ async function handleInvoicePaymentFailed(
   console.log(`⚠️ Invoice payment failed for user ${userId}`);
 
   // Get current user profile to preserve existing subscription data
-  const currentProfile = await DatabaseService.getUserProfile(userId);
+  const currentProfile = await getUserProfileAdmin(userId);
   if (!currentProfile?.subscription) {
     console.error(`❌ No subscription found for user ${userId}`);
     return;
   }
 
-  await DatabaseService.updateUserProfile(userId, {
+  await updateUserProfileAdmin(userId, {
     subscription: {
       ...currentProfile.subscription,
       paymentFailed: true,
-      lastPaymentFailedAt: Timestamp.now(),
+      lastPaymentFailedAt:
+        FieldValue.serverTimestamp() as FirebaseFirestore.Timestamp,
     },
-    lastActiveAt: Timestamp.now(),
   });
 }
 
@@ -236,7 +244,7 @@ async function handleInvoicePaymentSucceeded(
   invoice: Stripe.Invoice,
 ): Promise<void> {
   const customerId = invoice.customer as string;
-  const userId = await findUserByStripeCustomerId(customerId);
+  const userId = await findUserByStripeCustomerIdAdmin(customerId);
 
   if (!userId) {
     return;
@@ -245,25 +253,33 @@ async function handleInvoicePaymentSucceeded(
   console.log(`✅ Invoice payment succeeded for user ${userId}`);
 
   // Get current user profile to preserve existing subscription data
-  const currentProfile = await DatabaseService.getUserProfile(userId);
+  const currentProfile = await getUserProfileAdmin(userId);
   if (!currentProfile?.subscription) {
     console.error(`❌ No subscription found for user ${userId}`);
     return;
   }
 
-  await DatabaseService.updateUserProfile(userId, {
+  await updateUserProfileAdmin(userId, {
     subscription: {
       ...currentProfile.subscription,
       paymentFailed: false,
-      lastPaymentSucceededAt: Timestamp.now(),
+      lastPaymentSucceededAt:
+        FieldValue.serverTimestamp() as FirebaseFirestore.Timestamp,
     },
-    lastActiveAt: Timestamp.now(),
   });
 }
 
 export async function POST(req: NextRequest) {
+  console.log("🔔 Stripe webhook endpoint hit!");
+  console.log(
+    `🔑 Webhook secret configured: ${endpointSecret ? `Yes (starts with ${endpointSecret.substring(0, 10)}...)` : "NO - MISSING!"}`,
+  );
+
   const body = await req.text();
   const sig = req.headers.get("stripe-signature");
+
+  console.log(`📝 Signature present: ${sig ? "Yes" : "No"}`);
+  console.log(`📦 Body length: ${body.length} chars`);
 
   let event: Stripe.Event;
 
@@ -275,6 +291,7 @@ export async function POST(req: NextRequest) {
       event = JSON.parse(body);
     } else {
       event = stripe.webhooks.constructEvent(body, sig, endpointSecret);
+      console.log("✅ Signature verification passed!");
     }
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Unknown error";

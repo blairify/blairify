@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { getUserProfile } from "@/lib/services/users/database-users";
+import { getUserProfileAdmin } from "@/lib/services/users/database-users.server";
 import { stripe } from "@/lib/stripe";
 import { getAppUrl } from "@/lib/utils";
 
@@ -12,7 +12,15 @@ export async function POST(req: NextRequest) {
       priceId: providedPriceId,
     } = await req.json();
 
+    console.log("🛒 Checkout request received:", {
+      userId,
+      email,
+      priceId: providedPriceId,
+      lookupKey,
+    });
+
     if (!userId) {
+      console.error("❌ No userId provided to checkout!");
       return NextResponse.json(
         { error: "User ID is required" },
         { status: 400 },
@@ -21,15 +29,15 @@ export async function POST(req: NextRequest) {
 
     let userEmail = email;
 
-    // Try to get email from Firestore if possible (requires Admin SDK)
+    // Try to get email from Firestore using Admin SDK
     try {
-      const userProfile = await getUserProfile(userId);
+      const userProfile = await getUserProfileAdmin(userId);
       if (userProfile?.email) {
-        userEmail = userProfile.email;
+        userEmail = userProfile.email as string;
       }
     } catch (_error) {
       console.warn(
-        "⚠️ Firestore access failed (missing Admin SDK?). Using client-provided email fallback.",
+        "⚠️ Firestore access failed. Using client-provided email fallback.",
       );
     }
 
@@ -66,6 +74,8 @@ export async function POST(req: NextRequest) {
 
     const appUrl = getAppUrl();
 
+    console.log("📝 Creating Stripe session with client_reference_id:", userId);
+
     const session = await stripe.checkout.sessions.create({
       billing_address_collection: "auto",
       line_items: [
@@ -83,6 +93,12 @@ export async function POST(req: NextRequest) {
       metadata: {
         userId: userId,
       },
+    });
+
+    console.log("✅ Stripe session created:", {
+      sessionId: session.id,
+      client_reference_id: session.client_reference_id,
+      url: `${session.url?.substring(0, 50)}...`,
     });
 
     return NextResponse.json({ url: session.url });

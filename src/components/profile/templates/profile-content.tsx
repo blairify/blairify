@@ -519,7 +519,7 @@ export function ProfileContent({
                                   Billing Price
                                 </Typography.Caption>
                                 <Typography.BodyBold className="text-lg text-primary">
-                                  $4.99 / month
+                                  $5 / month
                                 </Typography.BodyBold>
                               </div>
                               <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
@@ -584,7 +584,7 @@ export function ProfileContent({
                                 Pro Plan Price
                               </Typography.Caption>
                               <Typography.BodyBold className="text-2xl text-primary">
-                                $4.99{" "}
+                                $5{" "}
                                 <Typography.Caption className="text-primary/70 font-normal">
                                   per month
                                 </Typography.Caption>
