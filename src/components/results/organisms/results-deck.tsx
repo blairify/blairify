@@ -309,9 +309,9 @@ function KineticListLines({ items }: { items: string[] }) {
         show: { transition: { staggerChildren: 0.07 } },
       }}
     >
-      {items.map((b) => (
+      {items.map((b, i) => (
         <motion.li
-          key={b}
+          key={`${i}-${b}`}
           className="py-3 text-sm leading-relaxed"
           variants={{
             hidden: { opacity: 0, y: 10, filter: "blur(10px)" },
@@ -453,13 +453,33 @@ function pickFocusAreas(params: {
   tags?: string[];
   resources?: Pick<ResourceLink, "id" | "title" | "url">[];
 }[] {
+  const isAcceptableFocusTitle = (raw: string): boolean => {
+    const t = stripMarkdown(raw).trim();
+    if (t.length < 5 || t.length > 72) return false;
+    const lower = t.toLowerCase();
+    if (lower.startsWith("let's ")) return false;
+    if (lower.startsWith("lets ")) return false;
+    if (lower.startsWith("you ")) return false;
+    if (lower.startsWith("you'd ")) return false;
+    if (lower.startsWith("you	d ")) return false;
+    if (lower.includes("when i asked")) return false;
+    if (lower.includes("in your answer about")) return false;
+    if (/[?!]$/.test(t)) return false;
+    return true;
+  };
+
+  const normalizeFocusWhy = (raw: string): string => {
+    return stripMarkdown(raw).replace(/\s+/g, " ").trim();
+  };
+
   const fromPresentation = Array.isArray(params.presentation?.focusAreas)
     ? params.presentation.focusAreas
         .map((f) => {
           const title =
             typeof f.title === "string" ? dedupeTopicTitle(f.title) : "";
-          const why = typeof f.why === "string" ? f.why.trim() : "";
+          const why = typeof f.why === "string" ? normalizeFocusWhy(f.why) : "";
           if (!title || !why) return null;
+          if (!isAcceptableFocusTitle(title)) return null;
           return {
             title,
             why,
@@ -468,6 +488,19 @@ function pickFocusAreas(params: {
           };
         })
         .filter((x): x is NonNullable<typeof x> => x !== null)
+        .reduce<
+          Array<{
+            title: string;
+            why: string;
+            priority?: string;
+            tags?: string[];
+          }>
+        >((acc, item) => {
+          const key = item.title.toLowerCase();
+          if (acc.some((x) => x.title.toLowerCase() === key)) return acc;
+          acc.push(item);
+          return acc;
+        }, [])
         .slice(0, params.max)
     : [];
   if (fromPresentation.length > 0) return fromPresentation;

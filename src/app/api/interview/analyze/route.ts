@@ -323,6 +323,11 @@ function questionToTopicReference(question: string | undefined): string {
   }
 
   const cleaned = q
+    .replace(/^let['’]s\s+try\s+a\s+different\s+scenario\s*[:\-–—]?\s*/i, "")
+    .replace(/^let['’]s\s+try\s+another\s+scenario\s*[:\-–—]?\s*/i, "")
+    .replace(/^let['’]s\s+try\s+another\s+angle\s*[:\-–—]?\s*/i, "")
+    .replace(/^let['’]s\s+try\s+.+?\s*[:\-–—]?\s*/i, "")
+    .replace(/^you['’]d\s+/i, "")
     .replace(/^let['’]s\s+start\s+with\s+something\s+fundamental—?/i, "")
     .replace(/^now,\s+let['’]s\s+talk\s+about\s+/i, "")
     .replace(/^let['’]s\s+talk\s+about\s+/i, "")
@@ -356,6 +361,16 @@ function questionToTopicReference(question: string | undefined): string {
     .replace(/[,:;\-–—]+\s*$/g, "")
     .trim();
   return safe.length > 0 ? safe : "this topic";
+}
+
+function isAcceptablePresentationFocusTitle(title: string): boolean {
+  const t = normalizeGapTitle(title);
+  if (!isAcceptableGapTitle(t)) return false;
+  const lower = t.toLowerCase();
+  if (lower.includes("let's try")) return false;
+  if (lower.includes("in your answer about")) return false;
+  if (lower.includes("when i asked")) return false;
+  return true;
 }
 
 function normalizeTag(value: string): string {
@@ -1095,8 +1110,18 @@ Repair rules:
             })
             .filter(
               (x): x is NonNullable<typeof x> =>
-                typeof x.title === "string" && x.title.trim().length > 0,
+                typeof x.title === "string" &&
+                x.title.trim().length > 0 &&
+                isAcceptablePresentationFocusTitle(x.title),
             )
+            .reduce<PresentationCopy["focusAreas"]>((acc, item) => {
+              const key = normalizeGapTitle(item.title).toLowerCase();
+              if (!key) return acc;
+              if (acc.some((x) => normalizeGapTitle(x.title).toLowerCase() === key))
+                return acc;
+              acc.push(item);
+              return acc;
+            }, [])
         : presentation.focusAreas;
 
       const plan = Array.isArray(presentation.plan)
