@@ -57,7 +57,7 @@ export const typographyVariants = /*tw:*/ cva<VariantSettings>(
         success: "text-green-700 dark:text-green-500",
         error: "text-red-700 dark:text-red-500",
         darkGray: "text-gray-800 dark:text-gray-200",
-        blue: "text-blue-800 dark:text-blue-400",
+        blue: "text-gray-800 dark:text-gray-200",
       },
       variant: {
         Heading1: "font-heading font-bold text-2xl",

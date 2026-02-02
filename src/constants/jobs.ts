@@ -120,7 +120,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Meta",
     description: "Social systems, large-scale engineering",
     icon: SiMeta,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "netflix",
@@ -134,7 +134,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Microsoft",
     description: "Collaboration, technical depth",
     icon: FaMicrosoft,
-    color: "text-blue-500",
+    color: "text-gray-700",
   },
 
   // Fintech & Payments
@@ -150,7 +150,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Revolut (UK)",
     description: "Fintech, banking as a service",
     icon: SiRevolut,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "wise",
@@ -178,7 +178,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Plaid",
     description: "Fintech integrations & banking APIs",
     icon: Link2,
-    color: "text-blue-500",
+    color: "text-gray-700",
   },
   {
     value: "mambu",
@@ -201,7 +201,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Snowflake",
     description: "Cloud data platform",
     icon: SiSnowflake,
-    color: "text-blue-400",
+    color: "text-slate-500",
   },
   {
     value: "palantir",
@@ -236,7 +236,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Celonis (Germany)",
     description: "Process mining & data analytics",
     icon: Database,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "elastic",
@@ -266,7 +266,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Atlassian",
     description: "Jira, Confluence, Bitbucket ecosystem",
     icon: SiAtlassian,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "twilio",
@@ -296,7 +296,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Canva",
     description: "Design platform & visual communication",
     icon: SiCanva,
-    color: "text-blue-500",
+    color: "text-gray-700",
   },
   {
     value: "notion",
@@ -342,7 +342,7 @@ export const SPECIFIC_COMPANIES = [
     label: "BlaBlaCar (France)",
     description: "Carpooling & bus travel platform",
     icon: Building2,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
 
   // Entertainment & Media
@@ -358,7 +358,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Supercell (Finland)",
     description: "Mobile game development",
     icon: Building2,
-    color: "text-blue-500",
+    color: "text-gray-700",
   },
 
   // Hardware & Semiconductors
@@ -374,14 +374,14 @@ export const SPECIFIC_COMPANIES = [
     label: "Qualcomm",
     description: "Semiconductor & wireless technology",
     icon: SiQualcomm,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "nokia",
     label: "Nokia (Finland)",
     description: "Telecommunications & network infrastructure",
     icon: SiNokia,
-    color: "text-blue-700",
+    color: "text-gray-700",
   },
 
   // Enterprise Software
@@ -390,7 +390,7 @@ export const SPECIFIC_COMPANIES = [
     label: "SAP (Germany)",
     description: "Enterprise software & cloud solutions",
     icon: SiSap,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "dassault",
@@ -404,7 +404,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Hexagon (Sweden)",
     description: "Digital reality & industrial technology",
     icon: Building2,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "infineon",
@@ -427,7 +427,7 @@ export const SPECIFIC_COMPANIES = [
     label: "Docplanner (Poland/Spain)",
     description: "Healthcare technology platform",
     icon: Building2,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
 
   // AI & Translation
@@ -436,7 +436,7 @@ export const SPECIFIC_COMPANIES = [
     label: "DeepL (Germany)",
     description: "AI-powered translation services",
     icon: SiDeepl,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
 
   // Semiconductors
@@ -445,6 +445,6 @@ export const SPECIFIC_COMPANIES = [
     label: "ASML (Netherlands)",
     description: "Semiconductor manufacturing equipment",
     icon: Building2,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
 ];

@@ -67,7 +67,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
       <main className="flex-1 overflow-y-auto">
         <div className="min-h-screen bg-background flex items-center justify-center">
           <div className="text-center">
-            <div className="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4"></div>
+            <div className="w-8 h-8 border-4 border-gray-200 border-t-amber-600 rounded-full animate-spin mx-auto mb-4"></div>
             <Typography.Body color="secondary">
               Loading interview history...
             </Typography.Body>
@@ -82,7 +82,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
       <div className="relative border-b bg-card overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 py-12 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-center gap-6 text-center md:text-left">
@@ -227,10 +227,10 @@ export function HistoryContent({ user }: HistoryContentProps) {
                         asChild
                         className="flex-1 md:flex-none rounded-2xl border-border bg-card hover:bg-primary hover:text-primary-foreground hover:border-primary px-8 h-12 font-black transition-all group/btn"
                       >
-                        <Link href={`/history/${session.sessionId}`}>
+                        <span>
                           View Report
                           <Eye className="size-4 ml-2 group-hover/btn:scale-110 transition-transform" />
-                        </Link>
+                        </span>
                       </Button>
                     </div>
                   </Link>

@@ -37,7 +37,7 @@ export function InterviewConfigScreen({
     <main className="flex-1 overflow-y-auto bg-background/50">
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-5xl">
         {/* Header Section */}
-        <div className="flex flex-col gap-2 mb-10 text-left">
+        <div className="flex flex-col gap-2 mb-10 text-center lg:text-left">
           <Typography.BodyBold className="text-3xl sm:text-4xl">
             Preview your <span className="text-primary italic">Interview</span>
           </Typography.BodyBold>
@@ -88,7 +88,7 @@ export function InterviewConfigScreen({
                       key={idx}
                       className="border-border/60 bg-card/50 shadow-none"
                     >
-                      <CardContent className="flex flex-col items-start gap-3">
+                      <CardContent className="flex flex-col items-center sm:items-start gap-3 text-center sm:text-left">
                         <Icon className="size-5 flex-shrink-0" />
                         <div className="space-y-1">
                           <Typography.Caption
@@ -138,7 +138,7 @@ export function InterviewConfigScreen({
           <div className="space-y-6">
             <Card className="border-border/60 bg-card shadow-sm">
               <CardContent className="space-y-6">
-                <div className="space-y-2">
+                <div className="space-y-2 text-center lg:text-left">
                   <Typography.BodyBold className="text-lg">
                     Ready to start?
                   </Typography.BodyBold>
@@ -147,7 +147,12 @@ export function InterviewConfigScreen({
                   </Typography.Caption>
                 </div>
 
-                <Button onClick={onStart} disabled={isStartDisabled} size="lg">
+                <Button
+                  onClick={onStart}
+                  disabled={isStartDisabled}
+                  size="lg"
+                  className="w-full"
+                >
                   {isLoading ? (
                     <Loader2 className="size-5 animate-spin" />
                   ) : isExampleLoading ? (
@@ -164,7 +169,7 @@ export function InterviewConfigScreen({
                 </Button>
 
                 <div className="pt-6 border-t border-border/40">
-                  <div className="flex items-center gap-2 mb-4">
+                  <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
                     <Lightbulb className="size-4 text-amber-500" />
                     <Typography.CaptionBold className="uppercase tracking-widest text-[10px] text-muted-foreground">
                       Interview Tips
@@ -176,11 +181,14 @@ export function InterviewConfigScreen({
                       "Use the STAR Method for behavioral answers.",
                       "Thinking out loud is highly encouraged.",
                     ].map((tip, i) => (
-                      <li key={i} className="flex gap-3 items-start">
+                      <li
+                        key={i}
+                        className="flex gap-3 items-start justify-center lg:justify-start"
+                      >
                         <div className="size-5 rounded-full bg-primary/5 border border-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                           <CheckCircle className="size-3 text-primary" />
                         </div>
-                        <Typography.Caption className="text-muted-foreground leading-snug">
+                        <Typography.Caption className="text-muted-foreground leading-snug text-left">
                           {tip}
                         </Typography.Caption>
                       </li>
@@ -190,7 +198,7 @@ export function InterviewConfigScreen({
               </CardContent>
             </Card>
 
-            <div className="p-4 px-6 rounded-2xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50">
+            <div className="p-4 px-6 rounded-2xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50 text-center lg:text-left">
               <Typography.Caption className="text-amber-800 dark:text-amber-400 italic text-xs leading-relaxed">
                 Tip: Ensure you are in a quiet environment with a stable
                 connection before proceeding.

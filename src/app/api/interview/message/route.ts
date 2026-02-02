@@ -115,6 +115,27 @@ Additional repair constraints:
 Output ONLY the repaired follow-up text.`;
 }
 
+function buildMainQuestionRepairPrompt(
+  baseUserPrompt: string,
+  draft: string,
+): string {
+  return `${baseUserPrompt}
+
+Your previous draft did NOT follow the rules.
+
+Draft (invalid):
+${draft}
+
+Rewrite from scratch so it strictly follows the main interview output rules.
+
+Additional repair constraints:
+- Ask exactly ONE interview question and end with exactly one "?".
+- Do NOT use quotation marks, code fences, bullet points, or speaker labels.
+- Do NOT include meta commentary (no apologies, no mentions of policies, no 'I can't...').
+
+Output ONLY the repaired question.`;
+}
+
 function getLeadingAcknowledgement(value: string): string | null {
   const trimmed = value.trimStart();
   const match = trimmed.match(
@@ -408,7 +429,6 @@ export async function POST(request: NextRequest) {
     const shouldUseQuestionBank =
       safeQuestionIds.length > 0 &&
       interviewConfig.interviewType !== "situational" &&
-      interviewConfig.interviewType !== "mixed" &&
       !interviewConfig.isDemoMode;
 
     if (shouldUseQuestionBank && !effectiveIsFollowUp) {
@@ -568,6 +588,44 @@ export async function POST(request: NextRequest) {
               finalMessage = getFallbackResponse(interviewConfig, true);
               usedFallback = true;
               forceServeNextBankedQuestion = true;
+            }
+          } else if (!effectiveIsFollowUp && !interviewConfig.isDemoMode) {
+            console.warn(
+              `AI main question validation failed, attempting repair: ${validation.reason}`,
+            );
+
+            const repaired = await generateInterviewResponse(
+              aiClient,
+              systemPrompt,
+              buildMainQuestionRepairPrompt(
+                userPrompt ?? "",
+                aiResponse.content,
+              ),
+              interviewConfig.interviewType,
+            );
+
+            if (repaired.success && repaired.content) {
+              const repairedValidation = validateAIResponse(
+                repaired.content,
+                interviewConfig,
+                false,
+              );
+
+              if (repairedValidation.isValid) {
+                finalMessage = repairedValidation.sanitized ?? repaired.content;
+              } else {
+                console.warn(
+                  `AI main question repair failed validation: ${repairedValidation.reason}`,
+                );
+                finalMessage = getFallbackResponse(interviewConfig, false);
+                usedFallback = true;
+              }
+            } else {
+              console.warn(
+                "AI main question repair call failed, using fallback",
+              );
+              finalMessage = getFallbackResponse(interviewConfig, false);
+              usedFallback = true;
             }
           } else {
             console.warn(`AI response validation failed: ${validation.reason}`);

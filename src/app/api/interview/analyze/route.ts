@@ -10,14 +10,20 @@ import {
   generateMockAnalysisResponse,
   isAvailable,
 } from "@/lib/services/ai/ai-client";
-import { generateAnalysisSystemPrompt } from "@/lib/services/ai/prompt-generator";
+import {
+  generateAnalysisSystemPrompt,
+  generatePresentationSystemPrompt,
+} from "@/lib/services/ai/prompt-generator";
 import { parseAnalysis } from "@/lib/services/interview/analysis-service";
 import {
   analyzeResponseQuality,
   validateInterviewConfig,
 } from "@/lib/services/interview/interview-service";
 import { getResourcesByTags } from "@/lib/services/resources/neon-resource-repository";
-import { formatKnowledgeGapTitle } from "@/lib/utils/interview-normalizers";
+import {
+  formatKnowledgeGapDescription,
+  formatKnowledgeGapTitle,
+} from "@/lib/utils/interview-normalizers";
 import type {
   AnalyzeApiRequest,
   AnalyzeApiResponse,
@@ -25,6 +31,7 @@ import type {
   InterviewResults,
   KnowledgeGap,
   Message,
+  PresentationCopy,
   ResponseAnalysis,
 } from "@/types/interview";
 
@@ -46,6 +53,24 @@ function stripInlineMarkdown(value: string): string {
     .replace(/`([^`]+)`/g, "$1")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function normalizePresentationWhy(value: string): string {
+  const firstSentence = stripInlineMarkdown(value)
+    .split(/(?<=[.!?])\s+/)[0]
+    ?.trim();
+  if (!firstSentence) return "";
+  if (/[.!?]$/.test(firstSentence)) return firstSentence;
+  return `${firstSentence}.`;
+}
+
+function normalizePresentationPlanLine(value: string): string {
+  const firstSentence = stripInlineMarkdown(value)
+    .split(/(?<=[.!?])\s+/)[0]
+    ?.trim();
+  if (!firstSentence) return "";
+  if (/[.!?]$/.test(firstSentence)) return firstSentence;
+  return `${firstSentence}.`;
 }
 
 function isAcceptableGapTitle(title: string): boolean {
@@ -111,6 +136,94 @@ function stableHash(value: string): number {
     hash = (hash * 31 + value.charCodeAt(i)) | 0;
   }
   return Math.abs(hash);
+}
+
+function safeParseJsonObject(value: string): Record<string, unknown> | null {
+  const raw = value.trim();
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed))
+      return null;
+    return parsed as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
+function isPresentationCopy(value: unknown): value is PresentationCopy {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const v = value as Record<string, unknown>;
+  if (typeof v.coachFeedback !== "string") return false;
+  if (!Array.isArray(v.focusAreas)) return false;
+  if (!Array.isArray(v.plan)) return false;
+
+  const focusAreas = v.focusAreas as unknown[];
+  if (focusAreas.length !== 3) return false;
+  for (const item of focusAreas) {
+    if (!item || typeof item !== "object" || Array.isArray(item)) return false;
+    const i = item as Record<string, unknown>;
+    if (typeof i.title !== "string" || i.title.trim().length === 0)
+      return false;
+    if (typeof i.why !== "string" || i.why.trim().length === 0) return false;
+    if (i.priority != null) {
+      if (
+        i.priority !== "high" &&
+        i.priority !== "medium" &&
+        i.priority !== "low"
+      )
+        return false;
+    }
+    if (i.tags != null && !Array.isArray(i.tags)) return false;
+  }
+
+  const plan = v.plan as unknown[];
+  if (plan.length < 4 || plan.length > 6) return false;
+  if (!plan.every((p) => typeof p === "string" && p.trim().length > 0))
+    return false;
+
+  return true;
+}
+
+function buildPresentationUserPrompt(options: {
+  config: InterviewConfig;
+  results: InterviewResults;
+}): string {
+  const { results, config } = options;
+  const gaps = Array.isArray(results.knowledgeGaps)
+    ? results.knowledgeGaps
+    : [];
+
+  const base = {
+    interview: {
+      position: config.position,
+      seniority: config.seniority,
+      interviewType: config.interviewType,
+      technologies: config.technologies,
+    },
+    outcome: {
+      decision: results.decision,
+      score: results.score,
+      passed: results.passed,
+      performanceLevel: results.overallScore,
+      whyDecision: results.whyDecision,
+    },
+    strengths: results.strengths,
+    improvements: results.improvements,
+    knowledgeGaps: gaps.map((g) => ({
+      title: g.title,
+      priority: g.priority,
+      tags: g.tags,
+      summary: g.summary,
+      why: g.why,
+    })),
+  };
+
+  return `Turn this structured analysis into presentation copy.\n\nINPUT JSON:\n${JSON.stringify(
+    base,
+    null,
+    2,
+  )}`;
 }
 
 function extractInterviewerQuestions(conversationHistory: Message[]): string[] {
@@ -385,18 +498,43 @@ function sanitizeGapSummary(summary: string): string {
   return safe.length > 0 ? `${safe}.` : "";
 }
 
+function deriveGapSummaryFromWhy(why: string): string {
+  const base = stripInlineMarkdown(why)
+    .replace(/\.{3,}/g, " ")
+    .replace(/…/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!base) return "";
+
+  const firstSentence = base.split(/(?<=[.!?])\s+/)[0]?.trim() ?? base;
+  if (!firstSentence) return "";
+
+  const rewritten = normalizeSecondPerson(firstSentence)
+    .replace(/^(?:because|since)\s+/i, "")
+    .replace(/^you\s+(?:should|need\s+to|must)\s+/i, "")
+    .replace(/^focus\s+on\s+/i, "")
+    .trim();
+
+  if (!rewritten) return "";
+  const maxLen = 180;
+  const clipped =
+    rewritten.length <= maxLen ? rewritten : rewritten.slice(0, maxLen);
+  const cleaned = clipped
+    .replace(/[\s\-:,(]+$/g, "")
+    .replace(/[.]+$/g, "")
+    .trim();
+  if (!cleaned) return "";
+  if (/[.!?]$/.test(cleaned)) return cleaned;
+  return `${cleaned}.`;
+}
+
 function buildGapSummaryFallback(params: {
   title: string;
   tags: string[];
   priority: KnowledgeGap["priority"];
 }): string {
   const topic = normalizeGapTitle(params.title);
-  const tagHint = (Array.isArray(params.tags) ? params.tags : [])
-    .map((t) => t.replace(/-/g, " ").replace(/\s+/g, " ").trim())
-    .filter(Boolean)
-    .slice(0, 2)
-    .join(" / ");
-  const base = tagHint.length > 0 ? `${topic} (${tagHint})` : topic;
+  const base = topic;
 
   const prefix = (() => {
     switch (params.priority) {
@@ -419,7 +557,7 @@ function buildGapSummaryFallback(params: {
     `${prefix}Strengthen ${base} by comparing alternatives and when you’d choose each.`,
   ];
 
-  const key = [topic, tagHint, params.priority].join("|");
+  const key = [topic, params.priority].join("|");
   const pick =
     templates[stableHash(key) % templates.length] ?? templates[0] ?? "";
   return pick;
@@ -429,23 +567,22 @@ function ensureWhyReferencesTranscript(
   why: string,
   fallbackQuestion: string | undefined,
 ): string {
-  const normalized = normalizeWhy(why);
-  const normalizedSecondPerson = normalizeSecondPerson(normalized);
-  const lower = normalizedSecondPerson.toLowerCase();
-  const banned =
+  const normalized = normalizeSecondPerson(normalizeWhy(why));
+  const lower = normalized.toLowerCase();
+  const looksBad =
+    normalized.length < 12 ||
     lower.startsWith("when i asked") ||
     lower.startsWith("during the question") ||
     lower.startsWith("thanks") ||
     lower.includes("that's all the questions") ||
     lower.includes("let's try") ||
-    lower.includes("different angle");
-  const safeRest = banned
-    ? "you didn’t demonstrate this clearly."
-    : normalizedSecondPerson;
+    lower.includes("different angle") ||
+    lower.includes("in your answer about");
+
+  if (!looksBad) return normalized;
 
   const topic = questionToTopicReference(fallbackQuestion);
-  const rest = safeRest || "you didn’t demonstrate this clearly.";
-  return `In your answer about ${topic}, ${rest}`;
+  return `In your answer about ${topic}, you didn’t demonstrate this clearly.`;
 }
 
 function dedupeKnowledgeGaps(gaps: KnowledgeGap[]): KnowledgeGap[] {
@@ -694,14 +831,18 @@ function ensureMinimumKnowledgeGaps(options: {
         : deriveConceptTagsFromQuestion(fallbackQuestion);
 
     const baseSummary = sanitizeGapSummary(fromModel?.summary ?? "");
-    const summary =
-      baseSummary.length > 0
-        ? baseSummary
-        : buildGapSummaryFallback({ title, tags, priority });
     const why = ensureWhyReferencesTranscript(
       fromModel?.why ?? "",
       fallbackQuestion,
     );
+
+    const derivedFromWhy = deriveGapSummaryFromWhy(why);
+    const summary =
+      baseSummary.length > 0
+        ? baseSummary
+        : derivedFromWhy.length > 0
+          ? derivedFromWhy
+          : buildGapSummaryFallback({ title, tags, priority });
 
     return {
       title,
@@ -828,6 +969,26 @@ export async function POST(
       interviewConfig,
     );
 
+    if (feedback.technologyScores && interviewConfig.technologies?.length) {
+      const transcript = conversationHistory
+        .map((m) => m.content)
+        .join("\n")
+        .toLowerCase();
+
+      const next: Record<string, number | null> = {};
+      for (const tech of interviewConfig.technologies.filter(Boolean)) {
+        const normalized = tech.trim().toLowerCase();
+        if (!normalized) continue;
+
+        const mentioned = transcript.includes(normalized);
+        next[tech] = mentioned
+          ? (feedback.technologyScores[tech] ?? null)
+          : null;
+      }
+
+      feedback.technologyScores = next;
+    }
+
     const knowledgeGaps: KnowledgeGap[] = Array.isArray(feedback.knowledgeGaps)
       ? feedback.knowledgeGaps
       : [];
@@ -849,10 +1010,18 @@ export async function POST(
     const normalizedKnowledgeGaps: KnowledgeGap[] = ensuredKnowledgeGaps.map(
       (g) => {
         const rawTitle = normalizeGapTitle(g.title);
-        const title = isAcceptableGapTitle(rawTitle)
-          ? rawTitle
-          : formatKnowledgeGapTitle(rawTitle, g.tags);
-        return { ...g, title };
+        const title = formatKnowledgeGapTitle(rawTitle, g.tags);
+        const sourceSummary =
+          typeof g.summary === "string" && g.summary.trim().length > 0
+            ? g.summary
+            : deriveGapSummaryFromWhy(g.why);
+        const summary = formatKnowledgeGapDescription({
+          title,
+          tags: g.tags,
+          priority: g.priority,
+          summary: sourceSummary,
+        });
+        return { ...g, title, summary };
       },
     );
 
@@ -863,10 +1032,99 @@ export async function POST(
         : {}),
     };
 
+    let rawPresentation: string | undefined;
+    let presentation: PresentationCopy | undefined;
+
+    if (isAvailable(aiClient)) {
+      const system = generatePresentationSystemPrompt(interviewConfig);
+      const user = buildPresentationUserPrompt({
+        config: interviewConfig,
+        results: enrichedFeedback,
+      });
+
+      const attempt = async (userPrompt: string) => {
+        const aiResponse = await generateAnalysis(aiClient, system, userPrompt);
+        if (!aiResponse.success) return null;
+        rawPresentation = aiResponse.content;
+        const parsed = safeParseJsonObject(aiResponse.content);
+        if (!isPresentationCopy(parsed)) return null;
+        return parsed;
+      };
+
+      const first = await attempt(user);
+      if (first) {
+        presentation = first;
+      } else {
+        const retry = await attempt(
+          `${user}
+
+Your previous output was invalid.
+
+Repair rules:
+- Output STRICT JSON only (no markdown, no prose).
+- Use the exact schema.
+- Do not add extra keys.
+`,
+        );
+        if (retry) presentation = retry;
+      }
+    }
+
+    const normalizedPresentation = (() => {
+      if (!presentation) return undefined;
+
+      const focusAreas = Array.isArray(presentation.focusAreas)
+        ? presentation.focusAreas
+            .map((fa) => {
+              const titleRaw = typeof fa.title === "string" ? fa.title : "";
+              const title = formatKnowledgeGapTitle(titleRaw, fa.tags);
+              const whyRaw = typeof fa.why === "string" ? fa.why : "";
+              const why = normalizePresentationWhy(whyRaw);
+              const tags = Array.isArray(fa.tags)
+                ? fa.tags
+                    .map((t) => (typeof t === "string" ? t.trim() : ""))
+                    .filter(Boolean)
+                : undefined;
+
+              return {
+                ...fa,
+                title,
+                why,
+                ...(tags ? { tags } : {}),
+              };
+            })
+            .filter(
+              (x): x is NonNullable<typeof x> =>
+                typeof x.title === "string" && x.title.trim().length > 0,
+            )
+        : presentation.focusAreas;
+
+      const plan = Array.isArray(presentation.plan)
+        ? presentation.plan
+            .map((line) =>
+              typeof line === "string"
+                ? normalizePresentationPlanLine(line)
+                : "",
+            )
+            .filter(Boolean)
+        : presentation.plan;
+
+      return {
+        ...presentation,
+        ...(Array.isArray(focusAreas) ? { focusAreas } : {}),
+        ...(Array.isArray(plan) ? { plan } : {}),
+      };
+    })();
+
+    const finalFeedback: InterviewResults = normalizedPresentation
+      ? { ...enrichedFeedback, presentation: normalizedPresentation }
+      : enrichedFeedback;
+
     return NextResponse.json({
       success: true,
-      feedback: enrichedFeedback,
+      feedback: finalFeedback,
       rawAnalysis: analysisText,
+      rawPresentation,
       usage,
     });
   } catch (error) {

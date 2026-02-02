@@ -346,7 +346,32 @@ export function getFallbackResponse(
     return "I ran into a technical issue while generating a follow-up question. Your previous answer is saved, but I can't reliably continue this follow-up. Please wait a moment and try again, or move on to the next question when the interview resumes.";
   }
 
-  return "I encountered a technical problem while generating the next interview question. Your previous responses are saved, but I can't safely continue this interview right now. Please wait a moment and try again, or restart the interview when you're ready. I apologize for the inconvenience.";
+  if (config.interviewType === "situational") {
+    return "Tell me about a time you had to debug a tricky production issue. What signals did you use (logs/metrics/traces), what was the root cause, and what did you change?";
+  }
+
+  if (config.interviewType === "system-design") {
+    return "Design a simple URL shortening service. Walk me through API endpoints, storage, scaling, and how you’d handle collisions and analytics.";
+  }
+
+  if (config.interviewType === "coding") {
+    return "Implement a function that returns the first non-repeating character in a string. Explain time/space complexity.";
+  }
+
+  if (config.interviewType === "mixed") {
+    return "Explain a recent technical decision you made (trade-offs, constraints, and outcome). What would you do differently now?";
+  }
+
+  if (config.interviewType === "bullet") {
+    return "In 3-5 bullet points: describe a project you’re proud of, your role, and one technical challenge you solved.";
+  }
+
+  if (config.interviewType === "technical") {
+    return "Explain how you would design and document a public API (versioning, error handling, and backward compatibility).";
+  }
+
+  const _never: never = config.interviewType;
+  throw new Error(`Unhandled interview type: ${_never}`);
 }
 
 /**

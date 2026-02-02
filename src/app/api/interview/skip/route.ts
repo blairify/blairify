@@ -61,9 +61,15 @@ export async function POST(request: NextRequest) {
     const safeQuestionIds: string[] =
       Array.isArray(questionIds) && questionIds.length > 0 ? questionIds : [];
 
+    const shouldUseQuestionBank =
+      safeQuestionIds.length > 0 &&
+      interviewConfig.interviewType !== "situational" &&
+      interviewConfig.interviewType !== "mixed" &&
+      !interviewConfig.isDemoMode;
+
     let currentQuestionPrompt: string | undefined;
 
-    if (safeQuestionIds.length > 0 && !interviewConfig.isDemoMode) {
+    if (shouldUseQuestionBank) {
       const nextIndex = questionCount || 0;
 
       if (nextIndex >= 0 && nextIndex < safeQuestionIds.length) {
@@ -124,7 +130,9 @@ export async function POST(request: NextRequest) {
       } else {
         const contentForSequence = validation.sanitized ?? aiResponse.content;
 
-        if (!interviewConfig.isDemoMode) {
+        if (!shouldUseQuestionBank) {
+          finalMessage = contentForSequence;
+        } else {
           const expectedIndex = (questionCount || 0) + 1;
 
           const sequenceCheck = validateQuestionSequence(
@@ -141,8 +149,6 @@ export async function POST(request: NextRequest) {
           } else {
             finalMessage = contentForSequence;
           }
-        } else {
-          finalMessage = contentForSequence;
         }
       }
     }

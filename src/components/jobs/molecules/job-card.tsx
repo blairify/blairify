@@ -175,7 +175,7 @@ export function JobCard({
                     </span>
                   ) : (
                     <span
-                      className={`text-blue-600 dark:text-blue-400 font-medium ${layout === "compact" ? "text-xs" : ""}`}
+                      className={`text-gray-600 dark:text-gray-300 font-medium ${layout === "compact" ? "text-xs" : ""}`}
                     >
                       On-site
                     </span>

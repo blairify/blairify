@@ -211,7 +211,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "Google",
     description: "Algorithm focus, system design",
     icon: FaGoogle,
-    color: "text-blue-700",
+    color: "text-amber-600",
   },
   {
     value: "openai",
@@ -225,7 +225,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "Meta",
     description: "Large-scale social systems",
     icon: SiMeta,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "apple",
@@ -246,7 +246,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "Microsoft",
     description: "Collaboration, technical depth",
     icon: FaMicrosoft,
-    color: "text-blue-500",
+    color: "text-gray-700",
   },
   {
     value: "nvidia",
@@ -302,7 +302,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "Snowflake",
     description: "Cloud data platform for enterprises",
     icon: SiSnowflake,
-    color: "text-blue-400",
+    color: "text-slate-500",
   },
   {
     value: "cloudflare",
@@ -353,7 +353,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "Atlassian",
     description: "Jira, Confluence, Bitbucket ecosystem",
     icon: SiAtlassian,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "elastic",
@@ -374,7 +374,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "DeepL",
     description: "AI-powered translation services",
     icon: SiDeepl,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "klarna",
@@ -388,21 +388,21 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "Revolut (UK)",
     description: "Fintech, banking as a service",
     icon: SiRevolut,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "plandek",
     label: "Plandek",
     description: "Insights for software development",
     icon: "/assets/PlandekLogo.png",
-    color: "text-blue-500",
+    color: "text-gray-700",
   },
   {
     value: "blik",
     label: "Blik",
     description: "Payment gateway for merchants",
     icon: "/assets/Blik.svg",
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "wise",
@@ -432,7 +432,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "Canva",
     description: "Design platform & visual communication",
     icon: SiCanva,
-    color: "text-blue-500",
+    color: "text-gray-700",
   },
   {
     value: "notion",
@@ -446,7 +446,7 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "SAP",
     description: "Enterprise software & cloud solutions",
     icon: SiSap,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "dassault",
@@ -460,14 +460,14 @@ export const CONFIGURE_SPECIFIC_COMPANIES = [
     label: "Qualcomm",
     description: "Semiconductor & wireless technology",
     icon: SiQualcomm,
-    color: "text-blue-600",
+    color: "text-gray-700",
   },
   {
     value: "nokia",
     label: "Nokia",
     description: "Telecommunications & network infra",
     icon: SiNokia,
-    color: "text-blue-700",
+    color: "text-gray-700",
   },
   {
     value: "softteco",

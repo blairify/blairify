@@ -158,11 +158,14 @@ export function formatKnowledgeGapTitle(
     .trim();
 
   const base = rawBase
+    .replace(/^(?:you\s+have\s+)?you['’]?ve\s+pinpointed\s+/i, "")
     .replace(/^(?:you\s+)?(?:can|could|would)\s+you\s+/i, "")
     .replace(/^(?:you\s+)?(?:explain|describe|define|summarize)\s+/i, "")
     .replace(/^(?:walk\s+me\s+through|talk\s+me\s+through)\s+/i, "")
     .replace(/^(?:in\s+your\s+own\s+words[,\s]*)/i, "")
     .replace(/,?\s*(?:and|then)\s+can\s+you\b[\s\S]*$/i, "")
+    .replace(/\s+as\s+the\s+likely\s*$/i, "")
+    .replace(/\s+as\s+the\s*$/i, "")
     .replace(/\s+/g, " ")
     .trim();
 
@@ -174,9 +177,12 @@ export function formatKnowledgeGapTitle(
     lower.startsWith("whether ") ||
     lower.startsWith("thanks") ||
     lower.startsWith("when i asked") ||
+    lower.startsWith("you've pinpointed") ||
+    lower.startsWith("you’ve pinpointed") ||
     lower.includes("let's try") ||
     lower.includes("different angle") ||
     lower.includes("that's all the questions") ||
+    lower.includes("main thread") ||
     lower.includes("when i asked");
 
   const tagTopic = toTopicFromTags(tags);
@@ -218,6 +224,19 @@ export function formatKnowledgeGapDescription(params: {
     .replace(/\s+/g, " ")
     .trim();
 
+  const cleanDanglingTail = (value: string): string => {
+    const v = value.trim();
+    if (!v) return "";
+    const withoutDanglingEg = v
+      .replace(/\(\s*e\.g\.?\s*$/i, "")
+      .replace(/\be\.g\.?\s*$/i, "")
+      .replace(/[\s\-:,(]+$/g, "")
+      .trim();
+    if (!withoutDanglingEg) return "";
+    if (/[.!?]$/.test(withoutDanglingEg)) return withoutDanglingEg;
+    return `${withoutDanglingEg}.`;
+  };
+
   const lower = summary.toLowerCase();
   const summaryLooksBad =
     summary.length < 18 ||
@@ -233,15 +252,14 @@ export function formatKnowledgeGapDescription(params: {
   if (summary && !summaryLooksBad) {
     const firstSentence = summary.split(/(?<=[.!?])\s+/)[0]?.trim() ?? summary;
     const maxLen = 160;
-    if (firstSentence.length <= maxLen) return firstSentence;
+    if (firstSentence.length <= maxLen) return cleanDanglingTail(firstSentence);
     const slice = firstSentence.slice(0, maxLen);
     const cut = slice.lastIndexOf(" ");
     const safe = (cut > 80 ? slice.slice(0, cut) : slice).trimEnd();
-    return safe.length > 0 ? `${safe}.` : "";
+    return safe.length > 0 ? cleanDanglingTail(safe) : "";
   }
 
   const topic = formatKnowledgeGapTitle(params.title, params.tags);
-  const tagHint = toTopicFromTags(params.tags);
 
   const prefix = (() => {
     switch (params.priority) {
@@ -256,14 +274,14 @@ export function formatKnowledgeGapDescription(params: {
     }
   })();
 
-  const base = tagHint && tagHint !== topic ? `${topic} (${tagHint})` : topic;
+  const base = topic;
   const templates = [
     `${prefix}Practice a crisp definition, a tiny example, and one trade-off for ${base}.`,
     `${prefix}Explain ${base} end-to-end in under 60 seconds, then add one common pitfall.`,
     `${prefix}Strengthen ${base} by comparing alternatives and when you’d choose each.`,
   ];
 
-  const key = `${topic}|${tagHint}|${params.priority ?? ""}`;
+  const key = `${topic}|${params.priority ?? ""}`;
   const pick =
     templates[stableHash(key) % templates.length] ?? templates[0] ?? "";
   const maxLen = 170;
@@ -280,9 +298,7 @@ export function formatKnowledgeGapBlurb(params: {
   priority?: "high" | "medium" | "low" | string;
 }): string {
   const topic = formatKnowledgeGapTitle(params.title, params.tags);
-  const tagHint = toTopicFromTags(params.tags);
-  const base = tagHint && tagHint !== topic ? `${topic} (${tagHint})` : topic;
-  const p = params.priority;
+  const base = topic;
   const tags = (params.tags ?? [])
     .map((t) => normalizeKnowledgeGapTag(t))
     .filter(Boolean);
@@ -394,38 +410,12 @@ export function formatKnowledgeGapBlurb(params: {
   ];
 
   const baseTemplates = templatesByTag[bestTag] ?? generic;
-  const openers = (() => {
-    if (p === "high") {
-      return [
-        "",
-        "Do this next:",
-        "Fix this first:",
-        "Quick win:",
-        "If you only do one thing:",
-      ];
-    }
-    if (p === "medium") {
-      return [
-        "",
-        "Level up:",
-        "Add this:",
-        "Make it clearer:",
-        "Tighten this:",
-      ];
-    }
-    if (p === "low") {
-      return ["", "Bonus:", "Polish:", "Nice-to-have:"];
-    }
-    return ["", "Next:", "Focus:"];
-  })();
 
-  const candidates = baseTemplates.flatMap((t) =>
-    openers.map((o) => (o ? `${o} ${t}` : t)),
-  );
-
-  const key = `${topic}|${tagHint}|${bestTag}|${params.priority ?? ""}`;
+  const key = `${topic}|${bestTag}|${params.priority ?? ""}`;
   const pick =
-    candidates[stableHash(key) % candidates.length] ?? candidates[0] ?? "";
+    baseTemplates[stableHash(key) % baseTemplates.length] ??
+    baseTemplates[0] ??
+    "";
   const maxLen = 170;
   if (pick.length <= maxLen) return pick;
 

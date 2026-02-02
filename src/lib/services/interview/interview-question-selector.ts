@@ -113,7 +113,6 @@ export async function getRelevantQuestionsForInterview(
 
     const allQuestions = result.questions as Question[];
 
-    // Filter questions based on interview config
     const relevantQuestions = allQuestions.filter((q: Question) => {
       // Skip recently used questions to prevent immediate repetition
       if (wasRecentlyUsed(q.id || "")) {
@@ -132,10 +131,12 @@ export async function getRelevantQuestionsForInterview(
         config.technologies.length === 0 ||
         matchTechStack(q, config.technologies);
 
-      // Enforce role/topic match when position is specified
-      const roleMatch = !config.position
-        ? true
-        : (q.positions ?? []).includes(config.position);
+      const roleMatch = (() => {
+        if (!config.position) return true;
+        const declared = q.positions ?? [];
+        if (declared.length === 0) return true;
+        return declared.includes(config.position);
+      })();
 
       return difficultyMatch && categoryMatch && techStackMatch && roleMatch;
     });

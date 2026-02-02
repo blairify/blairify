@@ -640,7 +640,7 @@ export function JobsContent() {
             {jobLevel !== "level-all" ? (
               <Badge
                 variant="secondary"
-                className="bg-blue-200 dark:text-black py-2"
+                className="bg-gray-200 dark:text-black py-2"
               >
                 {formattedJobLevelLabel}
               </Badge>
@@ -838,7 +838,7 @@ export function JobsContent() {
                                 </div>
                               ) : (
                                 <div className="flex items-center gap-1 text-xs">
-                                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                                  <span className="text-gray-600 dark:text-gray-300 font-medium">
                                     On-site
                                   </span>
                                 </div>

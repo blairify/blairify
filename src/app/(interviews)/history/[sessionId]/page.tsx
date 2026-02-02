@@ -750,106 +750,128 @@ export default function SessionDetailsPage() {
                     </div>
                   </div>
 
-                  {/* Detailed Performance Assessment */}
-                  <div className="mb-4 flex items-center gap-2">
-                    <BarChart3 className="size-5 text-primary" />
-                    <h2 className="text-xl font-bold text-foreground">
-                      Overall Performance Assessment
-                    </h2>
-                  </div>
-                  <div className="mb-8">
-                    {(() => {
-                      const overallScore =
-                        typeof session.scores?.overall === "number" &&
-                        session.scores.overall > 0
-                          ? session.scores.overall
-                          : 0;
+                  <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700 mb-8">
+                    <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                      <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        <BarChart3 className="size-5 text-primary" />
+                        Overall Performance Assessment
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      {(() => {
+                        const overallScore =
+                          typeof session.scores?.overall === "number" &&
+                          session.scores.overall > 0
+                            ? session.scores.overall
+                            : 0;
 
-                      return session.analysisStatus === "ready" &&
-                        session.analysis ? (
-                        <DetailedScoreCard
-                          score={overallScore}
-                          passed={session.analysis.passed}
-                          summary={
-                            session.analysis.summary && (
-                              <div className="prose prose-sm dark:prose-invert max-w-none">
-                                <ReactMarkdown
-                                  remarkPlugins={[remarkGfm]}
-                                  components={readableMarkdownComponents}
-                                >
-                                  {session.analysis.summary}
-                                </ReactMarkdown>
+                        if (
+                          session.analysisStatus === "ready" &&
+                          session.analysis
+                        ) {
+                          return (
+                            <DetailedScoreCard
+                              withCard={false}
+                              score={overallScore}
+                              passed={session.analysis.passed}
+                              summary={
+                                session.analysis.summary && (
+                                  <div className="prose prose-sm dark:prose-invert max-w-none">
+                                    <ReactMarkdown
+                                      remarkPlugins={[remarkGfm]}
+                                      components={readableMarkdownComponents}
+                                    >
+                                      {session.analysis.summary}
+                                    </ReactMarkdown>
+                                  </div>
+                                )
+                              }
+                              categoryScores={(() => {
+                                const rawCat = session.analysis?.categoryScores;
+                                return rawCat
+                                  ? {
+                                      technical: clampFinite(
+                                        rawCat.technical,
+                                        0,
+                                        CATEGORY_MAX.technical,
+                                      ),
+                                      problemSolving: clampFinite(
+                                        rawCat.problemSolving,
+                                        0,
+                                        CATEGORY_MAX.problemSolving,
+                                      ),
+                                      communication: clampFinite(
+                                        rawCat.communication,
+                                        0,
+                                        CATEGORY_MAX.communication,
+                                      ),
+                                      professional: clampFinite(
+                                        rawCat.professional,
+                                        0,
+                                        CATEGORY_MAX.professional,
+                                      ),
+                                    }
+                                  : getCategoryScores(overallScore);
+                              })()}
+                              technologyScores={(() => {
+                                const rawTech =
+                                  session.analysis?.technologyScores;
+                                return rawTech && typeof rawTech === "object"
+                                  ? Object.entries(rawTech)
+                                      .map(([tech, score]) => ({
+                                        tech,
+                                        score:
+                                          score === null
+                                            ? null
+                                            : clampFinite(score, 0, 100),
+                                      }))
+                                      .filter((x) => x.tech.trim().length > 0)
+                                      .sort((a, b) => {
+                                        const aScore = a.score ?? -1;
+                                        const bScore = b.score ?? -1;
+                                        return bScore - aScore;
+                                      })
+                                  : [];
+                              })()}
+                            />
+                          );
+                        }
+
+                        if (
+                          session.analysisStatus === "pending" ||
+                          session.analysisStatus === "ready"
+                        ) {
+                          return (
+                            <div className="rounded-xl border border-dashed border-border/60 bg-background/40 p-8">
+                              <div className="flex flex-col items-center justify-center text-center gap-4">
+                                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
+                                <div className="space-y-1">
+                                  <h3 className="font-semibold text-lg">
+                                    Analyzing Interview
+                                  </h3>
+                                  <p className="text-sm text-muted-foreground m-0 max-w-md">
+                                    Our AI is currently grading your responses
+                                    and generating feedback. This usually takes
+                                    less than a minute.
+                                  </p>
+                                </div>
                               </div>
-                            )
-                          }
-                          categoryScores={(() => {
-                            const rawCat = session.scores;
-                            return rawCat
-                              ? {
-                                  technical: clampFinite(
-                                    rawCat.technical,
-                                    0,
-                                    CATEGORY_MAX.technical,
-                                  ),
-                                  problemSolving: clampFinite(
-                                    rawCat.problemSolving,
-                                    0,
-                                    CATEGORY_MAX.problemSolving,
-                                  ),
-                                  communication: clampFinite(
-                                    rawCat.communication,
-                                    0,
-                                    CATEGORY_MAX.communication,
-                                  ),
-                                  professional: clampFinite(
-                                    (rawCat as any).professional ?? 0,
-                                    0,
-                                    CATEGORY_MAX.professional,
-                                  ),
-                                }
-                              : getCategoryScores(overallScore);
-                          })()}
-                          technologyScores={(() => {
-                            const rawTech = session.analysis?.technologyScores;
-                            return rawTech && typeof rawTech === "object"
-                              ? Object.entries(rawTech)
-                                  .map(([tech, score]) => ({
-                                    tech,
-                                    score: clampFinite(score, 0, 100),
-                                  }))
-                                  .filter((x) => x.tech.trim().length > 0)
-                                  .sort((a, b) => b.score - a.score)
-                              : [];
-                          })()}
-                        />
-                      ) : session.analysisStatus === "pending" ||
-                        session.analysisStatus === "ready" ? (
-                        <Card className="border-dashed border-2 p-8">
-                          <div className="flex flex-col items-center justify-center text-center gap-4">
-                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-                            <div className="space-y-1">
-                              <h3 className="font-semibold text-lg">
-                                Analyzing Interview
-                              </h3>
-                              <p className="text-sm text-muted-foreground m-0 max-w-md">
-                                Our AI is currently grading your responses and
-                                generating feedback. This usually takes less
-                                than a minute.
-                              </p>
                             </div>
+                          );
+                        }
+
+                        return (
+                          <div className="rounded-xl border border-border/60 bg-muted/10 p-8 text-center">
+                            <Typography.Body className="text-muted-foreground">
+                              {session.analysisStatus === "failed"
+                                ? "Score analysis failed."
+                                : "Score unavailable for this session."}
+                            </Typography.Body>
                           </div>
-                        </Card>
-                      ) : (
-                        <Card className="bg-muted/30 border-none p-8 text-center">
-                          <Typography.Body className="text-muted-foreground">
-                            {session.analysisStatus === "failed"
-                              ? "Score analysis failed."
-                              : "Score unavailable for this session."}
-                          </Typography.Body>
-                        </Card>
-                      );
-                    })()}
-                  </div>
+                        );
+                      })()}
+                    </CardContent>
+                  </Card>
                 </div>
               </div>
             </div>
@@ -946,7 +968,7 @@ export default function SessionDetailsPage() {
                                 {resources.map((r) => (
                                   <li key={r.id} className="text-sm">
                                     <a
-                                      className="text-blue-700 dark:text-blue-300 hover:underline"
+                                      className="text-gray-700 dark:text-gray-300 hover:underline"
                                       href={r.url}
                                       target="_blank"
                                       rel="noreferrer"
@@ -1093,7 +1115,7 @@ export default function SessionDetailsPage() {
                             <Collapsible
                               key={`${row.question.id}_followup_${rowIdx}`}
                               defaultOpen={false}
-                              className="border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-l-blue-500/50 bg-gradient-to-br from-blue-50/50 to-blue-50/10 border-y-border/50 border-r-border/50 dark:from-blue-950/20 dark:to-blue-950/5"
+                              className="border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-l-border/70 bg-gradient-to-br from-muted/30 to-muted/10 border-y-border/50 border-r-border/50"
                             >
                               <CollapsibleTrigger className="w-full text-left group">
                                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
@@ -1101,7 +1123,7 @@ export default function SessionDetailsPage() {
                                     <div className="flex flex-wrap items-center gap-2 mb-2">
                                       <Badge
                                         variant="secondary"
-                                        className="font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-900/70"
+                                        className="font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
                                       >
                                         Follow-up
                                       </Badge>

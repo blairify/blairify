@@ -72,7 +72,8 @@ interface DetailedScoreCardProps {
   passed?: boolean | null;
   summary: ReactNode;
   categoryScores: Record<CategoryKey, number>;
-  technologyScores?: Array<{ tech: string; score: number }>;
+  technologyScores?: Array<{ tech: string; score: number | null }>;
+  withCard?: boolean;
 }
 
 export function DetailedScoreCard({
@@ -81,6 +82,7 @@ export function DetailedScoreCard({
   summary,
   categoryScores,
   technologyScores = [],
+  withCard = true,
 }: DetailedScoreCardProps) {
   const radius = 42;
   const circumference = 2 * Math.PI * radius;
@@ -90,156 +92,166 @@ export function DetailedScoreCard({
 
   const readiness = getReadiness(scoreValue);
 
-  return (
-    <Card className="border-border/60 bg-gradient-to-br from-card to-muted/20 shadow-sm overflow-hidden">
-      <CardContent className="p-6 sm:p-8">
-        <div className="flex flex-col gap-10">
-          {/* Top Section: Radial Chart & Summary */}
-          <div className="flex flex-col sm:flex-row items-center gap-8 sm:gap-10">
-            {/* Radial Chart */}
-            <div className="relative w-32 h-32 flex-shrink-0">
-              <svg
-                className="w-full h-full transform -rotate-90"
-                viewBox="0 0 100 100"
-                aria-hidden
-                focusable="false"
+  const content = (
+    <div className="p-6 sm:p-8">
+      <div className="flex flex-col gap-10">
+        {/* Top Section: Radial Chart & Summary */}
+        <div className="flex flex-col sm:flex-row items-center gap-8 sm:gap-10">
+          {/* Radial Chart */}
+          <div className="relative w-32 h-32 flex-shrink-0">
+            <svg
+              className="w-full h-full transform -rotate-90"
+              viewBox="0 0 100 100"
+              aria-hidden
+              focusable="false"
+            >
+              <title>Score Progress Chart</title>
+              <circle
+                cx="50"
+                cy="50"
+                r={radius}
+                stroke="currentColor"
+                strokeWidth="8"
+                fill="none"
+                className="text-muted/30"
+              />
+              <motion.circle
+                cx="50"
+                cy="50"
+                r={radius}
+                stroke="currentColor"
+                strokeWidth="8"
+                fill="none"
+                strokeDasharray={circumference}
+                initial={{ strokeDashoffset: circumference }}
+                animate={{ strokeDashoffset: dashOffsetTarget }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className={readiness.ringClass}
+                strokeLinecap="round"
+              />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div
+                className={`text-4xl font-bold tabular-nums ${getScoreTextClass(
+                  passed,
+                )}`}
               >
-                <title>Score Progress Chart</title>
-                <circle
-                  cx="50"
-                  cy="50"
-                  r={radius}
-                  stroke="currentColor"
-                  strokeWidth="8"
-                  fill="none"
-                  className="text-muted/30"
-                />
-                <motion.circle
-                  cx="50"
-                  cy="50"
-                  r={radius}
-                  stroke="currentColor"
-                  strokeWidth="8"
-                  fill="none"
-                  strokeDasharray={circumference}
-                  initial={{ strokeDashoffset: circumference }}
-                  animate={{ strokeDashoffset: dashOffsetTarget }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
-                  className={readiness.ringClass}
-                  strokeLinecap="round"
-                />
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div
-                  className={`text-4xl font-bold tabular-nums ${getScoreTextClass(
-                    passed,
-                  )}`}
-                >
-                  {scoreValue}
-                </div>
-              </div>
-            </div>
-
-            {/* Headline & Narrative */}
-            <div className="text-center sm:text-left max-w-2xl flex-1">
-              <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center">
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                  {readiness.label}
-                </h2>
-                {passed !== undefined && passed !== null && (
-                  <Badge
-                    variant={passed ? "default" : "destructive"}
-                    className="ml-2 uppercase tracking-tight font-bold"
-                  >
-                    {passed ? "Passed" : "Not Passed"}
-                  </Badge>
-                )}
-              </div>
-              <div className="mt-4 text-muted-foreground leading-relaxed text-base">
-                {summary || "No summary available for this session."}
+                {scoreValue}
               </div>
             </div>
           </div>
 
-          <Separator className="bg-border/40" />
-
-          {/* Bottom Section: Category Breakdowns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Core Competencies */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground/80">
-                Core Competencies
-              </h3>
-              <div className="space-y-3">
-                {(
-                  [
-                    { key: "technical", label: "Technical Proficiency" },
-                    { key: "problemSolving", label: "Problem Solving" },
-                    { key: "communication", label: "Communication" },
-                    { key: "professional", label: "Professionalism" },
-                  ] as const
-                ).map((c, idx) => {
-                  const val = categoryScores[c.key as CategoryKey] ?? 0;
-                  const max = CATEGORY_MAX[c.key as CategoryKey];
-                  const pct = max > 0 ? Math.round((val / max) * 100) : 0;
-                  return (
-                    <div key={c.key} className="space-y-1.5">
-                      <div className="flex justify-between text-sm">
-                        <span className="font-medium">{c.label}</span>
-                        <span className="text-muted-foreground tabular-nums">
-                          {val}/{max}
-                        </span>
-                      </div>
-                      <div className="h-2 w-full overflow-hidden rounded-full bg-muted/50">
-                        <motion.div
-                          className="h-full bg-primary/80"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${pct}%` }}
-                          transition={{
-                            duration: 0.8,
-                            ease: "easeOut",
-                            delay: 0.2 + idx * 0.1,
-                          }}
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+          {/* Headline & Narrative */}
+          <div className="text-center sm:text-left max-w-2xl flex-1">
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+                {readiness.label}
+              </h2>
+              {passed !== undefined && passed !== null && (
+                <Badge
+                  variant={passed ? "default" : "destructive"}
+                  className="ml-2 uppercase tracking-tight font-bold"
+                >
+                  {passed ? "Passed" : "Not Passed"}
+                </Badge>
+              )}
             </div>
-
-            {/* Technology Scores (if any) */}
-            {technologyScores.length > 0 && (
-              <div className="space-y-4">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground/80">
-                  Tech Stack
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {technologyScores.slice(0, 8).map((t, _idx) => (
-                    <div
-                      key={t.tech}
-                      className="flex items-center justify-between rounded-lg border border-border/40 bg-background/50 px-3 py-2 text-sm"
-                    >
-                      <span className="font-medium truncate mr-2">
-                        {t.tech}
-                      </span>
-                      <span
-                        className={`font-bold tabular-nums ${
-                          t.score >= 70
-                            ? "text-emerald-600 dark:text-emerald-400"
-                            : "text-muted-foreground"
-                        }`}
-                      >
-                        {Math.round(t.score)}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+            <div className="mt-4 text-muted-foreground leading-relaxed text-base">
+              {summary || "No summary available for this session."}
+            </div>
           </div>
         </div>
-      </CardContent>
+
+        <Separator className="bg-border/40" />
+
+        {/* Bottom Section: Category Breakdowns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Core Competencies */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground/80">
+              Core Competencies
+            </h3>
+            <div className="space-y-3">
+              {(
+                [
+                  { key: "technical", label: "Technical Proficiency" },
+                  { key: "problemSolving", label: "Problem Solving" },
+                  { key: "communication", label: "Communication" },
+                  { key: "professional", label: "Professionalism" },
+                ] as const
+              ).map((c, idx) => {
+                const val = categoryScores[c.key as CategoryKey] ?? 0;
+                const max = CATEGORY_MAX[c.key as CategoryKey];
+                const pct = max > 0 ? Math.round((val / max) * 100) : 0;
+                return (
+                  <div key={c.key} className="space-y-1.5">
+                    <div className="flex justify-between text-sm">
+                      <span className="font-medium">{c.label}</span>
+                      <span className="text-muted-foreground tabular-nums">
+                        {val}/{max}
+                      </span>
+                    </div>
+                    <div className="h-2 w-full overflow-hidden rounded-full bg-muted/50">
+                      <motion.div
+                        className="h-full bg-primary/80"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${pct}%` }}
+                        transition={{
+                          duration: 0.8,
+                          ease: "easeOut",
+                          delay: 0.2 + idx * 0.1,
+                        }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Technology Scores (if any) */}
+          {technologyScores.length > 0 && (
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground/80">
+                Tech Stack
+              </h3>
+              {technologyScores.every((t) => t.score === null) && (
+                <div className="text-xs text-muted-foreground leading-relaxed">
+                  Not assessed — none of the selected technologies were
+                  discussed or used in the questions.
+                </div>
+              )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {technologyScores.slice(0, 8).map((t, _idx) => (
+                  <div
+                    key={t.tech}
+                    className="flex items-center justify-between rounded-lg border border-border/40 bg-background/50 px-3 py-2 text-sm"
+                  >
+                    <span className="font-medium truncate mr-2">{t.tech}</span>
+                    <span
+                      className={`font-bold tabular-nums ${
+                        t.score !== null && t.score >= 70
+                          ? "text-emerald-600 dark:text-emerald-400"
+                          : "text-muted-foreground"
+                      }`}
+                    >
+                      {t.score === null ? "N/A" : Math.round(t.score)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
+  if (!withCard) return content;
+
+  return (
+    <Card className="border-border/60 bg-gradient-to-br from-card to-muted/20 shadow-sm overflow-hidden">
+      <CardContent className="p-0">{content}</CardContent>
     </Card>
   );
 }
