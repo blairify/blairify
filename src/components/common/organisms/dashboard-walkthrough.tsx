@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import type { ReactNode } from "react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
@@ -38,6 +38,7 @@ function clamp(value: number, min: number, max: number) {
 export function DashboardWalkthrough(): ReactNode {
   const { user, userData, refreshUserData } = useAuth();
   const searchParams = useSearchParams();
+  const pathname = usePathname();
 
   const steps = useMemo<WalkthroughStep[]>(
     () => [
@@ -93,10 +94,12 @@ export function DashboardWalkthrough(): ReactNode {
 
     const forced = window.localStorage.getItem(FORCE_KEY) === "1";
     const forcedByQuery = searchParams.get("tour") === "1";
+    const isAutoStartRoute = pathname === "/my-progress";
 
     const shouldAutoStart =
       userData.onboardingCompleted === true &&
-      userData.hasSeenDashboardTour !== true;
+      userData.hasSeenDashboardTour !== true &&
+      isAutoStartRoute;
 
     if (!forced && !forcedByQuery && !shouldAutoStart) return;
 
@@ -106,7 +109,7 @@ export function DashboardWalkthrough(): ReactNode {
     if (forced) {
       window.localStorage.removeItem(FORCE_KEY);
     }
-  }, [searchParams, userData]);
+  }, [pathname, searchParams, userData]);
 
   useEffect(() => {
     if (!isOpen) return;
