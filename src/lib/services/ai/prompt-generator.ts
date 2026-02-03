@@ -298,8 +298,14 @@ Rules for KNOWLEDGE GAPS:
 - Output exactly 1 knowledge gap per interviewer question.
 - NEVER quote the full question text. Use a short topic reference instead (e.g. "JavaScript placement in HTML", "alt attribute in HTML").
 - Title MUST be a SHORT topic noun-phrase: 2-5 words.
-  - No verbs (no "Explain", "Implement", "Use"), no "you", no "can you", no question marks.
-  - Examples: "Progressive Web Apps", "JSX compilation", "React Hooks rules", "SQL indexes".
+  - MUST be a topic label, not a sentence.
+  - MUST NOT contain verbs like: "explain", "describe", "define", "implement", "use", "build", "handle", "investigate".
+  - MUST NOT include any of these patterns/phrases: "you", "your", "we", "let's", "since", "when I asked", "in your answer", "and why".
+  - MUST NOT include commas, question marks, or trailing fragments (e.g. "..., and why is it").
+  - MUST be specific (ban: "This topic", "That topic", "Fundamentals").
+  - MUST be unique across gaps (no near-duplicates).
+  - Examples (good): "Credential Stuffing Triage", "Session Management in PHP", "GCP Identity Platform Basics", "SQL Indexes".
+  - Examples (bad): "Since that topic wasn't familiar, let's", "Identity Platform in GCP, and why is it", "In your answer about X", "This topic".
 - The Summary must NOT sound templated. Avoid patterns like "Strengthen X by comparing alternatives".
 - The Summary must be specific enough that the candidate could practice it immediately (include what to mention: definition, example, trade-off, edge case, etc.).
 - The Summary MUST be standalone and useful even without transcript context.
@@ -360,11 +366,32 @@ Constraints:
   - Paragraph 1: 1 sentence on the outcome (pass/fail) + 1-3 sentences on the strongest demonstrated signal(s).
   - Paragraph 2: 2-4 sentences that connect 2-3 weaknesses into one pattern + 1 sentence with a concrete next step.
 - focusAreas: exactly 3 items.
-  - title: 2-5 words noun-phrase, no verbs, no question marks.
+  - title: 2-5 words, noun phrase only.
+    - MUST be a topic label, not a sentence.
+    - MUST NOT contain verbs like: "explain", "describe", "define", "implement", "use", "build", "handle", "investigate".
+    - MUST NOT include any of these patterns/phrases: "you", "your", "we", "let's", "since", "when I asked", "in your answer", "and why".
+    - MUST NOT include commas, question marks, or trailing fragments (e.g. "..., and why is it").
+    - MUST be specific (ban: "This topic", "That topic", "Fundamentals").
+    - MUST be unique across the 3 items (no near-duplicates).
+    Examples (good):
+    - "Credential Stuffing Triage"
+    - "Session Management in PHP"
+    - "GCP Identity Platform Basics"
+    Examples (bad):
+    - "Since that topic wasn't familiar, let's"
+    - "Identity Platform in GCP, and why is it"
+    - "In your answer about X"
+    - "This topic"
   - why: 1-2 sentences, concrete, no ellipses.
 - plan: 4-6 items.
   - each item is one line, actionable, starts with a verb.
   - each item must be meaningfully different (no repeated template).
+  - each item must be self-contained (no dangling fragments).
+    - MUST NOT end with: "vs", "vs.", "versus", ":", "etc".
+    Examples (bad):
+    - "Compare memory usage of list comprehension vs."
+    Examples (good):
+    - "Compare memory usage of list comprehensions vs generators using a 1M-row benchmark."
 
 Context: this is for a ${config.seniority}-level ${config.position} ${config.interviewType} interview.`;
 }

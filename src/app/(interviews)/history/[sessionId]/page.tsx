@@ -137,6 +137,9 @@ export default function SessionDetailsPage() {
   const [loading, setLoading] = useState(true);
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [questionTitlesByText, setQuestionTitlesByText] = useState<
+    Record<string, string>
+  >({});
   const [practiceQuestionsById, setPracticeQuestionsById] = useState<
     Record<string, Question>
   >({});
@@ -387,30 +390,27 @@ export default function SessionDetailsPage() {
 
       if (!sessionData) {
         setError("Session not found");
-        setLoading(false);
+        setSession(null);
         return;
       }
 
       setSession(sessionData);
-      setError(null); // Clear any previous errors
-    } catch (err) {
-      console.error("Error loading session:", err);
-      setError("Failed to load session details");
+      setError(null);
+    } catch {
+      setError("Failed to load session");
+      setSession(null);
     } finally {
       setLoading(false);
     }
-  }, [user?.uid, sessionId]);
+  }, [sessionId, user?.uid]);
 
-  // Load session on mount
   useEffect(() => {
-    loadSession();
-  }, [loadSession]);
+    if (!user || !params.sessionId) return;
+    void loadSession();
 
-  // Refresh session when tab becomes visible
-  useEffect(() => {
     const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible" && user?.uid && sessionId) {
-        loadSession();
+      if (document.visibilityState === "visible") {
+        void loadSession();
       }
     };
 
@@ -418,7 +418,7 @@ export default function SessionDetailsPage() {
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [loadSession, user?.uid, sessionId]);
+  }, [loadSession, params.sessionId, user]);
 
   useEffect(() => {
     if (!session?.questions || session.questions.length === 0) {
@@ -458,6 +458,55 @@ export default function SessionDetailsPage() {
       setPracticeQuestionsById(next);
     })();
   }, [session?.questions]);
+
+  useEffect(() => {
+    if (!session) return;
+
+    const main = Array.isArray(session.questions)
+      ? session.questions.map((q) => (q.question ?? "").trim()).filter(Boolean)
+      : [];
+    const followUps = Array.isArray(session.questions)
+      ? session.questions
+          .flatMap((q) =>
+            (q.followUps ?? []).map((f) => (f.question ?? "").trim()),
+          )
+          .filter(Boolean)
+      : [];
+    const unique = Array.from(new Set([...main, ...followUps]));
+    if (unique.length === 0) return;
+
+    void (async () => {
+      try {
+        const res = await fetch("/api/interview/question-titles", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            interviewConfig: session.config,
+            questions: unique,
+          }),
+        });
+        if (!res.ok) return;
+        const json = (await res.json()) as {
+          success: boolean;
+          titles?: unknown;
+        };
+        if (!json.success || !Array.isArray(json.titles)) return;
+
+        const titles = json.titles.map((t) => (typeof t === "string" ? t : ""));
+        const next: Record<string, string> = {};
+        for (let i = 0; i < unique.length; i += 1) {
+          const q = unique[i];
+          const title = titles[i]?.trim() ?? "";
+          if (!q) continue;
+          if (!title) continue;
+          next[q] = title;
+        }
+        setQuestionTitlesByText(next);
+      } catch {
+        return;
+      }
+    })();
+  }, [session]);
 
   const getExampleAnswer = (question: Question): string | null => {
     switch (question.type) {
@@ -1130,7 +1179,15 @@ export default function SessionDetailsPage() {
                                     </div>
 
                                     <div className="font-semibold text-foreground line-clamp-1">
-                                      {row.followUpQuestionText}
+                                      {(() => {
+                                        const qText =
+                                          row.followUpQuestionText?.trim() ??
+                                          "";
+                                        if (!qText) return "Follow-up";
+                                        return (
+                                          questionTitlesByText[qText] ?? qText
+                                        );
+                                      })()}
                                     </div>
                                   </div>
 
@@ -1285,6 +1342,9 @@ export default function SessionDetailsPage() {
 
                                   <div className="font-semibold text-foreground line-clamp-1">
                                     {row.practiceQuestion?.title ||
+                                      questionTitlesByText[
+                                        row.question.question
+                                      ] ||
                                       row.question.question}
                                   </div>
                                 </div>

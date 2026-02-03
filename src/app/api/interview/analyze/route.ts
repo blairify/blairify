@@ -56,21 +56,39 @@ function stripInlineMarkdown(value: string): string {
 }
 
 function normalizePresentationWhy(value: string): string {
-  const firstSentence = stripInlineMarkdown(value)
-    .split(/(?<=[.!?])\s+/)[0]
-    ?.trim();
-  if (!firstSentence) return "";
-  if (/[.!?]$/.test(firstSentence)) return firstSentence;
-  return `${firstSentence}.`;
+  const cleaned = value
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/__(.*?)__/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/[\t ]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+
+  if (!cleaned) return "";
+  return cleaned;
 }
 
 function normalizePresentationPlanLine(value: string): string {
-  const firstSentence = stripInlineMarkdown(value)
-    .split(/(?<=[.!?])\s+/)[0]
-    ?.trim();
+  const raw = stripInlineMarkdown(value).trim();
+  if (!raw) return "";
+
+  const firstSentence = raw.split(/(?<=[.!?])\s+/)[0]?.trim();
   if (!firstSentence) return "";
-  if (/[.!?]$/.test(firstSentence)) return firstSentence;
-  return `${firstSentence}.`;
+
+  const trimmed = firstSentence.replace(/[\s\-–—,:;]+$/g, "").trim();
+  if (!trimmed) return "";
+
+  const lower = trimmed.toLowerCase();
+  const endsBadly =
+    lower.endsWith(" vs") ||
+    lower.endsWith(" vs.") ||
+    lower.endsWith(" versus") ||
+    lower.endsWith(" etc") ||
+    lower.endsWith(" etc.");
+  if (endsBadly) return "";
+
+  if (/[.!?]$/.test(trimmed)) return trimmed;
+  return `${trimmed}.`;
 }
 
 function isAcceptableGapTitle(title: string): boolean {
@@ -80,7 +98,7 @@ function isAcceptableGapTitle(title: string): boolean {
 
   const lower = t.toLowerCase();
   const wordCount = lower.split(/\s+/).filter(Boolean).length;
-  if (wordCount < 2 || wordCount > 5) return false;
+  if (wordCount < 2 || wordCount > 8) return false;
 
   const bannedStarts = [
     "let's ",
@@ -109,6 +127,9 @@ function isAcceptableGapTitle(title: string): boolean {
 
   const bannedContains = [
     "let's try",
+    "let's move",
+    "let's switch",
+    "let's",
     "different angle",
     "you described",
     "you said",
@@ -126,6 +147,136 @@ function isAcceptableGapTitle(title: string): boolean {
   return true;
 }
 
+function normalizeGrowthTitle(raw: string): string {
+  const cleaned = stripInlineMarkdown(raw)
+    .replace(/[“”]/g, '"')
+    .replace(/[’]/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!cleaned) return "";
+
+  const isGeneric = (value: string): boolean => {
+    const t = value.trim().toLowerCase();
+    if (!t) return true;
+    if (t === "topic") return true;
+    if (t === "this") return true;
+    if (t === "this topic") return true;
+    if (t === "that topic") return true;
+    if (t === "this concept") return true;
+    return false;
+  };
+
+  const withoutLead = cleaned
+    .replace(/^in\s+your\s+answer\s+about\s+/i, "")
+    .replace(/^when\s+i\s+asked\s+about\s+/i, "")
+    .replace(
+      /^since\s+that\s+topic\s+wasn['’]t\s+familiar\s*,?\s*let['’]s\s+.+$/i,
+      "",
+    )
+    .replace(/^since\s+that\s+wasn['’]t\s+familiar\s*,?\s*let['’]s\s+.+$/i, "")
+    .replace(
+      /^since\s+you\s+(?:weren['’]t|were\s+not)\s+familiar\s+with\s+.+$/i,
+      "",
+    )
+    .replace(/^no\s+worries\s*,?\s*let['’]s\s+.+$/i, "")
+    .replace(/^all\s+good\s*,?\s*let['’]s\s+.+$/i, "")
+    .replace(/^okay\s*,?\s*let['’]s\s+.+$/i, "")
+    .replace(/^let['’]s\s+try\s+.+?\s*[:\-–—]?\s*/i, "")
+    .replace(/^let['’]s\s+talk\s+about\s+/i, "")
+    .replace(/^now,\s+let['’]s\s+talk\s+about\s+/i, "")
+    .replace(/^how\s+do\s+you\s+/i, "")
+    .replace(/^how\s+would\s+you\s+/i, "")
+    .replace(/^how\s+to\s+/i, "")
+    .replace(/^what\s+is\s+/i, "")
+    .replace(/^what\s+are\s+/i, "")
+    .replace(/^you\s+(?:can\s+)?/i, "")
+    .replace(/^your\s+/i, "")
+    .trim();
+
+  const withoutQuestionTail = withoutLead
+    .replace(/[,;:]?\s+and\s+why\s+is\s+it\b.*$/i, "")
+    .replace(/[,;:]?\s+and\s+why\s+it\b.*$/i, "")
+    .replace(/[,;:]?\s+and\s+why\b.*$/i, "")
+    .replace(/\s+why\s+is\s+it\b.*$/i, "")
+    .replace(/\s+why\s+it\b.*$/i, "")
+    .trim();
+
+  if (!withoutQuestionTail) return "";
+
+  const words = withoutQuestionTail.split(/\s+/).filter(Boolean);
+  if (words.length === 0) return "";
+
+  const verb = (words[0] ?? "").toLowerCase();
+  const rest = words.slice(1).join(" ");
+
+  const toIng = (v: string): string => {
+    const map: Record<string, string> = {
+      handle: "Handling",
+      debug: "Debugging",
+      investigate: "Investigating",
+      triage: "Triaging",
+      optimize: "Optimizing",
+      improve: "Improving",
+      secure: "Securing",
+      design: "Designing",
+      implement: "Implementing",
+      build: "Building",
+      test: "Testing",
+      monitor: "Monitoring",
+      diagnose: "Diagnosing",
+      tune: "Tuning",
+      mitigate: "Mitigating",
+      prevent: "Preventing",
+      explain: "Explaining",
+      describe: "Describing",
+      define: "Defining",
+      identify: "Identifying",
+    };
+    const mapped = map[v];
+    if (mapped) return mapped;
+    if (v.endsWith("e") && v.length > 2) return `${v.slice(0, -1)}ing`;
+    return `${v}ing`;
+  };
+
+  const normalized = (() => {
+    if (!rest) return withoutLead;
+    if (
+      verb === "handle" ||
+      verb === "debug" ||
+      verb === "investigate" ||
+      verb === "triage" ||
+      verb === "optimize" ||
+      verb === "improve" ||
+      verb === "secure" ||
+      verb === "design" ||
+      verb === "implement" ||
+      verb === "build" ||
+      verb === "test" ||
+      verb === "monitor" ||
+      verb === "diagnose" ||
+      verb === "tune" ||
+      verb === "mitigate" ||
+      verb === "prevent" ||
+      verb === "explain" ||
+      verb === "describe" ||
+      verb === "define" ||
+      verb === "identify"
+    ) {
+      return `${toIng(verb)} ${rest}`;
+    }
+    return withoutQuestionTail;
+  })();
+
+  const capped =
+    normalized.length > 0
+      ? normalized[0].toUpperCase() + normalized.slice(1)
+      : "";
+
+  const final = capped.replace(/[.!]+$/g, "").trim();
+  if (isGeneric(final)) return "";
+  return final;
+}
+
 function normalizeWhy(value: string): string {
   return value.trim().replace(/\s+/g, " ");
 }
@@ -141,14 +292,37 @@ function stableHash(value: string): number {
 function safeParseJsonObject(value: string): Record<string, unknown> | null {
   const raw = value.trim();
   if (!raw) return null;
+
+  const unfence = (input: string): string => {
+    const fenced = input.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
+    if (fenced?.[1]) return fenced[1].trim();
+    return input;
+  };
+
+  const normalized = unfence(raw).trim();
+  if (!normalized) return null;
+
+  const jsonCandidate = (() => {
+    if (normalized.startsWith("{") && normalized.endsWith("}"))
+      return normalized;
+    const start = normalized.indexOf("{");
+    const end = normalized.lastIndexOf("}");
+    if (start < 0 || end < 0 || end <= start) return normalized;
+    return normalized.slice(start, end + 1);
+  })();
   try {
-    const parsed = JSON.parse(raw) as unknown;
+    const parsed = JSON.parse(jsonCandidate) as unknown;
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed))
       return null;
     return parsed as Record<string, unknown>;
   } catch {
     return null;
   }
+}
+
+function truncateForLog(value: string, maxChars: number): string {
+  if (value.length <= maxChars) return value;
+  return `${value.slice(0, maxChars)}\n…(truncated)`;
 }
 
 function isPresentationCopy(value: unknown): value is PresentationCopy {
@@ -159,7 +333,7 @@ function isPresentationCopy(value: unknown): value is PresentationCopy {
   if (!Array.isArray(v.plan)) return false;
 
   const focusAreas = v.focusAreas as unknown[];
-  if (focusAreas.length !== 3) return false;
+  if (focusAreas.length < 2 || focusAreas.length > 6) return false;
   for (const item of focusAreas) {
     if (!item || typeof item !== "object" || Array.isArray(item)) return false;
     const i = item as Record<string, unknown>;
@@ -178,7 +352,7 @@ function isPresentationCopy(value: unknown): value is PresentationCopy {
   }
 
   const plan = v.plan as unknown[];
-  if (plan.length < 4 || plan.length > 6) return false;
+  if (plan.length < 3 || plan.length > 8) return false;
   if (!plan.every((p) => typeof p === "string" && p.trim().length > 0))
     return false;
 
@@ -305,7 +479,7 @@ function normalizeTopicReference(value: string): string {
 
 function questionToTopicReference(question: string | undefined): string {
   const q = normalizeTopicReference(question ?? "");
-  if (!q) return "this topic";
+  if (!q) return "";
 
   const lower = q.toLowerCase();
   if (lower.includes("alt attribute")) return "the alt attribute in HTML";
@@ -350,27 +524,63 @@ function questionToTopicReference(question: string | undefined): string {
     .trim();
 
   const clause = cleaned.split(/[:.]/)[0]?.trim() ?? cleaned;
-  if (!clause) return "this topic";
+  if (!clause) return "";
 
   const maxLen = 60;
-  if (clause.length <= maxLen) return clause;
+  if (clause.length <= maxLen) {
+    const title = normalizeGrowthTitle(clause);
+    return title;
+  }
 
   const slice = clause.slice(0, maxLen);
   const cut = slice.lastIndexOf(" ");
   const safe = (cut > 18 ? slice.slice(0, cut) : slice)
     .replace(/[,:;\-–—]+\s*$/g, "")
     .trim();
-  return safe.length > 0 ? safe : "this topic";
+  const title = normalizeGrowthTitle(safe);
+  return title;
 }
 
 function isAcceptablePresentationFocusTitle(title: string): boolean {
   const t = normalizeGapTitle(title);
+  if (!t) return false;
+  if (t.toLowerCase() === "this topic") return false;
   if (!isAcceptableGapTitle(t)) return false;
   const lower = t.toLowerCase();
   if (lower.includes("let's try")) return false;
   if (lower.includes("in your answer about")) return false;
   if (lower.includes("when i asked")) return false;
   return true;
+}
+
+function buildFallbackTitleFromTags(tags: string[]): string {
+  const ignore = new Set(["fundamentals", "interview", "practice"]);
+  const cleaned = tags
+    .map((t) => normalizeTag(t))
+    .filter((t) => t.length > 0)
+    .filter((t) => !ignore.has(t));
+
+  const pick = cleaned[0] ?? tags[0] ?? "";
+  const secondary = cleaned[1];
+
+  const humanize = (tag: string): string => {
+    const words = tag
+      .replace(/[-_]+/g, " ")
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 4);
+    if (words.length === 0) return "";
+    return words
+      .map((w) => w[0]?.toUpperCase() + w.slice(1))
+      .join(" ")
+      .trim();
+  };
+
+  const a = humanize(pick);
+  const b = secondary ? humanize(secondary) : "";
+  if (a && b) return `${a}: ${b}`;
+  if (a) return a;
+  return "Core fundamentals";
 }
 
 function normalizeTag(value: string): string {
@@ -398,7 +608,9 @@ function sanitizeModelTags(tags: string[] | undefined): string[] {
     .slice(0, 6);
 }
 
-function deriveConceptTagsFromQuestion(question: string | undefined): string[] {
+function _deriveConceptTagsFromQuestion(
+  question: string | undefined,
+): string[] {
   const q = (question ?? "").toLowerCase();
   const tags: string[] = [];
 
@@ -485,7 +697,7 @@ function normalizeSecondPerson(value: string): string {
     .trim();
 }
 
-function sanitizeGapSummary(summary: string): string {
+function _sanitizeGapSummary(summary: string): string {
   const s = stripInlineMarkdown(summary)
     .replace(/\.{3,}/g, " ")
     .replace(/…/g, " ")
@@ -543,7 +755,7 @@ function deriveGapSummaryFromWhy(why: string): string {
   return `${cleaned}.`;
 }
 
-function buildGapSummaryFallback(params: {
+function _buildGapSummaryFallback(params: {
   title: string;
   tags: string[];
   priority: KnowledgeGap["priority"];
@@ -828,51 +1040,27 @@ function ensureMinimumKnowledgeGaps(options: {
   score: number;
   passed?: boolean;
 }): KnowledgeGap[] {
-  const questions = extractInterviewerQuestions(options.conversationHistory);
-  const perQuestion: KnowledgeGap[] = questions.map((question, idx) => {
-    const fallbackQuestion = question;
-    const topic = questionToTopicReference(fallbackQuestion);
-
-    const fromModel = options.knowledgeGaps[idx];
-    const baseTitle = normalizeGapTitle(fromModel?.title ?? "");
-    const title = isAcceptableGapTitle(baseTitle) ? baseTitle : topic;
-
-    const priority =
-      fromModel?.priority ?? (options.passed === false ? "high" : "medium");
-    const modelTags = sanitizeModelTags(fromModel?.tags);
-    const tags =
-      modelTags.length > 0
-        ? modelTags
-        : deriveConceptTagsFromQuestion(fallbackQuestion);
-
-    const baseSummary = sanitizeGapSummary(fromModel?.summary ?? "");
-    const why = ensureWhyReferencesTranscript(
-      fromModel?.why ?? "",
-      fallbackQuestion,
-    );
-
-    const derivedFromWhy = deriveGapSummaryFromWhy(why);
-    const summary =
-      baseSummary.length > 0
-        ? baseSummary
-        : derivedFromWhy.length > 0
-          ? derivedFromWhy
-          : buildGapSummaryFallback({ title, tags, priority });
-
-    return {
-      title,
-      priority,
-      tags,
-      ...(summary.length > 0 ? { summary } : {}),
-      why,
-      ...(fromModel?.exampleAnswer
-        ? { exampleAnswer: fromModel.exampleAnswer }
-        : {}),
-      resources: fromModel?.resources ?? [],
-    };
-  });
-
-  if (perQuestion.length > 0) return perQuestion;
+  const normalizedFromModel = dedupeKnowledgeGaps(
+    (Array.isArray(options.knowledgeGaps) ? options.knowledgeGaps : [])
+      .map((g) => {
+        const modelTags = sanitizeModelTags(g.tags);
+        const tags = modelTags.length > 0 ? modelTags : [];
+        const baseTitle = normalizeGapTitle(g.title);
+        const fromTitle = isAcceptableGapTitle(baseTitle)
+          ? normalizeGrowthTitle(baseTitle)
+          : "";
+        const title =
+          fromTitle.length > 0
+            ? fromTitle
+            : tags.length > 0
+              ? buildFallbackTitleFromTags(tags)
+              : "";
+        if (!title) return null;
+        return { ...g, title, tags };
+      })
+      .filter((g): g is NonNullable<typeof g> => g !== null),
+  );
+  if (normalizedFromModel.length >= 2) return normalizedFromModel.slice(0, 5);
 
   const fallback = buildFallbackKnowledgeGaps({
     conversationHistory: options.conversationHistory,
@@ -881,13 +1069,21 @@ function ensureMinimumKnowledgeGaps(options: {
     passed: options.passed,
   });
 
-  return dedupeKnowledgeGaps(fallback).slice(0, 5);
+  const merged = dedupeKnowledgeGaps([
+    ...normalizedFromModel,
+    ...fallback.map((g) => ({
+      ...g,
+      title: normalizeGrowthTitle(g.title) || g.title,
+    })),
+  ]);
+  return merged.slice(0, 5);
 }
 
 export async function POST(
   request: NextRequest,
 ): Promise<NextResponse<AnalyzeApiResponse>> {
   try {
+    const requestId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
     // Parse and validate request
     const body = (await request.json()) as AnalyzeApiRequest;
     const { conversationHistory, interviewConfig } = body;
@@ -1061,6 +1257,15 @@ export async function POST(
         const aiResponse = await generateAnalysis(aiClient, system, userPrompt);
         if (!aiResponse.success) return null;
         rawPresentation = aiResponse.content;
+
+        if (process.env.NODE_ENV !== "production") {
+          console.info("[analyze] rawPresentation", {
+            requestId,
+            length: rawPresentation.length,
+            preview: truncateForLog(rawPresentation, 1800),
+          });
+        }
+
         const parsed = safeParseJsonObject(aiResponse.content);
         if (!isPresentationCopy(parsed)) return null;
         return parsed;
@@ -1092,7 +1297,9 @@ Repair rules:
         ? presentation.focusAreas
             .map((fa) => {
               const titleRaw = typeof fa.title === "string" ? fa.title : "";
-              const title = formatKnowledgeGapTitle(titleRaw, fa.tags);
+              const title = normalizeGrowthTitle(
+                formatKnowledgeGapTitle(titleRaw, fa.tags),
+              );
               const whyRaw = typeof fa.why === "string" ? fa.why : "";
               const why = normalizePresentationWhy(whyRaw);
               const tags = Array.isArray(fa.tags)
@@ -1117,11 +1324,16 @@ Repair rules:
             .reduce<PresentationCopy["focusAreas"]>((acc, item) => {
               const key = normalizeGapTitle(item.title).toLowerCase();
               if (!key) return acc;
-              if (acc.some((x) => normalizeGapTitle(x.title).toLowerCase() === key))
+              if (
+                acc.some(
+                  (x) => normalizeGapTitle(x.title).toLowerCase() === key,
+                )
+              )
                 return acc;
               acc.push(item);
               return acc;
             }, [])
+            .slice(0, 3)
         : presentation.focusAreas;
 
       const plan = Array.isArray(presentation.plan)

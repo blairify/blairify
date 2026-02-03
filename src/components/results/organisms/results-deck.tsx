@@ -175,17 +175,13 @@ function sanitizeCoachNarrative(raw: string | null | undefined): string {
     .replace(/\b\d+\b/g, "")
     .replace(/\bthis\s+candidate\b/gi, "You")
     .replace(/\(\s*\)/g, "")
-    .replace(/\s+/g, " ")
+    .replace(/[\t ]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 
   if (compact.length === 0) return "";
 
-  const sentences = compact
-    .split(/(?<=[.!?])\s+/)
-    .map((s) => s.trim())
-    .filter(Boolean);
-
-  return sentences[0] ?? "";
+  return compact;
 }
 
 function buildCoachSummary(params: {

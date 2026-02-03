@@ -105,7 +105,7 @@ function deriveOverallScoreFromSession(session: InterviewSession): number {
     return clampFinite(Math.round(avg), 0, 100);
   }
 
-  const techScores = session.analysis?.technologyScores
+  const techScores: number[] = session.analysis?.technologyScores
     ? Object.values(session.analysis.technologyScores).filter(
         (n): n is number => typeof n === "number" && Number.isFinite(n),
       )
@@ -543,6 +543,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   >([]);
   const [generatedFollowUpExampleAnswers, setGeneratedFollowUpExampleAnswers] =
     useState<string[]>([]);
+  const [
+    generatedExampleAnswerByQuestionText,
+    setGeneratedExampleAnswerByQuestionText,
+  ] = useState<Record<string, string>>({});
+  const [questionTitlesByText, setQuestionTitlesByText] = useState<
+    Record<string, string>
+  >({});
   const [storedConfig, setStoredConfig] = useState<
     Pick<InterviewConfig, "position" | "seniority"> | undefined
   >(undefined);
@@ -845,7 +852,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           practiceQuestionId,
           questionText: q.question,
           yourAnswer: response?.response ?? "",
-          aiExampleAnswer: q.aiExampleAnswer ?? null,
+          aiExampleAnswer:
+            q.aiExampleAnswer ??
+            (generatedExampleAnswerByQuestionText[q.question] || null),
         });
 
         // Add follow-ups if they exist
@@ -857,7 +866,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               practiceQuestionId: null,
               questionText: f.question,
               yourAnswer: f.response,
-              aiExampleAnswer: f.aiExampleAnswer ?? null,
+              aiExampleAnswer:
+                f.aiExampleAnswer ??
+                (generatedExampleAnswerByQuestionText[f.question] || null),
             });
           });
         }
@@ -957,7 +968,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         practiceQuestionId,
         questionText: aiText,
         yourAnswer: answerContent,
-        aiExampleAnswer: generatedExampleAnswers[mainIdx] || null,
+        aiExampleAnswer:
+          generatedExampleAnswerByQuestionText[aiText] ||
+          generatedExampleAnswers[mainIdx] ||
+          null,
       });
 
       mainIdx += 1;
@@ -978,6 +992,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   }, [
     generatedExampleAnswers,
     generatedFollowUpExampleAnswers,
+    generatedExampleAnswerByQuestionText,
     practiceQuestionIds,
     savedSession,
     storedSession?.messages,
@@ -1303,8 +1318,69 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             : [];
         })();
 
+        const exampleAnswerByQuestionText = (() => {
+          const next: Record<string, string> = {};
+          for (let i = 0; i < mainItems.length; i += 1) {
+            const q = mainItems[i]?.questionText.trim() ?? "";
+            const a = mainExampleAnswers[i]?.trim() ?? "";
+            if (!q) continue;
+            if (!a) continue;
+            next[q] = a;
+          }
+          for (let i = 0; i < followUpItems.length; i += 1) {
+            const q = followUpItems[i]?.questionText.trim() ?? "";
+            const a = followUpExampleAnswers[i]?.trim() ?? "";
+            if (!q) continue;
+            if (!a) continue;
+            next[q] = a;
+          }
+          return next;
+        })();
+
+        const questionTitleMap = await (async () => {
+          const all = [...mainItems, ...followUpItems]
+            .map((x) => x.questionText.trim())
+            .filter(Boolean);
+          const unique = Array.from(new Set(all));
+          if (unique.length === 0) return {} as Record<string, string>;
+
+          try {
+            const res = await fetch("/api/interview/question-titles", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                interviewConfig: config,
+                questions: unique,
+              }),
+            });
+            if (!res.ok) return {} as Record<string, string>;
+            const json = (await res.json()) as {
+              success: boolean;
+              titles?: unknown;
+            };
+            if (!json.success || !Array.isArray(json.titles))
+              return {} as Record<string, string>;
+            const titles = json.titles.map((t) =>
+              typeof t === "string" ? t : "",
+            );
+            const next: Record<string, string> = {};
+            for (let i = 0; i < unique.length; i += 1) {
+              const q = unique[i];
+              const title = titles[i]?.trim() ?? "";
+              if (!q) continue;
+              if (!title) continue;
+              next[q] = title;
+            }
+            return next;
+          } catch {
+            return {} as Record<string, string>;
+          }
+        })();
+
         setGeneratedExampleAnswers(mainExampleAnswers);
         setGeneratedFollowUpExampleAnswers(followUpExampleAnswers);
+        setGeneratedExampleAnswerByQuestionText(exampleAnswerByQuestionText);
+        setQuestionTitlesByText(questionTitleMap);
 
         const existingSessionId = localStorage.getItem("interviewSessionId");
 
@@ -2106,12 +2182,20 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                       </Badge>
                                     )}
                                     <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
-                                      {row.type === "main" && q?.title
-                                        ? q.title
-                                        : prompt
-                                          ? prompt.slice(0, 60) +
-                                            (prompt.length > 60 ? "..." : "")
-                                          : "Question Details"}
+                                      {(() => {
+                                        if (row.type === "main" && q?.title)
+                                          return q.title;
+                                        const key = row.questionText.trim();
+                                        const mapped =
+                                          questionTitlesByText[key];
+                                        if (mapped && mapped.trim().length > 0)
+                                          return mapped;
+                                        if (!prompt) return "Question Details";
+                                        return (
+                                          prompt.slice(0, 60) +
+                                          (prompt.length > 60 ? "..." : "")
+                                        );
+                                      })()}
                                     </div>
                                   </div>
                                   <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
