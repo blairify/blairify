@@ -52,25 +52,18 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 mb-6">
           {/* Brand + Legal Links */}
           <div className="w-full flex flex-col items-center lg:items-start gap-4 sm:gap-6">
-            {/* Brand */}
-            <Typography.Heading3 className="whitespace-nowrap text-center lg:text-left">
-              Blairify
-            </Typography.Heading3>
-
             {/* Legal Links */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 justify-items-center sm:justify-items-start lg:flex lg:flex-wrap gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-2 text-sm sm:text-base w-full lg:w-auto">
+            <div className="grid w-full grid-cols-3 justify-items-center gap-x-3 gap-y-2 sm:grid-cols-3 sm:justify-items-start sm:gap-x-6 lg:w-auto lg:grid-cols-3">
               {legalLinks.map((link) => {
                 const Icon = link.icon;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="hover:text-[color:var(--foreground)] transition-colors flex items-center gap-2 py-2 lg:py-0 touch-manipulation"
+                    className="inline-flex items-center gap-2 py-2 text-xs sm:text-sm hover:text-[color:var(--foreground)] transition-colors touch-manipulation underline-offset-4 hover:underline"
                   >
-                    <Icon className="size-3 sm:size-4 lg:w-3 lg:h-3 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm lg:text-xs">
-                      {link.label}
-                    </span>
+                    <Icon className="hidden sm:block size-4 flex-shrink-0" />
+                    <span className="whitespace-nowrap">{link.label}</span>
                   </Link>
                 );
               })}
@@ -91,7 +84,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section: Copyright, Contact & Social */}
-        <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-[color:var(--border)] text-xs sm:text-sm">
+        <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-3 sm:gap-4 pt-2 sm:pt-3 text-xs sm:text-sm">
           <Typography.Caption
             color="secondary"
             className="text-center sm:text-left"
@@ -119,12 +112,12 @@ export default function Footer() {
             color="secondary"
             className="text-center sm:text-right"
           >
-            <span className="block sm:inline">Data Protection: </span>
+            <span className="block sm:inline">Support: </span>
             <Link
-              href="mailto:blairiy.team@gmail.com"
+              href="mailto:support@blairify.com"
               className="underline hover:text-[color:var(--foreground)] transition-colors py-1 px-1 -mx-1 touch-manipulation"
             >
-              team@blairify.com
+              support@blairify.com
             </Link>
           </Typography.Caption>
         </div>
