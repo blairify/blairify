@@ -67,6 +67,29 @@ type AnalysisSections = {
   knowledgeGaps: KnowledgeGap[];
 };
 
+function sanitizeInterviewResultNarrative(markdown: string): string {
+  const raw = typeof markdown === "string" ? markdown : "";
+  if (!raw.trim()) return "";
+
+  const withoutMetaLines = raw
+    .split("\n")
+    .filter((line) => {
+      const t = line.trim();
+      if (!t) return true;
+
+      if (/^\*\*?\s*decision\s*:/i.test(t)) return false;
+      if (/^decision\s*:/i.test(t)) return false;
+      if (/^score\s*:/i.test(t)) return false;
+      if (/passing\s*threshold/i.test(t)) return false;
+      if (/^performance\s*level\s*:/i.test(t)) return false;
+
+      return true;
+    })
+    .join("\n");
+
+  return withoutMetaLines.replace(/\n{3,}/g, "\n\n").trim();
+}
+
 export function parseAnalysis(
   analysis: string,
   responseAnalysis: ResponseAnalysis,
@@ -672,7 +695,7 @@ function buildInterviewResults(params: {
 
   return {
     decision,
-    overallScore: sections.overallScore,
+    overallScore: sanitizeInterviewResultNarrative(sections.overallScore),
     categoryScores: sections.categoryScores ?? undefined,
     technologyScores,
     strengths: sections.strengths,
