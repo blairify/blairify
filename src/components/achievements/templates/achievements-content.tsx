@@ -291,7 +291,7 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
     return (
       <main className="flex items-center justify-center h-full">
         <div className="text-center">
-          <div className="size-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4" />
+          <div className="size-8 border-4 border-gray-200 border-t-amber-600 rounded-full animate-spin mx-auto mb-4" />
           <Typography.Body color="secondary">
             Loading achievements...
           </Typography.Body>
@@ -446,53 +446,88 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
         <section className="space-y-4">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <Typography.Heading2>All Achievements</Typography.Heading2>
-            <Typography.SubCaptionMedium color="secondary">
-              {achievementStats.unlockedCount} /{" "}
-              {achievementStats.totalAchievements} unlocked
-            </Typography.SubCaptionMedium>
-          </div>
+            <div className="flex items-center gap-3">
+              <Typography.SubCaptionMedium color="secondary">
+                {achievementStats.unlockedCount} /{" "}
+                {achievementStats.totalAchievements} unlocked
+              </Typography.SubCaptionMedium>
 
-          <div className="rounded-2xl border border-border/60 bg-card/60 p-3 shadow-sm">
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Typography.SubCaptionMedium color="secondary">
-                  Status
-                </Typography.SubCaptionMedium>
+              <div className="flex items-center gap-2">
                 <Select
                   value={statusFilter}
                   onValueChange={(value) =>
                     setStatusFilter(value as StatusFilter)
                   }
                 >
-                  <SelectTrigger className="h-11 border-2 border-border/70 bg-background/70 shadow-sm">
+                  <SelectTrigger className="h-9 w-[140px] border border-border/60 bg-transparent px-3 text-sm shadow-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0">
                     <SelectValue placeholder="Status" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All</SelectItem>
-                    <SelectItem value="unlocked">Unlocked</SelectItem>
-                    <SelectItem value="locked">Locked</SelectItem>
+                    <SelectItem
+                      value="all"
+                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                    >
+                      All
+                    </SelectItem>
+                    <SelectItem
+                      value="unlocked"
+                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                    >
+                      Unlocked
+                    </SelectItem>
+                    <SelectItem
+                      value="locked"
+                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                    >
+                      Locked
+                    </SelectItem>
                   </SelectContent>
                 </Select>
-              </div>
 
-              <div className="space-y-2">
-                <Typography.SubCaptionMedium color="secondary">
-                  Tier
-                </Typography.SubCaptionMedium>
                 <Select
                   value={tierFilter}
                   onValueChange={(value) => setTierFilter(value as TierFilter)}
                 >
-                  <SelectTrigger className="h-11 border-2 border-border/70 bg-background/70 shadow-sm">
+                  <SelectTrigger className="h-9 w-[140px] border border-border/60 bg-transparent px-3 text-sm shadow-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0">
                     <SelectValue placeholder="Tier" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All tiers</SelectItem>
-                    <SelectItem value="bronze">Bronze</SelectItem>
-                    <SelectItem value="silver">Silver</SelectItem>
-                    <SelectItem value="gold">Gold</SelectItem>
-                    <SelectItem value="platinum">Platinum</SelectItem>
-                    <SelectItem value="diamond">Diamond</SelectItem>
+                    <SelectItem
+                      value="all"
+                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                    >
+                      All tiers
+                    </SelectItem>
+                    <SelectItem
+                      value="bronze"
+                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                    >
+                      Bronze
+                    </SelectItem>
+                    <SelectItem
+                      value="silver"
+                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                    >
+                      Silver
+                    </SelectItem>
+                    <SelectItem
+                      value="gold"
+                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                    >
+                      Gold
+                    </SelectItem>
+                    <SelectItem
+                      value="platinum"
+                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                    >
+                      Platinum
+                    </SelectItem>
+                    <SelectItem
+                      value="diamond"
+                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                    >
+                      Diamond
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -555,7 +590,7 @@ function AchievementCard({ item }: AchievementCardProps) {
     <>
       <Card
         className={cn(
-          "transition-all duration-300 border-2 group cursor-pointer",
+          "relative overflow-hidden transition-all duration-300 border-2 group cursor-pointer",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
           isUnlocked
             ? `${currentStyle.border} ${currentStyle.bg} ${tierStyle.unlocked.glow} hover:scale-[1.03]`
@@ -567,37 +602,37 @@ function AchievementCard({ item }: AchievementCardProps) {
         role="button"
         aria-label={ariaLabel}
       >
-        <CardContent className="p-5 flex flex-col h-full relative">
-          {!isUnlocked && (
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 rounded-xl bg-background/45 backdrop-blur-[2px]"
-            />
-          )}
-          {!isUnlocked && (
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 flex items-center justify-center"
-            >
-              <div className="rounded-full border bg-background/70 p-3 shadow-sm">
-                <svg
-                  className="size-6 text-foreground/80"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <title>Locked</title>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                  />
-                </svg>
-              </div>
+        {!isUnlocked && (
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-10 rounded-[inherit] bg-background/45 backdrop-blur-[2px]"
+          />
+        )}
+        {!isUnlocked && (
+          <div
+            aria-hidden
+            className="pointer-events-none absolute right-4 top-4 z-20"
+          >
+            <div className="rounded-full border bg-background/70 p-2 shadow-sm">
+              <svg
+                className="size-4 text-foreground/80"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <title>Locked</title>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                />
+              </svg>
             </div>
-          )}
+          </div>
+        )}
 
+        <CardContent className="p-5 flex flex-col h-full relative z-0">
           <div className="flex flex-col items-center text-center gap-3">
             <div
               className={cn(

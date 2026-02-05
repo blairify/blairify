@@ -243,13 +243,7 @@ export type InterviewMode =
   | "competitive"
   | "teacher";
 
-export type InterviewType =
-  | "technical"
-  | "bullet"
-  | "coding"
-  | "system-design"
-  | "situational"
-  | "mixed";
+export type InterviewType = import("@/types/interview").InterviewType;
 
 export type SessionStatus =
   | "scheduled"
@@ -310,7 +304,13 @@ export interface SessionAnalysis {
   aiConfidence: number; // 1-100
   summary: string;
   detailedAnalysis?: string;
-  technologyScores?: Record<string, number>;
+  categoryScores?: {
+    technical: number;
+    problemSolving: number;
+    communication: number;
+    professional: number;
+  };
+  technologyScores?: Record<string, number | null>;
   recommendations: string[];
   nextSteps: string[];
   passed?: boolean;

@@ -2,8 +2,24 @@
 
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import type * as React from "react";
+import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
+
+function useHasHover() {
+  const [hasHover, setHasHover] = useState(true);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setHasHover(mediaQuery.matches);
+
+    update();
+    mediaQuery.addEventListener("change", update);
+    return () => mediaQuery.removeEventListener("change", update);
+  }, []);
+
+  return hasHover;
+}
 
 function TooltipProvider({
   delayDuration = 0,
@@ -18,14 +34,26 @@ function TooltipProvider({
   );
 }
 
-function Tooltip({
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Root>) {
-  return (
-    <TooltipProvider>
-      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
-    </TooltipProvider>
-  );
+type TooltipProps = React.ComponentProps<typeof TooltipPrimitive.Root> & {
+  disabled?: boolean;
+};
+
+function Tooltip({ disabled, ...props }: TooltipProps) {
+  const hasHover = useHasHover();
+  const isDisabled = disabled ?? !hasHover;
+
+  if (isDisabled) {
+    return (
+      <TooltipPrimitive.Root
+        data-slot="tooltip"
+        open={false}
+        onOpenChange={() => {}}
+        {...props}
+      />
+    );
+  }
+
+  return <TooltipPrimitive.Root data-slot="tooltip" {...props} />;
 }
 
 function TooltipTrigger({

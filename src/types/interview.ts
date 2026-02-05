@@ -76,7 +76,7 @@ export interface InterviewResults {
     communication: number;
     professional: number;
   };
-  technologyScores?: Record<string, number>;
+  technologyScores?: Record<string, number | null>;
   strengths: string[];
   improvements: string[];
   detailedAnalysis: string;
@@ -87,6 +87,18 @@ export interface InterviewResults {
   passed?: boolean;
   passingThreshold?: number;
   whyDecision?: string;
+  presentation?: PresentationCopy;
+}
+
+export interface PresentationCopy {
+  coachFeedback: string;
+  focusAreas: Array<{
+    title: string;
+    why: string;
+    priority?: KnowledgeGapPriority;
+    tags?: string[];
+  }>;
+  plan: string[];
 }
 
 export type ResourceType = "docs" | "course" | "video" | "book" | "practice";
@@ -190,6 +202,7 @@ export interface AnalyzeApiResponse {
   success: boolean;
   feedback?: InterviewResults;
   rawAnalysis?: string;
+  rawPresentation?: string;
   error?: string;
 }
 

@@ -45,14 +45,14 @@ export function InterviewPageClient({ user }: InterviewPageClientProps) {
           show={showNotification}
           onClose={() => setShowNotification(false)}
         >
-          <p className="text-xs sm:text-sm font-medium text-amber-100/90 leading-relaxed">
+          <p className="text-xs sm:text-sm font-medium text-amber-950/90 dark:text-amber-100/90 leading-relaxed">
             This experience is in testing phase. If you encounter any issues,
             type{" "}
-            <span className="font-semibold text-amber-50 bg-amber-500/20 px-1 sm:px-1.5 py-0.5 rounded text-[11px] sm:text-xs">
+            <span className="font-semibold text-amber-950 dark:text-amber-50 bg-amber-950/10 dark:bg-amber-500/20 px-1 sm:px-1.5 py-0.5 rounded text-[11px] sm:text-xs">
               continue
             </span>{" "}
             or press the{" "}
-            <span className="font-semibold text-amber-50 bg-amber-500/20 px-1 sm:px-1.5 py-0.5 rounded text-[11px] sm:text-xs">
+            <span className="font-semibold text-amber-950 dark:text-amber-50 bg-amber-950/10 dark:bg-amber-500/20 px-1 sm:px-1.5 py-0.5 rounded text-[11px] sm:text-xs">
               Skip
             </span>{" "}
             button.

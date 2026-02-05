@@ -126,7 +126,7 @@ function processLinks(text: string): string {
         ? ' target="_blank" rel="noopener noreferrer"'
         : "";
 
-      return `<a href="${href}" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline underline-offset-2"${titleAttr}${externalAttrs}>${linkText}</a>`;
+      return `<a href="${href}" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 underline underline-offset-2"${titleAttr}${externalAttrs}>${linkText}</a>`;
     },
   );
 }

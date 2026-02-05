@@ -37,6 +37,7 @@ interface InterviewContentProps {
 interface StartInterviewResponse {
   success: boolean;
   message: string;
+  questionType?: QuestionType;
   error?: string;
   code?: string;
   details?: unknown;
@@ -549,11 +550,7 @@ export function InterviewContent({
           type: "ai",
           content: data.message,
           timestamp: new Date(),
-          questionType: config.interviewType as
-            | "technical"
-            | "bullet"
-            | "coding"
-            | "system-design",
+          questionType: data.questionType,
         };
 
         updateSession({
@@ -1074,7 +1071,7 @@ export function InterviewContent({
     return (
       <main className="flex-1 flex items-center justify-center">
         <div className="text-center">
-          <div className="size-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4" />
+          <div className="size-8 border-4 border-gray-200 border-t-amber-600 rounded-full animate-spin mx-auto mb-4" />
           <p className="text-muted-foreground">Loading interview...</p>
         </div>
       </main>

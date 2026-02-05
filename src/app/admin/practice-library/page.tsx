@@ -133,7 +133,7 @@ function renderMarkdown(text: string | null | undefined): { __html: string } {
       /\[([^\]]+)\]\(([^\s)]+)(?:\s+"([^"]+)")?\)/g,
       (_match, text, href, title) => {
         const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
-        return `<a href="${escapeHtml(href)}" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer"${titleAttr}>${escapeHtml(text)}</a>`;
+        return `<a href="${escapeHtml(href)}" class="text-gray-700 dark:text-gray-300 hover:underline" target="_blank" rel="noopener noreferrer"${titleAttr}>${escapeHtml(text)}</a>`;
       },
     )
 

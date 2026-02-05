@@ -92,8 +92,7 @@ export async function POST(request: NextRequest) {
     const baseUrl = request.nextUrl.origin;
 
     const shouldUseQuestionBank =
-      interviewConfig.interviewType !== "situational" &&
-      interviewConfig.interviewType !== "mixed";
+      interviewConfig.interviewType !== "situational";
     const { prompt: questionsPrompt, questionIds } = shouldUseQuestionBank
       ? await getDatabaseQuestionsPrompt(
           interviewConfig,

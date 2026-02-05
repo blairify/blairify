@@ -96,7 +96,7 @@ export function EvaluationFeedback({
 
       {/* Suggestions */}
       {evaluation.suggestions.length > 0 && (
-        <Card className="p-6 border-blue-200 dark:border-blue-900">
+        <Card className="p-6 border-amber-200 dark:border-amber-900">
           <Typography.Heading3
             color="blue"
             className="mb-3 flex items-center gap-2"
@@ -107,7 +107,7 @@ export function EvaluationFeedback({
           <ul className="space-y-2">
             {evaluation.suggestions.map((suggestion, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <TrendingUp className="size-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                <TrendingUp className="size-4 text-amber-600 mt-0.5 flex-shrink-0" />
                 <Typography.Body>{suggestion}</Typography.Body>
               </li>
             ))}
@@ -128,7 +128,7 @@ export function EvaluationFeedback({
 function ScoreOverview({ evaluation }: { evaluation: EvaluationResult }) {
   const getScoreColor = (percentage: number) => {
     if (percentage >= 90) return "text-green-600";
-    if (percentage >= 70) return "text-blue-600";
+    if (percentage >= 70) return "text-amber-600";
     if (percentage >= 50) return "text-yellow-600";
     return "text-red-600";
   };

@@ -57,7 +57,7 @@ type AnalysisSections = {
     communication: number;
     professional: number;
   } | null;
-  technologyScores: Record<string, number> | null;
+  technologyScores: Record<string, number | null> | null;
   strengths: string[];
   improvements: string[];
   detailedAnalysis: string;
@@ -66,6 +66,29 @@ type AnalysisSections = {
   whyDecision: string;
   knowledgeGaps: KnowledgeGap[];
 };
+
+function sanitizeInterviewResultNarrative(markdown: string): string {
+  const raw = typeof markdown === "string" ? markdown : "";
+  if (!raw.trim()) return "";
+
+  const withoutMetaLines = raw
+    .split("\n")
+    .filter((line) => {
+      const t = line.trim();
+      if (!t) return true;
+
+      if (/^\*\*?\s*decision\s*:/i.test(t)) return false;
+      if (/^decision\s*:/i.test(t)) return false;
+      if (/^score\s*:/i.test(t)) return false;
+      if (/passing\s*threshold/i.test(t)) return false;
+      if (/^performance\s*level\s*:/i.test(t)) return false;
+
+      return true;
+    })
+    .join("\n");
+
+  return withoutMetaLines.replace(/\n{3,}/g, "\n\n").trim();
+}
 
 export function parseAnalysis(
   analysis: string,
@@ -202,20 +225,43 @@ function extractAnalysisSections(analysis: string): AnalysisSections {
 
 function extractTechnologyScores(
   analysis: string,
-): Record<string, number> | null {
+): Record<string, number | null> | null {
   const section = extractSection(analysis, "TECHNOLOGY SCORES");
   if (!section.trim()) return null;
 
-  const scores: Record<string, number> = {};
+  const scores: Record<string, number | null> = {};
   for (const rawLine of section.split("\n")) {
     const line = rawLine.trim();
     if (!line) continue;
     const cleaned = line.replace(/^[-*\s]+/, "").trim();
-    const match = /^(.+?):\s*(\d{1,3})\s*\/\s*100\s*$/i.exec(cleaned);
-    if (!match) continue;
-    const tech = match[1]?.trim();
-    const value = Number(match[2]);
+
+    const techMatch = /^(.+?):\s*(.+?)\s*$/i.exec(cleaned);
+    if (!techMatch) continue;
+
+    const tech = techMatch[1]?.trim();
+    const raw = techMatch[2]?.trim();
     if (!tech) continue;
+    if (!raw) continue;
+
+    const normalizedRaw = raw.toLowerCase();
+    if (
+      normalizedRaw === "n/a" ||
+      normalizedRaw === "na" ||
+      normalizedRaw === "not assessed" ||
+      normalizedRaw === "not-assessed" ||
+      normalizedRaw === "not evaluated" ||
+      normalizedRaw === "not-evaluated" ||
+      normalizedRaw === "not discussed" ||
+      normalizedRaw === "not-discussed"
+    ) {
+      scores[tech] = null;
+      continue;
+    }
+
+    const scoreMatch = /^(\d{1,3})\s*\/\s*100\s*$/i.exec(raw);
+    if (!scoreMatch) continue;
+
+    const value = Number(scoreMatch[1]);
     if (!Number.isFinite(value)) continue;
     scores[tech] = Math.max(0, Math.min(100, value));
   }
@@ -285,7 +331,9 @@ function deriveScoreFromTechnologyScores(
   scores: AnalysisSections["technologyScores"],
 ): number {
   if (!scores) return 0;
-  const values = Object.values(scores).filter((n) => Number.isFinite(n));
+  const values = Object.values(scores).filter(
+    (n): n is number => typeof n === "number" && Number.isFinite(n),
+  );
   if (values.length === 0) return 0;
   const avg = values.reduce((sum, n) => sum + n, 0) / values.length;
   return Math.max(0, Math.min(100, Math.round(avg)));
@@ -624,11 +672,22 @@ function buildInterviewResults(params: {
     if (selected.length === 0) return undefined;
 
     const fromModel = sections.technologyScores ?? {};
-    const next: Record<string, number> = {};
+    const normalizedModel = new Map<string, number>();
+    for (const [k, v] of Object.entries(fromModel)) {
+      const key = k.trim().toLowerCase();
+      const n = typeof v === "number" ? v : Number(v);
+      if (!key) continue;
+      if (!Number.isFinite(n)) continue;
+      normalizedModel.set(key, Math.max(0, Math.min(100, n)));
+    }
+
+    const next: Record<string, number | null> = {};
     for (const tech of selected) {
-      const raw = fromModel[tech];
-      const n = typeof raw === "number" ? raw : Number(raw);
-      next[tech] = Number.isFinite(n) ? Math.max(0, Math.min(100, n)) : 0;
+      const normalized = tech.trim().toLowerCase();
+      if (!normalized) continue;
+      next[tech] = normalizedModel.has(normalized)
+        ? (normalizedModel.get(normalized) ?? null)
+        : null;
     }
 
     return next;
@@ -636,7 +695,7 @@ function buildInterviewResults(params: {
 
   return {
     decision,
-    overallScore: sections.overallScore,
+    overallScore: sanitizeInterviewResultNarrative(sections.overallScore),
     categoryScores: sections.categoryScores ?? undefined,
     technologyScores,
     strengths: sections.strengths,

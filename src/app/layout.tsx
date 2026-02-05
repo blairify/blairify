@@ -124,7 +124,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" title="Blairify" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Script id="gtm-init" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

@@ -307,10 +307,10 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
           return {
             label: "Planned",
             icon: Sparkles,
-            color: "text-blue-400",
-            bg: "bg-blue-500/10",
-            border: "border-blue-500/30",
-            glow: "from-blue-500/20 to-cyan-500/20",
+            color: "text-amber-400",
+            bg: "bg-amber-500/10",
+            border: "border-amber-500/30",
+            glow: "from-amber-500/20 to-orange-500/20",
           };
         case "in_progress":
           return {
@@ -503,7 +503,7 @@ export function RoadmapPageClient({ userId }: RoadmapPageClientProps) {
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
           <div
-            className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] animate-pulse"
+            className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px] animate-pulse"
             style={{ animationDelay: "1s" }}
           />
         </div>

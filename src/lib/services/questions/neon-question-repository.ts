@@ -129,9 +129,11 @@ export async function queryQuestions(
   }
 
   if (filters.position) {
-    questions = questions.filter((q) =>
-      q.positions?.includes(filters.position!),
-    );
+    questions = questions.filter((q) => {
+      const declared = q.positions;
+      if (!declared || declared.length === 0) return true;
+      return declared.includes(filters.position!);
+    });
   }
 
   if (filters.tags && filters.tags.length > 0) {

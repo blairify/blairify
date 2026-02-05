@@ -89,10 +89,7 @@ export async function POST(request: NextRequest) {
 
     const config = interviewConfig;
 
-    if (
-      config.interviewType === "situational" ||
-      config.interviewType === "mixed"
-    ) {
+    if (config.interviewType === "situational") {
       return NextResponse.json({
         success: true,
         example: {

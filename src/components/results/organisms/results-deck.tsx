@@ -75,6 +75,45 @@ function stripMarkdown(value: string | null | undefined): string {
     .trim();
 }
 
+function dedupeTopicTitle(raw: string): string {
+  const cleaned = stripMarkdown(raw)
+    .replace(/\.{3,}/g, " ")
+    .replace(/…/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!cleaned) return "";
+
+  const collapseRepeatedWords = (value: string): string => {
+    const words = value.split(" ").filter(Boolean);
+    const out: string[] = [];
+    for (const w of words) {
+      const prev = out[out.length - 1];
+      if (prev && prev.toLowerCase() === w.toLowerCase()) continue;
+      out.push(w);
+    }
+    return out.join(" ");
+  };
+
+  const segments = cleaned
+    .split(/\s*(?:[-–—|·•/])\s*/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  if (segments.length <= 1) return collapseRepeatedWords(cleaned);
+
+  const seen = new Set<string>();
+  const uniq: string[] = [];
+  for (const s of segments) {
+    const key = s.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    uniq.push(s);
+  }
+
+  const joined = uniq.join(" · ");
+  return collapseRepeatedWords(joined).replace(/\s+/g, " ").trim();
+}
+
 function buildOutcomeSummary(params: {
   passed: boolean | null;
   strengthsCount: number;
@@ -136,17 +175,13 @@ function sanitizeCoachNarrative(raw: string | null | undefined): string {
     .replace(/\b\d+\b/g, "")
     .replace(/\bthis\s+candidate\b/gi, "You")
     .replace(/\(\s*\)/g, "")
-    .replace(/\s+/g, " ")
+    .replace(/[\t ]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 
   if (compact.length === 0) return "";
 
-  const sentences = compact
-    .split(/(?<=[.!?])\s+/)
-    .map((s) => s.trim())
-    .filter(Boolean);
-
-  return sentences[0] ?? "";
+  return compact;
 }
 
 function buildCoachSummary(params: {
@@ -270,9 +305,9 @@ function KineticListLines({ items }: { items: string[] }) {
         show: { transition: { staggerChildren: 0.07 } },
       }}
     >
-      {items.map((b) => (
+      {items.map((b, i) => (
         <motion.li
-          key={b}
+          key={`${i}-${b}`}
           className="py-3 text-sm leading-relaxed"
           variants={{
             hidden: { opacity: 0, y: 10, filter: "blur(10px)" },
@@ -319,6 +354,14 @@ function isGenericPlanLine(line: string): boolean {
 }
 
 function buildPlanItems(results: InterviewResults, max: number): string[] {
+  const fromPresentation = Array.isArray(results.presentation?.plan)
+    ? results.presentation.plan
+        .map((s) => (typeof s === "string" ? s.trim() : ""))
+        .filter(Boolean)
+        .slice(0, max)
+    : [];
+  if (fromPresentation.length > 0) return fromPresentation;
+
   const fromNext =
     typeof results.nextSteps === "string"
       ? splitActionLines(results.nextSteps, max)
@@ -342,11 +385,16 @@ function buildPlanItems(results: InterviewResults, max: number): string[] {
   const gapItems = gaps
     .slice(0, max)
     .map((g) => {
-      const raw = formatKnowledgeGapBlurb({
-        title: g.title,
-        tags: g.tags,
-        priority: g.priority,
-      });
+      const raw =
+        typeof g.summary === "string" && g.summary.trim().length > 0
+          ? g.summary
+          : typeof g.why === "string" && g.why.trim().length > 0
+            ? g.why
+            : formatKnowledgeGapBlurb({
+                title: g.title,
+                tags: g.tags,
+                priority: g.priority,
+              });
       const cleaned = stripMarkdown(raw)
         .replace(/\.{3,}/g, " ")
         .replace(/…/g, " ")
@@ -392,6 +440,7 @@ function limitBullets(items: string[], max: number): string[] {
 function pickFocusAreas(params: {
   knowledgeGaps: InterviewResults["knowledgeGaps"] | undefined;
   improvements: string[];
+  presentation?: InterviewResults["presentation"];
   max: number;
 }): {
   title: string;
@@ -400,6 +449,58 @@ function pickFocusAreas(params: {
   tags?: string[];
   resources?: Pick<ResourceLink, "id" | "title" | "url">[];
 }[] {
+  const isAcceptableFocusTitle = (raw: string): boolean => {
+    const t = stripMarkdown(raw).trim();
+    if (t.length < 5 || t.length > 72) return false;
+    const lower = t.toLowerCase();
+    if (lower.startsWith("let's ")) return false;
+    if (lower.startsWith("lets ")) return false;
+    if (lower.startsWith("you ")) return false;
+    if (lower.startsWith("you'd ")) return false;
+    if (lower.startsWith("you	d ")) return false;
+    if (lower.includes("when i asked")) return false;
+    if (lower.includes("in your answer about")) return false;
+    if (/[?!]$/.test(t)) return false;
+    return true;
+  };
+
+  const normalizeFocusWhy = (raw: string): string => {
+    return stripMarkdown(raw).replace(/\s+/g, " ").trim();
+  };
+
+  const fromPresentation = Array.isArray(params.presentation?.focusAreas)
+    ? params.presentation.focusAreas
+        .map((f) => {
+          const title =
+            typeof f.title === "string" ? dedupeTopicTitle(f.title) : "";
+          const why = typeof f.why === "string" ? normalizeFocusWhy(f.why) : "";
+          if (!title || !why) return null;
+          if (!isAcceptableFocusTitle(title)) return null;
+          return {
+            title,
+            why,
+            priority: f.priority,
+            tags: Array.isArray(f.tags) ? f.tags : undefined,
+          };
+        })
+        .filter((x): x is NonNullable<typeof x> => x !== null)
+        .reduce<
+          Array<{
+            title: string;
+            why: string;
+            priority?: string;
+            tags?: string[];
+          }>
+        >((acc, item) => {
+          const key = item.title.toLowerCase();
+          if (acc.some((x) => x.title.toLowerCase() === key)) return acc;
+          acc.push(item);
+          return acc;
+        }, [])
+        .slice(0, params.max)
+    : [];
+  if (fromPresentation.length > 0) return fromPresentation;
+
   const toShortTopic = (raw: string): string => {
     const cleaned = stripMarkdown(raw)
       .replace(/\.{3,}/g, " ")
@@ -424,12 +525,24 @@ function pickFocusAreas(params: {
       .replace(/\s+/g, " ")
       .trim();
 
+    const cleanupTail = (value: string): string => {
+      const trimmed = value.trim();
+      if (!trimmed) return trimmed;
+      const withoutDanglingEg = trimmed.replace(/\(e\.g\.?\s*$/i, "").trim();
+      const open = (withoutDanglingEg.match(/\(/g) ?? []).length;
+      const close = (withoutDanglingEg.match(/\)/g) ?? []).length;
+      if (open <= close) return withoutDanglingEg;
+      const lastOpen = withoutDanglingEg.lastIndexOf("(");
+      if (lastOpen < 0) return withoutDanglingEg;
+      return withoutDanglingEg.slice(0, lastOpen).trim();
+    };
+
     const maxLen = 140;
-    if (cleaned.length <= maxLen) return cleaned;
+    if (cleaned.length <= maxLen) return cleanupTail(cleaned);
 
     const sentenceEnd = cleaned.slice(0, maxLen).match(/[.!?](?=\s|$)/);
     if (sentenceEnd?.index != null) {
-      return cleaned.slice(0, sentenceEnd.index + 1).trim();
+      return cleanupTail(cleaned.slice(0, sentenceEnd.index + 1).trim());
     }
 
     const clauseSlice = cleaned.slice(0, maxLen);
@@ -437,14 +550,14 @@ function pickFocusAreas(params: {
     if (clauseEnd?.index != null) {
       const clause = clauseSlice.slice(0, clauseEnd.index).trim();
       if (clause.length > 0)
-        return clause.endsWith(".") ? clause : `${clause}.`;
+        return cleanupTail(clause.endsWith(".") ? clause : `${clause}.`);
     }
 
     const words = cleaned.split(" ").filter((w) => w.length > 0);
     const maxWords = 18;
     const short = words.slice(0, maxWords).join(" ").trim();
     if (short.length === 0) return "";
-    return short.endsWith(".") ? short : `${short}.`;
+    return cleanupTail(short.endsWith(".") ? short : `${short}.`);
   };
 
   const gaps = Array.isArray(params.knowledgeGaps) ? params.knowledgeGaps : [];
@@ -473,14 +586,20 @@ function pickFocusAreas(params: {
     .slice()
     .sort((a, b) => priorityRank(a.priority) - priorityRank(b.priority))
     .map((g) => {
-      const title = toShortTopic(formatKnowledgeGapTitle(g.title, g.tags));
-      const why = toNoEllipsisSnippet(
-        formatKnowledgeGapBlurb({
-          title: g.title,
-          tags: g.tags,
-          priority: g.priority,
-        }),
+      const title = dedupeTopicTitle(
+        toShortTopic(formatKnowledgeGapTitle(g.title, g.tags)),
       );
+      const rawWhy =
+        typeof g.summary === "string" && g.summary.trim().length > 0
+          ? g.summary
+          : typeof g.why === "string" && g.why.trim().length > 0
+            ? g.why
+            : formatKnowledgeGapBlurb({
+                title: g.title,
+                tags: g.tags,
+                priority: g.priority,
+              });
+      const why = toNoEllipsisSnippet(rawWhy);
       if (!title) return null;
 
       const resources = Array.isArray(g.resources)
@@ -511,7 +630,7 @@ function pickFocusAreas(params: {
   if (fromGaps.length > 0) return fromGaps;
 
   return params.improvements.slice(0, params.max).map((t) => ({
-    title: toShortTopic(t),
+    title: dedupeTopicTitle(toShortTopic(t)),
     why: "",
   }));
 }
@@ -629,15 +748,22 @@ function getCategoryScoresForResults(
 
 function getTechnologyScoresForResults(
   results: InterviewResults,
-): Array<{ tech: string; score: number }> {
+): Array<{ tech: string; score: number | null }> {
   const raw = results.technologyScores;
   if (!raw) return [];
   if (typeof raw !== "object") return [];
 
   return Object.entries(raw)
-    .map(([tech, score]) => ({ tech, score: clampFinite(score, 0, 100) }))
+    .map(([tech, score]) => ({
+      tech,
+      score: score === null ? null : clampFinite(score, 0, 100),
+    }))
     .filter((x) => x.tech.trim().length > 0)
-    .sort((a, b) => b.score - a.score);
+    .sort((a, b) => {
+      const aScore = a.score ?? -1;
+      const bScore = b.score ?? -1;
+      return bScore - aScore;
+    });
 }
 
 function getStepIcon(stepId: DeckStepId) {
@@ -669,19 +795,31 @@ export function ResultsDeck({
   const steps = useMemo<DeckStep[]>(() => {
     const passed = typeof results.passed === "boolean" ? results.passed : null;
 
-    const narrativeSource =
-      typeof results.whyDecision === "string" &&
-      results.whyDecision.trim().length > 0
-        ? results.whyDecision
-        : results.overallScore;
+    const coachSummary = (() => {
+      const fromPresentation =
+        typeof results.presentation?.coachFeedback === "string"
+          ? results.presentation.coachFeedback.trim()
+          : "";
+      if (fromPresentation.length > 0)
+        return sanitizeCoachNarrative(fromPresentation);
 
-    const coachSummary = buildCoachSummary({
-      passed,
-      score: results.score,
-      strengths: limitBullets(results.strengths ?? [], 2),
-      improvements: limitBullets(results.improvements ?? [], 2),
-      narrative: narrativeSource,
-    });
+      const fromModel =
+        typeof results.whyDecision === "string"
+          ? results.whyDecision.trim()
+          : "";
+      if (fromModel.length > 0) return sanitizeCoachNarrative(fromModel);
+
+      const narrativeSource =
+        typeof results.overallScore === "string" ? results.overallScore : "";
+
+      return buildCoachSummary({
+        passed,
+        score: results.score,
+        strengths: limitBullets(results.strengths ?? [], 2),
+        improvements: limitBullets(results.improvements ?? [], 2),
+        narrative: narrativeSource,
+      });
+    })();
 
     const base: DeckStep[] = [
       {
@@ -706,6 +844,7 @@ export function ResultsDeck({
         focusAreas: pickFocusAreas({
           knowledgeGaps: results.knowledgeGaps,
           improvements: limitBullets(results.improvements ?? [], 3),
+          presentation: results.presentation,
           max: 3,
         }),
       },
@@ -1224,10 +1363,7 @@ export function ResultsDeck({
                                   </div>
 
                                   <div className="text-center">
-                                    <Typography.Heading2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
-                                      Rewards
-                                    </Typography.Heading2>
-                                    <Typography.Body className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                                    <Typography.Body className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                                       You earned XP for completing this
                                       interview.
                                     </Typography.Body>
@@ -1489,13 +1625,30 @@ export function ResultsDeck({
                                         </div>
                                       </div>
 
+                                      {technologyScores.every(
+                                        (t) => t.score === null,
+                                      ) && (
+                                        <div className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                                          Not assessed — none of the selected
+                                          technologies were discussed or used in
+                                          the questions.
+                                        </div>
+                                      )}
+
                                       <div className="mt-3 space-y-2">
                                         {technologyScores
                                           .slice(0, 6)
                                           .map((t) => {
-                                            const pct = Math.round(
-                                              clampFinite(t.score, 0, 100),
-                                            );
+                                            const pct =
+                                              t.score === null
+                                                ? null
+                                                : Math.round(
+                                                    clampFinite(
+                                                      t.score,
+                                                      0,
+                                                      100,
+                                                    ),
+                                                  );
                                             return (
                                               <div
                                                 key={t.tech}
@@ -1506,7 +1659,9 @@ export function ResultsDeck({
                                                     {t.tech}
                                                   </div>
                                                   <div className="text-xs tabular-nums text-muted-foreground">
-                                                    {pct}/100
+                                                    {pct === null
+                                                      ? "N/A"
+                                                      : `${pct}/100`}
                                                   </div>
                                                 </div>
                                                 <div className="h-2 overflow-hidden rounded-full bg-muted">
@@ -1516,7 +1671,7 @@ export function ResultsDeck({
                                                     animate={{
                                                       width: outcomeLoading
                                                         ? "0%"
-                                                        : `${pct}%`,
+                                                        : `${pct ?? 0}%`,
                                                     }}
                                                     transition={{
                                                       duration: 0.7,
@@ -1538,12 +1693,9 @@ export function ResultsDeck({
                               return (
                                 <div className="space-y-6">
                                   <div>
-                                    <Typography.Heading2 className="text-2xl sm:text-4xl font-semibold tracking-tight">
-                                      Coach's feedback
-                                    </Typography.Heading2>
-                                    <Typography.Body className="mt-2 text-sm text-muted-foreground">
+                                    <Typography.Body className="text-sm text-muted-foreground">
                                       A quick debrief — what you did well, and
-                                      what to focus on next.
+                                      what to tighten.
                                     </Typography.Body>
                                   </div>
 
@@ -1722,9 +1874,6 @@ export function ResultsDeck({
                                 <div className="space-y-6">
                                   <div className="flex items-start justify-between gap-4">
                                     <div>
-                                      <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                                        Next session
-                                      </div>
                                       <Typography.Heading2 className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight">
                                         Your plan
                                       </Typography.Heading2>

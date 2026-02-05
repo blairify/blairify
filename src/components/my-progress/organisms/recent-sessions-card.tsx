@@ -204,16 +204,10 @@ export function RecentSessionsCard({ sessions }: RecentSessionsCardProps) {
                       )}
                     </div>
                   )}
-                  <Button
-                    variant="outline"
-                    asChild
-                    className="flex-1 md:flex-none rounded-2xl border-border bg-card hover:bg-primary hover:text-primary-foreground hover:border-primary px-8 h-12 font-black transition-all group/btn"
-                  >
-                    <Link href={`/history/${session.id}`}>
-                      View Report
-                      <Eye className="size-4 ml-2 group-hover/btn:scale-110 transition-transform" />
-                    </Link>
-                  </Button>
+                  <div className="flex-1 md:flex-none rounded-2xl border border-border bg-card px-8 h-12 font-black transition-all flex items-center justify-center gap-2 group/btn">
+                    View Report
+                    <Eye className="size-4 group-hover/btn:scale-110 transition-transform" />
+                  </div>
                 </div>
               </Link>
             </div>

@@ -5,13 +5,17 @@ import {
   Award,
   BarChart3,
   BookOpen,
+  Building,
   CheckCircle,
   ChevronDown,
+  Clock,
   FileText,
   Lightbulb,
   RotateCcw,
+  Shield,
   Target,
   TrendingUp,
+  Trophy,
   User,
   XCircle,
 } from "lucide-react";
@@ -101,8 +105,10 @@ function deriveOverallScoreFromSession(session: InterviewSession): number {
     return clampFinite(Math.round(avg), 0, 100);
   }
 
-  const techScores = session.analysis?.technologyScores
-    ? Object.values(session.analysis.technologyScores).filter(Number.isFinite)
+  const techScores: number[] = session.analysis?.technologyScores
+    ? Object.values(session.analysis.technologyScores).filter(
+        (n): n is number => typeof n === "number" && Number.isFinite(n),
+      )
     : [];
   if (techScores.length > 0) {
     const avg = techScores.reduce((sum, n) => sum + n, 0) / techScores.length;
@@ -214,14 +220,7 @@ function mapSessionToInterviewResults(
     score,
     scoreColor: getScoreColor(score),
     overallScore: analysis.summary ?? "",
-    categoryScores: session.scores
-      ? {
-          technical: session.scores.technical,
-          problemSolving: session.scores.problemSolving,
-          communication: session.scores.communication,
-          professional: session.scores.professional,
-        }
-      : undefined,
+    categoryScores: analysis.categoryScores ?? undefined,
     strengths: analysis.strengths ?? [],
     improvements: analysis.improvements ?? [],
     detailedAnalysis: analysis.detailedAnalysis ?? "",
@@ -544,6 +543,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   >([]);
   const [generatedFollowUpExampleAnswers, setGeneratedFollowUpExampleAnswers] =
     useState<string[]>([]);
+  const [
+    generatedExampleAnswerByQuestionText,
+    setGeneratedExampleAnswerByQuestionText,
+  ] = useState<Record<string, string>>({});
+  const [questionTitlesByText, setQuestionTitlesByText] = useState<
+    Record<string, string>
+  >({});
   const [storedConfig, setStoredConfig] = useState<
     Pick<InterviewConfig, "position" | "seniority"> | undefined
   >(undefined);
@@ -846,7 +852,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           practiceQuestionId,
           questionText: q.question,
           yourAnswer: response?.response ?? "",
-          aiExampleAnswer: q.aiExampleAnswer ?? null,
+          aiExampleAnswer:
+            q.aiExampleAnswer ??
+            (generatedExampleAnswerByQuestionText[q.question] || null),
         });
 
         // Add follow-ups if they exist
@@ -858,7 +866,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               practiceQuestionId: null,
               questionText: f.question,
               yourAnswer: f.response,
-              aiExampleAnswer: f.aiExampleAnswer ?? null,
+              aiExampleAnswer:
+                f.aiExampleAnswer ??
+                (generatedExampleAnswerByQuestionText[f.question] || null),
             });
           });
         }
@@ -958,7 +968,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         practiceQuestionId,
         questionText: aiText,
         yourAnswer: answerContent,
-        aiExampleAnswer: generatedExampleAnswers[mainIdx] || null,
+        aiExampleAnswer:
+          generatedExampleAnswerByQuestionText[aiText] ||
+          generatedExampleAnswers[mainIdx] ||
+          null,
       });
 
       mainIdx += 1;
@@ -979,6 +992,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   }, [
     generatedExampleAnswers,
     generatedFollowUpExampleAnswers,
+    generatedExampleAnswerByQuestionText,
     practiceQuestionIds,
     savedSession,
     storedSession?.messages,
@@ -1192,9 +1206,6 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         setResults(data.feedback);
         setInterviewConfig(config);
 
-        // Map knowledge gaps back to questions to get example answers
-        const mainExampleAnswers: string[] = [];
-        const followUpExampleAnswers: string[] = [];
         const messages = Array.isArray(session.messages)
           ? session.messages
           : [];
@@ -1202,9 +1213,6 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           ? session.questionIds.filter(
               (id): id is string => typeof id === "string" && id.length > 0,
             )
-          : [];
-        const gaps = Array.isArray(data.feedback?.knowledgeGaps)
-          ? data.feedback.knowledgeGaps
           : [];
 
         const isOutroLine = (value: string): boolean => {
@@ -1219,9 +1227,11 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           return false;
         };
 
-        let gapIdx = 0;
         let mainIdx = 0;
         let cursor = 0;
+        const mainItems: Array<{ questionId?: string; questionText: string }> =
+          [];
+        const followUpItems: Array<{ questionText: string }> = [];
 
         while (cursor < messages.length) {
           const ai = messages[cursor];
@@ -1246,15 +1256,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             user?.type === "user";
           const isFollowUp = explicitFollowUp || inferredFollowUp;
 
-          const gap = gaps[gapIdx];
-          const example =
-            typeof gap?.exampleAnswer === "string" ? gap.exampleAnswer : "";
-
           if (isFollowUp) {
-            if (mainIdx > 0) {
-              followUpExampleAnswers.push(example);
-              gapIdx += 1;
-            }
+            followUpItems.push({ questionText: aiText });
             cursor += user?.type === "user" ? 2 : 1;
             continue;
           }
@@ -1264,14 +1267,120 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             continue;
           }
 
-          mainExampleAnswers.push(example);
-          gapIdx += 1;
+          const questionId = practiceQuestionIds[mainIdx];
+          mainItems.push({
+            questionId: questionId ? questionId : undefined,
+            questionText: aiText,
+          });
           mainIdx += 1;
           cursor += 2;
         }
 
+        const mainExampleAnswers = await (async () => {
+          if (mainItems.length === 0) return [];
+          const res = await fetch("/api/interview/example-answers", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              interviewConfig: config,
+              items: mainItems,
+            }),
+          });
+          if (!res.ok) return [];
+          const json = (await res.json()) as {
+            success: boolean;
+            answers?: unknown;
+          };
+          if (!json.success) return [];
+          return Array.isArray(json.answers)
+            ? json.answers.map((a) => (typeof a === "string" ? a : ""))
+            : [];
+        })();
+
+        const followUpExampleAnswers = await (async () => {
+          if (followUpItems.length === 0) return [];
+          const res = await fetch("/api/interview/example-answers", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              interviewConfig: config,
+              items: followUpItems,
+            }),
+          });
+          if (!res.ok) return [];
+          const json = (await res.json()) as {
+            success: boolean;
+            answers?: unknown;
+          };
+          if (!json.success) return [];
+          return Array.isArray(json.answers)
+            ? json.answers.map((a) => (typeof a === "string" ? a : ""))
+            : [];
+        })();
+
+        const exampleAnswerByQuestionText = (() => {
+          const next: Record<string, string> = {};
+          for (let i = 0; i < mainItems.length; i += 1) {
+            const q = mainItems[i]?.questionText.trim() ?? "";
+            const a = mainExampleAnswers[i]?.trim() ?? "";
+            if (!q) continue;
+            if (!a) continue;
+            next[q] = a;
+          }
+          for (let i = 0; i < followUpItems.length; i += 1) {
+            const q = followUpItems[i]?.questionText.trim() ?? "";
+            const a = followUpExampleAnswers[i]?.trim() ?? "";
+            if (!q) continue;
+            if (!a) continue;
+            next[q] = a;
+          }
+          return next;
+        })();
+
+        const questionTitleMap = await (async () => {
+          const all = [...mainItems, ...followUpItems]
+            .map((x) => x.questionText.trim())
+            .filter(Boolean);
+          const unique = Array.from(new Set(all));
+          if (unique.length === 0) return {} as Record<string, string>;
+
+          try {
+            const res = await fetch("/api/interview/question-titles", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                interviewConfig: config,
+                questions: unique,
+              }),
+            });
+            if (!res.ok) return {} as Record<string, string>;
+            const json = (await res.json()) as {
+              success: boolean;
+              titles?: unknown;
+            };
+            if (!json.success || !Array.isArray(json.titles))
+              return {} as Record<string, string>;
+            const titles = json.titles.map((t) =>
+              typeof t === "string" ? t : "",
+            );
+            const next: Record<string, string> = {};
+            for (let i = 0; i < unique.length; i += 1) {
+              const q = unique[i];
+              const title = titles[i]?.trim() ?? "";
+              if (!q) continue;
+              if (!title) continue;
+              next[q] = title;
+            }
+            return next;
+          } catch {
+            return {} as Record<string, string>;
+          }
+        })();
+
         setGeneratedExampleAnswers(mainExampleAnswers);
         setGeneratedFollowUpExampleAnswers(followUpExampleAnswers);
+        setGeneratedExampleAnswerByQuestionText(exampleAnswerByQuestionText);
+        setQuestionTitlesByText(questionTitleMap);
 
         const existingSessionId = localStorage.getItem("interviewSessionId");
 
@@ -1550,7 +1659,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     }
   })();
 
-  const showDeck = resultsView === "deck" && Boolean(savedSessionId);
+  const showDeck = resultsView === "deck";
 
   const rewards = (() => {
     if (!rewardsPayload) return null;
@@ -1572,23 +1681,21 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             transition={{ duration: 0.22, ease: "easeOut" }}
             className="flex-1 min-h-0 overflow-hidden"
           >
-            {savedSessionId ? (
-              <ResultsDeck
-                key={savedSessionId}
-                results={results}
-                rewards={rewards}
-                onRewardsConsumed={() => {
-                  window.sessionStorage.removeItem("postInterviewRewards");
-                }}
-                onOpenFullReport={() =>
-                  router.push(`/history/${savedSessionId}`)
-                }
-                onDone={() => {
-                  markDeckCompleted(savedSessionId);
-                  setResultsView("full");
-                }}
-              />
-            ) : null}
+            <ResultsDeck
+              results={results}
+              rewards={rewards}
+              onRewardsConsumed={() => {
+                window.sessionStorage.removeItem("postInterviewRewards");
+              }}
+              onOpenFullReport={() => {
+                if (!savedSessionId) return;
+                router.push(`/history/${savedSessionId}`);
+              }}
+              onDone={() => {
+                if (savedSessionId) markDeckCompleted(savedSessionId);
+                setResultsView("full");
+              }}
+            />
           </motion.div>
         ) : (
           <motion.div
@@ -1679,70 +1786,81 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 )}
 
                 {interviewConfig && (
-                  <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
-                    <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                      <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        <User className="size-4 text-blue-600 dark:text-blue-400" />
+                  <div className="mb-12">
+                    <div className="flex items-center gap-2 mb-6">
+                      <Typography.BodyBold className="text-xl">
                         Interview Configuration
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-6">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div>
-                          <div className="text-xs font-medium text-muted-foreground mb-1">
-                            Position
-                          </div>
-                          <div className="text-sm font-semibold capitalize">
-                            {interviewConfig.position}
-                          </div>
-                        </div>
-                        <div>
-                          <div className="text-xs font-medium text-muted-foreground mb-1">
-                            Seniority
-                          </div>
-                          <div className="text-sm font-semibold capitalize">
-                            {interviewConfig.seniority}
-                          </div>
-                        </div>
-                        <div>
-                          <div className="text-xs font-medium text-muted-foreground mb-1">
-                            Interview Type
-                          </div>
-                          <div className="text-sm font-semibold capitalize">
-                            {interviewConfig.interviewType}
-                          </div>
-                        </div>
-                        <div>
-                          <div className="text-xs font-medium text-muted-foreground mb-1">
-                            Mode
-                          </div>
-                          <div className="text-sm font-semibold capitalize">
-                            {interviewConfig.interviewMode}
-                          </div>
-                        </div>
-                        <div>
-                          <div className="text-xs font-medium text-muted-foreground mb-1">
-                            Duration
-                          </div>
-                          <div className="text-sm font-semibold">
-                            {interviewConfig.duration} minutes
-                          </div>
-                        </div>
-                        {(interviewConfig.specificCompany ||
-                          interviewConfig.company) && (
-                          <div>
-                            <div className="text-xs font-medium text-muted-foreground mb-1">
-                              Company
-                            </div>
-                            <div className="text-sm font-semibold">
-                              {interviewConfig.specificCompany ??
-                                interviewConfig.company}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </Typography.BodyBold>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                      {(
+                        [
+                          {
+                            label: "Position",
+                            value: interviewConfig.position,
+                            icon: Shield,
+                          },
+                          {
+                            label: "Seniority",
+                            value: interviewConfig.seniority,
+                            icon: Trophy,
+                          },
+                          {
+                            label: "Type",
+                            value: interviewConfig.interviewType,
+                            icon: User,
+                          },
+                          {
+                            label: "Mode",
+                            value: interviewConfig.interviewMode,
+                            icon: Target,
+                          },
+                          {
+                            label: "Duration",
+                            value: `${interviewConfig.duration}m`,
+                            icon: Clock,
+                          },
+                          ...(interviewConfig.specificCompany ||
+                          interviewConfig.company
+                            ? [
+                                {
+                                  label: "Company",
+                                  value:
+                                    interviewConfig.specificCompany ??
+                                    interviewConfig.company,
+                                  icon: Building,
+                                },
+                              ]
+                            : []),
+                        ] as const
+                      ).map((item, idx) => {
+                        const Icon = item.icon;
+                        return (
+                          <Card
+                            key={`${item.label}-${idx}`}
+                            className="border-border/60 bg-card/50 shadow-none"
+                          >
+                            <CardContent className="flex flex-col items-start gap-4 p-4">
+                              <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                                <Icon className="size-4 flex-shrink-0" />
+                              </div>
+                              <div className="space-y-1 w-full">
+                                <Typography.Caption
+                                  color="secondary"
+                                  className="uppercase tracking-wider font-semibold text-[10px]"
+                                >
+                                  {item.label}
+                                </Typography.Caption>
+                                <div className="font-bold text-sm capitalize truncate w-full">
+                                  {item.value}
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        );
+                      })}
+                    </div>
+                  </div>
                 )}
 
                 {/* ============================================================================ */}
@@ -1750,68 +1868,78 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 {/* ============================================================================ */}
                 {/* OVERALL ASSESSMENT (Detailed View) */}
                 {/* ============================================================================ */}
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
-                  <div className="mb-4 flex items-center gap-2">
-                    <BarChart3 className="size-5 text-primary" />
-                    <h2 className="text-xl font-bold">
+                <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                  <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                    <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                      <BarChart3 className="size-5 text-primary" />
                       Overall Performance Assessment
-                    </h2>
-                  </div>
-                  <DetailedScoreCard
-                    score={results.score}
-                    passed={results.passed}
-                    summary={(() => {
-                      const summary =
-                        results.overallScore?.trim() || outcomeMessage;
-                      if (!summary) return null;
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <DetailedScoreCard
+                      withCard={false}
+                      score={results.score}
+                      passed={results.passed}
+                      summary={(() => {
+                        const summary =
+                          results.overallScore?.trim() || outcomeMessage;
+                        if (!summary) return null;
 
-                      return (
-                        <ReactMarkdown
-                          remarkPlugins={[remarkGfm]}
-                          components={overallSummaryMarkdownComponents}
-                        >
-                          {normalizeOverallSummaryMarkdown(summary)}
-                        </ReactMarkdown>
-                      );
-                    })()}
-                    categoryScores={
-                      results.categoryScores
-                        ? {
-                            technical: clampFinite(
-                              results.categoryScores.technical,
-                              0,
-                              CATEGORY_MAX.technical,
-                            ),
-                            problemSolving: clampFinite(
-                              results.categoryScores.problemSolving,
-                              0,
-                              CATEGORY_MAX.problemSolving,
-                            ),
-                            communication: clampFinite(
-                              results.categoryScores.communication,
-                              0,
-                              CATEGORY_MAX.communication,
-                            ),
-                            professional: clampFinite(
-                              results.categoryScores.professional,
-                              0,
-                              CATEGORY_MAX.professional,
-                            ),
-                          }
-                        : getCategoryScores(results.score)
-                    }
-                    technologyScores={
-                      results.technologyScores
-                        ? Object.entries(results.technologyScores)
-                            .map(([tech, score]) => ({
-                              tech,
-                              score: clampFinite(score, 0, 100),
-                            }))
-                            .sort((a, b) => b.score - a.score)
-                        : undefined
-                    }
-                  />
-                </div>
+                        return (
+                          <ReactMarkdown
+                            remarkPlugins={[remarkGfm]}
+                            components={overallSummaryMarkdownComponents}
+                          >
+                            {normalizeOverallSummaryMarkdown(summary)}
+                          </ReactMarkdown>
+                        );
+                      })()}
+                      categoryScores={
+                        results.categoryScores
+                          ? {
+                              technical: clampFinite(
+                                results.categoryScores.technical,
+                                0,
+                                CATEGORY_MAX.technical,
+                              ),
+                              problemSolving: clampFinite(
+                                results.categoryScores.problemSolving,
+                                0,
+                                CATEGORY_MAX.problemSolving,
+                              ),
+                              communication: clampFinite(
+                                results.categoryScores.communication,
+                                0,
+                                CATEGORY_MAX.communication,
+                              ),
+                              professional: clampFinite(
+                                results.categoryScores.professional,
+                                0,
+                                CATEGORY_MAX.professional,
+                              ),
+                            }
+                          : getCategoryScores(results.score)
+                      }
+                      technologyScores={
+                        results.technologyScores
+                          ? Object.entries(results.technologyScores)
+                              .map(([tech, score]) => ({
+                                tech,
+                                score:
+                                  score === null
+                                    ? null
+                                    : clampFinite(score, 0, 100),
+                              }))
+                              .sort((a, b) => {
+                                const aScore = a.score ?? -1;
+                                const bScore = b.score ?? -1;
+                                return bScore - aScore;
+                              })
+                          : undefined
+                      }
+                    />
+                  </CardContent>
+                </Card>
 
                 {/* ============================================================================ */}
                 {/* STRENGTHS & IMPROVEMENTS GRID */}
@@ -1916,7 +2044,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
                     <CardHeader className="border-b border-gray-200 dark:border-gray-800">
                       <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        <BookOpen className="size-5 text-blue-600 dark:text-blue-400" />
+                        <BookOpen className="size-5 text-amber-600 dark:text-amber-400" />
                         Knowledge Gaps & Resources
                       </CardTitle>
                       <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
@@ -1976,7 +2104,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                 {gap.resources.map((r) => (
                                   <li key={r.id} className="text-sm">
                                     <a
-                                      className="text-blue-700 dark:text-blue-300 hover:underline"
+                                      className="text-gray-700 dark:text-gray-300 hover:underline"
                                       href={r.url}
                                       target="_blank"
                                       rel="noreferrer"
@@ -2031,7 +2159,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                               defaultOpen={false}
                               className={`border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow ${
                                 row.type === "follow-up"
-                                  ? "border-l-4 border-l-blue-500/50 bg-gradient-to-br from-blue-50/50 to-blue-50/10 border-y-border/50 border-r-border/50 dark:from-blue-950/20 dark:to-blue-950/5"
+                                  ? "border-l-4 border-l-border/70 bg-gradient-to-br from-muted/30 to-muted/10 border-y-border/50 border-r-border/50"
                                   : "border-border/50 bg-gradient-to-br from-card to-card/50"
                               }`}
                             >
@@ -2048,18 +2176,26 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                     ) : (
                                       <Badge
                                         variant="secondary"
-                                        className="font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-900/70"
+                                        className="font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
                                       >
                                         Follow-up
                                       </Badge>
                                     )}
                                     <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
-                                      {row.type === "main" && q?.title
-                                        ? q.title
-                                        : prompt
-                                          ? prompt.slice(0, 60) +
-                                            (prompt.length > 60 ? "..." : "")
-                                          : "Question Details"}
+                                      {(() => {
+                                        if (row.type === "main" && q?.title)
+                                          return q.title;
+                                        const key = row.questionText.trim();
+                                        const mapped =
+                                          questionTitlesByText[key];
+                                        if (mapped && mapped.trim().length > 0)
+                                          return mapped;
+                                        if (!prompt) return "Question Details";
+                                        return (
+                                          prompt.slice(0, 60) +
+                                          (prompt.length > 60 ? "..." : "")
+                                        );
+                                      })()}
                                     </div>
                                   </div>
                                   <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
