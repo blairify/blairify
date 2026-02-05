@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -160,12 +159,6 @@ export function AchievementDetailModal({
               +{achievement.xpReward} XP
             </span>
           </div>
-
-          {isUnlocked && (
-            <DialogDescription className="text-base leading-relaxed">
-              {achievement.description}
-            </DialogDescription>
-          )}
 
           {/* Requirement */}
           <div className="rounded-lg border border-border bg-muted/30 p-4">
