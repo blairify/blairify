@@ -190,7 +190,96 @@ export async function getRelevantQuestionsForInterview(
 
     // Shuffle with timestamp-based seed for better randomization
     const shuffled = shuffleWithSeed(relevantQuestions, Date.now());
-    const selected = shuffled.slice(0, count);
+
+    const canonicalize = (value: string): string => {
+      const trimmed = value.trim().toLowerCase();
+      switch (trimmed) {
+        case "golang":
+          return "go";
+        case "c#":
+        case "csharp":
+          return "csharp";
+        case "react-native":
+        case "react native":
+          return "reactnative";
+        case "js":
+          return "javascript";
+        case "ts":
+          return "typescript";
+        default:
+          return trimmed;
+      }
+    };
+
+    const isSituationalTopic = (topic: string): boolean => {
+      const situationalTopics = new Set([
+        "debugging",
+        "performance",
+        "testing",
+        "incident-response",
+        "reliability",
+        "architecture",
+        "system-design",
+        "api-design",
+        "database",
+        "cloud",
+      ]);
+
+      return situationalTopics.has(topic);
+    };
+
+    const matchesTech = (q: Question, tech: string): boolean => {
+      const required = canonicalize(tech);
+      const stack = (q.primaryTechStack ?? []).map(canonicalize);
+      return stack.includes(required);
+    };
+
+    const normalizedTechs = config.technologies
+      .map(canonicalize)
+      .filter(Boolean);
+
+    const allowSituationalCap = config.interviewType === "mixed";
+    const maxSituational = allowSituationalCap
+      ? Math.round(count * 0.1)
+      : count;
+
+    const selected: Question[] = [];
+    const remaining = [...shuffled];
+
+    if (normalizedTechs.length > 0 && count >= normalizedTechs.length) {
+      for (const tech of normalizedTechs) {
+        const index = remaining.findIndex((q) => matchesTech(q, tech));
+        if (index === -1) continue;
+        const [picked] = remaining.splice(index, 1);
+        selected.push(picked);
+        if (selected.length >= count) break;
+      }
+    }
+
+    let situationalPicked = selected.filter((q) =>
+      isSituationalTopic(q.topic),
+    ).length;
+    const overflowSituational: Question[] = [];
+
+    for (const q of remaining) {
+      if (selected.length >= count) break;
+
+      const isSituational = allowSituationalCap && isSituationalTopic(q.topic);
+      if (isSituational && situationalPicked >= maxSituational) {
+        overflowSituational.push(q);
+        continue;
+      }
+
+      selected.push(q);
+      if (isSituational) situationalPicked += 1;
+    }
+
+    if (selected.length < count) {
+      for (const q of overflowSituational) {
+        if (selected.length >= count) break;
+        selected.push(q);
+      }
+    }
 
     // Mark selected questions as recently used
     selected.forEach((q) => {
@@ -496,11 +585,7 @@ function matchTechStack(question: Question, technologies: string[]): boolean {
   };
 
   const questionTech = new Set(
-    [
-      ...(question.primaryTechStack ?? []),
-      ...(question.tags ?? []),
-      ...(question.subtopics ?? []),
-    ]
+    (question.primaryTechStack ?? [])
       .filter(Boolean)
       .map((t) => canonicalize(String(t))),
   );
