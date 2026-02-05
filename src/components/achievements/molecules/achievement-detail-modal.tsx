@@ -22,27 +22,6 @@ const formatTier = (tier: AchievementTier): string => {
   return `${base.charAt(0).toUpperCase()}${base.slice(1)} ${levelMap[level]}`;
 };
 
-function formatRequirement(requirement?: number, unit?: string): string | null {
-  if (typeof requirement !== "number" || !Number.isFinite(requirement))
-    return null;
-  if (typeof unit !== "string" || unit.trim().length === 0) return null;
-
-  const trimmed = unit.trim();
-  const isSimpleWord = /^[A-Za-z]+$/.test(trimmed);
-  if (requirement === 1) {
-    const singular =
-      isSimpleWord && trimmed.endsWith("s") ? trimmed.slice(0, -1) : trimmed;
-    return `${requirement} ${singular}`;
-  }
-
-  if (!isSimpleWord) {
-    return `${requirement} ${trimmed}`;
-  }
-
-  const plural = trimmed.endsWith("s") ? trimmed : `${trimmed}s`;
-  return `${requirement} ${plural}`;
-}
-
 const TIER_STYLES: Record<
   string,
   { bg: string; border: string; text: string; badge: string }
@@ -182,22 +161,6 @@ export function AchievementDetailModal({
             </span>
           </div>
 
-          {!isUnlocked && (
-            <div className="rounded-lg border border-border bg-muted/20 p-3">
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <Lock className="size-4 text-muted-foreground" />
-                  <span className="text-sm font-medium text-foreground">
-                    Locked
-                  </span>
-                </div>
-                <span className="text-xs text-muted-foreground">
-                  You can still view requirements.
-                </span>
-              </div>
-            </div>
-          )}
-
           {isUnlocked && (
             <DialogDescription className="text-base leading-relaxed">
               {achievement.description}
@@ -210,14 +173,7 @@ export function AchievementDetailModal({
               Requirement
             </h4>
             <p className="text-sm text-muted-foreground">
-              {(() => {
-                const formatted = formatRequirement(
-                  achievement.requirement,
-                  achievement.requirementUnit,
-                );
-                if (formatted) return `Complete ${formatted}`;
-                return achievement.description;
-              })()}
+              {achievement.description}
             </p>
           </div>
 

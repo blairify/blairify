@@ -54,6 +54,83 @@ const formatTier = (tier: AchievementTier): string => {
   return `${base.charAt(0).toUpperCase()}${base.slice(1)} ${levelMap[level]}`;
 };
 
+function getCurrentStreakDays(sessions: unknown[]): number {
+  const asSessions = sessions as Array<{
+    completedAt?: { toDate: () => Date };
+    createdAt: { toDate: () => Date };
+    status?: string;
+  }>;
+
+  const dayKeys = new Set<number>();
+  for (const session of asSessions) {
+    if (session.status !== "completed") continue;
+    const date = (session.completedAt ?? session.createdAt).toDate();
+    const day = new Date(date);
+    day.setHours(0, 0, 0, 0);
+    dayKeys.add(day.getTime());
+  }
+
+  if (dayKeys.size === 0) return 0;
+
+  const sortedDays = [...dayKeys].sort((a, b) => b - a);
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const diffToTodayDays = Math.floor(
+    (today.getTime() - sortedDays[0]) / (1000 * 60 * 60 * 24),
+  );
+  if (diffToTodayDays > 1) return 0;
+
+  let streak = 1;
+  for (let i = 1; i < sortedDays.length; i++) {
+    const diffDays = Math.floor(
+      (sortedDays[i - 1] - sortedDays[i]) / (1000 * 60 * 60 * 24),
+    );
+    if (diffDays !== 1) break;
+    streak++;
+  }
+
+  return streak;
+}
+
+function getLongestStreakDays(sessions: unknown[]): number {
+  const asSessions = sessions as Array<{
+    completedAt?: { toDate: () => Date };
+    createdAt: { toDate: () => Date };
+    status?: string;
+  }>;
+
+  const dayKeys = new Set<number>();
+  for (const session of asSessions) {
+    if (session.status !== "completed") continue;
+    const date = (session.completedAt ?? session.createdAt).toDate();
+    const day = new Date(date);
+    day.setHours(0, 0, 0, 0);
+    dayKeys.add(day.getTime());
+  }
+
+  if (dayKeys.size === 0) return 0;
+
+  const sortedDays = [...dayKeys].sort((a, b) => a - b);
+
+  let longest = 1;
+  let current = 1;
+  for (let i = 1; i < sortedDays.length; i++) {
+    const diffDays = Math.floor(
+      (sortedDays[i] - sortedDays[i - 1]) / (1000 * 60 * 60 * 24),
+    );
+    if (diffDays === 1) {
+      current++;
+      if (current > longest) longest = current;
+      continue;
+    }
+    current = 1;
+  }
+
+  return longest;
+}
+
 function formatRequirement(requirement?: number, unit?: string): string | null {
   if (typeof requirement !== "number" || !Number.isFinite(requirement))
     return null;
@@ -160,7 +237,8 @@ interface AchievementsContentProps {
 }
 
 export function AchievementsContent({ user }: AchievementsContentProps) {
-  const { userData } = useAuth();
+  useAuth();
+  const [totalXP, setTotalXP] = useState(0);
   const [stats, setStats] = useState<UserStats>({
     avgScore: 0,
     totalSessions: 0,
@@ -183,32 +261,59 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
       }
       setLoading(true);
       try {
+        const profile = await DatabaseService.getUserProfile(user.uid);
+        setTotalXP(
+          typeof profile?.experiencePoints === "number" &&
+            Number.isFinite(profile.experiencePoints)
+            ? profile.experiencePoints
+            : 0,
+        );
         const sessions = await DatabaseService.getUserSessions(user.uid, 100);
         if (!sessions.length) {
           setStats({
-            avgScore: 0,
-            totalSessions: 0,
+            avgScore: profile?.averageScore ?? 0,
+            totalSessions: profile?.totalInterviews ?? 0,
             totalTime: 0,
           });
           return;
         }
 
-        const avgScore =
-          sessions.reduce(
-            (sum, session) => sum + (session.scores?.overall || 0),
-            0,
-          ) / sessions.length;
+        const completedSessionsWithScores = sessions.filter(
+          (s) => s.status === "completed" && (s.scores?.overall ?? 0) > 0,
+        );
+        const derivedAvgScore =
+          completedSessionsWithScores.length > 0
+            ? Math.round(
+                completedSessionsWithScores.reduce(
+                  (sum, session) => sum + (session.scores?.overall || 0),
+                  0,
+                ) / completedSessionsWithScores.length,
+              )
+            : 0;
 
-        const totalSessions = sessions.length;
-        const totalTime = sessions.reduce(
+        const derivedTotalSessions = sessions.length;
+        const derivedTotalTime = sessions.reduce(
           (sum, session) => sum + (session.totalDuration || 0),
           0,
         );
 
+        const perfectScores = completedSessionsWithScores.filter(
+          (s) => (s.scores?.overall ?? 0) === 100,
+        ).length;
+
         const computedStats: UserStats = {
-          avgScore: Math.round(avgScore),
-          totalSessions,
-          totalTime,
+          avgScore:
+            typeof profile?.averageScore === "number"
+              ? profile.averageScore
+              : derivedAvgScore,
+          totalSessions:
+            typeof profile?.totalInterviews === "number"
+              ? profile.totalInterviews
+              : derivedTotalSessions,
+          totalTime: derivedTotalTime,
+          perfectScores,
+          currentStreak: getCurrentStreakDays(sessions),
+          longestStreak: getLongestStreakDays(sessions),
         };
 
         setStats(computedStats);
@@ -274,14 +379,6 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
     });
   }, [achievementsWithProgress, statusFilter, tierFilter, tierOrder]);
 
-  const totalXP =
-    typeof userData?.experiencePoints === "number" &&
-    Number.isFinite(userData.experiencePoints)
-      ? userData.experiencePoints
-      : typeof user.experiencePoints === "number" &&
-          Number.isFinite(user.experiencePoints)
-        ? user.experiencePoints
-        : 0;
   const rank = getRankByXP(totalXP);
   const nextRank = getNextRank(rank);
   const progressToNextRank = getProgressToNextRank(totalXP, rank);

@@ -70,7 +70,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "first_interview",
     name: "First Steps",
-    description: "Complete your first interview session.",
+    description:
+      "Complete 1 interview session (career total). Progress: sessions / 1.",
     icon: "Gi3dMeeple",
     tier: "bronze_i",
     category: "sessions",
@@ -83,7 +84,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "five_interviews",
     name: "Getting Warmed Up",
-    description: "Complete 5 interview sessions.",
+    description:
+      "Complete 5 interview sessions (career total). Progress: sessions / 5.",
     icon: "GiProgression",
     tier: "bronze_ii",
     category: "sessions",
@@ -97,7 +99,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "thirty_minutes",
     name: "Time Investor",
-    description: "Spend 30 minutes practicing.",
+    description:
+      "Accumulate 30 minutes of interview practice in your last 100 sessions. Progress: minutes / 30.",
     icon: "GiHourglass",
     tier: "bronze_iii",
     category: "time",
@@ -112,7 +115,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "ten_interviews",
     name: "Dedicated Learner",
-    description: "Complete 10 interview sessions.",
+    description:
+      "Complete 10 interview sessions (career total). Progress: sessions / 10.",
     icon: "GiLaurelCrown",
     tier: "silver_i",
     category: "sessions",
@@ -126,7 +130,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "hour_practice",
     name: "The Grinder",
-    description: "Spend 1 hour in practice interviews.",
+    description:
+      "Accumulate 60 minutes of interview practice in your last 100 sessions. Progress: minutes / 60.",
     icon: "GiSandsOfTime",
     tier: "silver_ii",
     category: "time",
@@ -139,7 +144,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "score_70",
     name: "Competent Communicator",
-    description: "Achieve an average score of 70% or above.",
+    description:
+      "Maintain a career average score of 70% or higher. Progress: (avg score / 70%) capped at 100%.",
     icon: "GiStarMedal",
     tier: "silver_iii",
     category: "performance",
@@ -154,7 +160,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "twenty_five_interviews",
     name: "Interview Veteran",
-    description: "Complete 25 interview sessions.",
+    description:
+      "Complete 25 interview sessions (career total). Progress: sessions / 25.",
     icon: "GiMeepleKing",
     tier: "gold_i",
     category: "sessions",
@@ -168,7 +175,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "score_90",
     name: "Ace Communicator",
-    description: "Achieve an average score of 90% or above.",
+    description:
+      "Maintain a career average score of 90% or higher. Progress: (avg score / 90%) capped at 100%.",
     icon: "GiDiamondTrophy",
     tier: "gold_ii",
     category: "performance",
@@ -181,7 +189,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "three_hour_practice",
     name: "Marathon Runner",
-    description: "Spend 3 hours in practice interviews.",
+    description:
+      "Accumulate 180 minutes of interview practice in your last 100 sessions. Progress: minutes / 180.",
     icon: "GiTimeTrap",
     tier: "gold_iii",
     category: "time",
@@ -196,7 +205,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "fifty_interviews",
     name: "Interview Master",
-    description: "Complete 50 interview sessions.",
+    description:
+      "Complete 50 interview sessions (career total). Progress: sessions / 50.",
     icon: "GiImperialCrown",
     tier: "platinum_i",
     category: "sessions",
@@ -210,7 +220,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "score_95",
     name: "Elite Performer",
-    description: "Achieve an average score of 95% or above.",
+    description:
+      "Maintain a career average score of 95% or higher. Progress: (avg score / 95%) capped at 100%.",
     icon: "GiSparkSpirit",
     tier: "platinum_ii",
     category: "performance",
@@ -223,7 +234,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "five_hour_practice",
     name: "Dedication Personified",
-    description: "Spend 5 hours in practice interviews.",
+    description:
+      "Accumulate 300 minutes of interview practice in your last 100 sessions. Progress: minutes / 300.",
     icon: "GiMetronome",
     tier: "platinum_iii",
     category: "time",
@@ -238,7 +250,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "hundred_interviews",
     name: "Interview Legend",
-    description: "Complete 100 interview sessions.",
+    description:
+      "Complete 100 interview sessions (career total). Progress: sessions / 100.",
     icon: "GiTrophyCup",
     tier: "diamond_i",
     category: "sessions",
@@ -252,7 +265,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "perfect_score",
     name: "Perfectionist",
-    description: "Achieve a perfect 100% score in any interview.",
+    description:
+      "Earn 1 perfect 100% score in your last 100 sessions. Progress: perfect scores / 1.",
     icon: "GiSparkles",
     tier: "diamond_ii",
     category: "performance",
@@ -265,7 +279,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "ten_hour_practice",
     name: "Ultimate Dedication",
-    description: "Spend 10 hours in practice interviews.",
+    description:
+      "Accumulate 600 minutes of interview practice in your last 100 sessions. Progress: minutes / 600.",
     icon: "GiLotus",
     tier: "diamond_iii",
     category: "time",
@@ -282,7 +297,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "fifteen_interviews",
     name: "Growing Confidence",
-    description: "Complete 15 interview sessions.",
+    description:
+      "Complete 15 interview sessions (career total). Progress: sessions / 15.",
     icon: "GiProgression",
     tier: "silver_ii",
     category: "sessions",
@@ -296,7 +312,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "twenty_interviews",
     name: "Rising Star",
-    description: "Complete 20 interview sessions.",
+    description:
+      "Complete 20 interview sessions (career total). Progress: sessions / 20.",
     icon: "GiStarMedal",
     tier: "silver_ii",
     category: "sessions",
@@ -310,7 +327,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "thirty_interviews",
     name: "Seasoned Veteran",
-    description: "Complete 30 interview sessions.",
+    description:
+      "Complete 30 interview sessions (career total). Progress: sessions / 30.",
     icon: "GiMeepleKing",
     tier: "gold_i",
     category: "sessions",
@@ -324,7 +342,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "forty_interviews",
     name: "Interview Pro",
-    description: "Complete 40 interview sessions.",
+    description:
+      "Complete 40 interview sessions (career total). Progress: sessions / 40.",
     icon: "Crown",
     tier: "gold_iii",
     category: "sessions",
@@ -338,7 +357,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "sixty_interviews",
     name: "Interview Expert",
-    description: "Complete 60 interview sessions.",
+    description:
+      "Complete 60 interview sessions (career total). Progress: sessions / 60.",
     icon: "GiLaurelCrown",
     tier: "platinum_ii",
     category: "sessions",
@@ -352,7 +372,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "seventy_five_interviews",
     name: "Interview Guru",
-    description: "Complete 75 interview sessions.",
+    description:
+      "Complete 75 interview sessions (career total). Progress: sessions / 75.",
     icon: "GiImperialCrown",
     tier: "platinum_iii",
     category: "sessions",
@@ -368,7 +389,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "ninety_minutes",
     name: "Persistent Practitioner",
-    description: "Spend 90 minutes practicing.",
+    description:
+      "Accumulate 90 minutes of interview practice in your last 100 sessions. Progress: minutes / 90.",
     icon: "Clock",
     tier: "silver_iii",
     category: "time",
@@ -381,7 +403,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "six_hour_practice",
     name: "Endurance Expert",
-    description: "Spend 6 hours in practice interviews.",
+    description:
+      "Accumulate 360 minutes of interview practice in your last 100 sessions. Progress: minutes / 360.",
     icon: "Sword",
     tier: "gold_ii",
     category: "time",
@@ -394,7 +417,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "eight_hour_practice",
     name: "Time Titan",
-    description: "Spend 8 hours in practice interviews.",
+    description:
+      "Accumulate 480 minutes of interview practice in your last 100 sessions. Progress: minutes / 480.",
     icon: "GiTimeTrap",
     tier: "diamond_i",
     category: "time",
@@ -407,7 +431,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "twelve_hour_practice",
     name: "Chronos Champion",
-    description: "Spend 12 hours in practice interviews.",
+    description:
+      "Accumulate 720 minutes of interview practice in your last 100 sessions. Progress: minutes / 720.",
     icon: "GiSandsOfTime",
     tier: "diamond_ii",
     category: "time",
@@ -422,7 +447,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "score_80",
     name: "Solid Performer",
-    description: "Achieve an average score of 80% or above.",
+    description:
+      "Maintain a career average score of 80% or higher. Progress: (avg score / 80%) capped at 100%.",
     icon: "Star",
     tier: "gold_i",
     category: "performance",
@@ -435,7 +461,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "score_85",
     name: "High Achiever",
-    description: "Achieve an average score of 85% or above.",
+    description:
+      "Maintain a career average score of 85% or higher. Progress: (avg score / 85%) capped at 100%.",
     icon: "Medal",
     tier: "gold_iii",
     category: "performance",
@@ -448,7 +475,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "score_98",
     name: "Near Perfection",
-    description: "Achieve an average score of 98% or above.",
+    description:
+      "Maintain a career average score of 98% or higher. Progress: (avg score / 98%) capped at 100%.",
     icon: "GiSparkSpirit",
     tier: "platinum_iii",
     category: "performance",
@@ -463,7 +491,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "five_day_streak",
     name: "Midweek Momentum",
-    description: "Maintain a 5-day practice streak.",
+    description:
+      "Maintain a 5-day practice streak (consecutive days with a completed session, based on your last 100 sessions). Progress: current streak / 5.",
     icon: "Flame",
     tier: "bronze_iii",
     category: "streaks",
@@ -477,7 +506,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "three_day_streak",
     name: "Consistent Learner",
-    description: "Maintain a 3-day practice streak.",
+    description:
+      "Maintain a 3-day practice streak (consecutive days with a completed session, based on your last 100 sessions). Progress: current streak / 3.",
     icon: "GiFire",
     tier: "bronze_ii",
     category: "streaks",
@@ -491,7 +521,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "seven_day_streak",
     name: "Weekly Warrior",
-    description: "Maintain a 7-day practice streak.",
+    description:
+      "Reach a 7-day practice streak (consecutive days with a completed session, based on your last 100 sessions). Progress: longest streak / 7.",
     icon: "GiFire",
     tier: "silver_i",
     category: "streaks",
@@ -505,7 +536,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "ten_day_streak",
     name: "Tenacious",
-    description: "Maintain a 10-day practice streak.",
+    description:
+      "Reach a 10-day practice streak (consecutive days with a completed session, based on your last 100 sessions). Progress: longest streak / 10.",
     icon: "GiSparkSpirit",
     tier: "silver_iii",
     category: "streaks",
@@ -519,7 +551,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "fourteen_day_streak",
     name: "Fortnight Focus",
-    description: "Maintain a 14-day practice streak.",
+    description:
+      "Reach a 14-day practice streak (consecutive days with a completed session, based on your last 100 sessions). Progress: longest streak / 14.",
     icon: "Zap",
     tier: "gold_i",
     category: "streaks",
@@ -533,7 +566,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "twenty_day_streak",
     name: "Streak Champion",
-    description: "Maintain a 20-day practice streak.",
+    description:
+      "Reach a 20-day practice streak (consecutive days with a completed session, based on your last 100 sessions). Progress: longest streak / 20.",
     icon: "GiSparkles",
     tier: "gold_ii",
     category: "streaks",
@@ -547,7 +581,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "thirty_day_streak",
     name: "Monthly Master",
-    description: "Maintain a 30-day practice streak.",
+    description:
+      "Reach a 30-day practice streak (consecutive days with a completed session, based on your last 100 sessions). Progress: longest streak / 30.",
     icon: "GiDiamondTrophy",
     tier: "platinum_i",
     category: "streaks",
@@ -563,7 +598,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "five_perfect_scores",
     name: "Quintuple Perfect",
-    description: "Achieve 5 perfect 100% scores.",
+    description:
+      "Accumulate 5 perfect 100% scores in your last 100 sessions. Progress: perfect scores / 5.",
     icon: "Podium",
     tier: "platinum_ii",
     category: "special",
@@ -577,7 +613,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "ten_perfect_scores",
     name: "Perfect Decade",
-    description: "Achieve 10 perfect 100% scores.",
+    description:
+      "Accumulate 10 perfect 100% scores in your last 100 sessions. Progress: perfect scores / 10.",
     icon: "Rank",
     tier: "diamond_ii",
     category: "special",
