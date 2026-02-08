@@ -163,10 +163,7 @@ export function DetailedScoreCard({
         </div>
 
         <Separator className="bg-border/40" />
-
-        {/* Bottom Section: Category Breakdowns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Core Competencies */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground/80">
               Core Competencies
@@ -227,7 +224,9 @@ export function DetailedScoreCard({
                     key={t.tech}
                     className="flex items-center justify-between rounded-lg border border-border/40 bg-background/50 px-3 py-2 text-sm"
                   >
-                    <span className="font-medium truncate mr-2">{t.tech}</span>
+                    <span className="font-medium truncate mr-2 capitalize">
+                      {t.tech}
+                    </span>
                     <span
                       className={`font-bold tabular-nums ${
                         t.score !== null && t.score >= 70
@@ -235,7 +234,7 @@ export function DetailedScoreCard({
                           : "text-muted-foreground"
                       }`}
                     >
-                      {t.score === null ? "N/A" : Math.round(t.score)}
+                      {t.score === null ? "0" : Math.round(t.score)}
                     </span>
                   </div>
                 ))}

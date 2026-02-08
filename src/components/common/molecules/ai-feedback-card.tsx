@@ -327,7 +327,7 @@ export function AiFeedbackCard({
   }, []);
 
   return (
-    <Card className="border shadow-md">
+    <Card className="border shadow-md px-6 pt-8">
       <CardHeader className="px-3 pt-1 pb-0">
         <CardTitle className="flex items-center gap-2 text-lg font-semibold leading-none">
           {icon ? <span className="text-primary">{icon}</span> : null}

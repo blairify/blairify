@@ -3,7 +3,7 @@
 import {
   AlertTriangle,
   Award,
-  BarChart3,
+  BarChart2,
   BookOpen,
   Building,
   CheckCircle,
@@ -22,6 +22,8 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { CiBookmarkCheck } from "react-icons/ci";
+import { GoLightBulb } from "react-icons/go";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -42,13 +44,7 @@ import {
 import { ResultsDeck } from "@/components/results/organisms/results-deck";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Collapsible,
   CollapsibleContent,
@@ -59,6 +55,7 @@ import { ACHIEVEMENTS } from "@/lib/achievements";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import { addUserXP } from "@/lib/services/users/user-xp";
+import { cn } from "@/lib/utils";
 import {
   formatKnowledgeGapBlurb,
   formatKnowledgeGapDescription,
@@ -1579,7 +1576,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           <CardContent className="pt-12 pb-12">
             <div className="flex justify-center mb-6">
               <div className="w-16 h-16 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
-                <AlertTriangle className="h-8 w-8 text-red-600 dark:text-red-400" />
+                <AlertTriangle className="size-8 text-red-600 dark:text-red-400" />
               </div>
             </div>
             <Typography.Heading3 className="text-xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
@@ -1623,7 +1620,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         <Card className="w-full max-w-lg border shadow-lg animate-in fade-in duration-500">
           <CardContent className="pt-12 pb-12 text-center">
             <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-6">
-              <FileText className="h-8 w-8 text-gray-400" />
+              <FileText className="size-8 text-gray-400" />
             </div>
             <Typography.Heading3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
               No Results Available
@@ -1730,10 +1727,91 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                     </CardContent>
                   </Card>
                 )}
+                {interviewConfig && (
+                  <div className="mb-8">
+                    {(() => {
+                      const hasCompany = !!(
+                        interviewConfig.specificCompany ||
+                        interviewConfig.company
+                      );
+                      const items = [
+                        {
+                          label: "Position",
+                          value: interviewConfig.position,
+                          icon: Shield,
+                        },
+                        {
+                          label: "Seniority",
+                          value: interviewConfig.seniority,
+                          icon: Trophy,
+                        },
+                        {
+                          label: "Type",
+                          value: interviewConfig.interviewType,
+                          icon: User,
+                        },
+                        {
+                          label: "Mode",
+                          value: interviewConfig.interviewMode,
+                          icon: Target,
+                        },
+                        {
+                          label: "Duration",
+                          value: `${interviewConfig.duration}m`,
+                          icon: Clock,
+                        },
+                        ...(hasCompany
+                          ? [
+                              {
+                                label: "Company",
+                                value:
+                                  interviewConfig.specificCompany ??
+                                  interviewConfig.company,
+                                icon: Building,
+                              },
+                            ]
+                          : []),
+                      ] as const;
 
-                {/* ============================================================================ */}
-                {/* OUTCOME DECISION BANNER */}
-                {/* ============================================================================ */}
+                      return (
+                        <div
+                          className={cn(
+                            "grid gap-4 grid-cols-2 md:grid-cols-3",
+                            hasCompany ? "lg:grid-cols-6" : "lg:grid-cols-5",
+                          )}
+                        >
+                          {items.map((item, idx) => {
+                            const Icon = item.icon;
+                            return (
+                              <Card
+                                key={`${item.label}-${idx}`}
+                                className="border-border/60 bg-card/50 shadow-none py-1"
+                              >
+                                <CardContent className="flex flex-col items-start gap-2 p-4">
+                                  <div className="p-2 rounded-md bg-primary/10 text-primary">
+                                    <Icon className="size-4 flex-shrink-0" />
+                                  </div>
+                                  <div className="space-y-1 w-full">
+                                    <Typography.SubCaption
+                                      color="secondary"
+                                      className="uppercase tracking-wider text-[10px]"
+                                    >
+                                      {item.label}
+                                    </Typography.SubCaption>
+                                    <Typography.BodyBold className="capitalize">
+                                      {item.value}
+                                    </Typography.BodyBold>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            );
+                          })}
+                        </div>
+                      );
+                    })()}
+                  </div>
+                )}
+
                 {results.passed !== undefined && (
                   <Card
                     className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
@@ -1742,20 +1820,20 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                         : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
                     }`}
                   >
-                    <CardContent className="py-8">
+                    <CardContent className="py-3">
                       <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div className="flex items-center gap-6">
                           <div
-                            className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${
+                            className={`flex-shrink-0 size-16 rounded-full flex items-center justify-center ${
                               results.passed
                                 ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
                                 : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
                             }`}
                           >
                             {results.passed ? (
-                              <CheckCircle className="h-8 w-8" />
+                              <CheckCircle className="size-8" />
                             ) : (
-                              <XCircle className="h-8 w-8" />
+                              <XCircle className="size-8" />
                             )}
                           </div>
                           <div className="text-center sm:text-left">
@@ -1785,97 +1863,18 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                     </CardContent>
                   </Card>
                 )}
-
-                {interviewConfig && (
-                  <div className="mb-12">
-                    <div className="flex items-center gap-2 mb-6">
-                      <Typography.BodyBold className="text-xl">
-                        Interview Configuration
-                      </Typography.BodyBold>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                      {(
-                        [
-                          {
-                            label: "Position",
-                            value: interviewConfig.position,
-                            icon: Shield,
-                          },
-                          {
-                            label: "Seniority",
-                            value: interviewConfig.seniority,
-                            icon: Trophy,
-                          },
-                          {
-                            label: "Type",
-                            value: interviewConfig.interviewType,
-                            icon: User,
-                          },
-                          {
-                            label: "Mode",
-                            value: interviewConfig.interviewMode,
-                            icon: Target,
-                          },
-                          {
-                            label: "Duration",
-                            value: `${interviewConfig.duration}m`,
-                            icon: Clock,
-                          },
-                          ...(interviewConfig.specificCompany ||
-                          interviewConfig.company
-                            ? [
-                                {
-                                  label: "Company",
-                                  value:
-                                    interviewConfig.specificCompany ??
-                                    interviewConfig.company,
-                                  icon: Building,
-                                },
-                              ]
-                            : []),
-                        ] as const
-                      ).map((item, idx) => {
-                        const Icon = item.icon;
-                        return (
-                          <Card
-                            key={`${item.label}-${idx}`}
-                            className="border-border/60 bg-card/50 shadow-none"
-                          >
-                            <CardContent className="flex flex-col items-start gap-4 p-4">
-                              <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                                <Icon className="size-4 flex-shrink-0" />
-                              </div>
-                              <div className="space-y-1 w-full">
-                                <Typography.Caption
-                                  color="secondary"
-                                  className="uppercase tracking-wider font-semibold text-[10px]"
-                                >
-                                  {item.label}
-                                </Typography.Caption>
-                                <div className="font-bold text-sm capitalize truncate w-full">
-                                  {item.value}
-                                </div>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-
-                {/* ============================================================================ */}
-                {/* OVERALL ASSESSMENT */}
-                {/* ============================================================================ */}
-                {/* OVERALL ASSESSMENT (Detailed View) */}
-                {/* ============================================================================ */}
                 <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                  <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                    <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      <BarChart3 className="size-5 text-primary" />
-                      Overall Performance Assessment
-                    </CardTitle>
-                  </CardHeader>
+                  <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
+                    <BarChart2 className="size-8 text-amber-800 dark:text-amber-400" />
+                    <div className="flex flex-col items-left gap-1">
+                      <Typography.BodyBold>
+                        Overall Performance Assessment{" "}
+                      </Typography.BodyBold>
+                      <Typography.Caption>
+                        Breakdown of your performance in each category.
+                      </Typography.Caption>
+                    </div>
+                  </CardTitle>
                   <CardContent className="pt-6">
                     <DetailedScoreCard
                       withCard={false}
@@ -1953,7 +1952,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   return (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                       <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-left-4">
-                        <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                        <CardHeader>
                           <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
                             <Award className="size-5 text-emerald-600 dark:text-emerald-400" />
                             Key Strengths Demonstrated
@@ -1990,7 +1989,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                       </Card>
 
                       <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-right-4">
-                        <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+                        <CardHeader>
                           <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
                             <Target className="size-5 text-amber-600 dark:text-amber-400" />
                             {results.passed === false
@@ -2043,16 +2042,18 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
                 {results.knowledgeGaps && results.knowledgeGaps.length > 0 && (
                   <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                    <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                      <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        <BookOpen className="size-5 text-amber-600 dark:text-amber-400" />
-                        Knowledge Gaps & Resources
-                      </CardTitle>
-                      <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                        Focus on the high-priority items first. Each gap has
-                        curated links from the resource library.
-                      </CardDescription>
-                    </CardHeader>
+                    <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
+                      <CiBookmarkCheck className="size-8 text-amber-600 dark:text-amber-400" />
+                      <div className="flex flex-col items-left gap-1">
+                        <Typography.BodyBold>
+                          Knowledge Gaps & Resources
+                        </Typography.BodyBold>
+                        <Typography.Caption>
+                          Focus on the high-priority items first. Each gap has
+                          curated links from the resource library.
+                        </Typography.Caption>
+                      </div>
+                    </CardTitle>
                     <CardContent className="pt-6">
                       <div className="space-y-6">
                         {results.knowledgeGaps.map((gap, index) => (
@@ -2129,15 +2130,17 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
                 {qaRows.length > 0 && (
                   <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
-                    <CardHeader className="border-b border-gray-200 dark:border-gray-800">
-                      <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        <Lightbulb className="size-5 text-amber-600 dark:text-amber-400" />
-                        Questions & Example Answers
-                      </CardTitle>
-                      <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                        Practice-library examples to benchmark your responses.
-                      </CardDescription>
-                    </CardHeader>
+                    <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
+                      <GoLightBulb className="size-8 text-amber-600 dark:text-amber-400" />
+                      <div className="flex flex-col items-left gap-1">
+                        <Typography.BodyBold>
+                          Questions & Example Answers
+                        </Typography.BodyBold>
+                        <Typography.Caption>
+                          Practice-library examples to benchmark your responses.
+                        </Typography.Caption>
+                      </div>
+                    </CardTitle>
                     <CardContent className="pt-6">
                       <div className="space-y-6">
                         {qaRows.map((row, uniqueRowIdx) => {
@@ -2282,7 +2285,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   results.strengths.length > 0 ||
                   results.improvements.length > 0) && (
                   <AiFeedbackCard
-                    title="AI Feedback"
+                    title="Blairify AI Feedback"
                     icon={<FileText className="size-4" />}
                     summaryMarkdown={null}
                     strengths={null}
@@ -2291,13 +2294,6 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   />
                 )}
 
-                {/* ============================================================================ */}
-                {/* DETAILED PERFORMANCE ANALYSIS */}
-                {/* ============================================================================ */}
-
-                {/* ============================================================================ */}
-                {/* ACTION BUTTONS */}
-                {/* ============================================================================ */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center py-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
                   <Button
                     onClick={() => handleNavigationRequest("/configure")}

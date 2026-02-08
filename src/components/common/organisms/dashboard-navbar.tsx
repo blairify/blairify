@@ -1,16 +1,24 @@
 "use client";
 
-import { Crown, HelpCircle, LogOut, Menu, Settings } from "lucide-react";
+import {
+  Crown,
+  Flame,
+  Gem,
+  HelpCircle,
+  LogOut,
+  Menu,
+  Settings,
+  Star,
+  Trophy,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { GiFlowerTwirl, GiTurtleShell } from "react-icons/gi";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
 import { DashboardWalkthrough } from "@/components/common/organisms/dashboard-walkthrough";
-import { RankBadgeInline } from "@/components/ranks/organisms/rank-badge";
-import { XPProgressBarCompact } from "@/components/ranks/organisms/xp-progress-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -20,9 +28,32 @@ import {
 } from "@/components/ui/tooltip";
 import useIsMobile from "@/hooks/use-is-mobile";
 import { useUsageStatus } from "@/hooks/use-usage-status";
-import { getProgressToNextRank, getRankByXP } from "@/lib/ranks";
+import {
+  formatRankLevel,
+  getProgressToNextRank,
+  getRankByXP,
+  type Rank,
+} from "@/lib/ranks";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/providers/auth-provider";
+
+const RANK_ICONS: Record<
+  string,
+  React.ComponentType<{ className?: string }>
+> = {
+  GiTurtleShell,
+  GiFlowerTwirl,
+  Crown,
+  Gem,
+  Star,
+  Flame,
+  Trophy,
+};
+
+function RankIcon({ rank, className }: { rank: Rank; className?: string }) {
+  const Icon = RANK_ICONS[rank.icon] ?? GiTurtleShell;
+  return <Icon className={className} />;
+}
 
 interface DashboardNavbarProps {
   setSidebarOpen: (open: boolean) => void;
@@ -151,40 +182,49 @@ export default function DashboardNavbar({
                 </TooltipContent>
               </Tooltip>
 
-              {/* Plan Badge */}
-              <Badge
-                variant={isPro ? "default" : "secondary"}
+              {/* Unified status chip */}
+              <div
                 className={cn(
-                  "text-xs font-semibold px-2 py-0.5",
-                  isPro
-                    ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white border-0"
-                    : "bg-muted text-muted-foreground",
+                  "flex items-center gap-0 rounded-full border overflow-hidden",
+                  "bg-background/80 backdrop-blur-sm",
+                  isPro ? "border-[#10B981]/40" : rank.badge.border,
                 )}
               >
-                {isPro ? (
-                  <span className="flex items-center gap-1">
-                    <Crown className="size-3" />
-                    PRO
-                  </span>
-                ) : (
-                  "FREE"
-                )}
-              </Badge>
-
-              {/* User info - rank and XP only */}
-              {!isMobile && (
-                <div className="flex flex-col gap-1 min-w-0">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <RankBadgeInline rank={rank} className="shrink-0" />
-                  </div>
-                  <XPProgressBarCompact
-                    currentXP={totalXP}
-                    rank={rank}
-                    progress={progressToNextRank}
-                    className="max-w-[240px]"
-                  />
+                {/* Plan pill — left segment */}
+                <div
+                  className={cn(
+                    "flex items-center gap-1 px-2.5 py-1 text-xs font-bold",
+                    isPro
+                      ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white"
+                      : "bg-muted/60 text-muted-foreground",
+                  )}
+                >
+                  {isPro && <Crown className="size-3" />}
+                  {isPro ? "PRO" : "FREE"}
                 </div>
-              )}
+
+                {/* Rank + XP — right segment */}
+                {!isMobile && (
+                  <div className="flex items-center gap-1.5 pl-2 pr-3 py-1">
+                    <RankIcon
+                      rank={rank}
+                      className={cn("size-3.5 shrink-0", rank.badge.text)}
+                    />
+                    <span className="text-xs font-semibold text-foreground whitespace-nowrap">
+                      {rank.name} {formatRankLevel(rank.level)}
+                    </span>
+                    <div className="w-16 h-1.5 rounded-full bg-muted/40 overflow-hidden">
+                      <div
+                        className={cn(
+                          "h-full rounded-full bg-gradient-to-r transition-all duration-500",
+                          rank.color.gradient,
+                        )}
+                        style={{ width: `${progressToNextRank}%` }}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-2">
