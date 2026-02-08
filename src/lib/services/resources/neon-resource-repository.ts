@@ -1,4 +1,4 @@
-import { desc, eq } from "drizzle-orm";
+import { and, desc, eq, sql } from "drizzle-orm";
 import { practiceDb } from "@/practice-library-db/client";
 import { resources } from "@/practice-library-db/schema";
 import type {
@@ -92,15 +92,6 @@ function normalizeTag(value: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-function hasAnyTag(resourceTags: string[], queryTags: string[]): boolean {
-  if (resourceTags.length === 0 || queryTags.length === 0) return false;
-  const set = new Set(resourceTags.map((t) => normalizeTag(t)).filter(Boolean));
-  return queryTags
-    .map((t) => normalizeTag(t))
-    .filter(Boolean)
-    .some((t) => set.has(t));
-}
-
 function countTagMatches(resourceTags: string[], queryTags: string[]): number {
   if (resourceTags.length === 0 || queryTags.length === 0) return 0;
   const set = new Set(resourceTags.map((t) => normalizeTag(t)).filter(Boolean));
@@ -117,20 +108,34 @@ export async function getResourcesByTags(
 ): Promise<ResourceLink[]> {
   if (limit <= 0) return [];
 
+  // Normalize tags for robust matching
+  const normalizedQueryTags = tags.map((t) => normalizeTag(t)).filter(Boolean);
+  if (normalizedQueryTags.length === 0) return [];
+
+  // Use PostgreSQL array overlap operator (&&) to find candidate resources efficiently.
+  // This avoids the previous 500-row limit that caused missing matches.
   const rows = await practiceDb
     .select()
     .from(resources)
-    .where(eq(resources.isActive, true))
+    .where(
+      and(
+        eq(resources.isActive, true),
+        sql`${resources.tags} && ARRAY[${sql.join(
+          normalizedQueryTags.map((t) => sql`${t}`),
+          sql`,`,
+        )}]::text[]`,
+      ),
+    )
     .orderBy(desc(resources.updatedAt))
-    .limit(500);
+    .limit(200); // Fetch enough candidates for scoring
 
-  const matched =
-    tags.length === 0 ? [] : rows.filter((r) => hasAnyTag(r.tags, tags));
-  const scored = matched
+  if (rows.length === 0) return [];
+
+  const scored = rows
     .map((row) => {
       const host = getHost(row.url);
       const trusted = isTrustedHost(host);
-      const tagMatches = countTagMatches(row.tags, tags);
+      const tagMatches = countTagMatches(row.tags, normalizedQueryTags);
       const score = tagMatches * 10 + (trusted ? 100 : 0);
       return { row, score };
     })
@@ -142,9 +147,9 @@ export async function getResourcesByTags(
 
   if (process.env.NODE_ENV === "development") {
     console.info("[resources] lookup", {
-      queryTags: tags,
-      activeRows: rows.length,
-      matchedRows: matched.length,
+      queryTags: normalizedQueryTags,
+      matchedRows: rows.length,
+      selectedCount: selected.length,
     });
   }
 

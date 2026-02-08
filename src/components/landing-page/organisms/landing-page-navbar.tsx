@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  HelpCircle,
-  Home,
-  LogOut,
-  Menu,
-  Plus,
-  Settings,
-  User,
-  X,
-} from "lucide-react";
+import { Home, LogOut, Menu, Plus, Settings, User, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -101,10 +92,6 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             <div className="hidden md:flex items-center space-x-2">
               {!loading && user ? (
                 <>
-                  <Link aria-label="View Profile" href="/my-progress">
-                    <Button size="lg">My progress</Button>
-                  </Link>
-
                   <Link aria-label="View Profile" href="/configure">
                     <Button size="lg" variant="outline">
                       {" "}
@@ -132,26 +119,6 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                           <p>Settings</p>
                         </TooltipContent>
                       </Tooltip>
-
-                      {/* Help & Support */}
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <Button
-                            onClick={() => router.push("/support")}
-                            variant="outline"
-                            aria-label="Help & Support"
-                            size="icon"
-                            className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                          >
-                            <HelpCircle className="h-4 w-4" />
-                          </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>Help & Support</p>
-                        </TooltipContent>
-                      </Tooltip>
-
-                      {/* Sign Out */}
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <Button
@@ -176,17 +143,17 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                             onClick={() => router.push("/profile")}
                             aria-label="View Profile"
                             variant="ghost"
-                            className="relative h-10 w-10 rounded-full p-0 hover:bg-accent/50 transition-colors"
+                            className="relative h-10 w-10 rounded-md p-0 transition-colors"
                           >
-                            <div className="w-8 h-8 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer">
+                            <div className="size-9 rounded-md hover:ring-1 hover:ring-border/20 transition-all cursor-pointer">
                               {userData?.avatarIcon ? (
                                 <AvatarIconDisplay
                                   iconId={userData.avatarIcon}
                                   size="sm"
-                                  className="w-8 h-8"
+                                  className="size-9"
                                 />
                               ) : (
-                                <Avatar className="w-8 h-8 border-2 border-primary/20">
+                                <Avatar className="size-9 border-1 border-border/80">
                                   <AvatarImage
                                     src={user?.photoURL || userData?.photoURL}
                                     alt={

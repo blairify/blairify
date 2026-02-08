@@ -1167,6 +1167,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             body: JSON.stringify({
               conversationHistory: session.messages,
               interviewConfig: config,
+              questionIds: session.questionIds,
             }),
             signal: controller.signal,
           });

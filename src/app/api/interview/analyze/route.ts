@@ -19,6 +19,7 @@ import {
   analyzeResponseQuality,
   validateInterviewConfig,
 } from "@/lib/services/interview/interview-service";
+import { getQuestionById } from "@/lib/services/questions/neon-question-repository";
 import { getResourcesByTags } from "@/lib/services/resources/neon-resource-repository";
 import {
   formatKnowledgeGapDescription,
@@ -1086,7 +1087,7 @@ export async function POST(
     const requestId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
     // Parse and validate request
     const body = (await request.json()) as AnalyzeApiRequest;
-    const { conversationHistory, interviewConfig } = body;
+    const { conversationHistory, interviewConfig, questionIds } = body;
 
     // Validate required fields
     if (
@@ -1203,9 +1204,33 @@ export async function POST(
     const knowledgeGaps: KnowledgeGap[] = Array.isArray(feedback.knowledgeGaps)
       ? feedback.knowledgeGaps
       : [];
+
+    // Extract tags from all questions actually asked to improve resource matching
+    const askedQuestions = await Promise.all(
+      (questionIds ?? []).map((id) => getQuestionById(id)),
+    );
+    const allQuestionTags = Array.from(
+      new Set(askedQuestions.flatMap((q) => q?.tags ?? [])),
+    );
+
     const enrichedKnowledgeGapsFromModel: KnowledgeGap[] = await Promise.all(
       knowledgeGaps.map(async (gap) => {
-        const resources = await getResourcesByTags(gap.tags, 3);
+        // If an asked question has a tag that overlaps with the gap's topic,
+        // include it to bridge "general AI tags" with "specific bank tags".
+        const matchingQuestionTags = allQuestionTags.filter((qt) => {
+          const lowerQt = qt.toLowerCase();
+          return gap.tags.some((gt) => {
+            const lowerGt = gt.toLowerCase();
+            // Match if one tag is a subset of another (e.g. "typescript" in "typescript-questions-bank-1")
+            return lowerQt.includes(lowerGt) || lowerGt.includes(lowerQt);
+          });
+        });
+
+        // Search with both AI-provided tags and potentially relevant bank tags
+        const searchTags = Array.from(
+          new Set([...gap.tags, ...matchingQuestionTags]),
+        );
+        const resources = await getResourcesByTags(searchTags, 3);
         return { ...gap, resources };
       }),
     );

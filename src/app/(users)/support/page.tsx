@@ -1,27 +1,15 @@
 "use client";
 
-import {
-  BookOpen,
-  ChevronDown,
-  ChevronUp,
-  HelpCircle,
-  Mail,
-  MessageSquare,
-} from "lucide-react";
+import { HelpCircle, Mail } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { MdRestartAlt } from "react-icons/md";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
-import { Badge } from "@/components/ui/badge";
+import { Accordion, AccordionItem } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
 import { useAuth } from "@/providers/auth-provider";
 
 const faqData = [
@@ -91,15 +79,6 @@ export default function SupportPage() {
   const { user, loading } = useAuth();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [openItems, setOpenItems] = useState<string[]>([]);
-
-  const toggleItem = (itemId: string) => {
-    setOpenItems((prev) =>
-      prev.includes(itemId)
-        ? prev.filter((id) => id !== itemId)
-        : [...prev, itemId],
-    );
-  };
 
   if (loading) {
     return <LoadingPage />;
@@ -118,181 +97,83 @@ export default function SupportPage() {
       <div className="flex-1 flex flex-col overflow-hidden">
         <DashboardNavbar setSidebarOpen={setSidebarOpen} />
         <main className="flex-1 overflow-auto bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16 max-w-6xl">
-            <div className="mb-10 sm:mb-14 border-b pb-8">
-              <div className="flex items-start gap-4 mb-3">
-                <div className="p-2.5 bg-muted rounded-lg">
-                  <HelpCircle className="h-7 w-7 text-foreground" />
+          <div className="container  mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-8 max-w-6xl">
+            <div className="flex flex-row justify-between items-start mb-8">
+              <div className="flex items-end gap-4">
+                <div className="p-2.5 bg-primary/5 border border-foreground dark:border-white rounded-lg">
+                  <HelpCircle className="size-5.5 text-foreground dark:text-white" />
                 </div>
-                <div>
-                  <Typography.Heading1 className="text-foreground tracking-tight">
-                    Help & Support
-                  </Typography.Heading1>
-                  <p className="text-muted-foreground mt-2 text-base">
+                <div className="flex flex-col gap-0.5 items-baseline">
+                  <Typography.BodyBold>Help & Support</Typography.BodyBold>
+                  <Typography.Caption color="secondary">
                     Find answers to common questions and get assistance
-                  </p>
+                  </Typography.Caption>
                 </div>
               </div>
 
-              <div className="mt-6">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => {
-                    if (typeof window !== "undefined") {
-                      window.localStorage.setItem(
-                        "blairify-dashboard-tour-force",
-                        "1",
-                      );
-                    }
-                    router.push("/my-progress");
-                  }}
-                >
-                  Restart Tutorial
-                </Button>
-              </div>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="dark:text-white dark:border-white/20"
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    window.localStorage.setItem(
+                      "blairify-dashboard-tour-force",
+                      "1",
+                    );
+                  }
+                  router.push("/my-progress");
+                }}
+              >
+                <MdRestartAlt className="size-5 dark:text-white" />
+                Restart Tutorial
+              </Button>
             </div>
 
-            <div className="space-y-10 sm:space-y-12">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                <Card className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col space-y-3">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-muted rounded-md">
-                          <BookOpen className="h-5 w-5 text-foreground" />
-                        </div>
-                        <h3 className="font-semibold text-base">
-                          Documentation
-                        </h3>
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Browse our comprehensive guides and tutorials
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col space-y-3">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-muted rounded-md">
-                          <MessageSquare className="h-5 w-5 text-foreground" />
-                        </div>
-                        <h3 className="font-semibold text-base">Live Chat</h3>
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Chat with our support team in real-time
-                      </p>
-                      <Badge variant="secondary" className="text-xs w-fit">
-                        Coming Soon
-                      </Badge>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col space-y-3">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-muted rounded-md">
-                          <Mail className="h-5 w-5 text-foreground" />
-                        </div>
-                        <h3 className="font-semibold text-base">
-                          Email Support
-                        </h3>
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Get help via email within 24 hours
-                      </p>
-                      <Badge variant="secondary" className="text-xs w-fit">
-                        Coming Soon
-                      </Badge>
-                    </div>
-                  </CardContent>
-                </Card>
+            <div className="space-y-6 mb-10">
+              <Accordion defaultOpenId={faqData[0]?.id}>
+                {faqData.map((faq, index) => (
+                  <AccordionItem
+                    key={faq.id}
+                    id={faq.id}
+                    indexText={String(index + 1).padStart(2, "0")}
+                    title={
+                      <Typography.BodyMedium className="text-foreground">
+                        {faq.question}
+                      </Typography.BodyMedium>
+                    }
+                  >
+                    <Typography.Caption color="gray">
+                      {faq.answer}
+                    </Typography.Caption>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+            <div className="text-left space-y-5 px-3 max-w-2xl">
+              <div>
+                <Typography.BodyBold className="mb-3 text-foreground">
+                  Contact Support
+                </Typography.BodyBold>
+                <Typography.Body
+                  color="secondary"
+                  className="mb-6 leading-relaxed"
+                >
+                  If you can't find the answer you're looking for, please email
+                  us at{" "}
+                  <span className="font-semibold text-foreground">
+                    support@blairify.com
+                  </span>
+                  . We typically respond within 24 hours.
+                </Typography.Body>
+                <Button size="lg" className="gap-2" asChild>
+                  <a href="mailto:support@blairify.com">
+                    <Mail className="h-4 w-4" />
+                    Email Support Team
+                  </a>
+                </Button>
               </div>
-
-              <Card>
-                <CardHeader className="border-b bg-muted/30">
-                  <CardTitle className="text-xl sm:text-2xl font-semibold">
-                    Frequently Asked Questions
-                  </CardTitle>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Quick answers to common questions about using Blairify
-                  </p>
-                </CardHeader>
-                <CardContent className="p-6 sm:p-8">
-                  <div className="space-y-4">
-                    {faqData.map((faq, index) => (
-                      <Collapsible
-                        key={faq.id}
-                        open={openItems.includes(faq.id)}
-                        onOpenChange={() => toggleItem(faq.id)}
-                      >
-                        <div className="border rounded-lg overflow-hidden">
-                          <CollapsibleTrigger asChild>
-                            <Button
-                              variant="ghost"
-                              className="flex w-full justify-between p-5 text-left hover:bg-muted/50 items-center rounded-none h-auto"
-                            >
-                              <div className="flex items-center gap-4 flex-1">
-                                <span className="text-xs font-medium text-muted-foreground min-w-[2rem]">
-                                  {String(index + 1).padStart(2, "0")}
-                                </span>
-                                <span className="font-medium text-sm sm:text-base pr-3 text-foreground leading-relaxed">
-                                  {faq.question}
-                                </span>
-                              </div>
-                              {openItems.includes(faq.id) ? (
-                                <ChevronUp className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
-                              ) : (
-                                <ChevronDown className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
-                              )}
-                            </Button>
-                          </CollapsibleTrigger>
-                          <CollapsibleContent>
-                            <div className="px-5 pb-5 pt-2 bg-muted/20 border-t">
-                              <div className="pl-0 sm:pl-10">
-                                <p className="text-sm text-muted-foreground leading-relaxed">
-                                  {faq.answer}
-                                </p>
-                              </div>
-                            </div>
-                          </CollapsibleContent>
-                        </div>
-                      </Collapsible>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-muted/30">
-                <CardContent className="p-8 sm:p-10">
-                  <div className="text-center space-y-5 max-w-2xl mx-auto">
-                    <div className="inline-flex p-3 bg-background rounded-lg border">
-                      <MessageSquare className="h-7 w-7 text-foreground" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-foreground">
-                        Need Additional Assistance?
-                      </h3>
-                      <p className="text-muted-foreground mb-6 leading-relaxed">
-                        If you can't find the answer you're looking for, our
-                        support team is ready to help you.
-                      </p>
-                      <Button size="lg" disabled className="gap-2">
-                        <Mail className="h-4 w-4" />
-                        Contact Support Team
-                        <Badge variant="secondary" className="ml-2 text-xs">
-                          Coming Soon
-                        </Badge>
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </main>

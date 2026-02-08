@@ -196,6 +196,7 @@ export interface InterviewApiResponse {
 export interface AnalyzeApiRequest {
   conversationHistory: Message[];
   interviewConfig: InterviewConfig;
+  questionIds?: string[];
 }
 
 export interface AnalyzeApiResponse {

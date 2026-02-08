@@ -122,7 +122,7 @@ export default function DashboardNavbar({
                       ) : (
                         <Avatar
                           className={cn(
-                            "size-9 my-auto border-2",
+                            "size-9 my-auto border-2 rounded-full",
                             isPro ? "border-[#10B981]" : "border-primary/20",
                           )}
                         >
