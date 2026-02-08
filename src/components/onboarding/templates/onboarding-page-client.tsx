@@ -323,7 +323,9 @@ export function OnboardingPageClient({
 
     if (userData.onboardingCompleted) {
       cookieUtils.set("onboarding-complete", "1", { path: "/" });
-      router.replace("/my-progress");
+      if (!isStartingNextAction) {
+        router.replace("/my-progress");
+      }
       return;
     }
 
@@ -350,7 +352,7 @@ export function OnboardingPageClient({
     setEarlyJobMatchingEnabled(
       Boolean(userData.preferences?.earlyJobMatchingEnabled),
     );
-  }, [router, userData]);
+  }, [isStartingNextAction, router, userData]);
 
   const totalSteps = STEPS.length;
   const currentStep = STEPS[stepIndex];
@@ -410,6 +412,14 @@ export function OnboardingPageClient({
     setNextActionView("paste");
     setIsStartingNextAction(true);
     await completeOnboarding();
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("blairify-dashboard-tour-force", "1");
+      window.localStorage.setItem(
+        "blairify-dashboard-tour-context",
+        "configure",
+      );
+      window.dispatchEvent(new Event("blairify-dashboard-tour-force"));
+    }
     router.push("/configure?flow=paste&step=description");
   };
 
@@ -468,6 +478,7 @@ export function OnboardingPageClient({
         onboardingCompleted: true,
       });
       cookieUtils.set("onboarding-complete", "1", { path: "/" });
+      await refreshUserData();
     } catch (err) {
       console.error("Failed to complete onboarding", err);
     } finally {
@@ -511,6 +522,14 @@ export function OnboardingPageClient({
   const startTrainingInterview = async () => {
     setIsStartingNextAction(true);
     await completeOnboarding();
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("blairify-dashboard-tour-force", "1");
+      window.localStorage.setItem(
+        "blairify-dashboard-tour-context",
+        "interview",
+      );
+      window.dispatchEvent(new Event("blairify-dashboard-tour-force"));
+    }
     router.push(`/interview?${buildTrainingInterviewParams().toString()}`);
   };
 

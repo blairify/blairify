@@ -1,8 +1,9 @@
 "use client";
 
+import { X } from "lucide-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import type { ReactNode } from "react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { DatabaseService } from "@/lib/database";
@@ -13,7 +14,12 @@ type WalkthroughStepId =
   | "real-offers"
   | "progress-achievements"
   | "interview-history"
-  | "profile-settings";
+  | "profile-settings"
+  | "configure-paste-textarea"
+  | "configure-analyze"
+  | "configure-start"
+  | "interview-preview-start"
+  | "interview-preview-example";
 
 interface WalkthroughStep {
   id: WalkthroughStepId;
@@ -23,6 +29,8 @@ interface WalkthroughStep {
 }
 
 const FORCE_KEY = "blairify-dashboard-tour-force";
+const FORCE_EVENT = "blairify-dashboard-tour-force";
+const TOUR_CONTEXT_KEY = "blairify-dashboard-tour-context";
 
 function getRect(element: Element | null) {
   if (!element) return null;
@@ -40,8 +48,10 @@ export function DashboardWalkthrough(): ReactNode {
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-  const steps = useMemo<WalkthroughStep[]>(
-    () => [
+  const [forceTick, setForceTick] = useState(0);
+
+  const steps = useMemo<WalkthroughStep[]>(() => {
+    const baseSteps: WalkthroughStep[] = [
       {
         id: "start-interview",
         selector: "[data-tour='start-interview']",
@@ -68,13 +78,54 @@ export function DashboardWalkthrough(): ReactNode {
       },
       {
         id: "profile-settings",
-        selector: "[data-tour='profile-settings']",
+        selector: "[data-tour='profile-settings'], [data-tour='profile']",
         headline: "Mission Control ⚙️",
-        body: "Upload your CV, tweak your preferences, and manage your data. A bit boring, sure, but necessary to keep the engine running smoothly.",
+        body: "Open your profile/settings to tweak preferences and manage your data.",
       },
-    ],
-    [],
-  );
+    ];
+
+    if (typeof window === "undefined") return baseSteps;
+
+    const context = window.localStorage.getItem(TOUR_CONTEXT_KEY);
+
+    if (pathname === "/configure" || context === "configure") {
+      return [
+        {
+          id: "configure-paste-textarea",
+          selector: "[data-tour='configure-paste-textarea']",
+          headline: "Paste the job description",
+          body: "Drop the full job post here. The more complete, the better the questions.",
+        },
+        {
+          id: "configure-analyze",
+          selector: "[data-tour='configure-analyze']",
+          headline: "Let AI extract requirements",
+          body: "We will parse responsibilities and requirements and prefill your interview setup.",
+        },
+        ...baseSteps,
+      ];
+    }
+
+    if (pathname === "/interview" || context === "interview") {
+      return [
+        {
+          id: "interview-preview-start",
+          selector: "[data-tour='interview-preview-start']",
+          headline: "Start when you're ready",
+          body: "This is a preview. Click Start to begin the interview session.",
+        },
+        {
+          id: "interview-preview-example",
+          selector: "[data-tour='interview-preview-example']",
+          headline: "See sample questions",
+          body: "Skim the examples so you know what to expect. Then jump in.",
+        },
+        ...baseSteps,
+      ];
+    }
+
+    return baseSteps;
+  }, [pathname]);
 
   const [isOpen, setIsOpen] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
@@ -82,6 +133,68 @@ export function DashboardWalkthrough(): ReactNode {
   const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
 
   const activeStep = steps[stepIndex] ?? null;
+  const sidebarModeRef = useRef<"open" | "closed" | null>(null);
+  const sidebarTransitionUntilRef = useRef<number>(0);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!isOpen) return;
+    if (!activeStep) return;
+
+    const isOffCanvasSidebar = window.innerWidth < 1024;
+    if (!isOffCanvasSidebar) return;
+
+    const wantsSidebarOpen =
+      activeStep.id === "start-interview" ||
+      activeStep.id === "real-offers" ||
+      activeStep.id === "progress-achievements" ||
+      activeStep.id === "interview-history";
+
+    const desiredMode: "open" | "closed" = wantsSidebarOpen ? "open" : "closed";
+    if (sidebarModeRef.current === desiredMode) return;
+
+    sidebarModeRef.current = desiredMode;
+    sidebarTransitionUntilRef.current = Date.now() + 320;
+
+    window.dispatchEvent(
+      new Event(
+        desiredMode === "open"
+          ? "blairify-sidebar-open"
+          : "blairify-sidebar-close",
+      ),
+    );
+  }, [activeStep, isOpen]);
+
+  const resolveNearestAvailableStepIndex = useCallback(
+    (requestedIndex: number, direction: -1 | 1) => {
+      if (typeof window === "undefined") return requestedIndex;
+
+      const tryIndex = (idx: number) => {
+        const element = document.querySelector(steps[idx]?.selector ?? "");
+        const rect = getRect(element);
+        return Boolean(rect);
+      };
+
+      if (requestedIndex >= 0 && requestedIndex < steps.length) {
+        if (tryIndex(requestedIndex)) return requestedIndex;
+      }
+
+      for (
+        let idx = requestedIndex;
+        idx >= 0 && idx < steps.length;
+        idx += direction
+      ) {
+        if (tryIndex(idx)) return idx;
+      }
+
+      return Math.max(0, Math.min(steps.length - 1, requestedIndex));
+    },
+    [steps],
+  );
+
+  const resolveFirstAvailableStepIndex = useCallback(() => {
+    return resolveNearestAvailableStepIndex(0, 1);
+  }, [resolveNearestAvailableStepIndex]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -90,7 +203,17 @@ export function DashboardWalkthrough(): ReactNode {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+
+    const onForce = () => setForceTick((t) => t + 1);
+    window.addEventListener(FORCE_EVENT, onForce);
+    return () => window.removeEventListener(FORCE_EVENT, onForce);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
     if (!userData) return;
+
+    void forceTick;
 
     const forced = window.localStorage.getItem(FORCE_KEY) === "1";
     const forcedByQuery = searchParams.get("tour") === "1";
@@ -104,18 +227,40 @@ export function DashboardWalkthrough(): ReactNode {
     if (!forced && !forcedByQuery && !shouldAutoStart) return;
 
     setIsOpen(true);
-    setStepIndex(0);
+    setStepIndex(resolveFirstAvailableStepIndex());
 
     if (forced) {
       window.localStorage.removeItem(FORCE_KEY);
     }
-  }, [pathname, searchParams, userData]);
+
+    const context = window.localStorage.getItem(TOUR_CONTEXT_KEY);
+    if (context) {
+      window.localStorage.removeItem(TOUR_CONTEXT_KEY);
+    }
+  }, [
+    forceTick,
+    pathname,
+    resolveFirstAvailableStepIndex,
+    searchParams,
+    userData,
+  ]);
 
   useEffect(() => {
     if (!isOpen) return;
     if (!activeStep) return;
 
     const update = () => {
+      const isOffCanvasSidebar =
+        typeof window !== "undefined" && window.innerWidth < 1024;
+      if (isOffCanvasSidebar) {
+        const now = Date.now();
+        const waitMs = sidebarTransitionUntilRef.current - now;
+        if (waitMs > 0) {
+          window.setTimeout(update, waitMs);
+          return;
+        }
+      }
+
       const element = document.querySelector(activeStep.selector);
       if (!element) {
         setRect(null);
@@ -181,6 +326,7 @@ export function DashboardWalkthrough(): ReactNode {
 
   const viewportW = typeof window === "undefined" ? 0 : window.innerWidth;
   const viewportH = typeof window === "undefined" ? 0 : window.innerHeight;
+  const isMobileViewport = viewportW < 640;
 
   const padding = 10;
   const hole = rect
@@ -202,8 +348,23 @@ export function DashboardWalkthrough(): ReactNode {
       };
     }
 
-    const width = 420;
+    const maxWidth = Math.max(280, viewportW - 32);
+    const width = isMobileViewport ? maxWidth : 420;
     const gap = 16;
+
+    if (isMobileViewport) {
+      const left = 16;
+      const popoverH = 220;
+      const belowTop = hole.y + hole.h + gap;
+      const aboveTop = hole.y - gap - popoverH;
+      const top = belowTop + popoverH <= viewportH - 24 ? belowTop : aboveTop;
+
+      return {
+        top: clamp(top, 80, Math.max(80, viewportH - popoverH - 24)),
+        left,
+        width: Math.min(width, viewportW - 32),
+      };
+    }
 
     const preferRight = hole.x + hole.w + gap + width <= viewportW - 24;
     const left = preferRight
@@ -220,10 +381,20 @@ export function DashboardWalkthrough(): ReactNode {
   })();
 
   const portal = createPortal(
-    <div className="fixed inset-0 z-[100]">
+    <div
+      className={
+        isMobileViewport
+          ? "fixed inset-0 z-[100] pointer-events-none"
+          : "fixed inset-0 z-[100]"
+      }
+    >
       <button
         type="button"
-        className="absolute inset-0"
+        className={
+          isMobileViewport
+            ? "absolute inset-0 pointer-events-none"
+            : "absolute inset-0"
+        }
         aria-label="Close walkthrough"
         onClick={() => void complete("skip")}
       />
@@ -261,7 +432,11 @@ export function DashboardWalkthrough(): ReactNode {
       </div>
 
       <div
-        className="absolute z-10 rounded-xl border bg-background shadow-lg"
+        className={
+          isMobileViewport
+            ? "absolute z-10 rounded-xl border bg-background shadow-lg pointer-events-auto"
+            : "absolute z-10 rounded-xl border bg-background shadow-lg"
+        }
         style={{
           top: popover.top,
           left: popover.left,
@@ -271,6 +446,16 @@ export function DashboardWalkthrough(): ReactNode {
         aria-modal="true"
         aria-label="Dashboard walkthrough"
       >
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          className="absolute right-2 top-2 border border-border/60 bg-background/60 backdrop-blur-sm hover:bg-muted/60"
+          aria-label="Close walkthrough"
+          onClick={() => void complete("skip")}
+        >
+          <X className="size-4" />
+        </Button>
         <div className="p-4 space-y-3">
           <div className="text-xs text-muted-foreground">
             Step {stepIndex + 1} of {totalSteps}
@@ -287,22 +472,15 @@ export function DashboardWalkthrough(): ReactNode {
               type="button"
               variant="outline"
               size="sm"
-              onClick={() => setStepIndex((p) => Math.max(0, p - 1))}
+              onClick={() =>
+                setStepIndex((p) => resolveNearestAvailableStepIndex(p - 1, -1))
+              }
               disabled={stepIndex === 0}
             >
               Back
             </Button>
 
             <div className="flex items-center gap-2">
-              <Button
-                type="button"
-                variant="ghost"
-                size="sm"
-                onClick={() => void complete("skip")}
-              >
-                Close
-              </Button>
-
               <Button
                 type="button"
                 size="sm"
@@ -312,7 +490,12 @@ export function DashboardWalkthrough(): ReactNode {
                     void complete("done");
                     return;
                   }
-                  setStepIndex((p) => Math.min(totalSteps - 1, p + 1));
+                  setStepIndex((p) =>
+                    resolveNearestAvailableStepIndex(
+                      Math.min(totalSteps - 1, p + 1),
+                      1,
+                    ),
+                  );
                 }}
               >
                 {stepIndex === totalSteps - 1 ? "Done" : "Next"}

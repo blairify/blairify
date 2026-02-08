@@ -136,7 +136,11 @@ export default function DashboardNavbar({
             <div className="flex items-center space-x-3">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link aria-label="View Profile" href="/profile">
+                  <Link
+                    aria-label="View Profile"
+                    href="/profile"
+                    data-tour="profile"
+                  >
                     <div
                       className={cn(
                         "relative size-9 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer",

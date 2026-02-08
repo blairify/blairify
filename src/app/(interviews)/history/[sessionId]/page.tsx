@@ -668,52 +668,6 @@ export default function SessionDetailsPage() {
                 </div>
 
                 <div className="w-full">
-                  {/* ============================================================================ */}
-                  {/* OUTCOME DECISION BANNER (Matches Results Page) */}
-                  {/* ============================================================================ */}
-                  {session.analysis?.passed !== undefined && (
-                    <Card
-                      className={`mb-8 border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
-                        session.analysis.passed
-                          ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
-                          : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
-                      }`}
-                    >
-                      <CardContent className="py-8">
-                        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                          <div className="flex items-center gap-6">
-                            <div
-                              className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${
-                                session.analysis.passed
-                                  ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
-                                  : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                              }`}
-                            >
-                              {session.analysis.passed ? (
-                                <CheckCircle className="h-8 w-8" />
-                              ) : (
-                                <XCircle className="h-8 w-8" />
-                              )}
-                            </div>
-                            <div className="text-center sm:text-left">
-                              <div
-                                className={`text-3xl font-bold ${
-                                  session.analysis.passed
-                                    ? "text-emerald-900 dark:text-emerald-100"
-                                    : "text-red-900 dark:text-red-100"
-                                }`}
-                              >
-                                {session.analysis.passed
-                                  ? "Interview Passed"
-                                  : "Not Passed"}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  )}
-
                   {/* Interview Configuration */}
                   <div className="mb-12">
                     <div className="flex items-center gap-2 mb-6">
@@ -798,6 +752,52 @@ export default function SessionDetailsPage() {
                       })()}
                     </div>
                   </div>
+
+                  {/* ============================================================================ */}
+                  {/* OUTCOME DECISION BANNER (Matches Results Page) */}
+                  {/* ============================================================================ */}
+                  {session.analysis?.passed !== undefined && (
+                    <Card
+                      className={`mb-8 border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
+                        session.analysis.passed
+                          ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
+                          : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
+                      }`}
+                    >
+                      <CardContent className="py-8">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                          <div className="flex items-center gap-6">
+                            <div
+                              className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${
+                                session.analysis.passed
+                                  ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
+                                  : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                              }`}
+                            >
+                              {session.analysis.passed ? (
+                                <CheckCircle className="h-8 w-8" />
+                              ) : (
+                                <XCircle className="h-8 w-8" />
+                              )}
+                            </div>
+                            <div className="text-center sm:text-left">
+                              <div
+                                className={`text-3xl font-bold ${
+                                  session.analysis.passed
+                                    ? "text-emerald-900 dark:text-emerald-100"
+                                    : "text-red-900 dark:text-red-100"
+                                }`}
+                              >
+                                {session.analysis.passed
+                                  ? "Interview Passed"
+                                  : "Not Passed"}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
 
                   <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700 mb-8">
                     <CardHeader className="border-b border-gray-200 dark:border-gray-800">

@@ -523,6 +523,7 @@ export function ConfigureContent() {
     if (isStartStep) {
       return (
         <Button
+          data-tour="configure-start"
           onClick={() => handleStartInterview()}
           disabled={!isConfigComplete}
           size="sm"
@@ -798,6 +799,7 @@ export function ConfigureContent() {
             </label>
             <div className="relative flex flex-col gap-3 rounded-4xl border border-border/60 bg-card/95 px-4 py-4 shadow-2xl backdrop-blur sm:flex-row sm:items-start sm:gap-3 sm:px-5 sm:py-3.5">
               <Textarea
+                data-tour="configure-paste-textarea"
                 id="pastedDescription"
                 value={config.pastedDescription}
                 onChange={(event) =>
@@ -814,6 +816,7 @@ export function ConfigureContent() {
               />
               <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-none">
                 <Button
+                  data-tour="configure-analyze"
                   onClick={handleAnalyzeDescription}
                   size="sm"
                   disabled={

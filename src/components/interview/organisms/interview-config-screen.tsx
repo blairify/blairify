@@ -128,10 +128,12 @@ export function InterviewConfigScreen({
               </Card>
             )}
 
-            <InterviewExamplePreview
-              config={config}
-              onLoadingChange={setIsExampleLoading}
-            />
+            <div data-tour="interview-preview-example">
+              <InterviewExamplePreview
+                config={config}
+                onLoadingChange={setIsExampleLoading}
+              />
+            </div>
           </div>
 
           {/* Sidebar Actions */}
@@ -148,6 +150,7 @@ export function InterviewConfigScreen({
                 </div>
 
                 <Button
+                  data-tour="interview-preview-start"
                   onClick={onStart}
                   disabled={isStartDisabled}
                   size="lg"

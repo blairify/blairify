@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { GiDandelionFlower } from "react-icons/gi";
 import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
 import { GrFlows } from "react-icons/gr";
@@ -43,6 +44,19 @@ export default function DashboardSidebar({
 }: DashboardSidebarProps) {
   const pathname = usePathname();
   const { collapsed, setCollapsed } = useSidebar();
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const onOpen = () => setSidebarOpen(true);
+    const onClose = () => setSidebarOpen(false);
+    window.addEventListener("blairify-sidebar-open", onOpen);
+    window.addEventListener("blairify-sidebar-close", onClose);
+    return () => {
+      window.removeEventListener("blairify-sidebar-open", onOpen);
+      window.removeEventListener("blairify-sidebar-close", onClose);
+    };
+  }, [setSidebarOpen]);
   const {
     isPro,
     currentCount,
