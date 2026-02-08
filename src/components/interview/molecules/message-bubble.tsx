@@ -1,12 +1,9 @@
 import { Clock, MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
 import { RiChatAiLine } from "react-icons/ri";
-import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { InterviewerAvatar } from "@/components/common/interviewer-avatar";
 import { MarkdownContent } from "@/components/common/molecules/markdown-content";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import type { InterviewerProfile } from "@/lib/config/interviewers";
-import { useAuth } from "@/providers/auth-provider";
 import type { Message } from "../types";
 
 interface MessageBubbleProps {
@@ -20,8 +17,6 @@ export function MessageBubble({
   interviewer,
   isLatest = false,
 }: MessageBubbleProps) {
-  const { user, userData } = useAuth();
-
   const [displayedContent, setDisplayedContent] = useState(message.content);
 
   const formatTime = (timestamp: Date) => {
@@ -29,16 +24,6 @@ export function MessageBubble({
       hour: "2-digit",
       minute: "2-digit",
     }).format(timestamp);
-  };
-
-  const getInitials = (name: string | null) => {
-    if (!name) return "U";
-    return name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2);
   };
 
   const isUser = message.type === "user";
@@ -119,18 +104,13 @@ export function MessageBubble({
         <div
           className={`relative rounded-2xl shadow-lg border backdrop-blur-sm transition-all duration-200 hover:shadow-xl ${
             isUser
-              ? "bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground border-primary/20 shadow-primary/20"
+              ? "bg-gradient-to-br from-secondary via-secondary to-secondary/90 text-secondary-foreground border-secondary/20"
               : "bg-gradient-to-br from-card to-card/95 text-card-foreground border-border/50 shadow-black/5 dark:shadow-black/20"
           }`}
         >
-          <div
-            className={`absolute top-3 size-3 rotate-45 border ${
-              isUser
-                ? "right-[-6px] bg-primary border-primary/20 border-l-0 border-b-0"
-                : "left-[-6px] bg-card border-border/50 border-r-0 border-t-0"
-            }`}
-          />
-
+          {!isUser && (
+            <div className="absolute top-3 size-3 rotate-45 border left-[-6px] bg-card border-border/50 border-r-0 border-t-0" />
+          )}
           <div className="relative p-4">
             {isAI && message.questionType && (
               <div className="mb-2 inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
@@ -161,30 +141,6 @@ export function MessageBubble({
           )}
         </div>
       </div>
-
-      {isUser && (
-        <div className="size-10 flex-shrink-0 rounded-full overflow-hidden shadow-md">
-          {userData?.avatarIcon ? (
-            <AvatarIconDisplay
-              iconId={userData.avatarIcon}
-              size="sm"
-              className="size-10"
-            />
-          ) : (
-            <Avatar className="size-10 border-2 border-primary/20">
-              <AvatarImage
-                src={user?.photoURL || userData?.photoURL}
-                alt={userData?.displayName || user?.displayName || "User"}
-              />
-              <AvatarFallback className="bg-primary/10 text-primary">
-                {getInitials(
-                  userData?.displayName || user?.displayName || null,
-                )}
-              </AvatarFallback>
-            </Avatar>
-          )}
-        </div>
-      )}
     </div>
   );
 }

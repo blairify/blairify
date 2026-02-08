@@ -188,21 +188,20 @@ export default function DashboardSidebar({
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 }}
-              className="px-3 py-2"
+              className="py-2"
             >
               <Link
                 href="/settings?tab=subscription"
                 title="Upgrade to Pro"
                 aria-label="Upgrade to Pro"
-                className={`relative group flex items-center px-3 py-2.5 rounded-xl transition-all duration-300 w-full overflow-hidden ${
-                  collapsed ? "justify-center max-w-10 mx-auto" : "space-x-3"
+                className={`relative group flex items-center px-3 py-2.5 rounded-lg transition-all duration-300 w-full overflow-hidden ${
+                  collapsed ? "justify-center max-w-10 mx-auto" : "space-x-2"
                 } ${
                   isActive("/settings")
                     ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white shadow-[0_10px_20px_-10px_rgba(16,185,129,0.5)]"
                     : "bg-[#10B981]/5 hover:bg-[#10B981]/10 border border-[#10B981]/30 hover:border-[#10B981]/60 text-[#10B981] shadow-sm"
                 }`}
               >
-                {/* Subtle Pulse Background */}
                 {!isActive("/upgrade") && (
                   <motion.div
                     animate={{

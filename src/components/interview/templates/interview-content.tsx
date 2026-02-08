@@ -1,7 +1,9 @@
 "use client";
 
 import { Timestamp } from "firebase/firestore";
+import { Loader2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { FloatingNotification } from "@/components/common/molecules/floating-notification";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -11,6 +13,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useInterviewConfig } from "@/hooks/use-interview-config";
+import { useInterviewSession } from "@/hooks/use-interview-session";
+import { useInterviewTimer } from "@/hooks/use-interview-timer";
+import { useSpeechRecognition } from "@/hooks/use-speech-recognition";
 import {
   getInterviewerById,
   getInterviewerForRole,
@@ -18,10 +24,6 @@ import {
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import type { TerminationReason } from "@/types/interview";
-import { useInterviewConfig } from "../../../hooks/use-interview-config";
-import { useInterviewSession } from "../../../hooks/use-interview-session";
-import { useInterviewTimer } from "../../../hooks/use-interview-timer";
-import { useSpeechRecognition } from "../../../hooks/use-speech-recognition";
 import { MessageInput } from "../molecules/message-input";
 import { InterviewCompleteCard } from "../organisms/interview-complete-card";
 import { InterviewConfigScreen } from "../organisms/interview-config-screen";
@@ -92,6 +94,7 @@ export function InterviewContent({
 }: InterviewContentProps) {
   const { config, mounted } = useInterviewConfig();
   const [isInterviewStarted, setIsInterviewStarted] = useState(false);
+  const [showNotification, setShowNotification] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
   const [completionTerminationReason, setCompletionTerminationReason] =
@@ -454,6 +457,22 @@ export function InterviewContent({
     useSpeechRecognition((text: string) => {
       setCurrentMessage(text);
     });
+
+  // Auto-hide notification after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowNotification(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Hide notification when interview starts
+  useEffect(() => {
+    if (isInterviewStarted) {
+      setShowNotification(false);
+    }
+  }, [isInterviewStarted]);
 
   const handleStartInterview = async () => {
     onInterviewStart?.();
@@ -1090,6 +1109,23 @@ export function InterviewContent({
 
   return (
     <main className="flex-1 flex flex-col h-full overflow-hidden bg-gradient-to-b from-background to-muted/20">
+      <FloatingNotification
+        show={showNotification}
+        onClose={() => setShowNotification(false)}
+      >
+        <p className="text-xs sm:text-sm font-medium text-amber-950/90 dark:text-amber-100/90 leading-relaxed">
+          This experience is in testing phase. If you encounter any issues, type{" "}
+          <span className="font-semibold text-amber-950 dark:text-amber-50 bg-amber-950/10 dark:bg-amber-500/20 px-1 sm:px-1.5 py-0.5 rounded text-[11px] sm:text-xs">
+            continue
+          </span>{" "}
+          or press the{" "}
+          <span className="font-semibold text-amber-950 dark:text-amber-50 bg-amber-950/10 dark:bg-amber-500/20 px-1 sm:px-1.5 py-0.5 rounded text-[11px] sm:text-xs">
+            Skip
+          </span>{" "}
+          button.
+        </p>
+      </FloatingNotification>
+
       <Dialog open={isExitDialogOpen} onOpenChange={setIsExitDialogOpen}>
         <DialogContent>
           <DialogHeader>
@@ -1166,7 +1202,19 @@ export function InterviewContent({
         }
       />
 
-      <div className="sticky bottom-0 z-10 bg-background/95 backdrop-blur-lg border-t border-border/50 shadow-lg">
+      {/* AI Thinking Indicator */}
+      {isLoading && (
+        <div className="sticky bottom-20 z-10 bg-background/95 backdrop-blur-lg border border-border/50 shadow-lg mx-auto max-w-fit">
+          <div className="flex items-center gap-2 px-4 py-2">
+            <Loader2 className="size-4 animate-spin text-orange-600" />
+            <span className="text-orange-600 dark:text-orange-400 text-sm">
+              AI is thinking...
+            </span>
+          </div>
+        </div>
+      )}
+
+      <div className="sticky bottom-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4">
           <MessageInput
             value={currentMessage}

@@ -7,7 +7,9 @@ import {
   Loader2,
   Shield,
   Timer,
+  Zap,
 } from "lucide-react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
@@ -50,6 +52,7 @@ import type {
 } from "@/components/configure/utils/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -507,16 +510,29 @@ export function ConfigureContent() {
       !usageStatus.isPro
     ) {
       return (
-        <Link href="/settings?tab=subscription">
-          <Button
-            size="sm"
-            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white flex items-center gap-2 !min-h-0"
+        <motion.div
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <Link
+            href="/settings?tab=subscription"
+            title="Upgrade to Pro"
+            aria-label="Upgrade to Pro"
+            className="relative group flex items-center px-3 h-8 rounded-lg transition-all duration-300 w-full overflow-hidden bg-[#10B981]/5 hover:bg-[#10B981]/10 border border-[#10B981]/30 hover:border-[#10B981]/60 text-[#10B981] shadow-sm"
           >
-            <Crown className="size-4" />
-            <span className="hidden sm:inline">Upgrade to Pro</span>
-            <span className="sm:hidden">Upgrade</span>
-          </Button>
-        </Link>
+            <div className="relative flex items-center shrink-0 w-5">
+              <Zap className="size-4 transition-colors text-[#10B981] fill-[#10B981]" />
+            </div>
+
+            <span className=" relative font-bold text-sm tracking-tight truncate hidden sm:inline">
+              Upgrade to Pro
+            </span>
+
+            {/* Shine effect on hover */}
+            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+          </Link>
+        </motion.div>
       );
     }
 
@@ -1145,22 +1161,27 @@ export function ConfigureContent() {
 
     return (
       <div className="space-y-6">
-        <div className="flex flex-wrap gap-2 max-w-fit">
+        <div className="flex flex-wrap gap-3 max-w-fit">
           {filteredTechChoices.map((tech) => (
-            <Card
+            <label
               key={tech.value}
-              className={`cursor-pointer my-auto py-0 rounded-md transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
-                selected.has(tech.value)
-                  ? "ring-1 border-primary ring-primary bg-primary/10"
-                  : "border-border"
-              }`}
-              onClick={() => handleToggleTechnology(tech.value)}
+              htmlFor={`tech-${tech.value}`}
+              className="flex items-center gap-3 cursor-pointer rounded-md border border-border/60 bg-background/50 hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 px-4 py-2 transition-all"
             >
-              <CardContent className="flex flex-row items-center gap-4 px-4 py-2">
-                {renderTechIcon(tech)}
-                <Typography.BodyBold>{tech.label}</Typography.BodyBold>
-              </CardContent>
-            </Card>
+              <Checkbox
+                id={`tech-${tech.value}`}
+                type="button"
+                checked={selected.has(tech.value)}
+                className="size-5"
+                onCheckedChange={(checked) => {
+                  if (checked !== undefined) {
+                    handleToggleTechnology(tech.value);
+                  }
+                }}
+              />
+              <Typography.BodyBold>{tech.label}</Typography.BodyBold>
+              {renderTechIcon(tech)}
+            </label>
           ))}
         </div>
       </div>
@@ -1245,8 +1266,6 @@ export function ConfigureContent() {
                 </Typography.Body>
               </div>
             </div>
-
-            {/* Interview Limit Warning */}
             {usageStatus.checked &&
               !usageStatus.canStart &&
               !usageStatus.isPro &&
@@ -1263,15 +1282,15 @@ export function ConfigureContent() {
                       <Typography.CaptionMedium className="text-amber-700 dark:text-amber-300 mt-1">
                         You&apos;ve reached the temporary interview limit.
                         {usageStatus.remainingMinutes > 0 && (
-                          <span className="flex items-center gap-1 mt-1">
-                            <Timer className="size-3" />
+                          <span className="flex items-center gap-2 mt-4">
+                            <Timer className="size-4" />
                             Please wait {usageStatus.remainingMinutes} minute
                             {usageStatus.remainingMinutes !== 1 ? "s" : ""}{" "}
                             before starting another session.
                           </span>
                         )}
                       </Typography.CaptionMedium>
-                      <div className="mt-3 flex items-center gap-2">
+                      <div className="mt-1 flex items-center gap-2">
                         <Crown className="size-4 text-amber-600 dark:text-amber-400" />
                         <Typography.CaptionMedium className="text-amber-700 dark:text-amber-300">
                           Want unlimited interviews? Upgrade to Pro for

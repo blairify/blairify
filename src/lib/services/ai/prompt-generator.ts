@@ -482,11 +482,11 @@ function getModeSpecificPrompt(
 
     flash: `
 ## FLASH INTERVIEW (EXACTLY 3 Questions Only)
-- This is a RAPID ASSESSMENT with only 3 questions total
+- This is a RAPID ASSESSMENT with only 3 questions total drawn from the question bank
+- You MUST ONLY use questions from the mandatory practice library question list — no AI-generated or situational questions
 - Ask focused, concise questions that quickly evaluate core competencies
-- Move through questions efficiently - no follow-ups or deep dives
-- Cover the most important aspects of the role in 3 questions
-- End the interview after exactly 3 questions - do not continue
+- You may ask 1-2 brief follow-ups per question to clarify key details before moving on
+- End the interview after exactly 3 primary questions - do not continue
 - Keep questions brief and direct for quick evaluation
 - Focus on essential skills and experience indicators`,
 
@@ -644,9 +644,10 @@ function generateFirstQuestionPrompt(
 ): string {
   const interviewerName = interviewer?.name || "TEST2";
 
+  // Flash mode always uses DB questions — skip situational/mixed AI generation
   if (
-    config.interviewType === "situational" ||
-    config.interviewType === "mixed"
+    config.interviewMode !== "flash" &&
+    (config.interviewType === "situational" || config.interviewType === "mixed")
   ) {
     const companyContext = config.company ? ` at ${config.company}` : "";
     return `You are about to start a ${config.interviewType} interview for a ${config.seniority}-level ${config.position} position${companyContext}.
@@ -803,9 +804,10 @@ function generateUnknownResponsePrompt(
   questionCount: number,
   currentQuestionPrompt?: string,
 ): string {
+  // Flash mode always uses DB questions — skip situational/mixed AI generation
   if (
-    config.interviewType === "situational" ||
-    config.interviewType === "mixed"
+    config.interviewMode !== "flash" &&
+    (config.interviewType === "situational" || config.interviewType === "mixed")
   ) {
     return `The candidate's latest response (for your internal reference only) was:
 "${userMessage}"
@@ -887,9 +889,10 @@ function generateNextQuestionPrompt(
     )
     .join("\n");
 
+  // Flash mode always uses DB questions — skip situational/mixed AI generation
   if (
-    config.interviewType === "situational" ||
-    config.interviewType === "mixed"
+    config.interviewMode !== "flash" &&
+    (config.interviewType === "situational" || config.interviewType === "mixed")
   ) {
     return `You are about to ask the next primary interview question.
 

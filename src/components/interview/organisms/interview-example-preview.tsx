@@ -1,11 +1,13 @@
 "use client";
 
-import { Lightbulb, MessageSquare, Sparkles } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { Lightbulb, MessageSquare } from "lucide-react";
+import { useEffect, useMemo } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import useSWR from "swr";
 import { Typography } from "@/components/common/atoms/typography";
+import { VerticalSeparatorBar } from "@/components/common/atoms/vertical-separator-bar";
 import { Card, CardContent } from "@/components/ui/card";
 import type { InterviewConfig } from "../types";
 
@@ -28,13 +30,56 @@ type ApiResponse = {
   error?: string;
 };
 
+// SWR fetcher function
+const fetcher = async (
+  url: string,
+  config: InterviewConfig,
+): Promise<ExampleData> => {
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ interviewConfig: config }),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to load example answer.");
+  }
+
+  const payload: ApiResponse = await res.json();
+
+  if (!payload.success) {
+    throw new Error(payload.error || "Failed to load example answer.");
+  }
+
+  if (!payload.example) {
+    throw new Error("No example data available.");
+  }
+
+  return {
+    description: payload.example.question.description,
+    answer: payload.example.answer,
+  };
+};
+
 export function InterviewExamplePreview({
   config,
   onLoadingChange,
 }: InterviewExamplePreviewProps) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState<ExampleData | null>(null);
-  const [loadError, setLoadError] = useState<string | null>(null);
+  // SWR hook for fetching example data
+  const { data, error, isLoading } = useSWR(
+    ["/api/interview/example-preview", config],
+    ([url, config]) => fetcher(url, config),
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      dedupingInterval: 60000, // 1 minute
+    },
+  );
+
+  // Notify parent of loading state changes
+  useEffect(() => {
+    onLoadingChange?.(isLoading);
+  }, [isLoading, onLoadingChange]);
 
   const markdownComponents = useMemo<Components>(() => {
     return {
@@ -83,80 +128,41 @@ export function InterviewExamplePreview({
     };
   }, []);
 
-  useEffect(() => {
-    let active = true;
-    const controller = new AbortController();
-
-    const load = async () => {
-      if (!active) return;
-      setIsLoading(true);
-      onLoadingChange?.(true);
-      setData(null);
-      setLoadError(null);
-
-      try {
-        const res = await fetch("/api/interview/example-preview", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ interviewConfig: config }),
-          signal: controller.signal,
-        });
-
-        const payload = (await res.json()) as ApiResponse;
-        if (!res.ok) {
-          if (!active) return;
-          setLoadError("Failed to load example answer.");
-          return;
-        }
-
-        if (!payload.success) {
-          if (!active) return;
-          setLoadError(payload.error || "Failed to load example answer.");
-          return;
-        }
-
-        if (!payload.example) {
-          return;
-        }
-
-        if (!active) return;
-        setData({
-          description: payload.example.question.description,
-          answer: payload.example.answer,
-        });
-      } catch {
-        if (!active) return;
-        setLoadError("Failed to load example answer.");
-      } finally {
-        if (active) {
-          setIsLoading(false);
-          onLoadingChange?.(false);
-        }
-      }
-    };
-
-    void load();
-
-    return () => {
-      active = false;
-      controller.abort();
-    };
-  }, [config, onLoadingChange]);
-
   if (isLoading) {
     return (
-      <Card className="border-border/60 bg-card/50 shadow-none">
-        <CardContent className="p-8 space-y-8">
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-muted animate-pulse">
-              <Sparkles className="size-5 text-muted-foreground/20" />
+      <Card className="border-border/60 bg-card shadow-sm overflow-hidden">
+        <CardContent className="space-y-10">
+          <div className="space-y-6">
+            <div className="flex items-center gap-2">
+              <div className="size-4 bg-muted animate-pulse rounded" />
+              <div className="h-2.5 w-24 bg-muted animate-pulse rounded" />
             </div>
-            <div className="h-6 w-40 bg-muted animate-pulse rounded-lg" />
+            <div className="relative">
+              <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-muted animate-pulse rounded-full" />
+              <div className="pl-4 space-y-2">
+                <div className="h-3 w-3/4 bg-muted animate-pulse rounded" />
+                <div className="h-3 w-full bg-muted animate-pulse rounded" />
+                <div className="h-3 w-5/6 bg-muted animate-pulse rounded" />
+              </div>
+            </div>
           </div>
-          <div className="space-y-4">
-            <div className="h-4 w-3/4 bg-muted animate-pulse rounded" />
-            <div className="h-4 w-full bg-muted animate-pulse rounded" />
-            <div className="h-4 w-5/6 bg-muted animate-pulse rounded" />
+
+          {/* Reference Approach Section */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-2">
+              <div className="size-4 bg-muted animate-pulse rounded" />
+              <div className="h-2.5 w-28 bg-muted animate-pulse rounded" />
+            </div>
+            <div className="relative">
+              <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-muted animate-pulse rounded-full" />
+              <div className="pl-4 space-y-3">
+                <div className="h-3 w-full bg-muted animate-pulse rounded" />
+                <div className="h-3 w-4/5 bg-muted animate-pulse rounded" />
+                <div className="h-3 w-3/4 bg-muted animate-pulse rounded" />
+                <div className="h-3 w-5/6 bg-muted animate-pulse rounded" />
+                <div className="h-3 w-2/3 bg-muted animate-pulse rounded" />
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>
@@ -168,7 +174,7 @@ export function InterviewExamplePreview({
       <Card className="border-border/60 bg-card/50 shadow-none">
         <CardContent className="p-10 text-center">
           <Typography.Body className="text-muted-foreground italic">
-            {loadError ?? "Sample questions are currently calibrating."}
+            {error?.message ?? "Sample questions are currently calibrating."}
           </Typography.Body>
         </CardContent>
       </Card>
@@ -177,20 +183,19 @@ export function InterviewExamplePreview({
 
   return (
     <Card className="border-border/60 bg-card shadow-sm overflow-hidden">
-      <CardContent className="space-y-12">
-        <div className="space-y-4">
+      <CardContent className="space-y-10">
+        <div className="space-y-6">
           <div className="flex items-center gap-2">
             <MessageSquare className="size-4 text-muted-foreground" />
             <Typography.CaptionBold className="uppercase tracking-widest text-[10px] text-muted-foreground">
               Generated Question
             </Typography.CaptionBold>
           </div>
-          <div className="pl-6 border-l-4 border-primary/20">
+          <VerticalSeparatorBar variant="primary">
             <Typography.Caption>{data.description}</Typography.Caption>
-          </div>
+          </VerticalSeparatorBar>
         </div>
 
-        {/* Reference Answer Section */}
         <div className="space-y-6">
           <div className="flex items-center gap-2">
             <Lightbulb className="size-4 text-amber-500" />
@@ -199,7 +204,7 @@ export function InterviewExamplePreview({
             </Typography.CaptionBold>
           </div>
 
-          <div className="relative rounded-sm bg-muted/20 p-8">
+          <VerticalSeparatorBar variant="green">
             <div className="prose prose-sm dark:prose-invert max-w-none">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
@@ -208,7 +213,7 @@ export function InterviewExamplePreview({
                 {data.answer || "No preview content available."}
               </ReactMarkdown>
             </div>
-          </div>
+          </VerticalSeparatorBar>
         </div>
       </CardContent>
     </Card>

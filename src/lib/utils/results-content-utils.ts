@@ -52,16 +52,16 @@ export function getScoreColor(score: number): string {
   return "text-red-500";
 }
 
+export function isGeneratedSearchResourceUrl(url: string): boolean {
+  const u = url.toLowerCase();
+  if (u.includes("google.com/search")) return true;
+  if (u.includes("youtube.com/results")) return true;
+  return false;
+}
+
 export function mapKnowledgeGaps(
   analysis: InterviewSession["analysis"],
 ): KnowledgeGap[] | undefined {
-  const isGeneratedSearchResourceUrl = (url: string): boolean => {
-    const u = url.toLowerCase();
-    if (u.includes("google.com/search")) return true;
-    if (u.includes("youtube.com/results")) return true;
-    return false;
-  };
-
   const gaps = analysis.knowledgeGaps;
   if (!Array.isArray(gaps) || gaps.length === 0) return undefined;
 

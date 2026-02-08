@@ -1263,7 +1263,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       <main
         className={`flex-1 overflow-auto flex items-center justify-center p-4 ${backgroundClass}`}
       >
-        <Card className="w-full max-w-lg border shadow-lg animate-in fade-in duration-500">
+        <Card className="w-full max-w-lg py-0 border shadow-lg animate-in fade-in duration-500">
           <CardContent className="pt-16 pb-16">
             <div className="flex justify-center mb-8">
               <div className="containerForBlocks">

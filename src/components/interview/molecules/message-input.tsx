@@ -77,14 +77,6 @@ export function MessageInput({
                 </span>
               </>
             )}
-            {isLoading && (
-              <>
-                <Loader2 className="size-4 animate-spin text-orange-600" />
-                <span className="text-orange-600 dark:text-orange-400">
-                  AI is thinking...
-                </span>
-              </>
-            )}
           </div>
         </div>
       )}
@@ -107,9 +99,7 @@ export function MessageInput({
                   ? "Interview complete. View your results to continue."
                   : isPaused
                     ? "Interview is paused. Resume to continue..."
-                    : isLoading
-                      ? "Waiting for AI response..."
-                      : "Message AI interviewer..."
+                    : "Message AI interviewer..."
               }
               className="min-h-10 max-h-80 w-full min-w-0 resize-none border-0 bg-transparent p-0 text-base placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0 overflow-y-auto"
               onKeyDown={(e) => {

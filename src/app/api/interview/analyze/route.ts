@@ -1213,6 +1213,15 @@ export async function POST(
       new Set(askedQuestions.flatMap((q) => q?.tags ?? [])),
     );
 
+    console.info(
+      "[analyze] allQuestionTags from asked questions:",
+      allQuestionTags,
+    );
+    console.info(
+      "[analyze] knowledgeGaps from model:",
+      knowledgeGaps.map((g) => ({ title: g.title, tags: g.tags })),
+    );
+
     const enrichedKnowledgeGapsFromModel: KnowledgeGap[] = await Promise.all(
       knowledgeGaps.map(async (gap) => {
         // If an asked question has a tag that overlaps with the gap's topic,
@@ -1226,11 +1235,24 @@ export async function POST(
           });
         });
 
-        // Search with both AI-provided tags and potentially relevant bank tags
+        // Search with AI-provided tags, bridged question tags, and question IDs
+        // (resources are often tagged with question IDs like "js-1026")
         const searchTags = Array.from(
-          new Set([...gap.tags, ...matchingQuestionTags]),
+          new Set([
+            ...gap.tags,
+            ...matchingQuestionTags,
+            ...(questionIds ?? []),
+          ]),
         );
         const resources = await getResourcesByTags(searchTags, 3);
+        console.info("[analyze] gap resource enrichment:", {
+          gapTitle: gap.title,
+          gapTags: gap.tags,
+          matchingQuestionTags,
+          searchTags,
+          resourceCount: resources.length,
+          resourceIds: resources.map((r) => r.id),
+        });
         return { ...gap, resources };
       }),
     );
@@ -1243,23 +1265,52 @@ export async function POST(
       passed: feedback.passed,
     });
 
-    const normalizedKnowledgeGaps: KnowledgeGap[] = ensuredKnowledgeGaps.map(
-      (g) => {
-        const rawTitle = normalizeGapTitle(g.title);
-        const title = formatKnowledgeGapTitle(rawTitle, g.tags);
-        const sourceSummary =
-          typeof g.summary === "string" && g.summary.trim().length > 0
-            ? g.summary
-            : deriveGapSummaryFromWhy(g.why);
-        const summary = formatKnowledgeGapDescription({
-          title,
-          tags: g.tags,
-          priority: g.priority,
-          summary: sourceSummary,
-        });
-        return { ...g, title, summary };
-      },
+    // Second enrichment pass: gaps that lost resources during normalization
+    // or fallback gaps that were created with resources: [] still need resources.
+    // Also include question IDs directly since resources are tagged with them.
+    const allQuestionIds = (questionIds ?? []).filter(
+      (id): id is string => typeof id === "string" && id.length > 0,
     );
+    const reEnrichedGaps: KnowledgeGap[] = await Promise.all(
+      ensuredKnowledgeGaps.map(async (gap) => {
+        if (Array.isArray(gap.resources) && gap.resources.length > 0) {
+          return gap;
+        }
+        const matchingQuestionTags = allQuestionTags.filter((qt) => {
+          const lowerQt = qt.toLowerCase();
+          return gap.tags.some((gt) => {
+            const lowerGt = gt.toLowerCase();
+            return lowerQt.includes(lowerGt) || lowerGt.includes(lowerQt);
+          });
+        });
+        const searchTags = Array.from(
+          new Set([...gap.tags, ...matchingQuestionTags, ...allQuestionIds]),
+        );
+        const resources = await getResourcesByTags(searchTags, 3);
+        console.info("[analyze] re-enrichment for gap without resources:", {
+          gapTitle: gap.title,
+          searchTags,
+          resourceCount: resources.length,
+        });
+        return { ...gap, resources };
+      }),
+    );
+
+    const normalizedKnowledgeGaps: KnowledgeGap[] = reEnrichedGaps.map((g) => {
+      const rawTitle = normalizeGapTitle(g.title);
+      const title = formatKnowledgeGapTitle(rawTitle, g.tags);
+      const sourceSummary =
+        typeof g.summary === "string" && g.summary.trim().length > 0
+          ? g.summary
+          : deriveGapSummaryFromWhy(g.why);
+      const summary = formatKnowledgeGapDescription({
+        title,
+        tags: g.tags,
+        priority: g.priority,
+        summary: sourceSummary,
+      });
+      return { ...g, title, summary };
+    });
 
     const enrichedFeedback: InterviewResults = {
       ...feedback,

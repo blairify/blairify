@@ -185,16 +185,13 @@ export default function DashboardNavbar({
                   <p>View Profile</p>
                 </TooltipContent>
               </Tooltip>
-
-              {/* Unified status chip */}
               <div
                 className={cn(
-                  "flex items-center gap-0 rounded-full border overflow-hidden",
+                  "flex items-center gap-0 rounded-full h-9 border overflow-hidden",
                   "bg-background/80 backdrop-blur-sm",
                   isPro ? "border-[#10B981]/40" : rank.badge.border,
                 )}
               >
-                {/* Plan pill — left segment */}
                 <div
                   className={cn(
                     "flex items-center gap-1 px-2.5 py-1 text-xs font-bold",
