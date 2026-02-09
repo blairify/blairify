@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 
 import { useParams, useRouter } from "next/navigation";
-import type { ReactNode } from "react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
@@ -58,67 +57,16 @@ import {
   formatKnowledgeGapBlurb,
   formatKnowledgeGapTitle,
 } from "@/lib/utils/interview-normalizers";
+import {
+  clampFinite,
+  getMarkdownText,
+  getPriorityClass,
+  getPriorityLabel,
+  isGeneratedSearchResourceUrl,
+} from "@/lib/utils/results-content-utils";
 import { useAuth } from "@/providers/auth-provider";
 import type { InterviewQuestion, InterviewSession } from "@/types/firestore";
 import type { Question } from "@/types/practice-question";
-
-function getPriorityLabel(priority: "high" | "medium" | "low"): string {
-  switch (priority) {
-    case "high":
-      return "High priority";
-    case "medium":
-      return "Medium priority";
-    case "low":
-      return "Low priority";
-    default: {
-      const _never: never = priority;
-      throw new Error(`Unhandled priority: ${_never}`);
-    }
-  }
-}
-
-function getPriorityClass(priority: "high" | "medium" | "low"): string {
-  switch (priority) {
-    case "high":
-      return "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300";
-    case "medium":
-      return "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300";
-    case "low":
-      return "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300";
-    default: {
-      const _never: never = priority;
-      throw new Error(`Unhandled priority: ${_never}`);
-    }
-  }
-}
-
-function getMarkdownNodeText(node: ReactNode): string {
-  if (node == null || typeof node === "boolean") return "";
-  if (typeof node === "string" || typeof node === "number") return String(node);
-  if (Array.isArray(node)) return node.map(getMarkdownNodeText).join("");
-  if (typeof node === "object" && "props" in node) {
-    const n = node as { props?: { children?: ReactNode } };
-    return getMarkdownNodeText(n.props?.children);
-  }
-  return "";
-}
-
-function isGeneratedSearchResourceUrl(url: string): boolean {
-  const u = url.toLowerCase();
-  if (u.includes("google.com/search")) return true;
-  if (u.includes("youtube.com/results")) return true;
-  return false;
-}
-
-// --- Scoring Helpers ---
-
-// --- Scoring Helpers ---
-
-function clampFinite(value: unknown, min: number, max: number): number {
-  const n = typeof value === "number" ? value : Number(value);
-  if (!Number.isFinite(n)) return min;
-  return Math.max(min, Math.min(max, n));
-}
 
 function getCategoryScores(score: number): Record<CategoryKey, number> {
   const ratio = Math.max(0, Math.min(1, score / 100));
@@ -188,7 +136,7 @@ export default function SessionDetailsPage() {
         );
       },
       p({ children }) {
-        const text = getMarkdownNodeText(children).trim().replace(/\s+/g, " ");
+        const text = getMarkdownText(children).trim().replace(/\s+/g, " ");
 
         const summaryLabels = [
           "DECISION:",

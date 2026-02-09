@@ -100,8 +100,6 @@ export function shouldGenerateFollowUp(
     characteristics.responseLength > 200
   )
     followUpScore += 1;
-  if (config.interviewMode === "flash" && characteristics.responseLength > 150)
-    followUpScore -= 1;
 
   if (config.seniority === "senior" && characteristics.responseLength < 100)
     followUpScore += 1;
@@ -110,11 +108,10 @@ export function shouldGenerateFollowUp(
 
   if (
     config.interviewMode === "regular" ||
-    config.interviewMode === "practice"
+    config.interviewMode === "practice" ||
+    config.interviewMode === "flash"
   ) {
     followUpScore += 1;
-  } else if (config.interviewMode === "flash") {
-    followUpScore -= 1;
   }
 
   return followUpScore >= SCORING_THRESHOLDS.followUpScoreThreshold;

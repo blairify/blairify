@@ -21,6 +21,7 @@ import {
   formatKnowledgeGapBlurb,
   formatKnowledgeGapTitle,
 } from "@/lib/utils/interview-normalizers";
+import { isGeneratedSearchResourceUrl } from "@/lib/utils/results-content-utils";
 import type { InterviewResults, ResourceLink } from "@/types/interview";
 
 const AUTO_ADVANCE_MS = 10_000;
@@ -561,13 +562,6 @@ function pickFocusAreas(params: {
   };
 
   const gaps = Array.isArray(params.knowledgeGaps) ? params.knowledgeGaps : [];
-
-  const isGeneratedSearchResourceUrl = (url: string): boolean => {
-    const u = url.toLowerCase();
-    if (u.includes("google.com/search")) return true;
-    if (u.includes("youtube.com/results")) return true;
-    return false;
-  };
 
   const priorityRank = (p: string | undefined): number => {
     switch (p) {

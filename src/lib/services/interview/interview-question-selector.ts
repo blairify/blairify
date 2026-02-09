@@ -113,9 +113,31 @@ export async function getRelevantQuestionsForInterview(
 
     const allQuestions = result.questions as Question[];
 
+    const isSituationalTopic = (topic: string): boolean => {
+      const situationalTopics = new Set([
+        "debugging",
+        "performance",
+        "testing",
+        "incident-response",
+        "reliability",
+        "architecture",
+        "system-design",
+        "api-design",
+        "database",
+        "cloud",
+      ]);
+
+      return situationalTopics.has(topic);
+    };
+
     const relevantQuestions = allQuestions.filter((q: Question) => {
       // Skip recently used questions to prevent immediate repetition
       if (wasRecentlyUsed(q.id || "")) {
+        return false;
+      }
+
+      // Skip situational questions in flash mode
+      if (config.interviewMode === "flash" && isSituationalTopic(q.topic)) {
         return false;
       }
 
@@ -211,23 +233,6 @@ export async function getRelevantQuestionsForInterview(
       }
     };
 
-    const isSituationalTopic = (topic: string): boolean => {
-      const situationalTopics = new Set([
-        "debugging",
-        "performance",
-        "testing",
-        "incident-response",
-        "reliability",
-        "architecture",
-        "system-design",
-        "api-design",
-        "database",
-        "cloud",
-      ]);
-
-      return situationalTopics.has(topic);
-    };
-
     const matchesTech = (q: Question, tech: string): boolean => {
       const required = canonicalize(tech);
       const stack = (q.primaryTechStack ?? []).map(canonicalize);
@@ -242,6 +247,10 @@ export async function getRelevantQuestionsForInterview(
     const maxSituational = allowSituationalCap
       ? Math.round(count * 0.1)
       : count;
+
+    // Disable situational questions in flash mode
+    const isFlashMode = config.interviewMode === "flash";
+    const effectiveMaxSituational = isFlashMode ? 0 : maxSituational;
 
     const selected: Question[] = [];
     const remaining = [...shuffled];
@@ -265,7 +274,7 @@ export async function getRelevantQuestionsForInterview(
       if (selected.length >= count) break;
 
       const isSituational = allowSituationalCap && isSituationalTopic(q.topic);
-      if (isSituational && situationalPicked >= maxSituational) {
+      if (isSituational && situationalPicked >= effectiveMaxSituational) {
         overflowSituational.push(q);
         continue;
       }
@@ -350,6 +359,24 @@ export async function getRandomQuestionForInterview(
 
     const allQuestions = result.questions as Question[];
 
+    // Define situational topics for flash mode filtering
+    const isSituationalTopic = (topic: string): boolean => {
+      const situationalTopics = new Set([
+        "debugging",
+        "performance",
+        "testing",
+        "incident-response",
+        "reliability",
+        "architecture",
+        "system-design",
+        "api-design",
+        "database",
+        "cloud",
+      ]);
+
+      return situationalTopics.has(topic);
+    };
+
     // Filter out already used questions
     const availableQuestions = allQuestions.filter(
       (q: Question) => !usedQuestionIds.includes(q.id || ""),
@@ -357,6 +384,11 @@ export async function getRandomQuestionForInterview(
 
     // Filter by relevance
     const relevantQuestions = availableQuestions.filter((q: Question) => {
+      // Skip situational questions in flash mode
+      if (config.interviewMode === "flash" && isSituationalTopic(q.topic)) {
+        return false;
+      }
+
       const difficultyMatch = matchQuestionToSeniority(q, config.seniority);
       const categoryMatch = config.position
         ? matchCategoryToInterviewTypeForRoleSelection(config.interviewType)
