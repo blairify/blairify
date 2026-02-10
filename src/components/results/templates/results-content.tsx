@@ -19,13 +19,11 @@ import {
   User,
   XCircle,
 } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CiBookmarkCheck } from "react-icons/ci";
-import { GoLightBulb } from "react-icons/go";
-import type { Components } from "react-markdown";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { toast } from "sonner";
 import LoadingPage from "@/components/common/atoms/loading-page";
@@ -88,46 +86,52 @@ import type { Question } from "@/types/practice-question";
 type RewardsPayload = {
   xpGained: number;
   newAchievementIds: string[];
+  oldXP: number;
+  newXP: number;
+};
+
+type MarkdownChildrenProps = {
+  children?: React.ReactNode;
 };
 
 const qaMarkdownComponents: Components = {
-  p({ children }) {
+  p({ children }: MarkdownChildrenProps) {
     return (
       <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 whitespace-pre-line my-2">
         {children}
       </p>
     );
   },
-  ul({ children }) {
+  ul({ children }: MarkdownChildrenProps) {
     return <ul className="space-y-2 list-disc pl-5 mt-1 mb-2">{children}</ul>;
   },
-  ol({ children }) {
+  ol({ children }: MarkdownChildrenProps) {
     return (
       <ol className="space-y-2 list-decimal pl-5 mt-1 mb-2">{children}</ol>
     );
   },
-  li({ children }) {
+  li({ children }: MarkdownChildrenProps) {
     return (
       <li className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
         {children}
       </li>
     );
   },
-  pre({ children }) {
+  pre({ children }: MarkdownChildrenProps) {
     return (
       <pre className="my-2 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
         {children}
       </pre>
     );
   },
-  code({ children }) {
+  code({ children }: MarkdownChildrenProps) {
     return (
       <code className="rounded bg-muted/40 px-1 py-0.5 font-mono text-[0.85em]">
         {children}
       </code>
     );
   },
-  strong({ children }) {
+  strong({ children }: MarkdownChildrenProps) {
     return (
       <strong className="text-gray-900 dark:text-gray-100 font-semibold">
         {children}
@@ -141,14 +145,14 @@ const qaMarkdownComponents: Components = {
 
 const qaQuestionMarkdownComponents: Components = {
   ...qaMarkdownComponents,
-  p({ children }) {
+  p({ children }: MarkdownChildrenProps) {
     return (
       <p className="text-sm leading-relaxed text-gray-900 dark:text-gray-100 whitespace-pre-line my-2">
         {children}
       </p>
     );
   },
-  li({ children }) {
+  li({ children }: MarkdownChildrenProps) {
     return (
       <li className="text-sm leading-relaxed text-gray-900 dark:text-gray-100">
         {children}
@@ -158,7 +162,7 @@ const qaQuestionMarkdownComponents: Components = {
 };
 
 const overallSummaryMarkdownComponents: Components = {
-  p({ children }) {
+  p({ children }: MarkdownChildrenProps) {
     const labelInfo = (() => {
       const text = getMarkdownText(children).trim().replace(/\s+/g, " ");
       const match = /^([A-Za-z][A-Za-z\s/]{2,40}):\s*(.+)$/.exec(text);
@@ -186,36 +190,36 @@ const overallSummaryMarkdownComponents: Components = {
       </p>
     );
   },
-  ul({ children }) {
+  ul({ children }: MarkdownChildrenProps) {
     return <ul className="space-y-2 list-disc pl-5 mt-1 mb-2">{children}</ul>;
   },
-  ol({ children }) {
+  ol({ children }: MarkdownChildrenProps) {
     return (
       <ol className="space-y-2 list-decimal pl-5 mt-1 mb-2">{children}</ol>
     );
   },
-  li({ children }) {
+  li({ children }: MarkdownChildrenProps) {
     return (
       <li className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
         {children}
       </li>
     );
   },
-  pre({ children }) {
+  pre({ children }: MarkdownChildrenProps) {
     return (
       <pre className="my-2 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
         {children}
       </pre>
     );
   },
-  code({ children }) {
+  code({ children }: MarkdownChildrenProps) {
     return (
       <code className="rounded bg-muted/40 px-1 py-0.5 font-mono text-[0.85em]">
         {children}
       </code>
     );
   },
-  strong({ children }) {
+  strong({ children }: MarkdownChildrenProps) {
     const text = getMarkdownText(children).trim().replace(/\s+/g, " ");
     if (text.endsWith(":")) {
       return (
@@ -239,9 +243,11 @@ interface ResultsContentProps {
 export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { user: authUser, refreshUserData } = useAuth();
+  const { user: authUser, userData, refreshUserData } = useAuth();
   const [isAnalyzing, setIsAnalyzing] = useState(true);
   const [results, setResults] = useState<InterviewResults | null>(null);
+  const [interviewConfig, setInterviewConfig] =
+    useState<InterviewConfig | null>(null);
   const [savedSessionId, setSavedSessionId] = useState<string | null>(null);
   const [resultsView, setResultsView] = useState<"deck" | "full">("deck");
   const [isLoadingSession, setIsLoadingSession] = useState(false);
@@ -276,6 +282,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [outcomeMessage, _setOutcomeMessage] = useState<string>("");
   const [_currentDate, setCurrentDate] = useState<string>("");
   const [copySeed, setCopySeed] = useState<number | null>(null);
+  const [storedConfig, setStoredConfig] = useState<Pick<
+    InterviewConfig,
+    "position" | "seniority"
+  > | null>(null);
   const [
     generatedExampleAnswerByQuestionId,
     _setGeneratedExampleAnswerByQuestionId,
@@ -292,11 +302,17 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const [questionTitlesByText, setQuestionTitlesByText] = useState<
     Record<string, string>
   >({});
-  const [storedConfig, setStoredConfig] = useState<
-    Pick<InterviewConfig, "position" | "seniority"> | undefined
-  >(undefined);
-  const [interviewConfig, setInterviewConfig] =
-    useState<InterviewConfig | null>(null);
+
+  const fallbackOldXPRef = useRef(0);
+
+  useEffect(() => {
+    const xp =
+      typeof userData?.experiencePoints === "number" &&
+      Number.isFinite(userData.experiencePoints)
+        ? userData.experiencePoints
+        : 0;
+    fallbackOldXPRef.current = xp;
+  }, [userData?.experiencePoints]);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [rewardsPayload, setRewardsPayload] = useState<RewardsPayload | null>(
     null,
@@ -323,43 +339,39 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             (id): id is string => typeof id === "string" && id.length > 0,
           )
         : [];
+      const oldXP =
+        typeof maybe.oldXP === "number" && Number.isFinite(maybe.oldXP)
+          ? maybe.oldXP
+          : null;
+      const newXP =
+        typeof maybe.newXP === "number" && Number.isFinite(maybe.newXP)
+          ? maybe.newXP
+          : null;
 
       if (xpGained === null) return;
-      setRewardsPayload({ xpGained, newAchievementIds });
+      if (oldXP === null || newXP === null) return;
+
+      const derivedOldXP = Math.max(
+        0,
+        Math.round(newXP - Math.max(0, Math.round(xpGained))),
+      );
+      const normalizedOldXP = (() => {
+        const expectedNewXP = Math.round(oldXP + xpGained);
+        const roundedNewXP = Math.round(newXP);
+        if (Math.abs(expectedNewXP - roundedNewXP) <= 2) return oldXP;
+        return derivedOldXP;
+      })();
+
+      setRewardsPayload({
+        xpGained,
+        newAchievementIds,
+        oldXP: normalizedOldXP,
+        newXP,
+      });
     } catch {
       return;
     }
   }, []);
-
-  const getDeckCompletedKey = useCallback(
-    (sessionId: string) => `resultsDeckCompleted:${sessionId}`,
-    [],
-  );
-
-  const getDeckCompleted = useCallback(
-    (sessionId: string): boolean => {
-      try {
-        return (
-          window.sessionStorage.getItem(getDeckCompletedKey(sessionId)) ===
-          "true"
-        );
-      } catch {
-        return false;
-      }
-    },
-    [getDeckCompletedKey],
-  );
-
-  const markDeckCompleted = useCallback(
-    (sessionId: string) => {
-      try {
-        window.sessionStorage.setItem(getDeckCompletedKey(sessionId), "true");
-      } catch {
-        // ignore
-      }
-    },
-    [getDeckCompletedKey],
-  );
 
   const handleSurveyNavigation = useCallback(
     (path: string) => {
@@ -755,7 +767,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     if (copySeed === null) return;
     const next = generateAnalysisMessages({
       seed: copySeed,
-      config: storedConfig,
+      config: storedConfig ?? undefined,
     });
 
     setAnalysisMessages(Array.isArray(next) ? next : []);
@@ -800,7 +812,6 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
     void (async () => {
       try {
-        setResultsView(getDeckCompleted(sessionIdFromQuery) ? "full" : "deck");
         setIsLoadingSession(true);
         setIsAnalyzing(false);
 
@@ -835,7 +846,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     return () => {
       active = false;
     };
-  }, [activeUserId, getDeckCompleted, router, sessionIdFromQuery]);
+  }, [activeUserId, router, sessionIdFromQuery]);
 
   useEffect(() => {
     if (sessionIdFromQuery) {
@@ -1159,6 +1170,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
           );
 
           try {
+            const fallbackOldXP = fallbackOldXPRef.current;
+
             const shouldAwardXP = (() => {
               if (
                 typeof nextSavedSessionId !== "string" ||
@@ -1190,6 +1203,14 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               durationMinutes,
             );
 
+            const derivedOldXP = Math.max(
+              0,
+              Math.round(xp.totalXP - Math.max(0, Math.round(xp.xpGained))),
+            );
+            const oldXP = Number.isFinite(derivedOldXP)
+              ? derivedOldXP
+              : fallbackOldXP;
+
             toast.success(
               xp.newAchievements.length > 0
                 ? `+${xp.xpGained} XP · ${xp.newAchievements.length} achievement${xp.newAchievements.length === 1 ? "" : "s"}`
@@ -1211,11 +1232,15 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               JSON.stringify({
                 xpGained: xp.xpGained,
                 newAchievementIds: xp.newAchievements,
+                oldXP,
+                newXP: xp.totalXP,
               } satisfies RewardsPayload),
             );
             setRewardsPayload({
               xpGained: xp.xpGained,
               newAchievementIds: xp.newAchievements,
+              oldXP,
+              newXP: xp.totalXP,
             });
             await refreshUserData();
           } catch (xpError) {
@@ -1229,7 +1254,6 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             clearInterviewStorage();
             justCreatedSessionIdRef.current = nextSavedSessionId;
             router.replace(`/results?sessionId=${nextSavedSessionId}`);
-            setResultsView("deck");
           }
         } catch (dbError) {
           console.error("Error saving to database:", dbError);
@@ -1402,677 +1426,670 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     }
   })();
 
-  const showDeck = resultsView === "deck";
-
   const rewards = (() => {
     if (!rewardsPayload) return null;
     const achievements = ACHIEVEMENTS.filter((a) =>
       rewardsPayload.newAchievementIds.includes(a.id),
     );
-    return { xpGained: rewardsPayload.xpGained, achievements };
+    return {
+      xpGained: rewardsPayload.xpGained,
+      achievements,
+      oldXP: rewardsPayload.oldXP,
+      newXP: rewardsPayload.newXP,
+    };
   })();
 
   return (
     <div className="flex flex-1 min-h-0 flex-col">
-      <AnimatePresence mode="wait" initial={false}>
-        {showDeck ? (
-          <motion.div
-            key="results_deck"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.22, ease: "easeOut" }}
-            className="flex-1 min-h-0 overflow-hidden"
-          >
-            <ResultsDeck
-              results={results}
-              rewards={rewards}
-              onRewardsConsumed={() => {
-                window.sessionStorage.removeItem("postInterviewRewards");
-              }}
-              onOpenFullReport={() => {
-                if (!savedSessionId) return;
-                router.push(`/history/${savedSessionId}`);
-              }}
-              onDone={() => {
-                if (savedSessionId) markDeckCompleted(savedSessionId);
-                setResultsView("full");
-              }}
-            />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="results_full"
-            initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -8, filter: "blur(8px)" }}
-            transition={{ duration: 0.28, ease: "easeOut" }}
-            className="flex flex-1 min-h-0 flex-col"
-          >
-            <div className={`flex-1 min-h-0 overflow-auto ${backgroundClass}`}>
-              <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
-                {termination && terminationTitle && (
-                  <Card className="border-2 border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700">
-                    <CardContent className="py-6">
-                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                        <div className="flex items-start gap-4">
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300">
-                            <AlertTriangle className="size-6" />
+      {resultsView === "deck" ? (
+        <motion.div
+          key="results_deck"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
+          className="flex flex-1 min-h-0 overflow-hidden"
+        >
+          <ResultsDeck
+            sessionId={savedSessionId}
+            results={results}
+            rewards={rewards}
+            onRewardsConsumed={() => {
+              window.sessionStorage.removeItem("postInterviewRewards");
+            }}
+            onOpenFullReport={() => {
+              if (!savedSessionId) return;
+              router.push(`/history/${savedSessionId}`);
+            }}
+            onDone={() => {
+              setResultsView("full");
+            }}
+          />
+        </motion.div>
+      ) : (
+        <motion.div
+          key="results_full"
+          initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.28, ease: "easeOut" }}
+          className="flex flex-1 min-h-0 flex-col"
+        >
+          <div className={`flex-1 min-h-0 overflow-auto ${backgroundClass}`}>
+            <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
+              {termination && terminationTitle && (
+                <Card className="border-2 border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700">
+                  <CardContent className="py-6">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300">
+                          <AlertTriangle className="size-6" />
+                        </div>
+                        <div>
+                          <div className="text-lg font-bold text-red-900 dark:text-red-100 mb-1">
+                            {terminationTitle}
                           </div>
-                          <div>
-                            <div className="text-lg font-bold text-red-900 dark:text-red-100 mb-1">
-                              {terminationTitle}
-                            </div>
-                            <Typography.Body className="text-sm leading-relaxed text-red-700 dark:text-red-300">
-                              {termination.message}
-                            </Typography.Body>
-                          </div>
+                          <Typography.Body className="text-sm leading-relaxed text-red-700 dark:text-red-300">
+                            {termination.message}
+                          </Typography.Body>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                )}
-                {interviewConfig && (
-                  <div className="mb-8">
-                    {(() => {
-                      const hasCompany = !!(
-                        interviewConfig.specificCompany ||
-                        interviewConfig.company
-                      );
-                      const items = [
-                        {
-                          label: "Position",
-                          value: interviewConfig.position,
-                          icon: Shield,
-                        },
-                        {
-                          label: "Seniority",
-                          value: interviewConfig.seniority,
-                          icon: Trophy,
-                        },
-                        {
-                          label: "Type",
-                          value: interviewConfig.interviewType,
-                          icon: User,
-                        },
-                        {
-                          label: "Mode",
-                          value: interviewConfig.interviewMode,
-                          icon: Target,
-                        },
-                        {
-                          label: "Duration",
-                          value: `${interviewConfig.duration}m`,
-                          icon: Clock,
-                        },
-                        ...(hasCompany
-                          ? [
-                              {
-                                label: "Company",
-                                value:
-                                  interviewConfig.specificCompany ??
-                                  interviewConfig.company,
-                                icon: Building,
-                              },
-                            ]
-                          : []),
-                      ] as const;
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+              {interviewConfig && (
+                <div className="mb-8">
+                  {(() => {
+                    const hasCompany = !!(
+                      interviewConfig.specificCompany || interviewConfig.company
+                    );
+                    const items = [
+                      {
+                        label: "Position",
+                        value: interviewConfig.position,
+                        icon: Shield,
+                      },
+                      {
+                        label: "Seniority",
+                        value: interviewConfig.seniority,
+                        icon: Trophy,
+                      },
+                      {
+                        label: "Type",
+                        value: interviewConfig.interviewType,
+                        icon: User,
+                      },
+                      {
+                        label: "Mode",
+                        value: interviewConfig.interviewMode,
+                        icon: Target,
+                      },
+                      {
+                        label: "Duration",
+                        value: `${interviewConfig.duration}m`,
+                        icon: Clock,
+                      },
+                      ...(hasCompany
+                        ? [
+                            {
+                              label: "Company",
+                              value:
+                                interviewConfig.specificCompany ??
+                                interviewConfig.company,
+                              icon: Building,
+                            },
+                          ]
+                        : []),
+                    ] as const;
 
-                      return (
+                    return (
+                      <div
+                        className={cn(
+                          "grid gap-4 grid-cols-2 md:grid-cols-3",
+                          hasCompany ? "lg:grid-cols-6" : "lg:grid-cols-5",
+                        )}
+                      >
+                        {items.map((item, idx) => {
+                          const Icon = item.icon;
+                          return (
+                            <Card
+                              key={`${item.label}-${idx}`}
+                              className="border-border/60 bg-card/50 shadow-none py-1"
+                            >
+                              <CardContent className="flex flex-col items-start gap-2 p-4">
+                                <div className="p-2 rounded-md bg-primary/10 text-primary">
+                                  <Icon className="size-4 flex-shrink-0" />
+                                </div>
+                                <div className="space-y-1 w-full">
+                                  <Typography.SubCaption
+                                    color="secondary"
+                                    className="uppercase tracking-wider text-[10px]"
+                                  >
+                                    {item.label}
+                                  </Typography.SubCaption>
+                                  <Typography.BodyBold className="capitalize">
+                                    {item.value}
+                                  </Typography.BodyBold>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          );
+                        })}
+                      </div>
+                    );
+                  })()}
+                </div>
+              )}
+
+              {results.passed !== undefined && (
+                <Card
+                  className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
+                    results.passed
+                      ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
+                      : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
+                  }`}
+                >
+                  <CardContent className="py-3">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                      <div className="flex items-center gap-6">
                         <div
-                          className={cn(
-                            "grid gap-4 grid-cols-2 md:grid-cols-3",
-                            hasCompany ? "lg:grid-cols-6" : "lg:grid-cols-5",
-                          )}
+                          className={`flex-shrink-0 size-16 rounded-full flex items-center justify-center ${
+                            results.passed
+                              ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
+                              : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                          }`}
                         >
-                          {items.map((item, idx) => {
-                            const Icon = item.icon;
-                            return (
-                              <Card
-                                key={`${item.label}-${idx}`}
-                                className="border-border/60 bg-card/50 shadow-none py-1"
-                              >
-                                <CardContent className="flex flex-col items-start gap-2 p-4">
-                                  <div className="p-2 rounded-md bg-primary/10 text-primary">
-                                    <Icon className="size-4 flex-shrink-0" />
-                                  </div>
-                                  <div className="space-y-1 w-full">
-                                    <Typography.SubCaption
-                                      color="secondary"
-                                      className="uppercase tracking-wider text-[10px]"
-                                    >
-                                      {item.label}
-                                    </Typography.SubCaption>
-                                    <Typography.BodyBold className="capitalize">
-                                      {item.value}
-                                    </Typography.BodyBold>
-                                  </div>
-                                </CardContent>
-                              </Card>
-                            );
-                          })}
+                          {results.passed ? (
+                            <CheckCircle className="size-8" />
+                          ) : (
+                            <XCircle className="size-8" />
+                          )}
                         </div>
-                      );
-                    })()}
-                  </div>
-                )}
-
-                {results.passed !== undefined && (
-                  <Card
-                    className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
-                      results.passed
-                        ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
-                        : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
-                    }`}
-                  >
-                    <CardContent className="py-3">
-                      <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                        <div className="flex items-center gap-6">
+                        <div className="text-center sm:text-left">
                           <div
-                            className={`flex-shrink-0 size-16 rounded-full flex items-center justify-center ${
+                            className={`text-3xl font-bold mb-3 ${
                               results.passed
-                                ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
-                                : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                                ? "text-emerald-900 dark:text-emerald-100"
+                                : "text-red-900 dark:text-red-100"
                             }`}
                           >
-                            {results.passed ? (
-                              <CheckCircle className="size-8" />
-                            ) : (
-                              <XCircle className="size-8" />
-                            )}
+                            {results.passed ? "Interview Passed" : "Not Passed"}
                           </div>
-                          <div className="text-center sm:text-left">
-                            <div
-                              className={`text-3xl font-bold mb-3 ${
-                                results.passed
-                                  ? "text-emerald-900 dark:text-emerald-100"
-                                  : "text-red-900 dark:text-red-100"
-                              }`}
-                            >
-                              {results.passed
-                                ? "Interview Passed"
-                                : "Not Passed"}
-                            </div>
-                            <Typography.Body
-                              className={`text-lg leading-relaxed mb-2 ${
-                                results.passed
-                                  ? "text-emerald-700 dark:text-emerald-300"
-                                  : "text-red-700 dark:text-red-300"
-                              }`}
-                            >
-                              {outcomeMessage}
-                            </Typography.Body>
-                          </div>
+                          <Typography.Body
+                            className={`text-lg leading-relaxed mb-2 ${
+                              results.passed
+                                ? "text-emerald-700 dark:text-emerald-300"
+                                : "text-red-700 dark:text-red-300"
+                            }`}
+                          >
+                            {outcomeMessage}
+                          </Typography.Body>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                )}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+              <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
+                  <BarChart2 className="size-8 text-amber-800 dark:text-amber-400" />
+                  <div className="flex flex-col items-left gap-1">
+                    <Typography.BodyBold>
+                      Overall Performance Assessment{" "}
+                    </Typography.BodyBold>
+                    <Typography.Caption>
+                      Breakdown of your performance in each category.
+                    </Typography.Caption>
+                  </div>
+                </CardTitle>
+                <CardContent className="pt-6">
+                  <DetailedScoreCard
+                    withCard={false}
+                    score={results.score}
+                    passed={results.passed}
+                    summary={(() => {
+                      const summary =
+                        results.overallScore?.trim() || outcomeMessage;
+                      if (!summary) return null;
+
+                      return (
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={overallSummaryMarkdownComponents}
+                        >
+                          {normalizeOverallSummaryMarkdown(summary)}
+                        </ReactMarkdown>
+                      );
+                    })()}
+                    categoryScores={
+                      results.categoryScores
+                        ? {
+                            technical: clampFinite(
+                              results.categoryScores.technical,
+                              0,
+                              CATEGORY_MAX.technical,
+                            ),
+                            problemSolving: clampFinite(
+                              results.categoryScores.problemSolving,
+                              0,
+                              CATEGORY_MAX.problemSolving,
+                            ),
+                            communication: clampFinite(
+                              results.categoryScores.communication,
+                              0,
+                              CATEGORY_MAX.communication,
+                            ),
+                            professional: clampFinite(
+                              results.categoryScores.professional,
+                              0,
+                              CATEGORY_MAX.professional,
+                            ),
+                          }
+                        : getCategoryScores(results.score)
+                    }
+                    technologyScores={
+                      results.technologyScores
+                        ? Object.entries(results.technologyScores)
+                            .map(([tech, score]) => ({
+                              tech,
+                              score:
+                                score === null
+                                  ? null
+                                  : clampFinite(score, 0, 100),
+                            }))
+                            .sort((a, b) => {
+                              const aScore = a.score ?? -1;
+                              const bScore = b.score ?? -1;
+                              return bScore - aScore;
+                            })
+                        : undefined
+                    }
+                  />
+                </CardContent>
+              </Card>
+
+              {/* ============================================================================ */}
+              {/* STRENGTHS & IMPROVEMENTS GRID */}
+              {/* ============================================================================ */}
+              {(() => {
+                const showStrengthsAndGrowth = false;
+
+                if (!showStrengthsAndGrowth) return null;
+
+                return (
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-left-4">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                          <Award className="size-5 text-emerald-600 dark:text-emerald-400" />
+                          Key Strengths Demonstrated
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        {results.strengths.length > 0 ? (
+                          <ul className="space-y-4">
+                            {results.strengths.map((strength, index) => (
+                              <li
+                                key={`strength-${index}`}
+                                className="flex items-start gap-3 group animate-in fade-in slide-in-from-left-2 duration-500"
+                                style={{ animationDelay: `${index * 100}ms` }}
+                              >
+                                <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
+                                  <CheckCircle className="w-3 h-3" />
+                                </div>
+                                <Typography.Body className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                  {strength}
+                                </Typography.Body>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <div className="text-center py-8">
+                            <Award className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+                            <Typography.Body className="text-sm text-gray-500 dark:text-gray-500 italic">
+                              Building foundational skills - keep developing
+                              your technical expertise!
+                            </Typography.Body>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
+
+                    <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-right-4">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                          <Target className="size-5 text-amber-600 dark:text-amber-400" />
+                          {results.passed === false
+                            ? "Critical Development Areas"
+                            : "Growth Opportunities"}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        {results.improvements.length > 0 ? (
+                          <ul className="space-y-4">
+                            {results.improvements.map((improvement, index) => (
+                              <li
+                                key={`improvement-${index}`}
+                                className="flex items-start gap-3 group animate-in fade-in slide-in-from-right-2 duration-500"
+                                style={{
+                                  animationDelay: `${index * 100}ms`,
+                                }}
+                              >
+                                <div
+                                  className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${
+                                    results.passed === false
+                                      ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                                      : "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300"
+                                  }`}
+                                >
+                                  <TrendingUp className="w-3 h-3" />
+                                </div>
+                                <Typography.Body className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                  {stripLinks(improvement)}
+                                </Typography.Body>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <div className="text-center py-8">
+                            <Target className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+                            <Typography.Body className="text-sm text-gray-500 dark:text-gray-500 italic">
+                              Excellent foundation - continue building advanced
+                              competencies!
+                            </Typography.Body>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </div>
+                );
+              })()}
+
+              {results.knowledgeGaps && results.knowledgeGaps.length > 0 && (
                 <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
                   <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
-                    <BarChart2 className="size-8 text-amber-800 dark:text-amber-400" />
+                    <CiBookmarkCheck className="size-8 text-amber-600 dark:text-amber-400" />
                     <div className="flex flex-col items-left gap-1">
                       <Typography.BodyBold>
-                        Overall Performance Assessment{" "}
+                        Knowledge Gaps & Resources
                       </Typography.BodyBold>
                       <Typography.Caption>
-                        Breakdown of your performance in each category.
+                        Focus on the high-priority items first. Each gap has
+                        curated links from the resource library.
                       </Typography.Caption>
                     </div>
                   </CardTitle>
                   <CardContent className="pt-6">
-                    <DetailedScoreCard
-                      withCard={false}
-                      score={results.score}
-                      passed={results.passed}
-                      summary={(() => {
-                        const summary =
-                          results.overallScore?.trim() || outcomeMessage;
-                        if (!summary) return null;
+                    <div className="space-y-6">
+                      {results.knowledgeGaps.map((gap, index) => (
+                        <div
+                          key={`${gap.title}-${index}`}
+                          className="rounded-lg border border-gray-200 dark:border-gray-800 p-4"
+                        >
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                            <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                              {toShortTopicTitle(gap.title, gap.tags)}
+                            </div>
+                            <Typography.CaptionMedium
+                              className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getPriorityClass(
+                                gap.priority,
+                              )}`}
+                            >
+                              {getPriorityLabel(gap.priority)}
+                            </Typography.CaptionMedium>
+                          </div>
 
-                        return (
-                          <ReactMarkdown
-                            remarkPlugins={[remarkGfm]}
-                            components={overallSummaryMarkdownComponents}
-                          >
-                            {normalizeOverallSummaryMarkdown(summary)}
-                          </ReactMarkdown>
-                        );
-                      })()}
-                      categoryScores={
-                        results.categoryScores
-                          ? {
-                              technical: clampFinite(
-                                results.categoryScores.technical,
-                                0,
-                                CATEGORY_MAX.technical,
-                              ),
-                              problemSolving: clampFinite(
-                                results.categoryScores.problemSolving,
-                                0,
-                                CATEGORY_MAX.problemSolving,
-                              ),
-                              communication: clampFinite(
-                                results.categoryScores.communication,
-                                0,
-                                CATEGORY_MAX.communication,
-                              ),
-                              professional: clampFinite(
-                                results.categoryScores.professional,
-                                0,
-                                CATEGORY_MAX.professional,
-                              ),
-                            }
-                          : getCategoryScores(results.score)
-                      }
-                      technologyScores={
-                        results.technologyScores
-                          ? Object.entries(results.technologyScores)
-                              .map(([tech, score]) => ({
-                                tech,
-                                score:
-                                  score === null
-                                    ? null
-                                    : clampFinite(score, 0, 100),
-                              }))
-                              .sort((a, b) => {
-                                const aScore = a.score ?? -1;
-                                const bScore = b.score ?? -1;
-                                return bScore - aScore;
-                              })
-                          : undefined
-                      }
-                    />
-                  </CardContent>
-                </Card>
+                          {(() => {
+                            const summary = getGapSummaryTextWithFallback(gap);
+                            const blurb = getGapBlurbText(gap);
+                            const content = blurb || summary;
+                            if (!content) return null;
+                            return (
+                              <MarkdownContent
+                                className="text-gray-700 dark:text-gray-300 mb-3"
+                                markdown={content}
+                              />
+                            );
+                          })()}
 
-                {/* ============================================================================ */}
-                {/* STRENGTHS & IMPROVEMENTS GRID */}
-                {/* ============================================================================ */}
-                {(() => {
-                  const showStrengthsAndGrowth = false;
-
-                  if (!showStrengthsAndGrowth) return null;
-
-                  return (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                      <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-left-4">
-                        <CardHeader>
-                          <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                            <Award className="size-5 text-emerald-600 dark:text-emerald-400" />
-                            Key Strengths Demonstrated
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent className="pt-6">
-                          {results.strengths.length > 0 ? (
-                            <ul className="space-y-4">
-                              {results.strengths.map((strength, index) => (
-                                <li
-                                  key={`strength-${index}`}
-                                  className="flex items-start gap-3 group animate-in fade-in slide-in-from-left-2 duration-500"
-                                  style={{ animationDelay: `${index * 100}ms` }}
+                          {gap.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mb-3">
+                              {gap.tags.map((tag) => (
+                                <Typography.Caption
+                                  key={tag}
+                                  className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
                                 >
-                                  <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
-                                    <CheckCircle className="w-3 h-3" />
-                                  </div>
-                                  <Typography.Body className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                                    {strength}
-                                  </Typography.Body>
+                                  {tag}
+                                </Typography.Caption>
+                              ))}
+                            </div>
+                          )}
+
+                          {gap.resources.length > 0 ? (
+                            <ul className="space-y-2">
+                              {gap.resources.map((r) => (
+                                <li key={r.id} className="text-sm">
+                                  <a
+                                    className="text-gray-700 dark:text-gray-300 hover:underline"
+                                    href={r.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
+                                    {r.title}
+                                  </a>
                                 </li>
                               ))}
                             </ul>
                           ) : (
-                            <div className="text-center py-8">
-                              <Award className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                              <Typography.Body className="text-sm text-gray-500 dark:text-gray-500 italic">
-                                Building foundational skills - keep developing
-                                your technical expertise!
-                              </Typography.Body>
+                            <div className="text-sm text-gray-500 dark:text-gray-500 italic">
+                              No curated links yet.
                             </div>
                           )}
-                        </CardContent>
-                      </Card>
-
-                      <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-right-4">
-                        <CardHeader>
-                          <CardTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                            <Target className="size-5 text-amber-600 dark:text-amber-400" />
-                            {results.passed === false
-                              ? "Critical Development Areas"
-                              : "Growth Opportunities"}
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent className="pt-6">
-                          {results.improvements.length > 0 ? (
-                            <ul className="space-y-4">
-                              {results.improvements.map(
-                                (improvement, index) => (
-                                  <li
-                                    key={`improvement-${index}`}
-                                    className="flex items-start gap-3 group animate-in fade-in slide-in-from-right-2 duration-500"
-                                    style={{
-                                      animationDelay: `${index * 100}ms`,
-                                    }}
-                                  >
-                                    <div
-                                      className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 ${
-                                        results.passed === false
-                                          ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                                          : "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300"
-                                      }`}
-                                    >
-                                      <TrendingUp className="w-3 h-3" />
-                                    </div>
-                                    <Typography.Body className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                                      {stripLinks(improvement)}
-                                    </Typography.Body>
-                                  </li>
-                                ),
-                              )}
-                            </ul>
-                          ) : (
-                            <div className="text-center py-8">
-                              <Target className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                              <Typography.Body className="text-sm text-gray-500 dark:text-gray-500 italic">
-                                Excellent foundation - continue building
-                                advanced competencies!
-                              </Typography.Body>
-                            </div>
-                          )}
-                        </CardContent>
-                      </Card>
+                        </div>
+                      ))}
                     </div>
-                  );
-                })()}
+                  </CardContent>
+                </Card>
+              )}
 
-                {results.knowledgeGaps && results.knowledgeGaps.length > 0 && (
-                  <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                    <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
-                      <CiBookmarkCheck className="size-8 text-amber-600 dark:text-amber-400" />
-                      <div className="flex flex-col items-left gap-1">
-                        <Typography.BodyBold>
-                          Knowledge Gaps & Resources
-                        </Typography.BodyBold>
-                        <Typography.Caption>
-                          Focus on the high-priority items first. Each gap has
-                          curated links from the resource library.
-                        </Typography.Caption>
-                      </div>
-                    </CardTitle>
-                    <CardContent className="pt-6">
-                      <div className="space-y-6">
-                        {results.knowledgeGaps.map((gap, index) => (
-                          <div
-                            key={`${gap.title}-${index}`}
-                            className="rounded-lg border border-gray-200 dark:border-gray-800 p-4"
+              {qaRows.length > 0 && (
+                <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
+                  <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
+                    <Lightbulb className="size-8 text-amber-600 dark:text-amber-400" />
+                    <div className="flex flex-col items-left gap-1">
+                      <Typography.BodyBold>
+                        Questions & Example Answers
+                      </Typography.BodyBold>
+                      <Typography.Caption>
+                        Practice-library examples to benchmark your responses.
+                      </Typography.Caption>
+                    </div>
+                  </CardTitle>
+                  <CardContent className="pt-6">
+                    <div className="space-y-6">
+                      {qaRows.map((row, uniqueRowIdx) => {
+                        const q = row.practiceQuestionId
+                          ? (practiceQuestionsById[row.practiceQuestionId] ??
+                            null)
+                          : null;
+                        const example =
+                          (q ? getExampleAnswer(q) : null) ??
+                          row.aiExampleAnswer ??
+                          getAiExampleAnswerForRow(row);
+                        const prompt = row.questionText.trim() || null;
+                        const yourAnswer = row.yourAnswer.trim() || null;
+
+                        return (
+                          <Collapsible
+                            key={
+                              row.practiceQuestionId ?? `row_${uniqueRowIdx}`
+                            }
+                            defaultOpen={false}
+                            className={`border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow ${
+                              row.type === "follow-up"
+                                ? "border-l-4 border-l-border/70 bg-gradient-to-br from-muted/30 to-muted/10 border-y-border/50 border-r-border/50"
+                                : "border-border/50 bg-gradient-to-br from-card to-card/50"
+                            }`}
                           >
-                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                              <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
-                                {toShortTopicTitle(gap.title, gap.tags)}
-                              </div>
-                              <Typography.CaptionMedium
-                                className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getPriorityClass(
-                                  gap.priority,
-                                )}`}
-                              >
-                                {getPriorityLabel(gap.priority)}
-                              </Typography.CaptionMedium>
-                            </div>
-
-                            {(() => {
-                              const summary =
-                                getGapSummaryTextWithFallback(gap);
-                              const blurb = getGapBlurbText(gap);
-                              const content = blurb || summary;
-                              if (!content) return null;
-                              return (
-                                <MarkdownContent
-                                  className="text-gray-700 dark:text-gray-300 mb-3"
-                                  markdown={content}
-                                />
-                              );
-                            })()}
-
-                            {gap.tags.length > 0 && (
-                              <div className="flex flex-wrap gap-2 mb-3">
-                                {gap.tags.map((tag) => (
-                                  <Typography.Caption
-                                    key={tag}
-                                    className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                                  >
-                                    {tag}
-                                  </Typography.Caption>
-                                ))}
-                              </div>
-                            )}
-
-                            {gap.resources.length > 0 ? (
-                              <ul className="space-y-2">
-                                {gap.resources.map((r) => (
-                                  <li key={r.id} className="text-sm">
-                                    <a
-                                      className="text-gray-700 dark:text-gray-300 hover:underline"
-                                      href={r.url}
-                                      target="_blank"
-                                      rel="noreferrer"
+                            <CollapsibleTrigger className="w-full text-left group">
+                              <div className="flex items-center justify-between gap-3">
+                                <div className="flex flex-wrap items-center gap-2 min-w-0">
+                                  {row.type === "main" ? (
+                                    <Badge
+                                      variant="default"
+                                      className="font-semibold"
                                     >
-                                      {r.title}
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
-                            ) : (
-                              <div className="text-sm text-gray-500 dark:text-gray-500 italic">
-                                No curated links yet.
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                )}
-
-                {qaRows.length > 0 && (
-                  <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
-                    <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
-                      <GoLightBulb className="size-8 text-amber-600 dark:text-amber-400" />
-                      <div className="flex flex-col items-left gap-1">
-                        <Typography.BodyBold>
-                          Questions & Example Answers
-                        </Typography.BodyBold>
-                        <Typography.Caption>
-                          Practice-library examples to benchmark your responses.
-                        </Typography.Caption>
-                      </div>
-                    </CardTitle>
-                    <CardContent className="pt-6">
-                      <div className="space-y-6">
-                        {qaRows.map((row, uniqueRowIdx) => {
-                          const q = row.practiceQuestionId
-                            ? (practiceQuestionsById[row.practiceQuestionId] ??
-                              null)
-                            : null;
-                          const example =
-                            (q ? getExampleAnswer(q) : null) ??
-                            row.aiExampleAnswer ??
-                            getAiExampleAnswerForRow(row);
-                          const prompt = row.questionText.trim() || null;
-                          const yourAnswer = row.yourAnswer.trim() || null;
-
-                          return (
-                            <Collapsible
-                              key={
-                                row.practiceQuestionId ?? `row_${uniqueRowIdx}`
-                              }
-                              defaultOpen={false}
-                              className={`border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow ${
-                                row.type === "follow-up"
-                                  ? "border-l-4 border-l-border/70 bg-gradient-to-br from-muted/30 to-muted/10 border-y-border/50 border-r-border/50"
-                                  : "border-border/50 bg-gradient-to-br from-card to-card/50"
-                              }`}
-                            >
-                              <CollapsibleTrigger className="w-full text-left group">
-                                <div className="flex items-center justify-between gap-3">
-                                  <div className="flex flex-wrap items-center gap-2 min-w-0">
-                                    {row.type === "main" ? (
-                                      <Badge
-                                        variant="default"
-                                        className="font-semibold"
-                                      >
-                                        Question {row.idx + 1}
-                                      </Badge>
-                                    ) : (
-                                      <Badge
-                                        variant="secondary"
-                                        className="font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
-                                      >
-                                        Follow-up
-                                      </Badge>
-                                    )}
-                                    <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
-                                      {(() => {
-                                        if (row.type === "main" && q?.title)
-                                          return q.title;
-                                        const key = row.questionText.trim();
-                                        const mapped =
-                                          questionTitlesByText[key];
-                                        if (mapped && mapped.trim().length > 0)
-                                          return mapped;
-                                        if (!prompt) return "Question Details";
-                                        return (
-                                          prompt.slice(0, 60) +
-                                          (prompt.length > 60 ? "..." : "")
-                                        );
-                                      })()}
-                                    </div>
-                                  </div>
-                                  <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
-                                </div>
-                              </CollapsibleTrigger>
-
-                              <CollapsibleContent className="pt-4">
-                                <div className="whitespace-pre-line mb-3">
-                                  {prompt ? (
-                                    <ReactMarkdown
-                                      remarkPlugins={[remarkGfm]}
-                                      components={qaQuestionMarkdownComponents}
-                                    >
-                                      {prompt}
-                                    </ReactMarkdown>
+                                      Question {row.idx + 1}
+                                    </Badge>
                                   ) : (
-                                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                                      Question prompt unavailable.
-                                    </div>
+                                    <Badge
+                                      variant="secondary"
+                                      className="font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+                                    >
+                                      Follow-up
+                                    </Badge>
                                   )}
+                                  <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
+                                    {(() => {
+                                      if (row.type === "main" && q?.title)
+                                        return q.title;
+                                      const key = row.questionText.trim();
+                                      const mapped = questionTitlesByText[key];
+                                      if (mapped && mapped.trim().length > 0)
+                                        return mapped;
+                                      if (!prompt) return "Question Details";
+                                      return (
+                                        prompt.slice(0, 60) +
+                                        (prompt.length > 60 ? "..." : "")
+                                      );
+                                    })()}
+                                  </div>
                                 </div>
+                                <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
+                              </div>
+                            </CollapsibleTrigger>
 
-                                {yourAnswer ? (
-                                  <>
-                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                      <User className="size-4 text-primary" />
-                                      Your Response:
-                                    </div>
-                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                      <div className="whitespace-pre-line text-sm">
-                                        <ReactMarkdown
-                                          remarkPlugins={[remarkGfm]}
-                                          components={qaMarkdownComponents}
-                                        >
-                                          {yourAnswer}
-                                        </ReactMarkdown>
-                                      </div>
-                                    </div>
-                                  </>
+                            <CollapsibleContent className="pt-4">
+                              <div className="whitespace-pre-line mb-3">
+                                {prompt ? (
+                                  <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={qaQuestionMarkdownComponents}
+                                  >
+                                    {prompt}
+                                  </ReactMarkdown>
                                 ) : (
                                   <div className="text-sm text-gray-600 dark:text-gray-400">
-                                    No response recorded.
+                                    Question prompt unavailable.
                                   </div>
                                 )}
+                              </div>
 
-                                <Separator className="my-5" />
-
-                                {example ? (
-                                  <div>
-                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                      <Lightbulb className="size-4 text-primary" />
-                                      Example Answer:
-                                    </div>
-                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                      <div className="whitespace-pre-line text-sm">
-                                        <ReactMarkdown
-                                          remarkPlugins={[remarkGfm]}
-                                          components={qaMarkdownComponents}
-                                        >
-                                          {example}
-                                        </ReactMarkdown>
-                                      </div>
+                              {yourAnswer ? (
+                                <>
+                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                    <User className="size-4 text-primary" />
+                                    Your Response:
+                                  </div>
+                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                    <div className="whitespace-pre-line text-sm">
+                                      <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                        components={qaMarkdownComponents}
+                                      >
+                                        {yourAnswer}
+                                      </ReactMarkdown>
                                     </div>
                                   </div>
-                                ) : (
-                                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                                    {q
-                                      ? "No example answer available for this question yet."
-                                      : "No example answer available."}
+                                </>
+                              ) : (
+                                <div className="text-sm text-gray-600 dark:text-gray-400">
+                                  No response recorded.
+                                </div>
+                              )}
+
+                              <Separator className="my-5" />
+
+                              {example ? (
+                                <div>
+                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                    <Lightbulb className="size-4 text-primary" />
+                                    Example Answer:
                                   </div>
-                                )}
-                              </CollapsibleContent>
-                            </Collapsible>
-                          );
-                        })}
-                      </div>
-                    </CardContent>
-                  </Card>
-                )}
+                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                    <div className="whitespace-pre-line text-sm">
+                                      <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                        components={qaMarkdownComponents}
+                                      >
+                                        {example}
+                                      </ReactMarkdown>
+                                    </div>
+                                  </div>
+                                </div>
+                              ) : (
+                                <div className="text-sm text-gray-600 dark:text-gray-400">
+                                  {q
+                                    ? "No example answer available for this question yet."
+                                    : "No example answer available."}
+                                </div>
+                              )}
+                            </CollapsibleContent>
+                          </Collapsible>
+                        );
+                      })}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
 
-                {(Boolean(results.overallScore?.trim()) ||
-                  Boolean(results.detailedAnalysis?.trim()) ||
-                  results.strengths.length > 0 ||
-                  results.improvements.length > 0) && (
-                  <AiFeedbackCard
-                    title="Blairify AI Feedback"
-                    icon={<FileText className="size-4" />}
-                    summaryMarkdown={null}
-                    strengths={null}
-                    improvements={results.improvements}
-                    detailsMarkdown={results.detailedAnalysis}
-                  />
-                )}
+              {(Boolean(results.overallScore?.trim()) ||
+                Boolean(results.detailedAnalysis?.trim()) ||
+                results.strengths.length > 0 ||
+                results.improvements.length > 0) && (
+                <AiFeedbackCard
+                  title="Blairify AI Feedback"
+                  icon={<FileText className="size-4" />}
+                  summaryMarkdown={null}
+                  strengths={null}
+                  improvements={results.improvements}
+                  detailsMarkdown={results.detailedAnalysis}
+                />
+              )}
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center py-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                  <Button
-                    onClick={() => handleNavigationRequest("/configure")}
-                    variant={results.passed ? "default" : "outline"}
-                    className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
-                  >
-                    <RotateCcw className="size-4 mr-2" />
-                    {results.passed ? "Take Another Interview" : "Try Again"}
-                  </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center py-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <Button
+                  onClick={() => handleNavigationRequest("/configure")}
+                  variant={results.passed ? "default" : "outline"}
+                  className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
+                >
+                  <RotateCcw className="size-4 mr-2" />
+                  {results.passed ? "Take Another Interview" : "Try Again"}
+                </Button>
 
-                  <Button
-                    variant="outline"
-                    onClick={() => handleNavigationRequest("/history")}
-                    className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
-                  >
-                    <BookOpen className="size-4 mr-2" />
-                    View Interview History
-                  </Button>
-                </div>
+                <Button
+                  variant="outline"
+                  onClick={() => handleNavigationRequest("/history")}
+                  className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
+                >
+                  <BookOpen className="size-4 mr-2" />
+                  View Interview History
+                </Button>
               </div>
-              <PostInterviewSurvey
-                activeUserId={activeUserId}
-                activeUserEmail={activeUserEmail}
-                userProfile={userProfile}
-                setUserProfile={setUserProfile}
-                results={results}
-                refreshUserData={refreshUserData}
-                onNavigate={handleSurveyNavigation}
-                controllerRef={surveyControllerRef}
-              />
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+            <PostInterviewSurvey
+              activeUserId={activeUserId}
+              activeUserEmail={activeUserEmail}
+              userProfile={userProfile}
+              setUserProfile={setUserProfile}
+              results={results}
+              refreshUserData={refreshUserData}
+              onNavigate={handleSurveyNavigation}
+              controllerRef={surveyControllerRef}
+            />
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 }
