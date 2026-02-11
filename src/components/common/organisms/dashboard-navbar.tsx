@@ -119,7 +119,7 @@ export default function DashboardNavbar({
 
   return (
     <TooltipProvider>
-      <nav className="relative z-40 border-b border-border lg:bg-card/50 backdrop-blur-sm">
+      <nav className="relative z-40 border-b border-border/50 lg:bg-card/50 backdrop-blur-sm">
         <DashboardWalkthrough />
         <div className="px-4 h-16 flex items-center justify-between w-full">
           <div className="flex my-auto items-center space-x-4">
