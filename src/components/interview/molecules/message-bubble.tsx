@@ -1,6 +1,5 @@
-import { Clock, MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
-import { RiChatAiLine } from "react-icons/ri";
+import { Typography } from "@/components/common/atoms/typography";
 import { InterviewerAvatar } from "@/components/common/interviewer-avatar";
 import { MarkdownContent } from "@/components/common/molecules/markdown-content";
 import type { InterviewerProfile } from "@/lib/config/interviewers";
@@ -10,16 +9,18 @@ interface MessageBubbleProps {
   message: Message;
   interviewer: InterviewerProfile;
   isLatest?: boolean;
+  isFirstMessage?: boolean;
 }
 
 export function MessageBubble({
   message,
   interviewer,
   isLatest = false,
+  isFirstMessage = false,
 }: MessageBubbleProps) {
   const [displayedContent, setDisplayedContent] = useState(message.content);
 
-  const formatTime = (timestamp: Date) => {
+  const _formatTime = (timestamp: Date) => {
     return new Intl.DateTimeFormat("en-US", {
       hour: "2-digit",
       minute: "2-digit",
@@ -83,21 +84,20 @@ export function MessageBubble({
           <div className="size-10 flex-shrink-0 ring-2 ring-primary/20 rounded-full overflow-hidden shadow-md">
             <InterviewerAvatar interviewer={interviewer} size={40} />
           </div>
-          <div className="absolute -bottom-0.5 -right-0.5 size-3 bg-green-500 rounded-full border-2 border-background shadow-sm" />
         </div>
       )}
 
       <div className="flex flex-col gap-1 max-w-[85%] sm:max-w-[75%] min-w-0">
         <div
-          className={`flex items-center gap-2 text-xs text-muted-foreground ${isUser ? "justify-end" : "justify-start"}`}
+          className={`flex items-center gap-2 text-xs text-muted-foreground ${isUser ? "justify-end" : "justify-between"}`}
         >
           <div className="flex items-center gap-1">
-            {!isUser && <RiChatAiLine className="size-3" />}
-            <span className="font-medium">{!isUser && interviewer.name}</span>
-          </div>
-          <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <Clock className="size-3" />
-            <span>{formatTime(message.timestamp)}</span>
+            {!isUser && (
+              <div className="size-1.5 ml-2 rounded-full bg-green-500" />
+            )}
+            <Typography.SubCaptionBold color="secondary">
+              {!isUser && interviewer.name}
+            </Typography.SubCaptionBold>
           </div>
         </div>
 
@@ -111,16 +111,7 @@ export function MessageBubble({
           {!isUser && (
             <div className="absolute top-3 size-3 rotate-45 border left-[-6px] bg-card border-border/50 border-r-0 border-t-0" />
           )}
-          <div className="relative p-4">
-            {isAI && message.questionType && (
-              <div className="mb-2 inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                <MessageSquare className="size-3" />
-                {message.questionType
-                  .replace("-", " ")
-                  .replace(/\b\w/g, (l) => l.toUpperCase())}
-              </div>
-            )}
-
+          <div className={`relative px-4 ${isUser ? "py-2" : "py-3"}`}>
             <div
               className={`prose prose-sm max-w-none min-w-0 break-words ${
                 isUser ? "prose-invert" : "dark:prose-invert"
@@ -129,6 +120,16 @@ export function MessageBubble({
               <MarkdownContent
                 markdown={isAI ? displayedContent : message.content}
               />
+              <div className="flex justify-end">
+                {isAI && message.questionType && !isFirstMessage && (
+                  <Typography.SubCaptionBold color="brand" className="mt-2 ">
+                    {message.questionType
+                      .replace("-", " ")
+                      .replace(/\b\w/g, (l) => l.toUpperCase())}{" "}
+                    question
+                  </Typography.SubCaptionBold>
+                )}
+              </div>
             </div>
           </div>
 

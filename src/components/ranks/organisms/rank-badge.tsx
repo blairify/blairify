@@ -1,7 +1,7 @@
 "use client";
 
 import { Crown, Flame, Gem, Star, Trophy } from "lucide-react";
-import { GiFlowerTwirl, GiTurtleShell } from "react-icons/gi";
+import { GiBurningBook, GiFlowerTwirl } from "react-icons/gi";
 
 import type { Rank } from "@/lib/ranks";
 import { formatRankLevel } from "@/lib/ranks";
@@ -19,7 +19,7 @@ interface RankBadgeProps {
 }
 
 const icons = {
-  GiTurtleShell,
+  GiBurningBook,
   GiFlowerTwirl,
   Crown,
   Gem,
@@ -71,7 +71,7 @@ export function RankBadge({
   className,
   showContainer = true,
 }: RankBadgeProps) {
-  const Icon = icons[rank.icon as keyof typeof icons] || GiTurtleShell;
+  const Icon = icons[rank.icon as keyof typeof icons] || GiBurningBook;
   const sizeConfig = sizeClasses[size];
 
   return (
@@ -175,7 +175,7 @@ export function RankBadgeInline({
   xp?: number;
   className?: string;
 }) {
-  const Icon = icons[rank.icon as keyof typeof icons] || GiTurtleShell;
+  const Icon = icons[rank.icon as keyof typeof icons] || GiBurningBook;
 
   return (
     <div

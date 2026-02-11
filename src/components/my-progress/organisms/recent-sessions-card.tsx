@@ -95,7 +95,7 @@ export function RecentSessionsCard({ sessions }: RecentSessionsCardProps) {
 
               <Link
                 href={`/history/${session.id}`}
-                className="relative flex flex-col md:flex-row items-center gap-6 p-5 sm:p-6 bg-card border border-border/50 rounded-3xl hover:border-border transition-all duration-300"
+                className="relative flex flex-col md:flex-row items-center gap-6 p-5 sm:p-6 bg-card border rounded-xl hover:border-border transition-all duration-300"
               >
                 {/* Score Circle */}
                 <div className="relative size-20 shrink-0">
@@ -204,10 +204,10 @@ export function RecentSessionsCard({ sessions }: RecentSessionsCardProps) {
                       )}
                     </div>
                   )}
-                  <div className="flex-1 md:flex-none rounded-2xl border border-border bg-card px-8 h-12 font-black transition-all flex items-center justify-center gap-2 group/btn">
-                    View Report
+                  <Button variant="outline">
+                    <Link href={`/history/${session.id}`}>View Report</Link>
                     <Eye className="size-4 group-hover/btn:scale-110 transition-transform" />
-                  </div>
+                  </Button>
                 </div>
               </Link>
             </div>

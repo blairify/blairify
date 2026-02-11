@@ -6,13 +6,7 @@ import { useMemo } from "react";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   type ChartConfig,
   ChartContainer,
@@ -67,18 +61,14 @@ export function ScoreProgressCard({
 
   return (
     <Card className={className}>
-      <CardHeader className="flex items-center gap-2 space-y-0 border-b sm:flex-row">
+      <CardHeader className="flex items-center gap-2 space-y-0 sm:flex-row">
         <div className="grid flex-1 gap-1">
-          <CardTitle className="p-0">
-            <Typography.BodyBold className="flex items-center gap-2">
-              Score Progression
-            </Typography.BodyBold>
-          </CardTitle>
-          <CardDescription className="p-0">
-            <Typography.Caption className="text-muted-foreground">
+          <CardTitle className="gap-1 flex flex-col">
+            <Typography.BodyBold>Score Progression</Typography.BodyBold>
+            <Typography.Caption color="secondary">
               Your interview performance over time
             </Typography.Caption>
-          </CardDescription>
+          </CardTitle>
         </div>
         <TrendingUp className="size-5" />
 

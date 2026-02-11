@@ -79,26 +79,22 @@ export function HistoryContent({ user }: HistoryContentProps) {
 
   return (
     <main className="flex-1 overflow-y-auto bg-background animate-in fade-in duration-700">
-      <div className="relative border-b bg-card overflow-hidden">
-        {/* Decorative background elements */}
+      <div className="relativeoverflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 py-12 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-center gap-6 text-center md:text-left">
             <div className="space-y-2">
-              <Typography.Heading1 className="text-4xl font-black text-foreground tracking-tight">
+              <Typography.Heading3 className="text-4xl font-black text-foreground tracking-tight">
                 Previous <span className="text-primary">Sessions</span>
-              </Typography.Heading1>
+              </Typography.Heading3>
               <Typography.Body className="text-muted-foreground text-lg">
                 A comprehensive record of your technical interview performances.
               </Typography.Body>
             </div>
 
-            <Button
-              onClick={() => router.push("/configure")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-black px-8 h-12 rounded-xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
-            >
+            <Button onClick={() => router.push("/configure")}>
               New Interview
             </Button>
           </div>
@@ -138,10 +134,10 @@ export function HistoryContent({ user }: HistoryContentProps) {
 
                   <Link
                     href={`/history/${session.sessionId}`}
-                    className="relative flex flex-col md:flex-row items-center gap-6 p-5 sm:p-6 bg-card border border-border/50 rounded-3xl hover:border-border transition-all duration-300"
+                    className="relative flex flex-col md:flex-row items-center gap-6 p-5 sm:p-6 bg-card border border-border/50 rounded-xl hover:border-border transition-all duration-300"
                   >
                     {/* Score Circle */}
-                    <div className="relative size-20 shrink-0">
+                    <div className="relative size-15 shrink-0">
                       <svg
                         className="size-full transform -rotate-90"
                         viewBox="0 0 80 80"
@@ -222,11 +218,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
                           {session.config.specificCompany}
                         </Badge>
                       )}
-                      <Button
-                        variant="outline"
-                        asChild
-                        className="flex-1 md:flex-none rounded-2xl border-border bg-card hover:bg-primary hover:text-primary-foreground hover:border-primary px-8 h-12 font-black transition-all group/btn"
-                      >
+                      <Button variant="outline" asChild>
                         <span>
                           View Report
                           <Eye className="size-4 ml-2 group-hover/btn:scale-110 transition-transform" />

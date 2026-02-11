@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { GiLightningTrio } from "react-icons/gi";
 import { TiFlowChildren } from "react-icons/ti";
 import {
   ACHIEVEMENT_FALLBACK_ICON,
@@ -451,7 +450,6 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
               <div className="lg:col-span-2 flex flex-col justify-center space-y-6">
                 <div>
                   <Typography.Heading3 className="mb-4 flex items-center gap-2">
-                    <GiLightningTrio className="size-5 text-primary" />
                     Rank Progression
                   </Typography.Heading3>
                   <XPProgressBar

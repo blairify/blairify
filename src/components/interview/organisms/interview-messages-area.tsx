@@ -96,6 +96,7 @@ export function InterviewMessagesArea({
                 message={message}
                 interviewer={interviewer}
                 isLatest={index === displayMessages.length - 1}
+                isFirstMessage={index === 0}
               />
             ))}
 
