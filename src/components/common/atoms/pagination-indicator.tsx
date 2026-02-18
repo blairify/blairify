@@ -17,11 +17,11 @@ export function PaginationIndicator({
         {Array.from({ length: total }, (_, index) => (
           <span
             key={index}
-            className={`flex size-8 items-center justify-center rounded-full text-sm font-medium transition-all duration-300 ease-in-out ${
+            className={`flex size-8 items-center justify-center rounded-md text-sm font-medium transition-all duration-300 ease-in-out ${
               index === current
                 ? "bg-primary text-primary-foreground"
                 : index < current
-                  ? "bg-green-50 text-black border border-green-800"
+                  ? "bg-green-700 text-white "
                   : "bg-transparent text-neutral-400 border border-neutral-300"
             }`}
           >

@@ -7,6 +7,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { DatabaseService } from "@/lib/database";
+import { cn } from "@/lib/utils";
 import { useAuth } from "@/providers/auth-provider";
 
 type WalkthroughStepId =
@@ -450,7 +451,7 @@ export function DashboardWalkthrough(): ReactNode {
           type="button"
           variant="ghost"
           size="icon"
-          className="absolute right-2 top-2 border border-border/60 bg-background/60 backdrop-blur-sm hover:bg-muted/60"
+          className="absolute border-none right-2 top-2 border border-border/60 bg-background/60 backdrop-blur-sm hover:bg-muted/60"
           aria-label="Close walkthrough"
           onClick={() => void complete("skip")}
         >
@@ -467,19 +468,27 @@ export function DashboardWalkthrough(): ReactNode {
             {activeStep.body}
           </div>
 
-          <div className="flex items-center justify-between gap-2 pt-2">
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={() =>
-                setStepIndex((p) => resolveNearestAvailableStepIndex(p - 1, -1))
-              }
-              disabled={stepIndex === 0}
-            >
-              Back
-            </Button>
-
+          <div
+            className={cn(
+              "flex items-center justify-between gap-2 pt-2",
+              stepIndex === 0 && "justify-end",
+            )}
+          >
+            {stepIndex > 0 && (
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() =>
+                  setStepIndex((p) =>
+                    resolveNearestAvailableStepIndex(p - 1, -1),
+                  )
+                }
+                disabled={stepIndex === 0}
+              >
+                Back
+              </Button>
+            )}
             <div className="flex items-center gap-2">
               <Button
                 type="button"

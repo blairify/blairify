@@ -42,7 +42,7 @@ export function InterviewHeader({
       className="sticky top-0 z-10 bg-background/95 backdrop-blur-lg border-b border-border/50 shadow-sm"
       data-interview-type={interviewType}
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4">
+      <div className="max-w-5xl mx-auto px-4 sm:px-3 py-2">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
             {!isMobile && (
@@ -60,13 +60,13 @@ export function InterviewHeader({
                 <TooltipTrigger asChild>
                   <Button
                     variant="outline"
-                    size="sm"
+                    size="icon"
                     onClick={onPauseResume}
                     disabled={isComplete}
                     aria-label={
                       isPaused ? "Resume interview" : "Pause interview"
                     }
-                    className="max-h-9 sm:h-10 px-3 sm:px-4 font-medium"
+                    className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
                   >
                     {isPaused ? (
                       <Play className="size-4" />
@@ -84,11 +84,11 @@ export function InterviewHeader({
                 <TooltipTrigger asChild>
                   <Button
                     variant="outline"
-                    size="sm"
+                    size="icon"
                     onClick={onSkip}
                     disabled={isLoading || isComplete}
                     aria-label="Skip question"
-                    className="max-h-9 sm:h-10 px-3 sm:px-4 font-medium"
+                    className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
                   >
                     <SkipForward className="size-4" />
                   </Button>
@@ -102,11 +102,11 @@ export function InterviewHeader({
                 <TooltipTrigger asChild>
                   <Button
                     variant="destructive"
-                    size="sm"
+                    size="icon"
                     onClick={onEnd}
                     disabled={isComplete}
                     aria-label="End interview"
-                    className="max-h-9 sm:h-10 px-3 sm:px-4 font-medium"
+                    className="text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
                   >
                     <Square className="size-4" />
                   </Button>

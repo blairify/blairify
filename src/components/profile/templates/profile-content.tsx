@@ -2,7 +2,6 @@
 
 import { updateProfile } from "firebase/auth";
 import { doc, setDoc, updateDoc } from "firebase/firestore";
-import { motion } from "framer-motion";
 import {
   Briefcase,
   Calendar,
@@ -22,8 +21,10 @@ import {
   User,
   Zap,
 } from "lucide-react";
+import { motion } from "motion/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FiCreditCard } from "react-icons/fi";
 import { toast } from "sonner";
 import {
   AvatarIconDisplay,
@@ -31,11 +32,9 @@ import {
 } from "@/components/common/atoms/avatar-icon-selector";
 import { Typography } from "@/components/common/atoms/typography";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -298,8 +297,76 @@ export function ProfileContent({
   }
 
   return (
-    <main className="flex-1 overflow-y-auto bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 max-w-7xl">
+    <main className="flex-1 overflow-y-auto bg-background animate-in fade-in duration-700">
+      {/* Page Header */}
+      <div className="relative border-b bg-card overflow-hidden">
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 sm:px-6 py-12 relative z-10">
+          <div className="flex flex-col md:flex-row items-center md:items-center gap-6">
+            {/* Avatar */}
+            <div className="relative shrink-0">
+              {userData?.avatarIcon ? (
+                <div className="size-20 border-4 border-background rounded-full flex items-center justify-center bg-card shadow-xl ring-1 ring-primary/20">
+                  <AvatarIconDisplay
+                    iconId={userData.avatarIcon}
+                    size="xl"
+                    className="size-14"
+                  />
+                </div>
+              ) : (
+                <Avatar className="size-20 border-4 border-background shadow-xl ring-1 ring-primary/20">
+                  <AvatarFallback className="text-2xl font-bold bg-primary/5 text-primary">
+                    {getInitials(userData?.displayName || user.displayName)}
+                  </AvatarFallback>
+                </Avatar>
+              )}
+              {userData?.subscription?.plan === "pro" && (
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="absolute -bottom-1 -right-1 bg-primary text-primary-foreground px-2 py-0.5 rounded-full text-[9px] font-black tracking-widest shadow-lg border-2 border-background flex items-center gap-0.5"
+                >
+                  <Zap className="size-2.5 fill-current" /> PRO
+                </motion.div>
+              )}
+            </div>
+
+            <div className="space-y-1 text-center md:text-left flex-1">
+              <Typography.Heading1 className="text-4xl font-black text-foreground tracking-tight">
+                {userData?.displayName || user.displayName || "Anonymous User"}
+              </Typography.Heading1>
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-sm text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <Briefcase className="size-3.5" />
+                  {userData?.role || "Candidate"}
+                </span>
+                <Separator orientation="vertical" className="h-4" />
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="size-3.5" />
+                  {userData.preferences?.preferredLocation || "Remote"}
+                </span>
+                <Separator orientation="vertical" className="h-4" />
+                <span className="flex items-center gap-1.5">
+                  <Mail className="size-3.5" />
+                  {user.email}
+                </span>
+              </div>
+            </div>
+
+            <Button
+              variant="ghost"
+              size="sm"
+              colorContext="danger"
+              onClick={() => router.push("/auth/logout")}
+            >
+              Sign Out
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto p-6 sm:p-6 pb-24">
         {statusMessage && (
           <div
             className={`mb-6 p-3 text-sm border rounded-md ${
@@ -312,718 +379,583 @@ export function ProfileContent({
           </div>
         )}
 
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 lg:gap-8">
-          {/* Profile Summary Card - Fixed Left Column for Desktop */}
-          <Card className="xl:col-span-4 border-primary/10 bg-card/50 backdrop-blur-sm h-fit sticky top-24 overflow-hidden shadow-2xl shadow-primary/5">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
-
-            <CardContent className="pt-10 pb-8 px-6 relative z-10">
-              <div className="flex flex-col items-center text-center">
-                <div className="relative mb-6">
-                  {userData?.avatarIcon ? (
-                    <div className="w-32 h-32 border-[6px] border-background rounded-full flex items-center justify-center bg-card shadow-xl ring-1 ring-primary/20">
-                      <AvatarIconDisplay
-                        iconId={userData.avatarIcon}
-                        size="xl"
-                        className="w-24 h-24"
-                      />
-                    </div>
-                  ) : (
-                    <Avatar className="w-32 h-32 border-[6px] border-background shadow-xl ring-1 ring-primary/20">
-                      <AvatarFallback className="text-3xl font-bold bg-primary/5 text-primary">
-                        {getInitials(userData?.displayName || user.displayName)}
-                      </AvatarFallback>
-                    </Avatar>
-                  )}
-                  {userData?.subscription?.plan === "pro" && (
-                    <motion.div
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      className="absolute -bottom-1 -right-1 bg-primary text-primary-foreground px-3 py-1 rounded-full text-[10px] font-black tracking-widest shadow-lg border-2 border-background flex items-center gap-1"
-                    >
-                      <Zap className="size-3 fill-current" /> PRO
-                    </motion.div>
-                  )}
-                </div>
-
-                <Typography.Heading3 className="text-2xl font-bold tracking-tight">
-                  {userData?.displayName ||
-                    user.displayName ||
-                    "Anonymous User"}
-                </Typography.Heading3>
-                <div className="mt-1 flex items-center gap-1.5 px-3 py-1 bg-muted/50 rounded-full border border-border/50">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-tighter text-[10px]">
-                    {userData?.role || "Candidate"}
-                  </Typography.Caption>
-                </div>
-              </div>
-
-              <div className="mt-10 space-y-4">
-                <div className="p-4 rounded-2xl bg-muted/20 border border-border/40 space-y-3">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-muted-foreground flex items-center gap-2">
-                      <MapPin className="size-3.5" />
-                      Location
-                    </span>
-                    <span className="font-semibold text-foreground">
-                      {userData.preferences?.preferredLocation || "Remote"}
-                    </span>
-                  </div>
-                  <Separator className="bg-border/30" />
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-muted-foreground flex items-center gap-2">
-                      <Briefcase className="size-3.5" />
-                      Experience
-                    </span>
-                    <span className="font-semibold text-foreground">
-                      {userData?.experience?.split(" ")[0] || "Junior"}
-                    </span>
-                  </div>
-                  <Separator className="bg-border/30" />
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-muted-foreground flex items-center gap-2">
-                      <Mail className="size-3.5" />
-                      Email
-                    </span>
-                    <span
-                      className="font-semibold text-foreground truncate max-w-[140px]"
-                      title={user.email || ""}
-                    >
-                      {user.email}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <Button
-                    variant="ghost"
-                    className="w-full text-xs font-semibold hover:bg-red-50 hover:text-red-500 rounded-xl py-6 border border-dashed border-border hover:border-red-200 transition-all group"
-                    onClick={() => router.push("/auth/logout")}
-                  >
-                    Sign Out
-                    <div className="ml-2 px-1.5 py-0.5 rounded bg-muted group-hover:bg-red-100 text-[9px] uppercase tracking-tighter transition-colors">
-                      Session
-                    </div>
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Main Content Area */}
-          <div className="xl:col-span-8 flex flex-col gap-8">
-            {/* Premium Navigation */}
-            <nav className="flex items-center gap-1 bg-muted/30 p-1.5 rounded-2xl border border-border/40 backdrop-blur-sm">
-              {SETTINGS_TABS.map((tab) => (
-                <button
+        <div className="flex flex-col md:flex-row gap-6">
+          <nav className="md:w-56 shrink-0 flex md:flex-col gap-1">
+            {SETTINGS_TABS.map((tab) => {
+              const isActive = activeTab === tab.id;
+              return (
+                <Button
                   type="button"
                   key={tab.id}
+                  variant="ghost"
+                  size="sm"
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 flex-1 ${
-                    activeTab === tab.id
-                      ? "text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                  className={`justify-start gap-2.5 ${
+                    isActive
+                      ? "bg-primary/10 text-primary font-semibold"
+                      : "text-muted-foreground"
                   }`}
                 >
-                  {activeTab === tab.id && (
-                    <motion.div
-                      layoutId="active-profile-tab"
-                      className="absolute inset-0 bg-primary rounded-xl shadow-lg shadow-primary/20"
-                      transition={{
-                        type: "spring",
-                        bounce: 0.2,
-                        duration: 0.6,
-                      }}
-                    />
-                  )}
-                  <tab.icon
-                    className={`relative z-10 size-4 ${activeTab === tab.id ? "animate-in zoom-in-50 duration-300" : ""}`}
-                  />
-                  <span className="relative z-10">{tab.label}</span>
-                </button>
-              ))}
-            </nav>
+                  <tab.icon className="size-4" />
+                  <Typography.Caption
+                    className={isActive ? "text-primary font-semibold" : ""}
+                  >
+                    {tab.label}
+                  </Typography.Caption>
+                </Button>
+              );
+            })}
+          </nav>
 
-            <div className="space-y-6 min-h-[600px]">
-              {activeTab === "subscription" && (
-                <motion.div
-                  key="subscription"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
-                >
-                  <div className="grid grid-cols-1 gap-6">
-                    <Card className="overflow-hidden border-primary/20 bg-card/40 backdrop-blur-md shadow-xl relative">
-                      <div
-                        className={`h-1.5 w-full ${userData?.subscription?.plan === "pro" ? "bg-primary" : "bg-muted"}`}
-                      />
-                      <CardHeader className="pb-4">
-                        <div className="flex items-center justify-between">
-                          <div className="space-y-1">
-                            <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                              <CreditCard className="size-5 text-primary" />
+          <div className="flex-1 space-y-6 min-w-0">
+            {activeTab === "subscription" && (
+              <div
+                key="subscription"
+                className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300"
+              >
+                <div className="grid grid-cols-1 gap-6">
+                  <Card>
+                    <CardHeader className="pb-4">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <FiCreditCard className="size-9 text-primary" />
+                          <div className="flex flex-col gap-1">
+                            <Typography.BodyBold>
                               Subscription Overview
-                            </CardTitle>
+                            </Typography.BodyBold>
                             <Typography.Caption color="secondary">
                               View and manage your current access level
                             </Typography.Caption>
                           </div>
-                          <Badge
-                            variant={
-                              userData?.subscription?.plan === "pro"
-                                ? "default"
-                                : "secondary"
-                            }
-                            className={`px-4 py-1 text-xs font-bold tracking-wider ${userData?.subscription?.plan === "pro" ? "bg-primary shadow-lg shadow-primary/20" : ""}`}
-                          >
-                            {userData?.subscription?.plan === "pro"
-                              ? "PRO MEMBER"
-                              : "FREE TIER"}
-                          </Badge>
                         </div>
-                      </CardHeader>
+                      </div>
+                    </CardHeader>
 
-                      <CardContent className="space-y-8 pt-4">
-                        {userData?.subscription?.plan === "pro" ? (
-                          <div className="space-y-6">
-                            <div className="p-5 rounded-2xl bg-primary/5 border border-primary/10 flex items-start gap-5">
-                              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                                <ShieldCheck className="size-7 text-primary" />
-                              </div>
-                              <div className="space-y-1">
-                                <Typography.BodyBold className="text-lg">
-                                  Pro Benefits Active
+                    <CardContent className="space-y-8 pt-4">
+                      {userData?.subscription?.plan === "pro" ? (
+                        <div className="space-y-6">
+                          <div className="p-5 rounded-2xl bg-primary/5 border border-primary/10 flex items-start gap-5">
+                            <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                              <ShieldCheck className="size-7 text-primary" />
+                            </div>
+                            <div className="space-y-1">
+                              <Typography.BodyBold className="text-lg">
+                                Pro Benefits Active
+                              </Typography.BodyBold>
+                              <Typography.Caption className="text-muted-foreground leading-relaxed">
+                                You have full access to unlimited mock
+                                interviews, advanced AI analysis, and career
+                                progress tracking.
+                              </Typography.Caption>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
+                              <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
+                                Current Plan
+                              </Typography.Caption>
+                              <Typography.BodyBold className="text-lg flex items-center gap-2">
+                                Pro Monthly{" "}
+                                <Zap className="size-4 fill-primary text-primary" />
+                              </Typography.BodyBold>
+                            </div>
+                            <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
+                              <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
+                                Billing Price
+                              </Typography.Caption>
+                              <Typography.BodyBold className="text-lg text-primary">
+                                $5 / month
+                              </Typography.BodyBold>
+                            </div>
+                            <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
+                              <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
+                                Status
+                              </Typography.Caption>
+                              <div className="flex items-center gap-2">
+                                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                                <Typography.BodyBold className="text-lg text-emerald-500">
+                                  Active
                                 </Typography.BodyBold>
-                                <Typography.Caption className="text-muted-foreground leading-relaxed">
-                                  You have full access to unlimited mock
-                                  interviews, advanced AI analysis, and career
-                                  progress tracking.
-                                </Typography.Caption>
                               </div>
                             </div>
+                          </div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                              <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
-                                <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
-                                  Current Plan
-                                </Typography.Caption>
-                                <Typography.BodyBold className="text-lg flex items-center gap-2">
-                                  Pro Monthly{" "}
-                                  <Zap className="size-4 fill-primary text-primary" />
-                                </Typography.BodyBold>
-                              </div>
-                              <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
-                                <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
-                                  Billing Price
-                                </Typography.Caption>
-                                <Typography.BodyBold className="text-lg text-primary">
-                                  $5 / month
-                                </Typography.BodyBold>
-                              </div>
-                              <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
-                                <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
-                                  Status
-                                </Typography.Caption>
-                                <div className="flex items-center gap-2">
-                                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                                  <Typography.BodyBold className="text-lg text-emerald-500">
-                                    Active
-                                  </Typography.BodyBold>
+                          <div className="pt-2">
+                            <Button
+                              variant="outline"
+                              size="lg"
+                              onClick={async () => {
+                                const res = await fetch("/api/stripe/portal", {
+                                  method: "POST",
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                  },
+                                  body: JSON.stringify({
+                                    userId: user?.uid,
+                                    email: user?.email,
+                                  }),
+                                });
+                                const d = await res.json();
+                                if (d.url) window.location.href = d.url;
+                              }}
+                            >
+                              <CreditCard className="size-4 mr-2 group-hover:scale-110 transition-transform" />
+                              Manage Billing & Subscription
+                            </Button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-6">
+                          <div className="p-5 rounded-2xl bg-muted/30 border flex items-start gap-5">
+                            <div className="h-12 w-12 rounded-xl bg-muted flex items-center justify-center shrink-0">
+                              <Rocket className="size-7 text-muted-foreground" />
+                            </div>
+                            <div className="space-y-1">
+                              <Typography.BodyBold className="text-lg">
+                                Limited Access (Free)
+                              </Typography.BodyBold>
+                              <Typography.Caption className="text-muted-foreground leading-relaxed">
+                                Upgrade to Pro to unlock unlimited practice and
+                                gain deep insights into your performance.
+                              </Typography.Caption>
+                            </div>
+                          </div>
+
+                          <div className="p-4 rounded-xl border border-primary/20 bg-primary/5 flex flex-col gap-1">
+                            <Typography.Caption className="text-primary font-medium uppercase tracking-widest text-[10px]">
+                              Pro Plan Price
+                            </Typography.Caption>
+                            <Typography.BodyBold className="text-2xl text-primary">
+                              $5{" "}
+                              <Typography.Caption className="text-primary/70 font-normal">
+                                per month
+                              </Typography.Caption>
+                            </Typography.BodyBold>
+                          </div>
+
+                          <div className="space-y-4">
+                            <Typography.CaptionBold className="uppercase tracking-[0.2em] text-[10px] text-primary">
+                              Pro Unlockables
+                            </Typography.CaptionBold>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
+                              {[
+                                "Unlimited Mock Interviews",
+                                "AI Performance Metrics",
+                                "Priority Feature Access",
+                                "Custom Skill Roadmaps",
+                                "Unlimited Skill Tracking",
+                                "Priority Support",
+                              ].map((feature) => (
+                                <div
+                                  key={feature}
+                                  className="flex items-center gap-3 text-sm"
+                                >
+                                  <div className="h-4 w-4 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                                    <CheckCircle2 className="size-2.5 text-primary" />
+                                  </div>
+                                  <Typography.Caption className="text-muted-foreground">
+                                    {feature}
+                                  </Typography.Caption>
                                 </div>
-                              </div>
+                              ))}
                             </div>
+                          </div>
 
-                            <div className="pt-2">
-                              <Button
-                                variant="outline"
-                                className="w-full h-12 text-base font-semibold border-primary/20 hover:bg-primary/5 group"
-                                onClick={async () => {
-                                  const res = await fetch(
-                                    "/api/stripe/portal",
+                          <div className="pt-2 space-y-3">
+                            <Button
+                              variant="outline"
+                              size="lg"
+                              onClick={async () => {
+                                if (!user) {
+                                  toast.error("Please sign in to upgrade");
+                                  router.push("/auth/login?redirect=/settings");
+                                  return;
+                                }
+
+                                setCheckoutLoading(true);
+                                try {
+                                  const response = await fetch(
+                                    "/api/stripe/checkout",
                                     {
                                       method: "POST",
                                       headers: {
                                         "Content-Type": "application/json",
                                       },
                                       body: JSON.stringify({
-                                        userId: user?.uid,
-                                        email: user?.email,
+                                        userId: user.uid,
+                                        lookupKey: LOOKUP_KEY,
+                                        priceId: PRICE_ID,
+                                        email: user.email,
                                       }),
                                     },
                                   );
-                                  const d = await res.json();
-                                  if (d.url) window.location.href = d.url;
-                                }}
-                              >
-                                <CreditCard className="size-4 mr-2 group-hover:scale-110 transition-transform" />
-                                Manage Billing & Subscription
-                              </Button>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="space-y-6">
-                            <div className="p-5 rounded-2xl bg-muted/30 border flex items-start gap-5">
-                              <div className="h-12 w-12 rounded-xl bg-muted flex items-center justify-center shrink-0">
-                                <Rocket className="size-7 text-muted-foreground" />
-                              </div>
-                              <div className="space-y-1">
-                                <Typography.BodyBold className="text-lg">
-                                  Limited Access (Free)
-                                </Typography.BodyBold>
-                                <Typography.Caption className="text-muted-foreground leading-relaxed">
-                                  Upgrade to Pro to unlock unlimited practice
-                                  and gain deep insights into your performance.
-                                </Typography.Caption>
-                              </div>
-                            </div>
 
-                            <div className="p-4 rounded-xl border border-primary/20 bg-primary/5 flex flex-col gap-1">
-                              <Typography.Caption className="text-primary font-medium uppercase tracking-widest text-[10px]">
-                                Pro Plan Price
-                              </Typography.Caption>
-                              <Typography.BodyBold className="text-2xl text-primary">
-                                $5{" "}
-                                <Typography.Caption className="text-primary/70 font-normal">
-                                  per month
-                                </Typography.Caption>
-                              </Typography.BodyBold>
-                            </div>
-
-                            <div className="space-y-4">
-                              <Typography.CaptionBold className="uppercase tracking-[0.2em] text-[10px] text-primary">
-                                Pro Unlockables
-                              </Typography.CaptionBold>
-                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
-                                {[
-                                  "Unlimited Mock Interviews",
-                                  "AI Performance Metrics",
-                                  "Priority Feature Access",
-                                  "Custom Skill Roadmaps",
-                                  "Unlimited Skill Tracking",
-                                  "Priority Support",
-                                ].map((feature) => (
-                                  <div
-                                    key={feature}
-                                    className="flex items-center gap-3 text-sm"
-                                  >
-                                    <div className="h-4 w-4 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                                      <CheckCircle2 className="size-2.5 text-primary" />
-                                    </div>
-                                    <span className="text-muted-foreground">
-                                      {feature}
-                                    </span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div className="pt-2 space-y-3">
-                              <Button
-                                variant="outline"
-                                className="w-full h-12 text-base border-green-300 text-green-300 font-bold"
-                                onClick={async () => {
-                                  if (!user) {
-                                    toast.error("Please sign in to upgrade");
-                                    router.push(
-                                      "/auth/login?redirect=/settings",
+                                  const data = await response.json();
+                                  if (data.url) {
+                                    window.location.href = data.url;
+                                  } else {
+                                    throw new Error(
+                                      data.error ||
+                                        "Failed to create checkout session",
                                     );
-                                    return;
                                   }
+                                } catch (error: any) {
+                                  toast.error(error.message);
+                                } finally {
+                                  setCheckoutLoading(false);
+                                }
+                              }}
+                              disabled={checkoutLoading}
+                            >
+                              <Zap className="size-4 mr-2 fill-current" />
+                              {checkoutLoading
+                                ? "Processing..."
+                                : "Upgrade to Pro Now"}
+                            </Button>
 
-                                  setCheckoutLoading(true);
-                                  try {
-                                    const response = await fetch(
-                                      "/api/stripe/checkout",
-                                      {
-                                        method: "POST",
-                                        headers: {
-                                          "Content-Type": "application/json",
-                                        },
-                                        body: JSON.stringify({
-                                          userId: user.uid,
-                                          lookupKey: LOOKUP_KEY,
-                                          priceId: PRICE_ID,
-                                          email: user.email,
-                                        }),
-                                      },
-                                    );
-
-                                    const data = await response.json();
-                                    if (data.url) {
-                                      window.location.href = data.url;
-                                    } else {
-                                      throw new Error(
-                                        data.error ||
-                                          "Failed to create checkout session",
-                                      );
-                                    }
-                                  } catch (error: any) {
-                                    toast.error(error.message);
-                                  } finally {
-                                    setCheckoutLoading(false);
-                                  }
-                                }}
-                                disabled={checkoutLoading}
-                              >
-                                <Zap className="size-4 mr-2 fill-current" />
-                                {checkoutLoading
-                                  ? "Processing..."
-                                  : "Upgrade to Pro Now"}
-                              </Button>
-
-                              <Typography.Caption className="text-center text-muted-foreground">
-                                Secure payment powered by Stripe
-                              </Typography.Caption>
-                            </div>
+                            <Typography.Caption className="text-center text-muted-foreground">
+                              Secure payment powered by Stripe
+                            </Typography.Caption>
                           </div>
-                        )}
-                      </CardContent>
-                    </Card>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
 
-                    <Card className="border-dashed bg-transparent">
-                      <CardContent className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <div className="text-center sm:text-left">
-                          <Typography.BodyBold>
-                            Need help with your subscription?
-                          </Typography.BodyBold>
-                          <Typography.Caption className="text-muted-foreground">
-                            Our support team is here to assist with billing and
-                            plan questions.
+                  <Card>
+                    <CardContent className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                      <div className="text-center sm:text-left">
+                        <Typography.BodyBold>
+                          Need help with your subscription?
+                        </Typography.BodyBold>
+                        <Typography.Caption className="text-muted-foreground">
+                          Our support team is here to assist with billing and
+                          plan questions.
+                        </Typography.Caption>
+                      </div>
+                      <Button
+                        variant="link"
+                        onClick={() => router.push("/support")}
+                      >
+                        Contact Support
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            )}
+
+            {activeTab === "profile" && (
+              <div
+                key="profile"
+                className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300"
+              >
+                <div className="grid grid-cols-1 gap-6">
+                  <Card>
+                    <CardHeader className="pb-4">
+                      <div className="flex items-center justify-between">
+                        <div className="space-y-1">
+                          <Typography.Heading3 className="text-lg font-bold flex items-center gap-2">
+                            <User className="size-4 text-primary" />
+                            Personal Identity
+                          </Typography.Heading3>
+                          <Typography.Caption color="secondary">
+                            Manage your public-facing information and avatar
                           </Typography.Caption>
                         </div>
                         <Button
-                          variant="link"
-                          className="text-primary font-bold"
-                          onClick={() => router.push("/support")}
+                          variant={isEditing ? "outline" : "ghost"}
+                          size="sm"
+                          onClick={() => {
+                            if (isEditing) {
+                              setIsEditing(false);
+                              setEditData({
+                                displayName: userData?.displayName || "",
+                                role: userData?.role || "",
+                                experience: userData?.experience || "",
+                                preferredLocation:
+                                  userData?.preferences?.preferredLocation ||
+                                  "",
+                              });
+                            } else {
+                              setIsEditing(true);
+                            }
+                          }}
                         >
-                          Contact Support
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </motion.div>
-              )}
-
-              {activeTab === "profile" && (
-                <motion.div
-                  key="profile"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
-                >
-                  <div className="grid grid-cols-1 gap-6">
-                    <Card className="border-border/40 shadow-sm overflow-hidden bg-card/50 backdrop-blur-sm">
-                      <CardHeader className="pb-4">
-                        <div className="flex items-center justify-between">
-                          <div className="space-y-1">
-                            <CardTitle className="text-lg font-bold flex items-center gap-2">
-                              <User className="size-4 text-primary" />
-                              Personal Identity
-                            </CardTitle>
-                            <Typography.Caption color="secondary">
-                              Manage your public-facing information and avatar
-                            </Typography.Caption>
-                          </div>
-                          <Button
-                            variant={isEditing ? "outline" : "ghost"}
-                            size="sm"
-                            className="h-8 text-xs font-semibold hover:bg-primary/5 hover:text-primary transition-colors"
-                            onClick={() => {
-                              if (isEditing) {
-                                setIsEditing(false);
-                                setEditData({
-                                  displayName: userData?.displayName || "",
-                                  role: userData?.role || "",
-                                  experience: userData?.experience || "",
-                                  preferredLocation:
-                                    userData?.preferences?.preferredLocation ||
-                                    "",
-                                });
-                              } else {
-                                setIsEditing(true);
-                              }
-                            }}
-                          >
-                            {isEditing ? (
-                              "Cancel"
-                            ) : (
-                              <>
-                                <Edit2 className="size-3 mr-1.5" />
-                                Edit Identity
-                              </>
-                            )}
-                          </Button>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="pt-6 space-y-8">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                          <div className="space-y-3">
-                            <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
-                              Display Name
-                            </Label>
-                            {isEditing ? (
-                              <div className="relative">
-                                <User className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground/50" />
-                                <Input
-                                  value={editData.displayName}
-                                  onChange={(e) =>
-                                    setEditData((p) => ({
-                                      ...p,
-                                      displayName: e.target.value,
-                                    }))
-                                  }
-                                  className="h-11 pl-10 bg-muted/20 border-border/40 focus:ring-primary/20 rounded-xl"
-                                />
-                              </div>
-                            ) : (
-                              <div className="h-11 flex items-center px-4 rounded-xl bg-muted/10 border border-transparent font-bold text-foreground/80">
-                                {userData?.displayName ||
-                                  user.displayName ||
-                                  "Not set"}
-                              </div>
-                            )}
-                          </div>
-                          <div className="space-y-3">
-                            <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
-                              Account Email
-                            </Label>
-                            <div className="h-11 flex items-center px-4 rounded-xl bg-muted/30 border border-dashed border-border/60 text-muted-foreground/60 italic font-medium">
-                              {user.email}
-                            </div>
-                          </div>
-                        </div>
-                        <div className="pt-6 border-t border-border/30">
-                          <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60 block mb-6">
-                            Profile Avatar
-                          </Label>
-                          <AvatarIconSelector
-                            selectedIcon={selectedIcon}
-                            onSelectIcon={handleIconSelect}
-                            className="border-none shadow-none bg-transparent p-0"
-                          />
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="border-border/40 shadow-sm overflow-hidden bg-card/50 backdrop-blur-sm">
-                      <CardHeader>
-                        <CardTitle className="text-lg font-bold flex items-center gap-2">
-                          <Briefcase className="size-4 text-primary" />
-                          Professional Details
-                        </CardTitle>
-                        <Typography.Caption color="secondary">
-                          Details we use to customize your experience
-                        </Typography.Caption>
-                      </CardHeader>
-                      <CardContent className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                          <div className="space-y-3">
-                            <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
-                              Target Role
-                            </Label>
-                            {isEditing ? (
-                              <Select
-                                value={editData.role}
-                                onValueChange={(v) =>
-                                  setEditData((p) => ({ ...p, role: v }))
-                                }
-                              >
-                                <SelectTrigger className="h-11 bg-muted/20 border-border/40 rounded-xl">
-                                  <SelectValue placeholder="Select role" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                  {ROLE_OPTIONS.map((opt) => (
-                                    <SelectItem key={opt} value={opt}>
-                                      {opt}
-                                    </SelectItem>
-                                  ))}
-                                </SelectContent>
-                              </Select>
-                            ) : (
-                              <div className="h-11 flex items-center px-4 rounded-xl bg-muted/10 border border-transparent font-bold text-foreground/80">
-                                {userData?.role || "Not set"}
-                              </div>
-                            )}
-                          </div>
-                          <div className="space-y-3">
-                            <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
-                              Experience Level
-                            </Label>
-                            {isEditing ? (
-                              <Select
-                                value={editData.experience}
-                                onValueChange={(v) =>
-                                  setEditData((p) => ({ ...p, experience: v }))
-                                }
-                              >
-                                <SelectTrigger className="h-11 bg-muted/20 border-border/40 rounded-xl">
-                                  <SelectValue placeholder="Select level" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                  {EXPERIENCE_OPTIONS.map((opt) => (
-                                    <SelectItem key={opt} value={opt}>
-                                      {opt}
-                                    </SelectItem>
-                                  ))}
-                                </SelectContent>
-                              </Select>
-                            ) : (
-                              <div className="h-11 flex items-center px-4 rounded-xl bg-muted/10 border border-transparent font-bold text-foreground/80">
-                                {userData?.experience || "Not set"}
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    {isEditing && (
-                      <div className="flex justify-end pt-4">
-                        <Button
-                          onClick={handleSaveProfile}
-                          disabled={saving}
-                          className="h-12 px-10 font-bold shadow-xl shadow-primary/20 rounded-xl hover:scale-[1.02] transition-transform active:scale-95"
-                        >
-                          {saving ? (
-                            <Loader2 className="size-4 animate-spin mr-2" />
+                          {isEditing ? (
+                            "Cancel"
                           ) : (
-                            <Save className="size-4 mr-2" />
+                            <>
+                              <Edit2 className="size-3 mr-1.5" />
+                              Edit Identity
+                            </>
                           )}
-                          Update Career Profile
                         </Button>
                       </div>
-                    )}
-                  </div>
-                </motion.div>
-              )}
+                    </CardHeader>
+                    <CardContent className="pt-6 space-y-8">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="space-y-3">
+                          <Typography.Caption className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
+                            Display Name
+                          </Typography.Caption>
+                          {isEditing ? (
+                            <div className="relative">
+                              <User className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground/50" />
+                              <Input
+                                value={editData.displayName}
+                                onChange={(e) =>
+                                  setEditData((p) => ({
+                                    ...p,
+                                    displayName: e.target.value,
+                                  }))
+                                }
+                                className="h-11 pl-10 bg-muted/20 border-border/40 focus:ring-primary/20 rounded-xl"
+                              />
+                            </div>
+                          ) : (
+                            <div className="h-11 flex items-center px-4 rounded-xl bg-muted/10 border border-transparent font-bold text-foreground/80">
+                              {userData?.displayName ||
+                                user.displayName ||
+                                "Not set"}
+                            </div>
+                          )}
+                        </div>
+                        <div className="space-y-3">
+                          <Typography.Caption className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
+                            Account Email
+                          </Typography.Caption>
+                          <div className="h-11 flex items-center px-4 rounded-xl bg-muted/30 border border-dashed border-border/60 text-muted-foreground/60 italic font-medium">
+                            <Typography.Caption>
+                              {user.email}
+                            </Typography.Caption>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="pt-6 border-t border-border/30">
+                        <Typography.Caption className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60 block mb-6">
+                          Profile Avatar
+                        </Typography.Caption>
+                        <AvatarIconSelector
+                          selectedIcon={selectedIcon}
+                          onSelectIcon={handleIconSelect}
+                          className="border-none shadow-none bg-transparent p-0"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
 
-              {activeTab === "account" && (
-                <motion.div
-                  key="account"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
-                >
-                  <div className="grid grid-cols-1 gap-6">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <Card className="border-border/40 bg-card/50 backdrop-blur-sm">
-                        <CardContent className="p-4 flex items-center gap-4">
-                          <div className="p-2 rounded-xl bg-primary/10 text-primary">
-                            <Calendar className="size-5" />
-                          </div>
-                          <div>
-                            <Typography.Caption className="uppercase font-bold text-[10px]">
-                              Member Since
-                            </Typography.Caption>
-                            <Typography.BodyBold className="text-sm">
-                              {userData?.createdAt
-                                ? formatDate(userData.createdAt).split(" at")[0]
-                                : "Jan 2024"}
-                            </Typography.BodyBold>
-                          </div>
-                        </CardContent>
-                      </Card>
-                      <Card className="border-border/40 bg-card/50 backdrop-blur-sm">
-                        <CardContent className="p-4 flex items-center gap-4">
-                          <div className="p-2 rounded-xl bg-primary/10 text-primary">
-                            <History className="size-5" />
-                          </div>
-                          <div>
-                            <Typography.Caption className="uppercase font-bold text-[10px]">
-                              Last Login
-                            </Typography.Caption>
-                            <Typography.BodyBold className="text-sm">
-                              {userData?.lastLoginAt
-                                ? formatDate(userData.lastLoginAt).split(
-                                    " at",
-                                  )[0]
-                                : "Today"}
-                            </Typography.BodyBold>
-                          </div>
-                        </CardContent>
-                      </Card>
-                      <Card className="border-border/40 bg-card/50 backdrop-blur-sm">
-                        <CardContent className="p-4 flex items-center gap-4">
-                          <div className="p-2 rounded-xl bg-primary/10 text-primary">
-                            <ShieldCheck className="size-5" />
-                          </div>
-                          <div>
-                            <Typography.Caption className="uppercase font-bold text-[10px]">
-                              Security Status
-                            </Typography.Caption>
-                            <Typography.BodyBold className="text-sm">
-                              Verified
-                            </Typography.BodyBold>
-                          </div>
-                        </CardContent>
-                      </Card>
+                  <Card>
+                    <CardHeader>
+                      <Typography.Heading3 className="text-lg font-bold flex items-center gap-2">
+                        <Briefcase className="size-4 text-primary" />
+                        Professional Details
+                      </Typography.Heading3>
+                      <Typography.Caption color="secondary">
+                        Details we use to customize your experience
+                      </Typography.Caption>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="space-y-3">
+                          <Typography.Caption className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
+                            Target Role
+                          </Typography.Caption>
+                          {isEditing ? (
+                            <Select
+                              value={editData.role}
+                              onValueChange={(v) =>
+                                setEditData((p) => ({ ...p, role: v }))
+                              }
+                            >
+                              <SelectTrigger className="h-11 bg-muted/20 border-border/40 rounded-xl">
+                                <SelectValue placeholder="Select role" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {ROLE_OPTIONS.map((opt) => (
+                                  <SelectItem key={opt} value={opt}>
+                                    {opt}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          ) : (
+                            <div className="h-11 flex items-center px-4 rounded-xl bg-muted/10 border border-transparent font-bold text-foreground/80">
+                              {userData?.role || "Not set"}
+                            </div>
+                          )}
+                        </div>
+                        <div className="space-y-3">
+                          <Typography.Caption className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
+                            Experience Level
+                          </Typography.Caption>
+                          {isEditing ? (
+                            <Select
+                              value={editData.experience}
+                              onValueChange={(v) =>
+                                setEditData((p) => ({ ...p, experience: v }))
+                              }
+                            >
+                              <SelectTrigger className="h-11 bg-muted/20 border-border/40 rounded-xl">
+                                <SelectValue placeholder="Select level" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {EXPERIENCE_OPTIONS.map((opt) => (
+                                  <SelectItem key={opt} value={opt}>
+                                    {opt}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          ) : (
+                            <div className="h-11 flex items-center px-4 rounded-xl bg-muted/10 border border-transparent font-bold text-foreground/80">
+                              {userData?.experience || "Not set"}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {isEditing && (
+                    <div className="flex justify-end pt-4">
+                      <Button
+                        onClick={handleSaveProfile}
+                        disabled={saving}
+                        size="lg"
+                      >
+                        {saving ? (
+                          <Loader2 className="size-4 animate-spin mr-2" />
+                        ) : (
+                          <Save className="size-4 mr-2" />
+                        )}
+                        Update Career Profile
+                      </Button>
                     </div>
+                  )}
+                </div>
+              </div>
+            )}
 
-                    <Card className="border-border/40 shadow-sm overflow-hidden bg-card/50 backdrop-blur-sm">
-                      <CardHeader>
-                        <CardTitle className="text-lg font-bold flex items-center gap-2">
-                          <Lock className="size-4 text-primary" />
-                          Security & Access
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-6">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border border-border/40 bg-muted/20">
-                          <div className="space-y-1">
-                            <Typography.BodyBold className="text-sm">
-                              Password Management
-                            </Typography.BodyBold>
-                            <Typography.Caption color="secondary">
-                              Update your password to keep your account secure
-                            </Typography.Caption>
-                          </div>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={handlePasswordReset}
-                            disabled={resettingPassword}
-                          >
-                            {resettingPassword ? (
-                              <Loader2 className="size-3 animate-spin mr-2" />
-                            ) : (
-                              <Key className="size-3 mr-2" />
-                            )}
-                            Reset via Email
-                          </Button>
+            {activeTab === "account" && (
+              <div
+                key="account"
+                className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300"
+              >
+                <div className="grid grid-cols-1 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <Card>
+                      <CardContent className="p-4 flex items-center gap-4">
+                        <div className="p-2 rounded-xl bg-primary/10 text-primary">
+                          <Calendar className="size-5" />
+                        </div>
+                        <div>
+                          <Typography.Caption className="uppercase font-bold text-[10px]">
+                            Member Since
+                          </Typography.Caption>
+                          <Typography.BodyBold className="text-sm">
+                            {userData?.createdAt
+                              ? formatDate(userData.createdAt).split(" at")[0]
+                              : "Jan 2024"}
+                          </Typography.BodyBold>
                         </div>
                       </CardContent>
                     </Card>
-
-                    <Card className="border-border/40 shadow-sm overflow-hidden bg-card/50 backdrop-blur-sm">
-                      <CardHeader>
-                        <CardTitle className="text-lg font-bold flex items-center gap-2">
-                          <Trash2 className="size-4 text-red-500" />
-                          Danger Zone
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="p-4 rounded-xl border border-red-100 bg-red-50/30 flex items-center justify-between gap-4">
-                          <div className="space-y-1">
-                            <Typography.BodyBold className="text-sm text-red-600">
-                              Permanently Delete Account
-                            </Typography.BodyBold>
-                            <Typography.Caption className="text-red-500/70">
-                              All data will be lost forever
-                            </Typography.Caption>
-                          </div>
-                          <Button variant="destructive" size="sm">
-                            Delete Account
-                          </Button>
+                    <Card>
+                      <CardContent className="p-4 flex items-center gap-4">
+                        <div className="p-2 rounded-xl bg-primary/10 text-primary">
+                          <History className="size-5" />
+                        </div>
+                        <div>
+                          <Typography.Caption className="uppercase font-bold text-[10px]">
+                            Last Login
+                          </Typography.Caption>
+                          <Typography.BodyBold className="text-sm">
+                            {userData?.lastLoginAt
+                              ? formatDate(userData.lastLoginAt).split(" at")[0]
+                              : "Today"}
+                          </Typography.BodyBold>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardContent className="p-4 flex items-center gap-4">
+                        <div className="p-2 rounded-xl bg-primary/10 text-primary">
+                          <ShieldCheck className="size-5" />
+                        </div>
+                        <div>
+                          <Typography.Caption className="uppercase font-bold text-[10px]">
+                            Security Status
+                          </Typography.Caption>
+                          <Typography.BodyBold className="text-sm">
+                            Verified
+                          </Typography.BodyBold>
                         </div>
                       </CardContent>
                     </Card>
                   </div>
-                </motion.div>
-              )}
-            </div>
+
+                  <Card>
+                    <CardHeader>
+                      <Typography.Heading3 className="text-lg font-bold flex items-center gap-2">
+                        <Lock className="size-4 text-primary" />
+                        Security & Access
+                      </Typography.Heading3>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border border-border/40 bg-muted/20">
+                        <div className="space-y-1">
+                          <Typography.BodyBold className="text-sm">
+                            Password Management
+                          </Typography.BodyBold>
+                          <Typography.Caption color="secondary">
+                            Update your password to keep your account secure
+                          </Typography.Caption>
+                        </div>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={handlePasswordReset}
+                          disabled={resettingPassword}
+                        >
+                          {resettingPassword ? (
+                            <Loader2 className="size-3 animate-spin mr-2" />
+                          ) : (
+                            <Key className="size-3 mr-2" />
+                          )}
+                          Reset via Email
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <Typography.Heading3 className="text-lg font-bold flex items-center gap-2">
+                        <Trash2 className="size-4 text-red-500" />
+                        Danger Zone
+                      </Typography.Heading3>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="p-4 rounded-xl border border-red-100 bg-red-50/30 flex items-center justify-between gap-4">
+                        <div className="space-y-1">
+                          <Typography.BodyBold className="text-sm text-red-600">
+                            Permanently Delete Account
+                          </Typography.BodyBold>
+                          <Typography.Caption className="text-red-500/70">
+                            All data will be lost forever
+                          </Typography.Caption>
+                        </div>
+                        <Button variant="destructive" size="sm">
+                          Delete Account
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { Loader2, Mic, MicOff, Send } from "lucide-react";
+import { ArrowUp, Loader2, Mic, MicOff } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -99,7 +99,7 @@ export function MessageInput({
                   ? "Interview complete. View your results to continue."
                   : isPaused
                     ? "Interview is paused. Resume to continue..."
-                    : "Message AI interviewer..."
+                    : "Message interviewer..."
               }
               className="min-h-10 max-h-80 w-full min-w-0 resize-none border-0 bg-transparent p-0 text-base placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0 overflow-y-auto"
               onKeyDown={(e) => {
@@ -147,7 +147,7 @@ export function MessageInput({
               variant={isListening ? "destructive" : "outline"}
               size="sm"
               disabled={isInputDisabled}
-              className={`size-9 p-0 rounded-full transition-all duration-200 ${
+              className={`size-8 p-0 rounded-full transition-all duration-200 ${
                 isListening
                   ? "bg-red-500 hover:bg-red-600 text-white animate-pulse shadow-lg"
                   : "hover:bg-muted border hover:border-primary/50"
@@ -208,13 +208,12 @@ export function MessageInput({
               {isLoading ? (
                 <Loader2 className="size-4 animate-spin" />
               ) : (
-                <Send className="size-4" />
+                <ArrowUp className="size-4" />
               )}
             </Button>
           </div>
         </div>
-
-        {(charCount > 0 || hasContent) && (
+        {isOverLimit && (
           <div className="px-3 pb-2 flex items-center justify-between text-xs text-muted-foreground">
             <span>Press Enter to send, Shift+Enter for new line</span>
             {charCount > 0 && (

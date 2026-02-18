@@ -13,7 +13,7 @@ export function TimerDisplay({ seconds }: TimerDisplayProps) {
   };
 
   return (
-    <div className="flex items-center gap-2 px-3 py-3 sm:py-1.5 bg-muted/50 rounded-lg border border-border/50">
+    <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-lg border border-border/50">
       <Timer className="size-4 text-primary" />
       <span className="font-mono min-w-fit font-bold text-sm sm:text-base text-foreground">
         {formatTime(seconds)}

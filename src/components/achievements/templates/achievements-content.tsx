@@ -1,17 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { GiLightningTrio } from "react-icons/gi";
-import { TiFlowChildren } from "react-icons/ti";
 import {
   ACHIEVEMENT_FALLBACK_ICON,
   ACHIEVEMENT_ICON_MAP,
 } from "@/components/achievements/constants/icon-map";
 import { AchievementDetailModal } from "@/components/achievements/molecules/achievement-detail-modal";
+import { CurrentRankCard } from "@/components/achievements/molecules/current-rank-card";
 import { NextAchievementCard } from "@/components/achievements/molecules/next-achievement-card";
 import { Typography } from "@/components/common/atoms/typography";
-import { RankBadge } from "@/components/ranks/organisms/rank-badge";
-import { XPProgressBar } from "@/components/ranks/organisms/xp-progress-bar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -29,8 +26,6 @@ import {
 import type { AchievementTier, UserStats } from "@/lib/achievements";
 import { DatabaseService } from "@/lib/database";
 import {
-  formatRankLevel,
-  formatXP,
   getNextRank,
   getProgressToNextRank,
   getRankByXP,
@@ -399,146 +394,62 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
 
   return (
     <main className="flex-1 overflow-y-auto bg-background">
-      <div className="container mx-auto px-6 py-10 space-y-8">
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <TiFlowChildren className="size-5 flex-shrink-0" />
-            <Typography.Heading1 className="text-foreground">
-              Achievements
-            </Typography.Heading1>
+      <div className="max-w-5xl mx-auto px-2 py-8 space-y-8">
+        <div className="mb-6 space-y-4 hidden lg:block">
+          <div className="flex flex-col gap-2 lg:items-start lg:justify-between text-center lg:text-left">
+            <Typography.BodyBold className="text-2xl">
+              Achievements{" "}
+            </Typography.BodyBold>
+            <Typography.Body className="text-muted-foreground text-sm sm:text-base">
+              Track your progress and unlock milestones as you improve your
+              interview skills.
+            </Typography.Body>
           </div>
-          <Typography.Body color="secondary" className="text-lg">
-            Track your progress and unlock milestones as you improve your
-            interview skills.
-          </Typography.Body>
         </div>
-        <Card
-          className={cn(
-            "border-2 overflow-hidden relative bg-card",
-            rank.badge.border,
-          )}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
-          <CardContent className="p-8 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Current Rank Display */}
-              <div className="flex flex-col items-center justify-center text-center space-y-4">
-                <Typography.CaptionMedium
-                  color="secondary"
-                  className="uppercase tracking-wide"
-                >
-                  Current Rank
-                </Typography.CaptionMedium>
-                <RankBadge
-                  rank={rank}
-                  size="xl"
-                  showGlow
-                  showLabel
-                  showLevel={false}
-                  animated
-                />
-                <div className="space-y-1">
-                  <Typography.Heading2
-                    className={cn("text-2xl", rank.badge.text)}
-                  >
-                    {rank.name} {formatRankLevel(rank.level)}
-                  </Typography.Heading2>
-                  <Typography.SubCaptionMedium color="secondary">
-                    {formatXP(totalXP)} Total XP
-                  </Typography.SubCaptionMedium>
-                </div>
-              </div>
-              <div className="lg:col-span-2 flex flex-col justify-center space-y-6">
-                <div>
-                  <Typography.Heading3 className="mb-4 flex items-center gap-2">
-                    <GiLightningTrio className="size-5 text-primary" />
-                    Rank Progression
-                  </Typography.Heading3>
-                  <XPProgressBar
-                    currentXP={totalXP}
-                    rank={rank}
-                    nextRank={nextRank}
-                    progress={progressToNextRank}
-                    xpToNextRank={xpToNextRank}
-                    size="lg"
-                    showLabel
-                    showNumbers
-                    animated
-                  />
-                </div>
-                {rank.perks.length > 0 && (
-                  <div>
-                    <Typography.CaptionMedium
-                      color="secondary"
-                      className="mb-2"
-                    >
-                      Current Perks:
-                    </Typography.CaptionMedium>
-                    <div className="flex flex-wrap gap-2">
-                      {rank.perks.map((perk, index) => (
-                        <Badge
-                          key={index}
-                          variant="outline"
-                          className={cn(
-                            rank.badge.border,
-                            "border bg-background/70 text-foreground",
-                          )}
-                        >
-                          {perk}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                )}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-stretch">
+          <div className="lg:col-span-3 h-full">
+            <CurrentRankCard
+              rank={rank}
+              nextRank={nextRank}
+              totalXP={totalXP}
+              progressToNextRank={progressToNextRank}
+              xpToNextRank={xpToNextRank}
+            />
+          </div>
 
-                {/* Next Rank Preview */}
-                {nextRank && (
-                  <div className="pt-4 border-t border-border/50">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <Typography.SubCaptionMedium color="secondary">
-                          Next Rank:
-                        </Typography.SubCaptionMedium>
-                        <Typography.BodyMedium
-                          className={cn(nextRank.badge.text, "font-semibold")}
-                        >
-                          {nextRank.name} {formatRankLevel(nextRank.level)}
-                        </Typography.BodyMedium>
-                      </div>
-                      <RankBadge
-                        rank={nextRank}
-                        size="md"
-                        showGlow={false}
-                        showContainer={false}
-                      />
-                    </div>
-                  </div>
-                )}
+          <div className="lg:col-span-2 h-full">
+            {nextAchievement ? (
+              <NextAchievementCard
+                name={nextAchievement.name}
+                description={nextAchievement.description}
+                tier={nextAchievement.tier}
+                progress={
+                  nextAchievement.progressCalculator
+                    ? nextAchievement.progressCalculator(stats)
+                    : 0
+                }
+                xpReward={nextAchievement.xpReward}
+                Icon={
+                  ACHIEVEMENT_ICON_MAP[nextAchievement.icon as IconKey] ??
+                  ACHIEVEMENT_FALLBACK_ICON
+                }
+                badgeClassName={
+                  TIER_STYLES[getBaseTier(nextAchievement.tier)].badge
+                }
+              />
+            ) : (
+              // Placeholder if no next achievement (rare/endgame)
+              <div className="h-full border border-border/60 bg-gradient-to-br from-card to-muted/20 shadow-sm rounded-xl p-6 flex flex-col items-center justify-center text-center text-muted-foreground">
+                <Typography.BodyBold>
+                  All Achievements Unlocked!
+                </Typography.BodyBold>
+                <Typography.Caption className="mt-2">
+                  You are a legend.
+                </Typography.Caption>
               </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {nextAchievement && (
-          <NextAchievementCard
-            name={nextAchievement.name}
-            description={nextAchievement.description}
-            tier={nextAchievement.tier}
-            progress={
-              nextAchievement.progressCalculator
-                ? nextAchievement.progressCalculator(stats)
-                : 0
-            }
-            xpReward={nextAchievement.xpReward}
-            Icon={
-              ACHIEVEMENT_ICON_MAP[nextAchievement.icon as IconKey] ??
-              ACHIEVEMENT_FALLBACK_ICON
-            }
-            badgeClassName={
-              TIER_STYLES[getBaseTier(nextAchievement.tier)].badge
-            }
-          />
-        )}
+            )}
+          </div>
+        </div>
 
         <section className="space-y-4">
           <div className="flex flex-wrap items-baseline justify-between gap-3">

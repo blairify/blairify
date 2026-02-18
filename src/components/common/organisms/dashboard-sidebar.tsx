@@ -74,40 +74,38 @@ export default function DashboardSidebar({
   return (
     <>
       <div
-        className={`fixed inset-y-0 left-0 z-50 h-screen bg-sidebar text-sky-50 border-r border-sidebar-border transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-all duration-200 ease-in-out lg:translate-x-0 lg:static lg:inset-0 flex flex-col overflow-hidden ${
+        className={`fixed inset-y-0 left-0  z-50 h-screen bg-sidebar text-sky-50 border-r border-border/50 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-all duration-200 ease-in-out lg:translate-x-0 lg:static lg:inset-0 flex flex-col overflow-hidden ${
           collapsed ? "w-20" : "w-64"
         }`}
       >
-        <div className="border-b border-border">
-          <div className="px-4 h-16 flex items-center">
-            <div
-              className={`flex items-center justify-between w-full ${collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"}`}
-            >
-              {!collapsed && (
-                <div className="transition-transform">
-                  <Logo variant="textOnly" />
-                </div>
-              )}
-              <div
-                className="hidden items-center gap-1 lg:flex"
-                aria-hidden="true"
-              >
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className={`flex  size-9 shadow-none mx-auto items-center p-3 rounded-full  ${
-                    collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
-                  } `}
-                  onClick={() => setCollapsed((prev) => !prev)}
-                  aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-                >
-                  {collapsed ? (
-                    <GoSidebarCollapse className="size-5" />
-                  ) : (
-                    <GoSidebarExpand className="size-5" />
-                  )}
-                </Button>
+        <div className="px-4 h-16 flex items-center">
+          <div
+            className={`flex items-center justify-between w-full ${collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"}`}
+          >
+            {!collapsed && (
+              <div className="transition-transform ml-2">
+                <Logo variant="textOnly" />
               </div>
+            )}
+            <div
+              className="hidden items-center gap-1 lg:flex"
+              aria-hidden="true"
+            >
+              <Button
+                variant="ghost"
+                size="icon"
+                className={`flex  size-9 shadow-none mx-auto items-center p-3 rounded-full  ${
+                  collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+                } `}
+                onClick={() => setCollapsed((prev) => !prev)}
+                aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+              >
+                {collapsed ? (
+                  <GoSidebarCollapse className="size-5" />
+                ) : (
+                  <GoSidebarExpand className="size-5" />
+                )}
+              </Button>
             </div>
           </div>
         </div>
@@ -120,7 +118,7 @@ export default function DashboardSidebar({
             title="New Interview"
             aria-label="New Interview"
             data-tour="start-interview"
-            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+            className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
               isActive("/configure")
@@ -142,7 +140,7 @@ export default function DashboardSidebar({
             title="Real Offers"
             aria-label="Real Offers"
             data-tour="real-offers"
-            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+            className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
               isActive("/jobs")
@@ -165,7 +163,7 @@ export default function DashboardSidebar({
             title="History"
             aria-label="History"
             data-tour="interview-history"
-            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+            className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
               isActive("/history")
@@ -194,13 +192,10 @@ export default function DashboardSidebar({
                 href="/settings?tab=subscription"
                 title="Upgrade to Pro"
                 aria-label="Upgrade to Pro"
-                className={`relative group flex items-center px-3 py-2.5 rounded-lg transition-all duration-300 w-full overflow-hidden ${
+                className={`relative group flex items-center px-3 py-1.5.5 rounded-lg transition-all duration-300 w-full overflow-hidden ${
                   collapsed ? "justify-center max-w-10 mx-auto" : "space-x-2"
-                } ${
-                  isActive("/settings")
-                    ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white shadow-[0_10px_20px_-10px_rgba(16,185,129,0.5)]"
-                    : "bg-[#10B981]/5 hover:bg-[#10B981]/10 border border-[#10B981]/30 hover:border-[#10B981]/60 text-[#10B981] shadow-sm"
-                }`}
+                } "bg-[#10B981]/5 hover:bg-[#10B981]/10 border border-[#10B981]/30 hover:border-[#10B981]/60 text-[#10B981] shadow-sm"
+                `}
               >
                 {!isActive("/upgrade") && (
                   <motion.div
@@ -252,7 +247,7 @@ export default function DashboardSidebar({
             title="My Progress"
             aria-label="My Progress"
             data-tour="my-progress"
-            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+            className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
               isActive("/my-progress")
@@ -273,7 +268,7 @@ export default function DashboardSidebar({
             href="/achievements"
             title="Achievements"
             aria-label="Achievements"
-            className={`flex items-center px-3 py-2 rounded-md transition-colors w-full ${
+            className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
               isActive("/achievements")
@@ -295,7 +290,7 @@ export default function DashboardSidebar({
             disabled
             title="Roadmap (Temporarily Disabled)"
             aria-label="Roadmap (Temporarily Disabled)"
-            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
+            className={`flex items-center px-3 py-1.5 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             }`}
           >
@@ -312,7 +307,7 @@ export default function DashboardSidebar({
           <button
             type="button"
             disabled
-            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
+            className={`flex items-center px-3 py-1.5 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             }`}
             aria-label="Docs coming soon"
@@ -331,7 +326,7 @@ export default function DashboardSidebar({
           <button
             type="button"
             disabled
-            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
+            className={`flex items-center px-3 py-1.5 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             }`}
             aria-label="Tech news coming soon"
@@ -350,7 +345,7 @@ export default function DashboardSidebar({
           <button
             type="button"
             disabled
-            className={`flex items-center px-3 py-2 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
+            className={`flex items-center px-3 py-1.5 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             }`}
             aria-label="BairTalk coming soon"
@@ -367,8 +362,7 @@ export default function DashboardSidebar({
           </button>
         </nav>
 
-        {/* Footer - Sticky at bottom with Usage Counter */}
-        <div className="mt-auto border-t border-sidebar-border">
+        <div className="mt-auto ">
           {/* Interview Usage Counter */}
           <TooltipProvider>
             <div className={`p-4 ${collapsed ? "px-2" : ""}`}>
@@ -408,10 +402,8 @@ export default function DashboardSidebar({
                   </TooltipContent>
                 </Tooltip>
               ) : (
-                /* Expanded view - show full counter */
                 <div className="space-y-3">
                   {isPro ? (
-                    /* Pro user - show unlimited */
                     <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#10B981]/10">
                       <InfinityIcon className="size-4 text-[#10B981] flex-shrink-0" />
                       <span className="text-sm font-medium text-[#10B981]">
@@ -419,7 +411,6 @@ export default function DashboardSidebar({
                       </span>
                     </div>
                   ) : (
-                    /* Free user - show counter with reset timer */
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-medium text-sidebar-foreground/80">

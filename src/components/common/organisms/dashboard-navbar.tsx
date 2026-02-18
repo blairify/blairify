@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { GiFlowerTwirl, GiTurtleShell } from "react-icons/gi";
+import { GiBurningBook, GiFlowerTwirl } from "react-icons/gi";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
@@ -41,7 +41,7 @@ const RANK_ICONS: Record<
   string,
   React.ComponentType<{ className?: string }>
 > = {
-  GiTurtleShell,
+  GiBurningBook,
   GiFlowerTwirl,
   Crown,
   Gem,
@@ -51,7 +51,7 @@ const RANK_ICONS: Record<
 };
 
 function RankIcon({ rank, className }: { rank: Rank; className?: string }) {
-  const Icon = RANK_ICONS[rank.icon] ?? GiTurtleShell;
+  const Icon = RANK_ICONS[rank.icon] ?? GiBurningBook;
   return <Icon className={className} />;
 }
 
@@ -119,7 +119,7 @@ export default function DashboardNavbar({
 
   return (
     <TooltipProvider>
-      <nav className="relative z-40 border-b border-border lg:bg-card/50 backdrop-blur-sm">
+      <nav className="relative z-40 border-b border-border/50 lg:bg-card/50 backdrop-blur-sm">
         <DashboardWalkthrough />
         <div className="px-4 h-16 flex items-center justify-between w-full">
           <div className="flex my-auto items-center space-x-4">
@@ -144,8 +144,6 @@ export default function DashboardNavbar({
                     <div
                       className={cn(
                         "relative size-9 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer",
-                        isPro &&
-                          "ring-2 ring-[#10B981] ring-offset-2 ring-offset-background",
                       )}
                     >
                       {userData?.avatarIcon ? (
@@ -155,12 +153,7 @@ export default function DashboardNavbar({
                           className="size-9"
                         />
                       ) : (
-                        <Avatar
-                          className={cn(
-                            "size-9 my-auto border-2 rounded-full",
-                            isPro ? "border-[#10B981]" : "border-primary/20",
-                          )}
-                        >
+                        <Avatar className="size-9 my-auto border border-border/50 rounded-full">
                           <AvatarImage
                             src={user?.photoURL || userData?.photoURL}
                             alt={
@@ -178,6 +171,11 @@ export default function DashboardNavbar({
                           </AvatarFallback>
                         </Avatar>
                       )}
+                      {isPro && (
+                        <span className="absolute -bottom-0.5 right-0.5 rounded bg-emerald-500 px-1 py-px text-[8px] font-bold uppercase leading-none text-white shadow-sm">
+                          Pro
+                        </span>
+                      )}
                     </div>
                   </Link>
                 </TooltipTrigger>
@@ -185,45 +183,52 @@ export default function DashboardNavbar({
                   <p>View Profile</p>
                 </TooltipContent>
               </Tooltip>
-              <div
-                className={cn(
-                  "flex items-center gap-0 rounded-full h-9 border overflow-hidden",
-                  "bg-background/80 backdrop-blur-sm",
-                  isPro ? "border-[#10B981]/40" : rank.badge.border,
+              <div className="flex items-center gap-2">
+                {!isPro && (
+                  <span className="rounded-md bg-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                    Free
+                  </span>
                 )}
-              >
-                <div
-                  className={cn(
-                    "flex items-center gap-1 px-2.5 py-1 text-xs font-bold",
-                    isPro
-                      ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white"
-                      : "bg-muted/60 text-muted-foreground",
-                  )}
-                >
-                  {isPro && <Crown className="size-3" />}
-                  {isPro ? "PRO" : "FREE"}
-                </div>
 
-                {/* Rank + XP — right segment */}
                 {!isMobile && (
-                  <div className="flex items-center gap-1.5 pl-2 pr-3 py-1">
-                    <RankIcon
-                      rank={rank}
-                      className={cn("size-3.5 shrink-0", rank.badge.text)}
-                    />
-                    <span className="text-xs font-semibold text-foreground whitespace-nowrap">
-                      {rank.name} {formatRankLevel(rank.level)}
-                    </span>
-                    <div className="w-16 h-1.5 rounded-full bg-muted/40 overflow-hidden">
-                      <div
-                        className={cn(
-                          "h-full rounded-full bg-gradient-to-r transition-all duration-500",
-                          rank.color.gradient,
-                        )}
-                        style={{ width: `${progressToNextRank}%` }}
-                      />
-                    </div>
-                  </div>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="flex flex-col gap-1 cursor-default">
+                        <div className="flex items-center gap-1.5">
+                          <RankIcon
+                            rank={rank}
+                            className={cn("size-4 shrink-0", rank.badge.text)}
+                          />
+                          <span
+                            className={cn(
+                              "text-xs font-semibold whitespace-nowrap",
+                              rank.badge.text,
+                            )}
+                          >
+                            {rank.name} {formatRankLevel(rank.level)}
+                          </span>
+                        </div>
+                        <div className="w-full h-1 rounded-full bg-muted/40 overflow-hidden">
+                          <div
+                            className={cn(
+                              "h-full rounded-full bg-gradient-to-r transition-all duration-500",
+                              rank.color.gradient,
+                            )}
+                            style={{ width: `${progressToNextRank}%` }}
+                          />
+                        </div>
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent side="bottom" className="text-xs">
+                      <span className="font-semibold">
+                        {totalXP.toLocaleString()} XP
+                      </span>
+                      {" · "}
+                      <span className="text-muted-foreground">
+                        {progressToNextRank}% to next rank
+                      </span>
+                    </TooltipContent>
+                  </Tooltip>
                 )}
               </div>
             </div>
