@@ -34,12 +34,12 @@ export async function POST(request: NextRequest) {
         const allowed = await checkAndIncrementUsage(userId);
         console.log("🔍 Usage check result:", { userId, allowed });
         if (!allowed) {
-          console.log("🚫 User hit daily limit, blocking interview start");
+          console.log("🚫 User hit hourly limit, blocking interview start");
           return NextResponse.json(
             {
               success: false,
               error:
-                "Daily interview limit reached (20/20). Upgrade to Pro for unlimited access.",
+                "Hourly interview limit reached (2/2). Upgrade to Pro for unlimited access.",
               code: "LIMIT_EXCEEDED",
             },
             { status: 403 },

@@ -26,7 +26,7 @@ export async function checkAndIncrementUsage(userId: string): Promise<boolean> {
   // Check if Firebase Admin is properly configured
   if (!process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
     console.warn(
-      "⚠️ FIREBASE_SERVICE_ACCOUNT_KEY is missiong. Usage limits are NOT being enforced on the server.",
+      "⚠️ FIREBASE_SERVICE_ACCOUNT_KEY is missing. Usage limits are NOT being enforced on the server.",
     );
     return true; // Fail open
   }
