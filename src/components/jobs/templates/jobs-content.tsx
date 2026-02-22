@@ -1,32 +1,13 @@
 "use client";
 
-import {
-  ChevronLeft,
-  ChevronRight,
-  ExternalLink,
-  Grid3x3,
-  LayoutGrid,
-  Lightbulb,
-  List,
-  Loader2,
-  MapPin,
-  Search,
-} from "lucide-react";
+import { Building2, DollarSign, MapPin } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { toast } from "sonner";
-import useSWR from "swr";
+import { useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
-import { JobCard } from "@/components/jobs/molecules/job-card";
-import { InterviewPreparationModal } from "@/components/jobs/organisms/interview-preparation-modal";
-import { Badge } from "@/components/ui/badge";
+import type { TechChoice } from "@/components/configure/types/tech-choice";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
@@ -35,960 +16,456 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { SENIORITY_LEVELS } from "@/constants/configure";
-import { useIsMobile } from "@/hooks/use-is-mobile";
-import {
-  buildSearchParamsFromInterviewConfig,
-  type InterviewConfig as DomainInterviewConfig,
-  type InterviewMode,
-  type InterviewType,
-  type SeniorityLevel,
+  COMPANY_PROFILES,
+  INTERVIEW_MODES,
+  POSITIONS,
+  SENIORITY_LEVELS,
+} from "@/constants/configure";
+import type {
+  InterviewConfig as DomainInterviewConfig,
+  InterviewMode,
+  InterviewType,
 } from "@/lib/interview";
-import { cn } from "@/lib/utils";
-import {
-  normalizeCompanyProfileValue,
-  normalizePositionValue,
-} from "@/lib/utils/interview-normalizers";
-import type { Job } from "@/lib/validators";
-import { useAuth } from "@/providers/auth-provider";
+import { buildSearchParamsFromInterviewConfig } from "@/lib/interview";
+import type {
+  CompanyProfileValue,
+  PositionValue,
+  SeniorityValue,
+} from "@/types/global";
 
-interface JobsResponse {
-  results: Job[];
-  page: number;
-  per_page: number;
-  total: number;
-  page_count: number;
-}
-
-interface CitiesResponse {
-  cities: string[];
-  success: boolean;
-}
-
-const ROLE_OPTIONS = [
-  "frontend",
-  "backend",
-  "fullstack",
-  "devops",
-  "mobile",
-  "data-engineer",
-  "data-scientist",
-  "cybersecurity",
-  "product",
-] as const;
-
-type RoleOption = (typeof ROLE_OPTIONS)[number];
-
-const formatJobLevelLabel = (value: string) => {
-  const normalized = value
-    .replace(/^level-/, "")
-    .replace(/-/g, " ")
-    .trim();
-  if (!normalized) return "";
-  return normalized.replace(/\b\w/g, (char: string) => char.toUpperCase());
+const JOBS_TECH_CHOICES: Record<string, TechChoice[]> = {
+  frontend: [
+    { value: "react", label: "React", icon: "react-icon" },
+    { value: "typescript", label: "TypeScript", icon: "typescript-icon" },
+    { value: "javascript", label: "JavaScript", icon: "javascript-icon" },
+    { value: "html5", label: "HTML", icon: "html-icon" },
+    { value: "css", label: "CSS", icon: "css-icon" },
+  ],
+  backend: [
+    { value: "python", label: "Python", icon: "python-icon" },
+    { value: "java", label: "Java", icon: "java-icon" },
+    { value: "go", label: "Go", icon: "go-icon" },
+    { value: "rust", label: "Rust", icon: "rust-icon" },
+  ],
+  fullstack: [
+    { value: "react", label: "React", icon: "react-icon" },
+    { value: "typescript", label: "TypeScript", icon: "typescript-icon" },
+    { value: "python", label: "Python", icon: "python-icon" },
+    { value: "docker", label: "Docker", icon: "docker-icon" },
+  ],
 };
 
-const getValidJobUrl = (...urls: Array<string | null | undefined>) => {
-  for (const candidate of urls) {
-    if (!candidate) continue;
-    const trimmed = candidate.trim();
-    if (!trimmed) continue;
-    if (trimmed.toLowerCase() === "nan") continue;
-    return trimmed;
-  }
-  return null;
-};
+const getTechChoicesForPosition = (position: string): TechChoice[] =>
+  JOBS_TECH_CHOICES[position] ?? [];
 
-function normalizeRole(value: string | null | undefined): RoleOption | null {
-  const trimmed = value?.trim();
-  if (!trimmed) return null;
-  if (ROLE_OPTIONS.includes(trimmed as RoleOption))
-    return trimmed as RoleOption;
-  return null;
+interface JobListing {
+  id: string;
+  title: string;
+  company: string;
+  location: string;
+  isRemote: boolean;
+  jobType: string;
+  datePosted: string;
+  minAmount?: number;
+  maxAmount?: number;
+  currency?: string;
+  companyLogo?: string;
+  description?: string;
 }
 
-function normalizeSeniority(
-  value: string | null | undefined,
-): (typeof SENIORITY_LEVELS)[number]["value"] | null {
-  const trimmed = value?.trim();
-  if (!trimmed) return null;
+const PLACEHOLDER_JOBS: JobListing[] = [
+  {
+    id: "1",
+    title: "Senior Frontend Developer",
+    company: "Google",
+    location: "Mountain View, CA",
+    isRemote: true,
+    jobType: "Full-time",
+    datePosted: "2024-01-15T10:00:00Z",
+    minAmount: 150000,
+    maxAmount: 250000,
+    currency: "USD",
+    companyLogo: "/assets/icons/google/google-original.svg",
+    description:
+      "Join our team to build the next generation of web experiences.",
+  },
+  {
+    id: "2",
+    title: "Full Stack Engineer",
+    company: "Meta",
+    location: "Menlo Park, CA",
+    isRemote: true,
+    jobType: "Full-time",
+    datePosted: "2024-01-14T15:30:00Z",
+    minAmount: 140000,
+    maxAmount: 220000,
+    currency: "USD",
+    companyLogo: "/assets/icons/meta/meta-original.svg",
+    description: "Help us build technologies that connect people.",
+  },
+  {
+    id: "3",
+    title: "Backend Software Engineer",
+    company: "Netflix",
+    location: "Los Gatos, CA",
+    isRemote: false,
+    jobType: "Full-time",
+    datePosted: "2024-01-13T09:15:00Z",
+    minAmount: 130000,
+    maxAmount: 200000,
+    currency: "USD",
+    companyLogo: "/assets/icons/netflix/netflix-original.svg",
+    description: "Scale our streaming platform to millions of users worldwide.",
+  },
+  {
+    id: "4",
+    title: "Mobile Developer",
+    company: "Apple",
+    location: "Cupertino, CA",
+    isRemote: true,
+    jobType: "Full-time",
+    datePosted: "2024-01-12T14:20:00Z",
+    minAmount: 120000,
+    maxAmount: 180000,
+    currency: "USD",
+    companyLogo: "/assets/icons/apple/apple-original.svg",
+    description: "Create innovative mobile experiences for billions of users.",
+  },
+];
 
-  const lower = trimmed.toLowerCase();
-  if (SENIORITY_LEVELS.some((lvl) => lvl.value === lower)) {
-    return lower as (typeof SENIORITY_LEVELS)[number]["value"];
-  }
-
-  switch (trimmed) {
-    case "Entry level":
-      return "entry";
-    case "Junior":
-      return "junior";
-    case "Middle":
-      return "mid";
-    case "Senior":
-      return "senior";
-    default:
-      return null;
-  }
-}
-
-function getRoleLabel(role: RoleOption) {
-  switch (role) {
-    case "frontend":
-      return "Frontend";
-    case "backend":
-      return "Backend";
-    case "fullstack":
-      return "Full Stack";
-    case "devops":
-      return "DevOps";
-    case "mobile":
-      return "Mobile";
-    case "data-engineer":
-      return "Data Engineer";
-    case "data-scientist":
-      return "Data Scientist";
-    case "cybersecurity":
-      return "Cybersecurity";
-    case "product":
-      return "Product Manager";
-    default: {
-      const _never: never = role;
-      throw new Error(`Unhandled role: ${_never}`);
-    }
-  }
-}
-
-// SWR fetcher function
-const fetcher = async (url: string): Promise<JobsResponse> => {
-  const res = await fetch(url);
-  const data: unknown = await res.json();
-
-  if (!res.ok) {
-    throw new Error(`Jobs API error: ${res.status}`);
-  }
-
-  if (!data || typeof data !== "object") {
-    throw new Error("Jobs API error: invalid response");
-  }
-
-  if ("success" in data && data.success === false) {
-    const message =
-      "error" in data && typeof data.error === "string"
-        ? data.error
-        : "Jobs API error";
-    throw new Error(message);
-  }
-
-  return data as JobsResponse;
+const CURRENCY_SYMBOLS: Record<string, string> = {
+  USD: "$",
+  EUR: "€",
+  GBP: "£",
 };
 
-const citiesFetcher = async (url: string): Promise<CitiesResponse> => {
-  const res = await fetch(url);
-  const data: unknown = await res.json();
-
-  if (!res.ok) {
-    throw new Error(`Jobs Cities API error: ${res.status}`);
-  }
-
-  if (!data || typeof data !== "object") {
-    throw new Error("Jobs Cities API error: invalid response");
-  }
-
-  if ("success" in data && data.success === false) {
-    throw new Error("Jobs Cities API error");
-  }
-
-  return data as CitiesResponse;
+const formatSalary = (min?: number, max?: number, currency = "USD") => {
+  if (!min && !max) return null;
+  const symbol = CURRENCY_SYMBOLS[currency] ?? currency;
+  if (min && max)
+    return `${symbol}${(min / 1000).toFixed(0)}k - ${symbol}${(max / 1000).toFixed(0)}k`;
+  if (min) return `${symbol}${(min / 1000).toFixed(0)}k+`;
+  return `${symbol}0 - ${symbol}${(max! / 1000).toFixed(0)}k`;
 };
+
+const MS_PER_DAY = 86_400_000;
+
+const formatDatePosted = (dateString: string) => {
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffDays = Math.floor((now.getTime() - date.getTime()) / MS_PER_DAY);
+
+  if (diffDays === 0) return "Today";
+  if (diffDays === 1) return "Yesterday";
+  if (diffDays < 7) return `${diffDays} days ago`;
+  if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+  return `${Math.floor(diffDays / 30)} months ago`;
+};
+
+const DEFAULT_POSITION: PositionValue = "frontend";
+const DEFAULT_SENIORITY: SeniorityValue = "mid";
+const DEFAULT_TECHNOLOGIES = ["react", "typescript"];
+const DEFAULT_INTERVIEW_MODE: InterviewMode = "practice";
+const DEFAULT_INTERVIEW_TYPE: InterviewType = "mixed";
+const DEFAULT_COMPANY_PROFILE: CompanyProfileValue = "generic";
 
 export function JobsContent() {
   const router = useRouter();
-  const { userData } = useAuth();
-
-  const { isMobile, isLoading: isMobileLoading } = useIsMobile();
-  const [desktopViewLayout, setDesktopViewLayout] = useState<
-    "grid" | "list" | "compact"
-  >("grid");
-  const viewLayout = isMobile ? ("grid" as const) : desktopViewLayout;
-
-  // Basic filters
-  const [searchQuery, setSearchQuery] = useState("");
-  const [location, setLocation] = useState("");
-  const [role, setRole] = useState("role-all");
-  const [jobLevel, setJobLevel] = useState("level-all");
-  const [remoteOnly, setRemoteOnly] = useState(false);
-
-  const [hasInitializedFilters, setHasInitializedFilters] = useState(false);
-
-  const [isLocationOpen, setIsLocationOpen] = useState(false);
-  const [locationSearch, setLocationSearch] = useState("");
-
-  // Interview modal state
-  const [isInterviewModalOpen, setIsInterviewModalOpen] = useState(false);
-  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
-
-  // Random sorting state
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
-
-  // Function to randomly shuffle array
-  const shuffleArray = <T,>(array: T[]): T[] => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-  };
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(12);
-
-  useEffect(() => {
-    if (isMobileLoading) return;
-    if (!isMobile) return;
-    setDesktopViewLayout((prev) => (prev === "grid" ? prev : "grid"));
-  }, [isMobile, isMobileLoading]);
-
-  const { data: citiesData } = useSWR<CitiesResponse>(
-    "/api/jobs/cities?limit=500",
-    citiesFetcher,
-    {
-      revalidateOnFocus: false,
-    },
+  const [selectedPosition, setSelectedPosition] = useState("");
+  const [selectedSeniority, setSelectedSeniority] = useState("");
+  const [selectedCompany, setSelectedCompany] = useState("");
+  const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>(
+    [],
+  );
+  const [selectedInterviewMode, setSelectedInterviewMode] = useState<string>(
+    DEFAULT_INTERVIEW_MODE,
+  );
+  const [selectedCompanyProfile, setSelectedCompanyProfile] = useState<string>(
+    DEFAULT_COMPANY_PROFILE,
   );
 
-  const cities = citiesData?.cities ?? [];
+  const techChoicesForPosition = selectedPosition
+    ? getTechChoicesForPosition(selectedPosition)
+    : [];
 
-  const filteredCities = cities.filter((city) => {
-    if (!locationSearch.trim()) return true;
-    return city.toLowerCase().includes(locationSearch.trim().toLowerCase());
+  const handleInterviewWithAI = (job: JobListing) => {
+    const config: DomainInterviewConfig = {
+      position: (selectedPosition || DEFAULT_POSITION) as PositionValue,
+      seniority: (selectedSeniority || DEFAULT_SENIORITY) as SeniorityValue,
+      technologies:
+        selectedTechnologies.length > 0
+          ? selectedTechnologies
+          : DEFAULT_TECHNOLOGIES,
+      companyProfile: selectedCompanyProfile as CompanyProfileValue,
+      specificCompany: job.company,
+      interviewMode: selectedInterviewMode as InterviewMode,
+      interviewType: DEFAULT_INTERVIEW_TYPE,
+      duration: "30",
+      company: job.company,
+      jobDescription: job.description || "",
+      contextType: "job-specific",
+      isDemoMode: false,
+    };
+
+    const searchParams = buildSearchParamsFromInterviewConfig(config);
+    router.push(`/interview?${searchParams.toString()}`);
+  };
+
+  const filteredJobs = PLACEHOLDER_JOBS.filter((job) => {
+    if (selectedCompany && job.company !== selectedCompany) return false;
+    if (
+      selectedPosition &&
+      !job.title.toLowerCase().includes(selectedPosition.toLowerCase())
+    )
+      return false;
+    return true;
   });
 
-  const formattedJobLevelLabel =
-    jobLevel === "level-all" ? "" : formatJobLevelLabel(jobLevel);
-
-  // Build query string
-  const buildQueryParams = () => {
-    const params = new URLSearchParams({
-      page: currentPage.toString(),
-      per_page: perPage.toString(),
-    });
-
-    if (searchQuery) params.append("query", searchQuery);
-    if (location) params.append("location", location);
-    if (role !== "role-all") params.append("role", role.replace("role-", ""));
-    if (jobLevel !== "level-all")
-      params.append("level", jobLevel.replace("level-", ""));
-    if (remoteOnly) params.append("remote", "true");
-
-    return params.toString();
-  };
-
-  const { data, error, isLoading, mutate } = useSWR<JobsResponse>(
-    `/api/jobs?${buildQueryParams()}`,
-    fetcher,
-    {
-      revalidateOnFocus: false,
-      onError: (err) => {
-        console.error("Error fetching jobs:", err);
-        toast.error("Failed to load jobs. Please try again.");
-      },
-    },
-  );
-
-  const results = data?.results ?? [];
-  const pageCount = data?.page_count ?? 0;
-
-  useEffect(() => {
-    if (hasInitializedFilters) return;
-    if (typeof window === "undefined") return;
-    if (!userData) return;
-
-    const params = new URLSearchParams(window.location.search);
-
-    const query = params.get("query");
-    const nextQuery = query?.trim() ? query.trim() : null;
-    if (nextQuery) setSearchQuery(nextQuery);
-
-    const nextLocation = params.get("location")?.trim();
-    if (nextLocation) {
-      setLocation(nextLocation);
-    } else if (userData.preferences?.preferredLocation?.trim()) {
-      setLocation(userData.preferences.preferredLocation.trim());
-    }
-
-    const nextRoleFromUrl = normalizeRole(params.get("role"));
-    const nextRoleFromProfile = normalizeRole(userData.role);
-    const nextRole = nextRoleFromUrl ?? nextRoleFromProfile;
-    if (nextRole) setRole(`role-${nextRole}`);
-
-    const nextSeniorityFromUrl = normalizeSeniority(params.get("level"));
-    const nextSeniorityFromProfile = normalizeSeniority(userData.experience);
-    const nextSeniority = nextSeniorityFromUrl ?? nextSeniorityFromProfile;
-    if (nextSeniority) setJobLevel(`level-${nextSeniority}`);
-
-    const remoteParam = params.get("remote");
-    if (remoteParam === "true") {
-      setRemoteOnly(true);
-    } else {
-      const workTypes = userData.preferences?.preferredWorkTypes ?? [];
-      const prefersRemote = workTypes.some((value) =>
-        value.toLowerCase().includes("remote"),
-      );
-      if (prefersRemote) setRemoteOnly(true);
-    }
-
-    setHasInitializedFilters(true);
-  }, [hasInitializedFilters, userData]);
-
-  // Reset to page 1 when filters change and mark as no longer first load
-  useEffect(() => {
-    setCurrentPage(1);
-    // If any filter changes, it's no longer the first load
-    if (
-      searchQuery ||
-      location ||
-      role !== "role-all" ||
-      jobLevel !== "level-all" ||
-      remoteOnly
-    ) {
-      setIsFirstLoad(false);
-    }
-  }, [searchQuery, location, role, jobLevel, remoteOnly]);
-
-  const clearFilters = () => {
-    setSearchQuery("");
-    setLocation("");
-    setRole("role-all");
-    setJobLevel("level-all");
-    setRemoteOnly(false);
-    setCurrentPage(1);
-    setIsFirstLoad(true); // Reset to first load state for new random sorting
-  };
-
-  const handlePrepareJob = (job: Job) => {
-    setSelectedJob(job);
-    setIsInterviewModalOpen(true);
-  };
-
-  const handleConfirmInterview = () => {
-    if (!selectedJob) return;
-
-    try {
-      const position = normalizePositionValue(selectedJob.title);
-      const seniority: SeniorityLevel =
-        (selectedJob.seniorityLevel?.toLowerCase() ||
-          selectedJob.level?.toLowerCase() ||
-          "mid") as SeniorityLevel;
-      const companyProfile = normalizeCompanyProfileValue(
-        selectedJob.companyProfile,
-      );
-      const interviewMode: InterviewMode = "regular";
-      const interviewType: InterviewType = "technical";
-
-      const domainConfig: DomainInterviewConfig = {
-        position,
-        seniority,
-        technologies: [],
-        companyProfile,
-        specificCompany: undefined,
-        interviewMode,
-        interviewType,
-        duration: "30",
-        isDemoMode: false,
-        contextType: "job-specific",
-        jobId: selectedJob.id,
-        company: selectedJob.company,
-        jobDescription: selectedJob.description || "",
-        jobRequirements: selectedJob.tags?.join(", ") || "",
-        jobLocation: selectedJob.location || "",
-        jobType: selectedJob.type || "",
-      };
-
-      const interviewParams =
-        buildSearchParamsFromInterviewConfig(domainConfig);
-      router.push(`/interview?${interviewParams.toString()}`);
-      toast.success("Starting AI interview...");
-    } catch (error) {
-      console.error("Error starting interview:", error);
-      toast.error("Failed to start interview");
-    } finally {
-      setIsInterviewModalOpen(false);
-      setSelectedJob(null);
-    }
-  };
-
-  const handleCloseModal = () => {
-    setIsInterviewModalOpen(false);
-    setSelectedJob(null);
-  };
-
-  const handleViewDetails = (job: Job) => {
-    console.info("Viewing job details:", job.id);
-  };
-
   return (
-    <main className="flex-1 overflow-y-auto bg-background">
-      {/* Filters */}
-      <section className="border-b bg-gradient-to-b from-muted/50 to-background/50 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-6">
-          <div className="rounded-2xl border bg-card/50 backdrop-blur-sm p-4 shadow-sm md:p-5">
-            <div className="grid gap-3 lg:grid-cols-[1fr_260px]">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search jobs (title, company, description)"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="h-11 pl-10 bg-background/80 border-border/60 shadow-xs focus-visible:shadow-sm"
-                />
+    <div className="flex-1 p-6 max-w-7xl mx-auto">
+      <div className="space-y-6">
+        <div className="text-center space-y-4">
+          <Typography.Heading1>Job Opportunities</Typography.Heading1>
+          <Typography.Body color="secondary" className="max-w-3xl mx-auto">
+            Explore real job openings from top tech companies and practice with
+            AI interviews tailored to each position.
+          </Typography.Body>
+        </div>
+
+        <Card>
+          <CardContent className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="space-y-2">
+                <Typography.BodyBold>Position</Typography.BodyBold>
+                <Select
+                  value={selectedPosition}
+                  onValueChange={setSelectedPosition}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select position" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {POSITIONS.map((position) => (
+                      <SelectItem key={position.value} value={position.value}>
+                        {position.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
-              <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-                <Popover open={isLocationOpen} onOpenChange={setIsLocationOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
+              <div className="space-y-2">
+                <Typography.BodyBold>Seniority</Typography.BodyBold>
+                <Select
+                  value={selectedSeniority}
+                  onValueChange={setSelectedSeniority}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select seniority" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {SENIORITY_LEVELS.map((level) => (
+                      <SelectItem key={level.value} value={level.value}>
+                        {level.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Typography.BodyBold>Company</Typography.BodyBold>
+                <Select
+                  value={selectedCompany}
+                  onValueChange={setSelectedCompany}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select company" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="">All Companies</SelectItem>
+                    {Array.from(
+                      new Set(PLACEHOLDER_JOBS.map((job) => job.company)),
+                    ).map((company) => (
+                      <SelectItem key={company} value={company}>
+                        {company}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Typography.BodyBold>Interview Mode</Typography.BodyBold>
+                <Select
+                  value={selectedInterviewMode}
+                  onValueChange={setSelectedInterviewMode}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select mode" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {INTERVIEW_MODES.map((mode) => (
+                      <SelectItem key={mode.value} value={mode.value}>
+                        {mode.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            {selectedPosition && techChoicesForPosition.length > 0 && (
+              <div className="mt-6 space-y-3">
+                <Typography.BodyBold>Technologies</Typography.BodyBold>
+                <div className="flex flex-wrap gap-2">
+                  {techChoicesForPosition.map((tech) => (
+                    <button
+                      key={tech.value}
                       type="button"
-                      variant="outline"
-                      className={cn(
-                        "h-11 pl-10 w-full justify-start bg-background/80 border-border/60 shadow-xs focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                        !location && "text-muted-foreground",
-                      )}
-                      aria-label="Filter by location"
+                      tabIndex={0}
+                      className={`cursor-pointer px-3 py-1 rounded-md border ${
+                        selectedTechnologies.includes(tech.value)
+                          ? "bg-primary text-primary-foreground border-primary"
+                          : "border-border bg-background hover:bg-accent"
+                      }`}
+                      onClick={() => {
+                        setSelectedTechnologies((prev) =>
+                          prev.includes(tech.value)
+                            ? prev.filter((t) => t !== tech.value)
+                            : [...prev, tech.value],
+                        );
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          setSelectedTechnologies((prev) =>
+                            prev.includes(tech.value)
+                              ? prev.filter((t) => t !== tech.value)
+                              : [...prev, tech.value],
+                          );
+                        }
+                      }}
                     >
-                      <span className="truncate">{location || "Location"}</span>
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent
-                    align="start"
-                    className="w-[--radix-popover-trigger-width] max-w-[320px] p-2"
-                  >
-                    <Input
-                      value={locationSearch}
-                      onChange={(e) => setLocationSearch(e.target.value)}
-                      placeholder="Search locations..."
-                      className="h-9 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                    />
-
-                    <div className="mt-2 max-h-[260px] overflow-auto">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setLocation("");
-                          setIsLocationOpen(false);
-                        }}
-                        className={cn(
-                          "w-full !text-white !text-left rounded-md px-2 mb-2 py-2 text-sm hover:!bg-primary",
-                          !location && "!bg-primary font-medium",
-                        )}
-                      >
-                        All
-                      </button>
-
-                      {filteredCities.length === 0 ? (
-                        <div className="px-2 py-3 text-sm text-muted-foreground">
-                          No matches
-                        </div>
-                      ) : (
-                        filteredCities.map((city) => (
-                          <button
-                            key={city}
-                            type="button"
-                            onClick={() => {
-                              setLocation(city);
-                              setIsLocationOpen(false);
-                            }}
-                            className={cn(
-                              "w-full !text-left rounded-md px-2 py-2 mb-[2px] text-sm hover:!bg-primary hover:!text-white",
-                              location === city && "bg-accent font-medium",
-                            )}
-                          >
-                            {city}
-                          </button>
-                        ))
-                      )}
-                    </div>
-                  </PopoverContent>
-                </Popover>
-              </div>
-            </div>
-
-            <div className="mt-3 flex flex-wrap items-center gap-2">
-              <Select onValueChange={setRole} value={role}>
-                <SelectTrigger className="h-10 w-[180px] bg-background/80 border-border/60 shadow-xs focus:ring-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background">
-                  <SelectValue placeholder="Role" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem
-                    value="role-all"
-                    className="w-full text-left rounded-md px-2 py-2 mb-[2px] text-sm data-[highlighted]:bg-primary data-[highlighted]:text-primary-foreground data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
-                  >
-                    All roles
-                  </SelectItem>
-                  {ROLE_OPTIONS.map((opt) => (
-                    <SelectItem
-                      key={`role-${opt}`}
-                      value={`role-${opt}`}
-                      className="w-full text-left rounded-md px-2 py-2 mb-[2px] text-sm data-[highlighted]:bg-primary data-[highlighted]:text-primary-foreground data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
-                    >
-                      {getRoleLabel(opt)}
-                    </SelectItem>
+                      {tech.label}
+                    </button>
                   ))}
-                </SelectContent>
-              </Select>
-
-              <Select onValueChange={setJobLevel} value={jobLevel}>
-                <SelectTrigger className="h-10 w-[180px] bg-background/80 border-border/60 shadow-xs focus:ring-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background">
-                  <SelectValue placeholder="Experience" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem
-                    value="level-all"
-                    className="w-full text-left rounded-md px-2 py-2 mb-[2px] text-sm data-[highlighted]:bg-primary data-[highlighted]:text-primary-foreground data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
-                  >
-                    All
-                  </SelectItem>
-                  {SENIORITY_LEVELS.map((lvl) => (
-                    <SelectItem
-                      key={`level-${lvl.value}`}
-                      value={`level-${lvl.value}`}
-                      className="w-full text-left rounded-md px-2 py-2 mb-[2px] text-sm data-[highlighted]:bg-primary data-[highlighted]:text-primary-foreground data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
-                    >
-                      {lvl.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
-              <Button
-                type="button"
-                variant="outline"
-                size="lg"
-                aria-pressed={remoteOnly}
-                onClick={() => setRemoteOnly((prev) => !prev)}
-                className={cn(remoteOnly && "border-primary/40 bg-primary/10")}
-              >
-                Remote Only
-              </Button>
-
-              <div className="flex-1" />
-
-              {(searchQuery ||
-                location ||
-                jobLevel !== "level-all" ||
-                remoteOnly) && (
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="sm"
-                  onClick={clearFilters}
-                  className="h-10 text-destructive hover:text-destructive hover:bg-destructive/10"
-                >
-                  Clear
-                </Button>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="container mx-auto px-6 py-8">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-          <div className="flex items-center gap-2">
-            {typeof data?.total === "number" ? (
-              <Badge variant="secondary" className="py-2">
-                {data.total.toLocaleString("fr-FR")} positions
-              </Badge>
-            ) : null}
-            {searchQuery ||
-            location ||
-            jobLevel !== "level-all" ||
-            remoteOnly ? (
-              <>
-                {location ? (
-                  <Badge
-                    variant="secondary"
-                    className="bg-purple-200 dark:text-black py-2"
-                  >
-                    {location}
-                  </Badge>
-                ) : null}
-                {remoteOnly ? (
-                  <Badge
-                    variant="secondary"
-                    className="bg-emerald-200 dark:text-black py-2"
-                  >
-                    Remote Only
-                  </Badge>
-                ) : null}
-              </>
-            ) : null}
-            {jobLevel !== "level-all" ? (
-              <Badge
-                variant="secondary"
-                className="bg-gray-200 dark:text-black py-2"
-              >
-                {formattedJobLevelLabel}
-              </Badge>
-            ) : null}
-          </div>
-
-          <div className="flex items-center gap-4 flex-wrap">
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Show:</span>
-              <Select
-                onValueChange={(val) => setPerPage(Number(val))}
-                value={perPage.toString()}
-              >
-                <SelectTrigger className="w-[80px]">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="12">12</SelectItem>
-                  <SelectItem value="24">24</SelectItem>
-                  <SelectItem value="48">48</SelectItem>
-                  <SelectItem value="96">96</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            {isMobileLoading || isMobile ? null : (
-              <div className="flex items-center gap-1 border rounded-md p-1">
-                <Button
-                  variant={viewLayout === "grid" ? "secondary" : "ghost"}
-                  size="sm"
-                  onClick={() => setDesktopViewLayout("grid")}
-                  className="h-8 px-2"
-                >
-                  <LayoutGrid className="size-4" />
-                </Button>
-                <Button
-                  variant={viewLayout === "compact" ? "secondary" : "ghost"}
-                  size="sm"
-                  onClick={() => setDesktopViewLayout("compact")}
-                  className="h-8 px-2"
-                >
-                  <Grid3x3 className="size-4" />
-                </Button>
-                <Button
-                  variant={viewLayout === "list" ? "secondary" : "ghost"}
-                  size="sm"
-                  onClick={() => setDesktopViewLayout("list")}
-                  className="h-8 px-2"
-                >
-                  <List className="size-4" />
-                </Button>
-              </div>
-            )}
-
-            {isLoading && (
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <Loader2 className="size-4 animate-spin" />
-                <span>Loading...</span>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {!error && !isLoading && results.length === 0 && (
-          <div className="text-center py-12">
-            <Typography.Body className="text-muted-foreground text-lg">
-              No jobs found matching your criteria.
-            </Typography.Body>
-            <Button
-              onClick={clearFilters}
-              className="mt-4 bg-transparent"
-              variant="outline"
-            >
-              Clear Filters
-            </Button>
-          </div>
-        )}
-
-        {isLoading ? (
-          <div
-            className={`grid gap-6 mb-8 ${
-              viewLayout === "grid"
-                ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-                : viewLayout === "compact"
-                  ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-                  : "grid-cols-1"
-            }`}
-          >
-            {Array.from(
-              { length: 6 },
-              (_, index) => `skeleton-${Date.now()}-${index}`,
-            ).map((skeletonId) => (
-              <div
-                key={skeletonId}
-                className="border rounded-lg overflow-hidden"
-              >
-                <div className="p-4 space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="h-12 w-12 rounded-lg bg-muted animate-pulse" />
-                    <div className="flex-1 space-y-2">
-                      <div className="h-4 w-3/4 bg-muted rounded animate-pulse" />
-                      <div className="h-3 w-1/2 bg-muted rounded animate-pulse" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-4 w-full bg-muted rounded animate-pulse" />
-                    <div className="h-4 w-5/6 bg-muted rounded animate-pulse" />
-                    <div className="h-4 w-4/6 bg-muted rounded animate-pulse" />
-                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        ) : error ? (
-          <div className="text-center py-12">
-            <p className="text-destructive mb-4">
-              Failed to load jobs. Please try again.
-            </p>
-            <Button onClick={() => mutate()}>Retry</Button>
-          </div>
-        ) : results.length > 0 ? (
-          <>
-            {viewLayout === "list" ? (
-              <div className="mb-8 border rounded-lg overflow-hidden">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Job Title</TableHead>
-                      <TableHead>Company</TableHead>
-                      <TableHead>Info</TableHead>
-                      <TableHead>Location</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {(isFirstLoad ? shuffleArray(results) : results).map(
-                      (job) => (
-                        <TableRow
-                          key={`job-${job.id}`}
-                          className="cursor-pointer hover:bg-muted/50"
-                          onClick={() => handleViewDetails(job)}
-                        >
-                          <TableCell>
-                            <div className="space-y-1">
-                              <TooltipProvider>
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <Typography.Body className="hover:text-primary transition-colors line-clamp-1">
-                                      {job.title}
-                                    </Typography.Body>
-                                  </TooltipTrigger>
-                                  <TooltipContent>{job.title}</TooltipContent>
-                                </Tooltip>
-                              </TooltipProvider>
-                              <div className="flex flex-wrap gap-1">
-                                {job.seniorityLevel && (
-                                  <Badge variant="outline" className="text-xs">
-                                    {job.seniorityLevel
-                                      .trim()
-                                      .replace(/\b\w/g, (char) =>
-                                        char.toUpperCase(),
-                                      )}
-                                  </Badge>
-                                )}
-                                {job.remote && (
-                                  <Badge
-                                    variant="secondary"
-                                    className="text-xs"
-                                  >
-                                    Remote
-                                  </Badge>
-                                )}
-                              </div>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <div className="font-medium line-clamp-1">
-                                    {job.company}
-                                  </div>
-                                </TooltipTrigger>
-                                <TooltipContent>{job.company}</TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </TableCell>
-                          <TableCell>
-                            <div className="flex items-center gap-2">
-                              {job.remote ? (
-                                <div className="flex items-center gap-1 text-xs">
-                                  <span className="text-green-600 dark:text-green-400 font-medium">
-                                    Remote
-                                  </span>
-                                </div>
-                              ) : (
-                                <div className="flex items-center gap-1 text-xs">
-                                  <span className="text-gray-600 dark:text-gray-300 font-medium">
-                                    On-site
-                                  </span>
-                                </div>
-                              )}
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            {(job.cityNormalized ?? job.location) && (
-                              <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                                <MapPin className="size-3" />
-                                <span>
-                                  {job.cityNormalized ?? job.location}
-                                </span>
-                              </div>
-                            )}
-                          </TableCell>
-                          <TableCell className="text-right">
-                            {(() => {
-                              const applyUrl = getValidJobUrl(
-                                job.jobUrlDirect,
-                                job.jobUrl,
-                              );
+            )}
 
-                              return (
-                                <div className="flex items-center justify-end gap-2">
-                                  <Button
-                                    variant="outline"
-                                    size="sm"
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      handlePrepareJob(job);
-                                    }}
-                                    className="hover:bg-primary/10 hover:border-primary hover:text-[color:var(--foreground)] relative overflow-hidden group/btn"
-                                  >
-                                    <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                                    <Lightbulb className="mr-1 size-3 relative z-10" />
-                                    <span className="relative z-10 whitespace-nowrap">
-                                      Interview with AI
-                                    </span>
-                                  </Button>
-                                  <Button
-                                    size="sm"
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      if (!applyUrl) return;
-                                      window.open(
-                                        applyUrl,
-                                        "_blank",
-                                        "noopener,noreferrer",
-                                      );
-                                    }}
-                                    disabled={!applyUrl}
-                                  >
-                                    <ExternalLink className="mr-1 size-3" />
-                                    Apply
-                                  </Button>
-                                </div>
-                              );
-                            })()}
-                          </TableCell>
-                        </TableRow>
-                      ),
-                    )}
-                  </TableBody>
-                </Table>
-              </div>
-            ) : (
-              <div
-                className={`grid gap-6 mb-8 ${
-                  viewLayout === "grid"
-                    ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-                    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-                }`}
-              >
-                {(isFirstLoad ? shuffleArray(results) : results).map((job) => (
-                  <JobCard
-                    key={`job-${job.id}`}
-                    job={job}
-                    onViewDetails={handleViewDetails}
-                    onPrepare={handlePrepareJob}
-                    layout={viewLayout}
-                  />
+            <div className="mt-6 space-y-3">
+              <Typography.BodyBold>Company Profile</Typography.BodyBold>
+              <div className="flex flex-wrap gap-2">
+                {COMPANY_PROFILES.map((profile) => (
+                  <button
+                    key={profile.value}
+                    type="button"
+                    tabIndex={0}
+                    className={`cursor-pointer px-3 py-1 rounded-md border ${
+                      selectedCompanyProfile === profile.value
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "border-border bg-background hover:bg-accent"
+                    }`}
+                    onClick={() => setSelectedCompanyProfile(profile.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setSelectedCompanyProfile(profile.value);
+                      }
+                    }}
+                  >
+                    {profile.label}
+                  </button>
                 ))}
               </div>
-            )}
+            </div>
+          </CardContent>
+        </Card>
 
-            {/* Pagination */}
-            {pageCount > 1 && (
-              <div className="flex items-center justify-center gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                  disabled={currentPage === 1 || isLoading}
-                >
-                  <ChevronLeft className="size-4" />
-                  Previous
-                </Button>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredJobs.map((job) => (
+            <Card key={job.id} className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    {job.companyLogo ? (
+                      <Image
+                        src={job.companyLogo}
+                        alt={`${job.company} logo`}
+                        width={40}
+                        height={40}
+                        className="rounded"
+                      />
+                    ) : (
+                      <Building2 className="h-10 w-10 text-muted-foreground" />
+                    )}
+                    <div>
+                      <Typography.BodyBold>{job.company}</Typography.BodyBold>
+                      <Typography.Caption color="secondary">
+                        {formatDatePosted(job.datePosted)}
+                      </Typography.Caption>
+                    </div>
+                  </div>
+                  <span className="px-2 py-1 text-xs border rounded-md border-border">
+                    {job.jobType}
+                  </span>
+                </div>
 
-                <div className="flex items-center gap-2">
-                  {Array.from({ length: Math.min(5, pageCount) }, (_, i) => {
-                    let pageNum: number;
+                <div className="space-y-2">
+                  <Typography.Heading3>{job.title}</Typography.Heading3>
 
-                    if (pageCount <= 5) pageNum = i + 1;
-                    else if (currentPage <= 3) pageNum = i + 1;
-                    else if (currentPage >= pageCount - 2)
-                      pageNum = pageCount - 4 + i;
-                    else pageNum = currentPage - 2 + i;
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <MapPin className="h-4 w-4" />
+                      <span>{job.location}</span>
+                      {job.isRemote && (
+                        <span className="px-2 py-1 text-xs border rounded-md border-secondary bg-secondary text-secondary-foreground">
+                          Remote
+                        </span>
+                      )}
+                    </div>
+                  </div>
 
-                    return (
-                      <Button
-                        key={`page-${pageNum}`}
-                        variant={
-                          currentPage === pageNum ? "default" : "outline"
-                        }
-                        size="sm"
-                        onClick={() => setCurrentPage(pageNum)}
-                        disabled={isLoading}
-                      >
-                        {pageNum}
-                      </Button>
-                    );
-                  })}
+                  {job.description && (
+                    <Typography.Caption className="line-clamp-2">
+                      {job.description}
+                    </Typography.Caption>
+                  )}
+
+                  {formatSalary(job.minAmount, job.maxAmount, job.currency) && (
+                    <div className="flex items-center gap-1">
+                      <DollarSign className="h-4 w-4" />
+                      <Typography.BodyBold>
+                        {formatSalary(
+                          job.minAmount,
+                          job.maxAmount,
+                          job.currency,
+                        )}
+                      </Typography.BodyBold>
+                    </div>
+                  )}
                 </div>
 
                 <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() =>
-                    setCurrentPage((p) => Math.min(pageCount, p + 1))
-                  }
-                  disabled={currentPage === pageCount || isLoading}
+                  className="w-full"
+                  onClick={() => handleInterviewWithAI(job)}
                 >
-                  Next
-                  <ChevronRight className="size-4" />
+                  Interview with AI
                 </Button>
-              </div>
-            )}
-          </>
-        ) : null}
-      </section>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
-      {selectedJob && (
-        <InterviewPreparationModal
-          isOpen={isInterviewModalOpen}
-          onClose={handleCloseModal}
-          onConfirm={handleConfirmInterview}
-          job={selectedJob}
-        />
-      )}
-    </main>
+        {filteredJobs.length === 0 && (
+          <div className="text-center py-12">
+            <Typography.Body color="secondary">
+              No jobs found matching your criteria. Try adjusting your filters.
+            </Typography.Body>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

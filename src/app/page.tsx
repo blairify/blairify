@@ -3,10 +3,8 @@ import Footer from "@/components/common/organisms/footer";
 import { DashboardPromo } from "@/components/landing-page/organisms/dashboard-promo";
 import FeaturesGrid from "@/components/landing-page/organisms/features-grid";
 import HeroSection from "@/components/landing-page/organisms/hero-section";
-import { JobListingsPromo } from "@/components/landing-page/organisms/job-listings-promo";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 import { NewsletterSignup } from "@/components/landing-page/organisms/newsletter-signup";
-import { getFeaturedJobs } from "@/lib/services/landing-page-data";
 
 export const metadata: Metadata = {
   title: "Blairify - AI-Powered Career Acceleration Platform ",
@@ -77,7 +75,6 @@ export const metadata: Metadata = {
   },
   category: "Business",
   other: {
-    "fb:app_id": "your-facebook-app-id", // TODO replace
     "og:image:secure_url": "https://blairify.com/og-image.png",
   },
 };
@@ -171,30 +168,24 @@ const jsonLd = {
   ],
 };
 
+const SCROLL_THRESHOLD = 150;
+
 export default async function HomePage() {
-  const scrollThreshold = 150;
-
-  const [featuredJobs] = await Promise.all([getFeaturedJobs(4)]);
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <script src="https://t.contentsquare.net/uxa/b4b60ede51676.js"></script>
-      <div className="flex-1">
-        <div className="min-h-screen bg-transparent relative z-10">
-          <Navbar scrollThreshold={scrollThreshold} />
+      <div className="relative min-h-screen bg-background">
+        <Navbar scrollThreshold={SCROLL_THRESHOLD} />
+        <div className="relative">
           <main
-            id="main-content"
-            className="bg-[color:var(--background)] text-[color:var(--foreground)]"
+            className="flex-1"
             aria-label="Main content"
             data-analytics-id="home-main"
           >
             <HeroSection />
-            <div className="h-px w-full bg-border/10" aria-hidden="true" />
-            <JobListingsPromo jobs={featuredJobs} />
             <div className="h-px w-full bg-border/10" aria-hidden="true" />
             <DashboardPromo />
             <div className="h-px w-full bg-border/10" aria-hidden="true" />

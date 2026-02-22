@@ -37,6 +37,8 @@ interface DashboardSidebarProps {
   userAdmin?: boolean;
 }
 
+const isActivePath = (pathname: string, path: string) => pathname === path;
+
 export default function DashboardSidebar({
   sidebarOpen,
   setSidebarOpen,
@@ -67,9 +69,7 @@ export default function DashboardSidebar({
     isLoading: usageLoading,
   } = useUsageStatus();
 
-  const isActive = (path: string) => {
-    return pathname === path;
-  };
+  const isActive = (path: string) => isActivePath(pathname, path);
 
   return (
     <>
@@ -192,7 +192,7 @@ export default function DashboardSidebar({
                 href="/settings?tab=subscription"
                 title="Upgrade to Pro"
                 aria-label="Upgrade to Pro"
-                className={`relative group flex items-center px-3 py-1.5.5 rounded-lg transition-all duration-300 w-full overflow-hidden ${
+                className={`relative group flex items-center px-3 py-1.5 rounded-lg transition-all duration-300 w-full overflow-hidden ${
                   collapsed ? "justify-center max-w-10 mx-auto" : "space-x-2"
                 } "bg-[#10B981]/5 hover:bg-[#10B981]/10 border border-[#10B981]/30 hover:border-[#10B981]/60 text-[#10B981] shadow-sm"
                 `}
@@ -226,13 +226,11 @@ export default function DashboardSidebar({
                   </span>
                 )}
 
-                {/* Shine effect on hover */}
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
               </Link>
             </motion.div>
           )}
 
-          {/* Progress Section */}
           <div className={`pt-4 pb-2 ${collapsed ? "px-0" : "px-3"}`}>
             <p
               className={`text-xs font-semibold text-sidebar-foreground/60 uppercase tracking-wider ${
@@ -363,11 +361,9 @@ export default function DashboardSidebar({
         </nav>
 
         <div className="mt-auto ">
-          {/* Interview Usage Counter */}
           <TooltipProvider>
             <div className={`p-4 ${collapsed ? "px-2" : ""}`}>
               {collapsed ? (
-                /* Collapsed view - show icon with tooltip */
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <div className="flex justify-center">
@@ -421,7 +417,6 @@ export default function DashboardSidebar({
                         </span>
                       </div>
 
-                      {/* Progress bar */}
                       {!usageLoading && (
                         <Progress
                           value={usagePercentage}
@@ -429,7 +424,6 @@ export default function DashboardSidebar({
                         />
                       )}
 
-                      {/* Reset timer */}
                       {timeRemaining.formatted && (
                         <div className="flex items-center gap-1.5 text-xs text-sidebar-foreground/60">
                           <Clock className="size-3" />
@@ -443,7 +437,6 @@ export default function DashboardSidebar({
             </div>
           </TooltipProvider>
 
-          {/* Copyright */}
           <div className="px-4 pb-4">
             <p
               className={`text-xs text-sidebar-foreground/60 text-center ${
@@ -456,7 +449,6 @@ export default function DashboardSidebar({
         </div>
       </div>
 
-      {/* Overlay for mobile sidebar */}
       {sidebarOpen && (
         <button
           type="button"

@@ -1,9 +1,10 @@
 "use client";
 
 import {
-  AlertCircle,
   ArrowRight,
+  ArrowUp,
   Crown,
+  Link2Icon,
   Loader2,
   Shield,
   Timer,
@@ -33,9 +34,9 @@ import {
 } from "react-icons/si";
 import { TbBrandKotlin, TbBrandSwift } from "react-icons/tb";
 import { TiFlowChildren } from "react-icons/ti";
-import { toast } from "sonner";
 import { PaginationIndicator } from "@/components/common/atoms/pagination-indicator";
 import { Typography } from "@/components/common/atoms/typography";
+import { InterviewerAvatar } from "@/components/common/interviewer-avatar";
 import { EditableExtractedTags } from "@/components/configure/molecules/editable-extracted-tags";
 import { ModeSelectionStep } from "@/components/configure/templates/mode-selection-step";
 import type { MarkdownField } from "@/components/configure/types/markdown";
@@ -44,12 +45,20 @@ import {
   canStartInterview,
   canGoNext as checkCanGoNext,
   isConfigComplete as checkIsConfigComplete,
+  isAutoFlow,
   isTechRequired,
 } from "@/components/configure/utils/configure-helpers";
 import type {
   ConfigureFlowMode,
   InterviewConfig,
 } from "@/components/configure/utils/types";
+import {
+  PromptInput,
+  PromptInputAction,
+  PromptInputActions,
+  PromptInputTextarea,
+} from "@/components/prompt-kit/prompt-input";
+import { TextArea } from "@/components/tailgrids/core/text-area";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -62,13 +71,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { Textarea } from "@/components/ui/textarea";
 import {
   CONFIGURE_STEPS,
   POSITIONS,
   SENIORITY_LEVELS,
 } from "@/constants/configure";
-import useIsMobile from "@/hooks/use-is-mobile";
+import { INTERVIEWERS } from "@/lib/config/interviewers";
 import { DatabaseService } from "@/lib/database";
 import {
   buildSearchParamsFromInterviewConfig,
@@ -78,140 +86,135 @@ import {
   type SeniorityLevel,
 } from "@/lib/interview";
 import type { ExtractedJobDescription } from "@/lib/services/job-description/extractor";
-import { parseSimpleMarkdown } from "@/lib/utils/markdown-parser";
 import { useAuth } from "@/providers/auth-provider";
 import type { CompanyProfileValue, PositionValue } from "@/types/global";
 
-function getTechChoices(position: string): TechChoice[] {
-  switch (position) {
-    case "frontend":
-      return [
-        { value: "react", label: "React", icon: SiReact },
-        { value: "typescript", label: "TypeScript", icon: SiTypescript },
-        { value: "javascript", label: "JavaScript", icon: SiJavascript },
-        {
-          value: "csharp",
-          label: "C#",
-          icon: "/icons/csharp/csharp-plain.svg",
-        },
-        { value: "docker", label: "Docker", icon: SiDocker },
-        { value: "html5", label: "HTML", icon: SiHtml5 },
-        { value: "css", label: "CSS", icon: SiCss3 },
-      ];
-    case "backend":
-      return [
-        { value: "java", label: "Java", icon: FaJava },
-        { value: "python", label: "Python", icon: SiPython },
-        { value: "go", label: "Go", icon: SiGo },
-        {
-          value: "csharp",
-          label: "C#",
-          icon: "/icons/csharp/csharp-plain.svg",
-        },
-        { value: "typescript", label: "TypeScript", icon: SiTypescript },
-        { value: "javascript", label: "JavaScript", icon: SiJavascript },
-        { value: "rust", label: "Rust", icon: SiRust },
-        { value: "php", label: "PHP", icon: SiPhp },
-        { value: "docker", label: "Docker", icon: SiDocker },
-        { value: "kubernetes", label: "Kubernetes", icon: SiKubernetes },
-        {
-          value: "aws",
-          label: "AWS",
-          icon: "/assets/icons/amazonwebServices.svg",
-        },
-        { value: "gcp", label: "GCP", icon: SiGooglecloud },
-      ];
-    case "fullstack":
-      return [
-        { value: "react", label: "React", icon: SiReact },
-        { value: "typescript", label: "TypeScript", icon: SiTypescript },
-        { value: "javascript", label: "JavaScript", icon: SiJavascript },
-        { value: "html5", label: "HTML", icon: SiHtml5 },
-        { value: "css", label: "CSS", icon: SiCss3 },
-        { value: "java", label: "Java", icon: FaJava },
-        { value: "python", label: "Python", icon: SiPython },
-        { value: "go", label: "Go", icon: SiGo },
-        {
-          value: "csharp",
-          label: "C#",
-          icon: "/icons/csharp/csharp-plain.svg",
-        },
-        { value: "rust", label: "Rust", icon: SiRust },
-        { value: "php", label: "PHP", icon: SiPhp },
-        { value: "docker", label: "Docker", icon: SiDocker },
-        { value: "kubernetes", label: "Kubernetes", icon: SiKubernetes },
-        {
-          value: "aws",
-          label: "AWS",
-          icon: "/assets/icons/amazonwebServices.svg",
-        },
-        { value: "gcp", label: "GCP", icon: SiGooglecloud },
-      ];
-    case "devops":
-      return [
-        { value: "docker", label: "Docker", icon: SiDocker },
-        { value: "kubernetes", label: "Kubernetes", icon: SiKubernetes },
-        { value: "terraform", label: "Terraform", icon: SiTerraform },
-        {
-          value: "aws",
-          label: "AWS",
-          icon: "/assets/icons/amazonwebServices.svg",
-        },
-        { value: "gcp", label: "GCP", icon: SiGooglecloud },
-        {
-          value: "azure",
-          label: "Azure",
-          icon: "/icons/azure/azure-plain.svg",
-        },
-      ];
-    case "mobile":
-      return [
-        { value: "reactnative", label: "React Native", icon: SiReact },
-        { value: "flutter", label: "Flutter", icon: SiFlutter },
-        { value: "docker", label: "Docker", icon: SiDocker },
-        { value: "swift", label: "Swift", icon: TbBrandSwift },
-        { value: "kotlin", label: "Kotlin", icon: TbBrandKotlin },
-      ];
-    case "data-engineer":
-      return [
-        { value: "python", label: "Python", icon: SiPython },
-        { value: "java", label: "Java", icon: FaJava },
-        { value: "go", label: "Go", icon: SiGo },
-      ];
-    case "data-scientist":
-      return [
-        { value: "python", label: "Python", icon: SiPython },
-        { value: "go", label: "Go", icon: SiGo },
-        { value: "java", label: "Java", icon: FaJava },
-        { value: "rust", label: "Rust", icon: SiRust },
-        { value: "docker", label: "Docker", icon: SiDocker },
-      ];
-    case "cybersecurity":
-      return [
-        { value: "security", label: "Security", icon: Shield },
-        { value: "docker", label: "Docker", icon: SiDocker },
-        { value: "kubernetes", label: "Kubernetes", icon: SiKubernetes },
-        { value: "terraform", label: "Terraform", icon: SiTerraform },
-        {
-          value: "aws",
-          label: "AWS",
-          icon: "/assets/icons/amazonwebServices.svg",
-        },
-        { value: "gcp", label: "GCP", icon: SiGooglecloud },
-        {
-          value: "azure",
-          label: "Azure",
-          icon: "/icons/azure/azure-plain.svg",
-        },
-        { value: "java", label: "Java", icon: FaJava },
-        { value: "go", label: "Go", icon: SiGo },
-        { value: "rust", label: "Rust", icon: SiRust },
-        { value: "python", label: "Python", icon: SiPython },
-      ];
-    default:
-      return [];
-  }
-}
+const TECH_CHOICES = {
+  frontend: [
+    { value: "react", label: "React", icon: SiReact },
+    { value: "typescript", label: "TypeScript", icon: SiTypescript },
+    { value: "javascript", label: "JavaScript", icon: SiJavascript },
+    {
+      value: "csharp",
+      label: "C#",
+      icon: "/icons/csharp/csharp-plain.svg",
+    },
+    { value: "docker", label: "Docker", icon: SiDocker },
+    { value: "html5", label: "HTML", icon: SiHtml5 },
+    { value: "css", label: "CSS", icon: SiCss3 },
+  ],
+  backend: [
+    { value: "java", label: "Java", icon: FaJava },
+    { value: "python", label: "Python", icon: SiPython },
+    { value: "go", label: "Go", icon: SiGo },
+    {
+      value: "csharp",
+      label: "C#",
+      icon: "/icons/csharp/csharp-plain.svg",
+    },
+    { value: "typescript", label: "TypeScript", icon: SiTypescript },
+    { value: "javascript", label: "JavaScript", icon: SiJavascript },
+    { value: "rust", label: "Rust", icon: SiRust },
+    { value: "php", label: "PHP", icon: SiPhp },
+    { value: "docker", label: "Docker", icon: SiDocker },
+    { value: "kubernetes", label: "Kubernetes", icon: SiKubernetes },
+    {
+      value: "aws",
+      label: "AWS",
+      icon: "/assets/icons/amazonwebServices.svg",
+    },
+    { value: "gcp", label: "GCP", icon: SiGooglecloud },
+  ],
+  fullstack: [
+    { value: "react", label: "React", icon: SiReact },
+    { value: "typescript", label: "TypeScript", icon: SiTypescript },
+    { value: "javascript", label: "JavaScript", icon: SiJavascript },
+    { value: "html5", label: "HTML", icon: SiHtml5 },
+    { value: "css", label: "CSS", icon: SiCss3 },
+    { value: "java", label: "Java", icon: FaJava },
+    { value: "python", label: "Python", icon: SiPython },
+    { value: "go", label: "Go", icon: SiGo },
+    {
+      value: "csharp",
+      label: "C#",
+      icon: "/icons/csharp/csharp-plain.svg",
+    },
+    { value: "rust", label: "Rust", icon: SiRust },
+    { value: "php", label: "PHP", icon: SiPhp },
+    { value: "docker", label: "Docker", icon: SiDocker },
+    { value: "kubernetes", label: "Kubernetes", icon: SiKubernetes },
+    {
+      value: "aws",
+      label: "AWS",
+      icon: "/assets/icons/amazonwebServices.svg",
+    },
+    { value: "gcp", label: "GCP", icon: SiGooglecloud },
+  ],
+  devops: [
+    { value: "docker", label: "Docker", icon: SiDocker },
+    { value: "kubernetes", label: "Kubernetes", icon: SiKubernetes },
+    { value: "terraform", label: "Terraform", icon: SiTerraform },
+    {
+      value: "aws",
+      label: "AWS",
+      icon: "/assets/icons/amazonwebServices.svg",
+    },
+    { value: "gcp", label: "GCP", icon: SiGooglecloud },
+    {
+      value: "azure",
+      label: "Azure",
+      icon: "/icons/azure/azure-plain.svg",
+    },
+  ],
+  mobile: [
+    { value: "reactnative", label: "React Native", icon: SiReact },
+    { value: "flutter", label: "Flutter", icon: SiFlutter },
+    { value: "docker", label: "Docker", icon: SiDocker },
+    { value: "swift", label: "Swift", icon: TbBrandSwift },
+    { value: "kotlin", label: "Kotlin", icon: TbBrandKotlin },
+  ],
+  "data-engineer": [
+    { value: "python", label: "Python", icon: SiPython },
+    { value: "java", label: "Java", icon: FaJava },
+    { value: "go", label: "Go", icon: SiGo },
+  ],
+  "data-scientist": [
+    { value: "python", label: "Python", icon: SiPython },
+    { value: "go", label: "Go", icon: SiGo },
+    { value: "java", label: "Java", icon: FaJava },
+    { value: "rust", label: "Rust", icon: SiRust },
+    { value: "docker", label: "Docker", icon: SiDocker },
+  ],
+  cybersecurity: [
+    { value: "security", label: "Security", icon: Shield },
+    { value: "docker", label: "Docker", icon: SiDocker },
+    { value: "kubernetes", label: "Kubernetes", icon: SiKubernetes },
+    { value: "terraform", label: "Terraform", icon: SiTerraform },
+    {
+      value: "aws",
+      label: "AWS",
+      icon: "/assets/icons/amazonwebServices.svg",
+    },
+    { value: "gcp", label: "GCP", icon: SiGooglecloud },
+    {
+      value: "azure",
+      label: "Azure",
+      icon: "/icons/azure/azure-plain.svg",
+    },
+    { value: "java", label: "Java", icon: FaJava },
+    { value: "go", label: "Go", icon: SiGo },
+    { value: "rust", label: "Rust", icon: SiRust },
+    { value: "python", label: "Python", icon: SiPython },
+  ],
+} as const;
+
+const getTechChoices = (position: string): TechChoice[] => {
+  return (
+    (TECH_CHOICES[
+      position as keyof typeof TECH_CHOICES
+    ] as unknown as TechChoice[]) || []
+  );
+};
 
 const BANK_TECH_VALUES = new Set<string>([
   "aws",
@@ -254,7 +257,7 @@ type ExtractDescriptionResponse = {
 };
 
 function getVisibleStepsForFlow(flowMode: ConfigureFlowMode | null) {
-  if (flowMode === "paste") {
+  if (isAutoFlow(flowMode)) {
     return CONFIGURE_STEPS.filter((step) => PASTE_FLOW_STEP_IDS.has(step.id));
   }
   if (flowMode === "custom") {
@@ -266,7 +269,7 @@ function getVisibleStepsForFlow(flowMode: ConfigureFlowMode | null) {
 function formatAnalysisError(error: unknown): string {
   // User-friendly fallback message
   const fallbackMessage =
-    "We couldn't analyze this job description. Please try again in a moment.";
+    "We couldn't analyze this job description. Please try a different link.";
 
   if (!error) return fallbackMessage;
 
@@ -281,6 +284,14 @@ function formatAnalysisError(error: unknown): string {
           : "";
 
   if (errorString) {
+    // Unsupported platform error - pass through the exact message
+    if (
+      errorString.includes("isn't supported") ||
+      errorString.includes("Try LinkedIn, Indeed, JustJoin")
+    ) {
+      return errorString;
+    }
+
     // Network/server errors - suggest retry
     if (
       errorString.toLowerCase().includes("network") ||
@@ -320,7 +331,6 @@ function formatAnalysisError(error: unknown): string {
 export function ConfigureContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { isMobile } = useIsMobile();
   const { user } = useAuth();
   const [usageStatus, setUsageStatus] = useState<{
     canStart: boolean;
@@ -332,6 +342,7 @@ export function ConfigureContent() {
     const flow = searchParams.get("flow");
     if (flow === "paste") return "paste";
     if (flow === "custom") return "custom";
+    if (flow === "url") return "url";
     return null;
   };
   const [config, setConfig] = useState<InterviewConfig>(() => ({
@@ -360,7 +371,7 @@ export function ConfigureContent() {
   });
   const [isAnalyzingDescription, setIsAnalyzingDescription] = useState(false);
   const [analysisError, setAnalysisError] = useState<string | null>(null);
-  const [editingField, setEditingField] = useState<MarkdownField>(null);
+  const [_editingField, setEditingField] = useState<MarkdownField>(null);
 
   const visibleSteps = getVisibleStepsForFlow(config.flowMode);
 
@@ -393,7 +404,7 @@ export function ConfigureContent() {
   const autoAdvanceTechChoices = (() => {
     if (currentStepId !== "technologies") return null;
     if (!isTechRequired(config.position)) return null;
-    const filtered = techChoicesForCurrentPosition.filter((tech) =>
+    const filtered = techChoicesForCurrentPosition.filter((tech: TechChoice) =>
       BANK_TECH_VALUES.has(tech.value),
     );
     return filtered.length === 1 ? filtered : null;
@@ -407,7 +418,7 @@ export function ConfigureContent() {
       }));
 
       // Clear analysis error when user updates the pasted description
-      if (key === "pastedDescription") {
+      if (key === "pastedDescription" || key === "pastedUrl") {
         setAnalysisError(null);
       }
     },
@@ -424,7 +435,7 @@ export function ConfigureContent() {
 
   const filteredTechChoices = (() => {
     if (!isTechRequired(config.position)) return [];
-    return techChoicesForCurrentPosition.filter((tech) =>
+    return techChoicesForCurrentPosition.filter((tech: TechChoice) =>
       BANK_TECH_VALUES.has(tech.value),
     );
   })();
@@ -551,7 +562,7 @@ export function ConfigureContent() {
       );
     }
 
-    if (isDescriptionStep && config.flowMode === "paste") {
+    if (isDescriptionStep && isAutoFlow(config.flowMode)) {
       return <div className="w-[70px]" />; // Spacer
     }
 
@@ -575,7 +586,7 @@ export function ConfigureContent() {
       size="sm"
       className={`flex items-center gap-2 !min-h-0 ${currentStep === 0 ? "invisible" : ""}`}
     >
-      <span className="inline">Previous</span>
+      Back
     </Button>
   );
 
@@ -584,6 +595,7 @@ export function ConfigureContent() {
       ...prev,
       flowMode: mode,
       pastedDescription: mode === "custom" ? "" : prev.pastedDescription,
+      pastedUrl: mode === "url" ? prev.pastedUrl : "",
     }));
     setAnalysisError(null);
 
@@ -591,105 +603,136 @@ export function ConfigureContent() {
     setCurrentStep(1);
   };
 
-  const handleAnalyzeDescription = async (
-    event?: React.FormEvent | React.MouseEvent,
+  const runAnalysis = async (
+    endpoint: string,
+    body: Record<string, string>,
+    _successMessage: string,
   ) => {
-    // Prevent form submission from reloading the page
-    event?.preventDefault();
-
-    const trimmedDescription = config.pastedDescription.trim();
-    if (!trimmedDescription) {
-      const message = "Paste a job description first.";
-      setAnalysisError(message);
-      return;
-    }
-    if (trimmedDescription.length < 50) {
-      const message =
-        "Please provide a job description with at least 50 characters.";
-      setAnalysisError(message);
-      return;
-    }
     setIsAnalyzingDescription(true);
     setAnalysisError(null);
-
-    // Store current step to prevent unwanted navigation during error
-    const currentStepBeforeAnalysis = currentStep;
+    const stepBefore = currentStep;
 
     try {
-      const response = await fetch("/api/job-description/extract", {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ description: config.pastedDescription }),
+        body: JSON.stringify(body),
       });
 
-      // Safely parse JSON response
       let payload: ExtractDescriptionResponse;
       try {
         payload = await response.json();
-      } catch (_parseError) {
-        throw new Error("Invalid response from server.");
+      } catch {
+        console.error("Server returned an invalid response");
+        setAnalysisError(
+          "Server returned an invalid response. Please try again.",
+        );
+        setCurrentStep(stepBefore);
+        return;
       }
 
-      if (!response.ok || !payload?.success) {
-        // Log the actual error for debugging
-        console.error("API Error Response:", {
-          status: response.status,
-          ok: response.ok,
-          payload,
-        });
-        throw new Error(formatAnalysisError(payload?.error));
+      if (!response.ok) {
+        console.error(`Server error: ${response.status}`);
+        setAnalysisError(`Server error: ${response.status}. Please try again.`);
+        setCurrentStep(stepBefore);
+        return;
+      }
+
+      if (!payload || typeof payload !== "object") {
+        console.error("Server returned an empty response");
+        setAnalysisError(
+          "Server returned an empty response. Please try again.",
+        );
+        setCurrentStep(stepBefore);
+        return;
+      }
+
+      if (!payload.success) {
+        console.error("Analysis failed:", payload.error);
+        setAnalysisError(formatAnalysisError(payload.error));
+        setCurrentStep(stepBefore);
+        return;
       }
 
       const data = payload.data as ExtractedJobDescription | undefined;
       if (!data) {
-        throw new Error("Invalid analysis response.");
+        console.error("Invalid analysis response");
+        setAnalysisError("Invalid analysis response. Please try again.");
+        setCurrentStep(stepBefore);
+        return;
       }
 
-      const {
-        position,
-        seniority,
-        technologies,
-        company,
-        jobDescription,
-        jobRequirements,
-        companyProfile,
-      } = data;
-
-      updateConfig("position", position);
-      updateConfig("seniority", seniority);
-      updateConfig("technologies", technologies);
-      updateConfig("company", company ?? "");
-      updateConfig("jobDescription", jobDescription);
-      updateConfig("jobRequirements", jobRequirements);
-      updateConfig("companyProfile", companyProfile ?? config.companyProfile);
+      updateConfig("position", data.position);
+      updateConfig("seniority", data.seniority);
+      updateConfig("technologies", data.technologies);
+      updateConfig("company", data.company ?? "");
+      updateConfig("jobDescription", data.jobDescription);
+      updateConfig("jobRequirements", data.jobRequirements);
+      updateConfig(
+        "companyProfile",
+        data.companyProfile ?? config.companyProfile,
+      );
       updateConfig("contextType", "job-specific");
+
       const analysisIndex = visibleSteps.findIndex(
         (step) => step.id === ANALYSIS_STEP_ID,
       );
       setCurrentStep(analysisIndex >= 0 ? analysisIndex : currentStep);
-      toast.success("Job description analyzed");
-    } catch (error) {
-      // Prevent any unhandled errors from causing page reload
-      console.error("Analysis error:", error);
-
-      let message = "Failed to analyze description.";
-      try {
-        message = formatAnalysisError(error);
-      } catch (formatError) {
-        // If even formatting fails, use generic message
-        console.error("Error formatting failed:", formatError);
-      }
-
-      setAnalysisError(message);
-
-      // Ensure we stay on the current step during error
-      setCurrentStep(currentStepBeforeAnalysis);
     } finally {
       setIsAnalyzingDescription(false);
     }
   };
 
-  const handlePreviewKey = (
+  const handleAnalyzeDescription = async (
+    event?: React.FormEvent | React.MouseEvent,
+  ) => {
+    event?.preventDefault();
+
+    const trimmed = config.pastedDescription.trim();
+    if (!trimmed) {
+      setAnalysisError("Paste a job description first.");
+      return;
+    }
+    if (/^https?:\/\/\S+$/i.test(trimmed)) {
+      setAnalysisError(
+        'Looks like you pasted a URL. Switch to "Paste job link" flow to analyze a link, or paste the full job description text here.',
+      );
+      return;
+    }
+    if (trimmed.length < 50) {
+      setAnalysisError(
+        "Please provide a job description with at least 50 characters.",
+      );
+      return;
+    }
+    await runAnalysis(
+      "/api/job-description/extract",
+      { description: config.pastedDescription },
+      "Job description analyzed",
+    );
+  };
+
+  const handleAnalyzeUrl = async (
+    event?: React.FormEvent | React.MouseEvent,
+  ) => {
+    event?.preventDefault();
+    const url = config.pastedUrl?.trim() ?? "";
+    if (!url) {
+      setAnalysisError("Paste a job URL first.");
+      return;
+    }
+    if (!url.startsWith("https://")) {
+      setAnalysisError("Please use a valid https:// URL.");
+      return;
+    }
+    await runAnalysis(
+      "/api/job-description/extract-from-url",
+      { url },
+      "Job offer analyzed",
+    );
+  };
+
+  const _handlePreviewKey = (
     event: React.KeyboardEvent<HTMLDivElement | HTMLButtonElement>,
     field: MarkdownField,
   ) => {
@@ -714,9 +757,15 @@ export function ConfigureContent() {
       },
       {
         value: "paste",
-        title: "Paste description",
-        description: "Simulate an interview tailored to exact position.",
+        title: "Paste job decription",
+        description: "Provide the job description for AI analysis.",
         icon: FiCopy,
+      },
+      {
+        value: "url",
+        title: "Paste job link",
+        description: "Paste a job offer URL to auto-fill everything.",
+        icon: Link2Icon,
       },
     ];
 
@@ -734,7 +783,9 @@ export function ConfigureContent() {
               </div>
               <div>
                 <Typography.BodyBold>
-                  Analyzing job description…
+                  {config.flowMode === "url"
+                    ? "Analyzing job offer…"
+                    : "Analyzing job description…"}
                 </Typography.BodyBold>
                 <Typography.CaptionMedium className="text-muted-foreground">
                   Extracting position, seniority, tech stack, and company cues.
@@ -791,89 +842,231 @@ export function ConfigureContent() {
   function renderDescriptionStep() {
     if (config.flowMode === "custom") {
       return (
-        <Card>
-          <CardContent className="space-y-3">
-            <Typography.BodyBold>No description needed</Typography.BodyBold>
-            <Typography.CaptionMedium color="secondary">
-              You chose manual setup. Skip ahead or switch back to paste flow to
-              use AI.
-            </Typography.CaptionMedium>
-          </CardContent>
-        </Card>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <Card>
+            <CardContent className="space-y-3">
+              <Typography.BodyBold>No description needed</Typography.BodyBold>
+              <Typography.CaptionMedium color="secondary">
+                You chose manual setup. Skip ahead or switch back to paste flow
+                to use AI.
+              </Typography.CaptionMedium>
+            </CardContent>
+          </Card>
+        </div>
+      );
+    }
+
+    if (config.flowMode === "url") {
+      return (
+        <div className="flex flex-col items-center justify-center space-y-6 min-h-[80vh] sm:min-h-[70vh]">
+          <Typography.Heading1 className="!text-4xl sm:!text-5xl tracking-tight drop-shadow !text-primary text-center">
+            Paste link to an offer
+          </Typography.Heading1>
+          <div className="relative w-full max-w-3xl space-y-6 text-center">
+            <form
+              onSubmit={handleAnalyzeUrl}
+              className="mx-auto w-full max-w-3xl"
+            >
+              <div className="relative flex items-center gap-3 rounded-4xl border border-border/60 bg-card/95 px-5 py-3.5 shadow-2xl backdrop-blur">
+                <PromptInput
+                  value={config.pastedUrl ?? ""}
+                  onValueChange={(value: string) =>
+                    updateConfig("pastedUrl", value)
+                  }
+                  isLoading={isAnalyzingDescription}
+                  onSubmit={handleAnalyzeUrl}
+                  className="w-full"
+                >
+                  <PromptInputTextarea
+                    id="ai-message-landing"
+                    value={config.pastedUrl ?? ""}
+                    onChange={(e) => updateConfig("pastedUrl", e.target.value)}
+                    placeholder="Paste a LinkedIn, Indeed, JustJoin, ZipRecruiter or FlexJobs URL…"
+                    className="flex-1 resize-none border-none shadow-none !bg-transparent pr-12 sm:pr-28 text-base focus-visible:ring-0"
+                    onKeyDown={(
+                      event: React.KeyboardEvent<HTMLTextAreaElement>,
+                    ) => {
+                      if (
+                        event.key === "Enter" &&
+                        !event.shiftKey &&
+                        !event.nativeEvent.isComposing
+                      ) {
+                        event.preventDefault();
+                        handleAnalyzeUrl();
+                      }
+                    }}
+                    rows={3}
+                    autoFocus
+                  />
+                  <PromptInputActions className="justify-end pt-2">
+                    <PromptInputAction
+                      tooltip={
+                        isAnalyzingDescription
+                          ? "Stop generation"
+                          : "Send message"
+                      }
+                    >
+                      <Button
+                        type="submit"
+                        variant="default"
+                        size="icon"
+                        className="h-8 w-8 rounded-full"
+                      >
+                        {isAnalyzingDescription ? (
+                          <Loader2 className="size-5 animate-spin" />
+                        ) : (
+                          <ArrowUp className="size-5" />
+                        )}
+                      </Button>
+                    </PromptInputAction>
+                  </PromptInputActions>
+                </PromptInput>
+              </div>
+              <Typography.Caption
+                color="secondary"
+                className="mt-3 block text-center sm:text-center"
+              >
+                <span className="inline-flex items-center gap-1 flex-wrap justify-center sm:justify-start">
+                  <a
+                    href="https://www.linkedin.com/jobs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium hover:underline transition-colors"
+                  >
+                    LinkedIn
+                  </a>
+                  <span className="text-muted-foreground">•</span>
+                  <a
+                    href="https://www.indeed.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium hover:underline transition-colors"
+                  >
+                    Indeed
+                  </a>
+                  <span className="text-muted-foreground">•</span>
+                  <a
+                    href="https://justjoin.it"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium hover:underline transition-colors"
+                  >
+                    JustJoin.it
+                  </a>
+                  <span className="text-muted-foreground">•</span>
+                  <a
+                    href="https://www.google.com/search?q=jobs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium hover:underline transition-colors"
+                  >
+                    Google Jobs
+                  </a>
+                  <span className="text-muted-foreground">•</span>
+                  <a
+                    href="https://www.ziprecruiter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium hover:underline transition-colors"
+                  >
+                    ZipRecruiter
+                  </a>
+                  <span className="text-muted-foreground">•</span>
+                  <a
+                    href="https://www.flexjobs.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium hover:underline transition-colors"
+                  >
+                    FlexJobs
+                  </a>
+                </span>
+              </Typography.Caption>
+            </form>
+          </div>
+
+          {analysisError && (
+            <div className="flex gap-4 items-center">
+              <InterviewerAvatar interviewer={INTERVIEWERS[2]} size={40} />
+              <div className="rounded-md border border-destructive/20 bg-destructive/5 p-3 py-2">
+                <Typography.CaptionMedium
+                  color="error"
+                  className="flex items-center gap-2"
+                >
+                  {analysisError}
+                </Typography.CaptionMedium>
+              </div>
+            </div>
+          )}
+        </div>
       );
     }
 
     return (
-      <div className="space-y-6">
-        <div className="relative w-full max-w-3xl space-y-6 text-start">
+      <div className="flex flex-col items-center justify-center space-y-6 min-h-[60vh]">
+        <Typography.Heading1 className="!text-4xl sm:!text-5xl tracking-tight drop-shadow !text-primary text-center">
+          Paste job description
+        </Typography.Heading1>
+        <div className="relative w-full max-w-3xl space-y-6 text-center">
           <form
             onSubmit={handleAnalyzeDescription}
             className="mx-auto w-full max-w-3xl"
           >
-            <label className="sr-only" htmlFor="ai-message-landing">
-              Describe the interview you want to build
-            </label>
-            <div className="relative flex flex-col gap-3 rounded-4xl border border-border/60 bg-card/95 px-4 py-4 shadow-2xl backdrop-blur sm:flex-row sm:items-start sm:gap-3 sm:px-5 sm:py-3.5">
-              <Textarea
-                data-tour="configure-paste-textarea"
-                id="pastedDescription"
+            <div className="relative flex items-center gap-3 rounded-4xl border border-border/60 bg-card/95 px-5 py-3.5 shadow-2xl backdrop-blur">
+              <PromptInput
                 value={config.pastedDescription}
-                onChange={(event) =>
-                  updateConfig("pastedDescription", event.target.value)
+                onValueChange={(value: string) =>
+                  updateConfig("pastedDescription", value)
                 }
-                placeholder={
-                  isMobile
-                    ? "Paste job description…"
-                    : "Paste the job description here..."
-                }
-                rows={isMobile ? 6 : 3}
-                className="min-h-[180px] flex-1 resize-none border-none shadow-none !bg-transparent text-base focus-visible:ring-0 sm:min-h-0 sm:max-h-[50vh] sm:pr-10"
-                autoFocus
-              />
-              <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-none">
-                <Button
-                  data-tour="configure-analyze"
-                  onClick={handleAnalyzeDescription}
-                  size="sm"
-                  disabled={
-                    isAnalyzingDescription || !config.pastedDescription.trim()
+                isLoading={isAnalyzingDescription}
+                onSubmit={handleAnalyzeDescription}
+                className="w-full"
+              >
+                <PromptInputTextarea
+                  value={config.pastedDescription}
+                  onChange={(e) =>
+                    updateConfig("pastedDescription", e.target.value)
                   }
-                  className="flex items-center justify-center gap-2 w-full sm:mt-2 sm:w-auto"
-                >
-                  {isAnalyzingDescription && (
-                    <Loader2 className="size-4 animate-spin" />
-                  )}
-                  Analyze
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  disabled={
-                    isAnalyzingDescription || !config.pastedDescription.trim()
-                  }
-                  className="hidden items-center justify-center gap-2 sm:flex"
-                  onClick={() => {
-                    setAnalysisError(null);
-                    setConfig((prev) => ({
-                      ...prev,
-                      pastedDescription: "",
-                      jobDescription: "",
-                      jobRequirements: "",
-                      company: "",
-                      technologies: [],
-                    }));
+                  placeholder="Paste the full job post. We'll extract role, seniority, tech stack, and company..."
+                  className="flex-1 resize-none border-none shadow-none !bg-transparent pr-12 sm:pr-28 text-base focus-visible:ring-0"
+                  onKeyDown={(
+                    event: React.KeyboardEvent<HTMLTextAreaElement>,
+                  ) => {
+                    if (
+                      event.key === "Enter" &&
+                      !event.shiftKey &&
+                      !event.nativeEvent.isComposing
+                    ) {
+                      event.preventDefault();
+                      handleAnalyzeDescription();
+                    }
                   }}
-                >
-                  Reset
-                </Button>
-                <Typography.Caption
-                  color="secondary"
-                  className="text-center sm:hidden"
-                >
-                  Paste the full job post. We’ll extract role, seniority, tech
-                  stack, and company.
-                </Typography.Caption>
-              </div>
+                  rows={3}
+                  autoFocus
+                />
+                <PromptInputActions className="justify-end pt-2">
+                  <PromptInputAction
+                    tooltip={
+                      isAnalyzingDescription
+                        ? "Stop generation"
+                        : "Send message"
+                    }
+                  >
+                    <Button
+                      type="submit"
+                      variant="default"
+                      size="icon"
+                      className="h-8 w-8 rounded-full"
+                    >
+                      {isAnalyzingDescription ? (
+                        <Loader2 className="size-5 animate-spin" />
+                      ) : (
+                        <ArrowUp className="size-5" />
+                      )}
+                    </Button>
+                  </PromptInputAction>
+                </PromptInputActions>
+              </PromptInput>
             </div>
           </form>
         </div>
@@ -882,10 +1075,10 @@ export function ConfigureContent() {
           <div className="mt-3 rounded-md border border-destructive/20 bg-destructive/5 p-3">
             <Typography.CaptionMedium
               color="error"
-              className="flex items-center gap-2"
+              className="flex items-start gap-2"
             >
               <svg
-                className="size-4"
+                className="size-4 shrink-0 mt-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -900,7 +1093,19 @@ export function ConfigureContent() {
                   d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              {analysisError}
+              <div className="flex-1">
+                <div>{analysisError}</div>
+                {analysisError.includes("isn't supported") && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="mt-2"
+                    onClick={() => updateConfig("flowMode", "paste")}
+                  >
+                    Switch to paste job description
+                  </Button>
+                )}
+              </div>
             </Typography.CaptionMedium>
           </div>
         )}
@@ -923,24 +1128,28 @@ export function ConfigureContent() {
       );
     }
 
-    if (!config.jobDescription) {
-      return (
-        <Card>
-          <CardContent className="space-y-3">
-            <Typography.BodyBold>Awaiting analysis</Typography.BodyBold>
-            <Typography.CaptionMedium className="text-muted-foreground">
-              Paste a job description in the previous step and tap “Analyze
-              description” to review AI results here.
-            </Typography.CaptionMedium>
-          </CardContent>
-        </Card>
-      );
-    }
-
     return (
       <div className="space-y-6">
-        <Card className="border-primary/20 shadow-lg">
-          <CardContent className="space-y-6 px-6">
+        {!config.jobDescription?.trim() && !config.jobRequirements?.trim() && (
+          <div className="flex gap-4 items-center">
+            <InterviewerAvatar interviewer={INTERVIEWERS[2]} size={40} />
+
+            <div className="flex items-start gap-3 rounded-lg border border-yellow-500/30 bg-yellow-500/5 p-4">
+              <div>
+                <Typography.BodyBold className="text-yellow-700 dark:text-yellow-400">
+                  No job details extracted
+                </Typography.BodyBold>
+                <Typography.CaptionMedium className="text-yellow-600/80 dark:text-yellow-400/70">
+                  The pasted content didn't match typical job offer criteria.
+                  You can still fill in the description and requirements
+                  manually below.
+                </Typography.CaptionMedium>
+              </div>
+            </div>
+          </div>
+        )}
+        <Card className="bg-transparent border-none shadow-none">
+          <CardContent className="space-y-6 px-0">
             <EditableExtractedTags
               config={config}
               filteredTechChoices={filteredTechChoices}
@@ -949,110 +1158,25 @@ export function ConfigureContent() {
               onUpdateConfig={updateConfig}
               onToggleTechnology={handleToggleTechnology}
             />
-            <Separator className="bg-gray-200 my-10" />
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <Typography.CaptionBold>
-                  Refined job brief
-                </Typography.CaptionBold>
-                <Button
-                  variant="link"
-                  size="sm"
-                  onClick={() =>
-                    setEditingField((prev) =>
-                      prev === "summary" ? null : "summary",
-                    )
-                  }
-                >
-                  {editingField === "summary" ? "Preview" : "Edit"}
-                </Button>
-              </div>
-              {editingField === "summary" ? (
-                <Textarea
-                  autoFocus
-                  value={config.jobDescription}
-                  onChange={(event) =>
-                    updateConfig("jobDescription", event.target.value)
-                  }
-                  placeholder="Describe the role, responsibilities, and mission…"
-                  className="min-h-[200px] bg-background border-muted font"
-                />
-              ) : (
-                <button
-                  type="button"
-                  className={`w-full text-left rounded-2xl border border-border/60 bg-muted/20 p-5 min-h-fit text-base leading-relaxed text-foreground ${
-                    config.jobDescription?.trim()
-                      ? ""
-                      : "text-muted-foreground italic flex items-center justify-center"
-                  }`}
-                  onClick={() => setEditingField("summary")}
-                  onKeyDown={(event) => handlePreviewKey(event, "summary")}
-                >
-                  {config.jobDescription?.trim() ? (
-                    <div
-                      className="space-y-3"
-                      dangerouslySetInnerHTML={parseSimpleMarkdown(
-                        config.jobDescription,
-                      )}
-                    />
-                  ) : (
-                    "Click to add a refined job brief using markdown"
-                  )}
-                </button>
-              )}
-            </div>
-            <Separator className="bg-gray-200" />
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <Typography.CaptionBold>
-                  Key requirements
-                </Typography.CaptionBold>
-                <Button
-                  variant="link"
-                  size="sm"
-                  onClick={() =>
-                    setEditingField((prev) =>
-                      prev === "requirements" ? null : "requirements",
-                    )
-                  }
-                >
-                  {editingField === "requirements" ? "Preview" : "Edit"}
-                </Button>
-              </div>
-              {editingField === "requirements" ? (
-                <Textarea
-                  autoFocus
-                  value={config.jobRequirements || ""}
-                  placeholder="List key requirements, bullet points, benefits…"
-                  className="min-h-[160px] w-full"
-                  onChange={(event) =>
-                    updateConfig("jobRequirements", event.target.value)
-                  }
-                />
-              ) : (
-                <button
-                  type="button"
-                  className={`w-full text-left rounded-2xl border border-border/60 bg-muted/20 p-5 min-h-[160px] text-base leading-relaxed text-foreground ${
-                    config.jobRequirements?.trim()
-                      ? ""
-                      : "text-muted-foreground italic flex items-center justify-center"
-                  }`}
-                  onClick={() => setEditingField("requirements")}
-                  onKeyDown={(event) => handlePreviewKey(event, "requirements")}
-                >
-                  {config.jobRequirements?.trim() ? (
-                    <div
-                      className="space-y-2"
-                      dangerouslySetInnerHTML={parseSimpleMarkdown(
-                        config.jobRequirements,
-                      )}
-                    />
-                  ) : (
-                    "Click to add key requirements using markdown"
-                  )}
-                </button>
-              )}
-            </div>
+            <Separator className="my-5 bg-gray-500" />
+
+            <TextArea
+              label="Job Description"
+              value={config.jobDescription}
+              onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
+                updateConfig("jobDescription", event.target.value)
+              }
+              placeholder="Describe the role, responsibilities, and mission…"
+            />
+            <Separator className="my-5 bg-gray-500" />
+            <TextArea
+              label="Job Requirements"
+              value={config.jobRequirements || ""}
+              placeholder="List here key requirements, bullet points, benefits…"
+              onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
+                updateConfig("jobRequirements", event.target.value)
+              }
+            />
           </CardContent>
         </Card>
       </div>
@@ -1162,7 +1286,7 @@ export function ConfigureContent() {
     return (
       <div className="space-y-6">
         <div className="flex flex-wrap gap-3 max-w-fit">
-          {filteredTechChoices.map((tech) => (
+          {filteredTechChoices.map((tech: TechChoice) => (
             <label
               key={tech.value}
               htmlFor={`tech-${tech.value}`}
@@ -1253,16 +1377,31 @@ export function ConfigureContent() {
   return (
     <main className="flex-1 flex flex-col h-full overflow-hidden">
       <div className="flex-1 flex flex-col h-full max-w-6xl mx-auto w-full">
-        <div className="flex-1 overflow-y-auto p-6 sm:p-6">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
           <div className="max-w-5xl mx-auto">
             <div className="mb-6 space-y-4 hidden lg:block">
               <div className="flex flex-col gap-2 lg:items-start lg:justify-between text-center lg:text-left">
                 <Typography.BodyBold className="text-2xl">
-                  {visibleSteps[currentStep]?.title ?? CONFIGURE_STEPS[0].title}
+                  {(() => {
+                    const step = visibleSteps[currentStep];
+                    if (step?.id === "description") {
+                      if (
+                        config.flowMode === "url" ||
+                        config.flowMode === "paste"
+                      )
+                        return;
+                    }
+                    return step?.title ?? CONFIGURE_STEPS[0].title;
+                  })()}
                 </Typography.BodyBold>
                 <Typography.Body className="text-muted-foreground text-sm sm:text-base">
-                  {visibleSteps[currentStep]?.description ??
-                    CONFIGURE_STEPS[0].description}
+                  {(() => {
+                    const step = visibleSteps[currentStep];
+                    if (step?.id === "description" || step?.id === "paste")
+                      return;
+
+                    return step?.description ?? CONFIGURE_STEPS[0].description;
+                  })()}
                 </Typography.Body>
               </div>
             </div>
@@ -1273,7 +1412,10 @@ export function ConfigureContent() {
                 <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/50 p-4">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 rounded-full bg-amber-100 dark:bg-amber-900 p-2">
-                      <AlertCircle className="size-5 text-amber-600 dark:text-amber-400" />
+                      <InterviewerAvatar
+                        interviewer={INTERVIEWERS[2]}
+                        size={40}
+                      />
                     </div>
                     <div className="flex-1">
                       <Typography.BodyBold className="text-amber-800 dark:text-amber-200">
@@ -1308,25 +1450,18 @@ export function ConfigureContent() {
             >
               {renderStepContent(currentStepId)}
             </div>
-
-            {currentStepId !== "flow" && (
-              <div className="mt-6 hidden sm:flex justify-start">
-                <div className="flex flex-row items-stretch gap-2 sm:gap-3">
-                  {renderPreviousButton()}
-                  {renderNextButton()}
-                </div>
-              </div>
-            )}
           </div>
         </div>
 
-        <div className="px-4 sm:px-6 py-6">
-          <div className="max-w-5xl mx-auto flex items-center justify-between sm:justify-center w-full">
-            <div className="sm:hidden">
+        <div className="px-4 sm:px-6 py-6 ">
+          <div className="max-w-5xl mx-auto flex items-center w-full">
+            <div className="flex-1 flex justify-start">
               {currentStepId !== "flow" && renderPreviousButton()}
             </div>
-            <PaginationIndicator total={totalSteps} current={currentStep} />
-            <div className="sm:hidden">
+            <div className="flex-1 flex justify-center">
+              <PaginationIndicator total={totalSteps} current={currentStep} />
+            </div>
+            <div className="flex-1 flex justify-end">
               {currentStepId !== "flow" && renderNextButton()}
             </div>
           </div>

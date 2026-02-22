@@ -1,6 +1,6 @@
 import type { JobContext } from "@/types/global";
 
-export type ConfigureFlowMode = "custom" | "paste";
+export type ConfigureFlowMode = "custom" | "paste" | "url";
 
 export interface InterviewConfig extends JobContext {
   flowMode: ConfigureFlowMode | null;
@@ -19,5 +19,6 @@ export interface InterviewConfig extends JobContext {
   jobType?: string;
   isDemoMode?: boolean;
   pastedDescription: string;
+  pastedUrl?: string;
   jobTitle?: string;
 }

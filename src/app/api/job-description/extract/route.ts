@@ -1,28 +1,9 @@
-import { type NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 import { extractJobDescriptionData } from "@/lib/services/job-description/extractor";
+import { readJsonBody } from "../read-json-body";
 
-type AnyRequest = NextRequest | Request;
-
-async function readJsonBody(request: AnyRequest): Promise<unknown> {
-  const candidate = request as {
-    json?: () => Promise<unknown>;
-    text?: () => Promise<string>;
-  };
-
-  if (typeof candidate.json === "function") {
-    return candidate.json();
-  }
-
-  if (typeof candidate.text === "function") {
-    const raw = await candidate.text();
-    return raw ? JSON.parse(raw) : {};
-  }
-
-  throw new Error("UNSUPPORTED_BODY");
-}
-
-export async function POST(request: AnyRequest) {
+export async function POST(request: Request) {
   try {
     let body: unknown;
     try {

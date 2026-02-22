@@ -5,14 +5,17 @@ import { useEffect } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 import type { TechChoice } from "@/components/configure/types/tech-choice";
 import type { InterviewConfig } from "@/components/configure/utils/types";
-import { Input } from "@/components/ui/input";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxInputWrapper,
+  ComboboxItem,
+  ComboboxList,
+  ComboboxTrigger,
+} from "@/components/tailgrids/core/combobox";
+import { Input } from "@/components/tailgrids/core/input";
 import { Separator } from "@/components/ui/separator";
 import { POSITIONS, SENIORITY_LEVELS } from "@/constants/configure";
 import type { PositionValue } from "@/types/global";
@@ -53,71 +56,62 @@ export function EditableExtractedTags({
   }, [hasSelectedTech, isTechRequired, onUpdateConfig, selectableTechValues]);
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-wrap gap-4">
-        <div className="space-y-2">
-          <Typography.SubCaptionBold>Position</Typography.SubCaptionBold>
-          <Select
-            value={config.position}
-            onValueChange={(value) =>
-              onUpdateConfig("position", value as PositionValue)
-            }
-          >
-            <SelectTrigger
-              size="sm"
-              className=" min-w-[205px] bg-input border-border rounded-lg px-3 py-4.5"
-            >
-              <SelectValue placeholder="Select role" />
-            </SelectTrigger>
-            <SelectContent>
+    <div className="flex flex-wrap gap-2">
+      <div className="space-y-2">
+        <Combobox
+          value={config.position}
+          onChange={(value) =>
+            onUpdateConfig("position", value as PositionValue)
+          }
+        >
+          <ComboboxInputWrapper className="min-w-[205px] border-border rounded-lg">
+            <ComboboxInput className="text-sm" placeholder="Select role" />
+            <ComboboxTrigger className="text-sm" />
+          </ComboboxInputWrapper>
+          <ComboboxContent>
+            <ComboboxList>
               {POSITIONS.map((position) => (
-                <SelectItem key={position.value} value={position.value}>
+                <ComboboxItem key={position.value} id={position.value}>
                   {position.label}
-                </SelectItem>
+                </ComboboxItem>
               ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-2">
-          <Typography.SubCaptionBold>Seniority</Typography.SubCaptionBold>
-          <Select
-            value={config.seniority}
-            onValueChange={(value) => onUpdateConfig("seniority", value)}
-          >
-            <SelectTrigger
-              size="sm"
-              className="h-9 min-w-[130px] bg-input border-border rounded-lg px-3 py-4.5"
-            >
-              <SelectValue placeholder="Select level" />
-            </SelectTrigger>
-            <SelectContent>
-              {SENIORITY_LEVELS.map((seniority) => (
-                <SelectItem key={seniority.value} value={seniority.value}>
-                  {seniority.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-2">
-          <Typography.SubCaptionBold>Company name</Typography.SubCaptionBold>
-          <Input
-            value={config.company ?? ""}
-            onChange={(event) => onUpdateConfig("company", event.target.value)}
-            placeholder="Enter company name"
-            className="h-11 sm:h-[38px]  w-[200px] max-w-[335px] bg-input border-border rounded-lg"
-          />
-        </div>
+            </ComboboxList>
+            <ComboboxEmpty>No roles found</ComboboxEmpty>
+          </ComboboxContent>
+        </Combobox>
       </div>
-      <Separator className="my-10 bg-gray-200" />
+      <div className="space-y-2">
+        <Combobox
+          value={config.seniority}
+          onChange={(value) => onUpdateConfig("seniority", value as string)}
+        >
+          <ComboboxInputWrapper className="min-w-[130px] border-border rounded-lg">
+            <ComboboxInput className="text-sm" placeholder="Select level" />
+            <ComboboxTrigger className="text-sm" />
+          </ComboboxInputWrapper>
+          <ComboboxContent>
+            <ComboboxList>
+              {SENIORITY_LEVELS.map((seniority) => (
+                <ComboboxItem key={seniority.value} id={seniority.value}>
+                  {seniority.label}
+                </ComboboxItem>
+              ))}
+            </ComboboxList>
+            <ComboboxEmpty>No levels found</ComboboxEmpty>
+          </ComboboxContent>
+        </Combobox>
+      </div>
+      <div className="space-y-2">
+        <Input
+          value={config.company ?? ""}
+          onChange={(event) => onUpdateConfig("company", event.target.value)}
+          placeholder="Enter company name"
+          className="w-[200px] text-sm max-w-[335px] py-2"
+        />
+      </div>
+      <Separator className="my-5 bg-gray-500" />
       {isTechRequired && (
-        <div className="space-y-2">
-          <div className="flex flex-col items-left ">
-            <Typography.SubCaptionBold>Technologies</Typography.SubCaptionBold>
-            <Typography.Caption className="text-xs text-muted-foreground">
-              Tap to select or deselect
-            </Typography.Caption>
-          </div>
+        <div>
           {selectableTechChoices.length > 0 ? (
             <div className="flex flex-wrap gap-2">
               {selectableTechChoices.map((tech) => {
@@ -128,7 +122,7 @@ export function EditableExtractedTags({
                     type="button"
                     onClick={() => onToggleTechnology(tech.value)}
                     aria-pressed={isSelected}
-                    className={`flex items-center justify-between rounded-xl border px-4 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
+                    className={`flex items-center justify-between rounded-lg border px-4 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
                       isSelected
                         ? "border-primary bg-primary/5 text-primary shadow-sm"
                         : "border-border hover:border-primary/40 !hover:bg-muted/50"
@@ -150,7 +144,7 @@ export function EditableExtractedTags({
               })}
             </div>
           ) : (
-            <Typography.CaptionMedium className="text-muted-foreground">
+            <Typography.CaptionMedium color="secondary">
               Select a position to edit technologies.
             </Typography.CaptionMedium>
           )}

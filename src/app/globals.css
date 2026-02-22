@@ -195,11 +195,6 @@ pre code.hljs {
     padding-right: 2.5rem;
   }
 
-  .field--textarea {
-    min-height: 4rem;
-    resize: vertical;
-  }
-
   .badge {
     --badge-bg: hsl(var(--accent-main-100));
     --badge-text: hsl(var(--oncolor-100));
@@ -854,11 +849,11 @@ code.hljs {
     padding-right: 1rem;
   }
 
-  input,
-  select,
-  textarea {
-    font-size: 16px;
-    /* Prevents zoom on iOS */
+  /* Protect HeroUI textareas from global styles */
+  textarea[data-slot="textarea"] {
+    font-size: inherit;
+    min-height: inherit;
+    resize: inherit;
   }
 }
 
