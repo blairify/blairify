@@ -204,10 +204,10 @@ export function RecentSessionsCard({ sessions }: RecentSessionsCardProps) {
                       )}
                     </div>
                   )}
-                  <Button variant="outline">
-                    <Link href={`/history/${session.id}`}>View Report</Link>
-                    <Eye className="size-4 group-hover/btn:scale-110 transition-transform" />
-                  </Button>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Eye className="size-4" />
+                    <span className="text-sm">Click to view</span>
+                  </div>
                 </div>
               </Link>
             </div>

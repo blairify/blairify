@@ -245,26 +245,26 @@ export default function DashboardNavbar({
                 <p>Report Bug</p>
               </TooltipContent>
             </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  aria-label="Settings"
+                  data-tour="profile-settings"
+                  onClick={() => router.push("/settings?tab=subscription")}
+                  variant="outline"
+                  size="icon"
+                  className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                >
+                  <Settings className="size-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Settings</p>
+              </TooltipContent>
+            </Tooltip>
             {!isMobile && (
               <>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      aria-label="Settings"
-                      data-tour="profile-settings"
-                      onClick={() => router.push("/settings?tab=subscription")}
-                      variant="outline"
-                      size="icon"
-                      className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                    >
-                      <Settings className="size-4" />
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Settings</p>
-                  </TooltipContent>
-                </Tooltip>
-
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button

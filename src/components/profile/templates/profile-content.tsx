@@ -355,9 +355,8 @@ export function ProfileContent({
             </div>
 
             <Button
-              variant="ghost"
+              variant="destructive"
               size="sm"
-              colorContext="danger"
               onClick={() => router.push("/auth/logout")}
             >
               Sign Out
