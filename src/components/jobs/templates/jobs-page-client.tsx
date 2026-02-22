@@ -35,9 +35,6 @@ export function JobsPageClient({ user: _user }: JobsPageClientProps) {
             className="max-w-[220px] sm:max-w-[320px] mb-6"
             priority
           />
-          <Typography.Heading1 className="mb-2">
-            Under Construction
-          </Typography.Heading1>
           <Typography.Body color="secondary" className="max-w-md mb-6">
             We&apos;re building something great. The Jobs page will be available
             soon with curated tech opportunities from top companies.
