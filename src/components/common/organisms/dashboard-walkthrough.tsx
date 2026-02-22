@@ -7,8 +7,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { DatabaseService } from "@/lib/database";
+import { INTERVIEWERS } from "@/lib/interview";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/providers/auth-provider";
+import { InterviewerAvatar } from "../interviewer-avatar";
 
 type WalkthroughStepId =
   | "start-interview"
@@ -67,7 +69,7 @@ export function DashboardWalkthrough(): ReactNode {
       },
       {
         id: "progress-achievements",
-        selector: "[data-tour='my-progress']",
+        selector: "[data-tour='dashboard']",
         headline: "Leveling Up 🚀",
         body: "Charts, stats, and shiny badges. Nothing beats seeing your XP bar grow and knowing you are getting technically sharper every day.",
       },
@@ -218,7 +220,7 @@ export function DashboardWalkthrough(): ReactNode {
 
     const forced = window.localStorage.getItem(FORCE_KEY) === "1";
     const forcedByQuery = searchParams.get("tour") === "1";
-    const isAutoStartRoute = pathname === "/my-progress";
+    const isAutoStartRoute = pathname === "/dashboard";
 
     const shouldAutoStart =
       userData.onboardingCompleted === true &&
@@ -461,8 +463,11 @@ export function DashboardWalkthrough(): ReactNode {
           <div className="text-xs text-muted-foreground">
             Step {stepIndex + 1} of {totalSteps}
           </div>
-          <div className="text-base font-semibold text-foreground">
-            {activeStep.headline}
+          <div className="flex gap-2 items-center">
+            <InterviewerAvatar interviewer={INTERVIEWERS[5]} size={40} />
+            <div className="text-base font-semibold text-foreground">
+              {activeStep.headline}
+            </div>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
             {activeStep.body}

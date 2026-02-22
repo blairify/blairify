@@ -65,13 +65,18 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.ico" },
       { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      {
+        url: "/web-app-manifest-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/web-app-manifest-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
-    apple: [
-      { url: "/apple-icon.png" },
-      { url: "/apple-icon-180.png", sizes: "180x180", type: "image/png" },
-    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
     shortcut: ["/favicon.ico"],
   },
 
@@ -103,7 +108,35 @@ export const metadata: Metadata = {
     },
   },
 
-  // Category
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://blairify.com",
+    siteName: "Blairify",
+    title: "Blairify - AI-Powered Career Acceleration Platform",
+    description:
+      "Ace your next job interview with Blairify. Access curated job listings, AI-powered interview practice, and personalized preparation tools.",
+    images: [
+      {
+        url: "https://blairify.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Blairify - AI-Powered Career Acceleration Platform",
+        type: "image/png",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Blairify - AI-Powered Career Acceleration Platform",
+    description:
+      "Ace your next job interview with Blairify. Curated jobs meet AI-powered interview prep.",
+    images: ["https://blairify.com/twitter-image.png"],
+    creator: "@blairify",
+    site: "@blairify",
+  },
+
   category: "education",
 };
 

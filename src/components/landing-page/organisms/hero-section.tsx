@@ -74,11 +74,11 @@ export default function HeroSection() {
                   <Button
                     className="w-full sm:w-auto text-xs sm:text-sm lg:text-base px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3"
                     onClick={() => {
-                      router.push("/my-progress");
+                      router.push("/dashboard");
                     }}
                     aria-label="View your progress"
                   >
-                    Let's see my progress
+                    Go to Dashboard
                     <TrendingUp
                       className="size-3 sm:size-4 ml-2"
                       aria-hidden="true"

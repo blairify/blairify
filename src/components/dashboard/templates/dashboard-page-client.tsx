@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
-import { DashboardContent } from "@/components/my-progress/templates/dashboard-content";
-import { DashboardLayout } from "@/components/my-progress/templates/dashboard-layout";
+import { DashboardContent } from "@/components/dashboard/templates/dashboard-content";
+import { DashboardLayout } from "@/components/dashboard/templates/dashboard-layout";
 import { Button } from "@/components/ui/button";
 import type { UserData } from "@/lib/services/auth/auth";
 import type {

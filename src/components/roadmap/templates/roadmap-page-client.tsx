@@ -13,7 +13,7 @@ import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
-import { DashboardLayout } from "@/components/my-progress/templates/dashboard-layout";
+import { DashboardLayout } from "@/components/dashboard/templates/dashboard-layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {

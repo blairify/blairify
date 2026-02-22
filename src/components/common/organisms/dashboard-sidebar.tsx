@@ -241,14 +241,14 @@ export default function DashboardSidebar({
             </p>
           </div>
           <Link
-            href="/my-progress"
-            title="My Progress"
-            aria-label="My Progress"
-            data-tour="my-progress"
+            href="/dashboard"
+            title="Dashboard"
+            aria-label="Dashboard"
+            data-tour="dashboard"
             className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
-              isActive("/my-progress")
+              isActive("/dashboard")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             }`}
@@ -256,10 +256,10 @@ export default function DashboardSidebar({
             <TbProgressBolt className="size-5 flex-shrink-0" />
             <span
               className={`${collapsed ? "sr-only" : "truncate"} ${
-                isActive("/my-progress") ? "font-medium" : ""
+                isActive("/dashboard") ? "font-medium" : ""
               }`}
             >
-              My Progress
+              Dashboard
             </span>
           </Link>
           <Link

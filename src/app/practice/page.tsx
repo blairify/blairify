@@ -12,5 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function PracticePage() {
-  redirect("/my-progress");
+  redirect("/dashboard");
 }

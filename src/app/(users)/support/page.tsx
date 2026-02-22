@@ -123,7 +123,7 @@ export default function SupportPage() {
                       "1",
                     );
                   }
-                  router.push("/my-progress");
+                  router.push("/dashboard");
                 }}
               >
                 <MdRestartAlt className="size-5 dark:text-white" />

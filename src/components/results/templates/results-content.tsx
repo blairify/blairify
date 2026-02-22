@@ -1365,7 +1365,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               </Button>
               <Button
                 variant="outline"
-                onClick={() => router.push("/my-progress")}
+                onClick={() => router.push("/dashboard")}
                 className="hover:scale-105 transition-transform"
               >
                 Home

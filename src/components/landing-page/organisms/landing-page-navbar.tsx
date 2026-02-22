@@ -307,12 +307,12 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       <span className="font-medium">Profile</span>
                     </Link>
                     <Link
-                      href="/my-progress"
+                      href="/dashboard"
                       className="tap-highlight-transparent flex items-center gap-3 p-3 rounded-lg text-foreground visited:text-foreground no-underline outline-none focus:outline-none hover:bg-muted/50 focus:bg-muted/60 active:bg-muted/60 active:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <Home className="size-5 text-muted-foreground" />
-                      <span className="font-medium">My progress</span>
+                      <span className="font-medium">Dashboard</span>
                     </Link>
                     <button
                       type="button"

@@ -1,8 +1,3 @@
-/**
- * Interviewer Profiles Configuration
- * Defines different AI interviewer personas with unique characteristics
- */
-
 export interface InterviewerProfile {
   id: string;
   name: string;
@@ -148,6 +143,29 @@ export const INTERVIEWERS: InterviewerProfile[] = [
       hairStyle: "normal",
       hatStyle: "none",
       shirtColor: "#FDCB6E",
+      bgColor: "#DFE6E9",
+    },
+  },
+  {
+    id: "mary",
+    name: "Mary",
+    title: "Data Engineer Lead & Interviewer",
+    experience: "8+ years in data science and machine learning",
+    specialties: ["Data Analysis", "Machine Learning", "Statistical Modeling"],
+    personality: "Curious, methodical, and supportive, great leader",
+    avatarConfig: {
+      sex: "woman",
+      faceColor: "#f1c27d",
+      earSize: "small",
+      eyeStyle: "oval",
+      noseStyle: "short",
+      mouthStyle: "laugh",
+      shirtStyle: "polo",
+      glassesStyle: "round",
+      hairColor: "#3d251e",
+      hairStyle: "womanLong",
+      hatStyle: "none", // Explicitly set no hat
+      shirtColor: "#FF7F00",
       bgColor: "#DFE6E9",
     },
   },

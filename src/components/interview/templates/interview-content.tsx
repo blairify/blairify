@@ -1190,7 +1190,7 @@ export function InterviewContent({
               showViewResults={hasAnyUserAnswer(session.messages)}
               onGoToProgress={() => {
                 allowExitRef.current = true;
-                window.location.href = "/my-progress";
+                window.location.href = "/dashboard";
               }}
               terminationReason={
                 session.termination?.reason ??

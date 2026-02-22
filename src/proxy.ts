@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 
 const protectedRoutes = [
-  "/my-progress",
+  "/dashboard",
   "/jobs",
   "/history",
   "/profile",
@@ -43,12 +43,12 @@ export default async function proxy(request: NextRequest) {
   }
 
   if (firebaseAuthToken && onboardingComplete && isOnboardingRoute) {
-    return NextResponse.redirect(new URL("/my-progress", request.url));
+    return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
   if (isPublicRoute && pathname.startsWith("/auth") && firebaseAuthToken) {
     return NextResponse.redirect(
-      new URL(onboardingComplete ? "/my-progress" : "/onboarding", request.url),
+      new URL(onboardingComplete ? "/dashboard" : "/onboarding", request.url),
     );
   }
 

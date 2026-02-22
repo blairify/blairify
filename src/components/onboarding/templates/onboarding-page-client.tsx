@@ -302,9 +302,9 @@ export function OnboardingPageClient({
   const [earlyJobMatchingEnabled, setEarlyJobMatchingEnabled] = useState(false);
   const [hasHover, setHasHover] = useState(false);
 
-  const [nextActionView, setNextActionView] = useState<"choose" | "paste">(
-    "choose",
-  );
+  const [nextActionView, setNextActionView] = useState<
+    "choose" | "paste" | "link"
+  >("choose");
   const [isStartingNextAction, setIsStartingNextAction] = useState(false);
 
   useEffect(() => {
@@ -324,7 +324,7 @@ export function OnboardingPageClient({
     if (userData.onboardingCompleted) {
       cookieUtils.set("onboarding-complete", "1", { path: "/" });
       if (!isStartingNextAction) {
-        router.replace("/my-progress");
+        router.replace("/dashboard");
       }
       return;
     }
@@ -421,6 +421,22 @@ export function OnboardingPageClient({
       window.dispatchEvent(new Event("blairify-dashboard-tour-force"));
     }
     router.push("/configure?flow=paste&step=description");
+  };
+
+  const startPasteLinkFlow = async () => {
+    if (isSaving || isStartingNextAction) return;
+    setNextActionView("link");
+    setIsStartingNextAction(true);
+    await completeOnboarding();
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("blairify-dashboard-tour-force", "1");
+      window.localStorage.setItem(
+        "blairify-dashboard-tour-context",
+        "configure",
+      );
+      window.dispatchEvent(new Event("blairify-dashboard-tour-force"));
+    }
+    router.push("/configure?flow=url&step=description");
   };
 
   const handleBack = () => {
@@ -927,7 +943,27 @@ export function OnboardingPageClient({
                   </Typography.Heading1>
                 </div>
 
-                <div className="grid gap-3 sm:grid-cols-2 mb-16">
+                <div className="grid gap-3 sm:grid-cols-3 mb-16">
+                  <button
+                    type="button"
+                    onClick={startPasteLinkFlow}
+                    disabled={isSaving || isStartingNextAction}
+                    className={`rounded-xl border bg-background/70 p-4 text-left shadow-sm transition-colors hover:border-primary hover:bg-background ${
+                      nextActionView === "link"
+                        ? "border-primary bg-primary/5"
+                        : ""
+                    }`}
+                  >
+                    <Typography.Heading3 className="text-left mb-3">
+                      Paste link to an offer
+                    </Typography.Heading3>
+                    <Typography.SubCaption className="mt-1 text-left">
+                      Paste a job offer URL and let AI{" "}
+                      <span className="text-primary">
+                        auto-fill everything.
+                      </span>
+                    </Typography.SubCaption>
+                  </button>
                   <button
                     type="button"
                     onClick={startPasteDescriptionFlow}
@@ -944,7 +980,7 @@ export function OnboardingPageClient({
                     <Typography.SubCaption className="mt-1 text-left">
                       Drop a job description and let AI configure a{" "}
                       <span className="text-primary">
-                        personalized interview.{" "}
+                        personalized interview.
                       </span>
                     </Typography.SubCaption>
                   </button>
@@ -955,19 +991,14 @@ export function OnboardingPageClient({
                     className="rounded-xl border bg-background/70 p-4 text-left shadow-sm transition-colors hover:border-primary hover:bg-background"
                   >
                     <Typography.Heading3 className="text-left mb-3">
-                      Training interview{" "}
+                      Training interview
                     </Typography.Heading3>
-
-                    <Typography.SubCaption className=" text-left ">
-                      <span>
-                        Start a{" "}
-                        <span className="text-primary">
-                          preconfigured interview{" "}
-                        </span>
+                    <Typography.SubCaption className="text-left">
+                      Start a{" "}
+                      <span className="text-primary">
+                        preconfigured interview{" "}
                       </span>
-                    </Typography.SubCaption>
-                    <Typography.SubCaption className="mt-1 text-left ">
-                      <span>and begin learning about your career.</span>
+                      and begin learning about your career.
                     </Typography.SubCaption>
                   </button>
                 </div>

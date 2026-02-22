@@ -8,7 +8,7 @@ import { requireAuth } from "@/lib/server-auth";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Tech Jobs | Blairify - Find Your Next Career Opportunity",
+  title: "Tech Jobs — Blairify",
   description:
     "Browse thousands of tech job opportunities from top companies. Filter by location, salary, remote work options, and more. Find your perfect job match with Blairify's curated job listings.",
   keywords: [
@@ -24,10 +24,21 @@ export const metadata: Metadata = {
     "career opportunities",
   ],
   openGraph: {
-    title: "Tech Jobs - Find Your Next Opportunity",
+    title: "Tech Jobs — Blairify",
     description:
       "Browse curated tech job listings from top companies. Remote and on-site positions available.",
     url: "https://blairify.com/jobs",
+    type: "website",
+    siteName: "Blairify",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tech Jobs — Blairify",
+    description:
+      "Browse curated tech job listings from top companies. Remote and on-site positions available.",
+  },
+  alternates: {
+    canonical: "https://blairify.com/jobs",
   },
   robots: {
     index: true,

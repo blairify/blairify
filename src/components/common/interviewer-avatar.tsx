@@ -4,33 +4,20 @@ import type { InterviewerProfile } from "@/lib/config/interviewers";
 interface InterviewerAvatarProps {
   interviewer: InterviewerProfile;
   size?: number;
+  mouthStyle?: InterviewerProfile["avatarConfig"]["mouthStyle"];
 }
 
-/**
- * Deterministic avatar component for interviewers
- * Uses interviewer ID as seed to ensure consistency
- */
 export function InterviewerAvatar({
   interviewer,
   size = 40,
+  mouthStyle,
 }: InterviewerAvatarProps) {
-  // Log to debug avatar rendering
-  console.log("🎨 Rendering avatar:", {
-    id: interviewer.id,
-    name: interviewer.name,
-    sex: interviewer.avatarConfig.sex,
-    hairStyle: interviewer.avatarConfig.hairStyle,
-    shirtColor: interviewer.avatarConfig.shirtColor,
-  });
-
-  // Generate a deterministic config using the interviewer's ID as seed
-  // This ensures the same interviewer always gets the same avatar
   const config = genConfig(interviewer.id);
 
-  // Override with our custom config
   const finalConfig = {
     ...config,
     ...interviewer.avatarConfig,
+    ...(mouthStyle ? { mouthStyle } : {}),
   };
 
   return (

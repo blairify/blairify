@@ -8,24 +8,20 @@ export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-12 px-4">
       <div className="max-w-2xl mx-auto text-center space-y-8">
-        <Card className="p-8 border-2 border-muted shadow-lg backdrop-blur-sm bg-card/50 animate-fade-in-up delay-100">
+        <Card className="p-8 border border-muted shadow-sm backdrop-blur-sm bg-card/50 animate-fade-in-up delay-100">
           <div className="space-y-6">
             {/* Error Code */}
             <div className="space-y-2">
               <Typography.Heading1
-                className="text-primary/80 tracking-tight"
+                className="text-primary/80 tracking-tight text-8xl"
                 aria-label="Error 404"
               >
                 404
               </Typography.Heading1>
-              <Separator className="w-24 mx-auto bg-primary/30" />
+              <Separator className="w-24 mx-auto bg-gray-200" />
             </div>
 
-            {/* Error Message */}
             <div className="space-y-3">
-              <Typography.Heading2 className="text-foreground">
-                Page Not Found
-              </Typography.Heading2>
               <Typography.Body
                 color="secondary"
                 className="max-w-md mx-auto leading-relaxed"
@@ -46,15 +42,9 @@ export default function NotFound() {
                 </Link>
               </Button>
 
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="min-w-32 border-[color:var(--border)] text-[color:var(--foreground)] 
-                hover:text-[color:var(--secondary)] hover:border-[color:var(--primary)] transition-colors"
-              >
-                <Link href="/my-progress" aria-label="Navigate to my progress">
-                  Let's see my progress
+              <Button asChild variant="outline" size="lg">
+                <Link href="/dashboard" aria-label="Go to dashboard">
+                  Go to Dashboard
                 </Link>
               </Button>
             </nav>

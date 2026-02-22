@@ -100,7 +100,7 @@ export function InterviewCompleteCard({
           </Typography.Body>
           {canGoToProgress && onGoToProgress ? (
             <Button variant="outline" size="lg" onClick={onGoToProgress}>
-              Go to My Progress
+              Go to Dashboard
               <ArrowRight className="size-5 ml-2" />
             </Button>
           ) : null}

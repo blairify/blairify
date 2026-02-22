@@ -11,15 +11,17 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
+import { InterviewerAvatar } from "@/components/common/interviewer-avatar";
 import {
   RecentSessionsCard,
   ScoreProgressCard,
   StatsGrid,
   WeeklyActivityCard,
-} from "@/components/my-progress";
+} from "@/components/dashboard";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { INTERVIEWERS } from "@/lib/interview";
 import type {
   DashboardStats,
   PerformanceDataPoint,
@@ -116,24 +118,25 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
 
         <Card>
           <CardContent className="flex flex-col items-center justify-center py-16">
-            <div className="rounded-full bg-muted p-6 mb-4">
-              <Target className="h-12 w-12 text-muted-foreground" />
+            <div className="rounded-full bg-muted p-1 mb-4">
+              <InterviewerAvatar interviewer={INTERVIEWERS[2]} size={120} />
             </div>
-            <Typography.Heading3 className="text-xl font-semibold mb-2">
+            <Typography.BodyBold
+              color="secondary"
+              className="text-xl font-semibold mb-2"
+            >
               No Interview Data Yet
-            </Typography.Heading3>
-            <Typography.Body className="text-muted-foreground text-center max-w-md mb-6">
+            </Typography.BodyBold>
+            <Typography.Body
+              color="secondary"
+              className="text-muted-foreground text-center max-w-md mb-6"
+            >
               Start your first interview to see your performance metrics,
               progress insights, and personalized recommendations.
             </Typography.Body>
-            <div className="flex gap-3">
-              <Button asChild>
-                <a href="/configure">Start Your First Interview</a>
-              </Button>
-              <Button variant="outline" asChild>
-                <a href="/jobs">Browse Jobs</a>
-              </Button>
-            </div>
+            <Button variant="outline" asChild>
+              <a href="/configure">Start Your First Interview</a>
+            </Button>
           </CardContent>
         </Card>
       </div>

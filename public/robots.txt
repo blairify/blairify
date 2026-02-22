@@ -1,15 +1,9 @@
-# Robots.txt for Blairify - Job Search & Interview Preparation Platform
-# https://blairify.com/robots.txt
-
 User-agent: *
-
-# Allow crawling of main public pages
 Allow: /
 Allow: /jobs
+Allow: /configure
 Allow: /practice
 Allow: /auth
-
-# Allow crawling of legal pages (important for compliance)
 Allow: /privacy-policy
 Allow: /terms-of-service
 Allow: /cookie-policy
@@ -17,41 +11,25 @@ Allow: /legal-notice
 Allow: /gdpr-rights
 Allow: /data-processing-agreement
 
-# Block admin and user-specific areas
 Disallow: /admin/
-Disallow: /my-progress
+Disallow: /dashboard
 Disallow: /profile
 Disallow: /settings
-Disallow: /configure
 Disallow: /support
-
-# Block interview session pages (user-specific content)
+Disallow: /onboarding
 Disallow: /interview
 Disallow: /history/
 Disallow: /results
-
-# Block API routes and internal files
+Disallow: /upgrade/
 Disallow: /api/
-Disallow: /_next/
-Disallow: /favicon.ico
-Disallow: /manifest.json
+Disallow: /_next/static/
 
-# Block common non-content files
-Disallow: /*.json$
-Disallow: /*.xml$
-Disallow: /sitemap*.xml
-
-# Allow specific bots with higher crawl rates
 User-agent: Googlebot
-Crawl-delay: 1
+Allow: /
 
 User-agent: Bingbot
 Crawl-delay: 2
 
-User-agent: Slurp
-Crawl-delay: 2
-
-# Block problematic bots
 User-agent: AhrefsBot
 Disallow: /
 
@@ -61,5 +39,4 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-# Sitemap location
 Sitemap: https://blairify.com/sitemap.xml
