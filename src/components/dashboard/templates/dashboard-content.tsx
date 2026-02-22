@@ -16,6 +16,7 @@ import {
   RecentSessionsCard,
   ScoreProgressCard,
   StatsGrid,
+  StatsGridMobile,
   WeeklyActivityCard,
 } from "@/components/dashboard";
 import { Badge } from "@/components/ui/badge";
@@ -145,7 +146,13 @@ export function DashboardContent({ dashboardData }: DashboardContentProps) {
 
   return (
     <div className="space-y-6 max-w-xl mx-auto md:max-w-none md:mx-0">
-      <StatsGrid stats={stats} />
+      {/* Mobile Stats Grid - Horizontal Scroll */}
+      <StatsGridMobile stats={stats} />
+
+      {/* Desktop Stats Grid - Grid Layout */}
+      <div className="hidden sm:block">
+        <StatsGrid stats={stats} />
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <ScoreProgressCard

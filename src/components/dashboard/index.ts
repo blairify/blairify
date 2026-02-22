@@ -8,6 +8,7 @@ export { RecentSessions } from "./molecules/recent-sessions";
 export { SkillsBreakdown } from "./molecules/skills-breakdown";
 // Molecules
 export { StatsGrid } from "./molecules/stats-grid";
+export { StatsGridMobile } from "./molecules/stats-grid-mobile";
 export { ActivityTab } from "./organisms/activity-tab";
 export { DashboardTabs } from "./organisms/dashboard-tabs";
 // Organisms

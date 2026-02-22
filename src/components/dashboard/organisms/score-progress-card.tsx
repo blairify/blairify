@@ -61,47 +61,51 @@ export function ScoreProgressCard({
 
   return (
     <Card className={className}>
-      <CardHeader className="flex items-center gap-2 space-y-0 sm:flex-row">
+      <CardHeader className="flex flex-col gap-4 space-y-0 sm:flex-row sm:items-center sm:gap-2">
         <div className="grid flex-1 gap-1">
           <CardTitle className="gap-1 flex flex-col">
-            <Typography.BodyBold>Score Progression</Typography.BodyBold>
-            <Typography.Caption color="secondary">
+            <Typography.BodyBold className="text-lg sm:text-base">
+              Score Progression
+            </Typography.BodyBold>
+            <Typography.Caption color="secondary" className="text-sm">
               Your interview performance over time
             </Typography.Caption>
           </CardTitle>
         </div>
-        <TrendingUp className="size-5" />
+        <div className="flex items-center gap-2 sm:gap-0">
+          <TrendingUp className="size-5 sm:size-4" />
 
-        {hasData && (
-          <Select value={timeRange} onValueChange={onTimeRangeChange}>
-            <SelectTrigger
-              className="w-[160px] rounded-lg sm:ml-auto  focus:ring-primary focus:ring-offset-0"
-              aria-label="Select a time range"
-            >
-              <SelectValue placeholder="All time" />
-            </SelectTrigger>
-            <SelectContent className="rounded-xl">
-              <SelectItem value="all" className="rounded-lg">
-                All time
-              </SelectItem>
-              <SelectItem value="90d" className="rounded-lg">
-                Last 3 months
-              </SelectItem>
-              <SelectItem value="30d" className="rounded-lg">
-                Last 30 days
-              </SelectItem>
-              <SelectItem value="7d" className="rounded-lg">
-                Last 7 days
-              </SelectItem>
-            </SelectContent>
-          </Select>
-        )}
+          {hasData && (
+            <Select value={timeRange} onValueChange={onTimeRangeChange}>
+              <SelectTrigger
+                className="w-full sm:w-[160px] rounded-lg focus:ring-primary focus:ring-offset-0"
+                aria-label="Select a time range"
+              >
+                <SelectValue placeholder="All time" />
+              </SelectTrigger>
+              <SelectContent className="rounded-xl">
+                <SelectItem value="all" className="rounded-lg">
+                  All time
+                </SelectItem>
+                <SelectItem value="90d" className="rounded-lg">
+                  Last 3 months
+                </SelectItem>
+                <SelectItem value="30d" className="rounded-lg">
+                  Last 30 days
+                </SelectItem>
+                <SelectItem value="7d" className="rounded-lg">
+                  Last 7 days
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          )}
+        </div>
       </CardHeader>
       <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
         {hasData ? (
           <ChartContainer
             config={chartConfig}
-            className="aspect-auto h-[250px] w-full"
+            className="aspect-auto h-[200px] sm:h-[250px] w-full"
           >
             <AreaChart data={filteredData}>
               <defs>
@@ -124,7 +128,7 @@ export function ScoreProgressCard({
                 tickLine={false}
                 axisLine={false}
                 tickMargin={8}
-                minTickGap={32}
+                minTickGap={24}
                 tickFormatter={(value) => {
                   const date = new Date(value);
                   return date.toLocaleDateString("en-US", {
@@ -132,12 +136,14 @@ export function ScoreProgressCard({
                     day: "numeric",
                   });
                 }}
+                tick={{ fontSize: 12 }}
               />
               <YAxis
                 tickLine={false}
                 axisLine={false}
                 tickMargin={8}
                 tickFormatter={(value) => `${value}%`}
+                tick={{ fontSize: 12 }}
               />
               <ChartTooltip
                 cursor={false}
@@ -164,12 +170,12 @@ export function ScoreProgressCard({
             </AreaChart>
           </ChartContainer>
         ) : (
-          <div className="flex flex-col items-center justify-center py-12 px-4 text-center h-[250px]">
-            <Typography.Body className="text-muted-foreground mb-4">
+          <div className="flex flex-col items-center justify-center py-8 sm:py-12 px-4 text-center h-[200px] sm:h-[250px]">
+            <Typography.Body className="text-muted-foreground mb-4 text-sm sm:text-base">
               Complete interviews to see your progress
             </Typography.Body>
             <Link href="/configure">
-              <Button variant="default" size="sm">
+              <Button variant="default" size="sm" className="w-full sm:w-auto">
                 Start Interview
               </Button>
             </Link>

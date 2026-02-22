@@ -173,7 +173,7 @@ export function JobsContent() {
   const router = useRouter();
   const [selectedPosition, setSelectedPosition] = useState("");
   const [selectedSeniority, setSelectedSeniority] = useState("");
-  const [selectedCompany, setSelectedCompany] = useState("");
+  const [selectedCompany, setSelectedCompany] = useState("all");
   const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>(
     [],
   );
@@ -212,7 +212,12 @@ export function JobsContent() {
   };
 
   const filteredJobs = PLACEHOLDER_JOBS.filter((job) => {
-    if (selectedCompany && job.company !== selectedCompany) return false;
+    if (
+      selectedCompany &&
+      selectedCompany !== "all" &&
+      job.company !== selectedCompany
+    )
+      return false;
     if (
       selectedPosition &&
       !job.title.toLowerCase().includes(selectedPosition.toLowerCase())
@@ -283,7 +288,7 @@ export function JobsContent() {
                     <SelectValue placeholder="Select company" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">All Companies</SelectItem>
+                    <SelectItem value="all">All Companies</SelectItem>
                     {Array.from(
                       new Set(PLACEHOLDER_JOBS.map((job) => job.company)),
                     ).map((company) => (
