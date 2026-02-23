@@ -17,15 +17,16 @@ import {
   Trophy,
   User,
 } from "lucide-react";
+import type { ComponentType } from "react";
 import { TbLayersDifference } from "react-icons/tb";
-import { Badge } from "@/components/ui/badge";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 export interface AvatarIcon {
   id: string;
   name: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: ComponentType<{ className?: string }>;
   color: string;
   bgColor: string;
 }
@@ -149,65 +150,115 @@ interface AvatarIconSelectorProps {
   selectedIcon?: string;
   onSelectIcon: (iconId: string) => void;
   className?: string;
+  variant?: "card" | "embedded";
+}
+
+function getSelectedAvatarName(selectedIcon: string | undefined) {
+  if (!selectedIcon) return null;
+  return avatarIcons.find((icon) => icon.id === selectedIcon)?.name ?? null;
 }
 
 export function AvatarIconSelector({
   selectedIcon,
   onSelectIcon,
   className,
+  variant = "card",
 }: AvatarIconSelectorProps) {
+  const selectedAvatarName = getSelectedAvatarName(selectedIcon);
+
+  const gridClassName =
+    variant === "embedded"
+      ? "grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4"
+      : "grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2";
+
+  const tileClassName =
+    variant === "embedded"
+      ? "flex flex-col items-center min-w-0"
+      : "text-center";
+  const labelClassName =
+    variant === "embedded" ? "mt-1 max-w-24 truncate" : "mt-0.5 truncate";
+
+  const content = (
+    <>
+      <div className={gridClassName}>
+        {avatarIcons.map((avatarIcon) => {
+          const IconComponent = avatarIcon.icon;
+          const isSelected = selectedIcon === avatarIcon.id;
+
+          return (
+            <div key={avatarIcon.id} className={tileClassName}>
+              <Button
+                type="button"
+                variant="ghost"
+                className={`w-14 h-14 rounded-full p-0 relative hover:scale-105 transition-all focus-visible:ring-2 focus-visible:ring-primary/30 ${
+                  isSelected
+                    ? `${avatarIcon.bgColor} ring-1 ring-primary/20 border border-primary/20 shadow-sm`
+                    : `${avatarIcon.bgColor} hover:${avatarIcon.bgColor}`
+                }`}
+                aria-label={`Select avatar icon: ${avatarIcon.name}`}
+                aria-pressed={isSelected}
+                onClick={() => onSelectIcon(isSelected ? "" : avatarIcon.id)}
+              >
+                <IconComponent
+                  className={`size-6 sm:size-7 ${avatarIcon.color}`}
+                  aria-hidden="true"
+                />
+                {isSelected && (
+                  <div className="absolute -top-1 -right-1 bg-primary text-primary-foreground rounded-full size-4 flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-current rounded-full" />
+                  </div>
+                )}
+              </Button>
+              <Typography.SubCaptionMedium
+                className={labelClassName}
+                color="secondary"
+              >
+                {avatarIcon.name}
+              </Typography.SubCaptionMedium>
+            </div>
+          );
+        })}
+      </div>
+
+      {selectedIcon && (
+        <div className="mt-2 flex items-center justify-between">
+          <div className="flex items-center gap-1.5 min-w-0">
+            <Typography.SubCaptionMedium color="secondary">
+              Selected:
+            </Typography.SubCaptionMedium>
+            <Typography.SubCaptionMedium className="truncate">
+              {selectedAvatarName}
+            </Typography.SubCaptionMedium>
+          </div>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={() => onSelectIcon("")}
+            aria-label="Clear avatar selection"
+          >
+            Clear
+          </Button>
+        </div>
+      )}
+    </>
+  );
+
+  if (variant === "embedded") {
+    return <div className={className}>{content}</div>;
+  }
+
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle className="text-lg">Choose an Avatar Icon</CardTitle>
-        <p className="text-sm text-muted-foreground">
-          Select an icon that represents you
-        </p>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
-          {avatarIcons.map((avatarIcon) => {
-            const IconComponent = avatarIcon.icon;
-            const isSelected = selectedIcon === avatarIcon.id;
-
-            return (
-              <div key={avatarIcon.id} className="text-center">
-                <Button
-                  variant="ghost"
-                  className={`w-16 h-16 rounded-full p-0 relative hover:scale-105 transition-all ${
-                    isSelected
-                      ? `${avatarIcon.bgColor} ring-2 ring-primary ring-offset-2`
-                      : `${avatarIcon.bgColor} hover:${avatarIcon.bgColor}`
-                  }`}
-                  onClick={() => onSelectIcon(avatarIcon.id)}
-                >
-                  <IconComponent
-                    className={`size-6 sm:size-8 ${avatarIcon.color}`}
-                  />
-                  {isSelected && (
-                    <div className="absolute -top-1 -right-1 bg-primary text-primary-foreground rounded-full size-4 sm:size-5 flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-current rounded-full" />
-                    </div>
-                  )}
-                </Button>
-                <p className="text-xs text-muted-foreground mt-1 truncate">
-                  {avatarIcon.name}
-                </p>
-              </div>
-            );
-          })}
+        <div className="space-y-1">
+          <Typography.Heading3>Choose an Avatar Icon</Typography.Heading3>
+          <Typography.Caption color="secondary">
+            Select an icon that represents you
+          </Typography.Caption>
         </div>
-        {selectedIcon && (
-          <div className="mt-4 p-3 bg-muted rounded-md">
-            <div className="flex items-center gap-2">
-              <Badge variant="secondary">Selected</Badge>
-              <span className="text-sm font-medium">
-                {avatarIcons.find((icon) => icon.id === selectedIcon)?.name}
-              </span>
-            </div>
-          </div>
-        )}
-      </CardContent>
+      </CardHeader>
+      <CardContent>{content}</CardContent>
     </Card>
   );
 }

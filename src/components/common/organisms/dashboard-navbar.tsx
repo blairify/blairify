@@ -17,6 +17,7 @@ import { GiBurningBook, GiFlowerTwirl } from "react-icons/gi";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
 import { BugReportButton } from "@/components/common/atoms/bug-report-button";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
+import { Typography } from "@/components/common/atoms/typography";
 import { DashboardWalkthrough } from "@/components/common/organisms/dashboard-walkthrough";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -127,10 +128,11 @@ export default function DashboardNavbar({
               variant="outline"
               size="icon"
               onClick={() => setSidebarOpen(true)}
+              aria-label="Open menu"
               className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors lg:hidden"
               data-testid="mobile-menu-button"
             >
-              <Menu className="size-5" />
+              <Menu className="size-5" aria-hidden="true" />
             </Button>
 
             <div className="flex items-center space-x-3">
@@ -163,31 +165,37 @@ export default function DashboardNavbar({
                             }
                           />
                           <AvatarFallback className="bg-primary/10 text-primary">
-                            {getInitials(
-                              userData?.displayName ||
-                                user?.displayName ||
-                                null,
-                            )}
+                            <Typography.SubCaptionBold>
+                              {getInitials(
+                                userData?.displayName ||
+                                  user?.displayName ||
+                                  null,
+                              )}
+                            </Typography.SubCaptionBold>
                           </AvatarFallback>
                         </Avatar>
                       )}
                       {isPro && (
-                        <span className="absolute -bottom-0.5 right-0.5 rounded bg-emerald-500 px-1 py-px text-[8px] font-bold uppercase leading-none text-white shadow-sm">
-                          Pro
-                        </span>
+                        <div className="absolute -bottom-0.5 right-0.5 rounded bg-emerald-500 px-1 py-px shadow-sm">
+                          <Typography.SubCaptionBold>
+                            Pro
+                          </Typography.SubCaptionBold>
+                        </div>
                       )}
                     </div>
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>View Profile</p>
+                  <Typography.Caption>View Profile</Typography.Caption>
                 </TooltipContent>
               </Tooltip>
               <div className="flex items-center gap-2">
                 {!isPro && (
-                  <span className="rounded-md bg-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                    Free
-                  </span>
+                  <div className="rounded-md bg-muted px-2 py-0.5">
+                    <Typography.SubCaptionBold color="secondary">
+                      Free
+                    </Typography.SubCaptionBold>
+                  </div>
                 )}
 
                 {!isMobile && (
@@ -199,14 +207,13 @@ export default function DashboardNavbar({
                             rank={rank}
                             className={cn("size-4 shrink-0", rank.badge.text)}
                           />
-                          <span
-                            className={cn(
-                              "text-xs font-semibold whitespace-nowrap",
-                              rank.badge.text,
-                            )}
+                          <div
+                            className={cn("whitespace-nowrap", rank.badge.text)}
                           >
-                            {rank.name} {formatRankLevel(rank.level)}
-                          </span>
+                            <Typography.SubCaptionBold>
+                              {rank.name} {formatRankLevel(rank.level)}
+                            </Typography.SubCaptionBold>
+                          </div>
                         </div>
                         <div className="w-full h-1 rounded-full bg-muted/40 overflow-hidden">
                           <div
@@ -220,13 +227,17 @@ export default function DashboardNavbar({
                       </div>
                     </TooltipTrigger>
                     <TooltipContent side="bottom" className="text-xs">
-                      <span className="font-semibold">
-                        {totalXP.toLocaleString()} XP
-                      </span>
-                      {" · "}
-                      <span className="text-muted-foreground">
-                        {progressToNextRank}% to next rank
-                      </span>
+                      <div className="flex items-center gap-1">
+                        <Typography.SubCaptionBold>
+                          {totalXP.toLocaleString()} XP
+                        </Typography.SubCaptionBold>
+                        <Typography.SubCaption color="secondary">
+                          {"·"}
+                        </Typography.SubCaption>
+                        <Typography.SubCaption color="secondary">
+                          {progressToNextRank}% to next rank
+                        </Typography.SubCaption>
+                      </div>
                     </TooltipContent>
                   </Tooltip>
                 )}
@@ -242,7 +253,7 @@ export default function DashboardNavbar({
                 </div>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Report Bug</p>
+                <Typography.Caption>Report Bug</Typography.Caption>
               </TooltipContent>
             </Tooltip>
 
@@ -260,7 +271,7 @@ export default function DashboardNavbar({
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Settings</p>
+                <Typography.Caption>Settings</Typography.Caption>
               </TooltipContent>
             </Tooltip>
             {!isMobile && (
@@ -278,7 +289,7 @@ export default function DashboardNavbar({
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Help & Support</p>
+                    <Typography.Caption>Help & Support</Typography.Caption>
                   </TooltipContent>
                 </Tooltip>
 
@@ -288,13 +299,14 @@ export default function DashboardNavbar({
                       variant="outline"
                       size="icon"
                       className="border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                      aria-label="Sign out"
                       onClick={handleSignOut}
                     >
-                      <LogOut className="size-4" />
+                      <LogOut className="size-4" aria-hidden="true" />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Sign Out</p>
+                    <Typography.Caption>Sign Out</Typography.Caption>
                   </TooltipContent>
                 </Tooltip>
               </>

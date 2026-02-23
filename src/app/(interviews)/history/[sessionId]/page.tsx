@@ -1000,7 +1000,11 @@ export default function SessionDetailsPage() {
                             if (!r) return false;
                             if ((r.response ?? "").trim().length > 0)
                               return true;
-                            return r.score > 0;
+                            const score =
+                              typeof r.score === "number"
+                                ? r.score
+                                : Number(r.score);
+                            return Number.isFinite(score) && score > 0;
                           },
                         );
 
@@ -1025,7 +1029,11 @@ export default function SessionDetailsPage() {
 
                         if (!r) return false;
                         if ((r.response ?? "").trim().length > 0) return true;
-                        return r.score > 0;
+                        const score =
+                          typeof r.score === "number"
+                            ? r.score
+                            : Number(r.score);
+                        return Number.isFinite(score) && score > 0;
                       });
 
                       const qaRows: Array<{
@@ -1054,10 +1062,12 @@ export default function SessionDetailsPage() {
                           question,
                           practiceQuestion,
                           response: response?.response ?? null,
-                          score:
-                            typeof response?.score === "number"
-                              ? response.score
-                              : null,
+                          score: (() => {
+                            const raw = response?.score;
+                            const n =
+                              typeof raw === "number" ? raw : Number(raw);
+                            return Number.isFinite(n) ? n : null;
+                          })(),
                         });
 
                         if (

@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import { Typography } from "@/components/common/atoms/typography";
 
 type LogoVariant = "iconOnly" | "textOnly" | "iconText" | "iconTextVertical";
 
@@ -13,11 +14,11 @@ interface LogoProps {
   iconSize?: number;
 }
 
-const LOGO_TEXT_CLASS =
-  "font-heading font-semibold tracking-tight text-xl text-foreground";
 const ICON_PATH = "/icon0.svg";
 
-export const LogoText = () => <>Blairify</>;
+export const LogoText = () => (
+  <Typography.BodyBold>Blairify</Typography.BodyBold>
+);
 
 export default function Logo({
   variant = "iconText",
@@ -37,9 +38,9 @@ export default function Logo({
   );
 
   const renderText = () => (
-    <span className={clsx(LOGO_TEXT_CLASS, textClassName)}>
+    <div className={clsx(textClassName)}>
       <LogoText />
-    </span>
+    </div>
   );
 
   const content = (() => {

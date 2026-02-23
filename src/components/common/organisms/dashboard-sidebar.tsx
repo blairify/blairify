@@ -20,6 +20,7 @@ import { MdOutlineLocalFireDepartment } from "react-icons/md";
 import { TbProgressBolt } from "react-icons/tb";
 import { TiFlowChildren } from "react-icons/ti";
 import Logo from "@/components/common/atoms/logo-blairify";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import {
@@ -84,13 +85,10 @@ export default function DashboardSidebar({
           >
             {!collapsed && (
               <div className="transition-transform ml-2">
-                <Logo variant="textOnly" />
+                <Logo variant="iconText" />
               </div>
             )}
-            <div
-              className="hidden items-center gap-1 lg:flex"
-              aria-hidden="true"
-            >
+            <div className="hidden items-center gap-1 lg:flex">
               <Button
                 variant="ghost"
                 size="icon"
@@ -118,7 +116,7 @@ export default function DashboardSidebar({
             title="New Interview"
             aria-label="New Interview"
             data-tour="start-interview"
-            className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
+            className={`flex items-center px-3.5 py-2.5 rounded-lg transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
               isActive("/configure")
@@ -127,20 +125,18 @@ export default function DashboardSidebar({
             }`}
           >
             <Plus className="size-5 flex-shrink-0" />
-            <span
-              className={`${collapsed ? "sr-only" : "truncate"} ${
-                isActive("/configure") ? "font-medium" : ""
-              }`}
+            <Typography.CaptionMedium
+              className={collapsed ? "sr-only" : "truncate"}
             >
               New Interview
-            </span>
+            </Typography.CaptionMedium>
           </Link>
           <Link
             href="/jobs"
             title="Real Offers"
             aria-label="Real Offers"
             data-tour="real-offers"
-            className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
+            className={`flex items-center px-3.5 py-2.5 rounded-lg transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
               isActive("/jobs")
@@ -149,13 +145,11 @@ export default function DashboardSidebar({
             }`}
           >
             <MdOutlineLocalFireDepartment className="size-5 flex-shrink-0" />
-            <span
-              className={`${collapsed ? "sr-only" : "truncate"} ${
-                isActive("/jobs") ? "font-medium" : ""
-              }`}
+            <Typography.CaptionMedium
+              className={collapsed ? "sr-only" : "truncate"}
             >
               Real Offers
-            </span>
+            </Typography.CaptionMedium>
           </Link>
 
           <Link
@@ -163,7 +157,7 @@ export default function DashboardSidebar({
             title="History"
             aria-label="History"
             data-tour="interview-history"
-            className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
+            className={`flex items-center px-3.5 py-2.5 rounded-lg transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
               isActive("/history")
@@ -172,13 +166,11 @@ export default function DashboardSidebar({
             }`}
           >
             <History className="size-5 flex-shrink-0" />
-            <span
-              className={`${collapsed ? "sr-only" : "truncate"} ${
-                isActive("/history") ? "font-medium" : ""
-              }`}
+            <Typography.CaptionMedium
+              className={collapsed ? "sr-only" : "truncate"}
             >
               History
-            </span>
+            </Typography.CaptionMedium>
           </Link>
 
           {!isPro && (
@@ -192,10 +184,9 @@ export default function DashboardSidebar({
                 href="/settings?tab=subscription"
                 title="Upgrade to Pro"
                 aria-label="Upgrade to Pro"
-                className={`relative group flex items-center px-3 py-1.5 rounded-lg transition-all duration-300 w-full overflow-hidden ${
+                className={`relative group flex items-center px-3.5 py-2.5 rounded-lg transition-colors w-full overflow-hidden border shadow-sm ${
                   collapsed ? "justify-center max-w-10 mx-auto" : "space-x-2"
-                } "bg-[#10B981]/5 hover:bg-[#10B981]/10 border border-[#10B981]/30 hover:border-[#10B981]/60 text-[#10B981] shadow-sm"
-                `}
+                } bg-[#10B981]/5 hover:bg-[#10B981]/10 border-[#10B981]/30 hover:border-[#10B981]/60 text-[#10B981]`}
               >
                 {!isActive("/upgrade") && (
                   <motion.div
@@ -221,9 +212,9 @@ export default function DashboardSidebar({
                 </div>
 
                 {!collapsed && (
-                  <span className="relative font-bold text-sm tracking-tight truncate">
+                  <Typography.CaptionBold className="relative truncate">
                     Upgrade to Pro
-                  </span>
+                  </Typography.CaptionBold>
                 )}
 
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
@@ -232,20 +223,19 @@ export default function DashboardSidebar({
           )}
 
           <div className={`pt-4 pb-2 ${collapsed ? "px-0" : "px-3"}`}>
-            <p
-              className={`text-xs font-semibold text-sidebar-foreground/60 uppercase tracking-wider ${
-                collapsed ? "sr-only" : ""
-              }`}
+            <Typography.SubCaptionBold
+              className={collapsed ? "sr-only" : ""}
+              color="secondary"
             >
               Progress
-            </p>
+            </Typography.SubCaptionBold>
           </div>
           <Link
             href="/dashboard"
             title="Dashboard"
             aria-label="Dashboard"
             data-tour="dashboard"
-            className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
+            className={`flex items-center px-3.5 py-2.5 rounded-lg transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
               isActive("/dashboard")
@@ -254,13 +244,11 @@ export default function DashboardSidebar({
             }`}
           >
             <TbProgressBolt className="size-5 flex-shrink-0" />
-            <span
-              className={`${collapsed ? "sr-only" : "truncate"} ${
-                isActive("/dashboard") ? "font-medium" : ""
-              }`}
+            <Typography.CaptionMedium
+              className={collapsed ? "sr-only" : "truncate"}
             >
               Dashboard
-            </span>
+            </Typography.CaptionMedium>
           </Link>
           <Link
             href="/achievements"
@@ -275,13 +263,11 @@ export default function DashboardSidebar({
             }`}
           >
             <TiFlowChildren className="size-5 flex-shrink-0" />
-            <span
-              className={`${collapsed ? "sr-only" : "truncate"} ${
-                isActive("/achievements") ? "font-medium" : ""
-              }`}
+            <Typography.CaptionMedium
+              className={collapsed ? "sr-only" : "truncate"}
             >
               Achievements
-            </span>
+            </Typography.CaptionMedium>
           </Link>
           <button
             type="button"
@@ -293,13 +279,17 @@ export default function DashboardSidebar({
             }`}
           >
             <GrFlows className="size-5 flex-shrink-0" />
-            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
+            <Typography.CaptionMedium
+              className={collapsed ? "sr-only" : "truncate"}
+            >
               Roadmap
-            </span>
+            </Typography.CaptionMedium>
             {!collapsed && (
-              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-                Soon
-              </span>
+              <div className="ml-auto bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+                <Typography.SubCaptionBold color="secondary">
+                  Soon
+                </Typography.SubCaptionBold>
+              </div>
             )}
           </button>
           <button
@@ -311,13 +301,17 @@ export default function DashboardSidebar({
             aria-label="Docs coming soon"
           >
             <LuBookAudio className="size-5 flex-shrink-0" />
-            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
+            <Typography.CaptionMedium
+              className={collapsed ? "sr-only" : "truncate"}
+            >
               Docs
-            </span>
+            </Typography.CaptionMedium>
             {!collapsed && (
-              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-                Soon
-              </span>
+              <div className="ml-auto bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+                <Typography.SubCaptionBold color="secondary">
+                  Soon
+                </Typography.SubCaptionBold>
+              </div>
             )}
           </button>
 
@@ -330,13 +324,17 @@ export default function DashboardSidebar({
             aria-label="Tech news coming soon"
           >
             <IoIosRadio className="size-5 flex-shrink-0" />
-            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
+            <Typography.CaptionMedium
+              className={collapsed ? "sr-only" : "truncate"}
+            >
               Tech News
-            </span>
+            </Typography.CaptionMedium>
             {!collapsed && (
-              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-                Soon
-              </span>
+              <div className="ml-auto bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+                <Typography.SubCaptionBold color="secondary">
+                  Soon
+                </Typography.SubCaptionBold>
+              </div>
             )}
           </button>
 
@@ -349,13 +347,17 @@ export default function DashboardSidebar({
             aria-label="BairTalk coming soon"
           >
             <GiDandelionFlower className="size-5 flex-shrink-0" />
-            <span className={`${collapsed ? "sr-only" : "truncate text-sm"}`}>
+            <Typography.CaptionMedium
+              className={collapsed ? "sr-only" : "truncate"}
+            >
               BairTalk
-            </span>
+            </Typography.CaptionMedium>
             {!collapsed && (
-              <span className="ml-auto text-xs bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-                Soon
-              </span>
+              <div className="ml-auto bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
+                <Typography.SubCaptionBold color="secondary">
+                  Soon
+                </Typography.SubCaptionBold>
+              </div>
             )}
           </button>
         </nav>
@@ -373,25 +375,27 @@ export default function DashboardSidebar({
                         </div>
                       ) : (
                         <div className="relative flex items-center justify-center size-9 rounded-lg bg-sidebar-accent/20">
-                          <span className="text-xs font-bold text-sidebar-foreground">
+                          <Typography.SubCaptionBold>
                             {remainingInterviews}/{maxInterviews}
-                          </span>
+                          </Typography.SubCaptionBold>
                         </div>
                       )}
                     </div>
                   </TooltipTrigger>
                   <TooltipContent side="right" className="max-w-[200px]">
                     {isPro ? (
-                      <p className="text-sm">Unlimited Interviews</p>
+                      <Typography.Caption>
+                        Unlimited Interviews
+                      </Typography.Caption>
                     ) : (
                       <div className="space-y-1">
-                        <p className="text-sm font-medium">
+                        <Typography.CaptionMedium>
                           Interviews: {currentCount}/{maxInterviews}
-                        </p>
+                        </Typography.CaptionMedium>
                         {timeRemaining.formatted && (
-                          <p className="text-xs text-muted-foreground">
+                          <Typography.SubCaption color="secondary">
                             Limits reset in {timeRemaining.formatted}
-                          </p>
+                          </Typography.SubCaption>
                         )}
                       </div>
                     )}
@@ -402,19 +406,19 @@ export default function DashboardSidebar({
                   {isPro ? (
                     <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#10B981]/10">
                       <InfinityIcon className="size-4 text-[#10B981] flex-shrink-0" />
-                      <span className="text-sm font-medium text-[#10B981]">
+                      <Typography.CaptionMedium>
                         Unlimited Interviews
-                      </span>
+                      </Typography.CaptionMedium>
                     </div>
                   ) : (
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-medium text-sidebar-foreground/80">
+                        <Typography.SubCaption color="secondary">
                           Interviews
-                        </span>
-                        <span className="text-xs font-bold text-sidebar-foreground">
+                        </Typography.SubCaption>
+                        <Typography.SubCaptionBold>
                           {currentCount}/{maxInterviews}
-                        </span>
+                        </Typography.SubCaptionBold>
                       </div>
 
                       {!usageLoading && (
@@ -425,9 +429,11 @@ export default function DashboardSidebar({
                       )}
 
                       {timeRemaining.formatted && (
-                        <div className="flex items-center gap-1.5 text-xs text-sidebar-foreground/60">
+                        <div className="flex items-center gap-1.5">
                           <Clock className="size-3" />
-                          <span>Limits reset in {timeRemaining.formatted}</span>
+                          <Typography.SubCaption color="secondary">
+                            Limits reset in {timeRemaining.formatted}
+                          </Typography.SubCaption>
                         </div>
                       )}
                     </div>
@@ -438,13 +444,12 @@ export default function DashboardSidebar({
           </TooltipProvider>
 
           <div className="px-4 pb-4">
-            <p
-              className={`text-xs text-sidebar-foreground/60 text-center ${
-                collapsed ? "sr-only" : ""
-              }`}
+            <Typography.SubCaption
+              className={`text-center ${collapsed ? "sr-only" : ""}`}
+              color="secondary"
             >
               &copy; Rights Reserved Blairify
-            </p>
+            </Typography.SubCaption>
           </div>
         </div>
       </div>

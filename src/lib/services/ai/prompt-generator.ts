@@ -164,6 +164,7 @@ The candidate selected these technologies for the interview:
 ${technologyList.map((t) => `- ${t}`).join("\n")}
 
 You MUST include a section "## TECHNOLOGY SCORES" where you score EACH listed technology from 0 to 100 based ONLY on evidence from the transcript.
+- Treat a technology as "discussed" if the questions OR answers clearly involve it, even if the exact word is not mentioned.
 - If a technology was NOT discussed or evaluated, output "N/A".
 - Output one line per technology in the exact format: "- <technology>: <score>/100" or "- <technology>: N/A"`
       : "";

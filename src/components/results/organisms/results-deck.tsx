@@ -8,7 +8,14 @@ import {
   Target,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   ACHIEVEMENT_FALLBACK_ICON,
   ACHIEVEMENT_ICON_MAP,
@@ -780,15 +787,15 @@ function getTechnologyScoresForResults(
 function getStepIcon(stepId: DeckStepId) {
   switch (stepId) {
     case "rewards":
-      return <Sparkles className="size-4" />;
+      return <Sparkles className="size-4" aria-hidden="true" />;
     case "outcome":
-      return <Sparkles className="size-4" />;
+      return <Sparkles className="size-4" aria-hidden="true" />;
     case "takeaway":
-      return <Target className="size-4" />;
+      return <Target className="size-4" aria-hidden="true" />;
     case "growth":
-      return <Target className="size-4" />;
+      return <Target className="size-4" aria-hidden="true" />;
     case "next":
-      return <ArrowRight className="size-4" />;
+      return <ArrowRight className="size-4" aria-hidden="true" />;
     default: {
       const _never: never = stepId;
       throw new Error(`Unhandled step: ${_never}`);
@@ -886,6 +893,9 @@ export function ResultsDeck({
   const lastIndex = Math.max(0, steps.length - 1);
   const safeIndex = clampIndex(index, lastIndex);
   const step = steps[safeIndex];
+
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const [_contentIsScrollable, setContentIsScrollable] = useState(false);
 
   const [cinematicOpen, setCinematicOpen] = useState(false);
   const hasShownCinematicRef = useRef(false);
@@ -1131,6 +1141,21 @@ export function ResultsDeck({
 
   const autoPaused = hoverPaused || interactionPaused;
 
+  useLayoutEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const next = el.scrollHeight > el.clientHeight + 1;
+      setContentIsScrollable(next);
+    };
+
+    update();
+    const ro = new ResizeObserver(() => update());
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   const goNext = useCallback(() => {
     setDirection(1);
     setIndex((i) => clampIndex(i + 1, lastIndex));
@@ -1218,6 +1243,16 @@ export function ResultsDeck({
       onMouseLeave={() => setHoverPaused(false)}
       onPointerDown={(e) => {
         if (interactionLocked) return;
+
+        const scrollContainer = scrollContainerRef.current;
+        if (
+          scrollContainer &&
+          e.target instanceof Node &&
+          scrollContainer.contains(e.target)
+        ) {
+          return;
+        }
+
         const target = e.target;
         if (target instanceof HTMLElement) {
           if (target.closest("button,a,input,textarea,select")) return;
@@ -1229,8 +1264,6 @@ export function ResultsDeck({
         dragStartYRef.current = e.clientY;
         swipeLockedRef.current = null;
         pointerIdRef.current = e.pointerId;
-
-        e.currentTarget.setPointerCapture(e.pointerId);
       }}
       onPointerUp={() => endPointerDrag()}
       onPointerCancel={() => endPointerDrag()}
@@ -1246,12 +1279,12 @@ export function ResultsDeck({
           />
         ) : null}
 
-        <div className="relative mx-auto flex h-full min-h-0 max-w-6xl flex-col px-4 py-6 sm:px-14 sm:py-8">
-          <div className="relative min-h-0 flex-1">
+        <div className="relative mx-auto flex h-full min-h-0 max-w-6xl flex-col px-3 py-4 pb-[env(safe-area-inset-bottom)] sm:px-14 sm:py-8">
+          <div className="relative flex min-h-0 flex-1 flex-col min-w-0">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={step.id}
-                className="relative mt-6"
+                className="relative mt-3 flex min-h-0 w-full max-sm:flex-1 sm:mt-6 sm:flex-none"
                 custom={direction}
                 variants={{
                   enter: (d: 1 | -1) => ({
@@ -1292,9 +1325,9 @@ export function ResultsDeck({
                   )}
                 </div>
 
-                <div className="relative">
-                  <div className="pointer-events-none absolute inset-y-0 left-0 hidden items-center sm:flex">
-                    <div className="pointer-events-auto -translate-x-8 md:-translate-x-14">
+                <div className="relative flex min-h-0 w-full min-w-0 max-sm:flex-1 sm:flex-none sm:px-10 md:px-16">
+                  <div className="pointer-events-none absolute left-0 top-1/2 z-50 hidden -translate-y-1/2 sm:flex">
+                    <div className="pointer-events-auto pl-2">
                       <Button
                         type="button"
                         variant="outline"
@@ -1308,12 +1341,12 @@ export function ResultsDeck({
                           goPrev();
                         }}
                       >
-                        <ChevronLeft className="size-5" />
+                        <ChevronLeft className="size-5" aria-hidden="true" />
                       </Button>
                     </div>
                   </div>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center sm:flex">
-                    <div className="pointer-events-auto translate-x-8 md:translate-x-14">
+                  <div className="pointer-events-none absolute right-0 top-1/2 z-50 hidden -translate-y-1/2 sm:flex">
+                    <div className="pointer-events-auto pr-2">
                       <Button
                         type="button"
                         variant="outline"
@@ -1327,7 +1360,7 @@ export function ResultsDeck({
                           goNext();
                         }}
                       >
-                        <ChevronRight className="size-5" />
+                        <ChevronRight className="size-5" aria-hidden="true" />
                       </Button>
                     </div>
                   </div>
@@ -1335,8 +1368,8 @@ export function ResultsDeck({
                   <motion.section
                     className={
                       isTintedSlide
-                        ? "relative overflow-hidden rounded-3xl border border-border/40 bg-background/50 backdrop-blur-sm shadow-sm"
-                        : "relative overflow-hidden rounded-3xl border border-border/40 bg-background/80 backdrop-blur-sm shadow-sm"
+                        ? "relative z-10 flex w-full max-w-full min-h-0 min-w-0 flex-col overflow-hidden overflow-x-hidden rounded-3xl border border-border/40 bg-background/50 backdrop-blur-sm shadow-sm max-sm:flex-1 sm:flex-none"
+                        : "relative z-10 flex w-full max-w-full min-h-0 min-w-0 flex-col overflow-hidden overflow-x-hidden rounded-3xl border border-border/40 bg-background/80 backdrop-blur-sm shadow-sm max-sm:flex-1 sm:flex-none"
                     }
                   >
                     <div
@@ -1367,7 +1400,7 @@ export function ResultsDeck({
                       </motion.div>
                     ) : null}
 
-                    <div className="relative z-10 px-6 py-8 sm:px-12 sm:py-12 flex min-h-0 flex-col">
+                    <div className="relative z-10 px-4 py-5 sm:px-12 sm:py-12 flex min-h-0 flex-col max-sm:flex-1">
                       <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-2 text-muted-foreground">
                           {getStepIcon(step.id)}
@@ -1376,13 +1409,20 @@ export function ResultsDeck({
                           </Typography.CaptionMedium>
                         </div>
 
-                        <div className="text-xs tabular-nums text-muted-foreground">
+                        <Typography.Caption
+                          className="tabular-nums"
+                          color="secondary"
+                        >
                           {index + 1}/{steps.length}
-                        </div>
+                        </Typography.Caption>
                       </div>
 
-                      <div className="flex min-h-0 flex-1 items-center justify-center">
-                        <div className="w-full max-w-full min-h-0 overflow-y-auto">
+                      <div className="flex min-h-0 flex-1 items-stretch">
+                        <div
+                          ref={scrollContainerRef}
+                          data-results-deck-scroll="true"
+                          className="flex flex-1 min-h-0 w-full max-w-full flex-col touch-pan-y overscroll-contain overflow-y-auto overflow-x-hidden"
+                        >
                           {(() => {
                             switch (step.id) {
                               case "rewards": {
@@ -1474,13 +1514,13 @@ export function ResultsDeck({
                                     </div>
 
                                     <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                                      <div className="rounded-3xl border bg-gradient-to-br from-primary/15 via-background/40 to-background/40 p-6 shadow-sm">
+                                      <div className="rounded-3xl border bg-gradient-to-br from-primary/15 via-background/40 to-background/40 p-4 sm:p-6 shadow-sm">
                                         <div className="flex items-start justify-between gap-4">
                                           <div>
                                             <div className="text-sm font-semibold text-muted-foreground">
                                               XP gained
                                             </div>
-                                            <div className="mt-2 text-5xl font-bold tabular-nums text-foreground">
+                                            <div className="mt-2 text-4xl sm:text-5xl font-bold tabular-nums text-foreground">
                                               +{xpValue}
                                             </div>
                                           </div>
@@ -1500,7 +1540,7 @@ export function ResultsDeck({
                                         </div>
                                       </div>
 
-                                      <div className="rounded-3xl border bg-background/40 p-6">
+                                      <div className="rounded-3xl border bg-background/40 p-4 sm:p-6">
                                         <div className="text-sm font-semibold text-muted-foreground">
                                           Achievements
                                         </div>
@@ -1589,7 +1629,7 @@ export function ResultsDeck({
 
                                 return (
                                   <div className="space-y-6">
-                                    <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                                    <div className="flex min-w-0 flex-col sm:flex-row items-center gap-6 sm:gap-8">
                                       <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex-shrink-0">
                                         <svg
                                           className="w-full h-full transform -rotate-90"
@@ -1639,7 +1679,7 @@ export function ResultsDeck({
                                         </div>
                                       </div>
 
-                                      <div className="text-center sm:text-left max-w-2xl">
+                                      <div className="min-w-0 text-center sm:text-left max-w-2xl">
                                         <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-center">
                                           <Typography.Heading2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
                                             {readiness.label}
@@ -1650,14 +1690,14 @@ export function ResultsDeck({
                                             {scoreValue}/100
                                           </span>
                                         </div>
-                                        <Typography.Body className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                                        <Typography.Body className="mt-3 break-words text-sm sm:text-base text-muted-foreground leading-relaxed">
                                           {step.summary.trim().length > 0
                                             ? step.summary
                                             : ""}
                                         </Typography.Body>
 
                                         {narrative.length > 0 ? (
-                                          <Typography.Body className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                                          <Typography.Body className="mt-3 break-words text-sm text-muted-foreground leading-relaxed">
                                             {narrative}
                                           </Typography.Body>
                                         ) : null}
@@ -1880,7 +1920,7 @@ export function ResultsDeck({
                                         </motion.div>
 
                                         <div className="min-w-0">
-                                          <div className="text-foreground">
+                                          <div className="text-foreground break-words">
                                             <MarkdownContent
                                               markdown={
                                                 step.body.trim().length > 0
@@ -1907,7 +1947,7 @@ export function ResultsDeck({
                                 return (
                                   <div className="space-y-6">
                                     <div>
-                                      <Typography.Heading2 className="text-2xl sm:text-4xl font-semibold tracking-tight">
+                                      <Typography.Heading2 className="mt-2 text-xl sm:text-2xl font-semibold tracking-tight">
                                         Top areas for growth
                                       </Typography.Heading2>
                                       <Typography.Body className="mt-2 text-sm text-muted-foreground">
@@ -1921,7 +1961,7 @@ export function ResultsDeck({
                                         {step.focusAreas.map((a, i) => (
                                           <motion.div
                                             key={`${i}-${a.title}`}
-                                            className="px-5 py-4 sm:px-6"
+                                            className="px-4 py-3 sm:px-6 sm:py-4"
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{
@@ -2005,7 +2045,7 @@ export function ResultsDeck({
                                   <div className="space-y-6">
                                     <div className="flex items-start justify-between gap-4">
                                       <div>
-                                        <Typography.Heading2 className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight">
+                                        <Typography.Heading2 className="mt-2 text-xl sm:text-2xl font-semibold tracking-tight">
                                           Your plan
                                         </Typography.Heading2>
                                         <Typography.Body className="mt-2 text-sm text-muted-foreground">
@@ -2049,7 +2089,7 @@ export function ResultsDeck({
                         </div>
                       </div>
 
-                      <div className="mt-6">
+                      <div className="shrink-0 mt-6 max-sm:mt-auto max-sm:pt-4">
                         <div className="flex items-center justify-center gap-1">
                           {steps.map((s, idx) => (
                             <div
@@ -2062,23 +2102,23 @@ export function ResultsDeck({
                             />
                           ))}
                         </div>
-                      </div>
 
-                      <div className="mt-8 flex items-center justify-center">
-                        {index < lastIndex ? (
-                          <Button
-                            type="button"
-                            className="h-11 px-8"
-                            onPointerDown={(e) => e.stopPropagation()}
-                            onClick={() => {
-                              pauseForInteraction(INTERACTION_PAUSE_MS);
-                              goNext();
-                            }}
-                          >
-                            Next
-                            <ArrowRight className="ml-2 size-4" />
-                          </Button>
-                        ) : null}
+                        <div className="mt-8 max-sm:mt-4 flex items-center justify-center">
+                          {index < lastIndex ? (
+                            <Button
+                              type="button"
+                              className="h-11 px-8"
+                              onPointerDown={(e) => e.stopPropagation()}
+                              onClick={() => {
+                                pauseForInteraction(INTERACTION_PAUSE_MS);
+                                goNext();
+                              }}
+                            >
+                              Next
+                              <ArrowRight className="ml-2 size-4" />
+                            </Button>
+                          ) : null}
+                        </div>
                       </div>
                     </div>
                   </motion.section>

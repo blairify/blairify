@@ -14,7 +14,6 @@ import {
   Lock,
   Mail,
   MapPin,
-  Rocket,
   Save,
   ShieldCheck,
   Trash2,
@@ -73,15 +72,14 @@ const EXPERIENCE_OPTIONS = [
   "Senior (5-8 years)",
 ];
 
-const LOOKUP_KEY = process.env.NEXT_PUBLIC_STRIPE_LOOKUP_KEY || "Pro-a746dd1";
-const PRICE_ID =
-  process.env.NEXT_PUBLIC_STRIPE_PRICE_ID || "price_1SqtVBKUNDmoEPuuxeeZQzXK";
+const LOOKUP_KEY = process.env.NEXT_PUBLIC_STRIPE_LOOKUP_KEY ?? "";
+const PRICE_ID = process.env.NEXT_PUBLIC_STRIPE_PRICE_ID ?? "";
 
 export function ProfileContent({
   user: _serverUser,
   initialTab = "subscription",
 }: ProfileContentProps) {
-  const { user, userData, refreshUserData } = useAuth();
+  const { user, userData, refreshUserData, loading, signOut } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isEditing, setIsEditing] = useState(false);
@@ -122,10 +120,10 @@ export function ProfileContent({
   ] as const;
 
   useEffect(() => {
-    if (!user) {
+    if (!loading && !user) {
       router.push("/auth");
     }
-  }, [user, router]);
+  }, [user, loading, router]);
 
   useEffect(() => {
     setEditData({
@@ -148,7 +146,7 @@ export function ProfileContent({
     setSaving(true);
     try {
       await updateDoc(doc(db, "users", user.uid), {
-        avatarIcon: iconId,
+        avatarIcon: iconId || null,
         photoURL: null,
       });
 
@@ -292,6 +290,10 @@ export function ProfileContent({
     }).format(date);
   };
 
+  if (loading) {
+    return null;
+  }
+
   if (!user || !userData) {
     return null;
   }
@@ -302,8 +304,8 @@ export function ProfileContent({
       <div className="relative border-b bg-card overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="container mx-auto px-4 sm:px-6 py-12 relative z-10">
-          <div className="flex flex-col md:flex-row items-center md:items-center gap-6">
+        <div className="container mx-auto px-4 sm:px-6 py-6 relative z-10">
+          <div className="flex flex-col md:flex-row items-center md:items-center gap-4">
             {/* Avatar */}
             <div className="relative shrink-0">
               {userData?.avatarIcon ? (
@@ -316,8 +318,10 @@ export function ProfileContent({
                 </div>
               ) : (
                 <Avatar className="size-20 border-4 border-background shadow-xl ring-1 ring-primary/20">
-                  <AvatarFallback className="text-2xl font-bold bg-primary/5 text-primary">
-                    {getInitials(userData?.displayName || user.displayName)}
+                  <AvatarFallback className="bg-primary/5 text-primary">
+                    <Typography.Heading3>
+                      {getInitials(userData?.displayName || user.displayName)}
+                    </Typography.Heading3>
                   </AvatarFallback>
                 </Avatar>
               )}
@@ -325,60 +329,80 @@ export function ProfileContent({
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="absolute -bottom-1 -right-1 bg-primary text-primary-foreground px-2 py-0.5 rounded-full text-[9px] font-black tracking-widest shadow-lg border-2 border-background flex items-center gap-0.5"
+                  className="absolute -bottom-1 -right-1 bg-primary/10 px-2 py-0.5 rounded-full shadow-lg border-2 border-background flex items-center gap-1"
                 >
-                  <Zap className="size-2.5 fill-current" /> PRO
+                  <Zap
+                    className="size-3 fill-current text-primary"
+                    aria-hidden="true"
+                  />
+                  <Typography.SubCaptionBold color="brand">
+                    PRO
+                  </Typography.SubCaptionBold>
                 </motion.div>
               )}
             </div>
 
             <div className="space-y-1 text-center md:text-left flex-1">
-              <Typography.Heading1 className="text-4xl font-black text-foreground tracking-tight">
+              <Typography.Heading1>
                 {userData?.displayName || user.displayName || "Anonymous User"}
               </Typography.Heading1>
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1.5">
-                  <Briefcase className="size-3.5" />
-                  {userData?.role || "Candidate"}
-                </span>
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
+                <div className="flex items-center gap-1.5">
+                  <Briefcase className="size-3.5 text-muted-foreground" />
+                  <Typography.Caption color="secondary">
+                    {userData?.role || "Candidate"}
+                  </Typography.Caption>
+                </div>
                 <Separator orientation="vertical" className="h-4" />
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="size-3.5" />
-                  {userData.preferences?.preferredLocation || "Remote"}
-                </span>
+                <div className="flex items-center gap-1.5">
+                  <MapPin className="size-3.5 text-muted-foreground" />
+                  <Typography.Caption color="secondary">
+                    {userData.preferences?.preferredLocation || "Remote"}
+                  </Typography.Caption>
+                </div>
                 <Separator orientation="vertical" className="h-4" />
-                <span className="flex items-center gap-1.5">
-                  <Mail className="size-3.5" />
-                  {user.email}
-                </span>
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <Mail className="size-3.5 text-muted-foreground" />
+                  <Typography.Caption className="truncate" color="secondary">
+                    {user.email}
+                  </Typography.Caption>
+                </div>
               </div>
             </div>
 
             <Button
               variant="destructive"
               size="sm"
-              onClick={() => router.push("/auth/logout")}
+              onClick={async () => {
+                await signOut();
+                router.push("/");
+                router.refresh();
+              }}
             >
-              Sign Out
+              <Typography.CaptionMedium>Sign Out</Typography.CaptionMedium>
             </Button>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto p-6 sm:p-6 pb-24">
+      <div className="container mx-auto px-6 sm:px-6 pt-4 pb-12">
         {statusMessage && (
           <div
-            className={`mb-6 p-3 text-sm border rounded-md ${
+            className={`mb-6 p-3 border rounded-md ${
               statusVariant === "success"
-                ? "text-emerald-700 bg-emerald-50 border-emerald-200 dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400"
-                : "text-red-600 bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400"
+                ? "bg-emerald-50 border-emerald-200 dark:bg-emerald-900/20 dark:border-emerald-800"
+                : "bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800"
             }`}
           >
-            {statusMessage}
+            <Typography.Caption
+              color={statusVariant === "success" ? "success" : "error"}
+            >
+              {statusMessage}
+            </Typography.Caption>
           </div>
         )}
 
-        <div className="flex flex-col md:flex-row gap-6">
+        <div className="flex flex-col md:flex-row gap-4">
           <nav className="md:w-56 shrink-0 flex md:flex-col gap-1">
             {SETTINGS_TABS.map((tab) => {
               const isActive = activeTab === tab.id;
@@ -389,16 +413,19 @@ export function ProfileContent({
                   variant="ghost"
                   size="sm"
                   onClick={() => setActiveTab(tab.id)}
-                  className={`justify-start gap-2.5 ${
+                  className={`justify-start gap-2.5 border rounded-lg ${
                     isActive
-                      ? "bg-primary/10 text-primary font-semibold"
-                      : "text-muted-foreground"
+                      ? "bg-primary/10 border-primary/20"
+                      : "border-border/20 hover:bg-muted/5"
                   }`}
                 >
-                  <tab.icon className="size-4" />
-                  <Typography.Caption
-                    className={isActive ? "text-primary font-semibold" : ""}
-                  >
+                  <tab.icon
+                    className={`size-4 ${
+                      isActive ? "text-primary" : "text-muted-foreground"
+                    }`}
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption color={isActive ? "brand" : "secondary"}>
                     {tab.label}
                   </Typography.Caption>
                 </Button>
@@ -406,19 +433,19 @@ export function ProfileContent({
             })}
           </nav>
 
-          <div className="flex-1 space-y-6 min-w-0">
+          <div className="flex-1 space-y-5 min-w-0">
             {activeTab === "subscription" && (
               <div
                 key="subscription"
-                className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300"
+                className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300"
               >
-                <div className="grid grid-cols-1 gap-6">
-                  <Card>
-                    <CardHeader className="pb-4">
+                <div className="grid grid-cols-1 gap-4">
+                  <Card className="gap-2 py-4">
+                    <CardHeader className="py-0 gap-0">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <FiCreditCard className="size-9 text-primary" />
-                          <div className="flex flex-col gap-1">
+                          <div className="flex flex-col gap-0.5">
                             <Typography.BodyBold>
                               Subscription Overview
                             </Typography.BodyBold>
@@ -430,18 +457,18 @@ export function ProfileContent({
                       </div>
                     </CardHeader>
 
-                    <CardContent className="space-y-8 pt-4">
+                    <CardContent className="space-y-4 pt-2">
                       {userData?.subscription?.plan === "pro" ? (
-                        <div className="space-y-6">
-                          <div className="p-5 rounded-2xl bg-primary/5 border border-primary/10 flex items-start gap-5">
-                            <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                              <ShieldCheck className="size-7 text-primary" />
+                        <div className="space-y-4">
+                          <div className="p-3 rounded-xl bg-primary/5 border border-primary/10 flex items-start gap-3">
+                            <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                              <ShieldCheck className="size-6 text-primary" />
                             </div>
                             <div className="space-y-1">
-                              <Typography.BodyBold className="text-lg">
+                              <Typography.BodyBold>
                                 Pro Benefits Active
                               </Typography.BodyBold>
-                              <Typography.Caption className="text-muted-foreground leading-relaxed">
+                              <Typography.Caption color="secondary">
                                 You have full access to unlimited mock
                                 interviews, advanced AI analysis, and career
                                 progress tracking.
@@ -449,38 +476,54 @@ export function ProfileContent({
                             </div>
                           </div>
 
-                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
-                              <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
-                                Current Plan
-                              </Typography.Caption>
-                              <Typography.BodyBold className="text-lg flex items-center gap-2">
+                          <Typography.SubCaptionBold
+                            className="uppercase"
+                            color="secondary"
+                          >
+                            Plan details
+                          </Typography.SubCaptionBold>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div className="p-3 rounded-lg border border-border/20 bg-muted/5 flex flex-col gap-1.5">
+                              <Typography.SubCaptionBold
+                                className="uppercase"
+                                color="secondary"
+                              >
+                                Current plan
+                              </Typography.SubCaptionBold>
+                              <Typography.BodyBold className="flex items-center gap-2">
                                 Pro Monthly{" "}
                                 <Zap className="size-4 fill-primary text-primary" />
                               </Typography.BodyBold>
                             </div>
-                            <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
-                              <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
-                                Billing Price
-                              </Typography.Caption>
-                              <Typography.BodyBold className="text-lg text-primary">
+                            <div className="p-3 rounded-lg border border-border/20 bg-muted/5 flex flex-col gap-1.5">
+                              <Typography.SubCaptionBold
+                                className="uppercase"
+                                color="secondary"
+                              >
+                                Billing price
+                              </Typography.SubCaptionBold>
+                              <Typography.BodyBold color="brand">
                                 $5 / month
                               </Typography.BodyBold>
                             </div>
-                            <div className="p-4 rounded-xl border bg-muted/20 flex flex-col gap-1">
-                              <Typography.Caption className="text-muted-foreground font-medium uppercase tracking-widest text-[10px]">
+                            <div className="p-3 rounded-lg border border-border/20 bg-muted/5 flex flex-col gap-1.5">
+                              <Typography.SubCaptionBold
+                                className="uppercase"
+                                color="secondary"
+                              >
                                 Status
-                              </Typography.Caption>
+                              </Typography.SubCaptionBold>
                               <div className="flex items-center gap-2">
                                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                                <Typography.BodyBold className="text-lg text-emerald-500">
+                                <Typography.BodyBold color="success">
                                   Active
                                 </Typography.BodyBold>
                               </div>
                             </div>
                           </div>
 
-                          <div className="pt-2">
+                          <div className="space-y-2">
                             <Button
                               variant="outline"
                               size="lg"
@@ -502,133 +545,213 @@ export function ProfileContent({
                               <CreditCard className="size-4 mr-2 group-hover:scale-110 transition-transform" />
                               Manage Billing & Subscription
                             </Button>
+
+                            <Typography.SubCaption color="secondary">
+                              Secure billing portal powered by Stripe
+                            </Typography.SubCaption>
                           </div>
                         </div>
                       ) : (
-                        <div className="space-y-6">
-                          <div className="p-5 rounded-2xl bg-muted/30 border flex items-start gap-5">
-                            <div className="h-12 w-12 rounded-xl bg-muted flex items-center justify-center shrink-0">
-                              <Rocket className="size-7 text-muted-foreground" />
-                            </div>
-                            <div className="space-y-1">
-                              <Typography.BodyBold className="text-lg">
-                                Limited Access (Free)
-                              </Typography.BodyBold>
-                              <Typography.Caption className="text-muted-foreground leading-relaxed">
-                                Upgrade to Pro to unlock unlimited practice and
-                                gain deep insights into your performance.
-                              </Typography.Caption>
-                            </div>
-                          </div>
+                        <div className="space-y-4">
+                          <Typography.SubCaptionBold
+                            className="block uppercase mb-3"
+                            color="secondary"
+                          >
+                            Choose your plan
+                          </Typography.SubCaptionBold>
 
-                          <div className="p-4 rounded-xl border border-primary/20 bg-primary/5 flex flex-col gap-1">
-                            <Typography.Caption className="text-primary font-medium uppercase tracking-widest text-[10px]">
-                              Pro Plan Price
-                            </Typography.Caption>
-                            <Typography.BodyBold className="text-2xl text-primary">
-                              $5{" "}
-                              <Typography.Caption className="text-primary/70 font-normal">
-                                per month
-                              </Typography.Caption>
-                            </Typography.BodyBold>
-                          </div>
-
-                          <div className="space-y-4">
-                            <Typography.CaptionBold className="uppercase tracking-[0.2em] text-[10px] text-primary">
-                              Pro Unlockables
-                            </Typography.CaptionBold>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
-                              {[
-                                "Unlimited Mock Interviews",
-                                "AI Performance Metrics",
-                                "Priority Feature Access",
-                                "Custom Skill Roadmaps",
-                                "Unlimited Skill Tracking",
-                                "Priority Support",
-                              ].map((feature) => (
-                                <div
-                                  key={feature}
-                                  className="flex items-center gap-3 text-sm"
-                                >
-                                  <div className="h-4 w-4 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                                    <CheckCircle2 className="size-2.5 text-primary" />
-                                  </div>
-                                  <Typography.Caption className="text-muted-foreground">
-                                    {feature}
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <section className="rounded-xl border border-border/30 p-4 space-y-3">
+                              <div className="flex items-start justify-between gap-4">
+                                <div className="space-y-1">
+                                  <Typography.BodyBold>
+                                    Free
+                                  </Typography.BodyBold>
+                                  <Typography.Caption color="secondary">
+                                    Current plan
                                   </Typography.Caption>
                                 </div>
-                              ))}
-                            </div>
-                          </div>
+                                <Typography.BodyBold color="secondary">
+                                  $0
+                                </Typography.BodyBold>
+                              </div>
 
-                          <div className="pt-2 space-y-3">
-                            <Button
-                              variant="outline"
-                              size="lg"
-                              onClick={async () => {
-                                if (!user) {
-                                  toast.error("Please sign in to upgrade");
-                                  router.push("/auth/login?redirect=/settings");
-                                  return;
-                                }
+                              <Separator />
 
-                                setCheckoutLoading(true);
-                                try {
-                                  const response = await fetch(
-                                    "/api/stripe/checkout",
-                                    {
-                                      method: "POST",
-                                      headers: {
-                                        "Content-Type": "application/json",
-                                      },
-                                      body: JSON.stringify({
-                                        userId: user.uid,
-                                        lookupKey: LOOKUP_KEY,
-                                        priceId: PRICE_ID,
-                                        email: user.email,
-                                      }),
-                                    },
-                                  );
+                              <Typography.SubCaptionBold
+                                className="block uppercase mb-3"
+                                color="secondary"
+                              >
+                                Includes
+                              </Typography.SubCaptionBold>
 
-                                  const data = await response.json();
-                                  if (data.url) {
-                                    window.location.href = data.url;
-                                  } else {
-                                    throw new Error(
-                                      data.error ||
-                                        "Failed to create checkout session",
-                                    );
-                                  }
-                                } catch (error: any) {
-                                  toast.error(error.message);
-                                } finally {
-                                  setCheckoutLoading(false);
-                                }
-                              }}
-                              disabled={checkoutLoading}
-                            >
-                              <Zap className="size-4 mr-2 fill-current" />
-                              {checkoutLoading
-                                ? "Processing..."
-                                : "Upgrade to Pro Now"}
-                            </Button>
+                              <div className="pt-1 space-y-3">
+                                {[
+                                  "Limited daily usage",
+                                  "Core interview practice",
+                                  "Basic progress tracking",
+                                ].map((feature) => (
+                                  <div
+                                    key={feature}
+                                    className="flex items-start gap-3"
+                                  >
+                                    <div className="mt-0.5 h-4 w-4 rounded-full bg-muted flex items-center justify-center shrink-0">
+                                      <CheckCircle2 className="size-2.5 text-muted-foreground" />
+                                    </div>
+                                    <Typography.Caption color="secondary">
+                                      {feature}
+                                    </Typography.Caption>
+                                  </div>
+                                ))}
+                              </div>
+                            </section>
 
-                            <Typography.Caption className="text-center text-muted-foreground">
-                              Secure payment powered by Stripe
-                            </Typography.Caption>
+                            <section className="rounded-xl border-2 border-primary/40 bg-primary/5 p-4 space-y-3 ring-1 ring-primary/10 transition-shadow hover:ring-primary/20 focus-within:ring-2 focus-within:ring-primary/25">
+                              <div className="flex items-start justify-between gap-4">
+                                <div className="space-y-1">
+                                  <div className="flex items-center gap-2">
+                                    <Typography.BodyBold>
+                                      Pro
+                                    </Typography.BodyBold>
+                                    <div className="rounded-full border border-primary/30 px-2 py-0.5">
+                                      <Typography.SubCaptionBold color="brand">
+                                        Recommended
+                                      </Typography.SubCaptionBold>
+                                    </div>
+                                  </div>
+                                  <Typography.Caption color="secondary">
+                                    Unlimited practice + advanced insights
+                                  </Typography.Caption>
+                                </div>
+
+                                <div className="flex flex-col items-end">
+                                  <div className="flex items-baseline gap-2">
+                                    <Typography.Heading2 color="brand">
+                                      $5
+                                    </Typography.Heading2>
+                                    <Typography.SubCaption color="brandLight">
+                                      / month
+                                    </Typography.SubCaption>
+                                  </div>
+                                  <Typography.SubCaption color="secondary">
+                                    Cancel anytime
+                                  </Typography.SubCaption>
+                                </div>
+                              </div>
+
+                              <Separator />
+
+                              <Typography.SubCaptionBold
+                                className="block uppercase mb-3"
+                                color="secondary"
+                              >
+                                Includes
+                              </Typography.SubCaptionBold>
+
+                              <div className="pt-1 space-y-3">
+                                {[
+                                  "Unlimited Mock Interviews",
+                                  "AI Performance Metrics",
+                                  "Priority Support",
+                                ].map((feature) => (
+                                  <div
+                                    key={feature}
+                                    className="flex items-start gap-3"
+                                  >
+                                    <div className="mt-0.5 h-4 w-4 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                                      <CheckCircle2 className="size-2.5 text-primary" />
+                                    </div>
+                                    <Typography.Caption color="secondary">
+                                      {feature}
+                                    </Typography.Caption>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <div className="space-y-2">
+                                <Button
+                                  variant="default"
+                                  size="lg"
+                                  className="w-full sm:w-auto"
+                                  onClick={async () => {
+                                    if (!user) {
+                                      toast.error("Please sign in to upgrade");
+                                      router.push(
+                                        "/auth/login?redirect=/settings",
+                                      );
+                                      return;
+                                    }
+
+                                    if (!LOOKUP_KEY || !PRICE_ID) {
+                                      toast.error(
+                                        "Billing is not configured. Please contact support.",
+                                      );
+                                      return;
+                                    }
+
+                                    setCheckoutLoading(true);
+                                    try {
+                                      const response = await fetch(
+                                        "/api/stripe/checkout",
+                                        {
+                                          method: "POST",
+                                          headers: {
+                                            "Content-Type": "application/json",
+                                          },
+                                          body: JSON.stringify({
+                                            userId: user.uid,
+                                            lookupKey: LOOKUP_KEY,
+                                            priceId: PRICE_ID,
+                                            email: user.email,
+                                          }),
+                                        },
+                                      );
+
+                                      const data = await response.json();
+                                      if (data.url) {
+                                        window.location.href = data.url;
+                                        return;
+                                      }
+
+                                      throw new Error(
+                                        data.error ||
+                                          "Failed to create checkout session",
+                                      );
+                                    } catch (error: any) {
+                                      toast.error(error.message);
+                                    } finally {
+                                      setCheckoutLoading(false);
+                                    }
+                                  }}
+                                  disabled={checkoutLoading}
+                                >
+                                  <Zap className="size-4 mr-2 fill-current" />
+                                  {checkoutLoading
+                                    ? "Processing..."
+                                    : "Upgrade to Pro"}
+                                </Button>
+
+                                <Typography.SubCaption
+                                  className="block"
+                                  color="secondary"
+                                >
+                                  Secure payment powered by Stripe
+                                </Typography.SubCaption>
+                              </div>
+                            </section>
                           </div>
                         </div>
                       )}
                     </CardContent>
                   </Card>
 
-                  <Card>
-                    <CardContent className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <Card className="gap-2 py-4">
+                    <CardContent className="py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
                       <div className="text-center sm:text-left">
                         <Typography.BodyBold>
                           Need help with your subscription?
                         </Typography.BodyBold>
-                        <Typography.Caption className="text-muted-foreground">
+                        <Typography.Caption color="secondary">
                           Our support team is here to assist with billing and
                           plan questions.
                         </Typography.Caption>
@@ -648,14 +771,14 @@ export function ProfileContent({
             {activeTab === "profile" && (
               <div
                 key="profile"
-                className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300"
+                className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300"
               >
-                <div className="grid grid-cols-1 gap-6">
-                  <Card>
-                    <CardHeader className="pb-4">
+                <div className="grid grid-cols-1 gap-4">
+                  <Card className="gap-2 py-4">
+                    <CardHeader className="py-0 gap-0">
                       <div className="flex items-center justify-between">
-                        <div className="space-y-1">
-                          <Typography.Heading3 className="text-lg font-bold flex items-center gap-2">
+                        <div className="space-y-0.5">
+                          <Typography.Heading3 className="flex items-center gap-2">
                             <User className="size-4 text-primary" />
                             Personal Identity
                           </Typography.Heading3>
@@ -664,8 +787,9 @@ export function ProfileContent({
                           </Typography.Caption>
                         </div>
                         <Button
-                          variant={isEditing ? "outline" : "ghost"}
+                          variant="outline"
                           size="sm"
+                          className="bg-transparent"
                           onClick={() => {
                             if (isEditing) {
                               setIsEditing(false);
@@ -693,12 +817,15 @@ export function ProfileContent({
                         </Button>
                       </div>
                     </CardHeader>
-                    <CardContent className="pt-6 space-y-8">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="space-y-3">
-                          <Typography.Caption className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
+                    <CardContent className="pt-2 space-y-5">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="space-y-1.5">
+                          <Typography.SubCaptionBold
+                            className="uppercase"
+                            color="secondary"
+                          >
                             Display Name
-                          </Typography.Caption>
+                          </Typography.SubCaptionBold>
                           {isEditing ? (
                             <div className="relative">
                               <User className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground/50" />
@@ -710,44 +837,56 @@ export function ProfileContent({
                                     displayName: e.target.value,
                                   }))
                                 }
-                                className="h-11 pl-10 bg-muted/20 border-border/40 focus:ring-primary/20 rounded-xl"
+                                className="h-10 pl-10 bg-muted/20 border-border/20 focus:ring-primary/20 rounded-lg"
                               />
                             </div>
                           ) : (
-                            <div className="h-11 flex items-center px-4 rounded-xl bg-muted/10 border border-transparent font-bold text-foreground/80">
-                              {userData?.displayName ||
-                                user.displayName ||
-                                "Not set"}
+                            <div className="h-10 flex items-center px-3 rounded-lg bg-muted/5 border border-border/20">
+                              <Typography.BodyMedium color="primary">
+                                {userData?.displayName ||
+                                  user.displayName ||
+                                  "Not set"}
+                              </Typography.BodyMedium>
                             </div>
                           )}
                         </div>
-                        <div className="space-y-3">
-                          <Typography.Caption className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
+                        <div className="space-y-1.5">
+                          <Typography.SubCaptionBold
+                            className="uppercase"
+                            color="secondary"
+                          >
                             Account Email
-                          </Typography.Caption>
-                          <div className="h-11 flex items-center px-4 rounded-xl bg-muted/30 border border-dashed border-border/60 text-muted-foreground/60 italic font-medium">
-                            <Typography.Caption>
+                          </Typography.SubCaptionBold>
+                          <div className="h-10 flex items-center px-3 rounded-lg bg-muted/5 border border-border/20">
+                            <Typography.BodyMedium color="primary">
                               {user.email}
-                            </Typography.Caption>
+                            </Typography.BodyMedium>
                           </div>
                         </div>
                       </div>
-                      <div className="pt-6 border-t border-border/30">
-                        <Typography.Caption className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60 block mb-6">
+                      <div className="pt-3 border-t border-border/20">
+                        <Typography.SubCaptionBold
+                          className="uppercase block mb-2"
+                          color="secondary"
+                        >
                           Profile Avatar
-                        </Typography.Caption>
+                        </Typography.SubCaptionBold>
                         <AvatarIconSelector
                           selectedIcon={selectedIcon}
                           onSelectIcon={handleIconSelect}
+                          variant="embedded"
                           className="border-none shadow-none bg-transparent p-0"
                         />
                       </div>
                     </CardContent>
                   </Card>
 
-                  <Card>
-                    <CardHeader>
-                      <Typography.Heading3 className="text-lg font-bold flex items-center gap-2">
+                  <Card className="gap-2 py-4">
+                    <CardHeader className="py-0 gap-0">
+                      <Typography.Heading3
+                        className="flex items-center gap-2"
+                        color="primary"
+                      >
                         <Briefcase className="size-4 text-primary" />
                         Professional Details
                       </Typography.Heading3>
@@ -755,12 +894,15 @@ export function ProfileContent({
                         Details we use to customize your experience
                       </Typography.Caption>
                     </CardHeader>
-                    <CardContent className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="space-y-3">
-                          <Typography.Caption className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
+                    <CardContent className="pt-2 space-y-5">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="space-y-1.5">
+                          <Typography.SubCaptionBold
+                            className="uppercase"
+                            color="secondary"
+                          >
                             Target Role
-                          </Typography.Caption>
+                          </Typography.SubCaptionBold>
                           {isEditing ? (
                             <Select
                               value={editData.role}
@@ -768,7 +910,7 @@ export function ProfileContent({
                                 setEditData((p) => ({ ...p, role: v }))
                               }
                             >
-                              <SelectTrigger className="h-11 bg-muted/20 border-border/40 rounded-xl">
+                              <SelectTrigger className="h-10 bg-muted/20 border-border/20 rounded-lg">
                                 <SelectValue placeholder="Select role" />
                               </SelectTrigger>
                               <SelectContent>
@@ -780,15 +922,20 @@ export function ProfileContent({
                               </SelectContent>
                             </Select>
                           ) : (
-                            <div className="h-11 flex items-center px-4 rounded-xl bg-muted/10 border border-transparent font-bold text-foreground/80">
-                              {userData?.role || "Not set"}
+                            <div className="h-10 flex items-center px-3 rounded-lg bg-muted/5 border border-border/20">
+                              <Typography.BodyMedium>
+                                {userData?.role || "Not set"}
+                              </Typography.BodyMedium>
                             </div>
                           )}
                         </div>
-                        <div className="space-y-3">
-                          <Typography.Caption className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
+                        <div className="space-y-1.5">
+                          <Typography.SubCaptionBold
+                            className="uppercase"
+                            color="secondary"
+                          >
                             Experience Level
-                          </Typography.Caption>
+                          </Typography.SubCaptionBold>
                           {isEditing ? (
                             <Select
                               value={editData.experience}
@@ -796,7 +943,7 @@ export function ProfileContent({
                                 setEditData((p) => ({ ...p, experience: v }))
                               }
                             >
-                              <SelectTrigger className="h-11 bg-muted/20 border-border/40 rounded-xl">
+                              <SelectTrigger className="h-10 bg-muted/20 border-border/20 rounded-lg">
                                 <SelectValue placeholder="Select level" />
                               </SelectTrigger>
                               <SelectContent>
@@ -808,8 +955,10 @@ export function ProfileContent({
                               </SelectContent>
                             </Select>
                           ) : (
-                            <div className="h-11 flex items-center px-4 rounded-xl bg-muted/10 border border-transparent font-bold text-foreground/80">
-                              {userData?.experience || "Not set"}
+                            <div className="h-10 flex items-center px-3 rounded-lg bg-muted/5 border border-border/20">
+                              <Typography.BodyMedium>
+                                {userData?.experience || "Not set"}
+                              </Typography.BodyMedium>
                             </div>
                           )}
                         </div>
@@ -818,7 +967,7 @@ export function ProfileContent({
                   </Card>
 
                   {isEditing && (
-                    <div className="flex justify-end pt-4">
+                    <div className="flex justify-end pt-2">
                       <Button
                         onClick={handleSaveProfile}
                         disabled={saving}
@@ -840,20 +989,23 @@ export function ProfileContent({
             {activeTab === "account" && (
               <div
                 key="account"
-                className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300"
+                className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300"
               >
-                <div className="grid grid-cols-1 gap-6">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <Card>
-                      <CardContent className="p-4 flex items-center gap-4">
-                        <div className="p-2 rounded-xl bg-primary/10 text-primary">
+                <div className="grid grid-cols-1 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <Card className="gap-2 py-4">
+                      <CardContent className="p-4 flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-primary/10 text-primary">
                           <Calendar className="size-5" />
                         </div>
                         <div>
-                          <Typography.Caption className="uppercase font-bold text-[10px]">
+                          <Typography.SubCaptionBold
+                            className="uppercase"
+                            color="secondary"
+                          >
                             Member Since
-                          </Typography.Caption>
-                          <Typography.BodyBold className="text-sm">
+                          </Typography.SubCaptionBold>
+                          <Typography.BodyBold>
                             {userData?.createdAt
                               ? formatDate(userData.createdAt).split(" at")[0]
                               : "Jan 2024"}
@@ -861,16 +1013,19 @@ export function ProfileContent({
                         </div>
                       </CardContent>
                     </Card>
-                    <Card>
-                      <CardContent className="p-4 flex items-center gap-4">
-                        <div className="p-2 rounded-xl bg-primary/10 text-primary">
+                    <Card className="gap-2 py-4">
+                      <CardContent className="p-4 flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-primary/10 text-primary">
                           <History className="size-5" />
                         </div>
                         <div>
-                          <Typography.Caption className="uppercase font-bold text-[10px]">
+                          <Typography.SubCaptionBold
+                            className="uppercase"
+                            color="secondary"
+                          >
                             Last Login
-                          </Typography.Caption>
-                          <Typography.BodyBold className="text-sm">
+                          </Typography.SubCaptionBold>
+                          <Typography.BodyBold>
                             {userData?.lastLoginAt
                               ? formatDate(userData.lastLoginAt).split(" at")[0]
                               : "Today"}
@@ -878,34 +1033,35 @@ export function ProfileContent({
                         </div>
                       </CardContent>
                     </Card>
-                    <Card>
-                      <CardContent className="p-4 flex items-center gap-4">
-                        <div className="p-2 rounded-xl bg-primary/10 text-primary">
+                    <Card className="gap-2 py-4">
+                      <CardContent className="p-4 flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-primary/10 text-primary">
                           <ShieldCheck className="size-5" />
                         </div>
                         <div>
-                          <Typography.Caption className="uppercase font-bold text-[10px]">
+                          <Typography.SubCaptionBold
+                            className="uppercase"
+                            color="secondary"
+                          >
                             Security Status
-                          </Typography.Caption>
-                          <Typography.BodyBold className="text-sm">
-                            Verified
-                          </Typography.BodyBold>
+                          </Typography.SubCaptionBold>
+                          <Typography.BodyBold>Verified</Typography.BodyBold>
                         </div>
                       </CardContent>
                     </Card>
                   </div>
 
-                  <Card>
-                    <CardHeader>
-                      <Typography.Heading3 className="text-lg font-bold flex items-center gap-2">
+                  <Card className="gap-2 py-4">
+                    <CardHeader className="py-0 gap-0">
+                      <Typography.Heading3 className="flex items-center gap-2">
                         <Lock className="size-4 text-primary" />
                         Security & Access
                       </Typography.Heading3>
                     </CardHeader>
-                    <CardContent className="space-y-6">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border border-border/40 bg-muted/20">
+                    <CardContent className="space-y-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 rounded-lg border border-border/20 bg-muted/5">
                         <div className="space-y-1">
-                          <Typography.BodyBold className="text-sm">
+                          <Typography.BodyBold>
                             Password Management
                           </Typography.BodyBold>
                           <Typography.Caption color="secondary">
@@ -929,20 +1085,20 @@ export function ProfileContent({
                     </CardContent>
                   </Card>
 
-                  <Card>
-                    <CardHeader>
-                      <Typography.Heading3 className="text-lg font-bold flex items-center gap-2">
+                  <Card className="gap-2 py-4">
+                    <CardHeader className="py-0 gap-0">
+                      <Typography.Heading3 className="flex items-center gap-2">
                         <Trash2 className="size-4 text-red-500" />
                         Danger Zone
                       </Typography.Heading3>
                     </CardHeader>
                     <CardContent>
-                      <div className="p-4 rounded-xl border border-red-100 bg-red-50/30 flex items-center justify-between gap-4">
+                      <div className="p-3 rounded-lg border border-red-200/70 bg-red-50/40 dark:border-red-900/40 dark:bg-red-900/10 flex items-center justify-between gap-3">
                         <div className="space-y-1">
-                          <Typography.BodyBold className="text-sm text-red-600">
+                          <Typography.BodyBold color="error">
                             Permanently Delete Account
                           </Typography.BodyBold>
-                          <Typography.Caption className="text-red-500/70">
+                          <Typography.Caption color="error">
                             All data will be lost forever
                           </Typography.Caption>
                         </div>
