@@ -359,7 +359,8 @@ export function ConfigureContent() {
     jobDescription: "",
     jobRequirements: "",
     contextType: "",
-    pastedDescription: "",
+    pastedDescription: searchParams.get("pastedDescription") ?? "",
+    pastedUrl: searchParams.get("pastedUrl") ?? "",
   }));
   const [currentStep, setCurrentStep] = useState(() => {
     const requestedStepId = searchParams.get("step");
@@ -787,7 +788,7 @@ export function ConfigureContent() {
                     ? "Analyzing job offer…"
                     : "Analyzing job description…"}
                 </Typography.BodyBold>
-                <Typography.CaptionMedium className="text-muted-foreground">
+                <Typography.CaptionMedium color="secondary">
                   Extracting position, seniority, tech stack, and company cues.
                 </Typography.CaptionMedium>
               </div>
@@ -859,9 +860,9 @@ export function ConfigureContent() {
     if (config.flowMode === "url") {
       return (
         <div className="flex flex-col items-center justify-center space-y-6 min-h-[80vh] sm:min-h-[70vh]">
-          <Typography.Heading1 className="!text-4xl sm:!text-5xl tracking-tight drop-shadow !text-primary text-center">
+          <Typography.HeroHeading1 className="drop-shadow text-center">
             Paste link to an offer
-          </Typography.Heading1>
+          </Typography.HeroHeading1>
           <div className="relative w-full max-w-3xl space-y-6 text-center">
             <form
               onSubmit={handleAnalyzeUrl}
@@ -1004,9 +1005,9 @@ export function ConfigureContent() {
 
     return (
       <div className="flex flex-col items-center justify-center space-y-6 min-h-[60vh]">
-        <Typography.Heading1 className="!text-4xl sm:!text-5xl tracking-tight drop-shadow !text-primary text-center">
+        <Typography.HeroHeading1 className="drop-shadow text-center">
           Paste job description
-        </Typography.Heading1>
+        </Typography.HeroHeading1>
         <div className="relative w-full max-w-3xl space-y-6 text-center">
           <form
             onSubmit={handleAnalyzeDescription}
@@ -1119,7 +1120,7 @@ export function ConfigureContent() {
         <Card>
           <CardContent className="space-y-3">
             <Typography.BodyBold>No AI analysis needed</Typography.BodyBold>
-            <Typography.CaptionMedium className="text-muted-foreground">
+            <Typography.CaptionMedium color="secondary">
               You chose manual configuration. Continue to the next steps to set
               everything yourself.
             </Typography.CaptionMedium>
@@ -1136,10 +1137,10 @@ export function ConfigureContent() {
 
             <div className="flex items-start gap-3 rounded-lg border border-yellow-500/30 bg-yellow-500/5 p-4">
               <div>
-                <Typography.BodyBold className="text-yellow-700 dark:text-yellow-400">
+                <Typography.BodyBold>
                   No job details extracted
                 </Typography.BodyBold>
-                <Typography.CaptionMedium className="text-yellow-600/80 dark:text-yellow-400/70">
+                <Typography.CaptionMedium color="secondary">
                   The pasted content didn't match typical job offer criteria.
                   You can still fill in the description and requirements
                   manually below.
@@ -1381,7 +1382,7 @@ export function ConfigureContent() {
           <div className="max-w-5xl mx-auto">
             <div className="mb-6 space-y-4 hidden lg:block">
               <div className="flex flex-col gap-2 lg:items-start lg:justify-between text-center lg:text-left">
-                <Typography.BodyBold className="text-2xl">
+                <Typography.Heading2>
                   {(() => {
                     const step = visibleSteps[currentStep];
                     if (step?.id === "description") {
@@ -1393,8 +1394,8 @@ export function ConfigureContent() {
                     }
                     return step?.title ?? CONFIGURE_STEPS[0].title;
                   })()}
-                </Typography.BodyBold>
-                <Typography.Body className="text-muted-foreground text-sm sm:text-base">
+                </Typography.Heading2>
+                <Typography.Body color="secondary">
                   {(() => {
                     const step = visibleSteps[currentStep];
                     if (step?.id === "description" || step?.id === "paste")
@@ -1418,10 +1419,13 @@ export function ConfigureContent() {
                       />
                     </div>
                     <div className="flex-1">
-                      <Typography.BodyBold className="text-amber-800 dark:text-amber-200">
+                      <Typography.BodyBold>
                         Interview Limit Reached
                       </Typography.BodyBold>
-                      <Typography.CaptionMedium className="text-amber-700 dark:text-amber-300 mt-1">
+                      <Typography.CaptionMedium
+                        color="secondary"
+                        className="mt-1"
+                      >
                         You&apos;ve reached the temporary interview limit.
                         {usageStatus.remainingMinutes > 0 && (
                           <span className="flex items-center gap-2 mt-4">
@@ -1434,7 +1438,7 @@ export function ConfigureContent() {
                       </Typography.CaptionMedium>
                       <div className="mt-1 flex items-center gap-2">
                         <Crown className="size-4 text-amber-600 dark:text-amber-400" />
-                        <Typography.CaptionMedium className="text-amber-700 dark:text-amber-300">
+                        <Typography.CaptionMedium color="secondary">
                           Want unlimited interviews? Upgrade to Pro for
                           unrestricted access.
                         </Typography.CaptionMedium>

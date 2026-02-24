@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "@/components/common/atoms/logo-blairify";
 import { ThemeToggle } from "@/components/common/atoms/theme-toggle";
+import { Typography } from "@/components/common/atoms/typography";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +21,12 @@ import { AvatarIconDisplay } from "../../common/atoms/avatar-icon-selector";
 interface NavbarProps {
   scrollThreshold?: number;
 }
+
+const MARKETING_LINKS = [
+  { href: "#comparison", label: "vs GPT" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#faq", label: "FAQ" },
+] as const;
 
 export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -78,18 +85,36 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
         id="navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
+            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-md"
             : "bg-transparent"
         }`}
         aria-label="Main navigation"
         data-analytics-id="home-navbar"
       >
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/70 to-transparent"
+          aria-hidden="true"
+        />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
             <div className="flex-shrink-0">
               <Logo />
             </div>
-            <div className="hidden md:flex items-center space-x-2">
+            <div className="hidden md:flex items-center gap-6">
+              <div className="flex items-center gap-6">
+                {MARKETING_LINKS.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="rounded outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
+                  >
+                    <Typography.CaptionMedium color="secondary">
+                      {link.label}
+                    </Typography.CaptionMedium>
+                  </a>
+                ))}
+              </div>
+
               {!loading && user ? (
                 <>
                   <Link aria-label="View Profile" href="/configure">
@@ -116,7 +141,9 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                           </Button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>Settings</p>
+                          <Typography.CaptionMedium>
+                            Settings
+                          </Typography.CaptionMedium>
                         </TooltipContent>
                       </Tooltip>
                       <Tooltip>
@@ -132,7 +159,9 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                           </Button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>Sign Out</p>
+                          <Typography.CaptionMedium>
+                            Sign Out
+                          </Typography.CaptionMedium>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -175,7 +204,9 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                           </Button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>View Profile</p>
+                          <Typography.CaptionMedium>
+                            View Profile
+                          </Typography.CaptionMedium>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -253,6 +284,19 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             aria-label="Mobile navigation menu"
           >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-6">
+              <div className="space-y-2 pb-4 border-b border-border/60">
+                {MARKETING_LINKS.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="tap-highlight-transparent flex items-center justify-between gap-3 p-3 rounded-lg text-foreground visited:text-foreground no-underline outline-none hover:bg-muted/50 focus:bg-muted/60 active:bg-muted/60 active:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Typography.BodyMedium>{link.label}</Typography.BodyMedium>
+                  </a>
+                ))}
+              </div>
+
               {!loading && user ? (
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/50">
@@ -285,14 +329,17 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                     </div>
                     <div className="flex flex-col">
                       {(userData?.displayName || user.displayName) && (
-                        <p className="font-medium text-sm">
+                        <Typography.BodyMedium>
                           {userData?.displayName || user.displayName}
-                        </p>
+                        </Typography.BodyMedium>
                       )}
                       {user.email && (
-                        <p className="text-xs text-muted-foreground truncate max-w-[200px]">
+                        <Typography.SubCaptionMedium
+                          color="secondary"
+                          className="truncate max-w-[200px]"
+                        >
                           {user.email}
-                        </p>
+                        </Typography.SubCaptionMedium>
                       )}
                     </div>
                   </div>
@@ -304,7 +351,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <User className="size-5 text-muted-foreground" />
-                      <span className="font-medium">Profile</span>
+                      <Typography.BodyMedium>Profile</Typography.BodyMedium>
                     </Link>
                     <Link
                       href="/dashboard"
@@ -312,7 +359,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <Home className="size-5 text-muted-foreground" />
-                      <span className="font-medium">Dashboard</span>
+                      <Typography.BodyMedium>Dashboard</Typography.BodyMedium>
                     </Link>
                     <button
                       type="button"
@@ -323,7 +370,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                       className="tap-highlight-transparent flex items-center gap-3 p-3 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors w-full text-left text-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
                     >
                       <LogOut className="size-5" />
-                      <span className="font-medium">Sign out</span>
+                      <Typography.BodyMedium>Sign out</Typography.BodyMedium>
                     </button>
                   </div>
                 </div>

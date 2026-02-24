@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import Footer from "@/components/common/organisms/footer";
-import { DashboardPromo } from "@/components/landing-page/organisms/dashboard-promo";
-import FeaturesGrid from "@/components/landing-page/organisms/features-grid";
+import ActionPlanSection from "@/components/landing-page/organisms/action-plan-section";
+import ComparisonSection from "@/components/landing-page/organisms/comparison-section";
+import FaqSection from "@/components/landing-page/organisms/faq-section";
+import GamificationSection from "@/components/landing-page/organisms/gamification-section";
 import HeroSection from "@/components/landing-page/organisms/hero-section";
+import HowItWorksSection from "@/components/landing-page/organisms/how-it-works-section";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
-import { NewsletterSignup } from "@/components/landing-page/organisms/newsletter-signup";
+import PracticeSection from "@/components/landing-page/organisms/practice-section";
+import PricingSection from "@/components/landing-page/organisms/pricing-section";
+import ProblemSection from "@/components/landing-page/organisms/problem-section";
+import TestimonialsSection from "@/components/landing-page/organisms/testimonials-section";
 
 export const metadata: Metadata = {
   title: "Blairify - AI-Powered Career Acceleration Platform ",
@@ -187,12 +193,15 @@ export default async function HomePage() {
           >
             <HeroSection />
             <div className="h-px w-full bg-border/10" aria-hidden="true" />
-            <DashboardPromo />
-            <div className="h-px w-full bg-border/10" aria-hidden="true" />
-            <NewsletterSignup />
-
-            <div className="h-px w-full bg-border/10" aria-hidden="true" />
-            <FeaturesGrid />
+            <ProblemSection />
+            <ComparisonSection />
+            <PracticeSection />
+            <HowItWorksSection />
+            <ActionPlanSection />
+            <GamificationSection />
+            <TestimonialsSection />
+            <PricingSection />
+            <FaqSection />
           </main>
         </div>
       </div>
