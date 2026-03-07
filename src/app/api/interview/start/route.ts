@@ -6,8 +6,10 @@ import {
   getDatabaseQuestionsPrompt,
   getInterviewerForCompanyAndRole,
   getInterviewerForRole,
+  type InterviewConfig,
   validateInterviewConfig,
 } from "@/lib/interview";
+import { getServerAuth } from "@/lib/server-auth";
 import {
   aiClient,
   generateInterviewResponse,
@@ -16,23 +18,65 @@ import {
 import { validateAIResponse } from "@/lib/services/ai/response-validator";
 import { checkAndIncrementUsage } from "@/lib/services/users/usage-limits.server";
 
+const MAX_SEED_QUESTION_LENGTH = 400;
+const MAX_SEED_ANSWER_LENGTH = 2000;
+const GUEST_DEMO_COOKIE_NAME = "guest-demo-used";
+const GUEST_DEMO_COOKIE_VALUE = "1";
+
+function normalizeSeedInput(value: unknown, maxLength: number): string {
+  if (typeof value !== "string") return "";
+  return value.trim().slice(0, maxLength);
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { interviewConfig, userId } = body;
+    const { interviewConfig, seedQuestion, seedAnswer } = body as {
+      interviewConfig?: unknown;
+      seedQuestion?: unknown;
+      seedAnswer?: unknown;
+      userId?: unknown;
+    };
 
-    if (!interviewConfig) {
+    const { user: authenticatedUser } = await getServerAuth();
+    const authenticatedUserId = authenticatedUser?.uid ?? null;
+
+    const guestDemoUsed =
+      request.cookies.get(GUEST_DEMO_COOKIE_NAME)?.value ===
+      GUEST_DEMO_COOKIE_VALUE;
+    const isGuest = !authenticatedUserId;
+
+    if (isGuest && guestDemoUsed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Guest demo already used. Create an account to continue.",
+          code: "GUEST_DEMO_USED",
+        },
+        { status: 403 },
+      );
+    }
+
+    if (!interviewConfig || typeof interviewConfig !== "object") {
       return NextResponse.json(
         { success: false, error: "Interview configuration is required" },
         { status: 400 },
       );
     }
 
-    if (userId) {
+    const typedInterviewConfig = interviewConfig as InterviewConfig;
+
+    if (authenticatedUserId) {
       try {
-        console.log("🔍 Checking usage limits for userId:", userId);
-        const allowed = await checkAndIncrementUsage(userId);
-        console.log("🔍 Usage check result:", { userId, allowed });
+        console.log(
+          "🔍 Checking usage limits for authenticatedUserId:",
+          authenticatedUserId,
+        );
+        const allowed = await checkAndIncrementUsage(authenticatedUserId);
+        console.log("🔍 Usage check result:", {
+          authenticatedUserId,
+          allowed,
+        });
         if (!allowed) {
           console.log("🚫 User hit hourly limit, blocking interview start");
           return NextResponse.json(
@@ -60,11 +104,19 @@ export async function POST(request: NextRequest) {
       console.log("⚠️ No userId provided, skipping usage check");
     }
 
-    const configValidation = validateInterviewConfig(interviewConfig);
+    const effectiveInterviewConfig: InterviewConfig = isGuest
+      ? {
+          ...typedInterviewConfig,
+          isDemoMode: true,
+          interviewMode: "flash",
+        }
+      : typedInterviewConfig;
+
+    const configValidation = validateInterviewConfig(effectiveInterviewConfig);
     if (!configValidation.isValid) {
       console.error("❌ Interview configuration validation failed:", {
         errors: configValidation.errors,
-        config: interviewConfig,
+        config: effectiveInterviewConfig,
       });
       return NextResponse.json(
         {
@@ -76,26 +128,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const interviewer = interviewConfig.specificCompany
+    const interviewer = effectiveInterviewConfig.specificCompany
       ? getInterviewerForCompanyAndRole(
-          interviewConfig.specificCompany,
-          interviewConfig.position,
+          effectiveInterviewConfig.specificCompany,
+          effectiveInterviewConfig.position,
         )
-      : getInterviewerForRole(interviewConfig.position);
+      : getInterviewerForRole(effectiveInterviewConfig.position);
 
     const { getQuestionCountForMode } = await import("@/lib/interview");
     const totalQuestions = getQuestionCountForMode(
-      interviewConfig.interviewMode,
-      interviewConfig.isDemoMode,
+      effectiveInterviewConfig.interviewMode,
+      effectiveInterviewConfig.isDemoMode,
     );
 
     const baseUrl = request.nextUrl.origin;
 
     const shouldUseQuestionBank =
-      interviewConfig.interviewType !== "situational";
+      effectiveInterviewConfig.interviewType !== "situational";
     const { prompt: questionsPrompt, questionIds } = shouldUseQuestionBank
       ? await getDatabaseQuestionsPrompt(
-          interviewConfig,
+          effectiveInterviewConfig,
           totalQuestions,
           baseUrl,
         )
@@ -104,18 +156,19 @@ export async function POST(request: NextRequest) {
     console.log("📚 Loaded questions from database:", {
       totalQuestions,
       loadedQuestions: questionIds.length,
-      interviewMode: interviewConfig.interviewMode,
+      interviewMode: effectiveInterviewConfig.interviewMode,
     });
 
     const systemPrompt =
-      generateSystemPrompt(interviewConfig, interviewer) + questionsPrompt;
+      generateSystemPrompt(effectiveInterviewConfig, interviewer) +
+      questionsPrompt;
 
     let firstQuestionPrompt: string | undefined;
 
     if (
       Array.isArray(questionIds) &&
       questionIds.length > 0 &&
-      !interviewConfig.isDemoMode
+      !effectiveInterviewConfig.isDemoMode
     ) {
       try {
         const { getQuestionById } = await import(
@@ -133,34 +186,74 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const userPrompt = generateUserPrompt(
-      "",
-      [],
-      interviewConfig,
-      0,
-      false,
-      interviewer,
-      firstQuestionPrompt,
+    const normalizedSeedQuestion = normalizeSeedInput(
+      seedQuestion,
+      MAX_SEED_QUESTION_LENGTH,
     );
+    const normalizedSeedAnswer = normalizeSeedInput(
+      seedAnswer,
+      MAX_SEED_ANSWER_LENGTH,
+    );
+
+    const hasSeed = !!(
+      normalizedSeedQuestion &&
+      normalizedSeedAnswer &&
+      !effectiveInterviewConfig.isDemoMode
+    );
+
+    const initialQuestionIndex = hasSeed ? 1 : 0;
+
+    const userPrompt = hasSeed
+      ? generateUserPrompt(
+          normalizedSeedAnswer,
+          [
+            {
+              id: "seed-ai",
+              type: "ai",
+              content: normalizedSeedQuestion,
+              timestamp: new Date(),
+            },
+            {
+              id: "seed-user",
+              type: "user",
+              content: normalizedSeedAnswer,
+              timestamp: new Date(),
+            },
+          ],
+          effectiveInterviewConfig,
+          1,
+          false,
+          interviewer,
+          firstQuestionPrompt,
+        )
+      : generateUserPrompt(
+          "",
+          [],
+          effectiveInterviewConfig,
+          0,
+          false,
+          interviewer,
+          firstQuestionPrompt,
+        );
 
     const aiResponse = await generateInterviewResponse(
       aiClient,
       systemPrompt,
       userPrompt,
-      interviewConfig.interviewType,
+      effectiveInterviewConfig.interviewType,
     );
 
     let finalMessage = aiResponse.content;
 
     if (!aiResponse.success) {
       console.warn(`AI response failed: ${aiResponse.error}`);
-      finalMessage = getFallbackResponse(interviewConfig, false);
+      finalMessage = getFallbackResponse(effectiveInterviewConfig, false);
     }
 
     if (typeof finalMessage === "string" && finalMessage.trim().length > 0) {
       const validation = validateAIResponse(
         finalMessage,
-        interviewConfig,
+        effectiveInterviewConfig,
         false,
       );
       if (validation.isValid && validation.sanitized) {
@@ -175,14 +268,15 @@ export async function POST(request: NextRequest) {
     }
 
     const questionType = determineQuestionType(
-      interviewConfig.interviewType,
-      0,
+      effectiveInterviewConfig.interviewType,
+      initialQuestionIndex,
     );
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
       message: finalMessage,
       questionType,
+      currentQuestionCount: hasSeed ? 2 : 1,
       validated: aiResponse.success,
       interviewer: {
         id: interviewer.id,
@@ -192,6 +286,21 @@ export async function POST(request: NextRequest) {
       questionIds,
       usage: aiResponse.usage,
     });
+
+    if (isGuest) {
+      const shouldUseSecureCookie = request.nextUrl.protocol === "https:";
+      response.cookies.set({
+        name: GUEST_DEMO_COOKIE_NAME,
+        value: GUEST_DEMO_COOKIE_VALUE,
+        httpOnly: true,
+        sameSite: "strict",
+        secure: shouldUseSecureCookie,
+        path: "/",
+        maxAge: 60 * 60 * 24 * 365,
+      });
+    }
+
+    return response;
   } catch (error) {
     console.error("Interview start API error:", error);
 

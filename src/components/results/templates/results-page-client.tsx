@@ -7,11 +7,19 @@ import { ResultsContent } from "@/components/results/templates/results-content";
 import type { UserData } from "@/lib/services/auth/auth";
 
 interface ResultsPageClientProps {
-  user: UserData;
+  user: UserData | null;
 }
 
 export function ResultsPageClient({ user }: ResultsPageClientProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  if (!user) {
+    return (
+      <div className="min-h-screen">
+        <ResultsContent user={null} />
+      </div>
+    );
+  }
 
   return (
     <div className="h-screen flex overflow-hidden">

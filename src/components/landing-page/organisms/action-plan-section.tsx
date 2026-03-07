@@ -1,4 +1,4 @@
-import { BookOpen, CheckCircle2, FileText, Target } from "lucide-react";
+import { BookOpen, CheckCircle2, FileText } from "lucide-react";
 import Link from "next/link";
 import { Typography } from "@/components/common/atoms/typography";
 
@@ -6,31 +6,23 @@ export default function ActionPlanSection() {
   return (
     <section
       id="action-plan"
-      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
+      className="bg-card border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="action-plan-heading"
       data-analytics-id="home-action-plan"
     >
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -top-40 right-[-10rem] size-[34rem] rounded-full bg-primary/10 blur-3xl" />
-      </div>
-
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_90%_20%,rgba(34,197,94,0.06),transparent_60%)]"
+        aria-hidden="true"
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-2 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1">
-              <Target className="size-4 text-blue-600" aria-hidden="true" />
-              <Typography.CaptionMedium>
-                Actionable Roadmap
-              </Typography.CaptionMedium>
-            </div>
-
             <Typography.Heading2 id="action-plan-heading" className="mt-5 mb-4">
-              Targeted Action Plan to fix your Knowledge Gaps.
+              Fix gaps with a targeted study plan.
             </Typography.Heading2>
             <Typography.Body color="secondary" className="mb-6">
-              Knowing you failed a question isn't enough. Blairify diagnoses
-              your weaknesses and generates a study plan mapped directly to
-              verified sources.
+              Your report should tell you what to learn next. Blairify flags the
+              specific topics you missed and links you to high-signal material.
             </Typography.Body>
 
             <ul className="space-y-3" aria-label="Action plan highlights">
@@ -40,7 +32,7 @@ export default function ActionPlanSection() {
                   aria-hidden="true"
                 />
                 <Typography.BodyMedium>
-                  Hyper-specific topic identification.
+                  Concrete topics, not generic "study more" advice.
                 </Typography.BodyMedium>
               </li>
               <li className="flex items-start gap-3">
@@ -49,27 +41,23 @@ export default function ActionPlanSection() {
                   aria-hidden="true"
                 />
                 <Typography.BodyMedium>
-                  Direct links to official docs and proven architectural books.
+                  Links to docs, articles, and books you can trust.
                 </Typography.BodyMedium>
               </li>
             </ul>
           </div>
 
-          <aside className="rounded-2xl border border-border bg-card/70 backdrop-blur p-6 sm:p-8 shadow-sm relative transition-all hover:shadow-md">
-            <div className="absolute -top-3 -right-3 size-8 rounded-full bg-red-500 flex items-center justify-center text-white">
-              <Typography.SubCaptionBold>3</Typography.SubCaptionBold>
-            </div>
-
+          <aside className="rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm relative transition-all hover:shadow-md">
             <Typography.Heading3 className="mb-4">
-              Identified Vulnerabilities
+              Your weakest areas
             </Typography.Heading3>
 
             <div className="space-y-4">
-              <div className="rounded-2xl border border-red-200 bg-background p-4 shadow-sm transition-all hover:shadow-md">
+              <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-4 shadow-sm transition-all hover:shadow-md">
                 <Typography.BodyBold>
                   Distributed Transactions (SAGA Pattern)
                 </Typography.BodyBold>
-                <div className="mt-3 rounded-xl border border-border bg-card p-3">
+                <div className="mt-3 rounded-xl border border-border bg-background p-3">
                   <Link
                     href="#pricing"
                     className="flex items-center justify-between gap-3 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2 rounded"
@@ -90,11 +78,11 @@ export default function ActionPlanSection() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-yellow-200 bg-background p-4 shadow-sm transition-all hover:shadow-md">
+              <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-4 shadow-sm transition-all hover:shadow-md">
                 <Typography.BodyBold>
                   React Component Re-renders
                 </Typography.BodyBold>
-                <div className="mt-3 rounded-xl border border-border bg-card p-3">
+                <div className="mt-3 rounded-xl border border-border bg-background p-3">
                   <Link
                     href="#pricing"
                     className="flex items-center justify-between gap-3 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2 rounded"

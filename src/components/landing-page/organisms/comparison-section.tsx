@@ -5,22 +5,14 @@ export default function ComparisonSection() {
   return (
     <section
       id="comparison"
-      className="bg-[hsl(var(--bg-200))] border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
+      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="comparison-heading"
       data-analytics-id="home-comparison"
     >
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,146,60,0.05),transparent_70%)]"
         aria-hidden="true"
       />
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent"
-        aria-hidden="true"
-      />
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 size-[34rem] rounded-full bg-primary/10 blur-3xl" />
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <Typography.Heading2 id="comparison-heading" className="mb-4">
@@ -38,7 +30,7 @@ export default function ComparisonSection() {
         <div className="grid gap-6 lg:grid-cols-2 items-stretch">
           <article className="h-full rounded-2xl border border-border bg-background/70 backdrop-blur p-6 sm:p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
             <header className="flex items-center gap-3 pb-4 border-b border-background/10">
-              <div className="size-10 rounded-xl bg-card flex items-center justify-center border border-border">
+              <div className="size-10 rounded-xl bg-background/80 backdrop-blur flex items-center justify-center border border-border">
                 <MessageSquareText
                   className="size-5 text-muted-foreground"
                   aria-hidden="true"
@@ -48,7 +40,7 @@ export default function ComparisonSection() {
             </header>
 
             <div className="mt-6 space-y-4">
-              <div className="rounded-xl border border-border bg-card p-4">
+              <div className="rounded-xl border border-border bg-background/80 backdrop-blur p-4">
                 <Typography.SubCaptionMedium color="secondary">
                   &gt; User:
                 </Typography.SubCaptionMedium>
@@ -57,7 +49,7 @@ export default function ComparisonSection() {
                 </Typography.Body>
               </div>
 
-              <div className="rounded-xl border border-border bg-card p-4">
+              <div className="rounded-xl border border-border bg-background/80 backdrop-blur p-4">
                 <Typography.SubCaptionMedium color="secondary">
                   &gt; AI:
                 </Typography.SubCaptionMedium>
@@ -70,7 +62,7 @@ export default function ComparisonSection() {
               <div className="pt-4 border-t border-background/10 space-y-3">
                 <div className="flex items-start gap-3">
                   <X
-                    className="size-5 text-red-400 mt-0.5"
+                    className="size-5 text-muted-foreground mt-0.5"
                     aria-hidden="true"
                   />
                   <Typography.Body color="secondary">
@@ -79,7 +71,7 @@ export default function ComparisonSection() {
                 </div>
                 <div className="flex items-start gap-3">
                   <X
-                    className="size-5 text-red-400 mt-0.5"
+                    className="size-5 text-muted-foreground mt-0.5"
                     aria-hidden="true"
                   />
                   <Typography.Body color="secondary">
@@ -88,7 +80,7 @@ export default function ComparisonSection() {
                 </div>
                 <div className="flex items-start gap-3">
                   <X
-                    className="size-5 text-red-400 mt-0.5"
+                    className="size-5 text-muted-foreground mt-0.5"
                     aria-hidden="true"
                   />
                   <Typography.Body color="secondary">
@@ -99,13 +91,7 @@ export default function ComparisonSection() {
             </div>
           </article>
 
-          <article className="h-full rounded-2xl border-2 border-primary bg-background/80 backdrop-blur p-6 sm:p-8 shadow-[0_18px_60px_-34px_hsl(var(--always-black)_/_0.45)] relative transition-all hover:shadow-[0_28px_70px_-36px_hsl(var(--always-black)_/_0.5)] hover:-translate-y-1 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
-            <div className="absolute -top-3 right-4 rounded-full border border-border bg-background px-4 py-1">
-              <Typography.SubCaptionBold>
-                Blairify Environment
-              </Typography.SubCaptionBold>
-            </div>
-
+          <article className="h-full rounded-2xl border-2 border-primary/70 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-[0_22px_70px_-38px_hsl(var(--always-black)_/_0.55)] ring-1 ring-primary/15 relative transition-all hover:shadow-[0_32px_80px_-40px_hsl(var(--always-black)_/_0.6)] hover:-translate-y-1 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
             <header className="flex items-center gap-3 pb-4 border-b border-background/10">
               <div className="size-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Target className="size-5 text-primary" aria-hidden="true" />
@@ -125,7 +111,7 @@ export default function ComparisonSection() {
                 </Typography.Body>
               </div>
 
-              <div className="rounded-xl border border-border bg-card p-4">
+              <div className="rounded-xl border border-border bg-background/80 backdrop-blur p-4">
                 <Typography.SubCaptionBold>
                   &gt; Feedback:
                 </Typography.SubCaptionBold>
@@ -143,7 +129,7 @@ export default function ComparisonSection() {
                     aria-hidden="true"
                   />
                   <Typography.Body>
-                    - Injects battle-tested constraints from real interviews.
+                    Injects battle-tested constraints from real interviews.
                   </Typography.Body>
                 </div>
                 <div className="flex items-start gap-3">
@@ -152,7 +138,7 @@ export default function ComparisonSection() {
                     aria-hidden="true"
                   />
                   <Typography.Body>
-                    - Forces you to defend logic against specific edge cases.
+                    Forces you to defend logic against specific edge cases.
                   </Typography.Body>
                 </div>
               </div>

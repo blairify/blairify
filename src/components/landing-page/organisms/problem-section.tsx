@@ -5,10 +5,14 @@ export default function ProblemSection() {
   return (
     <section
       id="problem"
-      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-mt-24"
+      className="bg-card border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="problem-heading"
       data-analytics-id="home-problem"
     >
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(168,85,247,0.06),transparent_60%)]"
+        aria-hidden="true"
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="max-w-4xl mx-auto text-center mb-12 sm:mb-16">
           <Typography.Heading2 id="problem-heading" className="mb-4">
@@ -21,10 +25,10 @@ export default function ProblemSection() {
         </header>
 
         <div className="grid gap-6 md:grid-cols-3">
-          <article className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
+          <article className="rounded-2xl border border-border/70 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
             <div className="size-12 sm:size-14 rounded-2xl border border-border bg-background flex items-center justify-center">
               <HeartPulse
-                className="size-6 sm:size-7 text-red-600"
+                className="size-6 sm:size-7 text-muted-foreground"
                 aria-hidden="true"
               />
             </div>
@@ -38,7 +42,7 @@ export default function ProblemSection() {
             </Typography.Body>
           </article>
 
-          <article className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
+          <article className="rounded-2xl border border-border/70 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
             <div className="size-12 sm:size-14 rounded-2xl border border-border bg-background flex items-center justify-center">
               <Bot
                 className="size-6 sm:size-7 text-muted-foreground"
@@ -55,7 +59,7 @@ export default function ProblemSection() {
             </Typography.Body>
           </article>
 
-          <article className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
+          <article className="rounded-2xl border border-border/70 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
             <div className="size-12 sm:size-14 rounded-2xl border border-border bg-background flex items-center justify-center">
               <TreeDeciduous
                 className="size-6 sm:size-7 text-primary"

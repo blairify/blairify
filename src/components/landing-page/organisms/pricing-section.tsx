@@ -7,14 +7,14 @@ export default function PricingSection() {
   return (
     <section
       id="pricing"
-      className="bg-[hsl(var(--bg-200))] border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
+      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="pricing-heading"
       data-analytics-id="home-pricing"
     >
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -bottom-48 left-[-10rem] size-[34rem] rounded-full bg-primary/10 blur-3xl" />
-      </div>
-
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_40%_60%,rgba(99,102,241,0.05),transparent_70%)]"
+        aria-hidden="true"
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="text-center mb-12 sm:mb-16">
           <Typography.Heading2 id="pricing-heading" className="mb-3">
@@ -26,7 +26,7 @@ export default function PricingSection() {
         </header>
 
         <div className="grid gap-6 lg:grid-cols-2 max-w-5xl mx-auto items-stretch">
-          <article className="h-full rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm flex flex-col transition-all hover:shadow-md hover:-translate-y-0.5 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
+          <article className="h-full rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm flex flex-col transition-all hover:shadow-md hover:-translate-y-0.5 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
             <header className="text-center">
               <Typography.Heading3>Basic</Typography.Heading3>
               <Typography.SubCaptionMedium color="secondary" className="mt-2">
@@ -65,13 +65,7 @@ export default function PricingSection() {
             </div>
           </article>
 
-          <article className="h-full rounded-2xl border-2 border-primary bg-card p-6 sm:p-8 shadow-[0_18px_60px_-34px_hsl(var(--always-black)_/_0.45)] flex flex-col relative transition-all hover:shadow-[0_28px_70px_-36px_hsl(var(--always-black)_/_0.5)] hover:-translate-y-1 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2 lg:-translate-y-2">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-5 py-1.5 text-primary-foreground">
-              <Typography.SubCaptionBold>
-                Most Popular
-              </Typography.SubCaptionBold>
-            </div>
-
+          <article className="h-full rounded-2xl border-2 border-primary bg-background/80 backdrop-blur p-6 sm:p-8 shadow-[0_18px_60px_-34px_hsl(var(--always-black)_/_0.45)] flex flex-col relative transition-all hover:shadow-[0_28px_70px_-36px_hsl(var(--always-black)_/_0.5)] hover:-translate-y-1 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2 lg:-translate-y-2">
             <header className="text-center">
               <Typography.Heading3>PRO</Typography.Heading3>
               <Typography.SubCaptionMedium color="secondary" className="mt-2">
@@ -105,33 +99,23 @@ export default function PricingSection() {
               </li>
               <li className="flex items-center gap-3">
                 <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body color="secondary">
-                  Full Analysis and Report
-                </Typography.Body>
+                <Typography.Body>Full Analysis and Report</Typography.Body>
               </li>
               <li className="flex items-center gap-3">
                 <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body color="secondary">
-                  Knowledge Gap Diagnostics
-                </Typography.Body>
+                <Typography.Body>Knowledge Gap Diagnostics</Typography.Body>
               </li>
               <li className="flex items-center gap-3">
                 <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body color="secondary">
-                  Curated Resources Links
-                </Typography.Body>
+                <Typography.Body>Curated Resources Links</Typography.Body>
               </li>
               <li className="flex items-center gap-3">
                 <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body color="secondary">
-                  Premium AI Reasoning Engine
-                </Typography.Body>
+                <Typography.Body>Premium AI Reasoning Engine</Typography.Body>
               </li>
               <li className="flex items-center gap-3">
                 <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body color="secondary">
-                  Centralized Preparation Hub
-                </Typography.Body>
+                <Typography.Body>Centralized Preparation Hub</Typography.Body>
               </li>
             </ul>
 

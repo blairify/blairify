@@ -2,7 +2,7 @@
 
 import { Timestamp } from "firebase/firestore";
 import { Loader2 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FloatingNotification } from "@/components/common/molecules/floating-notification";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,7 +32,7 @@ import { InterviewMessagesArea } from "../organisms/interview-messages-area";
 import type { Message, QuestionType } from "../types";
 
 interface InterviewContentProps {
-  user: UserData;
+  user: UserData | null;
   onInterviewStart?: () => void;
 }
 
@@ -40,6 +40,7 @@ interface StartInterviewResponse {
   success: boolean;
   message: string;
   questionType?: QuestionType;
+  currentQuestionCount?: number;
   error?: string;
   code?: string;
   details?: unknown;
@@ -112,6 +113,16 @@ export function InterviewContent({
     pushState: History["pushState"];
     replaceState: History["replaceState"];
   } | null>(null);
+
+  const seed = useMemo(() => {
+    if (typeof window === "undefined") {
+      return { seedQuestion: "", seedAnswer: "" };
+    }
+    const params = new URLSearchParams(window.location.search);
+    const seedQuestion = params.get("seedQuestion") ?? "";
+    const seedAnswer = params.get("seedAnswer") ?? "";
+    return { seedQuestion, seedAnswer };
+  }, []);
 
   const {
     session,
@@ -480,6 +491,17 @@ export function InterviewContent({
     setIsInterviewStarted(true);
     setIsLoading(true);
 
+    const trimmedSeedQuestion = seed.seedQuestion.trim();
+    const trimmedSeedAnswer = seed.seedAnswer.trim();
+
+    const effectiveConfig = user?.uid
+      ? config
+      : {
+          ...config,
+          isDemoMode: true,
+          interviewMode: "flash" as const,
+        };
+
     try {
       if (user?.uid) {
         const usageResult = await DatabaseService.checkUsageStatus(user.uid);
@@ -509,8 +531,9 @@ export function InterviewContent({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          interviewConfig: config,
-          userId: user?.uid,
+          interviewConfig: effectiveConfig,
+          seedQuestion: trimmedSeedQuestion,
+          seedAnswer: trimmedSeedAnswer,
         }),
       });
 
@@ -522,8 +545,14 @@ export function InterviewContent({
           error: data.error,
           code: data.code,
           details: data.details,
-          config,
+          config: effectiveConfig,
         });
+
+        if (data.code === "GUEST_DEMO_USED") {
+          allowExitRef.current = true;
+          window.location.href = "/auth?mode=register&redirect=%2Fresults";
+          return;
+        }
 
         // Handle daily limit exceeded with user-friendly message
         if (data.code === "LIMIT_EXCEEDED") {
@@ -572,9 +601,19 @@ export function InterviewContent({
           questionType: data.questionType,
         };
 
+        const resolvedCurrentQuestionCount = (() => {
+          if (typeof data.currentQuestionCount === "number") {
+            return data.currentQuestionCount;
+          }
+          if (trimmedSeedQuestion && trimmedSeedAnswer && user?.uid) {
+            return 2;
+          }
+          return 1;
+        })();
+
         updateSession({
           messages: [aiMessage],
-          currentQuestionCount: 1,
+          currentQuestionCount: resolvedCurrentQuestionCount,
           hasPersonalizedIntro: true,
           questionIds: data.questionIds ?? [],
           ...(data.questionIds && data.questionIds.length > 0
@@ -1190,7 +1229,9 @@ export function InterviewContent({
               showViewResults={hasAnyUserAnswer(session.messages)}
               onGoToProgress={() => {
                 allowExitRef.current = true;
-                window.location.href = "/dashboard";
+                window.location.href = user?.uid
+                  ? "/dashboard"
+                  : "/auth?redirect=%2Fdashboard";
               }}
               terminationReason={
                 session.termination?.reason ??

@@ -97,9 +97,9 @@ type MarkdownChildrenProps = {
 const qaMarkdownComponents: Components = {
   p({ children }: MarkdownChildrenProps) {
     return (
-      <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 whitespace-pre-line my-2">
+      <Typography.Body color="secondary" className="whitespace-pre-line my-2">
         {children}
-      </p>
+      </Typography.Body>
     );
   },
   ul({ children }: MarkdownChildrenProps) {
@@ -112,14 +112,14 @@ const qaMarkdownComponents: Components = {
   },
   li({ children }: MarkdownChildrenProps) {
     return (
-      <li className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-        {children}
+      <li>
+        <Typography.Body color="secondary">{children}</Typography.Body>
       </li>
     );
   },
   pre({ children }: MarkdownChildrenProps) {
     return (
-      <pre className="my-2 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
+      <pre className="bg-slate-50 dark:bg-slate-800 rounded-lg p-3 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
         {children}
       </pre>
     );
@@ -133,9 +133,7 @@ const qaMarkdownComponents: Components = {
   },
   strong({ children }: MarkdownChildrenProps) {
     return (
-      <strong className="text-gray-900 dark:text-gray-100 font-semibold">
-        {children}
-      </strong>
+      <Typography.BodyBold className="inline">{children}</Typography.BodyBold>
     );
   },
   hr() {
@@ -147,15 +145,15 @@ const qaQuestionMarkdownComponents: Components = {
   ...qaMarkdownComponents,
   p({ children }: MarkdownChildrenProps) {
     return (
-      <p className="text-sm leading-relaxed text-gray-900 dark:text-gray-100 whitespace-pre-line my-2">
+      <Typography.Body className="whitespace-pre-line my-2">
         {children}
-      </p>
+      </Typography.Body>
     );
   },
   li({ children }: MarkdownChildrenProps) {
     return (
-      <li className="text-sm leading-relaxed text-gray-900 dark:text-gray-100">
-        {children}
+      <li>
+        <Typography.Body>{children}</Typography.Body>
       </li>
     );
   },
@@ -173,21 +171,19 @@ const overallSummaryMarkdownComponents: Components = {
 
     if (labelInfo) {
       return (
-        <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 whitespace-pre-line my-2">
-          <span className="text-gray-900 dark:text-gray-100 font-semibold">
+        <Typography.Body className="whitespace-pre-line my-2">
+          <Typography.BodyBold className="inline">
             {labelInfo.label}:
-          </span>{" "}
-          <span className="text-gray-500 dark:text-gray-400">
-            {labelInfo.value}
-          </span>
-        </p>
+          </Typography.BodyBold>{" "}
+          {labelInfo.value}
+        </Typography.Body>
       );
     }
 
     return (
-      <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 whitespace-pre-line my-2">
+      <Typography.Body color="secondary" className="whitespace-pre-line my-2">
         {children}
-      </p>
+      </Typography.Body>
     );
   },
   ul({ children }: MarkdownChildrenProps) {
@@ -200,8 +196,8 @@ const overallSummaryMarkdownComponents: Components = {
   },
   li({ children }: MarkdownChildrenProps) {
     return (
-      <li className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-        {children}
+      <li>
+        <Typography.Body color="secondary">{children}</Typography.Body>
       </li>
     );
   },
@@ -223,13 +219,13 @@ const overallSummaryMarkdownComponents: Components = {
     const text = getMarkdownText(children).trim().replace(/\s+/g, " ");
     if (text.endsWith(":")) {
       return (
-        <strong className="text-gray-900 dark:text-gray-100 font-semibold">
-          {children}
-        </strong>
+        <Typography.BodyBold className="inline">{children}</Typography.BodyBold>
       );
     }
 
-    return <strong className="font-normal">{children}</strong>;
+    return (
+      <Typography.BodyBold className="inline">{children}</Typography.BodyBold>
+    );
   },
   hr() {
     return null;
@@ -237,7 +233,7 @@ const overallSummaryMarkdownComponents: Components = {
 };
 
 interface ResultsContentProps {
-  user: UserData;
+  user: UserData | null;
 }
 
 export function ResultsContent({ user: initialUser }: ResultsContentProps) {
@@ -391,13 +387,14 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     },
     [handleSurveyNavigation],
   );
-  const activeUserId = useMemo(
-    () => authUser?.uid ?? initialUser.uid,
-    [authUser?.uid, initialUser.uid],
-  );
+  const activeUserId = useMemo(() => {
+    if (authUser?.uid) return authUser.uid;
+    if (initialUser?.uid) return initialUser.uid;
+    return null;
+  }, [authUser?.uid, initialUser?.uid]);
   const activeUserEmail = useMemo(
-    () => authUser?.email ?? initialUser.email ?? "",
-    [authUser?.email, initialUser.email],
+    () => authUser?.email ?? initialUser?.email ?? "",
+    [authUser?.email, initialUser?.email],
   );
 
   const sessionIdFromQuery = useMemo(() => {
@@ -414,7 +411,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     const interviewSessionId = localStorage.getItem("interviewSessionId");
 
     if (!interviewSessionRaw && !sessionIdFromQuery) {
-      router.replace("/history");
+      router.replace(initialUser?.uid ? "/history" : "/");
       return;
     }
 
@@ -549,7 +546,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     } catch {
       // noop
     }
-  }, [router, sessionIdFromQuery]);
+  }, [router, sessionIdFromQuery, initialUser?.uid]);
 
   const getExampleAnswer = (question: Question): string | null => {
     switch (question.type) {
@@ -813,7 +810,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     void (async () => {
       try {
         setIsLoadingSession(true);
-        setIsAnalyzing(false);
+        setError(null);
+        setSavedSession(null);
+
+        if (!activeUserId) {
+          setIsLoadingSession(false);
+          return;
+        }
 
         const session = await DatabaseService.getSession(
           activeUserId,
@@ -823,7 +826,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         if (!active) return;
 
         if (!session || !session.analysis) {
-          router.replace("/history");
+          router.replace(activeUserId ? "/history" : "/");
           return;
         }
 
@@ -853,6 +856,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       setIsAnalyzing(false);
       return;
     }
+
+    const shouldPersistToAccount = Boolean(activeUserId);
 
     let isMounted = true;
 
@@ -1138,9 +1143,14 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
         const existingSessionId = localStorage.getItem("interviewSessionId");
 
+        if (!shouldPersistToAccount) {
+          setIsAnalyzing(false);
+          return;
+        }
+
         try {
           const nextSavedSessionId = await DatabaseService.saveInterviewResults(
-            activeUserId,
+            activeUserId as string,
             {
               ...(session as {
                 messages: Array<{
@@ -1198,7 +1208,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             })();
 
             const xp = await addUserXP(
-              activeUserId,
+              activeUserId as string,
               data.feedback.score,
               durationMinutes,
             );
@@ -2066,19 +2076,21 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   {results.passed ? "Take Another Interview" : "Try Again"}
                 </Button>
 
-                <Button
-                  variant="outline"
-                  onClick={() => handleNavigationRequest("/history")}
-                  className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
-                >
-                  <BookOpen className="size-4 mr-2" />
-                  View Interview History
-                </Button>
+                {activeUserId && (
+                  <Button
+                    variant="outline"
+                    onClick={() => handleNavigationRequest("/history")}
+                    className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
+                  >
+                    <BookOpen className="size-4 mr-2" />
+                    View Interview History
+                  </Button>
+                )}
               </div>
             </div>
 
             <PostInterviewSurvey
-              activeUserId={activeUserId}
+              activeUserId={activeUserId ?? undefined}
               activeUserEmail={activeUserEmail}
               userProfile={userProfile}
               setUserProfile={setUserProfile}

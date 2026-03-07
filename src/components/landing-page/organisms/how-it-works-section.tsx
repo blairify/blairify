@@ -5,22 +5,14 @@ export default function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="bg-[hsl(var(--bg-200))] border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
+      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="how-it-works-heading"
       data-analytics-id="home-how-it-works"
     >
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(59,130,246,0.05),transparent_65%)]"
         aria-hidden="true"
       />
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent"
-        aria-hidden="true"
-      />
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -top-40 left-[-10rem] size-[34rem] rounded-full bg-primary/10 blur-3xl" />
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
         <Typography.Heading2 id="how-it-works-heading" className="mb-3">
           Train for the exact role

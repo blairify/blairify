@@ -367,9 +367,9 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                         handleSignOut();
                         setIsMobileMenuOpen(false);
                       }}
-                      className="tap-highlight-transparent flex items-center gap-3 p-3 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors w-full text-left text-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
+                      className="tap-highlight-transparent flex items-center gap-3 p-3 rounded-lg text-foreground hover:bg-muted/50 focus:bg-muted/60 active:bg-muted/60 transition-colors w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
                     >
-                      <LogOut className="size-5" />
+                      <LogOut className="size-5 text-muted-foreground" />
                       <Typography.BodyMedium>Sign out</Typography.BodyMedium>
                     </button>
                   </div>

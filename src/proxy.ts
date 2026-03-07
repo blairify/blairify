@@ -5,9 +5,6 @@ const protectedRoutes = [
   "/jobs",
   "/history",
   "/profile",
-  "/results",
-  "/configure",
-  "/interview",
   "/onboarding",
 ];
 
@@ -16,6 +13,7 @@ const publicRoutes = ["/", "/auth"];
 export default async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const isOnboardingRoute = pathname.startsWith("/onboarding");
+  const redirectTarget = `${request.nextUrl.pathname}${request.nextUrl.search}`;
 
   const isProtectedRoute = protectedRoutes.some((route) =>
     pathname.startsWith(route),
@@ -29,16 +27,39 @@ export default async function proxy(request: NextRequest) {
     request.cookies.get("firebase-auth-token")?.value ||
     request.cookies.get("auth-token")?.value;
 
+  const guestDemoUsed = request.cookies.get("guest-demo-used")?.value === "1";
+
   const onboardingComplete =
     request.cookies.get("onboarding-complete")?.value === "1";
 
   if (isProtectedRoute && !firebaseAuthToken) {
     const loginUrl = new URL("/auth", request.url);
-    loginUrl.searchParams.set("redirect", pathname);
+    loginUrl.searchParams.set("redirect", redirectTarget);
     return NextResponse.redirect(loginUrl);
   }
 
-  if (firebaseAuthToken && !onboardingComplete && !isOnboardingRoute) {
+  const isResultsRoute = pathname.startsWith("/results");
+
+  if (!firebaseAuthToken && guestDemoUsed) {
+    const isGuestAllowedRoute =
+      pathname === "/results" ||
+      pathname.startsWith("/auth") ||
+      pathname === "/";
+
+    if (!isGuestAllowedRoute) {
+      const registerUrl = new URL("/auth", request.url);
+      registerUrl.searchParams.set("mode", "register");
+      registerUrl.searchParams.set("redirect", redirectTarget);
+      return NextResponse.redirect(registerUrl);
+    }
+  }
+
+  if (
+    firebaseAuthToken &&
+    !onboardingComplete &&
+    !isOnboardingRoute &&
+    !isResultsRoute
+  ) {
     return NextResponse.redirect(new URL("/onboarding", request.url));
   }
 

@@ -38,10 +38,14 @@ export default function FaqSection() {
   return (
     <section
       id="faq"
-      className="bg-background py-16 sm:py-20 scroll-mt-24"
+      className="bg-card border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="faq-heading"
       data-analytics-id="home-faq"
     >
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_80%,rgba(249,115,22,0.06),transparent_55%)]"
+        aria-hidden="true"
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <header className="text-center mb-10 sm:mb-12">
           <Typography.Heading2 id="faq-heading">
@@ -53,7 +57,7 @@ export default function FaqSection() {
           {FAQS.map((faq) => (
             <details
               key={faq.question}
-              className="group rounded-2xl border border-border bg-background shadow-sm transition-colors open:bg-muted/20 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2"
+              className="group rounded-2xl border border-border bg-background shadow-sm transition-colors open:bg-background/80 open:backdrop-blur"
             >
               <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden flex items-center justify-between gap-4 p-6 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2 rounded-2xl">
                 <Typography.BodyBold>{faq.question}</Typography.BodyBold>

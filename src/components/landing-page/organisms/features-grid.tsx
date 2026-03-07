@@ -63,20 +63,16 @@ const features = [
 export default function FeaturesGrid() {
   return (
     <section
-      className="bg-[color:var(--card)] text-[color:var(--foreground)] py-16 sm:py-20 lg:py-24 transition-colors duration-300"
+      className="bg-card border-b border-border/40 py-16 sm:py-20 lg:py-24 scroll-mt-24"
       aria-labelledby="features-heading"
       data-analytics-id="home-features"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center space-y-8 sm:space-y-12">
         <div className="space-y-4 sm:space-y-6">
-          <Typography.Heading2
-            id="features-heading"
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold"
-          >
-            Everything You Need to{" "}
-            <span className="text-[color:var(--primary)]">Succeed</span>
+          <Typography.Heading2 id="features-heading">
+            Everything You Need to Succeed
           </Typography.Heading2>
-          <Typography.Body className="text-base sm:text-lg text-[color:var(--muted-foreground)] max-w-2xl mx-auto leading-relaxed">
+          <Typography.Body color="secondary" className="max-w-2xl mx-auto">
             Train smarter with AI that understands your skill level and adapts
             to your learning goals.
           </Typography.Body>
@@ -89,17 +85,22 @@ export default function FeaturesGrid() {
             return (
               <div
                 key={f.title}
-                className="group p-4 sm:p-6 rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)] shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]"
+                className="group p-4 sm:p-6 rounded-2xl border border-border bg-background/80 backdrop-blur shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[color:var(--primary)] text-white mb-3 sm:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
-                  <Icon size={20} className="sm:w-6 sm:h-6" />
+                  <Icon
+                    size={20}
+                    className="sm:w-6 sm:h-6"
+                    aria-hidden="true"
+                    focusable="false"
+                  />
                 </div>
 
-                <Typography.Heading3 className="text-base sm:text-lg font-semibold text-[color:var(--foreground)] mb-2 sm:mb-3">
+                <Typography.Heading3 className="mb-2 sm:mb-3">
                   {f.title}
                 </Typography.Heading3>
-                <Typography.Body className="text-sm sm:text-base text-[color:var(--muted-foreground)] leading-relaxed">
+                <Typography.Body color="secondary">
                   {f.description}
                 </Typography.Body>
               </div>

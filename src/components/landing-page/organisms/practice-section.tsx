@@ -4,15 +4,14 @@ import { Typography } from "@/components/common/atoms/typography";
 export default function PracticeSection() {
   return (
     <section
-      className="bg-background border-y border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
+      className="bg-card border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="practice-heading"
       data-analytics-id="home-practice"
     >
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -top-40 right-[-8rem] size-[30rem] rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute -bottom-40 left-[-10rem] size-[34rem] rounded-full bg-primary/5 blur-3xl" />
-      </div>
-
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(249,115,22,0.07),transparent_55%)]"
+        aria-hidden="true"
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-2 items-center">
           <div>
@@ -70,42 +69,170 @@ export default function PracticeSection() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-border bg-card/70 backdrop-blur p-6 sm:p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
+          <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
             <header className="text-center mb-6">
               <Typography.Heading3>
-                Correlation: Stress vs Confidence
+                Example simulation report
               </Typography.Heading3>
               <Typography.SubCaptionMedium color="secondary" className="mt-1">
-                Based on telemetry from users' first 5 simulations
+                The kind of feedback you get after a run
               </Typography.SubCaptionMedium>
             </header>
 
-            <div
-              className="relative rounded-2xl border border-border bg-background p-4 overflow-hidden"
-              role="img"
-              aria-label="Chart preview"
-            >
-              <div
-                className="pointer-events-none absolute inset-0"
-                aria-hidden="true"
-              >
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
-                <div className="absolute inset-0 bg-[linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
+            <div className="rounded-2xl border border-border bg-background p-4 sm:p-5">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <Typography.BodyBold>
+                    System design: Redis cache
+                  </Typography.BodyBold>
+                  <Typography.SubCaptionMedium
+                    color="secondary"
+                    className="mt-1"
+                  >
+                    35 minutes · Mid-level
+                  </Typography.SubCaptionMedium>
+                </div>
+                <div className="rounded-xl border border-border bg-primary/10 px-3 py-1">
+                  <Typography.CaptionBold color="brand">
+                    Score: 6.8/10
+                  </Typography.CaptionBold>
+                </div>
               </div>
 
-              <div className="grid grid-cols-6 gap-3 items-end relative">
-                {[30, 45, 60, 75, 85, 92].map((value, index) => (
-                  <div key={value} className="flex flex-col items-center gap-2">
-                    <div
-                      className="w-8 rounded-xl border border-border bg-gradient-to-b from-primary/35 to-primary/10"
-                      style={{ height: `${Math.max(24, value * 2)}px` }}
-                      aria-hidden="true"
-                    />
-                    <Typography.SubCaptionMedium color="secondary">
-                      {index === 0 ? "Start" : `S${index}`}
-                    </Typography.SubCaptionMedium>
-                  </div>
-                ))}
+              <div className="mt-5 grid gap-4">
+                <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-4">
+                  <Typography.BodyBold className="mb-3">
+                    Breakdown
+                  </Typography.BodyBold>
+                  <table
+                    className="w-full border-separate border-spacing-y-2"
+                    aria-label="Score breakdown"
+                  >
+                    <thead className="sr-only">
+                      <tr>
+                        <th scope="col">Category</th>
+                        <th scope="col">Score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" className="text-left">
+                          <Typography.SubCaptionMedium color="secondary">
+                            Requirements clarity
+                          </Typography.SubCaptionMedium>
+                        </th>
+                        <td className="text-right">
+                          <Typography.SubCaptionBold>
+                            7/10
+                          </Typography.SubCaptionBold>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="text-left">
+                          <Typography.SubCaptionMedium color="secondary">
+                            Trade-offs
+                          </Typography.SubCaptionMedium>
+                        </th>
+                        <td className="text-right">
+                          <Typography.SubCaptionBold>
+                            6/10
+                          </Typography.SubCaptionBold>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="text-left">
+                          <Typography.SubCaptionMedium color="secondary">
+                            Failure modes
+                          </Typography.SubCaptionMedium>
+                        </th>
+                        <td className="text-right">
+                          <Typography.SubCaptionBold>
+                            5/10
+                          </Typography.SubCaptionBold>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="text-left">
+                          <Typography.SubCaptionMedium color="secondary">
+                            Communication
+                          </Typography.SubCaptionMedium>
+                        </th>
+                        <td className="text-right">
+                          <Typography.SubCaptionBold>
+                            8/10
+                          </Typography.SubCaptionBold>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-4">
+                  <Typography.BodyBold className="mb-3">
+                    Weak areas detected
+                  </Typography.BodyBold>
+                  <ul className="space-y-2" aria-label="Weak areas">
+                    <li className="flex items-start justify-between gap-4">
+                      <Typography.SubCaptionMedium color="secondary">
+                        Split-brain prevention
+                      </Typography.SubCaptionMedium>
+                      <Typography.SubCaptionBold>
+                        Needs work
+                      </Typography.SubCaptionBold>
+                    </li>
+                    <li className="flex items-start justify-between gap-4">
+                      <Typography.SubCaptionMedium color="secondary">
+                        Quorum / consistency model
+                      </Typography.SubCaptionMedium>
+                      <Typography.SubCaptionBold>
+                        Needs work
+                      </Typography.SubCaptionBold>
+                    </li>
+                    <li className="flex items-start justify-between gap-4">
+                      <Typography.SubCaptionMedium color="secondary">
+                        Cache invalidation strategy
+                      </Typography.SubCaptionMedium>
+                      <Typography.SubCaptionBold>
+                        Review
+                      </Typography.SubCaptionBold>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-4">
+                  <Typography.BodyBold className="mb-3">
+                    Next drills
+                  </Typography.BodyBold>
+                  <ul className="space-y-2" aria-label="Recommended drills">
+                    <li className="flex items-start gap-3">
+                      <span
+                        className="mt-1 size-2 rounded-full bg-primary"
+                        aria-hidden="true"
+                      />
+                      <Typography.SubCaptionMedium color="secondary">
+                        Failover runbook: step-by-step decision tree
+                      </Typography.SubCaptionMedium>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span
+                        className="mt-1 size-2 rounded-full bg-primary"
+                        aria-hidden="true"
+                      />
+                      <Typography.SubCaptionMedium color="secondary">
+                        Trade-offs: latency vs consistency (CAP)
+                      </Typography.SubCaptionMedium>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span
+                        className="mt-1 size-2 rounded-full bg-primary"
+                        aria-hidden="true"
+                      />
+                      <Typography.SubCaptionMedium color="secondary">
+                        Caching patterns: write-through vs write-back
+                      </Typography.SubCaptionMedium>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

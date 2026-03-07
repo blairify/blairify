@@ -176,9 +176,28 @@ pre code.hljs {
     outline: none;
   }
 
+  .field--neutral-ring:focus-visible {
+    border-color: var(--field-border);
+    box-shadow: 0 0 0 3px hsl(var(--always-black) / 0.08);
+    outline: none;
+  }
+
   .field:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+
+  .field:-webkit-autofill,
+  .field:-webkit-autofill:hover,
+  .field:-webkit-autofill:focus,
+  .field:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--field-text);
+    transition: background-color 9999s ease-out;
+    box-shadow:
+      0 0 0 1px var(--field-border),
+      0 0 0 1000px var(--field-bg) inset,
+      0 1px 2px hsl(var(--always-black) / 0.05);
+    caret-color: var(--field-text);
   }
 
   .field[aria-invalid="true"] {
@@ -510,7 +529,7 @@ code.hljs {
 
   --background: hsl(var(--blairify-bg-000));
   --foreground: hsl(var(--blairify-text-100));
-  --card: hsl(var(--blairify-bg-000));
+  --card: hsl(var(--blairify-bg-200));
   --card-foreground: hsl(var(--blairify-text-100));
   --popover: hsl(var(--blairify-bg-100));
   --popover-foreground: hsl(var(--blairify-text-200));
@@ -767,6 +786,26 @@ code.hljs {
 /* ==============================
    Animations
    ============================== */
+@keyframes blairify-xp-fill {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.blairify-xp-fill {
+  transform-origin: left;
+  animation: blairify-xp-fill 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blairify-xp-fill {
+    animation: none;
+  }
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
