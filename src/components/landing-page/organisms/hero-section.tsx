@@ -1,39 +1,331 @@
 "use client";
 
-import { Send } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { Typography } from "@/components/common/atoms/typography";
 import { InterviewerAvatar } from "@/components/common/interviewer-avatar";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { INTERVIEWERS } from "@/lib/config/interviewers";
-import { Typography } from "../../common/atoms/typography";
-import { Button } from "../../ui/button";
-import { Input } from "../../ui/input";
 
-const HERO_INTERVIEWER = INTERVIEWERS[0];
+const TERMINAL_COMMAND = "start --from-url";
+const TERMINAL_DESCRIPTION =
+  "Paste a job posting URL. I will extract the role requirements and prepare the interview.";
+const TERMINAL_DESCRIPTION_WITH_MISTAKE =
+  "Paste a job postin URL. I will extract the role requirements and prepare the interview.";
+const TERMINAL_FOLLOW_UP = "Are we doing it?";
+const TERMINAL_CORRECT_WORD = "posting";
+const MISTAKE_CHAR_INDEX = TERMINAL_DESCRIPTION_WITH_MISTAKE.indexOf("postin");
+const MISTAKE_BACKSPACE_COUNT = 7;
+const COMMAND_START_DELAY_MS = 1000;
+const DESCRIPTION_START_DELAY_MS = 500;
+const MISTAKE_PAUSE_MS = 800;
+const CORRECTION_RESUME_DELAY_MS = 200;
+const FOLLOW_UP_DELAY_MS = 4000;
+const BACKSPACE_INTERVAL_MS = 50;
+const TYPING_SPEED_MIN_MS = 30;
+const TYPING_SPEED_RANGE_MS = 50;
 
-function normalizeJobUrlInput(value: string): string {
-  return value.trim();
-}
+const randomTypingSpeed = () =>
+  Math.random() * TYPING_SPEED_RANGE_MS + TYPING_SPEED_MIN_MS;
 
 function isValidHttpsUrl(value: string): boolean {
   if (!/^https:\/\//i.test(value)) return false;
   try {
-    const url = new URL(value);
-    return url.protocol === "https:";
+    return new URL(value).protocol === "https:";
   } catch {
     return false;
   }
+}
+
+function buildConfigureUrl(jobUrl: string): string {
+  const params = new URLSearchParams({
+    flow: "url",
+    pastedUrl: jobUrl,
+    autoStart: "1",
+  });
+  return `/configure?${params.toString()}`;
+}
+
+interface TypingAnimationState {
+  commandText: string;
+  displayText: string;
+  isTypingCommand: boolean;
+  isTyping: boolean;
+  isCorrecting: boolean;
+  showFollowUp: boolean;
+  followUpText: string;
+  isTypingFollowUp: boolean;
+  followUpCompleted: boolean;
+}
+
+function useHeroTypingAnimation(): TypingAnimationState {
+  const [commandText, setCommandText] = useState("");
+  const [displayText, setDisplayText] = useState("");
+  const [isTypingCommand, setIsTypingCommand] = useState(true);
+  const [isTyping, setIsTyping] = useState(true);
+  const [isCorrecting, setIsCorrecting] = useState(false);
+  const [animationCompleted, setAnimationCompleted] = useState(false);
+  const [showFollowUp, setShowFollowUp] = useState(false);
+  const [followUpText, setFollowUpText] = useState("");
+  const [isTypingFollowUp, setIsTypingFollowUp] = useState(false);
+  const [followUpCompleted, setFollowUpCompleted] = useState(false);
+
+  useEffect(() => {
+    if (animationCompleted) return;
+
+    let cmdIndex = 0;
+    let cmdText = "";
+    let descIndex = 0;
+    let descText = "";
+    let mistakeMade = false;
+
+    const finishDescription = () => {
+      setIsTyping(false);
+      setAnimationCompleted(true);
+    };
+
+    const resumeAfterCorrection = () => {
+      if (descIndex >= TERMINAL_DESCRIPTION.length) {
+        finishDescription();
+        return;
+      }
+      descText += TERMINAL_DESCRIPTION[descIndex++];
+      setDisplayText(descText);
+      setTimeout(resumeAfterCorrection, randomTypingSpeed());
+    };
+
+    const typeCorrectWord = (correctIndex: number) => {
+      if (correctIndex >= TERMINAL_CORRECT_WORD.length) {
+        setIsCorrecting(false);
+        setTimeout(resumeAfterCorrection, CORRECTION_RESUME_DELAY_MS);
+        return;
+      }
+      descText += TERMINAL_CORRECT_WORD[correctIndex];
+      setDisplayText(descText);
+      setTimeout(() => typeCorrectWord(correctIndex + 1), randomTypingSpeed());
+    };
+
+    const backspace = (count: number) => {
+      if (count >= MISTAKE_BACKSPACE_COUNT) {
+        typeCorrectWord(0);
+        return;
+      }
+      descText = descText.slice(0, -1);
+      setDisplayText(descText);
+      setTimeout(() => backspace(count + 1), BACKSPACE_INTERVAL_MS);
+    };
+
+    const typeDescription = () => {
+      if (descIndex >= TERMINAL_DESCRIPTION_WITH_MISTAKE.length) {
+        finishDescription();
+        return;
+      }
+      descText += TERMINAL_DESCRIPTION_WITH_MISTAKE[descIndex++];
+      setDisplayText(descText);
+      if (descIndex === MISTAKE_CHAR_INDEX + 7 && !mistakeMade) {
+        mistakeMade = true;
+        setIsCorrecting(true);
+        setTimeout(() => backspace(0), MISTAKE_PAUSE_MS);
+        return;
+      }
+      setTimeout(typeDescription, randomTypingSpeed());
+    };
+
+    const typeCommand = () => {
+      if (cmdIndex >= TERMINAL_COMMAND.length) {
+        setIsTypingCommand(false);
+        setTimeout(typeDescription, DESCRIPTION_START_DELAY_MS);
+        return;
+      }
+      cmdText += TERMINAL_COMMAND[cmdIndex++];
+      setCommandText(cmdText);
+      setTimeout(typeCommand, randomTypingSpeed());
+    };
+
+    const startTimer = setTimeout(typeCommand, COMMAND_START_DELAY_MS);
+    return () => clearTimeout(startTimer);
+  }, [animationCompleted]);
+
+  useEffect(() => {
+    if (!animationCompleted || showFollowUp) return;
+
+    const followUpTimer = setTimeout(() => {
+      setShowFollowUp(true);
+      setIsTypingFollowUp(true);
+
+      let followUpIndex = 0;
+      let currentFollowUpText = "";
+
+      const typeFollowUp = () => {
+        if (followUpIndex >= TERMINAL_FOLLOW_UP.length) {
+          setIsTypingFollowUp(false);
+          setFollowUpCompleted(true);
+          return;
+        }
+        currentFollowUpText += TERMINAL_FOLLOW_UP[followUpIndex++];
+        setFollowUpText(currentFollowUpText);
+        setTimeout(typeFollowUp, randomTypingSpeed());
+      };
+
+      typeFollowUp();
+    }, FOLLOW_UP_DELAY_MS);
+
+    return () => clearTimeout(followUpTimer);
+  }, [animationCompleted, showFollowUp]);
+
+  return {
+    commandText,
+    displayText,
+    isTypingCommand,
+    isTyping,
+    isCorrecting,
+    showFollowUp,
+    followUpText,
+    isTypingFollowUp,
+    followUpCompleted,
+  };
+}
+
+interface HeroInterviewCardProps {
+  canStartFromUrl: boolean;
+  jobUrlDraft: string;
+  onJobUrlChange: (value: string) => void;
+  onSubmit: () => void;
+}
+
+function HeroInterviewCard({
+  canStartFromUrl,
+  jobUrlDraft,
+  onJobUrlChange,
+  onSubmit,
+}: HeroInterviewCardProps) {
+  const {
+    commandText,
+    displayText,
+    isTypingCommand,
+    isTyping,
+    isCorrecting,
+    showFollowUp,
+    followUpText,
+    isTypingFollowUp,
+    followUpCompleted,
+  } = useHeroTypingAnimation();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onSubmit();
+  };
+
+  return (
+    <section
+      className="flex flex-col overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950 text-zinc-100"
+      aria-label="Interview terminal preview"
+    >
+      <div className="flex items-center justify-between border-zinc-800 border-b px-4 py-2">
+        <div className="flex items-center gap-2 text-sm text-zinc-400">
+          <div className="flex items-center gap-2" aria-hidden="true">
+            <span className="size-2.5 rounded-full bg-[#ff5f57]" />
+            <span className="size-2.5 rounded-full bg-[#febc2e]" />
+            <span className="size-2.5 rounded-full bg-[#28c840]" />
+          </div>
+          <span className="ml-2 text-xs">~/blairify</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="size-5 overflow-hidden rounded-full bg-background shadow-sm flex-shrink-0">
+            <InterviewerAvatar interviewer={INTERVIEWERS[0]} size={20} />
+          </div>
+          <Typography.SubCaption color="secondary" className="truncate">
+            {INTERVIEWERS[0].name}
+          </Typography.SubCaption>
+        </div>
+      </div>
+
+      <div className="h-48 overflow-hidden p-4 font-mono text-sm leading-relaxed">
+        <pre className="whitespace-pre-wrap break-words">
+          <span className="text-green-400">$</span>{" "}
+          <span className="text-zinc-300">
+            {commandText}
+            {isTypingCommand && (
+              <span className="inline-block w-2 h-4 bg-white animate-pulse ml-1" />
+            )}
+          </span>
+          <br />
+          {!isTypingCommand && (
+            <>
+              <span className="text-zinc-300">
+                {displayText}
+                {(isTyping || isCorrecting) && (
+                  <span
+                    className={`inline-block w-2 h-4 ml-1 ${isCorrecting ? "bg-red-400" : "bg-white"} animate-pulse`}
+                  />
+                )}
+              </span>
+              {!isTyping && !isCorrecting && (
+                <>
+                  <br />
+                  <span className="text-zinc-500">
+                    {canStartFromUrl
+                      ? "Status: valid URL detected"
+                      : "Status: waiting for HTTPS URL"}
+                  </span>
+                  {showFollowUp && (
+                    <>
+                      <br />
+                      <span className="text-green-400">$</span>{" "}
+                      <span
+                        className={`text-zinc-300 ${followUpCompleted ? "animate-pulse" : ""}`}
+                      >
+                        {followUpText}
+                        {isTypingFollowUp && (
+                          <span className="inline-block w-2 h-4 bg-white animate-pulse ml-1" />
+                        )}
+                      </span>
+                    </>
+                  )}
+                </>
+              )}
+            </>
+          )}
+        </pre>
+      </div>
+
+      <div className="border-zinc-800 border-t p-3">
+        <form onSubmit={handleSubmit}>
+          <div className="flex gap-2">
+            <div className="flex min-w-0 flex-1 items-center rounded-lg border border-zinc-700 bg-zinc-900 px-3">
+              <span className="text-blue-400 mr-2">{">"}</span>
+              <Input
+                id="hero-job-url"
+                value={jobUrlDraft}
+                onChange={(event) => onJobUrlChange(event.target.value)}
+                placeholder="https://justjoin.it/job-offer/software-engineer"
+                inputMode="url"
+                autoComplete="url"
+                className="h-8 border-0 bg-transparent px-0 shadow-none text-zinc-100 placeholder:text-zinc-500 focus-visible:border-0 focus-visible:shadow-none focus-visible:ring-0 text-xs sm:text-sm truncate"
+                aria-describedby="hero-job-url-hint"
+              />
+            </div>
+            <Button
+              type="submit"
+              disabled={!canStartFromUrl}
+              className="h-8 px-4 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 border-zinc-700"
+              aria-label="Start interview from job offer link"
+            >
+              Run
+            </Button>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
 }
 
 export default function HeroSection() {
   const router = useRouter();
   const [jobUrlDraft, setJobUrlDraft] = useState("");
 
-  const normalizedJobUrl = useMemo(
-    () => normalizeJobUrlInput(jobUrlDraft),
-    [jobUrlDraft],
-  );
-
+  const normalizedJobUrl = jobUrlDraft.trim();
   const canStartFromUrl = useMemo(
     () => isValidHttpsUrl(normalizedJobUrl),
     [normalizedJobUrl],
@@ -41,11 +333,7 @@ export default function HeroSection() {
 
   const handleStartFromJobUrl = () => {
     if (!canStartFromUrl) return;
-    const searchParams = new URLSearchParams();
-    searchParams.set("flow", "url");
-    searchParams.set("pastedUrl", normalizedJobUrl);
-    searchParams.set("autoStart", "1");
-    router.push(`/configure?${searchParams.toString()}`);
+    router.push(buildConfigureUrl(normalizedJobUrl));
   };
 
   return (
@@ -61,19 +349,12 @@ export default function HeroSection() {
       <header className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-28 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center lg:min-h-[78vh]">
           <div className="space-y-5 text-center lg:text-left animate-in slide-in-from-left-8 duration-700 max-w-xl lg:max-w-none mx-auto lg:mx-0">
-            <div className="relative">
-              <Typography.HeroHeading1 id="hero-heading">
-                Simulate real interview.
-                <br />
-                <Typography.HeroHeadingAccent color="brand">
-                  Land your dream Role.
-                </Typography.HeroHeadingAccent>
-              </Typography.HeroHeading1>
-            </div>
-
+            <Typography.HeroHeading1 id="hero-heading">
+              Simulate real interview.
+            </Typography.HeroHeading1>
             <Typography.Body
               color="secondary"
-              className="max-w-xl mx-auto lg:mx-0"
+              className="max-w-md mx-auto lg:mx-0"
             >
               Define your target role and run a realistic simulation. Get scored
               across core competencies with clear, actionable feedback on where
@@ -83,68 +364,12 @@ export default function HeroSection() {
 
           <div className="animate-in slide-in-from-right-8 duration-700 flex justify-center lg:justify-end">
             <div className="w-full max-w-xl mx-auto lg:mx-0">
-              <div className="rounded-3xl border border-border/70 bg-background/80 backdrop-blur shadow-[0_18px_55px_-35px_hsl(var(--always-black)_/_0.35)]">
-                <div className="p-6 sm:p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="size-12 rounded-full ring-2 ring-primary/25 overflow-hidden bg-background shadow-sm flex-shrink-0">
-                      <InterviewerAvatar
-                        interviewer={HERO_INTERVIEWER}
-                        size={48}
-                      />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="rounded-2xl border border-border/60 bg-background/80 backdrop-blur-sm px-5 py-4 shadow-sm">
-                        <Typography.SubCaptionBold color="brand">
-                          Sarah
-                        </Typography.SubCaptionBold>
-                        <Typography.Body className="mt-1">
-                          Welcome to Blairify. I’m Sarah - your interview coach.
-                          <br />
-                          Paste the job link and we’ll start right away.
-                        </Typography.Body>
-                      </div>
-                    </div>
-                  </div>
-
-                  <form
-                    className="mt-5"
-                    onSubmit={(event) => {
-                      event.preventDefault();
-                      handleStartFromJobUrl();
-                    }}
-                  >
-                    <div className="rounded-2xl bg-background/80 backdrop-blur border border-border/70 shadow-sm px-5 py-4 ring-offset-background focus-within:ring-2 focus-within:ring-foreground/10 focus-within:ring-offset-2">
-                      <label className="sr-only" htmlFor="hero-job-url">
-                        Job offer link
-                      </label>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                        <Input
-                          id="hero-job-url"
-                          value={jobUrlDraft}
-                          onChange={(event) =>
-                            setJobUrlDraft(event.target.value)
-                          }
-                          placeholder="Paste job link (https://…)"
-                          inputMode="url"
-                          autoComplete="url"
-                          className="h-14 field--neutral-ring selection:bg-foreground/10 selection:text-foreground"
-                        />
-                        <Button
-                          type="submit"
-                          className="h-14 px-6 w-full sm:w-auto"
-                          disabled={!canStartFromUrl}
-                          aria-label="Start interview"
-                        >
-                          <Typography.CaptionMedium>
-                            Start
-                          </Typography.CaptionMedium>
-                          <Send className="ml-2 size-5" aria-hidden="true" />
-                        </Button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
+              <HeroInterviewCard
+                canStartFromUrl={canStartFromUrl}
+                jobUrlDraft={jobUrlDraft}
+                onJobUrlChange={setJobUrlDraft}
+                onSubmit={handleStartFromJobUrl}
+              />
             </div>
           </div>
         </div>

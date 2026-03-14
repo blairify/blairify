@@ -17,7 +17,7 @@ interface LogoProps {
 const ICON_PATH = "/icon0.svg";
 
 export const LogoText = () => (
-  <Typography.BodyBold>Blairify</Typography.BodyBold>
+  <Typography.Heading3>Blairify</Typography.Heading3>
 );
 
 export default function Logo({

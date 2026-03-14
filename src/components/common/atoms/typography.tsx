@@ -64,7 +64,7 @@ export const typographyVariants = /*tw:*/ cva<VariantSettings>(
       variant: {
         Heading1: "font-heading font-bold text-2xl",
         HeroHeading1:
-          "font-heading font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05]",
+          "font-heading font-bold !text-[50px] lg:!text-[80px] leading-[1.05]",
         HeroHeadingAccent:
           "font-heading font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05]",
         Heading2: "font-heading font-bold text-xl",
