@@ -877,7 +877,7 @@ export function ConfigureContent() {
                   }
                   onClick={() => handleFlowSelect(option.value)}
                 >
-                  <CardContent className="flex flex-col items-start gap-3 p-5">
+                  <CardContent className="flex flex-col items-start gap-3 px-5">
                     <Icon className="size-5 text-primary flex-shrink-0" />
                     <div className="flex flex-col gap-2">
                       <Typography.BodyBold>{option.title}</Typography.BodyBold>
@@ -914,10 +914,10 @@ export function ConfigureContent() {
 
     if (config.flowMode === "url") {
       return (
-        <div className="flex flex-col items-center justify-center space-y-6 min-h-[80vh] sm:min-h-[70vh]">
-          <Typography.HeroHeading1 className="drop-shadow text-center">
+        <div className="flex flex-col items-center justify-center space-y-8 min-h-[80vh] sm:min-h-[70vh]">
+          <Typography.Heading1 className="drop-shadow text-5xl text-center">
             Paste link to an offer
-          </Typography.HeroHeading1>
+          </Typography.Heading1>
           <div className="relative w-full max-w-3xl space-y-6 text-center">
             <form
               onSubmit={handleAnalyzeUrl}
@@ -1059,10 +1059,10 @@ export function ConfigureContent() {
     }
 
     return (
-      <div className="flex flex-col items-center justify-center space-y-6 min-h-[60vh]">
-        <Typography.HeroHeading1 className="drop-shadow text-center">
+      <div className="flex flex-col items-center justify-center space-y-8 min-h-[60vh]">
+        <Typography.Heading1 className="drop-shadow text-5xl text-center">
           Paste job description
-        </Typography.HeroHeading1>
+        </Typography.Heading1>
         <div className="relative w-full max-w-3xl space-y-6 text-center">
           <form
             onSubmit={handleAnalyzeDescription}
@@ -1437,7 +1437,7 @@ export function ConfigureContent() {
           <div className="max-w-5xl mx-auto">
             <div className="mb-6 space-y-4 hidden lg:block">
               <div className="flex flex-col gap-2 lg:items-start lg:justify-between text-center lg:text-left">
-                <Typography.Heading2>
+                <Typography.BodyBold className="text-xl lg:text-2xl">
                   {(() => {
                     const step = visibleSteps[currentStep];
                     if (step?.id === "description") {
@@ -1449,8 +1449,8 @@ export function ConfigureContent() {
                     }
                     return step?.title ?? CONFIGURE_STEPS[0].title;
                   })()}
-                </Typography.Heading2>
-                <Typography.Body color="secondary">
+                </Typography.BodyBold>
+                <Typography.Body color="secondary" className="text-sm">
                   {(() => {
                     const step = visibleSteps[currentStep];
                     if (step?.id === "description" || step?.id === "paste")

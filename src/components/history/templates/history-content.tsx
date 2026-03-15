@@ -1,15 +1,14 @@
 "use client";
 
-import { Calendar, Clock, Eye, Trophy } from "lucide-react";
+import { Calendar, Trophy } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
-import { Badge } from "@/components/ui/badge";
+import { ScoreRadialChart } from "@/components/results/atoms/score-radial-chart";
 import { Button } from "@/components/ui/button";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
-import { cn } from "@/lib/utils";
 import type { InterviewSession } from "@/types/firestore";
 
 interface HistoryContentProps {
@@ -70,13 +69,13 @@ export function HistoryContent({ user }: HistoryContentProps) {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div>
             <Typography.BodyBold className="text-2xl">
-              Previous <span className="text-primary">Sessions</span>
+              Previous Sessions
             </Typography.BodyBold>
             <Typography.Body className="text-muted-foreground text-sm mt-1">
               A comprehensive record of your technical interview performances.
             </Typography.Body>
           </div>
-          <Button onClick={() => router.push("/configure")}>
+          <Button size="lg" onClick={() => router.push("/configure")}>
             New Interview
           </Button>
         </div>
@@ -97,96 +96,37 @@ export function HistoryContent({ user }: HistoryContentProps) {
             </Button>
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
             {sessions.map((session) => {
               const score = session.scores?.overall || 0;
-              const isHigh = score >= 80;
 
               return (
                 <Link
                   key={session.sessionId}
                   href={`/history/${session.sessionId}`}
-                  className="group flex flex-col md:flex-row items-center gap-5 p-4 sm:p-5 bg-card border border-border/50 rounded-xl hover:border-border transition-colors"
+                  className="group aspect-square w-full flex flex-col items-center justify-center gap-4 p-4 bg-card border border-border/50 rounded-2xl hover:border-primary/50 hover:bg-accent/50 transition-all duration-300 text-center shadow-sm hover:shadow-md"
                 >
-                  <div className="relative size-14 shrink-0">
-                    <svg
-                      className="size-full -rotate-90"
-                      viewBox="0 0 80 80"
-                      role="img"
-                      aria-label={`Score: ${score}%`}
-                    >
-                      <title>{`Score: ${score}%`}</title>
-                      <circle
-                        cx="40"
-                        cy="40"
-                        r="36"
-                        className="stroke-muted fill-none"
-                        strokeWidth="6"
-                      />
-                      <circle
-                        cx="40"
-                        cy="40"
-                        r="36"
-                        className={cn(
-                          "fill-none transition-all duration-1000",
-                          isHigh ? "stroke-emerald-500" : "stroke-primary",
-                        )}
-                        strokeWidth="6"
-                        strokeDasharray={226}
-                        strokeDashoffset={226 - (226 * score) / 100}
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                    <span className="absolute inset-0 flex items-center justify-center text-sm font-black">
-                      {score}%
-                    </span>
+                  <div className="relative">
+                    <ScoreRadialChart
+                      score={score}
+                      passed={session.analysis?.passed}
+                      size={90}
+                      strokeWidth={10}
+                      textSize="text-xl"
+                    />
+                    <div className="absolute -inset-2 bg-primary/5 rounded-full -z-10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
 
-                  <div className="flex-1 min-w-0 text-center md:text-left">
-                    <div className="flex flex-col md:flex-row md:items-center gap-2 mb-1">
-                      <span className="text-base font-bold truncate">
-                        {capitalizeTitle(session.config.position)}
-                      </span>
-                      <span
-                        className={cn(
-                          "self-center md:self-auto px-2 py-0.5 rounded-md border text-[10px] font-bold uppercase tracking-wider",
-                          isHigh
-                            ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-500"
-                            : "bg-primary/10 border-primary/20 text-primary",
-                        )}
-                      >
-                        {isHigh ? "Excellent" : "Developing"}
-                      </span>
-                    </div>
-
-                    <div className="flex flex-wrap justify-center md:justify-start items-center gap-3 text-muted-foreground text-xs">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="size-3.5" />
+                  <div className="flex flex-col gap-1 items-center min-w-0 w-full">
+                    <Typography.BodyBold className="text-sm sm:text-base truncate w-full px-2">
+                      {capitalizeTitle(session.config.position)}
+                    </Typography.BodyBold>
+                    <div className="flex items-center justify-center gap-1.5 text-muted-foreground text-[10px] sm:text-xs">
+                      <Calendar className="size-3 sm:size-3.5 shrink-0" />
+                      <span className="truncate">
                         {formatDate(session.createdAt)}
                       </span>
-                      <span className="size-1 rounded-full bg-border" />
-                      <span className="flex items-center gap-1">
-                        <Clock className="size-3.5" />
-                        {session.totalDuration} min
-                      </span>
                     </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 shrink-0">
-                    {session.config.specificCompany && (
-                      <Badge
-                        variant="outline"
-                        className="hidden lg:flex text-muted-foreground"
-                      >
-                        {session.config.specificCompany}
-                      </Badge>
-                    )}
-                    <Button variant="outline" size="sm" asChild>
-                      <span>
-                        Full Report
-                        <Eye className="size-3.5 ml-1.5" />
-                      </span>
-                    </Button>
                   </div>
                 </Link>
               );

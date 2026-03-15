@@ -50,6 +50,10 @@ import {
 } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
 import { ACHIEVEMENTS } from "@/lib/achievements";
+import {
+  getInterviewerForCompanyAndRole,
+  getInterviewerForRole,
+} from "@/lib/config/interviewers";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import { addUserXP } from "@/lib/services/users/user-xp";
@@ -2051,20 +2055,35 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   </CardContent>
                 </Card>
               )}
-
               {(Boolean(results.overallScore?.trim()) ||
                 Boolean(results.detailedAnalysis?.trim()) ||
                 results.strengths.length > 0 ||
-                results.improvements.length > 0) && (
-                <AiFeedbackCard
-                  title="Blairify AI Feedback"
-                  icon={<FileText className="size-4" />}
-                  summaryMarkdown={null}
-                  strengths={null}
-                  improvements={results.improvements}
-                  detailsMarkdown={results.detailedAnalysis}
-                />
-              )}
+                results.improvements.length > 0) &&
+                (() => {
+                  const interviewer = interviewConfig?.specificCompany
+                    ? getInterviewerForCompanyAndRole(
+                        interviewConfig.specificCompany,
+                        interviewConfig.position,
+                      )
+                    : interviewConfig
+                      ? getInterviewerForRole(interviewConfig.position)
+                      : null;
+
+                  return (
+                    <AiFeedbackCard
+                      title={
+                        interviewer
+                          ? `${interviewer.name}'s Feedback`
+                          : "Blairify Feedback"
+                      }
+                      interviewer={interviewer || undefined}
+                      summaryMarkdown={null}
+                      strengths={null}
+                      improvements={results.improvements}
+                      detailsMarkdown={results.detailedAnalysis}
+                    />
+                  );
+                })()}
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center py-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <Button

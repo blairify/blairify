@@ -7,11 +7,9 @@ import {
   HelpCircle,
   LogOut,
   Menu,
-  Settings,
   Star,
   Trophy,
 } from "lucide-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GiBurningBook, GiFlowerTwirl } from "react-icons/gi";
 import { AvatarIconDisplay } from "@/components/common/atoms/avatar-icon-selector";
@@ -76,14 +74,94 @@ export default function DashboardNavbar({
   const progressToNextRank = getProgressToNextRank(totalXP, rank);
 
   const getInitials = (name: string | null) => {
-    if (!name) return "U";
+    if (!name) return "";
     return name
       .split(" ")
       .map((n) => n[0])
       .join("")
-      .toUpperCase()
-      .slice(0, 2);
+      .toUpperCase();
   };
+
+  // Subscription toggle component
+  const SubscriptionToggle = () => (
+    <button
+      type="button"
+      className={`w-18 h-9 gap-2 rounded-full border flex items-center justify-between cursor-pointer hover:bg-muted/80 transition-colors px-3 ${
+        isPro
+          ? "bg-green-200 border-green-900 dark:bg-green-800 dark:border-green-600"
+          : "bg-card border-gray-500 dark:bg-card dark:border-gray-400"
+      }`}
+      onClick={() => router.push("/settings?tab=subscription")}
+    >
+      {isPro ? (
+        <>
+          <Typography.SubCaptionBold className="relative text-black leading-none right-[2px] text-[11px]">
+            PRO
+          </Typography.SubCaptionBold>
+          <div
+            className={cn(
+              "relative size-[30px] right-[5px] items-center rounded-full hover:ring-1 hover:ring-primary/20 transition-all cursor-pointer",
+            )}
+          >
+            {userData?.avatarIcon ? (
+              <AvatarIconDisplay
+                iconId={userData.avatarIcon}
+                size="sm"
+                className="size-7"
+              />
+            ) : (
+              <Avatar className="size-[30px] bg-card my-auto border-[0.5px] border-green-900 rounded-full">
+                <AvatarImage
+                  src={user?.photoURL || userData?.photoURL}
+                  alt={userData?.displayName || user?.displayName || "User"}
+                />
+                <AvatarFallback className="bg-primary/10 text-primary">
+                  <Typography.SubCaptionBold>
+                    {getInitials(
+                      userData?.displayName || user?.displayName || null,
+                    )}
+                  </Typography.SubCaptionBold>
+                </AvatarFallback>
+              </Avatar>
+            )}
+          </div>
+        </>
+      ) : (
+        <>
+          <div
+            className={cn(
+              "relative size-[30px] items-center right-[10px] rounded-full hover:ring-1 hover:ring-primary/20 transition-all cursor-pointer",
+            )}
+          >
+            {userData?.avatarIcon ? (
+              <AvatarIconDisplay
+                iconId={userData.avatarIcon}
+                size="sm"
+                className="size-7"
+              />
+            ) : (
+              <Avatar className="size-[30px] my-auto border-[0.5px] border-border/50 rounded-full">
+                <AvatarImage
+                  src={user?.photoURL || userData?.photoURL}
+                  alt={userData?.displayName || user?.displayName || "User"}
+                />
+                <AvatarFallback className="bg-primary/10 text-primary">
+                  <Typography.SubCaptionBold>
+                    {getInitials(
+                      userData?.displayName || user?.displayName || null,
+                    )}
+                  </Typography.SubCaptionBold>
+                </AvatarFallback>
+              </Avatar>
+            )}
+          </div>
+          <Typography.SubCaptionBold className="relative leading-none right-[13px] top-[0px] text-[10px] flex items-center">
+            FREE
+          </Typography.SubCaptionBold>
+        </>
+      )}
+    </button>
+  );
 
   const handleSignOut = async () => {
     try {
@@ -98,184 +176,106 @@ export default function DashboardNavbar({
   // Prevent rendering during mobile detection to avoid layout shifts
   if (isLoading) {
     return (
-      <nav className="border-b border-border lg:bg-card/50 backdrop-blur-sm">
-        <div className="px-4 h-16 flex items-center justify-between w-full">
-          <div className="flex items-center space-x-4">
-            <div className="size-8 rounded-full bg-muted animate-pulse" />
-            <div className="hidden lg:block">
-              <div className="h-4 w-24 bg-muted animate-pulse rounded mb-1" />
-              <div className="h-3 w-32 bg-muted animate-pulse rounded" />
+      <TooltipProvider>
+        <nav className="border-b border-border lg:bg-card/50 backdrop-blur-sm">
+          <div className="px-4 h-16 flex items-center justify-between w-full">
+            <div className="flex items-center space-x-4">
+              <div className="size-9 bg-muted animate-pulse rounded" />
+              <div className="size-9 bg-muted animate-pulse rounded" />
+              <div className="size-9 bg-muted animate-pulse rounded" />
+              <div className="size-9 bg-muted animate-pulse rounded" />
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="size-9 bg-muted animate-pulse rounded" />
+              <div className="size-9 bg-muted animate-pulse rounded" />
+              <div className="size-9 bg-muted animate-pulse rounded" />
+              <div className="size-9 bg-muted animate-pulse rounded" />
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="size-9 bg-muted animate-pulse rounded" />
-            <div className="size-9 bg-muted animate-pulse rounded" />
-            <div className="size-9 bg-muted animate-pulse rounded" />
-            <div className="size-9 bg-muted animate-pulse rounded" />
-          </div>
-        </div>
-      </nav>
+        </nav>
+      </TooltipProvider>
     );
   }
 
   return (
     <TooltipProvider>
-      <nav className="relative z-40 border-b border-border/50 lg:bg-card/50 backdrop-blur-sm">
+      <nav className="relative z-40 border-b border-border/50 bg-card lg:bg-card/50 backdrop-blur-sm">
         <DashboardWalkthrough />
         <div className="px-4 h-16 flex items-center justify-between w-full">
           <div className="flex my-auto items-center space-x-4">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setSidebarOpen(true)}
-              aria-label="Open menu"
-              className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors lg:hidden"
-              data-testid="mobile-menu-button"
-            >
-              <Menu className="size-5" aria-hidden="true" />
-            </Button>
-
             <div className="flex items-center space-x-3">
+              <div className="flex items-center gap-2"></div>
+            </div>
+            {/* Mobile subscription toggle - left side */}
+            {isMobile && (
+              <div className="flex items-center gap-2 absolute left-4">
+                <SubscriptionToggle />
+              </div>
+            )}
+            {!isMobile && (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
-                    aria-label="View Profile"
-                    href="/profile"
-                    data-tour="profile"
-                  >
-                    <div
-                      className={cn(
-                        "relative size-9 rounded-full hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer",
-                      )}
-                    >
-                      {userData?.avatarIcon ? (
-                        <AvatarIconDisplay
-                          iconId={userData.avatarIcon}
-                          size="sm"
-                          className="size-9"
-                        />
-                      ) : (
-                        <Avatar className="size-9 my-auto border border-border/50 rounded-full">
-                          <AvatarImage
-                            src={user?.photoURL || userData?.photoURL}
-                            alt={
-                              userData?.displayName ||
-                              user?.displayName ||
-                              "User"
-                            }
-                          />
-                          <AvatarFallback className="bg-primary/10 text-primary">
-                            <Typography.SubCaptionBold>
-                              {getInitials(
-                                userData?.displayName ||
-                                  user?.displayName ||
-                                  null,
-                              )}
-                            </Typography.SubCaptionBold>
-                          </AvatarFallback>
-                        </Avatar>
-                      )}
-                      {isPro && (
-                        <div className="absolute -bottom-0.5 right-0.5 rounded bg-emerald-500 px-1 py-px shadow-sm">
-                          <Typography.SubCaptionBold>
-                            Pro
-                          </Typography.SubCaptionBold>
-                        </div>
-                      )}
+                  <div className="flex flex-col gap-1 cursor-default">
+                    <div className="flex items-center gap-1.5">
+                      <RankIcon
+                        rank={rank}
+                        className={cn("size-4 shrink-0", rank.badge.text)}
+                      />
+                      <div className={cn("whitespace-nowrap", rank.badge.text)}>
+                        <Typography.SubCaptionBold>
+                          {rank.name} {formatRankLevel(rank.level)}
+                        </Typography.SubCaptionBold>
+                      </div>
                     </div>
-                  </Link>
+                    <div className="w-full h-1 rounded-full bg-muted/40 overflow-hidden">
+                      <div
+                        className={cn(
+                          "h-full rounded-full bg-gradient-to-r transition-all duration-500",
+                          rank.color.gradient,
+                        )}
+                        style={{ width: `${progressToNextRank}%` }}
+                      />
+                    </div>
+                  </div>
                 </TooltipTrigger>
-                <TooltipContent>
-                  <Typography.Caption>View Profile</Typography.Caption>
+                <TooltipContent side="bottom" className="text-xs">
+                  <div className="flex items-center gap-1">
+                    <Typography.SubCaptionBold>
+                      {totalXP.toLocaleString()} XP
+                    </Typography.SubCaptionBold>
+                    <Typography.SubCaption color="secondary">
+                      {"·"}
+                    </Typography.SubCaption>
+                    <Typography.SubCaption color="secondary">
+                      {progressToNextRank}% to next rank
+                    </Typography.SubCaption>
+                  </div>
                 </TooltipContent>
               </Tooltip>
-              <div className="flex items-center gap-2">
-                {!isPro && (
-                  <div className="rounded-md bg-muted px-2 py-0.5">
-                    <Typography.SubCaptionBold color="secondary">
-                      Free
-                    </Typography.SubCaptionBold>
-                  </div>
-                )}
-
-                {!isMobile && (
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <div className="flex flex-col gap-1 cursor-default">
-                        <div className="flex items-center gap-1.5">
-                          <RankIcon
-                            rank={rank}
-                            className={cn("size-4 shrink-0", rank.badge.text)}
-                          />
-                          <div
-                            className={cn("whitespace-nowrap", rank.badge.text)}
-                          >
-                            <Typography.SubCaptionBold>
-                              {rank.name} {formatRankLevel(rank.level)}
-                            </Typography.SubCaptionBold>
-                          </div>
-                        </div>
-                        <div className="w-full h-1 rounded-full bg-muted/40 overflow-hidden">
-                          <div
-                            className={cn(
-                              "h-full rounded-full bg-gradient-to-r transition-all duration-500",
-                              rank.color.gradient,
-                            )}
-                            style={{ width: `${progressToNextRank}%` }}
-                          />
-                        </div>
-                      </div>
-                    </TooltipTrigger>
-                    <TooltipContent side="bottom" className="text-xs">
-                      <div className="flex items-center gap-1">
-                        <Typography.SubCaptionBold>
-                          {totalXP.toLocaleString()} XP
-                        </Typography.SubCaptionBold>
-                        <Typography.SubCaption color="secondary">
-                          {"·"}
-                        </Typography.SubCaption>
-                        <Typography.SubCaption color="secondary">
-                          {progressToNextRank}% to next rank
-                        </Typography.SubCaption>
-                      </div>
-                    </TooltipContent>
-                  </Tooltip>
-                )}
-              </div>
-            </div>
+            )}
           </div>
           <div className="flex items-center gap-2">
+            {/* Desktop subscription toggle - right side */}
+            {!isMobile && (
+              <div className="flex items-center gap-2">
+                <SubscriptionToggle />
+              </div>
+            )}
             <ThemeToggle />
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div>
-                  <BugReportButton variant="navbar" />
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <Typography.Caption>Report Bug</Typography.Caption>
-              </TooltipContent>
-            </Tooltip>
 
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  aria-label="Settings"
-                  data-tour="profile-settings"
-                  onClick={() => router.push("/settings?tab=subscription")}
-                  variant="outline"
-                  size="icon"
-                  className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
-                >
-                  <Settings className="size-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <Typography.Caption>Settings</Typography.Caption>
-              </TooltipContent>
-            </Tooltip>
             {!isMobile && (
               <>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div>
+                      <BugReportButton variant="navbar" />
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <Typography.Caption>Report Bug</Typography.Caption>
+                  </TooltipContent>
+                </Tooltip>
+
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button
@@ -311,6 +311,16 @@ export default function DashboardNavbar({
                 </Tooltip>
               </>
             )}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setSidebarOpen(true)}
+              aria-label="Open menu"
+              className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors lg:hidden"
+              data-testid="mobile-menu-button"
+            >
+              <Menu className="size-5" aria-hidden="true" />
+            </Button>
           </div>
         </div>
       </nav>

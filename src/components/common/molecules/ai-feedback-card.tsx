@@ -5,12 +5,15 @@ import { useMemo } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import type { InterviewerProfile } from "@/lib/config/interviewers";
+import { Typography } from "../atoms/typography";
+import { InterviewerAvatar } from "../interviewer-avatar";
 
 interface AiFeedbackCardProps {
-  icon?: ReactNode;
-  title: string;
+  title?: string;
+  interviewer?: InterviewerProfile;
   summaryMarkdown?: string | null;
   strengths?: string[] | null;
   improvements?: string[] | null;
@@ -176,8 +179,8 @@ function collapseMarkdownRules(value: string): string {
 }
 
 export function AiFeedbackCard({
-  icon,
-  title,
+  title = "Blairify Feedback",
+  interviewer,
   summaryMarkdown,
   strengths,
   improvements: _improvements,
@@ -327,14 +330,20 @@ export function AiFeedbackCard({
   }, []);
 
   return (
-    <Card className="border shadow-md px-6 pt-8">
+    <Card className="border border-border/50 shadow-md px-2 pt-8 sm:px-6">
       <CardHeader className="px-3 pt-1 pb-0">
-        <CardTitle className="flex items-center gap-2 text-lg font-semibold leading-none">
-          {icon ? <span className="text-primary">{icon}</span> : null}
-          {title}
-        </CardTitle>
+        <div className="flex flex-col items-center gap-4 mb-4">
+          {interviewer && (
+            <div className="p-1 rounded-full border-2 border-primary/20 bg-background shadow-sm">
+              <InterviewerAvatar interviewer={interviewer} size={80} />
+            </div>
+          )}
+          <Typography.Caption className="text-2xl sm:text-4xl font-bold tracking-tight text-center">
+            {title}
+          </Typography.Caption>
+        </div>
       </CardHeader>
-      <CardContent className="px-3 pt-0 pb-3 space-y-6">
+      <CardContent className="px-3 pt-0 pb-2 space-y-6">
         {normalizedSummaryForRender && (
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}

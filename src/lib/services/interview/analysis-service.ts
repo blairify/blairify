@@ -387,13 +387,41 @@ function parseKnowledgeGapChunk(chunk: string): KnowledgeGap | null {
   };
 }
 
-function deriveTagsFromTitle(title: string): string[] {
+export function deriveTagsFromTitle(title: string): string[] {
   const primary = toKebabCase(title);
   const tags: string[] = [];
   if (primary) tags.push(primary);
 
-  const reactMatch = /\breact\b/i.test(title);
-  if (reactMatch && !tags.includes("react")) tags.push("react");
+  const lower = title.toLowerCase();
+  const languages = [
+    "python",
+    "javascript",
+    "typescript",
+    "react",
+    "nextjs",
+    "node",
+    "php",
+    "sql",
+    "postgres",
+    "html",
+    "css",
+    "java",
+    "ruby",
+    "rust",
+    "go",
+    "swift",
+    "aws",
+    "gcp",
+    "azure",
+    "docker",
+    "kubernetes",
+  ];
+
+  for (const lang of languages) {
+    if (new RegExp(`\\b${lang}(?:js)?\\b`, "i").test(lower)) {
+      if (!tags.includes(lang)) tags.push(lang);
+    }
+  }
 
   return tags;
 }
