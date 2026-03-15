@@ -7,6 +7,7 @@ import {
   HelpCircle,
   LogOut,
   Menu,
+  Settings,
   Star,
   Trophy,
 } from "lucide-react";
@@ -100,7 +101,7 @@ export default function DashboardNavbar({
           </Typography.SubCaptionBold>
           <div
             className={cn(
-              "relative size-[30px] right-[5px] items-center rounded-full hover:ring-1 hover:ring-primary/20 transition-all cursor-pointer",
+              "relative size-[30px] right-[3px] top-[1px] items-center rounded-full hover:ring-1 hover:ring-primary/20 transition-all cursor-pointer",
             )}
           >
             {userData?.avatarIcon ? (
@@ -262,7 +263,23 @@ export default function DashboardNavbar({
               </div>
             )}
             <ThemeToggle />
-
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    onClick={() => router.push("/settings")}
+                    variant="outline"
+                    size="icon"
+                    className="bg-transparent border border-border/80 text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                  >
+                    <Settings className="size-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <Typography.CaptionMedium>Settings</Typography.CaptionMedium>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             {!isMobile && (
               <>
                 <Tooltip>

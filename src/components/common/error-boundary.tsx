@@ -53,7 +53,7 @@ class ErrorBoundaryInner extends Component<Props, State> {
         <div className="min-h-screen flex items-center justify-center bg-background px-4 py-8 text-foreground">
           <div className="max-w-md w-full bg-card border border-border rounded-2xl shadow-xl p-6 text-center space-y-4">
             <div className="flex justify-center">
-              <AlertTriangle className="h-12 w-12 text-amber-500" />
+              <AlertTriangle className="h-12 w-12 text-red-500" />
             </div>
 
             <Typography.Heading1 className="text-foreground">

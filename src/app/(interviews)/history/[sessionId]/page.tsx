@@ -13,7 +13,6 @@ import {
   Star,
   Target,
   Trophy,
-  User,
   XCircle,
 } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
@@ -25,6 +24,7 @@ import remarkGfm from "remark-gfm";
 import { toast } from "sonner";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
+import { InterviewerAvatar } from "@/components/common/interviewer-avatar";
 import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
 import DashboardNavbar from "@/components/common/organisms/dashboard-navbar";
 import DashboardSidebar from "@/components/common/organisms/dashboard-sidebar";
@@ -553,9 +553,9 @@ export default function SessionDetailsPage() {
             <div className="container mx-auto px-6 py-8">
               <div className="text-center py-12">
                 <div className="text-red-500 text-6xl mb-4">⚠️</div>
-                <Typography.Heading2 className="mb-4">
+                <Typography.BodyBold className="mb-4 text-xl">
                   Session Not Found
-                </Typography.Heading2>
+                </Typography.BodyBold>
                 <p className="text-muted-foreground mb-6">{sessionError}</p>
                 <Button
                   onClick={() => window.location.reload()}
@@ -593,9 +593,9 @@ export default function SessionDetailsPage() {
             <div className="container mx-auto px-6 py-8">
               <div className="text-center py-12">
                 <div className="text-red-500 text-6xl mb-4">⚠️</div>
-                <Typography.Heading2 className="mb-4">
+                <Typography.BodyBold className="mb-4 text-xl">
                   Session Not Found
-                </Typography.Heading2>
+                </Typography.BodyBold>
                 <p className="text-muted-foreground mb-6">
                   Session not found or you don't have access to it.
                 </p>
@@ -1037,31 +1037,6 @@ export default function SessionDetailsPage() {
 
               {/* Score card */}
               <Card className="mb-8 border border-border/50 shadow-lg bg-card/80 backdrop-blur-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
-                {(() => {
-                  const overallScore =
-                    typeof session.scores?.overall === "number" &&
-                    session.scores.overall > 0
-                      ? session.scores.overall
-                      : 0;
-
-                  return (
-                    <CardHeader className="px-3 pt-6 pb-2 gap-4">
-                      <Typography.BodyBold className="text-center text-6xl sm:text-7xl text-primary/90">
-                        {overallScore}%
-                      </Typography.BodyBold>
-                      <div className="space-y-1">
-                        <Typography.Caption className="text-2xl sm:text-4xl font-bold tracking-tight text-center">
-                          Performance Assessment
-                        </Typography.Caption>
-                        <Typography.SubCaption className="text-center text-muted-foreground max-w-sm mx-auto">
-                          A comprehensive breakdown of your core competencies
-                          and technical proficiency.
-                        </Typography.SubCaption>
-                      </div>
-                    </CardHeader>
-                  );
-                })()}
-
                 <CardContent className="pt-6">
                   {(() => {
                     const overallScore =
@@ -1309,19 +1284,6 @@ export default function SessionDetailsPage() {
             {session.questions && session.questions.length > 0 && (
               <Card className="mb-6 border border-border/50 shadow-lg bg-card/80 backdrop-blur-sm">
                 {(() => {
-                  const visibleQuestionsCount = session.questions.filter(
-                    (q: any) => {
-                      const r = session.responses?.find(
-                        (x: any) => x.questionId === q.id,
-                      );
-                      if (!r) return false;
-                      if ((r.response ?? "").trim().length > 0) return true;
-                      const score =
-                        typeof r.score === "number" ? r.score : Number(r.score);
-                      return Number.isFinite(score) && score > 0;
-                    },
-                  ).length;
-
                   const visibleQuestions = session.questions.filter(
                     (q: any) => {
                       const r = session.responses?.find(
@@ -1415,24 +1377,31 @@ export default function SessionDetailsPage() {
                     }
                   });
 
+                  const interviewer = session.config.specificCompany
+                    ? getInterviewerForCompanyAndRole(
+                        session.config.specificCompany,
+                        session.config.position,
+                      )
+                    : getInterviewerForRole(session.config.position);
+
                   return (
                     <Fragment>
-                      <CardHeader className="px-3 pt-6 pb-2 gap-4">
-                        <Typography.BodyBold className="text-center text-6xl sm:text-7xl text-primary/90">
-                          {visibleQuestionsCount}
-                        </Typography.BodyBold>
-                        <div className="space-y-1">
-                          <Typography.Caption className="text-2xl sm:text-4xl font-bold tracking-tight text-center">
-                            Questions & Answers
-                          </Typography.Caption>
-                          <Typography.SubCaption className="text-center text-muted-foreground max-w-sm mx-auto">
-                            Review your responses and benchmark them against
-                            AI-suggested answers.
-                          </Typography.SubCaption>
+                      <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+                        <div className="flex flex-col items-left mx-auto gap-4 text-left sm:text-left">
+                          <div className="pt-8">
+                            <Typography.Caption className="text-2xl sm:text-4xl font-bold tracking-tight text-center">
+                              Answers & Transcript
+                            </Typography.Caption>
+                            <div className="text-sm text-muted-foreground flex items-center justify-center text-centersm:justify-start gap-2">
+                              <span>
+                                Conducted by <strong>{interviewer.name}</strong>
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                      </CardHeader>
+                      </div>
 
-                      <CardContent className="px-3 pt-4 pb-6">
+                      <CardContent className="px-6 py-0">
                         <div className="max-w-4xl mx-auto">
                           {qaRows.map((row, rowIdx) => {
                             if (row.type === "follow-up") {
@@ -1441,25 +1410,19 @@ export default function SessionDetailsPage() {
                                   key={`${row.question.id}_followup_${rowIdx}`}
                                 >
                                   {rowIdx > 0 && (
-                                    <Separator className="my-8 opacity-50" />
+                                    <Separator className="my-0 opacity-50" />
                                   )}
                                   <Collapsible
                                     defaultOpen={false}
                                     className="group transition-all"
                                   >
-                                    <CollapsibleTrigger className="w-full text-left">
-                                      <div className="flex items-start justify-between gap-3">
+                                    <CollapsibleTrigger className="w-full text-left py-6 hover:bg-muted/5 transition-colors items-center">
+                                      <div className="flex items-center gap-4">
                                         <div className="flex-1 min-w-0">
-                                          <div className="flex flex-wrap items-center gap-2 mb-2">
-                                            <Badge
-                                              variant="secondary"
-                                              className="font-semibold bg-primary/10 text-primary border-primary/20"
-                                            >
-                                              Follow-up
-                                            </Badge>
+                                          <div className="flex items-center gap-2 mb-1.5 text-[10px] font-bold text-primary uppercase tracking-wider">
+                                            Follow-up Question
                                           </div>
-
-                                          <div className="font-semibold text-foreground line-clamp-2 sm:line-clamp-3 group-hover:text-primary transition-colors">
+                                          <div className="text-base font-semibold text-foreground line-clamp-2 leading-tight group-hover:text-primary transition-colors">
                                             {(() => {
                                               const qText =
                                                 row.followUpQuestionText?.trim() ??
@@ -1472,60 +1435,80 @@ export default function SessionDetailsPage() {
                                             })()}
                                           </div>
                                         </div>
-                                      </div>
-                                      <div className="flex justify-center mt-4">
-                                        <ChevronDown className="size-5 text-muted-foreground/60 transition-transform group-data-[state=open]:rotate-180" />
+                                        <div className="flex-shrink-0 mt-1">
+                                          <ChevronDown className="size-5 text-muted-foreground/40 transition-transform group-data-[state=open]:rotate-180" />
+                                        </div>
                                       </div>
                                     </CollapsibleTrigger>
 
-                                    <CollapsibleContent className="pt-4 mt-2 border-t border-border/40">
-                                      <div className="whitespace-pre-line mb-5">
-                                        <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                                          Prompt
-                                        </div>
-                                        <ReactMarkdown
-                                          remarkPlugins={[remarkGfm]}
-                                          components={
-                                            qaQuestionMarkdownComponents
-                                          }
-                                        >
-                                          {row.followUpQuestionText}
-                                        </ReactMarkdown>
-                                      </div>
-
-                                      {(row.followUpResponse ?? "").length >
-                                        0 && (
-                                        <div className="mb-5 last:mb-0">
-                                          <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                            <User className="size-4 text-primary" />
-                                            Your Response:
+                                    <CollapsibleContent className="pt-2 px-6 pb-6">
+                                      <div className="space-y-6">
+                                        {/* Interviewer Side */}
+                                        <div className="flex gap-4">
+                                          <div className="flex-shrink-0 mt-1">
+                                            <InterviewerAvatar
+                                              interviewer={interviewer}
+                                              size={32}
+                                            />
                                           </div>
-                                          <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                            <div className="whitespace-pre-line text-sm">
+                                          <div className="flex-1 space-y-2">
+                                            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-1.5">
+                                              <span>{interviewer.name}</span>
+                                              <span className="size-1 rounded-full bg-border" />
+                                              <span>Interviewer</span>
+                                            </div>
+                                            <div className="p-4 rounded-2xl rounded-tl-none bg-muted/30 border border-border/40">
                                               <ReactMarkdown
                                                 remarkPlugins={[remarkGfm]}
                                                 components={
-                                                  readableMarkdownComponents
+                                                  qaQuestionMarkdownComponents
                                                 }
                                               >
-                                                {row.followUpResponse}
+                                                {row.followUpQuestionText}
                                               </ReactMarkdown>
                                             </div>
                                           </div>
                                         </div>
-                                      )}
 
-                                      {(row.followUpAiExample ?? "").length >
-                                        0 && (
-                                        <>
-                                          <Separator className="my-5" />
-                                          <div>
-                                            <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                              <Lightbulb className="size-4 text-primary" />
-                                              Example Answer:
+                                        {/* Candidate Side */}
+                                        {(row.followUpResponse ?? "").length >
+                                          0 && (
+                                          <div className="flex flex-row-reverse gap-4">
+                                            <div className="flex-shrink-0 mt-1">
+                                              <div className="size-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary text-[10px] font-bold">
+                                                {user?.displayName?.[0] || "ME"}
+                                              </div>
                                             </div>
-                                            <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                              <div className="whitespace-pre-line text-sm">
+                                            <div className="flex-1 space-y-2 text-right">
+                                              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+                                                Your Response
+                                              </div>
+                                              <div className="p-4 rounded-2xl rounded-tr-none bg-primary/[0.03] border border-primary/10 text-left">
+                                                <div className="whitespace-pre-line text-sm">
+                                                  <ReactMarkdown
+                                                    remarkPlugins={[remarkGfm]}
+                                                    components={
+                                                      readableMarkdownComponents
+                                                    }
+                                                  >
+                                                    {row.followUpResponse}
+                                                  </ReactMarkdown>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )}
+
+                                        {/* Example Answer */}
+                                        {(row.followUpAiExample ?? "").length >
+                                          0 && (
+                                          <div className="pl-12 pt-2">
+                                            <div className="p-4 rounded-xl border-l-2 border-primary/30 bg-primary/5 space-y-2">
+                                              <div className="flex items-center gap-2 text-xs font-bold text-primary">
+                                                <Lightbulb className="size-3.5" />
+                                                Suggested Best Practice Answer:
+                                              </div>
+                                              <div className="text-sm leading-relaxed text-muted-foreground">
                                                 <ReactMarkdown
                                                   remarkPlugins={[remarkGfm]}
                                                   components={
@@ -1537,8 +1520,8 @@ export default function SessionDetailsPage() {
                                               </div>
                                             </div>
                                           </div>
-                                        </>
-                                      )}
+                                        )}
+                                      </div>
                                     </CollapsibleContent>
                                   </Collapsible>
                                 </Fragment>
@@ -1590,25 +1573,29 @@ export default function SessionDetailsPage() {
                             return (
                               <Fragment key={row.question.id}>
                                 {rowIdx > 0 && (
-                                  <Separator className="my-8 opacity-50" />
+                                  <Separator className="my-0 opacity-50" />
                                 )}
                                 <Collapsible
                                   defaultOpen={false}
                                   className="group transition-all"
                                 >
-                                  <CollapsibleTrigger className="w-full text-left">
-                                    <div className="w-full flex items-start justify-between gap-3">
-                                      <div className="flex-1 min-w-0">
-                                        <div className="flex flex-wrap items-center gap-2 mb-2">
-                                          <Badge
-                                            variant="default"
-                                            className="font-semibold bg-primary text-primary-foreground"
-                                          >
-                                            Question {row.mainIdx + 1}
-                                          </Badge>
+                                  <CollapsibleTrigger className="w-full text-left py-6 hover:bg-muted/5 transition-colors items-center">
+                                    <div className="flex items-center gap-4">
+                                      {row.score !== null && (
+                                        <ScoreRadialChart
+                                          score={row.score}
+                                          size={48}
+                                          strokeWidth={4}
+                                          textSize="text-[12px]"
+                                        />
+                                      )}
+                                      {row.score === null && row.response && (
+                                        <div className="text-xs font-bold text-muted-foreground bg-muted p-1.5 rounded-lg border border-border/40">
+                                          N/A
                                         </div>
-
-                                        <div className="font-semibold text-foreground line-clamp-2 sm:line-clamp-3 group-hover:text-primary transition-colors">
+                                      )}
+                                      <div className="flex-1 min-w-0">
+                                        <div className="text-base font-semibold text-foreground line-clamp-2 leading-tight group-hover:text-primary transition-colors">
                                           {row.practiceQuestion?.title ||
                                             questionTitlesByText[
                                               row.question.question
@@ -1617,74 +1604,79 @@ export default function SessionDetailsPage() {
                                         </div>
                                       </div>
 
-                                      <div className="flex items-center gap-2 flex-shrink-0 self-start mt-0.5">
-                                        {row.score !== null && (
-                                          <ScoreRadialChart
-                                            score={row.score}
-                                            size={48}
-                                            strokeWidth={4}
-                                            textSize="text-sm"
-                                          />
-                                        )}
-                                        {row.score === null && row.response && (
-                                          <div className="text-sm md:text-lg font-bold text-muted-foreground px-2 md:px-3 py-1 rounded-lg bg-muted/50">
-                                            N/A
-                                          </div>
-                                        )}
+                                      <div className="flex items-center gap-3 flex-shrink-0 mt-0.5">
+                                        <ChevronDown className="size-5 text-muted-foreground/40 transition-transform group-data-[state=open]:rotate-180" />
                                       </div>
-                                    </div>
-                                    <div className="flex justify-center mt-4">
-                                      <ChevronDown className="size-5 text-muted-foreground/60 transition-transform group-data-[state=open]:rotate-180" />
                                     </div>
                                   </CollapsibleTrigger>
 
-                                  <CollapsibleContent className="pt-4 mt-2 border-t border-border/40">
-                                    <div className="whitespace-pre-line mb-5">
-                                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                                        Prompt
-                                      </div>
-                                      <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                        components={
-                                          qaQuestionMarkdownComponents
-                                        }
-                                      >
-                                        {row.question.question}
-                                      </ReactMarkdown>
-                                    </div>
-
-                                    {row.response && (
-                                      <div className="mb-5 last:mb-0">
-                                        <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                          <User className="size-4 text-primary" />
-                                          Your Response:
+                                  <CollapsibleContent className="pt-2 px-6 pb-3">
+                                    <div className="space-y-6">
+                                      {/* Interviewer Side */}
+                                      <div className="flex gap-4">
+                                        <div className="flex-shrink-0 mt-1">
+                                          <InterviewerAvatar
+                                            interviewer={interviewer}
+                                            size={32}
+                                          />
                                         </div>
-                                        <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                          <div className="whitespace-pre-line text-sm">
+                                        <div className="flex-1 space-y-2">
+                                          <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-1.5">
+                                            <span>{interviewer.name}</span>
+                                            <span className="size-1 rounded-full bg-border" />
+                                            <span>Interviewer</span>
+                                          </div>
+                                          <div className="p-4 rounded-2xl rounded-tl-none bg-muted/30 border border-border/40">
                                             <ReactMarkdown
                                               remarkPlugins={[remarkGfm]}
                                               components={
-                                                readableMarkdownComponents
+                                                qaQuestionMarkdownComponents
                                               }
                                             >
-                                              {row.response ||
-                                                "No response recorded"}
+                                              {row.question.question}
                                             </ReactMarkdown>
                                           </div>
                                         </div>
                                       </div>
-                                    )}
 
-                                    {effectiveExampleAnswer && (
-                                      <>
-                                        <Separator className="my-5" />
-                                        <div>
-                                          <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                            <Lightbulb className="size-4 text-primary" />
-                                            Example Answer:
+                                      {/* Candidate Side */}
+                                      {row.response && (
+                                        <div className="flex flex-row-reverse gap-4">
+                                          <div className="flex-shrink-0 mt-1">
+                                            <div className="size-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary text-[10px] font-bold">
+                                              {user?.displayName?.[0] || "ME"}
+                                            </div>
                                           </div>
-                                          <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                            <div className="whitespace-pre-line text-sm">
+                                          <div className="flex-1 space-y-2 text-right">
+                                            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+                                              Your Response
+                                            </div>
+                                            <div className="p-4 rounded-2xl rounded-tr-none bg-primary/[0.03] border border-primary/10 text-left">
+                                              <div className="whitespace-pre-line text-sm">
+                                                <ReactMarkdown
+                                                  remarkPlugins={[remarkGfm]}
+                                                  components={
+                                                    readableMarkdownComponents
+                                                  }
+                                                >
+                                                  {row.response ||
+                                                    "No response recorded"}
+                                                </ReactMarkdown>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      )}
+
+                                      {/* Example Answer */}
+                                      {effectiveExampleAnswer && (
+                                        <div className="pl-12 pt-2">
+                                          <div className="p-4 rounded-xl border-l-2 border-primary/30 bg-primary/5 space-y-2">
+                                            <div className="flex items-center gap-2 text-xs font-bold text-primary">
+                                              <Lightbulb className="size-3.5" />
+                                              Suggested Best Practice Answer:
+                                            </div>
+                                            <div className="text-sm leading-relaxed text-muted-foreground">
                                               <ReactMarkdown
                                                 remarkPlugins={[remarkGfm]}
                                                 components={
@@ -1696,8 +1688,8 @@ export default function SessionDetailsPage() {
                                             </div>
                                           </div>
                                         </div>
-                                      </>
-                                    )}
+                                      )}
+                                    </div>
                                   </CollapsibleContent>
                                 </Collapsible>
                               </Fragment>

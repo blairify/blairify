@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, Trophy } from "lucide-react";
+import { Calendar, Plus, Trophy } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
@@ -66,17 +66,23 @@ export function HistoryContent({ user }: HistoryContentProps) {
   return (
     <main className="flex-1 overflow-y-auto p-6 pb-24 animate-in fade-in duration-500">
       <div className="max-w-5xl mx-auto">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+        <div className="flex flex-row  items-center  justify-between gap-4 mb-6">
           <div>
             <Typography.BodyBold className="text-2xl">
               Previous Sessions
             </Typography.BodyBold>
-            <Typography.Body className="text-muted-foreground text-sm mt-1">
+            <Typography.Body className="text-muted-foreground text-sm mt-1 hidden sm:block">
               A comprehensive record of your technical interview performances.
             </Typography.Body>
           </div>
-          <Button size="lg" onClick={() => router.push("/configure")}>
-            New Interview
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => router.push("/configure")}
+          >
+            <Plus className="size-4 mr-1" />
+            <span className="sm:hidden">New</span>
+            <span className="hidden sm:inline">New Interview</span>{" "}
           </Button>
         </div>
 
@@ -104,7 +110,7 @@ export function HistoryContent({ user }: HistoryContentProps) {
                 <Link
                   key={session.sessionId}
                   href={`/history/${session.sessionId}`}
-                  className="group aspect-square w-full flex flex-col items-center justify-center gap-4 p-4 bg-card border border-border/50 rounded-2xl hover:border-primary/50 hover:bg-accent/50 transition-all duration-300 text-center shadow-sm hover:shadow-md"
+                  className="group aspect-square w-full flex flex-col items-center justify-center gap-4 p-4 bg-card border border-border/50 rounded-2xl hover:border-primary/50 hover:bg-card/50 transition-all duration-300 text-center shadow-sm hover:shadow-md"
                 >
                   <div className="relative">
                     <ScoreRadialChart

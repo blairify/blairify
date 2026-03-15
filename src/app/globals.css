@@ -527,9 +527,11 @@ code.hljs {
   --warning-200: var(--blairify-warning-200);
   --warning-900: var(--blairify-warning-900);
 
-  --background: hsl(var(--blairify-bg-000));
+  --background: hsl(var(--blairify-bg-200));
+  /* podmienilem duza zmiana */
   --foreground: hsl(var(--blairify-text-100));
-  --card: hsl(var(--blairify-bg-200));
+  --card: hsl(var(--blairify-bg-000));
+  /* podmienilem duza zmiana */
   --card-foreground: hsl(var(--blairify-text-100));
   --popover: hsl(var(--blairify-bg-100));
   --popover-foreground: hsl(var(--blairify-text-200));
@@ -790,6 +792,7 @@ code.hljs {
   0% {
     transform: scaleX(0);
   }
+
   100% {
     transform: scaleX(1);
   }
