@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import Image from "next/image";
 import { Typography } from "@/components/common/atoms/typography";
 
 export default function PracticeSection() {
@@ -69,170 +70,26 @@ export default function PracticeSection() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
-            <header className="text-center mb-6">
-              <Typography.Heading3>
-                Example simulation report
-              </Typography.Heading3>
-              <Typography.SubCaptionMedium color="secondary" className="mt-1">
-                The kind of feedback you get after a run
-              </Typography.SubCaptionMedium>
-            </header>
-
-            <div className="rounded-2xl border border-border bg-background p-4 sm:p-5">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <Typography.BodyBold>
-                    System design: Redis cache
-                  </Typography.BodyBold>
-                  <Typography.SubCaptionMedium
-                    color="secondary"
-                    className="mt-1"
-                  >
-                    35 minutes · Mid-level
-                  </Typography.SubCaptionMedium>
-                </div>
-                <div className="rounded-xl border border-border bg-primary/10 px-3 py-1">
-                  <Typography.CaptionBold color="brand">
-                    Score: 6.8/10
-                  </Typography.CaptionBold>
-                </div>
-              </div>
-
-              <div className="mt-5 grid gap-4">
-                <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-4">
-                  <Typography.BodyBold className="mb-3">
-                    Breakdown
-                  </Typography.BodyBold>
-                  <table
-                    className="w-full border-separate border-spacing-y-2"
-                    aria-label="Score breakdown"
-                  >
-                    <thead className="sr-only">
-                      <tr>
-                        <th scope="col">Category</th>
-                        <th scope="col">Score</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row" className="text-left">
-                          <Typography.SubCaptionMedium color="secondary">
-                            Requirements clarity
-                          </Typography.SubCaptionMedium>
-                        </th>
-                        <td className="text-right">
-                          <Typography.SubCaptionBold>
-                            7/10
-                          </Typography.SubCaptionBold>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" className="text-left">
-                          <Typography.SubCaptionMedium color="secondary">
-                            Trade-offs
-                          </Typography.SubCaptionMedium>
-                        </th>
-                        <td className="text-right">
-                          <Typography.SubCaptionBold>
-                            6/10
-                          </Typography.SubCaptionBold>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" className="text-left">
-                          <Typography.SubCaptionMedium color="secondary">
-                            Failure modes
-                          </Typography.SubCaptionMedium>
-                        </th>
-                        <td className="text-right">
-                          <Typography.SubCaptionBold>
-                            5/10
-                          </Typography.SubCaptionBold>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" className="text-left">
-                          <Typography.SubCaptionMedium color="secondary">
-                            Communication
-                          </Typography.SubCaptionMedium>
-                        </th>
-                        <td className="text-right">
-                          <Typography.SubCaptionBold>
-                            8/10
-                          </Typography.SubCaptionBold>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-4">
-                  <Typography.BodyBold className="mb-3">
-                    Weak areas detected
-                  </Typography.BodyBold>
-                  <ul className="space-y-2" aria-label="Weak areas">
-                    <li className="flex items-start justify-between gap-4">
-                      <Typography.SubCaptionMedium color="secondary">
-                        Split-brain prevention
-                      </Typography.SubCaptionMedium>
-                      <Typography.SubCaptionBold>
-                        Needs work
-                      </Typography.SubCaptionBold>
-                    </li>
-                    <li className="flex items-start justify-between gap-4">
-                      <Typography.SubCaptionMedium color="secondary">
-                        Quorum / consistency model
-                      </Typography.SubCaptionMedium>
-                      <Typography.SubCaptionBold>
-                        Needs work
-                      </Typography.SubCaptionBold>
-                    </li>
-                    <li className="flex items-start justify-between gap-4">
-                      <Typography.SubCaptionMedium color="secondary">
-                        Cache invalidation strategy
-                      </Typography.SubCaptionMedium>
-                      <Typography.SubCaptionBold>
-                        Review
-                      </Typography.SubCaptionBold>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-4">
-                  <Typography.BodyBold className="mb-3">
-                    Next drills
-                  </Typography.BodyBold>
-                  <ul className="space-y-2" aria-label="Recommended drills">
-                    <li className="flex items-start gap-3">
-                      <span
-                        className="mt-1 size-2 rounded-full bg-primary"
-                        aria-hidden="true"
-                      />
-                      <Typography.SubCaptionMedium color="secondary">
-                        Failover runbook: step-by-step decision tree
-                      </Typography.SubCaptionMedium>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span
-                        className="mt-1 size-2 rounded-full bg-primary"
-                        aria-hidden="true"
-                      />
-                      <Typography.SubCaptionMedium color="secondary">
-                        Trade-offs: latency vs consistency (CAP)
-                      </Typography.SubCaptionMedium>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span
-                        className="mt-1 size-2 rounded-full bg-primary"
-                        aria-hidden="true"
-                      />
-                      <Typography.SubCaptionMedium color="secondary">
-                        Caching patterns: write-through vs write-back
-                      </Typography.SubCaptionMedium>
-                    </li>
-                  </ul>
-                </div>
+          <div className="relative mx-auto lg:mx-0">
+            {/* iPhone container */}
+            <div className="relative">
+              <Image
+                src="/devices/iphonedemo.svg"
+                alt="iPhone showing app demo"
+                width={500}
+                height={500}
+                className="relative z-10"
+              />
+              {/* Video overlay positioned inside phone frame */}
+              <div className="absolute top-[15px] left-[15px] w-[220px] h-[480px] z-0">
+                <video
+                  src="/devices/video.mov"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover rounded-[24px]"
+                />
               </div>
             </div>
           </div>

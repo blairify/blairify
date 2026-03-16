@@ -216,26 +216,30 @@ export default function DashboardNavbar({
             {!isMobile && (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="flex flex-col gap-1 cursor-default">
-                    <div className="flex items-center gap-1.5">
-                      <RankIcon
-                        rank={rank}
-                        className={cn("size-4 shrink-0", rank.badge.text)}
-                      />
-                      <div className={cn("whitespace-nowrap", rank.badge.text)}>
-                        <Typography.SubCaptionBold>
-                          {rank.name} {formatRankLevel(rank.level)}
-                        </Typography.SubCaptionBold>
+                  <div className="flex items-start gap-2">
+                    <RankIcon
+                      rank={rank}
+                      className={cn("size-8 shrink-0", rank.badge.text)}
+                    />
+                    <div className="flex flex-col gap-0.5  cursor-default">
+                      <div className="flex items-center gap-1.5">
+                        <div
+                          className={cn("whitespace-nowrap", rank.badge.text)}
+                        >
+                          <Typography.SubCaptionBold color="secondary">
+                            {rank.name} {formatRankLevel(rank.level)}
+                          </Typography.SubCaptionBold>
+                        </div>
                       </div>
-                    </div>
-                    <div className="w-full h-1 rounded-full bg-muted/40 overflow-hidden">
-                      <div
-                        className={cn(
-                          "h-full rounded-full bg-gradient-to-r transition-all duration-500",
-                          rank.color.gradient,
-                        )}
-                        style={{ width: `${progressToNextRank}%` }}
-                      />
+                      <div className="w-full h-1 rounded-full bg-muted/40 overflow-hidden">
+                        <div
+                          className={cn(
+                            "h-full rounded-full bg-gradient-to-r transition-all duration-500",
+                            rank.color.gradient,
+                          )}
+                          style={{ width: `${progressToNextRank}%` }}
+                        />
+                      </div>
                     </div>
                   </div>
                 </TooltipTrigger>
