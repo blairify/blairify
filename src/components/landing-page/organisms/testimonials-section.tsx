@@ -69,9 +69,9 @@ export default function TestimonialsSection() {
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="text-center mb-10 sm:mb-12">
-          <Typography.Heading2 id="testimonials-heading" className="mb-3">
+          <Typography.HeroSubHeading id="testimonials-heading" className="mb-3">
             Don't just take our word for it.
-          </Typography.Heading2>
+          </Typography.HeroSubHeading>
           <Typography.Body color="secondary">
             Engineers use Blairify to secure offers at top-tier companies.
           </Typography.Body>
@@ -79,11 +79,11 @@ export default function TestimonialsSection() {
 
         <div className="relative">
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-10 sm:w-16 bg-gradient-to-r from-card to-transparent"
+            className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 bg-gradient-to-r from-card via-card/80 to-transparent z-10"
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-10 sm:w-16 bg-gradient-to-l from-card to-transparent"
+            className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 bg-gradient-to-l from-card via-card/80 to-transparent z-10"
             aria-hidden="true"
           />
 

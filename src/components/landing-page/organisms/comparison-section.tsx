@@ -15,9 +15,9 @@ export default function ComparisonSection() {
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Typography.Heading2 id="comparison-heading" className="mb-4">
-            "Can't I just prompt ChatGPT to be a strict interviewer?"
-          </Typography.Heading2>
+          <Typography.HeroSubHeading id="comparison-heading" className="mb-4">
+            Can't I just prompt ChatGPT to be a strict interviewer?
+          </Typography.HeroSubHeading>
           <Typography.Body color="secondary">
             You can prompt GPT, Claude, or Gemini to roleplay an interview for a
             given Job Description. But you can't prompt them to access actual

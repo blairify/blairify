@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import Image from "next/image";
 import { Typography } from "@/components/common/atoms/typography";
 
@@ -16,9 +16,16 @@ export default function PracticeSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-2 items-center">
           <div>
-            <Typography.Heading2 id="practice-heading" className="mb-4">
-              Practice = Performance = Offer
-            </Typography.Heading2>
+            <Typography.HeroSubHeading
+              id="practice-heading"
+              className="mb-4 flex items-center justify-center gap-2 flex-wrap"
+            >
+              Practice{" "}
+              <ArrowRight className="size-6 text-primary" aria-hidden="true" />{" "}
+              Performance{" "}
+              <ArrowRight className="size-6 text-primary" aria-hidden="true" />{" "}
+              Offer
+            </Typography.HeroSubHeading>
             <Typography.Body color="secondary" className="mb-8">
               It's simple math. Consistent exposure to real interview conditions
               sharpens your thinking under scrutiny.

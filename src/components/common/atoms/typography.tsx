@@ -21,6 +21,7 @@ type Color = (typeof COLOR_VALUES)[number];
 export const VARIANT_VALUES = [
   "Heading1",
   "HeroHeading1",
+  "HeroSubHeading",
   "HeroHeadingAccent",
   "Heading2",
   "Heading3",
@@ -65,6 +66,8 @@ export const typographyVariants = /*tw:*/ cva<VariantSettings>(
         Heading1: "font-heading font-bold text-2xl",
         HeroHeading1:
           "font-heading font-bold !text-[50px] lg:!text-[80px] leading-[1.05]",
+        HeroSubHeading:
+          "font-heading font-bold !text-[30px] lg:!text-[40px] leading-[1.1]",
         HeroHeadingAccent:
           "font-heading font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05]",
         Heading2: "font-heading font-bold text-xl",
@@ -155,6 +158,29 @@ const HeroHeading1: TypographyComponent = ({
     <h1 className={typographyClass} data-clickable={!!props.onClick} {...props}>
       {children}
     </h1>
+  );
+};
+
+const HeroSubHeading: TypographyComponent = ({
+  children,
+  color,
+  className,
+  disabled,
+  ...props
+}) => {
+  const typographyClass = twMerge(
+    typographyVariants({
+      color,
+      variant: "HeroSubHeading",
+      clickable: !!props.onClick,
+      disabled,
+    }),
+    className,
+  );
+  return (
+    <h2 className={typographyClass} data-clickable={!!props.onClick} {...props}>
+      {children}
+    </h2>
   );
 };
 
@@ -468,6 +494,7 @@ const SubCaptionBold: TypographyComponent = ({
 const Typography = {
   Heading1,
   HeroHeading1,
+  HeroSubHeading,
   HeroHeadingAccent,
   Heading2,
   Heading3,

@@ -14,9 +14,9 @@ export default function HowItWorksSection() {
         aria-hidden="true"
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
-        <Typography.Heading2 id="how-it-works-heading" className="mb-3">
+        <Typography.HeroSubHeading id="how-it-works-heading" className="mb-3">
           Train for the exact role
-        </Typography.Heading2>
+        </Typography.HeroSubHeading>
         <Typography.Body
           color="secondary"
           className="max-w-2xl mx-auto mb-12 sm:mb-16"

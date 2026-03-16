@@ -15,9 +15,9 @@ export default function ProblemSection() {
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="max-w-4xl mx-auto text-center mb-12 sm:mb-16">
-          <Typography.Heading2 id="problem-heading" className="mb-4">
+          <Typography.HeroSubHeading id="problem-heading" className="mb-4">
             Why do you fail the technical stage?
-          </Typography.Heading2>
+          </Typography.HeroSubHeading>
           <Typography.Body color="secondary">
             Most candidates don't fail because of a lack of knowledge. They fail
             due to stress and lack of confidence.

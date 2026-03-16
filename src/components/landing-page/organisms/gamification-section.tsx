@@ -50,17 +50,20 @@ export default function GamificationSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <Medal className="size-10 text-primary mx-auto" aria-hidden="true" />
-          <Typography.Heading2 id="gamification-heading" className="mt-4 mb-3">
+          <Typography.HeroSubHeading
+            id="gamification-heading"
+            className="mt-4 mb-3"
+          >
             Gamify your preparation.
-          </Typography.Heading2>
+          </Typography.HeroSubHeading>
           <Typography.Body color="secondary">
             Earn XP for surviving Tech Lead drill-downs, unlock architectural
             badges, and track your streaks.
           </Typography.Body>
         </header>
 
-        <div className="grid gap-6 justify-items-center md:grid-cols-2 lg:grid-cols-3">
-          <article className="rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 md:col-span-2 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
+        <div className="grid gap-6 justify-center md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
+          <article className="rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 md:col-span-2 lg:col-span-2 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 w-full">
             <div className="flex items-start justify-between gap-6">
               <div>
                 <Typography.SubCaptionMedium color="secondary">
@@ -113,7 +116,7 @@ export default function GamificationSection() {
             </div>
           </article>
 
-          <article className="rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 space-y-4 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 w-full max-w-[32rem] md:col-span-2 md:justify-self-center lg:col-span-1 lg:justify-self-auto lg:max-w-none">
+          <article className="rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 space-y-4 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 w-full md:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3">
               <div className="size-10 rounded-xl border border-border bg-background flex items-center justify-center">
                 <ShieldCheck

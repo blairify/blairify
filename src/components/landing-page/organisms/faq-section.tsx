@@ -1,4 +1,7 @@
+"use client";
+
 import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 
 type Faq = {
@@ -35,43 +38,66 @@ const FAQS: readonly Faq[] = [
 ] as const;
 
 export default function FaqSection() {
+  const [openItem, setOpenItem] = useState<string | null>(null);
+
+  const toggleItem = (question: string) => {
+    setOpenItem(openItem === question ? null : question);
+  };
+
   return (
     <section
       id="faq"
-      className="bg-card border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
+      className="py-16 sm:py-24 scroll-mt-24"
       aria-labelledby="faq-heading"
       data-analytics-id="home-faq"
     >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_80%,rgba(249,115,22,0.06),transparent_55%)]"
-        aria-hidden="true"
-      />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-        <header className="text-center mb-10 sm:mb-12">
-          <Typography.Heading2 id="faq-heading">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+        <header className="text-center mb-16">
+          <Typography.HeroSubHeading id="faq-heading">
             Frequently Asked Questions
-          </Typography.Heading2>
+          </Typography.HeroSubHeading>
         </header>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {FAQS.map((faq) => (
-            <details
+            <div
               key={faq.question}
-              className="group rounded-2xl border border-border bg-background shadow-sm transition-colors open:bg-background/80 open:backdrop-blur"
+              className="border border-border/60 rounded-lg bg-background/50 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-background"
             >
-              <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden flex items-center justify-between gap-4 p-6 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2 rounded-2xl">
-                <Typography.BodyBold>{faq.question}</Typography.BodyBold>
+              <button
+                type="button"
+                onClick={() => toggleItem(faq.question)}
+                className="w-full flex items-center justify-between gap-4 p-6 outline-none focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg text-left"
+                aria-expanded={openItem === faq.question}
+                aria-controls={`faq-answer-${faq.question.replace(/\s+/g, "-").toLowerCase()}`}
+              >
+                <Typography.BodyBold className="text-left flex-1">
+                  {faq.question}
+                </Typography.BodyBold>
                 <ChevronDown
-                  className="size-5 text-primary transition-transform group-open:rotate-180"
+                  className={`size-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${
+                    openItem === faq.question ? "rotate-180" : ""
+                  }`}
                   aria-hidden="true"
                 />
-              </summary>
-              <div className="px-6 pb-6 border-t border-border/40">
-                <Typography.Body color="secondary">
-                  {faq.answer}
-                </Typography.Body>
+              </button>
+              <div
+                id={`faq-answer-${faq.question.replace(/\s+/g, "-").toLowerCase()}`}
+                className="overflow-hidden transition-all duration-300 ease-in-out"
+                style={{
+                  maxHeight: openItem === faq.question ? "500px" : "0px",
+                }}
+              >
+                <div className="px-6 pb-6">
+                  <Typography.Body
+                    color="secondary"
+                    className="leading-relaxed"
+                  >
+                    {faq.answer}
+                  </Typography.Body>
+                </div>
               </div>
-            </details>
+            </div>
           ))}
         </div>
       </div>
