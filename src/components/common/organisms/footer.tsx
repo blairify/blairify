@@ -72,11 +72,11 @@ export default function Footer() {
 
           {/* Compliance Badges */}
           <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-end w-full lg:w-auto">
-            <span className="flex items-center gap-1.5 sm:gap-2 bg-[color:var(--muted)] bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm whitespace-nowrap">
+            <span className="flex items-center gap-1.5 sm:gap-2 bg-card bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm whitespace-nowrap">
               <Shield className="size-3 sm:size-4" />
               GDPR Compliant
             </span>
-            <span className="flex items-center gap-1.5 sm:gap-2 bg-[color:var(--muted)] bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm whitespace-nowrap">
+            <span className="flex items-center gap-1.5 sm:gap-2 bg-card bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm whitespace-nowrap">
               <Lock className="size-3 sm:size-4" />
               SSL Secured
             </span>
@@ -101,7 +101,7 @@ export default function Footer() {
                   aria-label={socialLink.label}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex size-8 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--background)] hover:bg-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors touch-manipulation"
+                  className="inline-flex size-8 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--background)] hover:bg-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors touch-manipulation"
                 >
                   <Icon className="size-4" />
                 </Link>

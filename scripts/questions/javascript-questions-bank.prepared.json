@@ -13,33 +13,15 @@
       "description": "What is JavaScript?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is JavaScript?\"\n\nRequirements:\n- Define JavaScript (ECMAScript) as a programming language\n- Where it runs: browsers and Node.js\n- Common use cases: interactive web UI, servers, tooling\n- High-level properties: dynamic typing, multi-paradigm\n- In browsers it can interact with Web APIs/DOM\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define JavaScript (ECMAScript) as a programming language; Where it runs: browsers and Node.js; Common use cases: interactive web UI, servers, tooling; High-level properties: dynamic typing, multi-paradigm; In browsers it can interact with Web APIs/DOM. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -69,33 +51,15 @@
       "description": "Is JavaScript a statically typed or a dynamically typed language?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"Is JavaScript a statically typed or a dynamically typed language?\"\n\nRequirements:\n- Answer directly: JavaScript is dynamically typed\n- Types are determined at runtime\n- Variables are not bound to a single type\n- Mention how TypeScript adds static checking (optional)\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Answer directly: JavaScript is dynamically typed; Types are determined at runtime; Variables are not bound to a single type; Mention how TypeScript adds static checking (optional). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -124,33 +88,15 @@
       "description": "Is JavaScript a compiled or interpreted language?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"Is JavaScript a compiled or interpreted language?\"\n\nRequirements:\n- Answer directly: JS is executed by an engine that compiles/JITs internally\n- Explain interpreted vs compiled as a spectrum in modern engines\n- Mention parse -> bytecode -> JIT optimization (high level)\n- Practical implication: performance varies, warm-up/optimization\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Answer directly: JS is executed by an engine that compiles/JITs internally; Explain interpreted vs compiled as a spectrum in modern engines; Mention parse -> bytecode -> JIT optimization (high level); Practical implication: performance varies, warm-up/optimization. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -179,33 +125,15 @@
       "description": "What is the difference between JavaScript and Java?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is the difference between JavaScript and Java?\"\n\nRequirements:\n- They are different languages despite the name\n- Typing and runtime model differ (JS dynamic/prototype vs Java static/class)\n- Typical environments/use cases differ (web vs JVM ecosystem)\n- Don't conflate syntax similarities with shared platform\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: They are different languages despite the name; Typing and runtime model differ (JS dynamic/prototype vs Java static/class); Typical environments/use cases differ (web vs JVM ecosystem); Don't conflate syntax similarities with shared platform. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -234,34 +162,15 @@
       "description": "What are the differences between JavaScript and TypeScript?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What are the differences between JavaScript and TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -289,35 +198,15 @@
       "description": "What are the various data types that exist in JavaScript?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What are the various data types that exist in JavaScript?\"\n\nRequirements:\n- Function scope vs block scope\n- `var` vs `let`/`const` behavior\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "variables",
-        "scope"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "variables", "scope"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -344,33 +233,15 @@
       "description": "What are \"truthy\" values in JavaScript?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What are \"truthy\" values in JavaScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -398,33 +269,15 @@
       "description": "What are \"falsy\" values in JavaScript?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What are \"falsy\" values in JavaScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -452,33 +305,15 @@
       "description": "What are some methods of adding JavaScript code in an HTML file?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What are some methods of adding JavaScript code in an HTML file?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -506,34 +341,15 @@
       "description": "Explain how this works in the browser and how youd use it in a real UI codebase.?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"Explain how this works in the browser and how youd use it in a real UI codebase.?\"\n\nRequirements:\n- Explain in the browser runtime context\n- Give a practical UI example\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "dom",
-        "javascript"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["dom", "javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical UI example. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -560,34 +376,15 @@
       "description": "Explain the window object.?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"Explain the window object.?\"\n\nRequirements:\n- Explain in the browser runtime context\n- Give a practical UI example\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "window",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["window", "javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical UI example. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -614,35 +411,15 @@
       "description": "What is the difference between the Document and Window in Javascript?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is the difference between the Document and Window in Javascript?\"\n\nRequirements:\n- Explain in the browser runtime context\n- Give a practical UI example\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "window",
-        "document"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "window", "document"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical UI example. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -669,33 +446,15 @@
       "description": "What are some popular JavaScript frameworks and their uses?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What are some popular JavaScript frameworks and their uses?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -723,33 +482,15 @@
       "description": "What are some advantages of JavaScript over other web technologies?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What are some advantages of JavaScript over other web technologies?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -776,35 +517,15 @@
       "description": "What are the differences between var, let, and const?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are the differences between var, let, and const?\"\n\nRequirements:\n- Function scope vs block scope\n- `var` vs `let`/`const` behavior\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "variables",
-        "scope",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["variables", "scope", "javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -831,34 +552,15 @@
       "description": "What is the this keyword in JavaScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the this keyword in JavaScript?\"\n\nRequirements:\n- `this` depends on call-site (how the function is invoked)\n- Method call vs plain function call\n- Arrow functions capture lexical `this`\n- `bind`/`call`/`apply` can set `this`\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "this"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "this"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: this depends on call-site (how the function is invoked); Method call vs plain function call; Arrow functions capture lexical this; bind/call/apply can set this. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -887,34 +589,15 @@
       "description": "What are Imports and Exports in JavaScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are Imports and Exports in JavaScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "tooling"
-      ],
-      "tags": [
-        "javascript",
-        "modules"
-      ],
+      "subtopics": ["tooling"],
+      "tags": ["javascript", "modules"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -942,35 +625,15 @@
       "description": "What is the difference between function declaration and function expression JavaScript?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is the difference between function declaration and function expression JavaScript?\"\n\nRequirements:\n- What gets hoisted (declarations) vs not (initializations)\n- `let`/`const` have TDZ; `var` is function-scoped\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "functions",
-        "hoisting"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "functions", "hoisting"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: What gets hoisted (declarations) vs not (initializations); let/const have TDZ; var is function-scoped. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -997,34 +660,15 @@
       "description": "What are the main differences between arrow and regular functions?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are the main differences between arrow and regular functions?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "arrow-functions",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["arrow-functions", "javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1052,34 +696,15 @@
       "description": "Explain the concept of closures in JavaScript?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Explain the concept of closures in JavaScript?\"\n\nRequirements:\n- Closure = function + captured lexical environment\n- Practical use cases (privacy, callbacks, factories)\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "closures"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "closures"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1106,34 +731,15 @@
       "description": "Give an example of a closure.?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Give an example of a closure.?\"\n\nRequirements:\n- Closure = function + captured lexical environment\n- Practical use cases (privacy, callbacks, factories)\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "closures",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["closures", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1160,34 +766,15 @@
       "description": "Name some practical uses of closures?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Name some practical uses of closures?\"\n\nRequirements:\n- Closure = function + captured lexical environment\n- Practical use cases (privacy, callbacks, factories)\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "closures",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["closures", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1215,34 +802,15 @@
       "description": "What is the difference between Session Storage and Local Storage?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is the difference between Session Storage and Local Storage?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "web-storage",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["web-storage", "javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1269,33 +837,15 @@
       "description": "Explain synchronous vs asynchronous programming.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain synchronous vs asynchronous programming.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1323,35 +873,15 @@
       "description": "Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "async"
-      ],
-      "tags": [
-        "callbacks",
-        "async",
-        "javascript"
-      ],
+      "subtopics": ["async"],
+      "tags": ["callbacks", "async", "javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1379,35 +909,15 @@
       "description": "Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?\"\n\nRequirements:\n- Promise states: pending/fulfilled/rejected\n- Chaining and error handling\n- Relationship to async/await (if relevant)\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "async"
-      ],
-      "tags": [
-        "promises",
-        "async",
-        "javascript"
-      ],
+      "subtopics": ["async"],
+      "tags": ["promises", "async", "javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Promise states: pending/fulfilled/rejected; Chaining and error handling; Relationship to async/await (if relevant). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1435,36 +945,15 @@
       "description": "Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?\"\n\nRequirements:\n- Promise states: pending/fulfilled/rejected\n- Chaining and error handling\n- Relationship to async/await (if relevant)\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "async"
-      ],
-      "tags": [
-        "promises",
-        "async",
-        "callbacks",
-        "javascript"
-      ],
+      "subtopics": ["async"],
+      "tags": ["promises", "async", "callbacks", "javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Promise states: pending/fulfilled/rejected; Chaining and error handling; Relationship to async/await (if relevant). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1492,35 +981,15 @@
       "description": "Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "async"
-      ],
-      "tags": [
-        "callbacks",
-        "async",
-        "javascript"
-      ],
+      "subtopics": ["async"],
+      "tags": ["callbacks", "async", "javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1548,35 +1017,15 @@
       "description": "Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?\"\n\nRequirements:\n- Promise states: pending/fulfilled/rejected\n- Chaining and error handling\n- Relationship to async/await (if relevant)\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "async"
-      ],
-      "tags": [
-        "promises",
-        "async",
-        "javascript"
-      ],
+      "subtopics": ["async"],
+      "tags": ["promises", "async", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Promise states: pending/fulfilled/rejected; Chaining and error handling; Relationship to async/await (if relevant). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1604,34 +1053,15 @@
       "description": "Explain event bubbling in JavaScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain event bubbling in JavaScript?\"\n\nRequirements:\n- Explain propagation (capture/target/bubble)\n- How to prevent default / stop propagation\n- When delegation is useful\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "javascript",
-        "events"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["javascript", "events"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Explain propagation (capture/target/bubble); How to prevent default / stop propagation; When delegation is useful. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1659,34 +1089,15 @@
       "description": "How to prevent event bubbling?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"How to prevent event bubbling?\"\n\nRequirements:\n- Explain propagation (capture/target/bubble)\n- How to prevent default / stop propagation\n- When delegation is useful\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "events",
-        "javascript"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["events", "javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Explain propagation (capture/target/bubble); How to prevent default / stop propagation; When delegation is useful. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1714,34 +1125,15 @@
       "description": "What is the difference between event bubbling and event capturing?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the difference between event bubbling and event capturing?\"\n\nRequirements:\n- Explain propagation (capture/target/bubble)\n- How to prevent default / stop propagation\n- When delegation is useful\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "events",
-        "javascript"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["events", "javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Explain propagation (capture/target/bubble); How to prevent default / stop propagation; When delegation is useful. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1770,34 +1162,15 @@
       "description": "What is the role of a package manager like npm or yarn in JavaScript development?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is the role of a package manager like npm or yarn in JavaScript development?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "tooling"
-      ],
-      "tags": [
-        "javascript",
-        "tooling"
-      ],
+      "subtopics": ["tooling"],
+      "tags": ["javascript", "tooling"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1824,35 +1197,15 @@
       "description": "Explain what this is, why versions matter, and what changed for developers.?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Explain what this is, why versions matter, and what changed for developers.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-evolution"
-      ],
-      "tags": [
-        "ecmascript",
-        "strings",
-        "javascript"
-      ],
+      "subtopics": ["language-evolution"],
+      "tags": ["ecmascript", "strings", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1880,35 +1233,15 @@
       "description": "What is the difference between a shallow and a deep copy?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is the difference between a shallow and a deep copy?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "objects",
-        "immutability",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["objects", "immutability", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1937,34 +1270,15 @@
       "description": "What is the difference between null and undefined?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is the difference between null and undefined?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nullish",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nullish", "javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -1992,34 +1306,15 @@
       "description": "What is NaN?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is NaN?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nan",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nan", "javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2047,34 +1342,15 @@
       "description": "What is the difference between the client side and server side?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is the difference between the client side and server side?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "web",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["web", "javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2102,34 +1378,15 @@
       "description": "What is the difference between .splice and .slice?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is the difference between .splice and .slice?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "arrays",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["arrays", "javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2156,33 +1413,15 @@
       "description": "Explain pass by reference and pass by value?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain pass by reference and pass by value?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2210,33 +1449,15 @@
       "description": "Is JavaScript pass by reference or pass by value?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Is JavaScript pass by reference or pass by value?\"\n\nRequirements:\n- Answer the question directly, then explain\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Answer the question directly, then explain; Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2265,34 +1486,15 @@
       "description": "What is the difference between double (==) and triple (===) equals in JavaScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the difference between double (==) and triple (===) equals in JavaScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "equality"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "equality"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2320,35 +1522,15 @@
       "description": "What is AJAX, and how does it work in JavaScript?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is AJAX, and how does it work in JavaScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "ajax",
-        "http"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "ajax", "http"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2376,34 +1558,15 @@
       "description": "Explain what this is, why versions matter, and what changed for developers.?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Explain what this is, why versions matter, and what changed for developers.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-evolution"
-      ],
-      "tags": [
-        "ecmascript",
-        "javascript"
-      ],
+      "subtopics": ["language-evolution"],
+      "tags": ["ecmascript", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2431,33 +1594,15 @@
       "description": "What is a first class function?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is a first class function?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2485,33 +1630,15 @@
       "description": "What is a first-order function?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is a first-order function?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2539,33 +1666,15 @@
       "description": "What is a higher-order function?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is a higher-order function?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2593,33 +1702,15 @@
       "description": "What is a pure function?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is a pure function?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2648,33 +1739,15 @@
       "description": "Name some types of errors in JavaScript?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"Name some types of errors in JavaScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2701,35 +1774,15 @@
       "description": "How do you compare Object and Map?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"How do you compare Object and Map?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "maps",
-        "objects",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["maps", "objects", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2757,35 +1810,15 @@
       "description": "Explain the concept and how it affects real applications. Include prevention/mitigation details.?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"Explain the concept and how it affects real applications. Include prevention/mitigation details.?\"\n\nRequirements:\n- Define the vulnerability and the attack vector\n- Concrete prevention/mitigation techniques\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "security"
-      ],
-      "tags": [
-        "xss",
-        "security",
-        "javascript"
-      ],
+      "subtopics": ["security"],
+      "tags": ["xss", "security", "javascript"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2812,36 +1845,15 @@
       "description": "Explain the concept and how it affects real applications. Include prevention/mitigation details.?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Explain the concept and how it affects real applications. Include prevention/mitigation details.?\"\n\nRequirements:\n- Define the vulnerability and the attack vector\n- Concrete prevention/mitigation techniques\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "security"
-      ],
-      "tags": [
-        "cors",
-        "http",
-        "security",
-        "javascript"
-      ],
+      "subtopics": ["security"],
+      "tags": ["cors", "http", "security", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2869,33 +1881,15 @@
       "description": "What is optional chaining?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is optional chaining?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2922,35 +1916,15 @@
       "description": "Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?\"\n\nRequirements:\n- Call stack + task queue + microtask queue\n- Why JS is non-blocking despite single-threaded execution\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "async"
-      ],
-      "tags": [
-        "javascript",
-        "event-loop",
-        "async"
-      ],
+      "subtopics": ["async"],
+      "tags": ["javascript", "event-loop", "async"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Call stack + task queue + microtask queue; Why JS is non-blocking despite single-threaded execution. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -2977,33 +1951,15 @@
       "description": "How do you determine two values same or not using object in JavaScript?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"How do you determine two values same or not using object in JavaScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3031,34 +1987,15 @@
       "description": "Explain what this is, why versions matter, and what changed for developers.?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Explain what this is, why versions matter, and what changed for developers.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-evolution"
-      ],
-      "tags": [
-        "ecmascript",
-        "javascript"
-      ],
+      "subtopics": ["language-evolution"],
+      "tags": ["ecmascript", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3086,35 +2023,15 @@
       "description": "Explain what this is, why versions matter, and what changed for developers.?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Explain what this is, why versions matter, and what changed for developers.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-evolution"
-      ],
-      "tags": [
-        "ecmascript",
-        "destructuring",
-        "javascript"
-      ],
+      "subtopics": ["language-evolution"],
+      "tags": ["ecmascript", "destructuring", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3142,36 +2059,15 @@
       "description": "Explain what this is, why versions matter, and what changed for developers.?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Explain what this is, why versions matter, and what changed for developers.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-evolution"
-      ],
-      "tags": [
-        "ecmascript",
-        "spread",
-        "rest",
-        "javascript"
-      ],
+      "subtopics": ["language-evolution"],
+      "tags": ["ecmascript", "spread", "rest", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3199,34 +2095,15 @@
       "description": "What is type coercion?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is type coercion?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "type-coercion",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["type-coercion", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3254,34 +2131,15 @@
       "description": "What is Object.freeze?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is Object.freeze?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "immutability",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["immutability", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3310,34 +2168,15 @@
       "description": "What are modules?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What are modules?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "tooling"
-      ],
-      "tags": [
-        "modules",
-        "javascript"
-      ],
+      "subtopics": ["tooling"],
+      "tags": ["modules", "javascript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3364,33 +2203,15 @@
       "description": "What is polyfill?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is polyfill?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3418,35 +2239,15 @@
       "description": "What is ArrayBuffer?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"What is ArrayBuffer?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "typed-arrays",
-        "binary",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["typed-arrays", "binary", "javascript"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3474,34 +2275,15 @@
       "description": "What is event delegation in JavaScript?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"What is event delegation in JavaScript?\"\n\nRequirements:\n- Explain propagation (capture/target/bubble)\n- How to prevent default / stop propagation\n- When delegation is useful\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "javascript",
-        "events"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["javascript", "events"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Explain propagation (capture/target/bubble); How to prevent default / stop propagation; When delegation is useful. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3529,35 +2311,15 @@
       "description": "Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept clearly and relate it to real async code. Mention common pitfalls and best practices.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "async"
-      ],
-      "tags": [
-        "javascript",
-        "async-await",
-        "async"
-      ],
+      "subtopics": ["async"],
+      "tags": ["javascript", "async-await", "async"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3585,34 +2347,15 @@
       "description": "Explain hoisting.?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Explain hoisting.?\"\n\nRequirements:\n- What gets hoisted (declarations) vs not (initializations)\n- `let`/`const` have TDZ; `var` is function-scoped\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "hoisting",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["hoisting", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: What gets hoisted (declarations) vs not (initializations); let/const have TDZ; var is function-scoped. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3639,35 +2382,15 @@
       "description": "What is a Temporal Dead Zone?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"What is a Temporal Dead Zone?\"\n\nRequirements:\n- Function scope vs block scope\n- `var` vs `let`/`const` behavior\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "tdz",
-        "scope",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["tdz", "scope", "javascript"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3694,33 +2417,15 @@
       "description": "What Is Obfuscation in JavaScript?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"What Is Obfuscation in JavaScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3748,34 +2453,15 @@
       "description": "Why is JavaScript treated as single-threaded?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"Why is JavaScript treated as single-threaded?\"\n\nRequirements:\n- Call stack + task queue + microtask queue\n- Why JS is non-blocking despite single-threaded execution\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "async"
-      ],
-      "tags": [
-        "javascript",
-        "event-loop"
-      ],
+      "subtopics": ["async"],
+      "tags": ["javascript", "event-loop"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Call stack + task queue + microtask queue; Why JS is non-blocking despite single-threaded execution. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3802,35 +2488,15 @@
       "description": "Explain what triggers it, why it is expensive, and practical ways to reduce it.?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"Explain what triggers it, why it is expensive, and practical ways to reduce it.?\"\n\nRequirements:\n- Why it impacts performance\n- Concrete ways to reduce the cost\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "performance"
-      ],
-      "tags": [
-        "javascript",
-        "memoization",
-        "performance"
-      ],
+      "subtopics": ["performance"],
+      "tags": ["javascript", "memoization", "performance"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Why it impacts performance; Concrete ways to reduce the cost. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3857,35 +2523,15 @@
       "description": "Explain what triggers it, why it is expensive, and practical ways to reduce it.?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"Explain what triggers it, why it is expensive, and practical ways to reduce it.?\"\n\nRequirements:\n- Why it impacts performance\n- Concrete ways to reduce the cost\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "performance"
-      ],
-      "tags": [
-        "performance",
-        "rendering",
-        "javascript"
-      ],
+      "subtopics": ["performance"],
+      "tags": ["performance", "rendering", "javascript"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Why it impacts performance; Concrete ways to reduce the cost. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3912,35 +2558,15 @@
       "description": "Explain WeakSet in JavaScript.?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"Explain WeakSet in JavaScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "weakset",
-        "memory"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "weakset", "memory"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -3968,33 +2594,15 @@
       "description": "Explain the concept of currying in JavaScript?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"Explain the concept of currying in JavaScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -4022,34 +2630,15 @@
       "description": "What are object prototypes?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What are object prototypes?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "prototypes",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["prototypes", "javascript"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -4077,34 +2666,15 @@
       "description": "Explain the concept of prototypal inheritance in JavaScript and how it differs from classical inheritance.?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"Explain the concept of prototypal inheritance in JavaScript and how it differs from classical inheritance.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "inheritance"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "inheritance"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -4132,35 +2702,15 @@
       "description": "What is a generator function?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"What is a generator function?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "generators",
-        "iterators",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["generators", "iterators", "javascript"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -4188,33 +2738,15 @@
       "description": "How are heaps related to JavaScript?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"How are heaps related to JavaScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -4242,34 +2774,15 @@
       "description": "How does JavaScript get executed in the browser?",
       "prompt": "You are evaluating a senior-level candidate.\nAnswer the question: \"How does JavaScript get executed in the browser?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "runtime"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "runtime"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",
@@ -4297,35 +2810,15 @@
       "description": "What are some of the differences between the call and apply methods?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are some of the differences between the call and apply methods?\"\n\nRequirements:\n- `this` depends on call-site (how the function is invoked)\n- Method call vs plain function call\n- Arrow functions capture lexical `this`\n- `bind`/`call`/`apply` can set `this`\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "this",
-        "functions",
-        "javascript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["this", "functions", "javascript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: this depends on call-site (how the function is invoked); Method call vs plain function call; Arrow functions capture lexical this; bind/call/apply can set this. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["javascript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:36:09.146Z",
       "updatedAt": "2025-12-19T14:36:09.146Z",
       "createdBy": "generated_by_ai",

@@ -7,21 +7,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Python, and why is it used",
       "description": "What is Python, and why is it used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Python, and why is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -32,19 +24,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -68,21 +50,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The key features of Python",
       "description": "What are the key features of Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key features of Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -93,19 +67,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -129,21 +93,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Execution model",
       "description": "Is Python a compiled language or an interpreted language?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Is Python a compiled language or an interpreted language?\" Requirements: - Answer directly: JS is executed by an engine that compiles/JITs internally - Explain interpreted vs compiled as a spectrum in modern engines - Mention parse -> bytecode -> JIT optimization (high level) - Practical implication: performance varies, warm-up/optimization Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Answer directly: JS is executed by an engine that compiles/JITs internally; Explain interpreted vs compiled as a spectrum in modern engines; Mention parse -> bytecode -> JIT optimization (high level); Practical implication: performance varies, warm-up/optimization. Penalize answers that miss key requirements.",
       "companies": null,
@@ -154,19 +110,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -191,21 +137,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Typing model",
       "description": "Is Python statically or dynamically typed?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Is Python statically or dynamically typed?\" Requirements: - Answer directly: JavaScript is dynamically typed - Types are determined at runtime - Variables are not bound to a single type - Mention how TypeScript adds static checking (optional) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Answer directly: JavaScript is dynamically typed; Types are determined at runtime; Variables are not bound to a single type; Mention how TypeScript adds static checking (optional). Penalize answers that miss key requirements.",
       "companies": null,
@@ -216,19 +154,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -253,21 +181,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The differences between Python 2 and",
       "description": "Explain the differences between Python 2 and Python 3.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between Python 2 and Python 3.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -278,19 +198,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -314,21 +224,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "PEP 8, and why is it",
       "description": "What is PEP 8, and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is PEP 8, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -339,19 +241,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -375,21 +267,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Mutable and immutable data types in",
       "description": "Explain mutable and immutable data types in Python?",
       "prompt": "You are evaluating a entry-level candidate. Answer the question: \"Explain mutable and immutable data types in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -400,19 +284,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -436,21 +310,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Is Python pass by reference or",
       "description": "Is Python pass by reference or pass by value?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Is Python pass by reference or pass by value?\" Requirements: - Answer the question directly, then explain - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Answer the question directly, then explain; Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -461,19 +327,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -498,21 +354,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle exceptions in Python",
       "description": "How do you handle exceptions in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle exceptions in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -523,19 +371,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -559,21 +397,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The pass statement in Python.",
       "description": "Explain the pass statement in Python.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the pass statement in Python.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -584,19 +414,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -620,21 +440,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A break and continue in Python",
       "description": "What is a break and continue in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a break and continue in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -645,19 +457,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -681,21 +483,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You open and read a file",
       "description": "How do you open and read a file in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you open and read a file in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -706,19 +500,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -742,21 +526,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A docstring in Python, and why",
       "description": "What is a docstring in Python, and why is it useful?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a docstring in Python, and why is it useful?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -767,19 +543,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -803,21 +569,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between == and is",
       "description": "Explain the difference between == and is in Python.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between == and is in Python.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -828,19 +586,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -864,21 +612,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Negative indexes in Python",
       "description": "What are negative indexes in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are negative indexes in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -889,19 +629,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -925,22 +655,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Scope in Python",
       "description": "What is scope in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is scope in Python?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python",
-        "scope"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python", "scope"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
@@ -951,19 +672,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -986,21 +697,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The use of the map() function",
       "description": "Explain the use of the map() function in Python.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the use of the map() function in Python.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1011,19 +714,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1047,21 +740,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the __init__ method",
       "description": "What is the purpose of the __init__ method in a Python class?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the __init__ method in a Python class?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1072,19 +757,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1108,21 +783,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "List comprehensions in Python.",
       "description": "Explain list comprehensions in Python.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain list comprehensions in Python.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1133,19 +800,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1169,21 +826,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Dictionary comprehension",
       "description": "What is dictionary comprehension?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is dictionary comprehension?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1194,19 +843,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1230,21 +869,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between deep copy and",
       "description": "Explain the difference between deep copy and shallow copy in Python.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between deep copy and shallow copy in Python.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1255,19 +886,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1291,21 +912,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between Arrays and lists",
       "description": "What is the difference between Arrays and lists in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Arrays and lists in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1316,19 +929,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1352,21 +955,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Global Interpreter Lock (GIL) in",
       "description": "What is the Global Interpreter Lock (GIL) in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Global Interpreter Lock (GIL) in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1377,19 +972,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1413,21 +998,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between __str__ and __repr__",
       "description": "What is the difference between __str__ and __repr__ methods in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between __str__ and __repr__ methods in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1438,19 +1015,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1474,21 +1041,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between range & xrange",
       "description": "What is the difference between range & xrange?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between range & xrange?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1499,19 +1058,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1535,21 +1084,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A lambda function in Python",
       "description": "What is a lambda function in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a lambda function in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1560,19 +1101,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1596,21 +1127,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "PYTHONPATH",
       "description": "What is PYTHONPATH?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is PYTHONPATH?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1621,19 +1144,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1657,21 +1170,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "'s the difference between sort() and",
       "description": "What's the difference between sort() and sorted() in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What's the difference between sort() and sorted() in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1682,19 +1187,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1718,21 +1213,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A module in Python",
       "description": "What is a module in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a module in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1743,19 +1230,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1779,21 +1256,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A namespace in Python",
       "description": "What is a namespace in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a namespace in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1804,19 +1273,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1840,21 +1299,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between a module and",
       "description": "What is the difference between a module and a package in python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a module and a package in python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1865,19 +1316,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1901,21 +1342,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Python libraries? Name some of them.",
       "description": "What are Python libraries? Name some of them.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Python libraries? Name some of them.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1926,19 +1359,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -1962,22 +1385,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Closures",
       "description": "What is a closure in Python?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is a closure in Python?\" Requirements: - Closure = function + captured lexical environment - Practical use cases (privacy, callbacks, factories) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python",
-        "closures"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python", "closures"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
@@ -1988,9 +1402,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
+      "primaryTechStack": ["python"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1998,10 +1410,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2024,21 +1433,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Enumerate() in Python",
       "description": "What is enumerate() in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is enumerate() in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2049,19 +1450,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2085,21 +1476,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How to remove any element from",
       "description": "Explain how to remove any element from a list efficiently?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how to remove any element from a list efficiently?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2110,19 +1493,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2146,21 +1519,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between del and remove",
       "description": "What is the difference between del and remove on lists?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between del and remove on lists?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2171,19 +1536,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2207,21 +1562,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Does removing the first item from",
       "description": "Does removing the first item from a Python list take the same amount of time as removing the last item?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Does removing the first item from a Python list take the same amount of time as removing the last item?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2232,19 +1579,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2268,21 +1605,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "To add values to a python",
       "description": "How to add values to a python list?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How to add values to a python list?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2293,19 +1622,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2329,21 +1648,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You insert an element into a",
       "description": "How can you insert an element into a specific position in a list?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you insert an element into a specific position in a list?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2354,19 +1665,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2390,21 +1691,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A decorator in Python, and how",
       "description": "What is a decorator in Python, and how is it used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a decorator in Python, and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2415,19 +1708,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2451,21 +1734,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Iterators in Python",
       "description": "What are Iterators in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Iterators in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2476,19 +1751,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2512,21 +1777,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Split() and join() functions in Python",
       "description": "Explain split() and join() functions in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain split() and join() functions in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2537,19 +1794,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2573,21 +1820,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Python with statement used for",
       "description": "What is the Python with statement used for?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Python with statement used for?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2598,19 +1837,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2634,21 +1863,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Main function in Python",
       "description": "What is main function in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is main function in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2659,19 +1880,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2695,21 +1906,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Files be deleted in Python",
       "description": "How can files be deleted in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can files be deleted in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2720,19 +1923,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2756,21 +1949,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the *args and",
       "description": "What is the purpose of the *args and **kwargs in Python function definitions?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the *args and **kwargs in Python function definitions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2781,19 +1966,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2817,21 +1992,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between / and //",
       "description": "What is the difference between / and // in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between / and // in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2842,19 +2009,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2878,21 +2035,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Name some debugging techniques in Python.",
       "description": "Name some debugging techniques in Python.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some debugging techniques in Python.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2903,19 +2052,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -2939,21 +2078,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Unit tests in Python",
       "description": "What are unit tests in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are unit tests in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2964,19 +2095,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3000,21 +2121,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "PIP",
       "description": "What is PIP?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is PIP?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3025,19 +2138,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3061,21 +2164,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The logical operations in Python.",
       "description": "Explain the logical operations in Python.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the logical operations in Python.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3086,19 +2181,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3122,21 +2207,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Pickling and unpickling",
       "description": "What is pickling and unpickling?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is pickling and unpickling?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3147,19 +2224,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3183,21 +2250,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A context manager in Python",
       "description": "What is a context manager in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a context manager in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3208,19 +2267,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3244,21 +2293,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Some of the differences between Lists",
       "description": "What are some of the differences between Lists and Tuples?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some of the differences between Lists and Tuples?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3269,19 +2310,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3305,21 +2336,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between a Set and",
       "description": "What is the difference between a Set and Dictionary?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a Set and Dictionary?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3330,19 +2353,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3366,21 +2379,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "’s the difference between a Set",
       "description": "What’s the difference between a Set and a Frozenset?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What’s the difference between a Set and a Frozenset?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3391,19 +2396,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3427,21 +2422,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The ternary operators be used in",
       "description": "How can the ternary operators be used in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can the ternary operators be used in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3452,19 +2439,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3488,21 +2465,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between return and yield",
       "description": "What is the difference between return and yield keywords?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between return and yield keywords?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3513,19 +2482,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3549,21 +2508,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A zip function",
       "description": "What is a zip function?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a zip function?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3574,19 +2525,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3610,21 +2551,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Self in Python",
       "description": "What is self in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is self in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3635,19 +2568,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3671,21 +2594,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Access specifiers in Python",
       "description": "What are access specifiers in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are access specifiers in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3696,19 +2611,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3732,21 +2637,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Data abstraction achieved in Python",
       "description": "How is data abstraction achieved in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How is data abstraction achieved in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3757,19 +2654,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3793,21 +2680,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Encapsulation in Python",
       "description": "What is encapsulation in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is encapsulation in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3818,19 +2697,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3854,21 +2723,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Polymorphism in Python",
       "description": "What is polymorphism in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is polymorphism in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3879,19 +2740,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3915,21 +2766,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Inheritance in Python",
       "description": "What is inheritance in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is inheritance in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3940,19 +2783,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -3976,21 +2809,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Does Python support multiple inheritance",
       "description": "Does Python support multiple inheritance?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Does Python support multiple inheritance?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4001,19 +2826,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4037,21 +2852,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You check if a class is",
       "description": "How can you check if a class is a child of another class?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you check if a class is a child of another class?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4062,19 +2869,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4098,21 +2895,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You access parent members in the",
       "description": "How do you access parent members in the child class?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you access parent members in the child class?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4123,19 +2912,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4159,21 +2938,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Is it possible to call parent",
       "description": "Is it possible to call parent class without its instance creation?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Is it possible to call parent class without its instance creation?\" Requirements: - Answer the question directly, then explain - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Answer the question directly, then explain; Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4184,19 +2955,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4221,21 +2982,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Memory management in Python.",
       "description": "Describe memory management in Python.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Describe memory management in Python.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4246,9 +2999,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
+      "primaryTechStack": ["python"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -4256,10 +3007,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4283,21 +3031,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Eggs and Wheels in Python",
       "description": "What are Eggs and Wheels in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Eggs and Wheels in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4308,19 +3048,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4344,21 +3074,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Method Resolution Order in Python",
       "description": "What is the Method Resolution Order in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Method Resolution Order in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4369,19 +3091,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4405,21 +3117,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Generators in Python",
       "description": "What are generators in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are generators in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4430,19 +3134,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4466,21 +3160,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between staticmethod, classmethod, and",
       "description": "What is the difference between staticmethod, classmethod, and instance methods in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between staticmethod, classmethod, and instance methods in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4491,19 +3177,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4527,21 +3203,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A metaclass in Python",
       "description": "What is a metaclass in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a metaclass in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4552,19 +3220,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4588,21 +3246,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Monkey patching in Python",
       "description": "What is monkey patching in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is monkey patching in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4613,19 +3263,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4649,21 +3289,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Function annotations in Python",
       "description": "What are function annotations in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are function annotations in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4674,19 +3306,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4710,21 +3332,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Multithreading achieved in Python",
       "description": "How is multithreading achieved in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How is multithreading achieved in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4735,19 +3349,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4771,21 +3375,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The process of compilation and linking",
       "description": "What is the process of compilation and linking in python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the process of compilation and linking in python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4796,19 +3392,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4832,21 +3418,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A callable object in Python",
       "description": "What is a callable object in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a callable object in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4857,19 +3435,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4893,21 +3461,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Faster, Python lists or Numpy arrays",
       "description": "Which is faster, Python lists or Numpy arrays?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Which is faster, Python lists or Numpy arrays?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4918,19 +3478,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -4954,21 +3504,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Execution model",
       "description": "How Python is interpreted?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How Python is interpreted?\" Requirements: - Answer directly: JS is executed by an engine that compiles/JITs internally - Explain interpreted vs compiled as a spectrum in modern engines - Mention parse -> bytecode -> JIT optimization (high level) - Practical implication: performance varies, warm-up/optimization Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Answer directly: JS is executed by an engine that compiles/JITs internally; Explain interpreted vs compiled as a spectrum in modern engines; Mention parse -> bytecode -> JIT optimization (high level); Practical implication: performance varies, warm-up/optimization. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4979,19 +3521,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -5016,21 +3548,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between .py and .pyc",
       "description": "What is the difference between .py and .pyc files?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between .py and .pyc files?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -5041,19 +3565,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -5077,21 +3591,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Python program exits, why isn’t all",
       "description": "When Python program exits, why isn’t all the memory de-allocated?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"When Python program exits, why isn’t all the memory de-allocated?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -5102,9 +3608,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
+      "primaryTechStack": ["python"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -5112,10 +3616,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",
@@ -5139,21 +3640,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Floating-point calculations seem inaccurate in Python",
       "description": "Why do floating-point calculations seem inaccurate in Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Why do floating-point calculations seem inaccurate in Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "python"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["python"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -5164,19 +3657,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "python"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["python"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:40:15.485Z",
       "updatedAt": "2025-12-19T14:40:15.485Z",
       "createdBy": "admin",

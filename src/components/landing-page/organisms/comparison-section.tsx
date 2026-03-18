@@ -1,4 +1,6 @@
-import { Check, MessageSquareText, Target, X } from "lucide-react";
+import { ArrowRight, Check, MessageSquareText, Target, X } from "lucide-react";
+import { PiOpenAiLogoThin } from "react-icons/pi";
+import Logo from "@/components/common/atoms/logo-blairify";
 import { Typography } from "@/components/common/atoms/typography";
 
 export default function ComparisonSection() {
@@ -15,9 +17,13 @@ export default function ComparisonSection() {
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Typography.HeroSubHeading id="comparison-heading" className="mb-4">
-            Can't I just prompt ChatGPT to be a strict interviewer?
-          </Typography.HeroSubHeading>
+          <div className="flex items-center justify-center gap-4 mb-4 text-4xl font-bold">
+            <PiOpenAiLogoThin className="size-24 flex-shrink-0" />
+            <span className="text-muted-foreground">VS</span>
+            <div className="flex-shrink-0">
+              <Logo variant="transparent" iconSize={96} />
+            </div>
+          </div>
           <Typography.Body color="secondary">
             You can prompt GPT, Claude, or Gemini to roleplay an interview for a
             given Job Description. But you can't prompt them to access actual
@@ -28,19 +34,21 @@ export default function ComparisonSection() {
         </header>
 
         <div className="grid gap-6 lg:grid-cols-2 items-stretch">
-          <article className="h-full rounded-2xl border border-border bg-background/70 backdrop-blur p-6 sm:p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
-            <header className="flex items-center gap-3 pb-4 border-b border-background/10">
-              <div className="size-10 rounded-xl bg-background/80 backdrop-blur flex items-center justify-center border border-border">
+          <article className="h-full rounded-2xl border border-border/50 bg-background/70 backdrop-blur p-6 sm:p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
+            <header className="flex items-center gap-1 pb-4 border-b border-background/10">
+              <div className="size-10 rounded-xl bg-background/80 backdrop-blur flex items-center justify-center">
                 <MessageSquareText
                   className="size-5 text-muted-foreground"
                   aria-hidden="true"
                 />
               </div>
-              <Typography.Heading3>Prompted ChatGPT</Typography.Heading3>
+              <Typography.Heading1 color="secondary" className="text-2xl">
+                Prompted ChatGPT
+              </Typography.Heading1>
             </header>
 
             <div className="mt-6 space-y-4">
-              <div className="rounded-xl border border-border bg-background/80 backdrop-blur p-4">
+              <div className="rounded-xl border border-border/50 bg-background/80 backdrop-blur p-4">
                 <Typography.SubCaptionMedium color="secondary">
                   &gt; User:
                 </Typography.SubCaptionMedium>
@@ -51,7 +59,7 @@ export default function ComparisonSection() {
 
               <div className="rounded-xl border border-border bg-background/80 backdrop-blur p-4">
                 <Typography.SubCaptionMedium color="secondary">
-                  &gt; AI:
+                  &gt; ChatGPT:
                 </Typography.SubCaptionMedium>
                 <Typography.Body color="secondary" className="mt-1">
                   How would you design a scalable e-commerce backend? Explain
@@ -91,19 +99,26 @@ export default function ComparisonSection() {
             </div>
           </article>
 
-          <article className="h-full rounded-2xl border-2 border-primary/70 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-[0_22px_70px_-38px_hsl(var(--always-black)_/_0.55)] ring-1 ring-primary/15 relative transition-all hover:shadow-[0_32px_80px_-40px_hsl(var(--always-black)_/_0.6)] hover:-translate-y-1 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
+          <article className="h-full rounded-2xl border border-border/50 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-[0_22px_70px_-38px_hsl(var(--blairify-accent-brand)_/_0.55)] ring-1 ring-primary/15 relative transition-all hover:shadow-[0_32px_80px_-40px_hsl(var(--always-black)_/_0.6)] hover:-translate-y-1 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
             <header className="flex items-center gap-3 pb-4 border-b border-background/10">
-              <div className="size-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Target className="size-5 text-primary" aria-hidden="true" />
-              </div>
-              <Typography.Heading3>Active Assessment</Typography.Heading3>
+              <Target className="size-5" aria-hidden="true" />
+              <Typography.Heading2 className="text-2xl">
+                Active Assessment
+              </Typography.Heading2>
             </header>
 
             <div className="mt-6 space-y-4">
-              <div className="rounded-xl border-l-4 border-primary border border-border bg-background p-4">
-                <Typography.SubCaptionBold color="brand">
-                  &gt; Blairify AI:
-                </Typography.SubCaptionBold>
+              <div className="rounded-xl border-l-5 border-b-5 border border-border/50 bg-background p-4">
+                <div className="flex flex-row gap-1 items-center justify-left">
+                  <ArrowRight
+                    className="size-3 text-primary"
+                    aria-hidden="true"
+                  />
+
+                  <Typography.SubCaptionBold color="brand">
+                    Blairify AI:
+                  </Typography.SubCaptionBold>
+                </div>
                 <Typography.Body color="secondary" className="mt-1">
                   You proposed Redis for caching. Let's drill down. A network
                   partition isolates your primary node during a traffic spike.
@@ -112,9 +127,15 @@ export default function ComparisonSection() {
               </div>
 
               <div className="rounded-xl border border-border bg-background/80 backdrop-blur p-4">
-                <Typography.SubCaptionBold>
-                  &gt; Feedback:
-                </Typography.SubCaptionBold>
+                <div className="flex flex-row gap-1 items-center justify-left">
+                  <ArrowRight
+                    className="size-3 text-primary"
+                    aria-hidden="true"
+                  />
+                  <Typography.SubCaptionBold color="brand">
+                    Feedback:
+                  </Typography.SubCaptionBold>
+                </div>
                 <Typography.Body color="secondary" className="mt-1">
                   Asynchronous replication risks data loss here. In this FinTech
                   scenario, quorum-based approach is required. Let's debug your

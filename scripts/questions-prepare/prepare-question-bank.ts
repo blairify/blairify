@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import OpenAI from "openai";
 
 type QuestionStatus = "draft" | "published" | "archived";
@@ -127,7 +127,9 @@ const toDifficultyFromLegacyLevel = (value: LegacyLevel): Difficulty => {
   }
 };
 
-const seniorityLevelsFromDifficulty = (difficulty: Difficulty): SeniorityLevel[] => {
+const seniorityLevelsFromDifficulty = (
+  difficulty: Difficulty,
+): SeniorityLevel[] => {
   switch (difficulty) {
     case "entry":
       return ["entry", "junior"];
@@ -161,7 +163,7 @@ const minutesByDifficulty = (difficulty: Difficulty): number => {
   }
 };
 
-const uniq = <T,>(items: T[]): T[] => Array.from(new Set(items));
+const uniq = <T>(items: T[]): T[] => Array.from(new Set(items));
 
 const hashToIndex = (value: string, mod: number) => {
   let h = 0;
@@ -171,7 +173,10 @@ const hashToIndex = (value: string, mod: number) => {
   return Math.abs(h) % mod;
 };
 
-const inferCompanyType = (opts: { id: string; difficulty: Difficulty }): CompanyType => {
+const inferCompanyType = (opts: {
+  id: string;
+  difficulty: Difficulty;
+}): CompanyType => {
   const base = (() => {
     switch (opts.difficulty) {
       case "entry":
@@ -223,7 +228,10 @@ const sanitizePromptText = (raw: string): string => {
     .trim();
 };
 
-const assessDifficulty = (opts: { question: string; tags: string[] }): Difficulty => {
+const assessDifficulty = (opts: {
+  question: string;
+  tags: string[];
+}): Difficulty => {
   const q = opts.question.toLowerCase();
   const t = new Set(opts.tags);
 
@@ -245,7 +253,8 @@ const assessDifficulty = (opts: { question: string; tags: string[] }): Difficult
 
   // Hard
   if (t.has("security") || /\b(xss|csrf|cors)\b/.test(q)) score += 3;
-  if (t.has("performance") || /\b(reflow|repaint|performance)\b/.test(q)) score += 3;
+  if (t.has("performance") || /\b(reflow|repaint|performance)\b/.test(q))
+    score += 3;
   if (/\bmemory\b|\bgarbage\b|\bweakmap\b|\bweakset\b/.test(q)) score += 3;
   if (/\bconcurrency\b|\brace condition\b|\bworker\b/.test(q)) score += 3;
 
@@ -279,7 +288,8 @@ const classifyFromQuestion = (
   if (/\b(hoisting)\b/.test(q)) addTag("hoisting");
   if (/\b(var|let|const|tdz|scope)\b/.test(q)) addTag("scope");
   if (/\b(promise|promises)\b/.test(q)) addTag("promises", "async");
-  if (/\b(async\/await|async\s+await)\b/.test(q)) addTag("async-await", "async");
+  if (/\b(async\/await|async\s+await)\b/.test(q))
+    addTag("async-await", "async");
   if (/\b(event loop)\b/.test(q)) addTag("event-loop", "async");
   if (/\b(dom|document|window)\b/.test(q)) addTag("dom");
   if (/\b(event delegation|bubbling|capturing|propagation)\b/.test(q))
@@ -386,21 +396,21 @@ const TECH_ALIASES: Record<string, string> = {
   golang: "go",
   "node.js": "nodejs",
   node: "nodejs",
-  "rest": "rest-api",
-  "restapi": "rest-api",
+  rest: "rest-api",
+  restapi: "rest-api",
   graphql: "graphql",
   html5: "html",
-  "reactnative": "react-native",
+  reactnative: "react-native",
   "asp.net": "aspnet-core",
   aspnet: "aspnet-core",
-  "aspnetcore": "aspnet-core",
-  "entityframework": "entity-framework-core",
-  "entityframeworkcore": "entity-framework-core",
+  aspnetcore: "aspnet-core",
+  entityframework: "entity-framework-core",
+  entityframeworkcore: "entity-framework-core",
   efcore: "entity-framework-core",
-  "messagequeue": "message-queues",
-  "messagequeues": "message-queues",
+  messagequeue: "message-queues",
+  messagequeues: "message-queues",
   mq: "message-queues",
-  "monitoring": "monitoring-observability",
+  monitoring: "monitoring-observability",
   observability: "monitoring-observability",
   os: "operating-systems",
   networking: "networks",
@@ -467,14 +477,18 @@ const inferPositions = (opts: {
   };
 
   const hasFront =
-    /\b(dom|document|window|css|html|browser|react|vue|angular|svelte|next\.js|jsx|tsx)\b/.test(q) ||
+    /\b(dom|document|window|css|html|browser|react|vue|angular|svelte|next\.js|jsx|tsx)\b/.test(
+      q,
+    ) ||
     t.has("dom") ||
     t.has("events") ||
     stack.has("react") ||
     stack.has("nextjs") ||
     stack.has("typescript");
   const hasBack =
-    /\b(api|rest|graphql|http|server|backend|node\.js|node|express|nestjs|sql|database|orm|cache|redis|queue)\b/.test(q) ||
+    /\b(api|rest|graphql|http|server|backend|node\.js|node|express|nestjs|sql|database|orm|cache|redis|queue)\b/.test(
+      q,
+    ) ||
     t.has("http") ||
     stack.has("php") ||
     stack.has("python") ||
@@ -483,15 +497,30 @@ const inferPositions = (opts: {
     stack.has("nodejs");
 
   const hasDevops =
-    /\b(devops|docker|kubernetes|k8s|ci\/?cd|terraform|aws|gcp|azure|deployment|observability|monitoring)\b/.test(q);
-  const hasMobile = /\b(android|ios|swift|kotlin|react native|flutter)\b/.test(q);
+    /\b(devops|docker|kubernetes|k8s|ci\/?cd|terraform|aws|gcp|azure|deployment|observability|monitoring)\b/.test(
+      q,
+    );
+  const hasMobile = /\b(android|ios|swift|kotlin|react native|flutter)\b/.test(
+    q,
+  );
   const hasDataEng =
-    /\b(etl|data pipeline|warehouse|spark|airflow|kafka|bigquery|snowflake)\b/.test(q) ||
+    /\b(etl|data pipeline|warehouse|spark|airflow|kafka|bigquery|snowflake)\b/.test(
+      q,
+    ) ||
     s.has("data") ||
     stack.has("sql");
-  const hasDataSci = /\b(machine learning|ml|model|training|regression|classification|statistics)\b/.test(q);
-  const hasSecurity = /\b(xss|csrf|cors|oauth|jwt|encryption|hashing|security|vulnerability)\b/.test(q) || t.has("security");
-  const hasProduct = /\b(product|roadmap|metrics|kpi|stakeholder|requirement|user story)\b/.test(q);
+  const hasDataSci =
+    /\b(machine learning|ml|model|training|regression|classification|statistics)\b/.test(
+      q,
+    );
+  const hasSecurity =
+    /\b(xss|csrf|cors|oauth|jwt|encryption|hashing|security|vulnerability)\b/.test(
+      q,
+    ) || t.has("security");
+  const hasProduct =
+    /\b(product|roadmap|metrics|kpi|stakeholder|requirement|user story)\b/.test(
+      q,
+    );
 
   if (hasFront) add("frontend");
   if (hasBack) add("backend");
@@ -504,7 +533,12 @@ const inferPositions = (opts: {
 
   if (out.has("frontend") || out.has("backend")) out.add("fullstack");
   if (out.size === 0) {
-    if (stack.has("php") || stack.has("python") || stack.has("java") || stack.has("go")) {
+    if (
+      stack.has("php") ||
+      stack.has("python") ||
+      stack.has("java") ||
+      stack.has("go")
+    ) {
       out.add("backend");
       out.add("fullstack");
     } else {
@@ -541,8 +575,14 @@ const titleFromQuestion = (question: string): string => {
   }
 
   let s = question.replace(/\?$/, "").trim();
-  s = s.replace(/^\s*(what|why|how|when|where|which)\b\s*(is|are|do|does|did|can|should|would)?\s*/i, "");
-  s = s.replace(/^\s*(explain|describe|define|compare|differentiate)\b\s*/i, "");
+  s = s.replace(
+    /^\s*(what|why|how|when|where|which)\b\s*(is|are|do|does|did|can|should|would)?\s*/i,
+    "",
+  );
+  s = s.replace(
+    /^\s*(explain|describe|define|compare|differentiate)\b\s*/i,
+    "",
+  );
   s = s.replace(/\s+/g, " ").trim();
 
   const words = s.split(" ").filter(Boolean);
@@ -623,7 +663,10 @@ const keyPointsFromQuestion = (question: string, tags: string[]): string[] => {
 
   if (t.has("scope"))
     points.push(
-      ...add("Function scope vs block scope", "`var` vs `let`/`const` behavior"),
+      ...add(
+        "Function scope vs block scope",
+        "`var` vs `let`/`const` behavior",
+      ),
     );
 
   if (t.has("closures"))
@@ -669,10 +712,7 @@ const keyPointsFromQuestion = (question: string, tags: string[]): string[] => {
 
   if (t.has("performance"))
     points.push(
-      ...add(
-        "Why it impacts performance",
-        "Concrete ways to reduce the cost",
-      ),
+      ...add("Why it impacts performance", "Concrete ways to reduce the cost"),
     );
 
   if (points.length > 0) return uniq(points).slice(0, 7);
@@ -737,7 +777,10 @@ const generateAnswer = async (opts: {
   primaryTechStack: string[];
 }) => {
   const kp = opts.keyPoints.map((k) => `- ${k}`).join("\n");
-  const stack = opts.primaryTechStack.length > 0 ? opts.primaryTechStack.join(", ") : "unknown";
+  const stack =
+    opts.primaryTechStack.length > 0
+      ? opts.primaryTechStack.join(", ")
+      : "unknown";
 
   const prompt = [
     `Create a high-quality reference answer for an interview practice question.`,
@@ -780,10 +823,10 @@ const parseArgs = (argv: string[]) => {
   const autoDifficulty = args.includes("--auto-difficulty");
   const fillMissingAnswers = args.includes("--fill-missing-answers");
 
-  const modelFlagIdx = args.findIndex((a) => a === "--model");
+  const modelFlagIdx = args.indexOf("--model");
   const model = modelFlagIdx >= 0 ? args[modelFlagIdx + 1] : null;
 
-  const outFlagIdx = args.findIndex((a) => a === "--out");
+  const outFlagIdx = args.indexOf("--out");
   const outArg = outFlagIdx >= 0 ? args[outFlagIdx + 1] : null;
 
   const inputPath = path.isAbsolute(inputArg)
@@ -791,7 +834,10 @@ const parseArgs = (argv: string[]) => {
     : path.resolve(process.cwd(), inputArg);
 
   const outPath = (() => {
-    if (outArg) return path.isAbsolute(outArg) ? outArg : path.resolve(process.cwd(), outArg);
+    if (outArg)
+      return path.isAbsolute(outArg)
+        ? outArg
+        : path.resolve(process.cwd(), outArg);
     if (inPlace) return inputPath;
 
     const ext = path.extname(inputPath);
@@ -821,7 +867,9 @@ const normalizeOpenQuestion = (
   },
 ) => {
   const question = normalizeQuestion(q.description || q.title);
-  const { tags, subtopics } = classifyFromQuestion(question, { baseTags: opts.baseTags });
+  const { tags, subtopics } = classifyFromQuestion(question, {
+    baseTags: opts.baseTags,
+  });
   const keyPoints = keyPointsFromQuestion(question, tags);
 
   const nextDifficulty = (() => {
@@ -845,7 +893,8 @@ const normalizeOpenQuestion = (
       }))
     : null;
 
-  const needsAnswer = opts.fillMissingAnswers && (!refAnswers || refAnswers.length === 0);
+  const needsAnswer =
+    opts.fillMissingAnswers && (!refAnswers || refAnswers.length === 0);
 
   const base: JsonOpenQuestion = {
     ...q,
@@ -855,7 +904,9 @@ const normalizeOpenQuestion = (
     companyType: inferCompanyType({ id: q.id, difficulty: nextDifficulty }),
     tags,
     subtopics,
-    prompt: sanitizePromptText(promptFrom({ question, difficulty: nextDifficulty, keyPoints })),
+    prompt: sanitizePromptText(
+      promptFrom({ question, difficulty: nextDifficulty, keyPoints }),
+    ),
     aiEvaluationHint: sanitizePromptText(aiHintFrom(keyPoints)),
     estimatedTimeMinutes: minutesByDifficulty(nextDifficulty),
     positions: q.positions?.length
@@ -867,8 +918,16 @@ const normalizeOpenQuestion = (
           primaryTechStack: opts.primaryTechStack,
         }),
     topic: q.topic ?? "fullstack",
-    primaryTechStack: uniq([...(q.primaryTechStack ?? []), ...opts.primaryTechStack]),
-    interviewTypes: q.interviewTypes ?? ["regular", "practice", "flash", "teacher"],
+    primaryTechStack: uniq([
+      ...(q.primaryTechStack ?? []),
+      ...opts.primaryTechStack,
+    ]),
+    interviewTypes: q.interviewTypes ?? [
+      "regular",
+      "practice",
+      "flash",
+      "teacher",
+    ],
     seniorityLevels: seniorityLevelsFromDifficulty(nextDifficulty),
     createdBy: CREATED_BY,
     referenceAnswers: needsAnswer ? null : refAnswers,
@@ -888,11 +947,14 @@ const normalizeOpenQuestion = (
   };
 };
 
-const maybeFillMissingAnswer = async (q: any, opts: {
-  client: OpenAI;
-  model: string;
-  sourceKey: string;
-}) => {
+const maybeFillMissingAnswer = async (
+  q: any,
+  opts: {
+    client: OpenAI;
+    model: string;
+    sourceKey: string;
+  },
+) => {
   if (!q.__needsAnswer) {
     const { __needsAnswer, __question, __keyPoints, ...rest } = q;
     return rest as JsonOpenQuestion;
@@ -960,9 +1022,19 @@ const toJsonBatch = async (
 
     const open = opts.fillMissingAnswers
       ? await (async () => {
-          if (!opts.client) throw new Error("OPENAI_API_KEY is required for --fill-missing-answers");
+          if (!opts.client)
+            throw new Error(
+              "OPENAI_API_KEY is required for --fill-missing-answers",
+            );
           const out: JsonOpenQuestion[] = [];
-          for (const q of staged) out.push(await maybeFillMissingAnswer(q, { client: opts.client, model: opts.model, sourceKey: opts.sourceKey }));
+          for (const q of staged)
+            out.push(
+              await maybeFillMissingAnswer(q, {
+                client: opts.client,
+                model: opts.model,
+                sourceKey: opts.sourceKey,
+              }),
+            );
           return out;
         })()
       : (staged as unknown as JsonOpenQuestion[]);
@@ -986,70 +1058,92 @@ const toJsonBatch = async (
   const staged = (legacyList as LegacyQuestion[]).map((q) => {
     const difficulty = toDifficultyFromLegacyLevel(q.level);
     const question = normalizeQuestion(q.title);
-    const { tags, subtopics } = classifyFromQuestion(question, { baseTags: opts.baseTags });
+    const { tags, subtopics } = classifyFromQuestion(question, {
+      baseTags: opts.baseTags,
+    });
     const keyPoints = keyPointsFromQuestion(question, tags);
 
-    const hasAnswer = typeof q.answer === "string" && q.answer.trim().length > 0;
+    const hasAnswer =
+      typeof q.answer === "string" && q.answer.trim().length > 0;
     const answerText = hasAnswer ? sanitizeAnswerText(q.answer!) : null;
 
-    return normalizeOpenQuestion({
-      id: `${opts.sourceKey}-${q.id}`,
-      status: "published",
-      reviewerId: null,
-      reviewedAt: null,
-      difficulty: opts.autoDifficulty ? assessDifficulty({ question, tags }) : difficulty,
-      isDemoMode: false,
-      companyType: inferCompanyType({
+    return normalizeOpenQuestion(
+      {
         id: `${opts.sourceKey}-${q.id}`,
-        difficulty: opts.autoDifficulty ? assessDifficulty({ question, tags }) : difficulty,
-      }),
-      title: titleFromQuestion(question),
-      description: question,
-      prompt: sanitizePromptText(promptFrom({ question, difficulty, keyPoints })),
-      topic: "fullstack",
-      subtopics,
-      tags,
-      estimatedTimeMinutes: minutesByDifficulty(difficulty),
-      aiEvaluationHint: sanitizePromptText(aiHintFrom(keyPoints)),
-      companies: null,
-      positions: inferPositions({
-        question,
-        tags,
+        status: "published",
+        reviewerId: null,
+        reviewedAt: null,
+        difficulty: opts.autoDifficulty
+          ? assessDifficulty({ question, tags })
+          : difficulty,
+        isDemoMode: false,
+        companyType: inferCompanyType({
+          id: `${opts.sourceKey}-${q.id}`,
+          difficulty: opts.autoDifficulty
+            ? assessDifficulty({ question, tags })
+            : difficulty,
+        }),
+        title: titleFromQuestion(question),
+        description: question,
+        prompt: sanitizePromptText(
+          promptFrom({ question, difficulty, keyPoints }),
+        ),
+        topic: "fullstack",
         subtopics,
+        tags,
+        estimatedTimeMinutes: minutesByDifficulty(difficulty),
+        aiEvaluationHint: sanitizePromptText(aiHintFrom(keyPoints)),
+        companies: null,
+        positions: inferPositions({
+          question,
+          tags,
+          subtopics,
+          primaryTechStack: opts.primaryTechStack,
+        }),
         primaryTechStack: opts.primaryTechStack,
-      }),
-      primaryTechStack: opts.primaryTechStack,
-      interviewTypes: ["regular", "practice", "flash", "teacher"],
-      seniorityLevels: seniorityLevelsFromDifficulty(difficulty),
-      createdAt: extractedAt,
-      updatedAt: extractedAt,
-      createdBy: CREATED_BY,
-      referenceAnswers: hasAnswer
-        ? [
-            {
-              id: `${opts.sourceKey}-${q.id}-ref-1`,
-              text: answerText!,
-              weight: 1,
-              keyPoints,
-            },
-          ]
-        : null,
-    }, {
-      autoDifficulty: opts.autoDifficulty,
-      fillMissingAnswers: opts.fillMissingAnswers,
-      client: opts.client,
-      model: opts.model,
-      sourceKey: opts.sourceKey,
-      baseTags: opts.baseTags,
-      primaryTechStack: opts.primaryTechStack,
-    });
+        interviewTypes: ["regular", "practice", "flash", "teacher"],
+        seniorityLevels: seniorityLevelsFromDifficulty(difficulty),
+        createdAt: extractedAt,
+        updatedAt: extractedAt,
+        createdBy: CREATED_BY,
+        referenceAnswers: hasAnswer
+          ? [
+              {
+                id: `${opts.sourceKey}-${q.id}-ref-1`,
+                text: answerText!,
+                weight: 1,
+                keyPoints,
+              },
+            ]
+          : null,
+      },
+      {
+        autoDifficulty: opts.autoDifficulty,
+        fillMissingAnswers: opts.fillMissingAnswers,
+        client: opts.client,
+        model: opts.model,
+        sourceKey: opts.sourceKey,
+        baseTags: opts.baseTags,
+        primaryTechStack: opts.primaryTechStack,
+      },
+    );
   });
 
   const open_questions: JsonOpenQuestion[] = opts.fillMissingAnswers
     ? await (async () => {
-        if (!opts.client) throw new Error("OPENAI_API_KEY is required for --fill-missing-answers");
+        if (!opts.client)
+          throw new Error(
+            "OPENAI_API_KEY is required for --fill-missing-answers",
+          );
         const out: JsonOpenQuestion[] = [];
-        for (const q of staged) out.push(await maybeFillMissingAnswer(q, { client: opts.client, model: opts.model, sourceKey: opts.sourceKey }));
+        for (const q of staged)
+          out.push(
+            await maybeFillMissingAnswer(q, {
+              client: opts.client,
+              model: opts.model,
+              sourceKey: opts.sourceKey,
+            }),
+          );
         return out;
       })()
     : (staged as unknown as JsonOpenQuestion[]);
@@ -1066,9 +1160,8 @@ const toJsonBatch = async (
 };
 
 async function main() {
-  const { inputPath, outPath, autoDifficulty, fillMissingAnswers, model } = parseArgs(
-    process.argv,
-  );
+  const { inputPath, outPath, autoDifficulty, fillMissingAnswers, model } =
+    parseArgs(process.argv);
   const raw = fs.readFileSync(inputPath, "utf8");
   const json = JSON.parse(raw);
 
@@ -1085,7 +1178,9 @@ async function main() {
   const client = fillMissingAnswers
     ? (() => {
         if (!process.env.OPENAI_API_KEY) {
-          throw new Error("OPENAI_API_KEY is required for --fill-missing-answers");
+          throw new Error(
+            "OPENAI_API_KEY is required for --fill-missing-answers",
+          );
         }
         return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
       })()
@@ -1101,7 +1196,7 @@ async function main() {
     primaryTechStack: baseTech.primaryTechStack,
   });
 
-  fs.writeFileSync(outPath, JSON.stringify(batch, null, 2) + "\n");
+  fs.writeFileSync(outPath, `${JSON.stringify(batch, null, 2)}\n`);
   console.log("✅ Prepared question bank:", {
     inputPath,
     outPath,

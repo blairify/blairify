@@ -7,42 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Role of a PRD",
       "description": "What is a Product Requirements Document (PRD) and how does it guide an agile team?",
       "prompt": "You are evaluating an entry-level product manager candidate. Answer the question: \"What is a Product Requirements Document (PRD) and how does it guide an agile team?\" Requirements: - Define the artifact in your own words - Outline essential sections - Describe how it aligns engineering + design - Mention a pitfall when PRDs go wrong. Style: - Clear, structured, concise - Prefer bullet lists for sections - Avoid buzzwords without substance.",
       "topic": "product",
-      "subtopics": [
-        "discovery",
-        "documentation"
-      ],
-      "tags": [
-        "product",
-        "prd"
-      ],
+      "subtopics": ["discovery", "documentation"],
+      "tags": ["product", "prd"],
       "estimatedTimeMinutes": 8,
       "aiEvaluationHint": "Look for definition, key sections (context, goals, scope, success metrics), how it guides cross-functional teams, and a pitfall (e.g., outdated docs).",
       "companies": null,
-      "positions": [
-        "product"
-      ],
-      "primaryTechStack": [
-        "product"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["product"],
+      "primaryTechStack": ["product"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
@@ -66,43 +44,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Prioritization frameworks",
       "description": "How do you apply prioritization frameworks like RICE or MoSCoW when roadmap resources are constrained?",
       "prompt": "You are evaluating a junior product manager candidate. Answer the question: \"How do you apply prioritization frameworks like RICE or MoSCoW when roadmap resources are constrained?\" Requirements: - Outline at least one framework formula - Describe data inputs - Explain how you communicate trade-offs - Share a pitfall when stakeholders game the process. Style: structured, concise, use short lists when possible.",
       "topic": "product",
-      "subtopics": [
-        "prioritization"
-      ],
-      "tags": [
-        "product",
-        "prioritization",
-        "rice"
-      ],
+      "subtopics": ["prioritization"],
+      "tags": ["product", "prioritization", "rice"],
       "estimatedTimeMinutes": 9,
       "aiEvaluationHint": "Expect mention of Reach * Impact * Confidence / Effort or MoSCoW buckets, discussion of inputs, stakeholder alignment, and pitfalls (inflated scoring).",
       "companies": null,
-      "positions": [
-        "product"
-      ],
-      "primaryTechStack": [
-        "product"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["product"],
+      "primaryTechStack": ["product"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
@@ -126,32 +81,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "North Star metrics",
       "description": "How do you define and maintain a North Star metric for a mature product?",
       "prompt": "You are evaluating a mid-level product manager candidate. Answer the question: \"How do you define and maintain a North Star metric for a mature product?\" Requirements: - Describe selection criteria - Show how sub-metrics ladder up - Explain governance cadence - Mention what happens when the metric stops correlating with value. Style: crisp, outcome-focused.",
       "topic": "product",
-      "subtopics": [
-        "analytics",
-        "strategy"
-      ],
-      "tags": [
-        "north-star",
-        "metrics"
-      ],
+      "subtopics": ["analytics", "strategy"],
+      "tags": ["north-star", "metrics"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Look for user value focus, hierarchy of metrics, review cadence with stakeholders, and plan for recalibration.",
       "companies": null,
-      "positions": [
-        "product"
-      ],
-      "primaryTechStack": [
-        "product"
-      ],
+      "positions": ["product"],
+      "primaryTechStack": ["product"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -159,10 +100,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
@@ -186,31 +124,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Handling conflicting stakeholder requests",
       "description": "Describe how you handle conflicting requests from Sales and Customer Success without derailing roadmap focus.",
       "prompt": "You are evaluating a mid-level product manager candidate. Answer the question: \"Describe how you handle conflicting requests from Sales and Customer Success without derailing roadmap focus.\" Requirements: - Provide a concrete escalation process - Show how you use data to arbitrate - Explain how you prevent churned trust. Style: narrative with a mini case study.",
       "topic": "product",
-      "subtopics": [
-        "stakeholder-management"
-      ],
-      "tags": [
-        "stakeholders",
-        "roadmap"
-      ],
+      "subtopics": ["stakeholder-management"],
+      "tags": ["stakeholders", "roadmap"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect prioritization via impact data, creation of shared artifacts, communication loops, and preserving relationships.",
       "companies": null,
-      "positions": [
-        "product"
-      ],
-      "primaryTechStack": [
-        "product"
-      ],
+      "positions": ["product"],
+      "primaryTechStack": ["product"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -218,10 +143,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
@@ -244,32 +166,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Platform vs feature bets",
       "description": "How do you balance investment between platform initiatives and near-term feature bets when leading a multi-product portfolio?",
       "prompt": "You are evaluating a senior product leader. Answer the question: \"How do you balance investment between platform initiatives and near-term feature bets when leading a multi-product portfolio?\" Requirements: - Describe portfolio segmentation - Explain capital allocation guardrails - Share how you measure ROI across time horizons - Highlight a risk mitigation tactic. Style: strategic, metric-oriented.",
       "topic": "product",
-      "subtopics": [
-        "portfolio",
-        "strategy"
-      ],
-      "tags": [
-        "portfolio",
-        "strategy"
-      ],
+      "subtopics": ["portfolio", "strategy"],
+      "tags": ["portfolio", "strategy"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect mention of horizon planning, percentage investment bands, ROI tracking, and mitigation tactics like stage gates.",
       "companies": null,
-      "positions": [
-        "product"
-      ],
-      "primaryTechStack": [
-        "product"
-      ],
+      "positions": ["product"],
+      "primaryTechStack": ["product"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -277,10 +185,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",
@@ -304,31 +209,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Org design for scaling PM teams",
       "description": "When should you introduce a product operations function, and how does it change PM rituals?",
       "prompt": "You are evaluating a senior product leader. Answer the question: \"When should you introduce a product operations function, and how does it change PM rituals?\" Requirements: - Define trigger signals - Outline scope for prod ops - Explain how cadences/rituals evolve - Mention a metric to prove impact. Style: executive-level but concrete.",
       "topic": "product",
-      "subtopics": [
-        "org-design"
-      ],
-      "tags": [
-        "product-ops",
-        "org-design"
-      ],
+      "subtopics": ["org-design"],
+      "tags": ["product-ops", "org-design"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect headcount/coordination triggers, responsibilities for product ops, changes to rituals, and measurement like planning accuracy.",
       "companies": null,
-      "positions": [
-        "product"
-      ],
-      "primaryTechStack": [
-        "product"
-      ],
+      "positions": ["product"],
+      "primaryTechStack": ["product"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -336,10 +228,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-20T01:25:00.000Z",
       "updatedAt": "2025-12-20T01:25:00.000Z",
       "createdBy": "admin",

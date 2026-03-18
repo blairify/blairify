@@ -2,21 +2,14 @@
 
 import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type React from "react";
 import { useEffect, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import LoadingPage from "@/components/common/atoms/loading-page";
-import Logo from "@/components/common/atoms/logo-blairify";
+import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
@@ -42,7 +35,7 @@ interface AuthFormProps {
 export default function AuthForm({
   mode = "login",
   onModeChange,
-  audience,
+  audience: _audience,
   onAudienceChange,
 }: AuthFormProps) {
   const router = useRouter();
@@ -446,7 +439,7 @@ export default function AuthForm({
         className="space-y-4 mt-4"
         data-analytics-id="auth-login-form"
       >
-        <div className="space-y-2">
+        <div className="space-y-2 px-1">
           <Label htmlFor="email">Email</Label>
           <Input
             id="email"
@@ -460,7 +453,7 @@ export default function AuthForm({
           />
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2 px-1">
           <Label htmlFor="password">Password</Label>
           <div className="relative">
             <Input
@@ -521,7 +514,7 @@ export default function AuthForm({
       case 1:
         return (
           <div className="space-y-4">
-            <div className="space-y-2">
+            <div className="space-y-2 p-1">
               <Label htmlFor="email">Email Address</Label>
               <Input
                 id="email"
@@ -597,9 +590,9 @@ export default function AuthForm({
                 {formData.password &&
                   formData.confirmPassword &&
                   formData.password !== formData.confirmPassword && (
-                    <p className="text-sm text-red-500">
+                    <Typography.Body className="text-sm text-red-500">
                       Passwords do not match
-                    </p>
+                    </Typography.Body>
                   )}
               </div>
               <div className="relative">
@@ -640,25 +633,25 @@ export default function AuthForm({
   };
 
   const renderSocialButtons = () => (
-    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center">
+    <div className="flex flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center">
       <Button
         type="button"
         variant="outline"
-        className="flex w-full sm:w-auto sm:flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-10"
+        className="flex flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-12 sm:h-10"
         onClick={handleGithubLogin}
         disabled={isLoading}
       >
-        <FaGithub className="mr-2" />
+        <FaGithub className="mr-2 flex-shrink-0" />
         GitHub
       </Button>
       <Button
         type="button"
         variant="outline"
-        className="flex w-full sm:w-auto sm:flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-10"
+        className="flex flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-12 sm:h-10"
         onClick={handleGoogleLogin}
         disabled={isLoading}
       >
-        <FaGoogle className="mr-2" />
+        <FaGoogle className="mr-2 flex-shrink-0" />
         Google
       </Button>
     </div>
@@ -666,246 +659,244 @@ export default function AuthForm({
 
   return (
     <div
-      className="min-h-screen bg-background flex flex-col items-center justify-center p-3"
+      className="min-h-screen bg-background flex flex-col items-center justify-center p-4 sm:p-6"
       data-analytics-id="auth-shell"
     >
       <div className="w-full max-w-5xl">
         {isMobile ? (
-          <Card className="w-full rounded-3xl border border-[color:var(--border)]/60 bg-[color:var(--card)]/95 shadow-2xl backdrop-blur py-4 gap-4">
-            <CardHeader className="space-y-3 px-4">
-              <div className="flex items-center justify-between">
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="gap-1 text-xs bg-background/60 border border-border/60 text-muted-foreground hover:text-foreground hover:bg-background/80 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:hidden"
-                >
-                  <Link href="/">
-                    <span aria-hidden="true">←</span> Back to home
-                  </Link>
-                </Button>
-                <Logo variant="iconOnly" className="opacity-80" iconSize={18} />
-              </div>
-              {onAudienceChange && (
-                <div className="flex w-full justify-center">
-                  <div
-                    role="tablist"
-                    aria-label="Audience"
-                    className="auth-audience-switch inline-grid grid-cols-2 rounded-lg bg-muted text-muted-foreground"
-                  >
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={
-                        (audience ?? "individual") === "individual"
-                      }
-                      onClick={() => onAudienceChange("individual")}
-                      className={
-                        (audience ?? "individual") === "individual"
-                          ? "auth-audience-switch__btn inline-flex items-center justify-center rounded-md bg-background text-foreground font-medium shadow-none"
-                          : "auth-audience-switch__btn inline-flex items-center justify-center rounded-md font-medium hover:text-foreground"
-                      }
-                    >
-                      Individual
-                    </button>
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={
-                        (audience ?? "individual") === "enterprise"
-                      }
-                      onClick={() => onAudienceChange("enterprise")}
-                      className={
-                        (audience ?? "individual") === "enterprise"
-                          ? "auth-audience-switch__btn inline-flex items-center justify-center rounded-md bg-background text-foreground font-medium shadow-none"
-                          : "auth-audience-switch__btn inline-flex items-center justify-center rounded-md font-medium hover:text-foreground"
-                      }
-                    >
-                      Enterprise
-                    </button>
-                  </div>
-                </div>
-              )}
+          <Card className="w-full rounded-xl border-none bg-card shadow-lg backdrop-blur py-10 gap-6">
+            <CardContent className="px-6">
               <div
-                className={`text-center transition-all duration-500 ease-in-out ${
+                className={`mb-6 text-center transition-all duration-500 ease-in-out ${
                   isTransitioning
                     ? "opacity-0 transform translate-y-2 scale-95"
                     : "opacity-100 transform translate-y-0 scale-100"
                 }`}
               >
-                <CardTitle className="text-xl">{getStepTitle()}</CardTitle>
-                <CardDescription className="text-sm">
+                <Typography.BodyBold className="text-xl">
+                  {getStepTitle()}
+                </Typography.BodyBold>
+                <Typography.Body className="text-sm text-muted-foreground">
                   {getStepDescription()}
-                </CardDescription>
+                </Typography.Body>
               </div>
-            </CardHeader>
-            <CardContent className="space-y-3 px-4">
-              {error && (
-                <div className="mb-4 p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
-                  {error}
-                </div>
-              )}
-              {resetMessage && (
-                <div className="mb-4 p-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-md dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400">
-                  {resetMessage}
-                </div>
-              )}
-
-              <div className="relative overflow-hidden">
-                <div
-                  className={`transition-all duration-500 ease-in-out ${
-                    isTransitioning
-                      ? "opacity-0 transform translate-x-4 scale-95"
-                      : "opacity-100 transform translate-x-0 scale-100"
-                  }`}
-                >
-                  {currentMode === "login" ? (
-                    showResetForm ? (
-                      renderLoginForm()
-                    ) : (
-                      <>
-                        {renderSocialButtons()}
-
-                        <div className="relative mt-4">
-                          <div className="absolute inset-0 flex items-center">
-                            <Separator className="w-full" />
-                          </div>
-                          <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-card px-2 text-muted-foreground">
-                              Or continue with email
-                            </span>
-                          </div>
+              <div
+                className={`text-center transition-all duration-500 ease-in-out ${
+                  isTransitioning
+                    ? "opacity-0 transform translate-x-4 scale-95"
+                    : "opacity-100 transform translate-x-0 scale-100"
+                }`}
+              >
+                {currentMode === "login" ? (
+                  showResetForm ? (
+                    <>
+                      {renderLoginForm()}
+                      {error && (
+                        <div className="mb-4 rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-600 dark:border-red-800 dark:bg-red-900/20 dark:text-red-400">
+                          {error}
                         </div>
-
-                        {renderLoginForm()}
-                      </>
-                    )
+                      )}
+                    </>
                   ) : (
                     <>
-                      <div className="overflow-hidden">
-                        <div
-                          className="flex transition-transform duration-300 ease-in-out"
-                          style={{
-                            transform: `translateX(-${(currentStep - 1) * 100}%)`,
-                          }}
-                        >
-                          {[...Array(totalSteps)].map((_, index) => (
-                            <div
-                              key={`content-${index + 1}`}
-                              className="w-full flex-shrink-0"
-                            >
-                              {currentStep === index + 1 && renderStepContent()}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="flex justify-between mt-6">
+                      <div className="flex flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center">
                         <Button
                           type="button"
                           variant="outline"
-                          size="sm"
-                          onClick={handlePrevious}
-                          disabled={
-                            currentStep === 1 || isLoading || isCheckingEmail
-                          }
-                          className="bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+                          size="lg"
+                          className="w-[45%]"
+                          onClick={handleGithubLogin}
+                          disabled={isLoading}
                         >
-                          Previous
+                          <FaGithub className="mr-2 flex-shrink-0" />
+                          GitHub
                         </Button>
-
-                        {currentStep === totalSteps ? (
-                          <Button
-                            onClick={handleRegisterSubmit}
-                            disabled={!canProceedToNextStep() || isLoading}
-                            size="sm"
-                          >
-                            {isLoading
-                              ? "Creating Account..."
-                              : "Create Account"}
-                          </Button>
-                        ) : (
-                          <Button
-                            type="button"
-                            onClick={handleNext}
-                            disabled={
-                              !canProceedToNextStep() ||
-                              isLoading ||
-                              isCheckingEmail
-                            }
-                            className="bg-primary text-primary-foreground hover:bg-primary/90"
-                          >
-                            Next
-                          </Button>
-                        )}
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="lg"
+                          className="w-[45%]"
+                          onClick={handleGoogleLogin}
+                          disabled={isLoading}
+                        >
+                          <FaGoogle className="mr-2 flex-shrink-0" />
+                          Google
+                        </Button>
                       </div>
 
-                      <div className="relative my-6">
+                      <div className="relative mt-4">
                         <div className="absolute inset-0 flex items-center">
                           <Separator className="w-full" />
                         </div>
                         <div className="relative flex justify-center text-xs uppercase">
-                          <span className="bg-card px-2 text-muted-foreground">
-                            Or sign up with
-                          </span>
+                          <Typography.Caption className="bg-card px-2">
+                            Or continue with email
+                          </Typography.Caption>
                         </div>
                       </div>
-                      <div className="my-6">{renderSocialButtons()}</div>
+
+                      {renderLoginForm()}
+
+                      {error && (
+                        <div className="mb-4 rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-600 dark:border-red-800 dark:bg-red-900/20 dark:text-red-400">
+                          {error}
+                        </div>
+                      )}
+
+                      {resetMessage && (
+                        <div className="mb-4 rounded-md border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-400">
+                          {resetMessage}
+                        </div>
+                      )}
                     </>
-                  )}
+                  )
+                ) : (
+                  <>
+                    <div className="overflow-hidden">
+                      <div
+                        className="flex transition-transform duration-300 ease-in-out"
+                        style={{
+                          transform: `translateX(-${(currentStep - 1) * 100}%)`,
+                        }}
+                      >
+                        {[...Array(totalSteps)].map((_, index) => (
+                          <div
+                            key={`content-${index + 1}`}
+                            className="w-full flex-shrink-0"
+                          >
+                            {currentStep === index + 1 && renderStepContent()}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-6 flex justify-between">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="lg"
+                        onClick={handlePrevious}
+                        disabled={
+                          currentStep === 1 || isLoading || isCheckingEmail
+                        }
+                      >
+                        Previous
+                      </Button>
+
+                      {currentStep === totalSteps ? (
+                        <Button
+                          onClick={handleRegisterSubmit}
+                          disabled={!canProceedToNextStep() || isLoading}
+                          size="sm"
+                        >
+                          {isLoading ? "Creating Account..." : "Create Account"}
+                        </Button>
+                      ) : (
+                        <Button
+                          type="button"
+                          onClick={handleNext}
+                          disabled={
+                            !canProceedToNextStep() ||
+                            isLoading ||
+                            isCheckingEmail
+                          }
+                          size="lg"
+                        >
+                          Next
+                        </Button>
+                      )}
+                    </div>
+
+                    <div className="relative my-6">
+                      <div className="absolute inset-0 flex items-center">
+                        <Separator className="w-full" />
+                      </div>
+                      <div className="relative flex justify-center text-xs uppercase">
+                        <Typography.Caption className="bg-card px-2">
+                          Or sign up with
+                        </Typography.Caption>
+                      </div>
+                    </div>
+
+                    <div className="my-6">
+                      <div className="flex flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          className="w-[45%]"
+                          size="lg"
+                          onClick={handleGithubLogin}
+                          disabled={isLoading}
+                        >
+                          <FaGithub className="mr-2 flex-shrink-0" />
+                          GitHub
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="lg"
+                          onClick={handleGoogleLogin}
+                          disabled={isLoading}
+                        >
+                          <FaGoogle className="mr-2 flex-shrink-0" />
+                          Google
+                        </Button>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                <div className="text-center">
+                  <Typography.Body
+                    className={currentMode === "login" ? "mt-4" : "mt-0"}
+                  >
+                    {currentMode === "login" && !showResetForm && (
+                      <>
+                        Don't have an account?{" "}
+                        {onModeChange ? (
+                          <button
+                            type="button"
+                            onClick={() => handleModeSwitch("register")}
+                            className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                            disabled={isLoading || isTransitioning}
+                          >
+                            Sign up
+                          </button>
+                        ) : (
+                          <Button
+                            onClick={() => handleModeSwitch("register")}
+                            className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
+                          >
+                            Sign up
+                          </Button>
+                        )}
+                      </>
+                    )}
+
+                    {currentMode === "register" && !showResetForm && (
+                      <>
+                        Already have an account?{" "}
+                        {onModeChange ? (
+                          <button
+                            type="button"
+                            onClick={() => handleModeSwitch("login")}
+                            className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                            disabled={isLoading || isTransitioning}
+                          >
+                            Log In
+                          </button>
+                        ) : (
+                          <Button
+                            onClick={() => handleModeSwitch("login")}
+                            className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
+                          >
+                            Log In
+                          </Button>
+                        )}
+                      </>
+                    )}
+                  </Typography.Body>
                 </div>
-              </div>
-
-              <div className="text-center">
-                <p
-                  className={`text-sm text-muted-foreground ${currentMode === "login" ? "mt-4" : "mt-0"}`}
-                >
-                  {currentMode === "login" && !showResetForm && (
-                    <>
-                      Don't have an account?{" "}
-                      {onModeChange ? (
-                        <button
-                          type="button"
-                          onClick={() => handleModeSwitch("register")}
-                          className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
-                          disabled={isLoading || isTransitioning}
-                        >
-                          Sign up
-                        </button>
-                      ) : (
-                        <Button
-                          onClick={() => handleModeSwitch("register")}
-                          className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
-                        >
-                          Sign up
-                        </Button>
-                      )}
-                    </>
-                  )}
-
-                  {currentMode === "register" && !showResetForm && (
-                    <>
-                      Already have an account?{" "}
-                      {onModeChange ? (
-                        <button
-                          type="button"
-                          onClick={() => handleModeSwitch("login")}
-                          className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
-                          disabled={isLoading || isTransitioning}
-                        >
-                          Log In
-                        </button>
-                      ) : (
-                        <Button
-                          onClick={() => handleModeSwitch("login")}
-                          className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
-                        >
-                          Log In
-                        </Button>
-                      )}
-                    </>
-                  )}
-                </p>
               </div>
             </CardContent>
           </Card>
@@ -923,59 +914,19 @@ export default function AuthForm({
               </div>
               {onAudienceChange && (
                 <div className="absolute inset-x-0 bottom-10 flex justify-center">
-                  <div
-                    role="tablist"
-                    aria-label="Audience"
-                    className="auth-audience-switch inline-grid grid-cols-2 rounded-lg bg-muted text-muted-foreground"
+                  <Button
+                    type="button"
+                    onClick={() => onAudienceChange("enterprise")}
+                    variant="outline"
+                    className="border-border/60 text-muted-foreground hover:text-foreground hover:bg-background/80 h-9 px-3"
                   >
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={
-                        (audience ?? "individual") === "individual"
-                      }
-                      onClick={() => onAudienceChange("individual")}
-                      className={
-                        (audience ?? "individual") === "individual"
-                          ? "auth-audience-switch__btn inline-flex items-center justify-center rounded-md bg-background text-foreground font-medium shadow-none"
-                          : "auth-audience-switch__btn inline-flex items-center justify-center rounded-md font-medium hover:text-foreground"
-                      }
-                    >
-                      Individual
-                    </button>
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={
-                        (audience ?? "individual") === "enterprise"
-                      }
-                      onClick={() => onAudienceChange("enterprise")}
-                      className={
-                        (audience ?? "individual") === "enterprise"
-                          ? "auth-audience-switch__btn inline-flex items-center justify-center rounded-md bg-background text-foreground font-medium shadow-none"
-                          : "auth-audience-switch__btn inline-flex items-center justify-center rounded-md font-medium hover:text-foreground"
-                      }
-                    >
-                      Enterprise
-                    </button>
-                  </div>
+                    Blairify for Enterprise
+                  </Button>
                 </div>
               )}
             </div>
 
             <div className="w-full bg-card p-6 sm:p-10 flex flex-col justify-center min-h-[32rem]">
-              <div className="flex justify-end mb-4">
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="gap-2 text-xs border border-border/60 text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                >
-                  <Link href="/">
-                    <span aria-hidden="true">←</span> Back to home
-                  </Link>
-                </Button>
-              </div>
               <div
                 className={`text-center transition-all duration-500 ease-in-out ${
                   isTransitioning
@@ -983,12 +934,12 @@ export default function AuthForm({
                     : "opacity-100 transform translate-y-0 scale-100"
                 }`}
               >
-                <h2 className="text-2xl font-semibold text-[color:var(--foreground)]">
+                <Typography.BodyBold className="text-xl">
                   {getStepTitle()}
-                </h2>
-                <p className="text-sm text-muted-foreground">
+                </Typography.BodyBold>
+                <Typography.Body className="text-sm text-muted-foreground">
                   {getStepDescription()}
-                </p>
+                </Typography.Body>
               </div>
 
               <div className="mt-6 flex-1 flex flex-col">
@@ -1057,12 +1008,11 @@ export default function AuthForm({
                           <Button
                             type="button"
                             variant="outline"
-                            size="sm"
+                            size="lg"
                             onClick={handlePrevious}
                             disabled={
                               currentStep === 1 || isLoading || isCheckingEmail
                             }
-                            className="bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
                           >
                             Previous
                           </Button>
@@ -1081,13 +1031,12 @@ export default function AuthForm({
                             <Button
                               type="button"
                               onClick={handleNext}
-                              size="sm"
+                              size="lg"
                               disabled={
                                 !canProceedToNextStep() ||
                                 isLoading ||
                                 isCheckingEmail
                               }
-                              className="bg-primary text-primary-foreground hover:bg-primary/90"
                             >
                               Next
                             </Button>
@@ -1099,9 +1048,9 @@ export default function AuthForm({
                             <Separator className="w-full" />
                           </div>
                           <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-card px-2 text-muted-foreground">
+                            <Typography.Caption className="bg-card px-2 text-muted-foreground">
                               Or sign up with
-                            </span>
+                            </Typography.Caption>
                           </div>
                         </div>
                         <div className="my-6">{renderSocialButtons()}</div>
@@ -1111,7 +1060,7 @@ export default function AuthForm({
                 </div>
 
                 <div className="text-center mt-6">
-                  <p
+                  <Typography.Body
                     className={`text-sm text-muted-foreground ${currentMode === "login" ? "mt-4" : "mt-0"}`}
                   >
                     {currentMode === "login" && !showResetForm && (
@@ -1159,7 +1108,7 @@ export default function AuthForm({
                         )}
                       </>
                     )}
-                  </p>
+                  </Typography.Body>
                 </div>
               </div>
             </div>

@@ -2,12 +2,14 @@ import { Check } from "lucide-react";
 import Link from "next/link";
 import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 export default function PricingSection() {
   return (
     <section
       id="pricing"
-      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
+      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-4 relative overflow-hidden"
       aria-labelledby="pricing-heading"
       data-analytics-id="home-pricing"
     >
@@ -25,114 +27,186 @@ export default function PricingSection() {
           </Typography.Body>
         </header>
 
-        <div className="grid gap-6 lg:grid-cols-2 max-w-5xl mx-auto items-stretch">
-          <article className="h-full rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm flex flex-col transition-all hover:shadow-md hover:-translate-y-0.5 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
-            <header className="text-center">
-              <Typography.BodyBold className="text-2xl">
-                Basic
-              </Typography.BodyBold>
-              <Typography.SubCaptionMedium color="secondary" className="mt-2">
-                Validate mechanics.
-              </Typography.SubCaptionMedium>
-
-              <div className="mt-6 border-b border-border/60 pb-6">
-                <div className="flex items-center justify-center gap-2">
-                  <Typography.BodyBold className="text-2xl">
+        <div className="grid gap-16 lg:grid-cols-2 max-w-4xl mx-auto items-center">
+          <Card className="w-full h-full py-10 gap-0 border border-border/50">
+            <CardHeader className="px-8 gap-8">
+              <CardTitle>
+                <div className="flex flex-col gap-2">
+                  <Typography.Heading1>BASIC</Typography.Heading1>
+                  <Typography.SubCaptionMedium className="text-gray-700">
+                    Validate mechanics
+                  </Typography.SubCaptionMedium>
+                </div>
+                <div className="flex flex-col items-start gap-0 sm:gap-1 mt-6">
+                  <Typography.BodyBold className="text-lg">
                     $0
                   </Typography.BodyBold>
-                  <Typography.Body color="secondary">
-                    / month - forever free
+                  <Typography.Body
+                    color="secondary"
+                    className="text-xs sm:text-sm"
+                  >
+                    Forever free
                   </Typography.Body>
                 </div>
-              </div>
-            </header>
+              </CardTitle>
 
-            <ul className="mt-6 space-y-3" aria-label="Basic plan features">
-              <li className="flex items-center gap-3">
-                <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body>2 interviews per day</Typography.Body>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body>Manual Role Configuration</Typography.Body>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body>Standard AI Feedback</Typography.Body>
-              </li>
-            </ul>
-
-            <div className="mt-8">
-              <Button asChild className="w-full h-12" variant="default">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="w-full text-sm sm:text-base py-0 sm:py-3"
+              >
                 <Link href="/configure">Start for Free</Link>
               </Button>
-            </div>
-          </article>
+              <Separator className="mb-6" />
+            </CardHeader>
 
-          <article className="h-full rounded-2xl border-2 border-primary bg-background/80 backdrop-blur p-6 sm:p-8 shadow-[0_18px_60px_-34px_hsl(var(--always-black)_/_0.45)] flex flex-col relative transition-all hover:shadow-[0_28px_70px_-36px_hsl(var(--always-black)_/_0.5)] hover:-translate-y-1 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2 lg:-translate-y-2">
-            <header className="text-center">
-              <Typography.BodyBold className="text-2xl">
-                PRO
+            <CardContent className="px-10">
+              <Typography.BodyBold className="mb-3 sm:mb-4 text-[14px] text-gray-700">
+                Core features:
               </Typography.BodyBold>
-              <Typography.SubCaptionMedium color="secondary" className="mt-2">
-                The full verification environment.
-              </Typography.SubCaptionMedium>
+              <ul
+                className="space-y-2 sm:space-y-3"
+                aria-label="Basic plan features"
+              >
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <Check
+                    className="size-4 sm:size-5 text-gray-500 mt-0.5 sm:mt-0 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption className="text-sm">
+                    2 interviews per day
+                  </Typography.Caption>
+                </li>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <Check
+                    className="size-4 sm:size-5 text-gray-500 mt-0.5 sm:mt-0 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption className="text-sm">
+                    Manual role configuration
+                  </Typography.Caption>
+                </li>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <Check
+                    className="size-4 sm:size-5 text-gray-500 mt-0.5 sm:mt-0 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption className="text-sm">
+                    Standard AI feedback
+                  </Typography.Caption>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-              <div className="mt-6 border-b border-primary pb-6">
-                <div className="flex items-center justify-center gap-2">
-                  <Typography.BodyBold className="text-2xl">
+          <Card className="w-full py-10  gap-0 h-full border border-border/50">
+            <CardHeader className="px-8 gap-8">
+              <CardTitle>
+                <div className="flex flex-col gap-2">
+                  <Typography.Heading1>PRO</Typography.Heading1>
+                  <Typography.SubCaptionMedium className="text-gray-700">
+                    The full verification environment
+                  </Typography.SubCaptionMedium>
+                </div>
+                <div className="flex flex-col items-start gap-0 sm:gap-1 mt-6">
+                  <Typography.BodyBold className="text-lg">
                     $19
                   </Typography.BodyBold>
-                  <Typography.Body color="secondary">/ month</Typography.Body>
+                  <Typography.Body
+                    color="secondary"
+                    className="text-xs sm:text-sm"
+                  >
+                    Billed monthly
+                  </Typography.Body>
                 </div>
-              </div>
-            </header>
+              </CardTitle>
 
-            <Typography.BodyBold className="mt-6 mb-4">
-              Everything in Basic, plus:
-            </Typography.BodyBold>
-
-            <ul className="space-y-3" aria-label="Pro plan features">
-              <li className="flex items-center gap-3">
-                <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.BodyBold>
-                  Unlimited Interview Sessions
-                </Typography.BodyBold>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.BodyBold>
-                  Targeted Simulations based on Job Description
-                </Typography.BodyBold>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body>Full Analysis and Report</Typography.Body>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body>Knowledge Gap Diagnostics</Typography.Body>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body>Curated Resources Links</Typography.Body>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body>Premium AI Reasoning Engine</Typography.Body>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="size-5 text-primary" aria-hidden="true" />
-                <Typography.Body>Centralized Preparation Hub</Typography.Body>
-              </li>
-            </ul>
-
-            <div className="mt-8">
-              <Button asChild className="w-full h-12">
+              <Button
+                asChild
+                size="lg"
+                className="w-full text-sm sm:text-base py-0 sm:py-3"
+              >
                 <Link href="/auth?mode=register">Start PRO Plan</Link>
               </Button>
-            </div>
-          </article>
+              <Separator className="mb-6" />
+            </CardHeader>
+
+            <CardContent className="px-10">
+              <Typography.BodyBold className="mb-3 sm:mb-4 text-[14px] text-gray-700">
+                Everything in Basic, plus:
+              </Typography.BodyBold>
+
+              <ul
+                className="space-y-2 sm:space-y-3"
+                aria-label="Pro plan features"
+              >
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <Check
+                    className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption className="text-sm">
+                    Unlimited interview sessions
+                  </Typography.Caption>
+                </li>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <Check
+                    className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption className="text-sm">
+                    Simulations based on job description
+                  </Typography.Caption>
+                </li>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <Check
+                    className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption className="text-sm">
+                    Full analysis and report
+                  </Typography.Caption>
+                </li>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <Check
+                    className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption className="text-sm">
+                    Knowledge gap diagnostics
+                  </Typography.Caption>
+                </li>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <Check
+                    className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption className="text-sm">
+                    Curated resources links
+                  </Typography.Caption>
+                </li>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <Check
+                    className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption className="text-sm">
+                    Premium AI reasoning engine
+                  </Typography.Caption>
+                </li>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <Check
+                    className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <Typography.Caption className="text-sm">
+                    Centralized preparation hub
+                  </Typography.Caption>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

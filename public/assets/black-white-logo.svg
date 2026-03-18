@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="228.4314 73.5134 69.8115 71" width="69.8115px" height="71px" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <filter id="inner-shadow-filter-0" bx:preset="inner-shadow 1 2 5 0 0.55 #000" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="2" dy="5"/>
+      <feGaussianBlur stdDeviation="0"/>
+      <feComposite operator="out" in="SourceGraphic"/>
+      <feComponentTransfer result="choke">
+        <feFuncA type="linear" slope="1.1"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#000" result="color"/>
+      <feComposite operator="in" in="color" in2="choke" result="shadow"/>
+      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-filter-0" bx:preset="drop-shadow 1 1 1 2 0.06 rgba(0,0,0,0.3)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="1" dy="1"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="spread-ctrl" type="linear" slope="0.12"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,0,0,0.3)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="round-edges-filter-0" bx:preset="round-edges 1 0.9" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.9 0.9"/>
+      <feColorMatrix mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 200 -100"/>
+      <feComposite in="SourceGraphic" operator="atop"/>
+    </filter>
+    <bx:export>
+      <bx:file format="svg" href="#object-0" path="Bez nazwy.svg"/>
+    </bx:export>
+  </defs>
+  <path d="M 289.738 98.915 C 272.007 57.511 256.16 91.251 249.924 105.889 C 245.428 116.444 253.217 148.224 269.607 136.427 C 283.173 126.661 228.749 115.038 234.229 94.705 C 235.187 91.146 243.259 94.316 253.005 99.352 C 273.686 110.04 302.354 127.887 289.738 98.915 M 289.738 98.915" style="stroke-opacity: 1; stroke-miterlimit: 4; stroke-linecap: butt; stroke-linejoin: miter; stroke-dashoffset: 0px; fill-opacity: 1; filter: url(&quot;#inner-shadow-filter-0&quot;) url(&quot;#drop-shadow-filter-0&quot;) url(&quot;#round-edges-filter-0&quot;); stroke: rgb(0, 0, 0); fill: rgba(255, 255, 255, 0); stroke-width: 2px;" id="object-0"/>
+</svg>

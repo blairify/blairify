@@ -7,40 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "DevOps, and why is it important",
       "description": "What is DevOps, and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is DevOps, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -63,18 +43,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The CI/CD pipeline.",
       "description": "Explain the CI/CD pipeline.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the CI/CD pipeline.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -88,17 +62,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -121,18 +86,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Some popular CI/CD tools, and can",
       "description": "What are some popular CI/CD tools, and can you explain their roles?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some popular CI/CD tools, and can you explain their roles?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -145,17 +104,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -178,40 +128,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Infrastructure as Code (IaC), and how",
       "description": "What is Infrastructure as Code (IaC), and how does it benefit DevOps?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Infrastructure as Code (IaC), and how does it benefit DevOps?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -234,18 +164,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between Docker and Kubernetes.",
       "description": "Explain the difference between Docker and Kubernetes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Docker and Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -258,17 +182,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -291,40 +206,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the importance of version control",
       "description": "Discuss the importance of version control in DevOps.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the importance of version control in DevOps.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -347,40 +242,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Git, and why is it essential",
       "description": "What is Git, and why is it essential in DevOps?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Git, and why is it essential in DevOps?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -403,40 +278,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "DevOps Principles, and how do they",
       "description": "What are DevOps Principles, and how do they guide the practices and culture in DevOps teams?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are DevOps Principles, and how do they guide the practices and culture in DevOps teams?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -459,18 +314,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle security in a DevOps",
       "description": "How do you handle security in a DevOps pipeline?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle security in a DevOps pipeline?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -484,17 +333,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -517,40 +357,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A situation where you had to",
       "description": "Describe a situation where you had to troubleshoot a production issue. How did you approach it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe a situation where you had to troubleshoot a production issue. How did you approach it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -573,40 +393,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You ensure that your team maintains",
       "description": "How do you ensure that your team maintains good communication and collaboration between development and operations?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure that your team maintains good communication and collaboration between development and operations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -629,18 +429,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain Blue-Green deployments and",
       "description": "Can you explain Blue-Green deployments and how they work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain Blue-Green deployments and how they work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -653,17 +447,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -686,40 +471,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"Blue-Green\" and \"Canary\"",
       "description": "Describe the concept of \"Blue-Green\" and \"Canary\" deployments. When would you use each one?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the concept of \"Blue-Green\" and \"Canary\" deployments. When would you use each one?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -742,18 +507,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between a container and",
       "description": "What is the difference between a container and a virtual machine, and when would you choose one over the other?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a container and a virtual machine, and when would you choose one over the other?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -766,17 +525,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -799,18 +549,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"Immutable Infrastructure\".",
       "description": "Explain the concept of \"Immutable Infrastructure\".?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"Immutable Infrastructure\".?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -824,17 +568,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -857,18 +592,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle database schema changes in",
       "description": "How do you handle database schema changes in a DevOps environment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle database schema changes in a DevOps environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -881,17 +610,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -914,39 +634,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of a Git commit",
       "description": "What is the purpose of a Git commit message, and what makes a good commit message?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of a Git commit message, and what makes a good commit message?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -969,18 +670,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"Infrastructure as Code\"",
       "description": "Explain the concept of \"Infrastructure as Code\" (IaC) tools. Name a few popular ones.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"Infrastructure as Code\" (IaC) tools. Name a few popular ones.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -993,17 +688,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1026,18 +712,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Docker Compose file, and how",
       "description": "What is a Docker Compose file, and how does it simplify multi-container application deployments?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Docker Compose file, and how does it simplify multi-container application deployments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1051,17 +731,8 @@
         "mobile"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1084,28 +755,17 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You monitor the health and performance",
       "description": "How do you monitor the health and performance of a production system?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you monitor the health and performance of a production system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
       "primaryTechStack": [],
       "interviewTypes": [
         "regular",
@@ -1114,10 +774,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1140,18 +797,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"Infrastructure as Code\"",
       "description": "Explain the concept of \"Infrastructure as Code\" (IaC) drift and how to prevent it.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"Infrastructure as Code\" (IaC) drift and how to prevent it.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1164,17 +815,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1197,18 +839,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle secrets and sensitive information",
       "description": "How do you handle secrets and sensitive information in a DevOps pipeline?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle secrets and sensitive information in a DevOps pipeline?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1221,17 +857,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1254,40 +881,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The \"Git branching strategy\" known as",
       "description": "Explain the \"Git branching strategy\" known as \"Feature Branching.\"?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the \"Git branching strategy\" known as \"Feature Branching.\"?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1310,40 +917,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The role of monitoring and alerting",
       "description": "What is the role of monitoring and alerting in a DevOps environment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of monitoring and alerting in a DevOps environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1366,18 +953,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You ensure compliance and security in",
       "description": "How do you ensure compliance and security in a DevOps pipeline?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure compliance and security in a DevOps pipeline?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1391,17 +972,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1424,21 +996,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "this keyword",
       "description": "Explain the difference between a stateless and stateful application. How does this impact the design of a DevOps pipeline?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the difference between a stateless and stateful application. How does this impact the design of a DevOps pipeline?\" Requirements: - `this` depends on call-site (how the function is invoked) - Method call vs plain function call - Arrow functions capture lexical `this` - `bind`/`call`/`apply` can set `this` Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "this"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["this"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: this depends on call-site (how the function is invoked); Method call vs plain function call; Arrow functions capture lexical this; bind/call/apply can set this. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1459,10 +1023,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1486,39 +1047,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You manage dependencies and ensure version",
       "description": "How do you manage dependencies and ensure version consistency in a microservices architecture?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you manage dependencies and ensure version consistency in a microservices architecture?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1541,39 +1083,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle backward compatibility when deploying",
       "description": "How do you handle backward compatibility when deploying new versions of a microservice in a distributed system?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle backward compatibility when deploying new versions of a microservice in a distributed system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1596,18 +1119,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of a Dockerfile in",
       "description": "Explain the purpose of a Dockerfile in containerization.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of a Dockerfile in containerization.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1620,17 +1137,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1653,39 +1161,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between a CI server",
       "description": "What is the difference between a CI server and a build tool?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a CI server and a build tool?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1708,18 +1197,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"Chaos Engineering\" in",
       "description": "Explain the concept of \"Chaos Engineering\" in DevOps, and why is it valuable?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"Chaos Engineering\" in DevOps, and why is it valuable?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1732,17 +1215,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1765,40 +1239,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "\"GitOps,\" and how does it differ",
       "description": "What is \"GitOps,\" and how does it differ from traditional DevOps practices?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is \"GitOps,\" and how does it differ from traditional DevOps practices?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1821,18 +1275,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the importance of automated testing",
       "description": "Discuss the importance of automated testing in a DevOps pipeline and the types of tests you would include.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the importance of automated testing in a DevOps pipeline and the types of tests you would include.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1845,17 +1293,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1878,18 +1317,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Docker image and how is",
       "description": "What is a Docker image and how is it different from a Docker container?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Docker image and how is it different from a Docker container?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -1902,17 +1335,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1935,40 +1359,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Serverless computing and Function-as-a-Service (FaaS)? How",
       "description": "What are Serverless computing and Function-as-a-Service (FaaS)? How do they fit into a DevOps strategy?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Serverless computing and Function-as-a-Service (FaaS)? How do they fit into a DevOps strategy?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -1991,40 +1395,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Git LFS (Large File Storage), and",
       "description": "What is Git LFS (Large File Storage), and when would you use it in a DevOps workflow?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Git LFS (Large File Storage), and when would you use it in a DevOps workflow?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2047,18 +1431,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the concept of Feature Flags",
       "description": "Discuss the concept of Feature Flags (Feature Toggles) in a DevOps pipeline.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the concept of Feature Flags (Feature Toggles) in a DevOps pipeline.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -2071,17 +1449,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2104,18 +1473,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle rollbacks in a CI/CD",
       "description": "How do you handle rollbacks in a CI/CD pipeline when a deployment goes wrong?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle rollbacks in a CI/CD pipeline when a deployment goes wrong?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -2128,17 +1491,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2161,18 +1515,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You ensure that your DevOps pipeline",
       "description": "How do you ensure that your DevOps pipeline is efficient and optimized for speed and reliability?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure that your DevOps pipeline is efficient and optimized for speed and reliability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -2185,17 +1533,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2218,18 +1557,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle and maintain environment configurations",
       "description": "How do you handle and maintain environment configurations for multiple deployment stages (e.g., development, staging, production) in a DevOps pipeline?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you handle and maintain environment configurations for multiple deployment stages (e.g., development, staging, production) in a DevOps pipeline?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -2250,10 +1583,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2276,40 +1606,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the Cattle vs. Pets analogy",
       "description": "Discuss the Cattle vs. Pets analogy in the context of server management. How does it relate to DevOps practices?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the Cattle vs. Pets analogy in the context of server management. How does it relate to DevOps practices?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2332,18 +1642,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The principles of the Four Key",
       "description": "Explain the principles of the Four Key Metrics framework in DevOps.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the principles of the Four Key Metrics framework in DevOps.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -2356,17 +1660,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2389,40 +1684,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You ensure high availability and fault",
       "description": "How do you ensure high availability and fault tolerance in a distributed system?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure high availability and fault tolerance in a distributed system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2445,18 +1720,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Principle of Least Privilege and",
       "description": "Explain the Principle of Least Privilege and how it applies to DevOps security practices.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Principle of Least Privilege and how it applies to DevOps security practices.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -2471,17 +1740,8 @@
         "mobile"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2504,18 +1764,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The benefits of containerization and when",
       "description": "Describe the benefits of containerization and when to use container orchestration tools like Kubernetes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the benefits of containerization and when to use container orchestration tools like Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -2528,17 +1782,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2561,40 +1806,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"Git branching strategies\"",
       "description": "Explain the concept of \"Git branching strategies\" and name a few popular ones.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"Git branching strategies\" and name a few popular ones.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2617,40 +1842,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"shift-left testing\" in",
       "description": "Describe the concept of \"shift-left testing\" in DevOps.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the concept of \"shift-left testing\" in DevOps.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2673,18 +1878,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The principles of the \"Three Ways\"",
       "description": "Explain the principles of the \"Three Ways\" in DevOps, as defined in \"The Phoenix Project\" by Gene Kim.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the principles of the \"Three Ways\" in DevOps, as defined in \"The Phoenix Project\" by Gene Kim.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -2697,17 +1896,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2730,18 +1920,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The main principles of the Twelve-Factor",
       "description": "What are the main principles of the Twelve-Factor App methodology, and how do they relate to DevOps practices?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the main principles of the Twelve-Factor App methodology, and how do they relate to DevOps practices?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -2755,17 +1939,8 @@
         "mobile"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2788,18 +1963,12 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Blue-Ocean CI/CD in Jenkins, and how",
       "description": "What is Blue-Ocean CI/CD in Jenkins, and how does it differ from traditional Jenkins pipelines?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Blue-Ocean CI/CD in Jenkins, and how does it differ from traditional Jenkins pipelines?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
@@ -2812,17 +1981,8 @@
         "fullstack"
       ],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",
@@ -2845,40 +2005,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The key differences between Git and",
       "description": "What are the key differences between Git and SVN (Subversion), and why is Git preferred in DevOps?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key differences between Git and SVN (Subversion), and why is Git preferred in DevOps?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
+      "subtopics": ["language-fundamentals"],
       "tags": [],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
       "primaryTechStack": [],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:51:48.112Z",
       "updatedAt": "2025-12-19T17:51:48.112Z",
       "createdBy": "admin",

@@ -7,44 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "React Native, and how does it",
       "description": "What is React Native, and how does it differ from React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is React Native, and how does it differ from React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -68,44 +44,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Redux in a",
       "description": "What is the purpose of Redux in a React Native application, and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of Redux in a React Native application, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -129,44 +81,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between React Native and",
       "description": "What is the difference between React Native and native app development?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between React Native and native app development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -190,44 +118,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle navigation in a React",
       "description": "How do you handle navigation in a React Native application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle navigation in a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -251,44 +155,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of props and state",
       "description": "Explain the concept of props and state in React Native.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of props and state in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -312,44 +192,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The advantages and disadvantages of using",
       "description": "What are the advantages and disadvantages of using React Native for mobile app development?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages and disadvantages of using React Native for mobile app development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -373,34 +229,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You optimize the performance of a",
       "description": "How do you optimize the performance of a React Native application?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you optimize the performance of a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -408,10 +248,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -435,44 +272,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain the concept of",
       "description": "Can you explain the concept of bridging in React Native?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the concept of bridging in React Native?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -496,44 +309,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Some key differences between React Native",
       "description": "What are some key differences between React Native and Flutter?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some key differences between React Native and Flutter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -557,35 +346,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "DOM",
       "description": "What is the significance of the Virtual DOM in React Native, and how does it improve performance?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the significance of the Virtual DOM in React Native, and how does it improve performance?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "dom",
-        "reactnative"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["react-native", "react", "dom", "reactnative"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -593,10 +365,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -619,44 +388,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the StyleSheet component",
       "description": "What is the purpose of the StyleSheet component in React Native, and how does it differ from traditional CSS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the StyleSheet component in React Native, and how does it differ from traditional CSS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -680,44 +425,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of AsyncStorage in React",
       "description": "Explain the concept of AsyncStorage in React Native.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of AsyncStorage in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -741,44 +462,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle platform-specific code in a",
       "description": "How do you handle platform-specific code in a React Native project?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle platform-specific code in a React Native project?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -802,44 +499,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "HOCs (Higher-Order Components) in React Native,",
       "description": "What are HOCs (Higher-Order Components) in React Native, and why are they useful?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are HOCs (Higher-Order Components) in React Native, and why are they useful?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -863,44 +536,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of conditional rendering in",
       "description": "Explain the concept of conditional rendering in React Native and provide an example.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of conditional rendering in React Native and provide an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -924,44 +573,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redux Thunk, and why would you",
       "description": "What is Redux Thunk, and why would you use it in a React Native application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redux Thunk, and why would you use it in a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -985,34 +610,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You optimize images for a React",
       "description": "How do you optimize images for a React Native application to improve performance?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How do you optimize images for a React Native application to improve performance?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1020,10 +629,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1047,44 +653,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How you can handle deep linking",
       "description": "Explain how you can handle deep linking in a React Native app.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can handle deep linking in a React Native app.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1108,44 +690,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the FlatList component",
       "description": "What is the purpose of the FlatList component in React Native, and how does it differ from ScrollView for rendering lists?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the FlatList component in React Native, and how does it differ from ScrollView for rendering lists?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1169,44 +727,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"props drilling\" in",
       "description": "Explain the concept of \"props drilling\" in React Native. How can you avoid it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"props drilling\" in React Native. How can you avoid it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1230,44 +764,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the useEffect hook",
       "description": "What is the purpose of the useEffect hook in React Native, and how does it differ from class-based lifecycle methods?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the useEffect hook in React Native, and how does it differ from class-based lifecycle methods?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1291,44 +801,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the TouchableOpacity component",
       "description": "What is the purpose of the TouchableOpacity component in React Native?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the TouchableOpacity component in React Native?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1352,44 +838,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of navigation stacks and",
       "description": "Explain the concept of navigation stacks and navigation actions in React Navigation.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of navigation stacks and navigation actions in React Navigation.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1413,44 +875,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redux Saga, and why might you",
       "description": "What is Redux Saga, and why might you use it in a React Native application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redux Saga, and why might you use it in a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1474,44 +912,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle screen orientation changes in",
       "description": "How can you handle screen orientation changes in a React Native app?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you handle screen orientation changes in a React Native app?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1535,44 +949,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of error boundaries in",
       "description": "Explain the concept of error boundaries in React Native and how they help in error handling.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of error boundaries in React Native and how they help in error handling.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1596,34 +986,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The key considerations when optimizing the",
       "description": "What are the key considerations when optimizing the performance of animations in a React Native application?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What are the key considerations when optimizing the performance of animations in a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1631,10 +1005,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1658,44 +1029,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain the concept of",
       "description": "Can you explain the concept of hot-reloading in React Native?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the concept of hot-reloading in React Native?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1719,44 +1066,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "React Native Hooks, and how do",
       "description": "What are React Native Hooks, and how do they simplify component logic and state management?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are React Native Hooks, and how do they simplify component logic and state management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1780,44 +1103,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the key prop",
       "description": "What is the purpose of the key prop when rendering lists of items in React Native.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the key prop when rendering lists of items in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1841,44 +1140,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the react-native-vector-icons library",
       "description": "What is the purpose of the react-native-vector-icons library?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the react-native-vector-icons library?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1902,44 +1177,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the react-native-paper library",
       "description": "What is the purpose of the react-native-paper library?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the react-native-paper library?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -1963,44 +1214,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the React Native",
       "description": "What is the purpose of the React Native Debugger?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the React Native Debugger?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2024,44 +1251,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The benefits of using TypeScript with",
       "description": "What are the benefits of using TypeScript with React Native?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of using TypeScript with React Native?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2085,44 +1288,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Native Modules in",
       "description": "Explain the concept of Native Modules in React Native. When and why would you use them?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Native Modules in React Native. When and why would you use them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2146,44 +1325,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The benefits of using Fastlane in",
       "description": "What are the benefits of using Fastlane in React Native development, and how does it streamline the build and deployment process?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of using Fastlane in React Native development, and how does it streamline the build and deployment process?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2207,44 +1362,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"debugging in production\"",
       "description": "Explain the concept of \"debugging in production\" in the context of React Native.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"debugging in production\" in the context of React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2268,44 +1399,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"offline-first\" development in",
       "description": "Explain the concept of \"offline-first\" development in React Native.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"offline-first\" development in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2329,44 +1436,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the \"PermissionsAndroid\" module",
       "description": "What is the purpose of the \"PermissionsAndroid\" module in React Native.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the \"PermissionsAndroid\" module in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2390,44 +1473,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"CodePush\" in React",
       "description": "Explain the concept of \"CodePush\" in React Native and how it can be used for over-the-air updates.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"CodePush\" in React Native and how it can be used for over-the-air updates.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2451,44 +1510,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of NavigationOptions in React",
       "description": "Explain the concept of NavigationOptions in React Navigation and how you can use them to configure navigation behavior.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of NavigationOptions in React Navigation and how you can use them to configure navigation behavior.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2512,44 +1547,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The \"SafeAreaView\" component in React Native.",
       "description": "What is the \"SafeAreaView\" component in React Native.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the \"SafeAreaView\" component in React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2573,44 +1584,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Babel and its",
       "description": "Explain the concept of Babel and its role in a React Native project.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Babel and its role in a React Native project.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2634,44 +1621,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of ref in React",
       "description": "Explain the concept of ref in React Native, and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of ref in React Native, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2695,34 +1658,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You ensure your React Native application",
       "description": "How can you ensure your React Native application is accessible to users with disabilities, and what are some best practices for accessibility?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How can you ensure your React Native application is accessible to users with disabilities, and what are some best practices for accessibility?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2730,10 +1677,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2757,44 +1701,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You optimize the startup time of",
       "description": "How can you optimize the startup time of a React Native application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you optimize the startup time of a React Native application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2818,44 +1738,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of WebView in React",
       "description": "Explain the concept of WebView in React Native and when you might use it.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of WebView in React Native and when you might use it.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2879,44 +1775,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How you can handle offline data",
       "description": "Explain how you can handle offline data synchronization in a React Native app.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can handle offline data synchronization in a React Native app.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -2940,44 +1812,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of React Native CLI",
       "description": "What is the purpose of React Native CLI and Expo CLI.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of React Native CLI and Expo CLI.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",
@@ -3001,44 +1849,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How you can handle internationalization (i18n)",
       "description": "Explain how you can handle internationalization (i18n) and localization (l10n) in a React Native application.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can handle internationalization (i18n) and localization (l10n) in a React Native application.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react-native", "react", "reactnative"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "react-native",
-        "react",
-        "reactnative"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["mobile"],
+      "primaryTechStack": ["react-native", "react", "reactnative"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:33:45.726Z",
       "updatedAt": "2025-12-19T17:33:45.726Z",
       "createdBy": "admin",

@@ -45,12 +45,8 @@
           "name": "practice_matching_pairs_question_id_practice_questions_id_fk",
           "tableFrom": "practice_matching_pairs",
           "tableTo": "practice_questions",
-          "columnsFrom": [
-            "question_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["question_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -102,12 +98,8 @@
           "name": "practice_mcq_options_question_id_practice_questions_id_fk",
           "tableFrom": "practice_mcq_options",
           "tableTo": "practice_questions",
-          "columnsFrom": [
-            "question_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["question_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -343,12 +335,8 @@
           "name": "practice_system_design_charts_question_id_practice_questions_id_fk",
           "tableFrom": "practice_system_design_charts",
           "tableTo": "practice_questions",
-          "columnsFrom": [
-            "question_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["question_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }

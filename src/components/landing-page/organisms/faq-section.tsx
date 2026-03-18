@@ -67,7 +67,7 @@ export default function FaqSection() {
               <button
                 type="button"
                 onClick={() => toggleItem(faq.question)}
-                className="w-full flex items-center justify-between gap-4 p-6 outline-none focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg text-left"
+                className="w-full flex items-center justify-between bg-card gap-4 p-6 outline-none focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg text-left"
                 aria-expanded={openItem === faq.question}
                 aria-controls={`faq-answer-${faq.question.replace(/\s+/g, "-").toLowerCase()}`}
               >
@@ -83,7 +83,7 @@ export default function FaqSection() {
               </button>
               <div
                 id={`faq-answer-${faq.question.replace(/\s+/g, "-").toLowerCase()}`}
-                className="overflow-hidden transition-all duration-300 ease-in-out"
+                className="overflow-hidden bg-card  rounded-xl transition-all duration-300 ease-in-out"
                 style={{
                   maxHeight: openItem === faq.question ? "500px" : "0px",
                 }}

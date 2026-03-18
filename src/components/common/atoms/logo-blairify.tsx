@@ -3,9 +3,16 @@
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 
-type LogoVariant = "iconOnly" | "textOnly" | "iconText" | "iconTextVertical";
+type LogoVariant =
+  | "iconOnly"
+  | "textOnly"
+  | "iconText"
+  | "iconTextVertical"
+  | "transparent";
 
 interface LogoProps {
   variant?: LogoVariant;
@@ -15,6 +22,8 @@ interface LogoProps {
 }
 
 const ICON_PATH = "/icon0.svg";
+const TRANSPARENT_ICON_PATH_DARK = "/assets/white-black-logo.svg";
+const TRANSPARENT_ICON_PATH_LIGHT = "/assets/black-white-logo.svg";
 
 export const LogoText = () => (
   <Typography.Heading3>Blairify</Typography.Heading3>
@@ -26,16 +35,42 @@ export default function Logo({
   textClassName = "",
   iconSize = 22,
 }: LogoProps) {
-  const renderIcon = () => (
-    <Image
-      src={ICON_PATH}
-      alt="Blairify logo icon"
-      width={iconSize}
-      height={iconSize}
-      className="shrink-0 mr-1"
-      priority
-    />
-  );
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Determine the current theme (dark/light)
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const isDarkMode = mounted && currentTheme === "dark";
+
+  const renderIcon = () => {
+    let iconPath = ICON_PATH;
+
+    if (variant === "transparent") {
+      iconPath = isDarkMode
+        ? TRANSPARENT_ICON_PATH_DARK
+        : TRANSPARENT_ICON_PATH_LIGHT;
+    }
+
+    return (
+      <Image
+        key={iconPath}
+        src={iconPath}
+        alt="Blairify logo icon"
+        width={iconSize}
+        height={iconSize}
+        className={clsx(
+          "shrink-0 mr-1",
+          variant === "transparent" && "object-contain",
+        )}
+        priority
+      />
+    );
+  };
 
   const renderText = () => (
     <div className={clsx(textClassName)}>
@@ -56,6 +91,8 @@ export default function Logo({
             {renderText()}
           </div>
         );
+      case "transparent":
+        return renderIcon();
       default:
         return (
           <div className="flex items-center gap-2">

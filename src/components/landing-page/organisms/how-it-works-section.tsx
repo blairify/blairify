@@ -1,4 +1,6 @@
-import { FileSearch, Radar, Terminal } from "lucide-react";
+import { Terminal } from "lucide-react";
+import { TbListDetails } from "react-icons/tb";
+import { VscFeedback } from "react-icons/vsc";
 import { Typography } from "@/components/common/atoms/typography";
 
 export default function HowItWorksSection() {
@@ -37,7 +39,7 @@ export default function HowItWorksSection() {
                 className="absolute inset-0 rounded-2xl bg-primary/10 blur-xl"
                 aria-hidden="true"
               />
-              <FileSearch
+              <TbListDetails
                 className="size-7 text-muted-foreground"
                 aria-hidden="true"
               />
@@ -77,7 +79,7 @@ export default function HowItWorksSection() {
                 className="absolute inset-0 rounded-2xl bg-primary/10 blur-xl"
                 aria-hidden="true"
               />
-              <Radar
+              <VscFeedback
                 className="size-7 text-muted-foreground"
                 aria-hidden="true"
               />

@@ -1,14 +1,14 @@
 import "dotenv/config";
-import fs from "fs";
-import path from "path";
 import { spawnSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
 
 const parseArgs = (argv: string[]) => {
   const args = argv.slice(2);
   const dryRun = args.includes("--dry-run");
   const continueOnError = args.includes("--continue-on-error");
 
-  const fromIndex = args.findIndex((a) => a === "--from");
+  const fromIndex = args.indexOf("--from");
   const from = fromIndex >= 0 ? (args[fromIndex + 1] ?? null) : null;
 
   return { dryRun, continueOnError, from };
@@ -34,7 +34,9 @@ const runImport = (filePath: string, opts: { dryRun: boolean }) => {
   });
 
   if (res.status !== 0) {
-    throw new Error(`Import failed for ${filePath} (exit ${res.status ?? "unknown"})`);
+    throw new Error(
+      `Import failed for ${filePath} (exit ${res.status ?? "unknown"})`,
+    );
   }
 };
 
@@ -85,7 +87,9 @@ async function main() {
     const details = failures
       .map((f) => `- ${path.relative(process.cwd(), f.file)}: ${f.error}`)
       .join("\n");
-    throw new Error(`Bulk import finished with ${failures.length} failure(s):\n${details}`);
+    throw new Error(
+      `Bulk import finished with ${failures.length} failure(s):\n${details}`,
+    );
   }
 
   console.log("\n✅ Done importing all prepared question banks");

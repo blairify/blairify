@@ -1,4 +1,6 @@
-import { Bot, HeartPulse, TreeDeciduous } from "lucide-react";
+import { AiOutlineBug } from "react-icons/ai";
+import { SiOpenai } from "react-icons/si";
+import { VscSymbolStructure } from "react-icons/vsc";
 import { Typography } from "@/components/common/atoms/typography";
 
 export default function ProblemSection() {
@@ -16,19 +18,19 @@ export default function ProblemSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="max-w-4xl mx-auto text-center mb-12 sm:mb-16">
           <Typography.HeroSubHeading id="problem-heading" className="mb-4">
-            Why do you fail the technical stage?
+            Why people fail the technical stage?
           </Typography.HeroSubHeading>
-          <Typography.Body color="secondary">
+          <Typography.Body>
             Most candidates don't fail because of a lack of knowledge. They fail
             due to stress and lack of confidence.
           </Typography.Body>
         </header>
 
         <div className="grid gap-6 md:grid-cols-3">
-          <article className="rounded-2xl border border-border/70 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
-            <div className="size-12 sm:size-14 rounded-2xl border border-border bg-background flex items-center justify-center">
-              <HeartPulse
-                className="size-6 sm:size-7 text-muted-foreground"
+          <article className="rounded-2xl  bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
+            <div className="size-12 sm:size-14 rounded-2xl  bg-background flex items-center justify-left">
+              <AiOutlineBug
+                className="size-10 text-muted-foreground"
                 aria-hidden="true"
               />
             </div>
@@ -42,10 +44,10 @@ export default function ProblemSection() {
             </Typography.Body>
           </article>
 
-          <article className="rounded-2xl border border-border/70 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
-            <div className="size-12 sm:size-14 rounded-2xl border border-border bg-background flex items-center justify-center">
-              <Bot
-                className="size-6 sm:size-7 text-muted-foreground"
+          <article className="rounded-2xl  bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
+            <div className="size-14 sm:size-14 rounded-2xl bg-background flex items-center justify-left">
+              <SiOpenai
+                className="size-10 text-muted-foreground"
                 aria-hidden="true"
               />
             </div>
@@ -59,10 +61,10 @@ export default function ProblemSection() {
             </Typography.Body>
           </article>
 
-          <article className="rounded-2xl border border-border/70 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
-            <div className="size-12 sm:size-14 rounded-2xl border border-border bg-background flex items-center justify-center">
-              <TreeDeciduous
-                className="size-6 sm:size-7 text-primary"
+          <article className="rounded-2xl  bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
+            <div className="size-12 sm:size-14 rounded-2xl  bg-background flex items-center justify-left">
+              <VscSymbolStructure
+                className="size-10 text-muted-foreground"
                 aria-hidden="true"
               />
             </div>

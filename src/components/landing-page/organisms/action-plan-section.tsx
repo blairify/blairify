@@ -1,8 +1,57 @@
-import { BookOpen, CheckCircle2, FileText } from "lucide-react";
-import Link from "next/link";
+"use client";
+
+import { CheckCircle2 } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 
+const LIGHT_VIDEO_SOURCE = "/devices/demo-mac-light.mp4";
+const DARK_VIDEO_SOURCE = "/devices/demo-mac-dark.mp4";
+
 export default function ActionPlanSection() {
+  const { theme, systemTheme } = useTheme();
+  const [videoSrc, setVideoSrc] = useState(LIGHT_VIDEO_SOURCE);
+  const [mounted, setMounted] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const lightVideoElement = document.createElement("video");
+    lightVideoElement.preload = "auto";
+    lightVideoElement.src = LIGHT_VIDEO_SOURCE;
+    lightVideoElement.load();
+
+    const darkVideoElement = document.createElement("video");
+    darkVideoElement.preload = "auto";
+    darkVideoElement.src = DARK_VIDEO_SOURCE;
+    darkVideoElement.load();
+
+    return () => {
+      lightVideoElement.src = "";
+      darkVideoElement.src = "";
+    };
+  }, [mounted]);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const currentTheme = theme === "system" ? systemTheme : theme;
+    const isDark = currentTheme === "dark";
+    const newVideoSrc = isDark ? DARK_VIDEO_SOURCE : LIGHT_VIDEO_SOURCE;
+
+    setVideoLoaded(false);
+    setVideoSrc(newVideoSrc);
+  }, [theme, systemTheme, mounted]);
+
+  const handleVideoLoad = () => {
+    setVideoLoaded(true);
+  };
+
   return (
     <section
       id="action-plan"
@@ -11,15 +60,18 @@ export default function ActionPlanSection() {
       data-analytics-id="home-action-plan"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_90%_20%,rgba(34,197,94,0.06),transparent_60%)]"
+        className="pointer-events-none absolute inset-0 "
         aria-hidden="true"
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-2 items-center">
           <div>
-            <Typography.Heading2 id="action-plan-heading" className="mt-5 mb-4">
+            <Typography.HeroSubHeading
+              id="action-plan-heading"
+              className="mt-5 mb-4"
+            >
               Fix gaps with a targeted study plan.
-            </Typography.Heading2>
+            </Typography.HeroSubHeading>
             <Typography.Body color="secondary" className="mb-6">
               Your report should tell you what to learn next. Blairify flags the
               specific topics you missed and links you to high-signal material.
@@ -47,61 +99,34 @@ export default function ActionPlanSection() {
             </ul>
           </div>
 
-          <aside className="rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm relative transition-all hover:shadow-md">
-            <Typography.Heading3 className="mb-4">
-              Your weakest areas
-            </Typography.Heading3>
-
-            <div className="space-y-4">
-              <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-4 shadow-sm transition-all hover:shadow-md">
-                <Typography.BodyBold>
-                  Distributed Transactions (SAGA Pattern)
-                </Typography.BodyBold>
-                <div className="mt-3 rounded-xl border border-border bg-background p-3">
-                  <Link
-                    href="#pricing"
-                    className="flex items-center justify-between gap-3 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2 rounded"
-                  >
-                    <div className="flex items-center gap-2">
-                      <BookOpen
-                        className="size-4 text-primary"
-                        aria-hidden="true"
-                      />
-                      <Typography.BodyMedium color="brand">
-                        Read: Microservices Patterns (Ch. 4)
-                      </Typography.BodyMedium>
-                    </div>
-                    <Typography.CaptionMedium color="secondary">
-                      ↗
-                    </Typography.CaptionMedium>
-                  </Link>
+          <aside className="relative bg-transparent overflow-hidden py-10">
+            <div className="relative w-full h-64 md:h-80 lg:h-96">
+              {/* Placeholder for loading state */}
+              {!videoLoaded && (
+                <div className="absolute inset-0 bg-muted/20 rounded-lg animate-pulse flex items-center justify-center">
+                  <Typography.Body color="secondary">
+                    Loading video...
+                  </Typography.Body>
                 </div>
-              </div>
+              )}
 
-              <div className="rounded-2xl border border-border bg-background/80 backdrop-blur p-4 shadow-sm transition-all hover:shadow-md">
-                <Typography.BodyBold>
-                  React Component Re-renders
-                </Typography.BodyBold>
-                <div className="mt-3 rounded-xl border border-border bg-background p-3">
-                  <Link
-                    href="#pricing"
-                    className="flex items-center justify-between gap-3 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2 rounded"
-                  >
-                    <div className="flex items-center gap-2">
-                      <FileText
-                        className="size-4 text-primary"
-                        aria-hidden="true"
-                      />
-                      <Typography.BodyMedium color="brand">
-                        React Dev Docs: useMemo optimization
-                      </Typography.BodyMedium>
-                    </div>
-                    <Typography.CaptionMedium color="secondary">
-                      ↗
-                    </Typography.CaptionMedium>
-                  </Link>
-                </div>
-              </div>
+              <video
+                key={videoSrc}
+                className={`w-full h-full object-cover pointer-events-none bg-transparent rounded-lg transition-opacity duration-300 ${
+                  videoLoaded ? "opacity-100" : "opacity-0"
+                }`}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                aria-label="Study plan demonstration video"
+                onLoad={handleVideoLoad}
+                onCanPlay={handleVideoLoad}
+              >
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </aside>
         </div>

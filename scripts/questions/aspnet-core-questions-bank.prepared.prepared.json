@@ -12,33 +12,15 @@
       "description": "What is ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -67,34 +49,15 @@
       "description": "Explain the difference between ASP.NET Core and ASP.NET Framework.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between ASP.NET Core and ASP.NET Framework.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -123,33 +86,15 @@
       "description": "What is the purpose of the Program class?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the Program class?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -178,33 +123,15 @@
       "description": "What are the benefits of ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -233,34 +160,15 @@
       "description": "Explain the concept of middleware in ASP.NET Core. Can you provide an example of how to create custom middleware?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of middleware in ASP.NET Core. Can you provide an example of how to create custom middleware?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -289,34 +197,15 @@
       "description": "What is Dependency Injection, and how is it implemented in ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Dependency Injection, and how is it implemented in ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "cybersecurity",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "cybersecurity", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -345,33 +234,15 @@
       "description": "Describe the role of the Startup class in ASP.NET Core.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the role of the Startup class in ASP.NET Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -400,12 +271,8 @@
       "description": "Explain the request processing pipeline in ASP.NET Core.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the request processing pipeline in ASP.NET Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -417,19 +284,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -458,33 +315,15 @@
       "description": "What is routing in ASP.NET Core? How can you define routes?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is routing in ASP.NET Core? How can you define routes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -513,33 +352,15 @@
       "description": "What is Razor Pages in ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Razor Pages in ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -568,34 +389,15 @@
       "description": "What is Entity Framework Core, and how is it different from Entity Framework?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Entity Framework Core, and how is it different from Entity Framework?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -624,33 +426,15 @@
       "description": "How do you handle configuration in ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle configuration in ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -679,34 +463,15 @@
       "description": "Explain the concept of Tag Helpers in ASP.NET Core.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Tag Helpers in ASP.NET Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -735,33 +500,15 @@
       "description": "What is the purpose of the wwwroot folder?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the wwwroot folder?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -790,33 +537,15 @@
       "description": "What is NuGet package manager?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is NuGet package manager?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -845,34 +574,15 @@
       "description": "Explain the MVC (Model-View-Controller) pattern.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the MVC (Model-View-Controller) pattern.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -901,34 +611,15 @@
       "description": "What are the roles of Model, View, and Controller in ASP.NET Core MVC?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the roles of Model, View, and Controller in ASP.NET Core MVC?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -957,34 +648,15 @@
       "description": "What is Model Binding in ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Model Binding in ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1013,33 +685,15 @@
       "description": "What is an Action Method in ASP.NET Core MVC?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an Action Method in ASP.NET Core MVC?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1068,33 +722,15 @@
       "description": "What are the benefits of using ASP.NET Core for microservices architecture?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of using ASP.NET Core for microservices architecture?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1123,34 +759,15 @@
       "description": "What is the purpose of the appsettings.json file in an ASP.NET Core application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the appsettings.json file in an ASP.NET Core application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1179,34 +796,15 @@
       "description": "Differentiate between app.Run and app.Use in middleware configuration.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Differentiate between app.Run and app.Use in middleware configuration.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1235,33 +833,15 @@
       "description": "What is a Request delegate in ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Request delegate in ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1290,26 +870,13 @@
       "description": "How does ASP.NET Core support cross-site request forgery (CSRF) protection, and what mechanisms can be used to prevent CSRF attacks?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does ASP.NET Core support cross-site request forgery (CSRF) protection, and what mechanisms can be used to prevent CSRF attacks?\" Requirements: - Define the vulnerability and the attack vector - Concrete prevention/mitigation techniques Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "security"
-      ],
-      "tags": [
-        "aspnet-core",
-        "csrf",
-        "security"
-      ],
+      "subtopics": ["security"],
+      "tags": ["aspnet-core", "csrf", "security"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "cybersecurity",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
+      "positions": ["backend", "cybersecurity", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1317,10 +884,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1348,34 +912,15 @@
       "description": "Explain the role of the IActionResult interface in ASP.NET Core. Provide examples of different types of action results.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the IActionResult interface in ASP.NET Core. Provide examples of different types of action results.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1404,34 +949,15 @@
       "description": "How does ASP.NET Core handle authentication and authorization?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does ASP.NET Core handle authentication and authorization?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "cybersecurity",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "cybersecurity", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1460,12 +986,8 @@
       "description": "Explain Session and State Management options in ASP.NET Core.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Session and State Management options in ASP.NET Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1476,19 +998,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1517,34 +1029,15 @@
       "description": "Explain the concept of model binding in ASP.NET Core. How does it work, and how can you customize it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of model binding in ASP.NET Core. How does it work, and how can you customize it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1573,34 +1066,15 @@
       "description": "What is the role of the app.UseEndpoints method in the Startup class?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the app.UseEndpoints method in the Startup class?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1629,34 +1103,15 @@
       "description": "Explain the concept of View Components in ASP.NET Core. How are they different from partial views?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of View Components in ASP.NET Core. How are they different from partial views?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1685,34 +1140,15 @@
       "description": "How does ASP.NET Core handle state management? Explain the differences between TempData, ViewData, and ViewBag.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does ASP.NET Core handle state management? Explain the differences between TempData, ViewData, and ViewBag.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1741,33 +1177,15 @@
       "description": "What are the different service lifetimes in ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the different service lifetimes in ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1796,33 +1214,15 @@
       "description": "What is the purpose of the IHostedService interface in ASP.NET Core, and how can it be used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the IHostedService interface in ASP.NET Core, and how can it be used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1851,34 +1251,15 @@
       "description": "What is the purpose of the app.Map and app.MapWhen methods in ASP.NET Core, and how are they used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the app.Map and app.MapWhen methods in ASP.NET Core, and how are they used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1907,34 +1288,15 @@
       "description": "Explain the concept of Health Checks in ASP.NET Core. How are they implemented, and why are they important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Health Checks in ASP.NET Core. How are they implemented, and why are they important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -1963,15 +1325,8 @@
       "description": "How can you handle cross-origin resource sharing (CORS) in an ASP.NET Core application?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How can you handle cross-origin resource sharing (CORS) in an ASP.NET Core application?\" Requirements: - Define the vulnerability and the attack vector - Concrete prevention/mitigation techniques Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "security"
-      ],
-      "tags": [
-        "aspnet-core",
-        "cors",
-        "http",
-        "security"
-      ],
+      "subtopics": ["security"],
+      "tags": ["aspnet-core", "cors", "http", "security"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1982,9 +1337,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
+      "primaryTechStack": ["aspnet-core"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1992,10 +1345,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2023,12 +1373,8 @@
       "description": "Explain the differences between Inversion of Control (IoC) and Dependency Injection (DI).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between Inversion of Control (IoC) and Dependency Injection (DI).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2039,19 +1385,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2080,34 +1416,15 @@
       "description": "What is the purpose of the appsettings.Development.json and appsettings.Production.json files in an ASP.NET Core application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the appsettings.Development.json and appsettings.Production.json files in an ASP.NET Core application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2136,34 +1453,15 @@
       "description": "How does ASP.NET Core support logging, and what are the different log levels available?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does ASP.NET Core support logging, and what are the different log levels available?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2192,34 +1490,15 @@
       "description": "What is the purpose of the async and await keywords in C#? How are they used in ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the async and await keywords in C#? How are they used in ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2248,12 +1527,8 @@
       "description": "Explain the concept of middleware pipeline termination in ASP.NET Core. How can you terminate the pipeline and short-circuit further processing?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concept of middleware pipeline termination in ASP.NET Core. How can you terminate the pipeline and short-circuit further processing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2265,9 +1540,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
+      "primaryTechStack": ["aspnet-core"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2275,10 +1548,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2307,34 +1577,15 @@
       "description": "What is the purpose of the app.UseExceptionHandler method in ASP.NET Core, and how can it be used to handle errors in the application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the app.UseExceptionHandler method in ASP.NET Core, and how can it be used to handle errors in the application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2363,33 +1614,15 @@
       "description": "What is the purpose of the AllowAnonymous attribute in ASP.NET Core, and when would you use it in your controllers or action methods?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the AllowAnonymous attribute in ASP.NET Core, and when would you use it in your controllers or action methods?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2418,34 +1651,15 @@
       "description": "How does ASP.NET Core support data validation, and what are the validation attributes available in the framework?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does ASP.NET Core support data validation, and what are the validation attributes available in the framework?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2474,12 +1688,8 @@
       "description": "Explain the purpose of the ConfigureServices method in the Startup class. How is it used to configure services in an ASP.NET Core application?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the purpose of the ConfigureServices method in the Startup class. How is it used to configure services in an ASP.NET Core application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2490,9 +1700,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
+      "primaryTechStack": ["aspnet-core"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2500,10 +1708,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2532,12 +1737,8 @@
       "description": "What is the purpose of the app.UseHttpsRedirection middleware, and how can it be configured to enforce HTTPS in an ASP.NET Core application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the app.UseHttpsRedirection middleware, and how can it be configured to enforce HTTPS in an ASP.NET Core application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2548,19 +1749,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2589,34 +1780,15 @@
       "description": "What is the purpose of the ModelState object in ASP.NET Core, and how is it used for validation?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the ModelState object in ASP.NET Core, and how is it used for validation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2645,12 +1817,8 @@
       "description": "Explain the role of the IActionFilter and IAuthorizationFilter interfaces in ASP.NET Core.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the IActionFilter and IAuthorizationFilter interfaces in ASP.NET Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2661,19 +1829,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2702,12 +1860,8 @@
       "description": "Explain the role of the DbContext in Entity Framework Core. How does it relate to database interactions in an ASP.NET Core application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the DbContext in Entity Framework Core. How does it relate to database interactions in an ASP.NET Core application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2719,19 +1873,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2760,34 +1904,15 @@
       "description": "How can you handle exceptions globally in an ASP.NET Core application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you handle exceptions globally in an ASP.NET Core application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2816,34 +1941,15 @@
       "description": "Explain the role of the UseStaticFiles middleware in ASP.NET Core.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the UseStaticFiles middleware in ASP.NET Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2872,34 +1978,15 @@
       "description": "What is the purpose of the ModelState.AddModelError method in ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the ModelState.AddModelError method in ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2928,12 +2015,8 @@
       "description": "Explain the purpose of the app.UseDeveloperExceptionPage middleware in ASP.NET Core.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the app.UseDeveloperExceptionPage middleware in ASP.NET Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2944,19 +2027,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -2985,34 +2058,15 @@
       "description": "Explain the purpose of the FromServices attribute in ASP.NET Core.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the FromServices attribute in ASP.NET Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3041,12 +2095,8 @@
       "description": "What is the purpose of the app.UseCors middleware in ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the app.UseCors middleware in ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3057,19 +2107,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3098,34 +2138,15 @@
       "description": "Explain the purpose of the ITempDataDictionary in ASP.NET Core.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the ITempDataDictionary in ASP.NET Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3154,12 +2175,8 @@
       "description": "Explain the purpose of the app.UseMvc method in ASP.NET Core, and how is it used to configure the MVC framework in the middleware pipeline?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the app.UseMvc method in ASP.NET Core, and how is it used to configure the MVC framework in the middleware pipeline?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3172,19 +2189,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3213,24 +2220,13 @@
       "description": "Explain the purpose of the [ApiController] attribute in ASP.NET Core controllers. How does it affect the behavior of a controller and its actions?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the purpose of the [ApiController] attribute in ASP.NET Core controllers. How does it affect the behavior of a controller and its actions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -3238,10 +2234,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3270,23 +2263,13 @@
       "description": "What is the purpose of the [Produces] attribute in ASP.NET Core controllers? How can it be used to specify the content types a controller action can produce?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the purpose of the [Produces] attribute in ASP.NET Core controllers? How can it be used to specify the content types a controller action can produce?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -3294,10 +2277,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3326,12 +2306,8 @@
       "description": "Explain the differences between services.AddSingleton, services.AddScoped, and services.AddTransient in ASP.NET Core dependency injection. When would you use each?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the differences between services.AddSingleton, services.AddScoped, and services.AddTransient in ASP.NET Core dependency injection. When would you use each?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3342,9 +2318,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
+      "primaryTechStack": ["aspnet-core"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -3352,10 +2326,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3373,33 +2344,15 @@
       "description": "How does ASP.NET Core support versioning for APIs?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does ASP.NET Core support versioning for APIs?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3428,35 +2381,15 @@
       "description": "What is the role of the UseSwagger and UseSwaggerUI methods in ASP.NET Core, and how can they be used to document and test APIs?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the UseSwagger and UseSwaggerUI methods in ASP.NET Core, and how can they be used to document and test APIs?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "aspnet-core",
-        "dom"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["aspnet-core", "dom"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3484,34 +2417,15 @@
       "description": "Explain the purpose of the IWebHostEnvironment interface in ASP.NET Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the IWebHostEnvironment interface in ASP.NET Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3540,12 +2454,8 @@
       "description": "Explain the purpose of the ModelState.IsValid property in ASP.NET Core. How is it used in form validation?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the ModelState.IsValid property in ASP.NET Core. How is it used in form validation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3556,19 +2466,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3597,34 +2497,15 @@
       "description": "What is the purpose of the ITagHelper interface in ASP.NET Core, and how can it be used to extend HTML functionality in Razor views?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the ITagHelper interface in ASP.NET Core, and how can it be used to extend HTML functionality in Razor views?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3653,12 +2534,8 @@
       "description": "Explain the role of the app.UseHsts middleware in ASP.NET Core, and how can it enhance the security of a web application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the app.UseHsts middleware in ASP.NET Core, and how can it enhance the security of a web application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3670,19 +2547,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3711,12 +2578,8 @@
       "description": "Explain the role of the app.UseForwardedHeaders middleware in ASP.NET Core.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the app.UseForwardedHeaders middleware in ASP.NET Core.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aspnet-core"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aspnet-core"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3728,19 +2591,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aspnet-core"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",
@@ -3769,14 +2622,8 @@
       "description": "How does ASP.NET Core support cross-site scripting (XSS) protection, and what measures can be taken to prevent XSS attacks in an application?",
       "prompt": "You are evaluating a senior-level candidate. Answer the question: \"How does ASP.NET Core support cross-site scripting (XSS) protection, and what measures can be taken to prevent XSS attacks in an application?\" Requirements: - Define the vulnerability and the attack vector - Concrete prevention/mitigation techniques Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "security"
-      ],
-      "tags": [
-        "aspnet-core",
-        "xss",
-        "security"
-      ],
+      "subtopics": ["security"],
+      "tags": ["aspnet-core", "xss", "security"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3787,9 +2634,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aspnet-core"
-      ],
+      "primaryTechStack": ["aspnet-core"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -3797,10 +2642,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:46:48.756Z",
       "updatedAt": "2025-12-19T17:46:48.756Z",
       "createdBy": "admin",

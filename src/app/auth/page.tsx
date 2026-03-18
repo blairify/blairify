@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import AuthForm from "@/components/landing-page/organisms/auth-form";
+import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
 type AuthMode = "login" | "register";
 type AuthAudience = "individual" | "enterprise";
@@ -44,13 +45,18 @@ export default function AuthPage() {
   };
 
   return (
-    <div data-analytics-id="auth-page">
-      <AuthForm
-        mode={mode}
-        onModeChange={handleModeChange}
-        audience={audience}
-        onAudienceChange={handleAudienceChange}
-      />
+    <div className="min-h-screen bg-background" data-analytics-id="auth-page">
+      <div className="md:hidden">
+        <Navbar scrollThreshold={0} />
+      </div>
+      <main>
+        <AuthForm
+          mode={mode}
+          onModeChange={handleModeChange}
+          audience={audience}
+          onAudienceChange={handleAudienceChange}
+        />
+      </main>
     </div>
   );
 }

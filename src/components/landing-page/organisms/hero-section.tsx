@@ -308,8 +308,9 @@ function HeroInterviewCard({
             </div>
             <Button
               type="submit"
+              color="primary"
               disabled={!canStartFromUrl}
-              className="h-8 px-4 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 border-zinc-700"
+              className="h-8 px-4"
               aria-label="Start interview from job offer link"
             >
               Run
@@ -350,7 +351,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center lg:min-h-[78vh] px-2">
           <div className="space-y-5 text-center lg:text-left animate-in slide-in-from-left-8 duration-700 max-w-xl lg:max-w-none mx-auto lg:mx-0">
             <Typography.HeroHeading1 id="hero-heading">
-              Simulate real interview.
+              Simulate real interviews.
             </Typography.HeroHeading1>
             <Typography.Body
               color="secondary"

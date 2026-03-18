@@ -7,44 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Flutter, and why is it used",
       "description": "What is Flutter, and why is it used for mobile app development?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Flutter, and why is it used for mobile app development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -67,21 +43,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The key differences between Flutter and",
       "description": "Explain the key differences between Flutter and other mobile app development frameworks like React Native.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the key differences between Flutter and other mobile app development frameworks like React Native.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -92,20 +60,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -128,44 +85,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Widget in Flutter",
       "description": "What is a Widget in Flutter?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Widget in Flutter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -188,21 +121,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Stateful and Stateless",
       "description": "Explain the concept of Stateful and Stateless widgets in Flutter.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Stateful and Stateless widgets in Flutter.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -213,20 +138,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -249,44 +163,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The setState method in Flutter, and",
       "description": "What is the setState method in Flutter, and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the setState method in Flutter, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -309,21 +199,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Flutter handle platform-specific code (Android",
       "description": "How does Flutter handle platform-specific code (Android vs. iOS) within a single codebase?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Flutter handle platform-specific code (Android vs. iOS) within a single codebase?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -334,20 +216,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -370,44 +241,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Flutter widget lifecycle.",
       "description": "Describe the Flutter widget lifecycle.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the Flutter widget lifecycle.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -430,44 +277,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the BuildContext parameter",
       "description": "What is the purpose of the BuildContext parameter in Flutter widgets?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the BuildContext parameter in Flutter widgets?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -490,21 +313,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"Routing\" in Flutter",
       "description": "Explain the concept of \"Routing\" in Flutter and how you can navigate between screens.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"Routing\" in Flutter and how you can navigate between screens.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -515,20 +330,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -551,44 +355,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle state management in Flutter",
       "description": "How do you handle state management in Flutter?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle state management in Flutter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -611,44 +391,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A StatefulWidget, and when would you",
       "description": "What is a StatefulWidget, and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a StatefulWidget, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -671,44 +427,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Flutter package, and how do",
       "description": "What is a Flutter package, and how do you include external packages in your project?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Flutter package, and how do you include external packages in your project?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -731,21 +463,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between mainAxisAlignment and crossAxisAlignment",
       "description": "Describe the difference between mainAxisAlignment and crossAxisAlignment in Flutter's Row and Column widgets.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the difference between mainAxisAlignment and crossAxisAlignment in Flutter's Row and Column widgets.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -756,20 +480,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -792,44 +505,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Flutter's Hero animation",
       "description": "What is Flutter's Hero animation?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Flutter's Hero animation?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -852,21 +541,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of GlobalKey in Flutter",
       "description": "Explain the concept of GlobalKey in Flutter?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of GlobalKey in Flutter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -877,20 +558,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -913,21 +583,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain the concept of",
       "description": "Can you explain the concept of state restoration in Flutter?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the concept of state restoration in Flutter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -938,20 +600,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -974,44 +625,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Flutter's InkWell widget",
       "description": "What is Flutter's InkWell widget?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Flutter's InkWell widget?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1034,44 +661,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle different screen sizes and",
       "description": "How do you handle different screen sizes and orientations in Flutter to ensure a responsive user interface?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle different screen sizes and orientations in Flutter to ensure a responsive user interface?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1094,21 +697,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain the concept of",
       "description": "Can you explain the concept of async and await in Dart, and how they are used for asynchronous programming in Flutter?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the concept of async and await in Dart, and how they are used for asynchronous programming in Flutter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1119,20 +714,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1155,21 +739,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Some best practices for optimizing the",
       "description": "What are some best practices for optimizing the performance of a Flutter app?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What are some best practices for optimizing the performance of a Flutter app?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1180,9 +756,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
+      "primaryTechStack": ["flutter"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1190,10 +764,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1216,44 +787,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the Key property",
       "description": "What is the purpose of the Key property in Flutter widgets, and when should you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the Key property in Flutter widgets, and when should you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1276,44 +823,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Flutter PageRoute",
       "description": "What is a Flutter PageRoute?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Flutter PageRoute?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1336,21 +859,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle user input validation in",
       "description": "How do you handle user input validation in Flutter forms?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle user input validation in Flutter forms?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1361,20 +876,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1397,21 +901,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle data persistence in Flutter",
       "description": "How do you handle data persistence in Flutter?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle data persistence in Flutter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1422,20 +918,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1458,44 +943,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Widget testing in Flutter, and how",
       "description": "What is Widget testing in Flutter, and how does it differ from Integration testing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Widget testing in Flutter, and how does it differ from Integration testing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1518,44 +979,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A situation where you faced a",
       "description": "Describe a situation where you faced a challenging bug in a Flutter project and how you approached solving it.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe a situation where you faced a challenging bug in a Flutter project and how you approached solving it.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1578,21 +1015,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Widget composition in",
       "description": "Explain the concept of Widget composition in Flutter and why it is important.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Widget composition in Flutter and why it is important.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1603,20 +1032,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1639,44 +1057,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es the Provider package work for",
       "description": "How does the Provider package work for state management in Flutter,?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does the Provider package work for state management in Flutter,?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1699,21 +1093,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain the concept of",
       "description": "Can you explain the concept of Lifting State Up?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the concept of Lifting State Up?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1724,20 +1110,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1760,44 +1135,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Flutter handle the management of",
       "description": "How does Flutter handle the management of assets, such as images, fonts, and custom icons, in an app?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Flutter handle the management of assets, such as images, fonts, and custom icons, in an app?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1820,21 +1171,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Flutter Widgets Rebuild",
       "description": "Explain the concept of Flutter Widgets Rebuild and how you can optimize widget rebuilding for performance.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concept of Flutter Widgets Rebuild and how you can optimize widget rebuilding for performance.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1846,9 +1189,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
+      "primaryTechStack": ["flutter"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1856,10 +1197,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1882,21 +1220,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The role of the main function",
       "description": "Explain the role of the main function in a Flutter application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of the main function in a Flutter application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1907,20 +1237,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -1943,44 +1262,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Flutter's BottomNavigationBar, and how can it",
       "description": "What is Flutter's BottomNavigationBar, and how can it be used to implement bottom navigation in an app?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Flutter's BottomNavigationBar, and how can it be used to implement bottom navigation in an app?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2003,44 +1298,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the Future and",
       "description": "What is the purpose of the Future and Stream classes in Dart?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the Future and Stream classes in Dart?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2063,44 +1334,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You implement lazy loading (pagination) of",
       "description": "How do you implement lazy loading (pagination) of data in a Flutter app?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you implement lazy loading (pagination) of data in a Flutter app?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2123,21 +1370,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain the concept of",
       "description": "Can you explain the concept of Implicit Animations and Explicit Animations in Flutter?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the concept of Implicit Animations and Explicit Animations in Flutter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2148,20 +1387,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2184,21 +1412,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You test a Flutter application, and",
       "description": "How would you test a Flutter application, and what tools and libraries are available for writing unit tests, widget tests, and integration tests in Flutter?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How would you test a Flutter application, and what tools and libraries are available for writing unit tests, widget tests, and integration tests in Flutter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2209,9 +1429,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
+      "primaryTechStack": ["flutter"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2219,10 +1437,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2245,21 +1460,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain the concept of",
       "description": "Can you explain the concept of Flutter's widget tree?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the concept of Flutter's widget tree?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2270,20 +1477,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2306,21 +1502,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Flutter's AsyncSnapshot and how it is",
       "description": "Explain Flutter's AsyncSnapshot and how it is used in conjunction with Future and Stream-based asynchronous operations.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Flutter's AsyncSnapshot and how it is used in conjunction with Future and Stream-based asynchronous operations.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2331,20 +1519,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2367,21 +1544,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain the concept of",
       "description": "Can you explain the concept of Dependency Injection and how it can be used for managing dependencies and making your Flutter code more testable?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Can you explain the concept of Dependency Injection and how it can be used for managing dependencies and making your Flutter code more testable?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2394,9 +1563,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
+      "primaryTechStack": ["flutter"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2404,10 +1571,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2430,21 +1594,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"Flutter Widgets Binding\".",
       "description": "Explain the concept of \"Flutter Widgets Binding\".?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"Flutter Widgets Binding\".?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2455,20 +1611,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2491,21 +1636,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the FutureBuilder widget",
       "description": "Explain the purpose of the FutureBuilder widget in Flutter.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the FutureBuilder widget in Flutter.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2516,20 +1653,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2552,44 +1678,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle internationalization and localization in",
       "description": "How can you handle internationalization and localization in a Flutter app?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you handle internationalization and localization in a Flutter app?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",
@@ -2612,33 +1714,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The benefits of using the RxDart",
       "description": "What are the benefits of using the RxDart package in Flutter for reactive programming, and how does it compare to other state management solutions like Bloc or Provider?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What are the benefits of using the RxDart package in Flutter for reactive programming, and how does it compare to other state management solutions like Bloc or Provider?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "mobile",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "flutter"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["flutter"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "flutter"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["flutter"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2646,10 +1733,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:35:55.045Z",
       "updatedAt": "2025-12-19T17:35:55.045Z",
       "createdBy": "admin",

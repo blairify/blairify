@@ -1,6 +1,6 @@
 "use client";
 
-import { Database, Flame, Medal, ShieldCheck } from "lucide-react";
+import { Database, Flame, ShieldCheck } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 
@@ -49,7 +49,6 @@ export default function GamificationSection() {
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Medal className="size-10 text-primary mx-auto" aria-hidden="true" />
           <Typography.HeroSubHeading
             id="gamification-heading"
             className="mt-4 mb-3"
@@ -63,21 +62,24 @@ export default function GamificationSection() {
         </header>
 
         <div className="grid gap-6 justify-center md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
-          <article className="rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 md:col-span-2 lg:col-span-2 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 w-full">
+          <article
+            className="rounded-2xl border border-border/50 
+bg-background/80 backdrop-blur p-6 sm:p-8 md:col-span-2 lg:col-span-2 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 w-full"
+          >
             <div className="flex items-start justify-between gap-6">
               <div>
                 <Typography.SubCaptionMedium color="secondary">
                   Rank
                 </Typography.SubCaptionMedium>
-                <Typography.Heading3 className="mt-1">
+                <Typography.BodyBold className="mt-1">
                   Mid-Level Architect
-                </Typography.Heading3>
+                </Typography.BodyBold>
               </div>
               <div className="text-right">
                 <Typography.SubCaptionMedium color="secondary">
-                  Total XP
+                  Score
                 </Typography.SubCaptionMedium>
-                <Typography.BodyBold color="brand" className="mt-1">
+                <Typography.BodyBold className="mt-1">
                   14,250
                 </Typography.BodyBold>
               </div>
@@ -86,7 +88,8 @@ export default function GamificationSection() {
             <div className="mt-6">
               <div
                 ref={xpBarRef}
-                className="h-3 rounded-full border border-border bg-background overflow-hidden relative"
+                className="h-3 rounded-full border border-border/50 
+bg-background overflow-hidden relative"
                 role="progressbar"
                 aria-label="Progress"
                 aria-valuemin={0}
@@ -116,30 +119,42 @@ export default function GamificationSection() {
             </div>
           </article>
 
-          <article className="rounded-2xl border border-border bg-background/80 backdrop-blur p-6 sm:p-8 space-y-4 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 w-full md:col-span-2 lg:col-span-1">
+          <article
+            className="rounded-2xl border border-border/50 
+bg-background/80 backdrop-blur p-6 sm:p-8 space-y-4 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 w-full md:col-span-2 lg:col-span-1"
+          >
             <div className="flex items-center gap-3">
-              <div className="size-10 rounded-xl border border-border bg-background flex items-center justify-center">
+              <div
+                className="size-10 rounded-lg border border-border/50 
+bg-background flex items-center justify-center"
+              >
                 <ShieldCheck
-                  className="size-5 text-primary"
+                  className="size-5 text-muted-foreground"
                   aria-hidden="true"
                 />
               </div>
-              <div>
+              <div className="flex flex-col items-start gap-1 justify-left">
                 <Typography.BodyBold>Flawless Defense</Typography.BodyBold>
                 <Typography.SubCaptionMedium color="secondary">
-                  Survived drill-downs.
+                  Survived drill-downs
                 </Typography.SubCaptionMedium>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="size-10 rounded-xl border border-border bg-background flex items-center justify-center">
-                <Database className="size-5 text-primary" aria-hidden="true" />
+              <div
+                className="size-10 rounded-lg border border-border/50 
+bg-background flex items-center justify-center"
+              >
+                <Database
+                  className="size-5 text-muted-foreground"
+                  aria-hidden="true"
+                />
               </div>
               <div>
                 <Typography.BodyBold>Data Master</Typography.BodyBold>
                 <Typography.SubCaptionMedium color="secondary">
-                  Solved DB sharding.
+                  Solved DB sharding
                 </Typography.SubCaptionMedium>
               </div>
             </div>

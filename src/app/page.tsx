@@ -7,6 +7,7 @@ import GamificationSection from "@/components/landing-page/organisms/gamificatio
 import HeroSection from "@/components/landing-page/organisms/hero-section";
 import HowItWorksSection from "@/components/landing-page/organisms/how-it-works-section";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
+import MonthlyAwardsSection from "@/components/landing-page/organisms/monthly-awards-section";
 import PracticeSection from "@/components/landing-page/organisms/practice-section";
 import PricingSection from "@/components/landing-page/organisms/pricing-section";
 import ProblemSection from "@/components/landing-page/organisms/problem-section";
@@ -200,6 +201,7 @@ export default async function HomePage() {
             <GamificationSection />
             <TestimonialsSection />
             <PricingSection />
+            <MonthlyAwardsSection />
             <FaqSection />
           </main>
         </div>

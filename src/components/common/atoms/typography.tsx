@@ -51,7 +51,7 @@ export const typographyVariants = /*tw:*/ cva<VariantSettings>(
     variants: {
       color: {
         primary: "text-gray-900 dark:text-gray-50",
-        secondary: "text-gray-500 dark:text-gray-300",
+        secondary: "text-gray-700 dark:text-gray-300",
         gray: "text-gray-700 dark:text-gray-400",
         brand: "text-primary dark:text-primary",
         brandLight: "text-primary/80 dark:text-primary/80",
