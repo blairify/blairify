@@ -1,4 +1,4 @@
-import { ArrowRight, Check, MessageSquareText, Target, X } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { PiOpenAiLogoThin } from "react-icons/pi";
 import Logo from "@/components/common/atoms/logo-blairify";
 import { Typography } from "@/components/common/atoms/typography";
@@ -7,7 +7,7 @@ export default function ComparisonSection() {
   return (
     <section
       id="comparison"
-      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
+      className="bg-background border-b border-border/50 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="comparison-heading"
       data-analytics-id="home-comparison"
     >
@@ -17,11 +17,14 @@ export default function ComparisonSection() {
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="flex items-center justify-center gap-4 mb-4 text-4xl font-bold">
-            <PiOpenAiLogoThin className="size-24 flex-shrink-0" />
+          <div className="flex items-center justify-center gap-5 mb-20 text-4xl font-bold sm:gap-10">
+            <PiOpenAiLogoThin className="size-30 flex-shrink-0 text-gray-500 sm:size-50" />
             <span className="text-muted-foreground">VS</span>
-            <div className="flex-shrink-0">
-              <Logo variant="transparent" iconSize={96} />
+            <div className="flex-shrink-0 hidden sm:block">
+              <Logo variant="transparent" iconSize={200} />
+            </div>
+            <div className="flex-shrink-0 block sm:hidden">
+              <Logo variant="transparent" iconSize={120} />
             </div>
           </div>
           <Typography.Body color="secondary">
@@ -33,138 +36,150 @@ export default function ComparisonSection() {
           </Typography.Body>
         </header>
 
-        <div className="grid gap-6 lg:grid-cols-2 items-stretch">
-          <article className="h-full rounded-2xl border border-border/50 bg-background/70 backdrop-blur p-6 sm:p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
-            <header className="flex items-center gap-1 pb-4 border-b border-background/10">
-              <div className="size-10 rounded-xl bg-background/80 backdrop-blur flex items-center justify-center">
-                <MessageSquareText
-                  className="size-5 text-muted-foreground"
-                  aria-hidden="true"
-                />
-              </div>
-              <Typography.Heading1 color="secondary" className="text-2xl">
-                Prompted ChatGPT
-              </Typography.Heading1>
-            </header>
-
-            <div className="mt-6 space-y-4">
-              <div className="rounded-xl border border-border/50 bg-background/80 backdrop-blur p-4">
-                <Typography.SubCaptionMedium color="secondary">
-                  &gt; User:
-                </Typography.SubCaptionMedium>
-                <Typography.Body color="secondary" className="mt-1">
-                  Act as a tough Tech Lead and ask me a system design question.
-                </Typography.Body>
-              </div>
-
-              <div className="rounded-xl border border-border bg-background/80 backdrop-blur p-4">
-                <Typography.SubCaptionMedium color="secondary">
-                  &gt; ChatGPT:
-                </Typography.SubCaptionMedium>
-                <Typography.Body color="secondary" className="mt-1">
-                  How would you design a scalable e-commerce backend? Explain
-                  sharding and load balancing.
-                </Typography.Body>
-              </div>
-
-              <div className="pt-4 border-t border-background/10 space-y-3">
-                <div className="flex items-start gap-3">
-                  <X
-                    className="size-5 text-muted-foreground mt-0.5"
-                    aria-hidden="true"
-                  />
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="border-b border-border/50">
+                <th className="text-left p-4 sm:p-6">
+                  <Typography.BodyBold>Feature</Typography.BodyBold>
+                </th>
+                <th className="text-center p-4 sm:p-6">
+                  <div className="flex items-center justify-center gap-2">
+                    <Typography.BodyBold color="secondary">
+                      Prompted ChatGPT
+                    </Typography.BodyBold>
+                  </div>
+                </th>
+                <th className="text-center p-4 sm:p-6">
+                  <div className="flex items-center justify-center gap-2">
+                    <Typography.BodyBold>Active Assessment</Typography.BodyBold>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-border/30 hover:bg-background/50 transition-colors">
+                <td className="p-4 sm:p-6">
                   <Typography.Body color="secondary">
-                    Relies on generic "Hello World" templates.
+                    Uses real interview questions
                   </Typography.Body>
-                </div>
-                <div className="flex items-start gap-3">
-                  <X
-                    className="size-5 text-muted-foreground mt-0.5"
-                    aria-hidden="true"
-                  />
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
+                    <X className="size-7 text-red-600" aria-hidden="true" />
+                  </div>
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-green-300/10 flex items-center justify-center mt-0.5">
+                    <Check
+                      className="size-7 text-green-600"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr className="border-b border-border/30 hover:bg-background/50 transition-colors">
+                <td className="p-4 sm:p-6">
                   <Typography.Body color="secondary">
-                    Accepts buzzwords without testing implementation limits.
+                    Relies on generic "Hello World" templates
                   </Typography.Body>
-                </div>
-                <div className="flex items-start gap-3">
-                  <X
-                    className="size-5 text-muted-foreground mt-0.5"
-                    aria-hidden="true"
-                  />
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
+                    <X className="size-7 text-red-600" aria-hidden="true" />
+                  </div>
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-green-300/10 flex items-center justify-center mt-0.5">
+                    <Check
+                      className="size-7 text-green-600"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr className="border-b border-border/30 hover:bg-background/50 transition-colors">
+                <td className="p-4 sm:p-6">
                   <Typography.Body color="secondary">
-                    Lacks real-world failure scenarios.
+                    Tests implementation limits
                   </Typography.Body>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article className="h-full rounded-2xl border border-border/50 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-[0_22px_70px_-38px_hsl(var(--blairify-accent-brand)_/_0.55)] ring-1 ring-primary/15 relative transition-all hover:shadow-[0_32px_80px_-40px_hsl(var(--always-black)_/_0.6)] hover:-translate-y-1 focus-within:outline focus-within:outline-2 focus-within:outline-border focus-within:outline-offset-2">
-            <header className="flex items-center gap-3 pb-4 border-b border-background/10">
-              <Target className="size-5" aria-hidden="true" />
-              <Typography.Heading2 className="text-2xl">
-                Active Assessment
-              </Typography.Heading2>
-            </header>
-
-            <div className="mt-6 space-y-4">
-              <div className="rounded-xl border-l-5 border-b-5 border border-border/50 bg-background p-4">
-                <div className="flex flex-row gap-1 items-center justify-left">
-                  <ArrowRight
-                    className="size-3 text-primary"
-                    aria-hidden="true"
-                  />
-
-                  <Typography.SubCaptionBold color="brand">
-                    Blairify AI:
-                  </Typography.SubCaptionBold>
-                </div>
-                <Typography.Body color="secondary" className="mt-1">
-                  You proposed Redis for caching. Let's drill down. A network
-                  partition isolates your primary node during a traffic spike.
-                  How do you prevent split-brain?
-                </Typography.Body>
-              </div>
-
-              <div className="rounded-xl border border-border bg-background/80 backdrop-blur p-4">
-                <div className="flex flex-row gap-1 items-center justify-left">
-                  <ArrowRight
-                    className="size-3 text-primary"
-                    aria-hidden="true"
-                  />
-                  <Typography.SubCaptionBold color="brand">
-                    Feedback:
-                  </Typography.SubCaptionBold>
-                </div>
-                <Typography.Body color="secondary" className="mt-1">
-                  Asynchronous replication risks data loss here. In this FinTech
-                  scenario, quorum-based approach is required. Let's debug your
-                  failover logic.
-                </Typography.Body>
-              </div>
-
-              <div className="pt-4 border-t border-background/10 space-y-3">
-                <div className="flex items-start gap-3">
-                  <Check
-                    className="size-5 text-primary mt-0.5"
-                    aria-hidden="true"
-                  />
-                  <Typography.Body>
-                    Injects battle-tested constraints from real interviews.
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
+                    <X className="size-7 text-red-600" aria-hidden="true" />
+                  </div>
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-green-300/10 flex items-center justify-center mt-0.5">
+                    <Check
+                      className="size-7 text-green-600"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr className="border-b border-border/30 hover:bg-background/50 transition-colors">
+                <td className="p-4 sm:p-6">
+                  <Typography.Body color="secondary">
+                    Includes real-world failure scenarios
                   </Typography.Body>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Check
-                    className="size-5 text-primary mt-0.5"
-                    aria-hidden="true"
-                  />
-                  <Typography.Body>
-                    Forces you to defend logic against specific edge cases.
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
+                    <X className="size-7 text-red-600" aria-hidden="true" />
+                  </div>
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-green-300/10 flex items-center justify-center mt-0.5">
+                    <Check
+                      className="size-7 text-green-600"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr className="border-b border-border/30 hover:bg-background/50 transition-colors">
+                <td className="p-4 sm:p-6">
+                  <Typography.Body color="secondary">
+                    Provides real-time feedback
                   </Typography.Body>
-                </div>
-              </div>
-            </div>
-          </article>
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
+                    <X className="size-7 text-red-600" aria-hidden="true" />
+                  </div>
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-green-300/10 flex items-center justify-center mt-0.5">
+                    <Check
+                      className="size-7 text-green-600"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr className="hover:bg-background/50 transition-colors">
+                <td className="p-4 sm:p-6">
+                  <Typography.Body color="secondary">
+                    Stress-tests reasoning against edge cases
+                  </Typography.Body>
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
+                    <X className="size-7 text-red-600" aria-hidden="true" />
+                  </div>
+                </td>
+                <td className="p-4 sm:p-6 text-center">
+                  <div className="size-10 px-2 mx-auto rounded-full bg-green-300/10 flex items-center justify-center mt-0.5">
+                    <Check
+                      className="size-7 text-green-600"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

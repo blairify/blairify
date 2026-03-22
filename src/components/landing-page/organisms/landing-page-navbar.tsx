@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, LogOut, Menu, Plus, Settings, User, X } from "lucide-react";
+import { Home, LogOut, Menu, Settings, User, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -106,7 +106,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="rounded outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
+                    className="px-4 py-2 rounded-md  outline-none focus-visible:outline focus-visible:outline-border focus-visible:outline-offset-2 hover:bg-muted/50 hover:text-foreground transition-colors duration-200"
                   >
                     <Typography.CaptionMedium color="secondary">
                       {link.label}
@@ -117,13 +117,15 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
 
               {!loading && user ? (
                 <>
-                  <Link aria-label="View Profile" href="/configure">
-                    <Button size="lg" variant="outline">
-                      {" "}
-                      <Plus className="size-5 flex-shrink-0" />
+                  <a
+                    key="/configure"
+                    href="/configure"
+                    className="px-4 py-2 rounded-md outline-none flex flex-row gap-2 focus-visible:outline focus-visible:outline-border focus-visible:outline-offset-2 hover:bg-muted/50 hover:text-foreground transition-colors duration-200"
+                  >
+                    <Typography.CaptionMedium color="secondary">
                       New Interview
-                    </Button>
-                  </Link>
+                    </Typography.CaptionMedium>
+                  </a>
 
                   <div className="flex items-center gap-2">
                     <ThemeToggle />

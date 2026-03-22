@@ -100,7 +100,7 @@ export default function PricingSection() {
             </CardContent>
           </Card>
 
-          <Card className="w-full py-10  gap-0 h-full border border-border/50">
+          <Card className="w-full py-10  gap-0 h-full border border-border/50 ">
             <CardHeader className="px-8 gap-8">
               <CardTitle>
                 <div className="flex flex-col gap-2">

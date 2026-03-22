@@ -101,7 +101,6 @@ export default function ActionPlanSection() {
 
           <aside className="relative bg-transparent overflow-hidden py-10">
             <div className="relative w-full h-64 md:h-80 lg:h-96">
-              {/* Placeholder for loading state */}
               {!videoLoaded && (
                 <div className="absolute inset-0 bg-muted/20 rounded-lg animate-pulse flex items-center justify-center">
                   <Typography.Body color="secondary">

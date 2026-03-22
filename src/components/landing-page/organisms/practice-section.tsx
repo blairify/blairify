@@ -33,8 +33,11 @@ export default function PracticeSection() {
 
             <ul className="space-y-6" aria-label="Practice benefits">
               <li className="flex items-start gap-4">
-                <div className="size-8 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
-                  <Check className="size-4 text-primary" aria-hidden="true" />
+                <div className="size-8 px-2 rounded-full bg-primary/10 flex  items-center justify-center mt-0.5">
+                  <Check
+                    className="size-5 text-primary dark:text-white "
+                    aria-hidden="true"
+                  />
                 </div>
                 <div>
                   <Typography.Heading3 className="mb-1">
@@ -47,8 +50,8 @@ export default function PracticeSection() {
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <div className="size-8 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
-                  <Check className="size-4 text-primary" aria-hidden="true" />
+                <div className="size-8 px-2 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+                  <Check className="size-5 text-primary" aria-hidden="true" />
                 </div>
                 <div>
                   <Typography.Heading3 className="mb-1">
@@ -61,8 +64,8 @@ export default function PracticeSection() {
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <div className="size-8 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
-                  <Check className="size-4 text-primary" aria-hidden="true" />
+                <div className="size-8 px-2 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+                  <Check className="size-5 text-primary" aria-hidden="true" />
                 </div>
                 <div>
                   <Typography.Heading3 className="mb-1">

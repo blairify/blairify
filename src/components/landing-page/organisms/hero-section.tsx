@@ -26,8 +26,18 @@ const BACKSPACE_INTERVAL_MS = 50;
 const TYPING_SPEED_MIN_MS = 30;
 const TYPING_SPEED_RANGE_MS = 50;
 
+const PLACEHOLDER_TEXT = "https://justjoin.it/job-offer/software-engineer";
+const PLACEHOLDER_TYPING_SPEED_MIN_MS = 50;
+const PLACEHOLDER_TYPING_SPEED_RANGE_MS = 100;
+const PLACEHOLDER_PAUSE_MS = 1500;
+const PLACEHOLDER_DELETE_SPEED_MS = 30;
+
 const randomTypingSpeed = () =>
   Math.random() * TYPING_SPEED_RANGE_MS + TYPING_SPEED_MIN_MS;
+
+const randomPlaceholderTypingSpeed = () =>
+  Math.random() * PLACEHOLDER_TYPING_SPEED_RANGE_MS +
+  PLACEHOLDER_TYPING_SPEED_MIN_MS;
 
 function isValidHttpsUrl(value: string): boolean {
   if (!/^https:\/\//i.test(value)) return false;
@@ -57,6 +67,47 @@ interface TypingAnimationState {
   followUpText: string;
   isTypingFollowUp: boolean;
   followUpCompleted: boolean;
+}
+
+function usePlaceholderTyping(): string {
+  const [placeholderText, setPlaceholderText] = useState("");
+  const [_isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let charIndex = 0;
+    let currentText = "";
+    let isTyping = true;
+
+    const typeText = () => {
+      if (isTyping) {
+        if (charIndex < PLACEHOLDER_TEXT.length) {
+          currentText += PLACEHOLDER_TEXT[charIndex++];
+          setPlaceholderText(currentText);
+          setTimeout(typeText, randomPlaceholderTypingSpeed());
+        } else {
+          isTyping = false;
+          setIsDeleting(true);
+          setTimeout(typeText, PLACEHOLDER_PAUSE_MS);
+        }
+      } else {
+        if (currentText.length > 0) {
+          currentText = currentText.slice(0, -1);
+          setPlaceholderText(currentText);
+          setTimeout(typeText, PLACEHOLDER_DELETE_SPEED_MS);
+        } else {
+          isTyping = true;
+          setIsDeleting(false);
+          charIndex = 0;
+          setTimeout(typeText, 300); // Brief pause before restarting
+        }
+      }
+    };
+
+    const startTimer = setTimeout(typeText, 1500); // Start after 1.5 seconds
+    return () => clearTimeout(startTimer);
+  }, []);
+
+  return placeholderText;
 }
 
 function useHeroTypingAnimation(): TypingAnimationState {
@@ -212,6 +263,8 @@ function HeroInterviewCard({
     followUpCompleted,
   } = useHeroTypingAnimation();
 
+  const animatedPlaceholder = usePlaceholderTyping();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit();
@@ -219,7 +272,7 @@ function HeroInterviewCard({
 
   return (
     <section
-      className="flex flex-col overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950 text-zinc-100"
+      className="flex flex-col overflow-hidden rounded-lg border-zinc-800 bg-zinc-900 text-zinc-100"
       aria-label="Interview terminal preview"
     >
       <div className="flex items-center justify-between border-zinc-800 border-b px-4 py-2">
@@ -235,7 +288,10 @@ function HeroInterviewCard({
           <div className="size-5 overflow-hidden rounded-full bg-background shadow-sm flex-shrink-0">
             <InterviewerAvatar interviewer={INTERVIEWERS[0]} size={20} />
           </div>
-          <Typography.SubCaption color="secondary" className="truncate">
+          <Typography.SubCaption
+            color="secondary"
+            className="truncate text-zinc-400"
+          >
             {INTERVIEWERS[0].name}
           </Typography.SubCaption>
         </div>
@@ -293,23 +349,26 @@ function HeroInterviewCard({
       <div className="border-zinc-800 border-t p-3">
         <form onSubmit={handleSubmit}>
           <div className="flex gap-2">
-            <div className="flex min-w-0 flex-1 items-center rounded-lg border border-zinc-700 bg-zinc-900 px-3">
-              <span className="text-blue-400 mr-2">{">"}</span>
+            <div className="flex min-w-0 flex-1 items-center rounded-lg border-zinc-700 bg-zinc-900 px-3">
+              <span className="text-green-400 mr-2">{">"}</span>
               <Input
                 id="hero-job-url"
                 value={jobUrlDraft}
                 onChange={(event) => onJobUrlChange(event.target.value)}
-                placeholder="https://justjoin.it/job-offer/software-engineer"
+                placeholder={animatedPlaceholder}
                 inputMode="url"
                 autoComplete="url"
-                className="h-8 border-0 bg-transparent px-0 shadow-none text-zinc-100 placeholder:text-zinc-500 focus-visible:border-0 focus-visible:shadow-none focus-visible:ring-0 text-xs sm:text-sm truncate"
+                className="h-8 border-0 bg-transparent px-0 shadow-none text-zinc-100 placeholder:text-zinc-500 focus-visible:border-0 focus-visible:shadow-none focus-visible:ring-0 text-xs sm:text-sm truncate font-mono !font-mono"
                 aria-describedby="hero-job-url-hint"
+                style={{
+                  fontFamily:
+                    'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace',
+                }}
               />
             </div>
             <Button
               type="submit"
               color="primary"
-              disabled={!canStartFromUrl}
               className="h-8 px-4"
               aria-label="Start interview from job offer link"
             >

@@ -127,7 +127,7 @@ export default function TestimonialsSection() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(251,146,60,0.06),transparent_60%)]"
         aria-hidden="true"
       />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8 w-[90%]">
         <header className="text-center mb-10 sm:mb-12">
           <Typography.HeroSubHeading id="testimonials-heading" className="mb-3">
             Don't just take our word for it.
@@ -150,7 +150,7 @@ export default function TestimonialsSection() {
           <section className="group overflow-hidden" aria-label="Testimonials">
             <button
               type="button"
-              className="sr-only focus:not-sr-only focus:mb-4 focus:inline-flex focus:items-center focus:justify-center focus:rounded-xl focus:border focus:border-border focus:bg-background focus:px-3 focus:py-2 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
+              className="sr-only focus:not-sr-only focus:mb-4 focus:inline-flex focus:items-center focus:justify-center focus:rounded-xl focus:border focus:border-border focus:bg-background focus:px-3 focus:py-2 focus:outline-none focus-visible:outline focus-visible:outline-border focus-visible:outline-offset-2"
             >
               <Typography.SubCaptionMedium>
                 Pause scrolling testimonials
@@ -161,7 +161,7 @@ export default function TestimonialsSection() {
                 {loopingTestimonials.map((t, index) => (
                   <article
                     key={`${t.name}-${index}`}
-                    className="min-w-[18rem] max-w-[18rem] sm:min-w-[20rem] sm:max-w-[20rem] rounded-2xl border border-border bg-background p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
+                    className="min-w-[18rem] max-w-[18rem] sm:min-w-[20rem] sm:max-w-[20rem] rounded-2xl bg-background p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
                   >
                     <header className="flex items-start justify-between gap-4 mb-4">
                       <div className="flex items-center gap-3">
