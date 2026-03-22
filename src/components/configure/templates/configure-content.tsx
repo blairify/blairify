@@ -337,21 +337,22 @@ export function ConfigureContent() {
   const seedAnswer = searchParams.get("seedAnswer") ?? "";
   const autoStart = searchParams.get("autoStart") === "1";
   const hasAutoStartedRef = useRef(false);
+  const initialFlowMode = (() => {
+    const flow = searchParams.get("flow");
+    if (flow === "paste") return "paste";
+    if (flow === "custom") return "custom";
+    if (flow === "url") return "url";
+    return null;
+  })();
+  const autoStartInProgressRef = useRef(false);
   const [usageStatus, setUsageStatus] = useState<{
     canStart: boolean;
     remainingMinutes: number;
     isPro: boolean;
     checked: boolean;
   }>({ canStart: true, remainingMinutes: 0, isPro: false, checked: false });
-  const resolveInitialFlowMode = () => {
-    const flow = searchParams.get("flow");
-    if (flow === "paste") return "paste";
-    if (flow === "custom") return "custom";
-    if (flow === "url") return "url";
-    return null;
-  };
   const [config, setConfig] = useState<InterviewConfig>(() => ({
-    flowMode: resolveInitialFlowMode(),
+    flowMode: initialFlowMode,
     position: "",
     seniority: "",
     technologies: [],
@@ -369,7 +370,7 @@ export function ConfigureContent() {
   }));
   const [currentStep, setCurrentStep] = useState(() => {
     const requestedStepId = searchParams.get("step");
-    const stepsForFlow = getVisibleStepsForFlow(resolveInitialFlowMode());
+    const stepsForFlow = getVisibleStepsForFlow(initialFlowMode);
     const requestedIndex = stepsForFlow.findIndex(
       (step) => step.id === requestedStepId,
     );
@@ -645,9 +646,20 @@ export function ConfigureContent() {
         }
 
         if (!response.ok) {
-          console.error(`Server error: ${response.status}`);
+          const serverMessage =
+            payload && typeof payload === "object" && "error" in payload
+              ? (payload as { error?: unknown }).error
+              : null;
+
+          console.error("Server error:", {
+            status: response.status,
+            error: serverMessage,
+          });
+
           setAnalysisError(
-            `Server error: ${response.status}. Please try again.`,
+            serverMessage
+              ? formatAnalysisError(serverMessage)
+              : `Server error: ${response.status}. Please try again.`,
           );
           setCurrentStep(stepBefore);
           return null;
@@ -688,17 +700,35 @@ export function ConfigureContent() {
           data.companyProfile ?? config.companyProfile,
         );
         updateConfig("contextType", "job-specific");
+        if (!config.interviewMode) {
+          updateConfig("interviewMode", "regular");
+        }
 
         const analysisIndex = visibleSteps.findIndex(
           (step) => step.id === ANALYSIS_STEP_ID,
         );
-        setCurrentStep(analysisIndex >= 0 ? analysisIndex : currentStep);
+        if (!autoStartInProgressRef.current) {
+          setCurrentStep(analysisIndex >= 0 ? analysisIndex : currentStep);
+        }
         return data;
+      } catch (error) {
+        console.error("Analysis request failed:", error);
+        setAnalysisError(formatAnalysisError(error));
+        setCurrentStep(stepBefore);
+        return null;
       } finally {
-        setIsAnalyzingDescription(false);
+        if (!autoStartInProgressRef.current) {
+          setIsAnalyzingDescription(false);
+        }
       }
     },
-    [config.companyProfile, currentStep, updateConfig, visibleSteps],
+    [
+      config.companyProfile,
+      config.interviewMode,
+      currentStep,
+      updateConfig,
+      visibleSteps,
+    ],
   );
 
   const handleAnalyzeDescription = async (
@@ -754,14 +784,6 @@ export function ConfigureContent() {
     [config.pastedUrl, runAnalysis],
   );
 
-  const switchToPasteFallback = useCallback(() => {
-    setConfig((prev) => ({
-      ...prev,
-      flowMode: "paste",
-    }));
-    setCurrentStep(1);
-  }, []);
-
   useEffect(() => {
     if (!autoStart) return;
     if (hasAutoStartedRef.current) return;
@@ -770,34 +792,49 @@ export function ConfigureContent() {
     if (!url.startsWith("https://")) return;
 
     hasAutoStartedRef.current = true;
+    autoStartInProgressRef.current = true;
     void (async () => {
-      const extracted = await handleAnalyzeUrl();
-      if (!extracted) {
-        switchToPasteFallback();
-        return;
-      }
+      try {
+        const extracted = await handleAnalyzeUrl();
+        if (!extracted) {
+          setAnalysisError(
+            (prev) =>
+              prev ??
+              "We couldn't analyze this job URL. Please try again or paste the job description directly.",
+          );
+          return;
+        }
 
-      const overrideConfig: InterviewConfig = {
-        ...config,
-        position: extracted.position,
-        seniority: extracted.seniority,
-        technologies: extracted.technologies,
-        company: extracted.company ?? "",
-        jobDescription: extracted.jobDescription,
-        jobRequirements: extracted.jobRequirements,
-        companyProfile: extracted.companyProfile ?? config.companyProfile,
-        contextType: "job-specific",
-        interviewMode: "regular",
-      };
-      handleStartInterview(overrideConfig);
+        const overrideConfig: InterviewConfig = {
+          ...config,
+          flowMode: "url",
+          position: extracted.position,
+          seniority: extracted.seniority,
+          technologies: extracted.technologies,
+          company: extracted.company ?? "",
+          jobDescription: extracted.jobDescription,
+          jobRequirements: extracted.jobRequirements,
+          companyProfile: extracted.companyProfile ?? config.companyProfile,
+          contextType: "job-specific",
+          interviewMode: "regular",
+        };
+
+        if (!canStartInterview(overrideConfig)) {
+          setAnalysisError(
+            "We extracted the job offer, but couldn't start the interview automatically. Please review the extracted details and click Next.",
+          );
+          return;
+        }
+
+        autoStartInProgressRef.current = false;
+        setIsAnalyzingDescription(false);
+        handleStartInterview(overrideConfig);
+      } finally {
+        autoStartInProgressRef.current = false;
+        setIsAnalyzingDescription(false);
+      }
     })();
-  }, [
-    autoStart,
-    config,
-    handleAnalyzeUrl,
-    handleStartInterview,
-    switchToPasteFallback,
-  ]);
+  }, [autoStart, config, handleAnalyzeUrl, handleStartInterview]);
 
   const _handlePreviewKey = (
     event: React.KeyboardEvent<HTMLDivElement | HTMLButtonElement>,

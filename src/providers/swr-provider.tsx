@@ -20,7 +20,12 @@ export function SWRProvider({ children }: SWRProviderProps) {
         errorRetryCount: 2,
         errorRetryInterval: 3000,
         onError: (error, key) => {
-          console.error("SWR Error:", { key, error: error.message });
+          console.error("SWR Error:", {
+            key,
+            error,
+            message: error instanceof Error ? error.message : String(error),
+            stack: error instanceof Error ? error.stack : undefined,
+          });
         },
         onSuccess: (data, key) => {
           console.info("SWR Success:", {
