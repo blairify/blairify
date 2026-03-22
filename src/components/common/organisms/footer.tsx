@@ -63,7 +63,12 @@ export default function Footer() {
                     className="inline-flex items-center gap-2 py-2 text-xs sm:text-sm hover:text-[color:var(--foreground)] transition-colors touch-manipulation underline-offset-4 hover:underline"
                   >
                     <Icon className="hidden sm:block size-4 flex-shrink-0" />
-                    <span className="whitespace-nowrap">{link.label}</span>
+                    <Typography.Caption
+                      color="secondary"
+                      className="whitespace-nowrap"
+                    >
+                      {link.label}
+                    </Typography.Caption>
                   </Link>
                 );
               })}
@@ -72,14 +77,18 @@ export default function Footer() {
 
           {/* Compliance Badges */}
           <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-end w-full lg:w-auto">
-            <span className="flex items-center gap-1.5 sm:gap-2 bg-card bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm whitespace-nowrap">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-card bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full whitespace-nowrap">
               <Shield className="size-3 sm:size-4" />
-              GDPR Compliant
-            </span>
-            <span className="flex items-center gap-1.5 sm:gap-2 bg-card bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm whitespace-nowrap">
+              <Typography.Caption color="secondary">
+                GDPR Compliant
+              </Typography.Caption>
+            </div>
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-card bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full whitespace-nowrap">
               <Lock className="size-3 sm:size-4" />
-              SSL Secured
-            </span>
+              <Typography.Caption color="secondary">
+                SSL Secured
+              </Typography.Caption>
+            </div>
           </div>
         </div>
 
@@ -104,7 +113,7 @@ export default function Footer() {
                   href={socialLink.href}
                   aria-label={socialLink.label}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="inline-flex size-8 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--background)] hover:bg-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors touch-manipulation"
                 >
                   <Icon className="size-4" />
@@ -113,15 +122,19 @@ export default function Footer() {
             })}
           </div>
           <div className="text-center sm:text-right">
-            <Typography.Caption color="secondary">
-              <span className="block sm:inline">Support: </span>
+            <div className="flex flex-col items-center sm:items-end sm:flex-row sm:justify-end gap-0 sm:gap-1">
+              <Typography.Caption color="secondary">
+                Support:
+              </Typography.Caption>
               <Link
                 href="mailto:support@blairify.com"
                 className="underline hover:text-[color:var(--foreground)] transition-colors py-1 px-1 -mx-1 touch-manipulation"
               >
-                support@blairify.com
+                <Typography.Caption color="secondary">
+                  support@blairify.com
+                </Typography.Caption>
               </Link>
-            </Typography.Caption>
+            </div>
           </div>
         </div>
       </div>

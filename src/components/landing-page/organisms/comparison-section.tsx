@@ -19,7 +19,9 @@ export default function ComparisonSection() {
         <header className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="flex items-center justify-center gap-5 mb-10 sm:mb-12 text-4xl font-bold sm:gap-10">
             <PiOpenAiLogoThin className="size-30 flex-shrink-0 text-gray-500 sm:size-25" />
-            <span className="text-muted-foreground">VS</span>
+            <Typography.CaptionMedium color="secondary">
+              VS
+            </Typography.CaptionMedium>
             <div className="flex-shrink-0 hidden sm:block">
               <Logo variant="transparent" iconSize={100} />
             </div>

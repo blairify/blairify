@@ -279,11 +279,10 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             }}
             aria-label="Close mobile menu"
           />
-          <div
+          <nav
             id="mobile-menu"
             className="fixed top-16 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg animate-in slide-in-from-top-2 duration-200"
-            role="menu"
-            aria-label="Mobile navigation menu"
+            aria-label="Mobile navigation"
           >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-6">
               <div className="space-y-2 pb-4 border-b border-border/60">
@@ -402,7 +401,7 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
                 </div>
               )}
             </div>
-          </div>
+          </nav>
         </div>
       )}
     </>

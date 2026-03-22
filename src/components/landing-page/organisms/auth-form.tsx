@@ -847,8 +847,9 @@ export default function AuthForm({
                   </>
                 )}
 
-                <div className="text-center">
+                <div className="text-center mt-6">
                   <Typography.Body
+                    color="secondary"
                     className={currentMode === "login" ? "mt-4" : "mt-0"}
                   >
                     {currentMode === "login" && !showResetForm && (

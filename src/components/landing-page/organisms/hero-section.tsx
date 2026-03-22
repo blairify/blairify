@@ -74,6 +74,12 @@ function usePlaceholderTyping(): string {
   const [_isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    const timeoutIds: Array<ReturnType<typeof setTimeout>> = [];
+
+    const scheduleTimeout = (callback: () => void, delayMs: number) => {
+      timeoutIds.push(setTimeout(callback, delayMs));
+    };
+
     let charIndex = 0;
     let currentText = "";
     let isTyping = true;
@@ -83,28 +89,30 @@ function usePlaceholderTyping(): string {
         if (charIndex < PLACEHOLDER_TEXT.length) {
           currentText += PLACEHOLDER_TEXT[charIndex++];
           setPlaceholderText(currentText);
-          setTimeout(typeText, randomPlaceholderTypingSpeed());
+          scheduleTimeout(typeText, randomPlaceholderTypingSpeed());
         } else {
           isTyping = false;
           setIsDeleting(true);
-          setTimeout(typeText, PLACEHOLDER_PAUSE_MS);
+          scheduleTimeout(typeText, PLACEHOLDER_PAUSE_MS);
         }
       } else {
         if (currentText.length > 0) {
           currentText = currentText.slice(0, -1);
           setPlaceholderText(currentText);
-          setTimeout(typeText, PLACEHOLDER_DELETE_SPEED_MS);
+          scheduleTimeout(typeText, PLACEHOLDER_DELETE_SPEED_MS);
         } else {
           isTyping = true;
           setIsDeleting(false);
           charIndex = 0;
-          setTimeout(typeText, 300); // Brief pause before restarting
+          scheduleTimeout(typeText, 300);
         }
       }
     };
 
-    const startTimer = setTimeout(typeText, 1500); // Start after 1.5 seconds
-    return () => clearTimeout(startTimer);
+    scheduleTimeout(typeText, 1500);
+    return () => {
+      for (const timeoutId of timeoutIds) clearTimeout(timeoutId);
+    };
   }, []);
 
   return placeholderText;
