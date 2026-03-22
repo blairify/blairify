@@ -7,7 +7,7 @@ export default function ProblemSection() {
   return (
     <section
       id="problem"
-      className="bg-card border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
+      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="problem-heading"
       data-analytics-id="home-problem"
     >
@@ -27,7 +27,7 @@ export default function ProblemSection() {
         </header>
 
         <div className="grid gap-6 md:grid-cols-3">
-          <article className="rounded-2xl  bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
+          <article className="rounded-2xl border border-border/50 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
             <div className="size-12 sm:size-14 rounded-2xl  bg-background flex items-center justify-left">
               <AiOutlineBug
                 className="size-10 text-muted-foreground"
@@ -44,7 +44,7 @@ export default function ProblemSection() {
             </Typography.Body>
           </article>
 
-          <article className="rounded-2xl  bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
+          <article className="rounded-2xl border border-border/50 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
             <div className="size-14 sm:size-14 rounded-2xl bg-background flex items-center justify-left">
               <SiOpenai
                 className="size-10 text-muted-foreground"
@@ -61,7 +61,7 @@ export default function ProblemSection() {
             </Typography.Body>
           </article>
 
-          <article className="rounded-2xl  bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
+          <article className="rounded-2xl border border-border/50 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
             <div className="size-12 sm:size-14 rounded-2xl  bg-background flex items-center justify-left">
               <VscSymbolStructure
                 className="size-10 text-muted-foreground"

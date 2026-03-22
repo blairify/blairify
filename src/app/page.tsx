@@ -193,8 +193,8 @@ export default async function HomePage() {
             data-analytics-id="home-main"
           >
             <HeroSection />
-            <ProblemSection />
             <ComparisonSection />
+            <ProblemSection />
             <PracticeSection />
             <HowItWorksSection />
             <ActionPlanSection />

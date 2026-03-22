@@ -9,7 +9,7 @@ export default function PricingSection() {
   return (
     <section
       id="pricing"
-      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-4 relative overflow-hidden"
+      className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="pricing-heading"
       data-analytics-id="home-pricing"
     >
@@ -33,18 +33,13 @@ export default function PricingSection() {
               <CardTitle>
                 <div className="flex flex-col gap-2">
                   <Typography.Heading1>BASIC</Typography.Heading1>
-                  <Typography.SubCaptionMedium className="text-gray-700">
+                  <Typography.SubCaptionMedium color="secondary">
                     Validate mechanics
                   </Typography.SubCaptionMedium>
                 </div>
                 <div className="flex flex-col items-start gap-0 sm:gap-1 mt-6">
-                  <Typography.BodyBold className="text-lg">
-                    $0
-                  </Typography.BodyBold>
-                  <Typography.Body
-                    color="secondary"
-                    className="text-xs sm:text-sm"
-                  >
+                  <Typography.BodyBold>$0</Typography.BodyBold>
+                  <Typography.Body color="secondary">
                     Forever free
                   </Typography.Body>
                 </div>
@@ -62,7 +57,7 @@ export default function PricingSection() {
             </CardHeader>
 
             <CardContent className="px-10">
-              <Typography.BodyBold className="mb-3 sm:mb-4 text-[14px] text-gray-700">
+              <Typography.BodyBold className="mb-3 sm:mb-4" color="secondary">
                 Core features:
               </Typography.BodyBold>
               <ul
@@ -74,16 +69,14 @@ export default function PricingSection() {
                     className="size-4 sm:size-5 text-gray-500 mt-0.5 sm:mt-0 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Typography.Caption className="text-sm">
-                    2 interviews per day
-                  </Typography.Caption>
+                  <Typography.Caption>2 interviews per day</Typography.Caption>
                 </li>
                 <li className="flex items-start sm:items-center gap-2 sm:gap-3">
                   <Check
                     className="size-4 sm:size-5 text-gray-500 mt-0.5 sm:mt-0 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Typography.Caption className="text-sm">
+                  <Typography.Caption>
                     Manual role configuration
                   </Typography.Caption>
                 </li>
@@ -92,31 +85,32 @@ export default function PricingSection() {
                     className="size-4 sm:size-5 text-gray-500 mt-0.5 sm:mt-0 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Typography.Caption className="text-sm">
-                    Standard AI feedback
-                  </Typography.Caption>
+                  <Typography.Caption>Standard AI feedback</Typography.Caption>
                 </li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="w-full py-10  gap-0 h-full border border-border/50 ">
+          <Card className="w-full py-10 gap-0 h-full border border-primary/30 bg-card/80 backdrop-blur ring-2 ring-primary/15 shadow-[0_24px_80px_-46px_hsl(var(--blairify-accent-brand)_/_0.55)] relative">
+            <div
+              className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 shadow-sm"
+              aria-hidden="true"
+            >
+              <Typography.SubCaptionBold color="inverse">
+                Most popular
+              </Typography.SubCaptionBold>
+            </div>
             <CardHeader className="px-8 gap-8">
               <CardTitle>
                 <div className="flex flex-col gap-2">
                   <Typography.Heading1>PRO</Typography.Heading1>
-                  <Typography.SubCaptionMedium className="text-gray-700">
-                    The full verification environment
+                  <Typography.SubCaptionMedium color="secondary">
+                    Full report + gap diagnostics
                   </Typography.SubCaptionMedium>
                 </div>
                 <div className="flex flex-col items-start gap-0 sm:gap-1 mt-6">
-                  <Typography.BodyBold className="text-lg">
-                    $19
-                  </Typography.BodyBold>
-                  <Typography.Body
-                    color="secondary"
-                    className="text-xs sm:text-sm"
-                  >
+                  <Typography.BodyBold>$19</Typography.BodyBold>
+                  <Typography.Body color="secondary">
                     Billed monthly
                   </Typography.Body>
                 </div>
@@ -127,13 +121,18 @@ export default function PricingSection() {
                 size="lg"
                 className="w-full text-sm sm:text-base py-0 sm:py-3"
               >
-                <Link href="/auth?mode=register">Start PRO Plan</Link>
+                <Link href="/auth?mode=register">Unlock Pro</Link>
               </Button>
+              <div className="text-center -mt-4">
+                <Typography.SubCaptionMedium color="secondary">
+                  Upgrade anytime. Start in under 60 seconds.
+                </Typography.SubCaptionMedium>
+              </div>
               <Separator className="mb-6" />
             </CardHeader>
 
             <CardContent className="px-10">
-              <Typography.BodyBold className="mb-3 sm:mb-4 text-[14px] text-gray-700">
+              <Typography.BodyBold className="mb-3 sm:mb-4" color="secondary">
                 Everything in Basic, plus:
               </Typography.BodyBold>
 
@@ -146,7 +145,7 @@ export default function PricingSection() {
                     className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Typography.Caption className="text-sm">
+                  <Typography.Caption>
                     Unlimited interview sessions
                   </Typography.Caption>
                 </li>
@@ -155,7 +154,7 @@ export default function PricingSection() {
                     className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Typography.Caption className="text-sm">
+                  <Typography.Caption>
                     Simulations based on job description
                   </Typography.Caption>
                 </li>
@@ -164,7 +163,7 @@ export default function PricingSection() {
                     className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Typography.Caption className="text-sm">
+                  <Typography.Caption>
                     Full analysis and report
                   </Typography.Caption>
                 </li>
@@ -173,7 +172,7 @@ export default function PricingSection() {
                     className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Typography.Caption className="text-sm">
+                  <Typography.Caption>
                     Knowledge gap diagnostics
                   </Typography.Caption>
                 </li>
@@ -182,7 +181,7 @@ export default function PricingSection() {
                     className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Typography.Caption className="text-sm">
+                  <Typography.Caption>
                     Curated resources links
                   </Typography.Caption>
                 </li>
@@ -191,7 +190,7 @@ export default function PricingSection() {
                     className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Typography.Caption className="text-sm">
+                  <Typography.Caption>
                     Premium AI reasoning engine
                   </Typography.Caption>
                 </li>
@@ -200,7 +199,7 @@ export default function PricingSection() {
                     className="size-4 sm:size-5 text-primary mt-0.5 sm:mt-0 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Typography.Caption className="text-sm">
+                  <Typography.Caption>
                     Centralized preparation hub
                   </Typography.Caption>
                 </li>

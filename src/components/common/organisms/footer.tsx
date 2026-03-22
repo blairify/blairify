@@ -85,12 +85,16 @@ export default function Footer() {
 
         {/* Bottom Section: Copyright, Contact & Social */}
         <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-3 sm:gap-4 pt-2 sm:pt-3 text-xs sm:text-sm">
-          <Typography.Caption
-            color="secondary"
-            className="text-center sm:text-left"
-          >
-            © {currentYear} Blairify. All rights reserved.
-          </Typography.Caption>
+          <div className="text-center sm:text-left">
+            <Typography.Caption color="secondary">
+              © {currentYear} Blairify. All rights reserved.
+            </Typography.Caption>
+          </div>
+          <div className="text-center">
+            <Typography.Caption color="secondary">
+              Built by engineers. Designed for real interviews.
+            </Typography.Caption>
+          </div>
           <div className="flex items-center gap-3">
             {socialLinks.map((socialLink) => {
               const Icon = socialLink.icon;
@@ -108,18 +112,17 @@ export default function Footer() {
               );
             })}
           </div>
-          <Typography.Caption
-            color="secondary"
-            className="text-center sm:text-right"
-          >
-            <span className="block sm:inline">Support: </span>
-            <Link
-              href="mailto:support@blairify.com"
-              className="underline hover:text-[color:var(--foreground)] transition-colors py-1 px-1 -mx-1 touch-manipulation"
-            >
-              support@blairify.com
-            </Link>
-          </Typography.Caption>
+          <div className="text-center sm:text-right">
+            <Typography.Caption color="secondary">
+              <span className="block sm:inline">Support: </span>
+              <Link
+                href="mailto:support@blairify.com"
+                className="underline hover:text-[color:var(--foreground)] transition-colors py-1 px-1 -mx-1 touch-manipulation"
+              >
+                support@blairify.com
+              </Link>
+            </Typography.Caption>
+          </div>
         </div>
       </div>
     </footer>

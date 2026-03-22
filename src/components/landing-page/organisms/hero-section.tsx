@@ -125,6 +125,12 @@ function useHeroTypingAnimation(): TypingAnimationState {
   useEffect(() => {
     if (animationCompleted) return;
 
+    const timeoutIds: Array<ReturnType<typeof setTimeout>> = [];
+
+    const scheduleTimeout = (callback: () => void, delayMs: number) => {
+      timeoutIds.push(setTimeout(callback, delayMs));
+    };
+
     let cmdIndex = 0;
     let cmdText = "";
     let descIndex = 0;
@@ -143,18 +149,21 @@ function useHeroTypingAnimation(): TypingAnimationState {
       }
       descText += TERMINAL_DESCRIPTION[descIndex++];
       setDisplayText(descText);
-      setTimeout(resumeAfterCorrection, randomTypingSpeed());
+      scheduleTimeout(resumeAfterCorrection, randomTypingSpeed());
     };
 
     const typeCorrectWord = (correctIndex: number) => {
       if (correctIndex >= TERMINAL_CORRECT_WORD.length) {
         setIsCorrecting(false);
-        setTimeout(resumeAfterCorrection, CORRECTION_RESUME_DELAY_MS);
+        scheduleTimeout(resumeAfterCorrection, CORRECTION_RESUME_DELAY_MS);
         return;
       }
       descText += TERMINAL_CORRECT_WORD[correctIndex];
       setDisplayText(descText);
-      setTimeout(() => typeCorrectWord(correctIndex + 1), randomTypingSpeed());
+      scheduleTimeout(
+        () => typeCorrectWord(correctIndex + 1),
+        randomTypingSpeed(),
+      );
     };
 
     const backspace = (count: number) => {
@@ -164,7 +173,7 @@ function useHeroTypingAnimation(): TypingAnimationState {
       }
       descText = descText.slice(0, -1);
       setDisplayText(descText);
-      setTimeout(() => backspace(count + 1), BACKSPACE_INTERVAL_MS);
+      scheduleTimeout(() => backspace(count + 1), BACKSPACE_INTERVAL_MS);
     };
 
     const typeDescription = () => {
@@ -177,31 +186,39 @@ function useHeroTypingAnimation(): TypingAnimationState {
       if (descIndex === MISTAKE_CHAR_INDEX + 7 && !mistakeMade) {
         mistakeMade = true;
         setIsCorrecting(true);
-        setTimeout(() => backspace(0), MISTAKE_PAUSE_MS);
+        scheduleTimeout(() => backspace(0), MISTAKE_PAUSE_MS);
         return;
       }
-      setTimeout(typeDescription, randomTypingSpeed());
+      scheduleTimeout(typeDescription, randomTypingSpeed());
     };
 
     const typeCommand = () => {
       if (cmdIndex >= TERMINAL_COMMAND.length) {
         setIsTypingCommand(false);
-        setTimeout(typeDescription, DESCRIPTION_START_DELAY_MS);
+        scheduleTimeout(typeDescription, DESCRIPTION_START_DELAY_MS);
         return;
       }
       cmdText += TERMINAL_COMMAND[cmdIndex++];
       setCommandText(cmdText);
-      setTimeout(typeCommand, randomTypingSpeed());
+      scheduleTimeout(typeCommand, randomTypingSpeed());
     };
 
-    const startTimer = setTimeout(typeCommand, COMMAND_START_DELAY_MS);
-    return () => clearTimeout(startTimer);
+    scheduleTimeout(typeCommand, COMMAND_START_DELAY_MS);
+    return () => {
+      for (const timeoutId of timeoutIds) clearTimeout(timeoutId);
+    };
   }, [animationCompleted]);
 
   useEffect(() => {
     if (!animationCompleted || showFollowUp) return;
 
-    const followUpTimer = setTimeout(() => {
+    const timeoutIds: Array<ReturnType<typeof setTimeout>> = [];
+
+    const scheduleTimeout = (callback: () => void, delayMs: number) => {
+      timeoutIds.push(setTimeout(callback, delayMs));
+    };
+
+    scheduleTimeout(() => {
       setShowFollowUp(true);
       setIsTypingFollowUp(true);
 
@@ -216,13 +233,15 @@ function useHeroTypingAnimation(): TypingAnimationState {
         }
         currentFollowUpText += TERMINAL_FOLLOW_UP[followUpIndex++];
         setFollowUpText(currentFollowUpText);
-        setTimeout(typeFollowUp, randomTypingSpeed());
+        scheduleTimeout(typeFollowUp, randomTypingSpeed());
       };
 
       typeFollowUp();
     }, FOLLOW_UP_DELAY_MS);
 
-    return () => clearTimeout(followUpTimer);
+    return () => {
+      for (const timeoutId of timeoutIds) clearTimeout(timeoutId);
+    };
   }, [animationCompleted, showFollowUp]);
 
   return {
@@ -275,14 +294,16 @@ function HeroInterviewCard({
       className="flex flex-col overflow-hidden rounded-lg border-zinc-800 bg-zinc-900 text-zinc-100"
       aria-label="Interview terminal preview"
     >
-      <div className="flex items-center justify-between border-zinc-800 border-b px-4 py-2">
-        <div className="flex items-center gap-2 text-sm text-zinc-400">
+      <div className="flex items-center justify-between border-zinc-700 border-b px-4 py-2 bg-zinc-900">
+        <div className="flex items-center gap-2 text-sm text-zinc-300/80">
           <div className="flex items-center gap-2" aria-hidden="true">
             <span className="size-2.5 rounded-full bg-[#ff5f57]" />
             <span className="size-2.5 rounded-full bg-[#febc2e]" />
             <span className="size-2.5 rounded-full bg-[#28c840]" />
           </div>
-          <span className="ml-2 text-xs">~/blairify</span>
+          <Typography.SubCaptionMedium className="ml-2" color="secondary">
+            ~/blairify
+          </Typography.SubCaptionMedium>
         </div>
         <div className="flex items-center gap-2">
           <div className="size-5 overflow-hidden rounded-full bg-background shadow-sm flex-shrink-0">
@@ -297,7 +318,7 @@ function HeroInterviewCard({
         </div>
       </div>
 
-      <div className="h-48 overflow-hidden p-4 font-mono text-sm leading-relaxed">
+      <div className="h-48 overflow-hidden p-4 font-mono text-sm leading-relaxed bg-zinc-950/40 dark:bg-zinc-950/40">
         <pre className="whitespace-pre-wrap break-words">
           <span className="text-green-400">$</span>{" "}
           <span className="text-zinc-300">
@@ -309,7 +330,7 @@ function HeroInterviewCard({
           <br />
           {!isTypingCommand && (
             <>
-              <span className="text-zinc-300">
+              <span className="text-zinc-200">
                 {displayText}
                 {(isTyping || isCorrecting) && (
                   <span
@@ -324,6 +345,14 @@ function HeroInterviewCard({
                     {canStartFromUrl
                       ? "Status: valid URL detected"
                       : "Status: waiting for HTTPS URL"}
+                  </span>
+                  <br />
+                  <span className="text-zinc-500">
+                    {"Next: extract requirements -> generate interview setup"}
+                  </span>
+                  <br />
+                  <span className="text-zinc-500">
+                    {"ETA: ~60 seconds -> Basic is free (2 interviews/day)"}
                   </span>
                   {showFollowUp && (
                     <>
@@ -346,7 +375,7 @@ function HeroInterviewCard({
         </pre>
       </div>
 
-      <div className="border-zinc-800 border-t p-3">
+      <div className="border-zinc-700 border-t p-3 bg-zinc-900">
         <form onSubmit={handleSubmit}>
           <div className="flex gap-2">
             <div className="flex min-w-0 flex-1 items-center rounded-lg border-zinc-700 bg-zinc-900 px-3">

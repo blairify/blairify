@@ -47,7 +47,7 @@ export default function FaqSection() {
   return (
     <section
       id="faq"
-      className="py-16 sm:py-24 scroll-mt-24"
+      className="bg-background border-b border-border/40 py-16 sm:py-24 scroll-mt-24"
       aria-labelledby="faq-heading"
       data-analytics-id="home-faq"
     >
@@ -89,10 +89,7 @@ export default function FaqSection() {
                 }}
               >
                 <div className="px-6 pb-6">
-                  <Typography.Body
-                    color="secondary"
-                    className="leading-relaxed"
-                  >
+                  <Typography.Body color="secondary">
                     {faq.answer}
                   </Typography.Body>
                 </div>

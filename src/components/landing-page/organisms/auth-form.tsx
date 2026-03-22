@@ -590,7 +590,7 @@ export default function AuthForm({
                 {formData.password &&
                   formData.confirmPassword &&
                   formData.password !== formData.confirmPassword && (
-                    <Typography.Body className="text-sm text-red-500">
+                    <Typography.Body color="error">
                       Passwords do not match
                     </Typography.Body>
                   )}
@@ -673,10 +673,8 @@ export default function AuthForm({
                     : "opacity-100 transform translate-y-0 scale-100"
                 }`}
               >
-                <Typography.BodyBold className="text-xl">
-                  {getStepTitle()}
-                </Typography.BodyBold>
-                <Typography.Body className="text-sm text-muted-foreground">
+                <Typography.BodyBold>{getStepTitle()}</Typography.BodyBold>
+                <Typography.Body color="secondary">
                   {getStepDescription()}
                 </Typography.Body>
               </div>
@@ -729,7 +727,10 @@ export default function AuthForm({
                           <Separator className="w-full" />
                         </div>
                         <div className="relative flex justify-center text-xs uppercase">
-                          <Typography.Caption className="bg-card px-2">
+                          <Typography.Caption
+                            color="secondary"
+                            className="bg-card px-2"
+                          >
                             Or continue with email
                           </Typography.Caption>
                         </div>
@@ -934,10 +935,8 @@ export default function AuthForm({
                     : "opacity-100 transform translate-y-0 scale-100"
                 }`}
               >
-                <Typography.BodyBold className="text-xl">
-                  {getStepTitle()}
-                </Typography.BodyBold>
-                <Typography.Body className="text-sm text-muted-foreground">
+                <Typography.BodyBold>{getStepTitle()}</Typography.BodyBold>
+                <Typography.Body color="secondary">
                   {getStepDescription()}
                 </Typography.Body>
               </div>
@@ -974,9 +973,12 @@ export default function AuthForm({
                               <Separator className="w-full" />
                             </div>
                             <div className="relative flex justify-center text-xs uppercase">
-                              <span className="bg-card px-2 text-muted-foreground">
+                              <Typography.Caption
+                                color="secondary"
+                                className="bg-card px-2"
+                              >
                                 Or continue with email
-                              </span>
+                              </Typography.Caption>
                             </div>
                           </div>
 
@@ -1042,18 +1044,6 @@ export default function AuthForm({
                             </Button>
                           )}
                         </div>
-
-                        <div className="relative my-6">
-                          <div className="absolute inset-0 flex items-center">
-                            <Separator className="w-full" />
-                          </div>
-                          <div className="relative flex justify-center text-xs uppercase">
-                            <Typography.Caption className="bg-card px-2 text-muted-foreground">
-                              Or sign up with
-                            </Typography.Caption>
-                          </div>
-                        </div>
-                        <div className="my-6">{renderSocialButtons()}</div>
                       </>
                     )}
                   </div>
@@ -1061,7 +1051,8 @@ export default function AuthForm({
 
                 <div className="text-center mt-6">
                   <Typography.Body
-                    className={`text-sm text-muted-foreground ${currentMode === "login" ? "mt-4" : "mt-0"}`}
+                    color="secondary"
+                    className={currentMode === "login" ? "mt-4" : "mt-0"}
                   >
                     {currentMode === "login" && !showResetForm && (
                       <>

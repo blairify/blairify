@@ -23,7 +23,7 @@ interface NavbarProps {
 }
 
 const MARKETING_LINKS = [
-  { href: "#comparison", label: "vs GPT" },
+  { href: "#comparison", label: "Us vs GPT" },
   { href: "#pricing", label: "Pricing" },
   { href: "#faq", label: "FAQ" },
 ] as const;
