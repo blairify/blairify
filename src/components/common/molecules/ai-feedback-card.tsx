@@ -338,7 +338,7 @@ export function AiFeedbackCard({
               <InterviewerAvatar interviewer={interviewer} size={80} />
             </div>
           )}
-          <Typography.Caption className="text-2xl sm:text-4xl font-bold tracking-tight text-center">
+          <Typography.Caption className="text-xl sm:text-2xl font-bold tracking-tight text-center">
             {title}
           </Typography.Caption>
         </div>

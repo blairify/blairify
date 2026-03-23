@@ -17,24 +17,24 @@ import {
   TrendingUp,
   Trophy,
   User,
-  XCircle,
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { CiBookmarkCheck } from "react-icons/ci";
-import ReactMarkdown, { type Components } from "react-markdown";
+import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { toast } from "sonner";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
-import { MarkdownContent } from "@/components/common/molecules/markdown-content";
 import {
-  CATEGORY_MAX,
-  DetailedScoreCard,
-  getCategoryScores,
-} from "@/components/results/molecules/detailed-score-card";
+  overallSummaryMarkdownComponents,
+  qaQuestionMarkdownComponents,
+  qaResponseMarkdownComponents,
+} from "@/components/results/atoms/result-markdown-renderers";
+import { DetailedScoreCard } from "@/components/results/molecules/detailed-score-card";
+import { PassFailBanner } from "@/components/results/molecules/pass-fail-banner";
+import { KnowledgeGapsSection } from "@/components/results/organisms/knowledge-gaps-section";
 import {
   PostInterviewSurvey,
   type PostInterviewSurveyController,
@@ -63,21 +63,18 @@ import {
   normalizeSeniorityValue,
 } from "@/lib/utils/interview-normalizers";
 import {
-  clampFinite,
-  getGapBlurbText,
-  getGapSummaryTextWithFallback,
-  getMarkdownText,
-  getPriorityClass,
-  getPriorityLabel,
   mapSessionToInterviewResults,
   normalizeOverallSummaryMarkdown,
   stripLinks,
-  toShortTopicTitle,
 } from "@/lib/utils/results-content-utils";
 import {
   generateAnalysisMessages,
   getResultsCopySeed,
 } from "@/lib/utils/results-copy";
+import {
+  clampCategoryScores,
+  clampTechnologyScores,
+} from "@/lib/utils/score-utils";
 import { useAuth } from "@/providers/auth-provider";
 import type { InterviewSession, UserProfile } from "@/types/firestore";
 import type {
@@ -92,148 +89,6 @@ type RewardsPayload = {
   newAchievementIds: string[];
   oldXP: number;
   newXP: number;
-};
-
-type MarkdownChildrenProps = {
-  children?: React.ReactNode;
-};
-
-const qaMarkdownComponents: Components = {
-  p({ children }: MarkdownChildrenProps) {
-    return (
-      <Typography.Body color="secondary" className="whitespace-pre-line my-2">
-        {children}
-      </Typography.Body>
-    );
-  },
-  ul({ children }: MarkdownChildrenProps) {
-    return <ul className="space-y-2 list-disc pl-5 mt-1 mb-2">{children}</ul>;
-  },
-  ol({ children }: MarkdownChildrenProps) {
-    return (
-      <ol className="space-y-2 list-decimal pl-5 mt-1 mb-2">{children}</ol>
-    );
-  },
-  li({ children }: MarkdownChildrenProps) {
-    return (
-      <li>
-        <Typography.Body color="secondary">{children}</Typography.Body>
-      </li>
-    );
-  },
-  pre({ children }: MarkdownChildrenProps) {
-    return (
-      <pre className="bg-slate-50 dark:bg-slate-800 rounded-lg p-3 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
-        {children}
-      </pre>
-    );
-  },
-  code({ children }: MarkdownChildrenProps) {
-    return (
-      <code className="rounded bg-muted/40 px-1 py-0.5 font-mono text-[0.85em]">
-        {children}
-      </code>
-    );
-  },
-  strong({ children }: MarkdownChildrenProps) {
-    return (
-      <Typography.BodyBold className="inline">{children}</Typography.BodyBold>
-    );
-  },
-  hr() {
-    return null;
-  },
-};
-
-const qaQuestionMarkdownComponents: Components = {
-  ...qaMarkdownComponents,
-  p({ children }: MarkdownChildrenProps) {
-    return (
-      <Typography.Body className="whitespace-pre-line my-2">
-        {children}
-      </Typography.Body>
-    );
-  },
-  li({ children }: MarkdownChildrenProps) {
-    return (
-      <li>
-        <Typography.Body>{children}</Typography.Body>
-      </li>
-    );
-  },
-};
-
-const overallSummaryMarkdownComponents: Components = {
-  p({ children }: MarkdownChildrenProps) {
-    const labelInfo = (() => {
-      const text = getMarkdownText(children).trim().replace(/\s+/g, " ");
-      const match = /^([A-Za-z][A-Za-z\s/]{2,40}):\s*(.+)$/.exec(text);
-      if (!match) return null;
-      const [, label, value] = match;
-      return { label, value };
-    })();
-
-    if (labelInfo) {
-      return (
-        <Typography.Body className="whitespace-pre-line my-2">
-          <Typography.BodyBold className="inline">
-            {labelInfo.label}:
-          </Typography.BodyBold>{" "}
-          {labelInfo.value}
-        </Typography.Body>
-      );
-    }
-
-    return (
-      <Typography.Body color="secondary" className="whitespace-pre-line my-2">
-        {children}
-      </Typography.Body>
-    );
-  },
-  ul({ children }: MarkdownChildrenProps) {
-    return <ul className="space-y-2 list-disc pl-5 mt-1 mb-2">{children}</ul>;
-  },
-  ol({ children }: MarkdownChildrenProps) {
-    return (
-      <ol className="space-y-2 list-decimal pl-5 mt-1 mb-2">{children}</ol>
-    );
-  },
-  li({ children }: MarkdownChildrenProps) {
-    return (
-      <li>
-        <Typography.Body color="secondary">{children}</Typography.Body>
-      </li>
-    );
-  },
-  pre({ children }: MarkdownChildrenProps) {
-    return (
-      <pre className="my-2 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
-        {children}
-      </pre>
-    );
-  },
-  code({ children }: MarkdownChildrenProps) {
-    return (
-      <code className="rounded bg-muted/40 px-1 py-0.5 font-mono text-[0.85em]">
-        {children}
-      </code>
-    );
-  },
-  strong({ children }: MarkdownChildrenProps) {
-    const text = getMarkdownText(children).trim().replace(/\s+/g, " ");
-    if (text.endsWith(":")) {
-      return (
-        <Typography.BodyBold className="inline">{children}</Typography.BodyBold>
-      );
-    }
-
-    return (
-      <Typography.BodyBold className="inline">{children}</Typography.BodyBold>
-    );
-  },
-  hr() {
-    return null;
-  },
 };
 
 interface ResultsContentProps {
@@ -1595,53 +1450,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               )}
 
               {results.passed !== undefined && (
-                <Card
-                  className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
-                    results.passed
-                      ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
-                      : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
-                  }`}
-                >
-                  <CardContent className="py-3">
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                      <div className="flex items-center gap-6">
-                        <div
-                          className={`flex-shrink-0 size-16 rounded-full flex items-center justify-center ${
-                            results.passed
-                              ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
-                              : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                          }`}
-                        >
-                          {results.passed ? (
-                            <CheckCircle className="size-8" />
-                          ) : (
-                            <XCircle className="size-8" />
-                          )}
-                        </div>
-                        <div className="text-center sm:text-left">
-                          <div
-                            className={`text-3xl font-bold mb-3 ${
-                              results.passed
-                                ? "text-emerald-900 dark:text-emerald-100"
-                                : "text-red-900 dark:text-red-100"
-                            }`}
-                          >
-                            {results.passed ? "Interview Passed" : "Not Passed"}
-                          </div>
-                          <Typography.Body
-                            className={`text-lg leading-relaxed mb-2 ${
-                              results.passed
-                                ? "text-emerald-700 dark:text-emerald-300"
-                                : "text-red-700 dark:text-red-300"
-                            }`}
-                          >
-                            {outcomeMessage}
-                          </Typography.Body>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <PassFailBanner
+                  passed={results.passed}
+                  subtitle={outcomeMessage || undefined}
+                />
               )}
               <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
@@ -1674,49 +1486,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                         </ReactMarkdown>
                       );
                     })()}
-                    categoryScores={
-                      results.categoryScores
-                        ? {
-                            technical: clampFinite(
-                              results.categoryScores.technical,
-                              0,
-                              CATEGORY_MAX.technical,
-                            ),
-                            problemSolving: clampFinite(
-                              results.categoryScores.problemSolving,
-                              0,
-                              CATEGORY_MAX.problemSolving,
-                            ),
-                            communication: clampFinite(
-                              results.categoryScores.communication,
-                              0,
-                              CATEGORY_MAX.communication,
-                            ),
-                            professional: clampFinite(
-                              results.categoryScores.professional,
-                              0,
-                              CATEGORY_MAX.professional,
-                            ),
-                          }
-                        : getCategoryScores(results.score)
-                    }
-                    technologyScores={
-                      results.technologyScores
-                        ? Object.entries(results.technologyScores)
-                            .map(([tech, score]) => ({
-                              tech,
-                              score:
-                                score === null
-                                  ? null
-                                  : clampFinite(score, 0, 100),
-                            }))
-                            .sort((a, b) => {
-                              const aScore = a.score ?? -1;
-                              const bScore = b.score ?? -1;
-                              return bScore - aScore;
-                            })
-                        : undefined
-                    }
+                    categoryScores={clampCategoryScores(
+                      results.categoryScores,
+                      results.score,
+                    )}
+                    technologyScores={clampTechnologyScores(
+                      results.technologyScores,
+                    )}
                   />
                 </CardContent>
               </Card>
@@ -1819,90 +1595,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               })()}
 
               {results.knowledgeGaps && results.knowledgeGaps.length > 0 && (
-                <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                  <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
-                    <CiBookmarkCheck className="size-8 text-amber-600 dark:text-amber-400" />
-                    <div className="flex flex-col items-left gap-1">
-                      <Typography.BodyBold>
-                        Knowledge Gaps & Resources
-                      </Typography.BodyBold>
-                      <Typography.Caption>
-                        Focus on the high-priority items first. Each gap has
-                        curated links from the resource library.
-                      </Typography.Caption>
-                    </div>
-                  </CardTitle>
-                  <CardContent className="pt-6">
-                    <div className="space-y-6">
-                      {results.knowledgeGaps.map((gap, index) => (
-                        <div
-                          key={`${gap.title}-${index}`}
-                          className="rounded-lg border border-gray-200 dark:border-gray-800 p-4"
-                        >
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                            <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
-                              {toShortTopicTitle(gap.title, gap.tags)}
-                            </div>
-                            <Typography.CaptionMedium
-                              className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getPriorityClass(
-                                gap.priority,
-                              )}`}
-                            >
-                              {getPriorityLabel(gap.priority)}
-                            </Typography.CaptionMedium>
-                          </div>
-
-                          {(() => {
-                            const summary = getGapSummaryTextWithFallback(gap);
-                            const blurb = getGapBlurbText(gap);
-                            const content = blurb || summary;
-                            if (!content) return null;
-                            return (
-                              <MarkdownContent
-                                className="text-gray-700 dark:text-gray-300 mb-3"
-                                markdown={content}
-                              />
-                            );
-                          })()}
-
-                          {gap.tags.length > 0 && (
-                            <div className="flex flex-wrap gap-2 mb-3">
-                              {gap.tags.map((tag) => (
-                                <Typography.Caption
-                                  key={tag}
-                                  className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                                >
-                                  {tag}
-                                </Typography.Caption>
-                              ))}
-                            </div>
-                          )}
-
-                          {gap.resources.length > 0 ? (
-                            <ul className="space-y-2">
-                              {gap.resources.map((r) => (
-                                <li key={r.id} className="text-sm">
-                                  <a
-                                    className="text-gray-700 dark:text-gray-300 hover:underline"
-                                    href={r.url}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                  >
-                                    {r.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <div className="text-sm text-gray-500 dark:text-gray-500 italic">
-                              No curated links yet.
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                <KnowledgeGapsSection
+                  knowledgeGaps={results.knowledgeGaps}
+                  mode="full"
+                />
               )}
 
               {qaRows.length > 0 && (
@@ -2008,7 +1704,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                     <div className="whitespace-pre-line text-sm">
                                       <ReactMarkdown
                                         remarkPlugins={[remarkGfm]}
-                                        components={qaMarkdownComponents}
+                                        components={
+                                          qaResponseMarkdownComponents
+                                        }
                                       >
                                         {yourAnswer}
                                       </ReactMarkdown>
@@ -2033,7 +1731,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                     <div className="whitespace-pre-line text-sm">
                                       <ReactMarkdown
                                         remarkPlugins={[remarkGfm]}
-                                        components={qaMarkdownComponents}
+                                        components={
+                                          qaResponseMarkdownComponents
+                                        }
                                       >
                                         {example}
                                       </ReactMarkdown>
