@@ -93,7 +93,7 @@ export default function PricingSection() {
 
           <Card className="w-full py-10 gap-0 h-full border border-primary/30 bg-card/80 backdrop-blur ring-2 ring-primary/15 shadow-[0_24px_80px_-46px_hsl(var(--blairify-accent-brand)_/_0.55)] relative">
             <div
-              className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 shadow-sm"
+              className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-2 shadow-sm flex items-center justify-center"
               aria-hidden="true"
             >
               <Typography.SubCaptionBold color="inverse">

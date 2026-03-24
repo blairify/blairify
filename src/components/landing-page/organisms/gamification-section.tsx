@@ -1,36 +1,41 @@
 "use client";
 
-import { Database, Flame, ShieldCheck } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
+import AbacusIcon from "@/components/common/icons/abacus-icon";
+import BrandMinecraftIcon from "@/components/common/icons/brand-minecraft-icon";
+import FlameIcon from "@/components/common/icons/flame-icon";
 
 export default function GamificationSection() {
-  const xpBarRef = useRef<HTMLDivElement | null>(null);
-  const [shouldAnimateXp, setShouldAnimateXp] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [_isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const target = xpBarRef.current;
+    const target = sectionRef.current;
     if (!target) return;
 
     const reduceMotionQuery = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     );
-    if (reduceMotionQuery.matches) return;
+    if (reduceMotionQuery.matches) {
+      setIsVisible(true);
+      return;
+    }
 
-    let hasAnimated = false;
+    let hasTriggered = false;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         if (!entry) return;
         if (!entry.isIntersecting) return;
-        if (hasAnimated) return;
+        if (hasTriggered) return;
 
-        hasAnimated = true;
-        setShouldAnimateXp(true);
+        hasTriggered = true;
+        setIsVisible(true);
         observer.disconnect();
       },
-      { threshold: 0.35 },
+      { threshold: 0.15 },
     );
 
     observer.observe(target);
@@ -39,126 +44,67 @@ export default function GamificationSection() {
 
   return (
     <section
+      ref={sectionRef}
       className="bg-background border-b border-border/40 py-16 sm:py-20 scroll-mt-24 relative overflow-hidden"
       aria-labelledby="gamification-heading"
       data-analytics-id="home-gamification"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_50%,rgba(168,85,247,0.05),transparent_65%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,0.06),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(245,158,11,0.05),transparent_50%)]"
         aria-hidden="true"
       />
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <Typography.HeroSubHeading
             id="gamification-heading"
             className="mt-4 mb-3"
           >
-            Gamify your preparation.
+            Level up while you prep.
           </Typography.HeroSubHeading>
           <Typography.Body color="secondary">
-            Earn XP for surviving Tech Lead drill-downs, unlock architectural
-            badges, and track your streaks.
+            Every session earns XP, unlocks achievements, and pushes your rank
+            higher. It turns the grind into a game you actually want to play.
           </Typography.Body>
         </header>
 
-        <div className="grid gap-6 justify-center md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
-          <article
-            className="rounded-2xl border border-border/50 
-bg-background/80 backdrop-blur p-6 sm:p-8 md:col-span-2 lg:col-span-2 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 w-full"
-          >
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <Typography.SubCaptionMedium color="secondary">
-                  Rank
-                </Typography.SubCaptionMedium>
-                <Typography.BodyBold className="mt-1">
-                  Mid-Level Architect
-                </Typography.BodyBold>
-              </div>
-              <div className="text-right">
-                <Typography.SubCaptionMedium color="secondary">
-                  Score
-                </Typography.SubCaptionMedium>
-                <Typography.BodyBold className="mt-1">
-                  14,250
-                </Typography.BodyBold>
-              </div>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
+          {/* Achievement Progress */}
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center size-16 rounded-full bg-primary/10 mb-4">
+              <BrandMinecraftIcon
+                size={32}
+                color="currentColor"
+                strokeWidth={1.5}
+              />
             </div>
+            <Typography.BodyBold className="mb-2">Collect</Typography.BodyBold>
+            <Typography.SubCaption color="secondary">
+              Unlock rewards as you practice
+            </Typography.SubCaption>
+          </div>
 
-            <div className="mt-6">
-              <div
-                ref={xpBarRef}
-                className="h-3 rounded-full border border-border/50 
-bg-background overflow-hidden relative"
-                role="progressbar"
-                aria-label="Progress"
-                aria-valuemin={0}
-                aria-valuemax={100}
-                aria-valuenow={85}
-              >
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent"
-                  aria-hidden="true"
-                />
-                <div
-                  className={
-                    shouldAnimateXp
-                      ? "h-3 bg-primary blairify-xp-fill"
-                      : "h-3 bg-primary"
-                  }
-                  style={{ width: "85%" }}
-                  aria-hidden="true"
-                />
-              </div>
-              <div className="mt-3 flex items-center justify-center gap-2">
-                <Flame className="size-4 text-primary" aria-hidden="true" />
-                <Typography.SubCaptionMedium color="secondary">
-                  7 Day Streak!
-                </Typography.SubCaptionMedium>
-              </div>
+          {/* Current Streak */}
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center size-16 rounded-full bg-orange-500/10 mb-4">
+              <FlameIcon size={32} color="currentColor" strokeWidth={1.5} />
             </div>
-          </article>
+            <Typography.BodyBold className="mb-2">Streak</Typography.BodyBold>
+            <Typography.SubCaption color="secondary">
+              Keep the momentum going
+            </Typography.SubCaption>
+          </div>
 
-          <article
-            className="rounded-2xl border border-border/50 
-bg-background/80 backdrop-blur p-6 sm:p-8 space-y-4 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 w-full md:col-span-2 lg:col-span-1"
-          >
-            <div className="flex items-center gap-3">
-              <div
-                className="size-10 rounded-lg border border-border/50 
-bg-background flex items-center justify-center"
-              >
-                <ShieldCheck
-                  className="size-5 text-muted-foreground"
-                  aria-hidden="true"
-                />
-              </div>
-              <div className="flex flex-col items-start gap-1 justify-left">
-                <Typography.BodyBold>Flawless Defense</Typography.BodyBold>
-                <Typography.SubCaptionMedium color="secondary">
-                  Survived drill-downs
-                </Typography.SubCaptionMedium>
-              </div>
+          {/* Skill Progress */}
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center size-16 rounded-full bg-green-500/10 mb-4">
+              <AbacusIcon size={32} color="currentColor" strokeWidth={1.5} />
             </div>
-
-            <div className="flex items-center gap-3">
-              <div
-                className="size-10 rounded-lg border border-border/50 
-bg-background flex items-center justify-center"
-              >
-                <Database
-                  className="size-5 text-muted-foreground"
-                  aria-hidden="true"
-                />
-              </div>
-              <div>
-                <Typography.BodyBold>Data Master</Typography.BodyBold>
-                <Typography.SubCaptionMedium color="secondary">
-                  Solved DB sharding
-                </Typography.SubCaptionMedium>
-              </div>
-            </div>
-          </article>
+            <Typography.BodyBold className="mb-2">Score</Typography.BodyBold>
+            <Typography.SubCaption color="secondary">
+              Track your improvement
+            </Typography.SubCaption>
+          </div>
         </div>
       </div>
     </section>

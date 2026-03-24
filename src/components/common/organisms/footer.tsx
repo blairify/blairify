@@ -1,6 +1,8 @@
 "use client";
 import {
   Cookie,
+  Copyright,
+  Database,
   FileText,
   Instagram,
   Linkedin,
@@ -20,7 +22,11 @@ export default function Footer() {
     { href: "/terms-of-service", label: "Terms of Service", icon: FileText },
     { href: "/cookie-policy", label: "Cookie Policy", icon: Cookie },
     { href: "/gdpr-rights", label: "GDPR/RODO Rights", icon: Shield },
-    { href: "/data-processing-agreement", label: "DPA", icon: FileText },
+    {
+      href: "/data-processing-agreement",
+      label: "Data Processing",
+      icon: Database,
+    },
     { href: "/legal-notice", label: "Legal Notice", icon: Scale },
   ];
 
@@ -76,34 +82,26 @@ export default function Footer() {
           </div>
 
           {/* Compliance Badges */}
-          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-end w-full lg:w-auto">
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-card bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full whitespace-nowrap">
-              <Shield className="size-3 sm:size-4" />
-              <Typography.Caption color="secondary">
-                GDPR Compliant
-              </Typography.Caption>
-            </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-card bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full whitespace-nowrap">
-              <Lock className="size-3 sm:size-4" />
-              <Typography.Caption color="secondary">
-                SSL Secured
-              </Typography.Caption>
-            </div>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 justify-center lg:justify-end w-full lg:w-auto">
+            <Typography.Caption color="secondary">
+              BY ENGINEERS FOR ENGINEERS
+            </Typography.Caption>
+
+            <Typography.Caption color="secondary">
+              support@blairify.com
+            </Typography.Caption>
           </div>
         </div>
 
         {/* Bottom Section: Copyright, Contact & Social */}
         <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-3 sm:gap-4 pt-2 sm:pt-3 text-xs sm:text-sm">
-          <div className="text-center sm:text-left">
+          <div className="flex flex-row items-center gap-2 text-center sm:text-left">
+            <Copyright className="size-4" />
             <Typography.Caption color="secondary">
-              © {currentYear} Blairify. All rights reserved.
+              {currentYear} Blairify. All rights reserved.
             </Typography.Caption>
           </div>
-          <div className="text-center">
-            <Typography.Caption color="secondary">
-              Built by engineers. Designed for real interviews.
-            </Typography.Caption>
-          </div>
+
           <div className="flex items-center gap-3">
             {socialLinks.map((socialLink) => {
               const Icon = socialLink.icon;
@@ -120,21 +118,6 @@ export default function Footer() {
                 </Link>
               );
             })}
-          </div>
-          <div className="text-center sm:text-right">
-            <div className="flex flex-col items-center sm:items-end sm:flex-row sm:justify-end gap-0 sm:gap-1">
-              <Typography.Caption color="secondary">
-                Support:
-              </Typography.Caption>
-              <Link
-                href="mailto:support@blairify.com"
-                className="underline hover:text-[color:var(--foreground)] transition-colors py-1 px-1 -mx-1 touch-manipulation"
-              >
-                <Typography.Caption color="secondary">
-                  support@blairify.com
-                </Typography.Caption>
-              </Link>
-            </div>
           </div>
         </div>
       </div>

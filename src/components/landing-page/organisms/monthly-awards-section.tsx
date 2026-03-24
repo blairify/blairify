@@ -6,15 +6,6 @@ import { FaGithub } from "react-icons/fa";
 import { RxLinkedinLogo } from "react-icons/rx";
 import { Typography } from "@/components/common/atoms/typography";
 
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-
 type SocialLinks = {
   github: string | null;
   linkedin: string | null;
@@ -1059,19 +1050,28 @@ function LeaderboardTable({
   const topEntries = entries.slice(0, 3);
 
   return (
-    <div className="overflow-hidden rounded-md border border-border/50">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="text-left px-5">User</TableHead>
-            <TableHead className="text-left py-2 px-4">{xpLabel}</TableHead>
-            <TableHead className="text-right px-5">Links</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
+    <div className="overflow-hidden rounded-md">
+      <table className="w-full" aria-label={`Leaderboard: ${xpLabel}`}>
+        <thead>
+          <tr className="border-b border-border/30">
+            <th scope="col" className="text-left p-3">
+              <Typography.BodyBold>User</Typography.BodyBold>
+            </th>
+            <th scope="col" className="text-left p-3">
+              <Typography.BodyBold>{xpLabel}</Typography.BodyBold>
+            </th>
+            <th scope="col" className="text-right p-3">
+              <Typography.BodyBold>Links</Typography.BodyBold>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
           {topEntries.map((entry) => (
-            <TableRow key={entry.rank}>
-              <TableCell className="py-2 px-4">
+            <tr
+              key={entry.rank}
+              className="border-b border-border/20 hover:bg-background/50 transition-colors"
+            >
+              <th scope="row" className="p-3 text-left font-normal">
                 <div className="flex items-center gap-3">
                   <Image
                     src={entry.avatar}
@@ -1081,15 +1081,15 @@ function LeaderboardTable({
                     className="size-8 rounded-full object-cover shrink-0"
                     unoptimized
                   />
-                  <span className="font-medium">{entry.username}</span>
+                  <Typography.Body>{entry.username}</Typography.Body>
                 </div>
-              </TableCell>
-              <TableCell className="py-2 px-4 text-left">
-                <span className="font-medium text-primary">
+              </th>
+              <td className="p-3 text-left">
+                <Typography.BodyBold color="primary">
                   {entry.xp.toLocaleString()}
-                </span>
-              </TableCell>
-              <TableCell className="py-2 px-4">
+                </Typography.BodyBold>
+              </td>
+              <td className="p-3">
                 <div className="flex items-center justify-end gap-2">
                   <SocialIcon
                     href={entry.socials.github}
@@ -1102,11 +1102,11 @@ function LeaderboardTable({
                     label={`${entry.username} LinkedIn profile`}
                   />
                 </div>
-              </TableCell>
-            </TableRow>
+              </td>
+            </tr>
           ))}
-        </TableBody>
-      </Table>
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -1157,16 +1157,16 @@ export default function MonthlyAwardsSection({
           </Typography.Body>
         </header>
 
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
           <div>
-            <Typography.BodyBold className="mb-4">
+            <Typography.BodyBold className="mb-8 text-center">
               Score Leaders
             </Typography.BodyBold>
             <LeaderboardTable entries={data.overall} xpLabel="Score" />
           </div>
 
           <div>
-            <Typography.BodyBold className="mb-4">
+            <Typography.BodyBold className="mb-8 text-center">
               Monthly Score Gains
             </Typography.BodyBold>
             <LeaderboardTable entries={data.gains} xpLabel="Gained" />

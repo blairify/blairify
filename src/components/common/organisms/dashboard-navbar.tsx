@@ -101,7 +101,7 @@ export default function DashboardNavbar({
           </Typography.SubCaptionBold>
           <div
             className={cn(
-              "relative size-[30px] right-[3px] top-[1px] items-center rounded-full hover:ring-1 hover:ring-primary/20 transition-all cursor-pointer",
+              "relative size-[30px] right-[4px] items-center rounded-full hover:ring-1 hover:ring-primary/20 transition-all cursor-pointer",
             )}
           >
             {userData?.avatarIcon ? (
