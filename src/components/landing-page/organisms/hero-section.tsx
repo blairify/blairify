@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 import { InterviewerAvatar } from "@/components/common/interviewer-avatar";
 import { Button } from "@/components/ui/button";
@@ -129,6 +129,7 @@ function useHeroTypingAnimation(): TypingAnimationState {
   const [followUpText, setFollowUpText] = useState("");
   const [isTypingFollowUp, setIsTypingFollowUp] = useState(false);
   const [followUpCompleted, setFollowUpCompleted] = useState(false);
+  const followUpStartedRef = useRef(false);
 
   useEffect(() => {
     if (animationCompleted) return;
@@ -218,7 +219,8 @@ function useHeroTypingAnimation(): TypingAnimationState {
   }, [animationCompleted]);
 
   useEffect(() => {
-    if (!animationCompleted || showFollowUp) return;
+    if (!animationCompleted || followUpStartedRef.current) return;
+    followUpStartedRef.current = true;
 
     const timeoutIds: Array<ReturnType<typeof setTimeout>> = [];
 
@@ -250,7 +252,7 @@ function useHeroTypingAnimation(): TypingAnimationState {
     return () => {
       for (const timeoutId of timeoutIds) clearTimeout(timeoutId);
     };
-  }, [animationCompleted, showFollowUp]);
+  }, [animationCompleted]);
 
   return {
     commandText,

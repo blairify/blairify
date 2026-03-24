@@ -23,6 +23,7 @@ import {
 import { Typography } from "@/components/common/atoms/typography";
 import { MarkdownContent } from "@/components/common/molecules/markdown-content";
 import { XPProgressBar } from "@/components/ranks/organisms/xp-progress-bar";
+import { GuestBlurOverlay } from "@/components/results/molecules/guest-blur-overlay";
 import { RewardsCinematicOverlay } from "@/components/results/organisms/rewards-cinematic-overlay";
 import { Button } from "@/components/ui/button";
 import type { Achievement } from "@/lib/achievements";
@@ -449,6 +450,7 @@ interface ResultsDeckProps {
   onRewardsConsumed: () => void;
   onOpenFullReport: () => void;
   onDone: () => void;
+  isGuest?: boolean;
 }
 
 function clampIndex(value: number, max: number): number {
@@ -810,7 +812,9 @@ export function ResultsDeck({
   onRewardsConsumed,
   onOpenFullReport,
   onDone,
+  isGuest,
 }: ResultsDeckProps) {
+  const guestBlur = isGuest === true;
   const steps = useMemo<DeckStep[]>(() => {
     const passed = typeof results.passed === "boolean" ? results.passed : null;
 
@@ -1858,81 +1862,86 @@ export function ResultsDeck({
 
                               case "takeaway":
                                 return (
-                                  <div className="space-y-6">
-                                    <div>
-                                      <Typography.Body className="text-sm text-muted-foreground">
-                                        A quick debrief — what you did well, and
-                                        what to tighten.
-                                      </Typography.Body>
-                                    </div>
+                                  <GuestBlurOverlay
+                                    enabled={guestBlur}
+                                    message="Sign up to read your coach's feedback"
+                                  >
+                                    <div className="space-y-6">
+                                      <div>
+                                        <Typography.Body className="text-sm text-muted-foreground">
+                                          A quick debrief — what you did well,
+                                          and what to tighten.
+                                        </Typography.Body>
+                                      </div>
 
-                                    <div className="rounded-3xl border bg-background/40 p-5 sm:p-6">
-                                      <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-                                        <motion.div
-                                          className="shrink-0"
-                                          initial={{ opacity: 0, y: 6 }}
-                                          animate={{ opacity: 1, y: 0 }}
-                                          transition={{
-                                            duration: 0.35,
-                                            ease: "easeOut",
-                                          }}
-                                        >
+                                      <div className="rounded-3xl border bg-background/40 p-5 sm:p-6">
+                                        <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
                                           <motion.div
-                                            aria-hidden
-                                            className="relative size-12 rounded-full border bg-background/70"
-                                            animate={{ y: [0, -2, 0] }}
+                                            className="shrink-0"
+                                            initial={{ opacity: 0, y: 6 }}
+                                            animate={{ opacity: 1, y: 0 }}
                                             transition={{
-                                              duration: 2.2,
-                                              repeat: Infinity,
-                                              ease: "easeInOut",
+                                              duration: 0.35,
+                                              ease: "easeOut",
                                             }}
                                           >
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                              <div className="relative size-8 rounded-full bg-foreground/5" />
-                                              <motion.div
-                                                className="absolute left-[14px] top-[18px] size-1.5 rounded-full bg-foreground/60"
-                                                animate={{
-                                                  scaleY: [1, 1, 0.2, 1, 1],
-                                                }}
-                                                transition={{
-                                                  duration: 3.6,
-                                                  repeat: Infinity,
-                                                  times: [
-                                                    0, 0.42, 0.46, 0.5, 1,
-                                                  ],
-                                                }}
-                                              />
-                                              <motion.div
-                                                className="absolute right-[14px] top-[18px] size-1.5 rounded-full bg-foreground/60"
-                                                animate={{
-                                                  scaleY: [1, 1, 0.2, 1, 1],
-                                                }}
-                                                transition={{
-                                                  duration: 3.6,
-                                                  repeat: Infinity,
-                                                  times: [
-                                                    0, 0.42, 0.46, 0.5, 1,
-                                                  ],
-                                                }}
+                                            <motion.div
+                                              aria-hidden
+                                              className="relative size-12 rounded-full border bg-background/70"
+                                              animate={{ y: [0, -2, 0] }}
+                                              transition={{
+                                                duration: 2.2,
+                                                repeat: Infinity,
+                                                ease: "easeInOut",
+                                              }}
+                                            >
+                                              <div className="absolute inset-0 flex items-center justify-center">
+                                                <div className="relative size-8 rounded-full bg-foreground/5" />
+                                                <motion.div
+                                                  className="absolute left-[14px] top-[18px] size-1.5 rounded-full bg-foreground/60"
+                                                  animate={{
+                                                    scaleY: [1, 1, 0.2, 1, 1],
+                                                  }}
+                                                  transition={{
+                                                    duration: 3.6,
+                                                    repeat: Infinity,
+                                                    times: [
+                                                      0, 0.42, 0.46, 0.5, 1,
+                                                    ],
+                                                  }}
+                                                />
+                                                <motion.div
+                                                  className="absolute right-[14px] top-[18px] size-1.5 rounded-full bg-foreground/60"
+                                                  animate={{
+                                                    scaleY: [1, 1, 0.2, 1, 1],
+                                                  }}
+                                                  transition={{
+                                                    duration: 3.6,
+                                                    repeat: Infinity,
+                                                    times: [
+                                                      0, 0.42, 0.46, 0.5, 1,
+                                                    ],
+                                                  }}
+                                                />
+                                              </div>
+                                            </motion.div>
+                                          </motion.div>
+
+                                          <div className="min-w-0">
+                                            <div className="text-foreground break-words">
+                                              <MarkdownContent
+                                                markdown={
+                                                  step.body.trim().length > 0
+                                                    ? step.body
+                                                    : "No coach feedback captured."
+                                                }
                                               />
                                             </div>
-                                          </motion.div>
-                                        </motion.div>
-
-                                        <div className="min-w-0">
-                                          <div className="text-foreground break-words">
-                                            <MarkdownContent
-                                              markdown={
-                                                step.body.trim().length > 0
-                                                  ? step.body
-                                                  : "No coach feedback captured."
-                                              }
-                                            />
                                           </div>
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
+                                  </GuestBlurOverlay>
                                 );
 
                               case "growth":
@@ -1945,99 +1954,105 @@ export function ResultsDeck({
                                 }
 
                                 return (
-                                  <div className="space-y-6">
-                                    <div>
-                                      <Typography.Heading2 className="mt-2 text-xl sm:text-2xl font-semibold tracking-tight">
-                                        Top areas for growth
-                                      </Typography.Heading2>
-                                      <Typography.Body className="mt-2 text-sm text-muted-foreground">
-                                        Review these topics — they’ll move your
-                                        score the fastest.
-                                      </Typography.Body>
-                                    </div>
+                                  <GuestBlurOverlay
+                                    enabled={guestBlur}
+                                    message="Sign up to see your focus areas"
+                                  >
+                                    <div className="space-y-6">
+                                      <div>
+                                        <Typography.Heading2 className="mt-2 text-xl sm:text-2xl font-semibold tracking-tight">
+                                          Top areas for growth
+                                        </Typography.Heading2>
+                                        <Typography.Body className="mt-2 text-sm text-muted-foreground">
+                                          Review these topics — they’ll move
+                                          your score the fastest.
+                                        </Typography.Body>
+                                      </div>
 
-                                    <div className="rounded-3xl border bg-background/40">
-                                      <div className="divide-y">
-                                        {step.focusAreas.map((a, i) => (
-                                          <motion.div
-                                            key={`${i}-${a.title}`}
-                                            className="px-4 py-3 sm:px-6 sm:py-4"
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{
-                                              duration: 0.35,
-                                              ease: "easeOut",
-                                              delay: i * 0.06,
-                                            }}
-                                          >
-                                            <div className="flex items-start gap-4">
-                                              <div className="min-w-0">
-                                                <div className="flex flex-wrap items-center gap-2">
-                                                  <div className="text-sm sm:text-base font-semibold leading-relaxed">
-                                                    {a.title}
-                                                  </div>
-                                                  {(() => {
-                                                    const p = getPriorityBadge(
-                                                      a.priority,
-                                                    );
-                                                    if (!p) return null;
-                                                    return (
-                                                      <span
-                                                        className={`inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold ${p.className}`}
-                                                      >
-                                                        {p.label}
-                                                      </span>
-                                                    );
-                                                  })()}
-                                                </div>
-
-                                                {Array.isArray(a.tags) &&
-                                                a.tags.length > 0 ? (
-                                                  <div className="mt-2 flex flex-wrap gap-1.5">
-                                                    {a.tags
-                                                      .slice(0, 4)
-                                                      .map((t) => (
+                                      <div className="rounded-3xl border bg-background/40">
+                                        <div className="divide-y">
+                                          {step.focusAreas.map((a, i) => (
+                                            <motion.div
+                                              key={`${i}-${a.title}`}
+                                              className="px-4 py-3 sm:px-6 sm:py-4"
+                                              initial={{ opacity: 0, y: 10 }}
+                                              animate={{ opacity: 1, y: 0 }}
+                                              transition={{
+                                                duration: 0.35,
+                                                ease: "easeOut",
+                                                delay: i * 0.06,
+                                              }}
+                                            >
+                                              <div className="flex items-start gap-4">
+                                                <div className="min-w-0">
+                                                  <div className="flex flex-wrap items-center gap-2">
+                                                    <div className="text-sm sm:text-base font-semibold leading-relaxed">
+                                                      {a.title}
+                                                    </div>
+                                                    {(() => {
+                                                      const p =
+                                                        getPriorityBadge(
+                                                          a.priority,
+                                                        );
+                                                      if (!p) return null;
+                                                      return (
                                                         <span
-                                                          key={t}
-                                                          className="rounded-full border bg-background/60 px-2 py-0.5 text-[11px] font-semibold text-muted-foreground"
+                                                          className={`inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold ${p.className}`}
                                                         >
-                                                          {t}
+                                                          {p.label}
                                                         </span>
-                                                      ))}
+                                                      );
+                                                    })()}
                                                   </div>
-                                                ) : null}
-                                                {a.why.trim().length > 0 ? (
-                                                  <Typography.Body className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                                                    {a.why}
-                                                  </Typography.Body>
-                                                ) : null}
 
-                                                {Array.isArray(a.resources) &&
-                                                a.resources.length > 0 ? (
-                                                  <div className="mt-3 space-y-1">
-                                                    {a.resources.map((r) => (
-                                                      <a
-                                                        key={r.id}
-                                                        href={r.url}
-                                                        target="_blank"
-                                                        rel="noreferrer"
-                                                        className="block text-sm text-primary hover:underline"
-                                                        onPointerDown={(e) =>
-                                                          e.stopPropagation()
-                                                        }
-                                                      >
-                                                        {r.title}
-                                                      </a>
-                                                    ))}
-                                                  </div>
-                                                ) : null}
+                                                  {Array.isArray(a.tags) &&
+                                                  a.tags.length > 0 ? (
+                                                    <div className="mt-2 flex flex-wrap gap-1.5">
+                                                      {a.tags
+                                                        .slice(0, 4)
+                                                        .map((t) => (
+                                                          <span
+                                                            key={t}
+                                                            className="rounded-full border bg-background/60 px-2 py-0.5 text-[11px] font-semibold text-muted-foreground"
+                                                          >
+                                                            {t}
+                                                          </span>
+                                                        ))}
+                                                    </div>
+                                                  ) : null}
+                                                  {a.why.trim().length > 0 ? (
+                                                    <Typography.Body className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                                                      {a.why}
+                                                    </Typography.Body>
+                                                  ) : null}
+
+                                                  {Array.isArray(a.resources) &&
+                                                  a.resources.length > 0 ? (
+                                                    <div className="mt-3 space-y-1">
+                                                      {a.resources.map((r) => (
+                                                        <a
+                                                          key={r.id}
+                                                          href={r.url}
+                                                          target="_blank"
+                                                          rel="noreferrer"
+                                                          className="block text-sm text-primary hover:underline"
+                                                          onPointerDown={(e) =>
+                                                            e.stopPropagation()
+                                                          }
+                                                        >
+                                                          {r.title}
+                                                        </a>
+                                                      ))}
+                                                    </div>
+                                                  ) : null}
+                                                </div>
                                               </div>
-                                            </div>
-                                          </motion.div>
-                                        ))}
+                                            </motion.div>
+                                          ))}
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
+                                  </GuestBlurOverlay>
                                 );
 
                               case "next":

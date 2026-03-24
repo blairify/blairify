@@ -33,6 +33,7 @@ import {
   qaResponseMarkdownComponents,
 } from "@/components/results/atoms/result-markdown-renderers";
 import { DetailedScoreCard } from "@/components/results/molecules/detailed-score-card";
+import { GuestBlurOverlay } from "@/components/results/molecules/guest-blur-overlay";
 import { PassFailBanner } from "@/components/results/molecules/pass-fail-banner";
 import { KnowledgeGapsSection } from "@/components/results/organisms/knowledge-gaps-section";
 import {
@@ -98,7 +99,12 @@ interface ResultsContentProps {
 export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { user: authUser, userData, refreshUserData } = useAuth();
+  const {
+    user: authUser,
+    userData,
+    refreshUserData,
+    loading: authLoading,
+  } = useAuth();
   const [isAnalyzing, setIsAnalyzing] = useState(true);
   const [results, setResults] = useState<InterviewResults | null>(null);
   const [interviewConfig, setInterviewConfig] =
@@ -255,6 +261,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     () => authUser?.email ?? initialUser?.email ?? "",
     [authUser?.email, initialUser?.email],
   );
+  const isGuest = !authLoading && !authUser;
 
   const sessionIdFromQuery = useMemo(() => {
     const raw = searchParams.get("sessionId");
@@ -1322,6 +1329,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             sessionId={savedSessionId}
             results={results}
             rewards={rewards}
+            isGuest={isGuest}
             onRewardsConsumed={() => {
               window.sessionStorage.removeItem("postInterviewRewards");
             }}
@@ -1595,10 +1603,15 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               })()}
 
               {results.knowledgeGaps && results.knowledgeGaps.length > 0 && (
-                <KnowledgeGapsSection
-                  knowledgeGaps={results.knowledgeGaps}
-                  mode="full"
-                />
+                <GuestBlurOverlay
+                  enabled={isGuest}
+                  message="Sign up to explore your knowledge gaps & resources"
+                >
+                  <KnowledgeGapsSection
+                    knowledgeGaps={results.knowledgeGaps}
+                    mode="full"
+                  />
+                </GuestBlurOverlay>
               )}
 
               {qaRows.length > 0 && (
@@ -1614,145 +1627,151 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                       </Typography.Caption>
                     </div>
                   </CardTitle>
-                  <CardContent className="pt-6">
-                    <div className="space-y-6">
-                      {qaRows.map((row, uniqueRowIdx) => {
-                        const q = row.practiceQuestionId
-                          ? (practiceQuestionsById[row.practiceQuestionId] ??
-                            null)
-                          : null;
-                        const example =
-                          (q ? getExampleAnswer(q) : null) ??
-                          row.aiExampleAnswer ??
-                          getAiExampleAnswerForRow(row);
-                        const prompt = row.questionText.trim() || null;
-                        const yourAnswer = row.yourAnswer.trim() || null;
+                  <GuestBlurOverlay
+                    enabled={isGuest}
+                    message="Sign up to review your answers & example responses"
+                  >
+                    <CardContent className="pt-6">
+                      <div className="space-y-6">
+                        {qaRows.map((row, uniqueRowIdx) => {
+                          const q = row.practiceQuestionId
+                            ? (practiceQuestionsById[row.practiceQuestionId] ??
+                              null)
+                            : null;
+                          const example =
+                            (q ? getExampleAnswer(q) : null) ??
+                            row.aiExampleAnswer ??
+                            getAiExampleAnswerForRow(row);
+                          const prompt = row.questionText.trim() || null;
+                          const yourAnswer = row.yourAnswer.trim() || null;
 
-                        return (
-                          <Collapsible
-                            key={
-                              row.practiceQuestionId ?? `row_${uniqueRowIdx}`
-                            }
-                            defaultOpen={false}
-                            className={`border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow ${
-                              row.type === "follow-up"
-                                ? "border-l-4 border-l-border/70 bg-gradient-to-br from-muted/30 to-muted/10 border-y-border/50 border-r-border/50"
-                                : "border-border/50 bg-gradient-to-br from-card to-card/50"
-                            }`}
-                          >
-                            <CollapsibleTrigger className="w-full text-left group">
-                              <div className="flex items-center justify-between gap-3">
-                                <div className="flex flex-wrap items-center gap-2 min-w-0">
-                                  {row.type === "main" ? (
-                                    <Badge
-                                      variant="default"
-                                      className="font-semibold"
-                                    >
-                                      Question {row.idx + 1}
-                                    </Badge>
-                                  ) : (
-                                    <Badge
-                                      variant="secondary"
-                                      className="font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
-                                    >
-                                      Follow-up
-                                    </Badge>
-                                  )}
-                                  <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
-                                    {(() => {
-                                      if (row.type === "main" && q?.title)
-                                        return q.title;
-                                      const key = row.questionText.trim();
-                                      const mapped = questionTitlesByText[key];
-                                      if (mapped && mapped.trim().length > 0)
-                                        return mapped;
-                                      if (!prompt) return "Question Details";
-                                      return (
-                                        prompt.slice(0, 60) +
-                                        (prompt.length > 60 ? "..." : "")
-                                      );
-                                    })()}
+                          return (
+                            <Collapsible
+                              key={
+                                row.practiceQuestionId ?? `row_${uniqueRowIdx}`
+                              }
+                              defaultOpen={false}
+                              className={`border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow ${
+                                row.type === "follow-up"
+                                  ? "border-l-4 border-l-border/70 bg-gradient-to-br from-muted/30 to-muted/10 border-y-border/50 border-r-border/50"
+                                  : "border-border/50 bg-gradient-to-br from-card to-card/50"
+                              }`}
+                            >
+                              <CollapsibleTrigger className="w-full text-left group">
+                                <div className="flex items-center justify-between gap-3">
+                                  <div className="flex flex-wrap items-center gap-2 min-w-0">
+                                    {row.type === "main" ? (
+                                      <Badge
+                                        variant="default"
+                                        className="font-semibold"
+                                      >
+                                        Question {row.idx + 1}
+                                      </Badge>
+                                    ) : (
+                                      <Badge
+                                        variant="secondary"
+                                        className="font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+                                      >
+                                        Follow-up
+                                      </Badge>
+                                    )}
+                                    <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
+                                      {(() => {
+                                        if (row.type === "main" && q?.title)
+                                          return q.title;
+                                        const key = row.questionText.trim();
+                                        const mapped =
+                                          questionTitlesByText[key];
+                                        if (mapped && mapped.trim().length > 0)
+                                          return mapped;
+                                        if (!prompt) return "Question Details";
+                                        return (
+                                          prompt.slice(0, 60) +
+                                          (prompt.length > 60 ? "..." : "")
+                                        );
+                                      })()}
+                                    </div>
                                   </div>
+                                  <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
                                 </div>
-                                <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
-                              </div>
-                            </CollapsibleTrigger>
+                              </CollapsibleTrigger>
 
-                            <CollapsibleContent className="pt-4">
-                              <div className="whitespace-pre-line mb-3">
-                                {prompt ? (
-                                  <ReactMarkdown
-                                    remarkPlugins={[remarkGfm]}
-                                    components={qaQuestionMarkdownComponents}
-                                  >
-                                    {prompt}
-                                  </ReactMarkdown>
+                              <CollapsibleContent className="pt-4">
+                                <div className="whitespace-pre-line mb-3">
+                                  {prompt ? (
+                                    <ReactMarkdown
+                                      remarkPlugins={[remarkGfm]}
+                                      components={qaQuestionMarkdownComponents}
+                                    >
+                                      {prompt}
+                                    </ReactMarkdown>
+                                  ) : (
+                                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                                      Question prompt unavailable.
+                                    </div>
+                                  )}
+                                </div>
+
+                                {yourAnswer ? (
+                                  <>
+                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                      <User className="size-4 text-primary" />
+                                      Your Response:
+                                    </div>
+                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                      <div className="whitespace-pre-line text-sm">
+                                        <ReactMarkdown
+                                          remarkPlugins={[remarkGfm]}
+                                          components={
+                                            qaResponseMarkdownComponents
+                                          }
+                                        >
+                                          {yourAnswer}
+                                        </ReactMarkdown>
+                                      </div>
+                                    </div>
+                                  </>
                                 ) : (
                                   <div className="text-sm text-gray-600 dark:text-gray-400">
-                                    Question prompt unavailable.
+                                    No response recorded.
                                   </div>
                                 )}
-                              </div>
 
-                              {yourAnswer ? (
-                                <>
-                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                    <User className="size-4 text-primary" />
-                                    Your Response:
-                                  </div>
-                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                    <div className="whitespace-pre-line text-sm">
-                                      <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                        components={
-                                          qaResponseMarkdownComponents
-                                        }
-                                      >
-                                        {yourAnswer}
-                                      </ReactMarkdown>
+                                <Separator className="my-5" />
+
+                                {example ? (
+                                  <div>
+                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                      <Lightbulb className="size-4 text-primary" />
+                                      Example Answer:
+                                    </div>
+                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                      <div className="whitespace-pre-line text-sm">
+                                        <ReactMarkdown
+                                          remarkPlugins={[remarkGfm]}
+                                          components={
+                                            qaResponseMarkdownComponents
+                                          }
+                                        >
+                                          {example}
+                                        </ReactMarkdown>
+                                      </div>
                                     </div>
                                   </div>
-                                </>
-                              ) : (
-                                <div className="text-sm text-gray-600 dark:text-gray-400">
-                                  No response recorded.
-                                </div>
-                              )}
-
-                              <Separator className="my-5" />
-
-                              {example ? (
-                                <div>
-                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                    <Lightbulb className="size-4 text-primary" />
-                                    Example Answer:
+                                ) : (
+                                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                                    {q
+                                      ? "No example answer available for this question yet."
+                                      : "No example answer available."}
                                   </div>
-                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                    <div className="whitespace-pre-line text-sm">
-                                      <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                        components={
-                                          qaResponseMarkdownComponents
-                                        }
-                                      >
-                                        {example}
-                                      </ReactMarkdown>
-                                    </div>
-                                  </div>
-                                </div>
-                              ) : (
-                                <div className="text-sm text-gray-600 dark:text-gray-400">
-                                  {q
-                                    ? "No example answer available for this question yet."
-                                    : "No example answer available."}
-                                </div>
-                              )}
-                            </CollapsibleContent>
-                          </Collapsible>
-                        );
-                      })}
-                    </div>
-                  </CardContent>
+                                )}
+                              </CollapsibleContent>
+                            </Collapsible>
+                          );
+                        })}
+                      </div>
+                    </CardContent>
+                  </GuestBlurOverlay>
                 </Card>
               )}
               {(Boolean(results.overallScore?.trim()) ||
@@ -1770,18 +1789,23 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                       : null;
 
                   return (
-                    <AiFeedbackCard
-                      title={
-                        interviewer
-                          ? `${interviewer.name}'s Feedback`
-                          : "Blairify Feedback"
-                      }
-                      interviewer={interviewer || undefined}
-                      summaryMarkdown={null}
-                      strengths={null}
-                      improvements={results.improvements}
-                      detailsMarkdown={results.detailedAnalysis}
-                    />
+                    <GuestBlurOverlay
+                      enabled={isGuest}
+                      message="Sign up to read your personalised feedback"
+                    >
+                      <AiFeedbackCard
+                        title={
+                          interviewer
+                            ? `${interviewer.name}'s Feedback`
+                            : "Blairify Feedback"
+                        }
+                        interviewer={interviewer || undefined}
+                        summaryMarkdown={null}
+                        strengths={null}
+                        improvements={results.improvements}
+                        detailsMarkdown={results.detailedAnalysis}
+                      />
+                    </GuestBlurOverlay>
                   );
                 })()}
 
