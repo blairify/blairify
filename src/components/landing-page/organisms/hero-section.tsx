@@ -1,43 +1,13 @@
 "use client";
 
+import { ArrowUp } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
 import { InterviewerAvatar } from "@/components/common/interviewer-avatar";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { INTERVIEWERS } from "@/lib/config/interviewers";
 
-const TERMINAL_COMMAND = "start --from-url";
-const TERMINAL_DESCRIPTION =
-  "Paste a job posting URL. I will extract the role requirements and prepare the interview.";
-const TERMINAL_DESCRIPTION_WITH_MISTAKE =
-  "Paste a job postin URL. I will extract the role requirements and prepare the interview.";
-const TERMINAL_FOLLOW_UP = "Are we doing it?";
-const TERMINAL_CORRECT_WORD = "posting";
-const MISTAKE_CHAR_INDEX = TERMINAL_DESCRIPTION_WITH_MISTAKE.indexOf("postin");
-const MISTAKE_BACKSPACE_COUNT = 7;
-const COMMAND_START_DELAY_MS = 1000;
-const DESCRIPTION_START_DELAY_MS = 500;
-const MISTAKE_PAUSE_MS = 800;
-const CORRECTION_RESUME_DELAY_MS = 200;
-const FOLLOW_UP_DELAY_MS = 4000;
-const BACKSPACE_INTERVAL_MS = 50;
-const TYPING_SPEED_MIN_MS = 30;
-const TYPING_SPEED_RANGE_MS = 50;
-
-const PLACEHOLDER_TEXT = "https://justjoin.it/job-offer/software-engineer";
-const PLACEHOLDER_TYPING_SPEED_MIN_MS = 50;
-const PLACEHOLDER_TYPING_SPEED_RANGE_MS = 100;
-const PLACEHOLDER_PAUSE_MS = 1500;
-const PLACEHOLDER_DELETE_SPEED_MS = 30;
-
-const randomTypingSpeed = () =>
-  Math.random() * TYPING_SPEED_RANGE_MS + TYPING_SPEED_MIN_MS;
-
-const randomPlaceholderTypingSpeed = () =>
-  Math.random() * PLACEHOLDER_TYPING_SPEED_RANGE_MS +
-  PLACEHOLDER_TYPING_SPEED_MIN_MS;
+const BLAIR_MESSAGE =
+  "Hey! I'm Blair. Ready to prep for your interview? Paste a job posting URL and I'll break down what they're looking for.";
 
 function isValidHttpsUrl(value: string): boolean {
   if (!/^https:\/\//i.test(value)) return false;
@@ -58,20 +28,11 @@ function buildConfigureUrl(jobUrl: string): string {
 }
 
 interface TypingAnimationState {
-  commandText: string;
   displayText: string;
-  isTypingCommand: boolean;
-  isTyping: boolean;
-  isCorrecting: boolean;
-  showFollowUp: boolean;
-  followUpText: string;
-  isTypingFollowUp: boolean;
-  followUpCompleted: boolean;
 }
 
-function usePlaceholderTyping(): string {
-  const [placeholderText, setPlaceholderText] = useState("");
-  const [_isDeleting, setIsDeleting] = useState(false);
+function useHeroTypingAnimation(): TypingAnimationState {
+  const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
     const timeoutIds: Array<ReturnType<typeof setTimeout>> = [];
@@ -80,190 +41,27 @@ function usePlaceholderTyping(): string {
       timeoutIds.push(setTimeout(callback, delayMs));
     };
 
-    let charIndex = 0;
+    const words = BLAIR_MESSAGE.split(" ");
+    let wordIndex = 0;
     let currentText = "";
-    let isTyping = true;
 
-    const typeText = () => {
-      if (isTyping) {
-        if (charIndex < PLACEHOLDER_TEXT.length) {
-          currentText += PLACEHOLDER_TEXT[charIndex++];
-          setPlaceholderText(currentText);
-          scheduleTimeout(typeText, randomPlaceholderTypingSpeed());
-        } else {
-          isTyping = false;
-          setIsDeleting(true);
-          scheduleTimeout(typeText, PLACEHOLDER_PAUSE_MS);
-        }
-      } else {
-        if (currentText.length > 0) {
-          currentText = currentText.slice(0, -1);
-          setPlaceholderText(currentText);
-          scheduleTimeout(typeText, PLACEHOLDER_DELETE_SPEED_MS);
-        } else {
-          isTyping = true;
-          setIsDeleting(false);
-          charIndex = 0;
-          scheduleTimeout(typeText, 300);
-        }
+    const typeWord = () => {
+      if (wordIndex < words.length) {
+        currentText += (wordIndex === 0 ? "" : " ") + words[wordIndex++];
+        setDisplayText(currentText);
+        scheduleTimeout(typeWord, 100 + Math.random() * 150);
       }
     };
 
-    scheduleTimeout(typeText, 1500);
+    scheduleTimeout(typeWord, 1000);
+
     return () => {
       for (const timeoutId of timeoutIds) clearTimeout(timeoutId);
     };
   }, []);
 
-  return placeholderText;
-}
-
-function useHeroTypingAnimation(): TypingAnimationState {
-  const [commandText, setCommandText] = useState("");
-  const [displayText, setDisplayText] = useState("");
-  const [isTypingCommand, setIsTypingCommand] = useState(true);
-  const [isTyping, setIsTyping] = useState(true);
-  const [isCorrecting, setIsCorrecting] = useState(false);
-  const [animationCompleted, setAnimationCompleted] = useState(false);
-  const [showFollowUp, setShowFollowUp] = useState(false);
-  const [followUpText, setFollowUpText] = useState("");
-  const [isTypingFollowUp, setIsTypingFollowUp] = useState(false);
-  const [followUpCompleted, setFollowUpCompleted] = useState(false);
-  const followUpStartedRef = useRef(false);
-
-  useEffect(() => {
-    if (animationCompleted) return;
-
-    const timeoutIds: Array<ReturnType<typeof setTimeout>> = [];
-
-    const scheduleTimeout = (callback: () => void, delayMs: number) => {
-      timeoutIds.push(setTimeout(callback, delayMs));
-    };
-
-    let cmdIndex = 0;
-    let cmdText = "";
-    let descIndex = 0;
-    let descText = "";
-    let mistakeMade = false;
-
-    const finishDescription = () => {
-      setIsTyping(false);
-      setAnimationCompleted(true);
-    };
-
-    const resumeAfterCorrection = () => {
-      if (descIndex >= TERMINAL_DESCRIPTION.length) {
-        finishDescription();
-        return;
-      }
-      descText += TERMINAL_DESCRIPTION[descIndex++];
-      setDisplayText(descText);
-      scheduleTimeout(resumeAfterCorrection, randomTypingSpeed());
-    };
-
-    const typeCorrectWord = (correctIndex: number) => {
-      if (correctIndex >= TERMINAL_CORRECT_WORD.length) {
-        setIsCorrecting(false);
-        scheduleTimeout(resumeAfterCorrection, CORRECTION_RESUME_DELAY_MS);
-        return;
-      }
-      descText += TERMINAL_CORRECT_WORD[correctIndex];
-      setDisplayText(descText);
-      scheduleTimeout(
-        () => typeCorrectWord(correctIndex + 1),
-        randomTypingSpeed(),
-      );
-    };
-
-    const backspace = (count: number) => {
-      if (count >= MISTAKE_BACKSPACE_COUNT) {
-        typeCorrectWord(0);
-        return;
-      }
-      descText = descText.slice(0, -1);
-      setDisplayText(descText);
-      scheduleTimeout(() => backspace(count + 1), BACKSPACE_INTERVAL_MS);
-    };
-
-    const typeDescription = () => {
-      if (descIndex >= TERMINAL_DESCRIPTION_WITH_MISTAKE.length) {
-        finishDescription();
-        return;
-      }
-      descText += TERMINAL_DESCRIPTION_WITH_MISTAKE[descIndex++];
-      setDisplayText(descText);
-      if (descIndex === MISTAKE_CHAR_INDEX + 7 && !mistakeMade) {
-        mistakeMade = true;
-        setIsCorrecting(true);
-        scheduleTimeout(() => backspace(0), MISTAKE_PAUSE_MS);
-        return;
-      }
-      scheduleTimeout(typeDescription, randomTypingSpeed());
-    };
-
-    const typeCommand = () => {
-      if (cmdIndex >= TERMINAL_COMMAND.length) {
-        setIsTypingCommand(false);
-        scheduleTimeout(typeDescription, DESCRIPTION_START_DELAY_MS);
-        return;
-      }
-      cmdText += TERMINAL_COMMAND[cmdIndex++];
-      setCommandText(cmdText);
-      scheduleTimeout(typeCommand, randomTypingSpeed());
-    };
-
-    scheduleTimeout(typeCommand, COMMAND_START_DELAY_MS);
-    return () => {
-      for (const timeoutId of timeoutIds) clearTimeout(timeoutId);
-    };
-  }, [animationCompleted]);
-
-  useEffect(() => {
-    if (!animationCompleted || followUpStartedRef.current) return;
-    followUpStartedRef.current = true;
-
-    const timeoutIds: Array<ReturnType<typeof setTimeout>> = [];
-
-    const scheduleTimeout = (callback: () => void, delayMs: number) => {
-      timeoutIds.push(setTimeout(callback, delayMs));
-    };
-
-    scheduleTimeout(() => {
-      setShowFollowUp(true);
-      setIsTypingFollowUp(true);
-
-      let followUpIndex = 0;
-      let currentFollowUpText = "";
-
-      const typeFollowUp = () => {
-        if (followUpIndex >= TERMINAL_FOLLOW_UP.length) {
-          setIsTypingFollowUp(false);
-          setFollowUpCompleted(true);
-          return;
-        }
-        currentFollowUpText += TERMINAL_FOLLOW_UP[followUpIndex++];
-        setFollowUpText(currentFollowUpText);
-        scheduleTimeout(typeFollowUp, randomTypingSpeed());
-      };
-
-      typeFollowUp();
-    }, FOLLOW_UP_DELAY_MS);
-
-    return () => {
-      for (const timeoutId of timeoutIds) clearTimeout(timeoutId);
-    };
-  }, [animationCompleted]);
-
   return {
-    commandText,
     displayText,
-    isTypingCommand,
-    isTyping,
-    isCorrecting,
-    showFollowUp,
-    followUpText,
-    isTypingFollowUp,
-    followUpCompleted,
   };
 }
 
@@ -280,141 +78,120 @@ function HeroInterviewCard({
   onJobUrlChange,
   onSubmit,
 }: HeroInterviewCardProps) {
-  const {
-    commandText,
-    displayText,
-    isTypingCommand,
-    isTyping,
-    isCorrecting,
-    showFollowUp,
-    followUpText,
-    isTypingFollowUp,
-    followUpCompleted,
-  } = useHeroTypingAnimation();
+  const { displayText } = useHeroTypingAnimation();
 
-  const animatedPlaceholder = usePlaceholderTyping();
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleSubmit = () => {
+    if (!canStartFromUrl) return;
     onSubmit();
+  };
+
+  const interviewer = {
+    id: "blair",
+    name: "Blair",
+    title: "AI Interview Assistant",
+    experience: "Expert in technical interviews",
+    specialties: ["Communication", "Technical Assessment"],
+    personality: "Friendly and encouraging",
+    avatarConfig: {
+      sex: "woman" as const,
+      faceColor: "#F9C9B6",
+      earSize: "small" as const,
+      eyeStyle: "smile" as const,
+      noseStyle: "short" as const,
+      mouthStyle: "laugh" as const,
+      shirtStyle: "polo" as const,
+      glassesStyle: "round" as const,
+      hairColor: "#4A312C",
+      hairStyle: "womanLong" as const,
+      hatStyle: "none" as const,
+      shirtColor: "#FF6B6B",
+      bgColor: "#DFE6E9",
+    },
   };
 
   return (
     <section
-      className="flex flex-col overflow-hidden rounded-lg border-zinc-800 bg-zinc-900 text-zinc-100"
-      aria-label="Interview terminal preview"
+      className="w-full max-w-xl mx-auto"
+      aria-label="Interview chat preview"
     >
-      <div className="flex items-center justify-between border-zinc-700 border-b px-4 py-2 bg-zinc-900">
-        <div className="flex items-center gap-2 text-sm text-zinc-300/80">
-          <div className="flex items-center gap-2" aria-hidden="true">
-            <span className="size-2.5 rounded-full bg-[#ff5f57]" />
-            <span className="size-2.5 rounded-full bg-[#febc2e]" />
-            <span className="size-2.5 rounded-full bg-[#28c840]" />
-          </div>
-          <Typography.SubCaptionMedium className="ml-2" color="secondary">
-            ~/blairify
-          </Typography.SubCaptionMedium>
+      {/* Interviewer Message */}
+      <div className="flex gap-3 mb-6">
+        <div className="size-14 overflow-hidden rounded-full bg-primary/10 flex-shrink-0 mt-1 ring-2 ring-primary/20">
+          <InterviewerAvatar interviewer={interviewer} size={56} />
         </div>
-        <div className="flex items-center gap-2">
-          <div className="size-5 overflow-hidden rounded-full bg-background shadow-sm flex-shrink-0">
-            <InterviewerAvatar interviewer={INTERVIEWERS[0]} size={20} />
-          </div>
-          <Typography.SubCaption
-            color="secondary"
-            className="truncate text-zinc-400"
-          >
-            {INTERVIEWERS[0].name}
-          </Typography.SubCaption>
-        </div>
-      </div>
-
-      <div className="h-48 overflow-hidden p-4 font-mono text-sm leading-relaxed bg-zinc-950/40 dark:bg-zinc-950/40">
-        <pre className="whitespace-pre-wrap break-words">
-          <span className="text-green-400">$</span>{" "}
-          <span className="text-zinc-300">
-            {commandText}
-            {isTypingCommand && (
-              <span className="inline-block w-2 h-4 bg-white animate-pulse ml-1" />
-            )}
-          </span>
-          <br />
-          {!isTypingCommand && (
-            <>
-              <span className="text-zinc-200">
-                {displayText}
-                {(isTyping || isCorrecting) && (
-                  <span
-                    className={`inline-block w-2 h-4 ml-1 ${isCorrecting ? "bg-red-400" : "bg-white"} animate-pulse`}
-                  />
-                )}
-              </span>
-              {!isTyping && !isCorrecting && (
-                <>
-                  <br />
-                  <span className="text-zinc-500">
-                    {canStartFromUrl
-                      ? "Status: valid URL detected"
-                      : "Status: waiting for HTTPS URL"}
-                  </span>
-                  <br />
-                  <span className="text-zinc-500">
-                    {"Next: extract requirements -> generate interview setup"}
-                  </span>
-                  <br />
-                  <span className="text-zinc-500">
-                    {"ETA: ~60 seconds -> Basic is free (2 interviews/day)"}
-                  </span>
-                  {showFollowUp && (
-                    <>
-                      <br />
-                      <span className="text-green-400">$</span>{" "}
-                      <span
-                        className={`text-zinc-300 ${followUpCompleted ? "animate-pulse" : ""}`}
-                      >
-                        {followUpText}
-                        {isTypingFollowUp && (
-                          <span className="inline-block w-2 h-4 bg-white animate-pulse ml-1" />
-                        )}
-                      </span>
-                    </>
-                  )}
-                </>
-              )}
-            </>
-          )}
-        </pre>
-      </div>
-
-      <div className="border-zinc-700 border-t p-3 bg-zinc-900">
-        <form onSubmit={handleSubmit}>
-          <div className="flex gap-2">
-            <div className="flex min-w-0 flex-1 items-center rounded-lg border-zinc-700 bg-zinc-900 px-3">
-              <span className="text-green-400 mr-2">{">"}</span>
-              <Input
-                id="hero-job-url"
-                value={jobUrlDraft}
-                onChange={(event) => onJobUrlChange(event.target.value)}
-                placeholder={animatedPlaceholder}
-                inputMode="url"
-                autoComplete="url"
-                className="h-8 border-0 bg-transparent px-0 shadow-none text-zinc-100 placeholder:text-zinc-500 focus-visible:border-0 focus-visible:shadow-none focus-visible:ring-0 text-xs sm:text-sm truncate font-mono !font-mono"
-                aria-describedby="hero-job-url-hint"
-                style={{
-                  fontFamily:
-                    'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace',
-                }}
-              />
-            </div>
-            <Button
-              type="submit"
+        <div className="flex-1 min-w-0">
+          <div className="bg-primary/5 dark:bg-primary/10 rounded-2xl rounded-tl-md px-4 py-3 inline-block max-w-full border border-primary/20">
+            <Typography.BodyMedium
               color="primary"
-              className="h-8 px-4"
-              aria-label="Start interview from job offer link"
+              className="leading-relaxed text-base"
             >
-              Run
-            </Button>
+              {displayText}
+            </Typography.BodyMedium>
           </div>
-        </form>
+        </div>
+      </div>
+
+      {/* Input Container */}
+      <div className="w-full">
+        <div
+          className={`relative rounded-3xl border-2 transition-all ${
+            canStartFromUrl
+              ? "border-primary"
+              : "border-primary/40  focus-within:border-primary/50"
+          }`}
+        >
+          {/* Animated glow effect - only on edges */}
+          <div
+            className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none"
+            style={{ padding: "1px" }}
+          >
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, transparent, orange-500/40, transparent, orange-500/40, transparent)",
+                animation: "rotate 3s linear infinite",
+                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMask:
+                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "xor",
+                maskComposite: "exclude",
+                padding: "2px",
+              }}
+            />
+          </div>
+
+          <textarea
+            value={jobUrlDraft}
+            onChange={(e) => onJobUrlChange(e.target.value)}
+            placeholder="https://justjoin.it/job-offer/software-engineer"
+            rows={2}
+            className="relative w-full bg-transparent text-gray-900 dark:text-gray-50 placeholder:text-gray-500 dark:placeholder:text-gray-400 resize-none focus:outline-none px-5 pt-4 pb-14 text-base"
+          />
+
+          {/* Bottom bar */}
+          <div className="absolute bottom-3 left-4 right-3 flex items-center justify-between z-10">
+            {/* Helper text */}
+            <div className="flex items-center gap-3 text-xs">
+              {canStartFromUrl ? (
+                <span className="text-green-500">✓ Valid URL</span>
+              ) : (
+                <span className="text-zinc-500">Paste job URL</span>
+              )}
+            </div>
+
+            {/* Send button */}
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={!canStartFromUrl}
+              className={`size-10 rounded-full bg-primary flex items-center justify-center transition-all hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed`}
+              aria-label="Start interview"
+            >
+              <ArrowUp className="w-5 h-5 text-white" />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -449,15 +226,22 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center lg:min-h-[78vh] px-2">
           <div className="space-y-5 text-center lg:text-left animate-in slide-in-from-left-8 duration-700 max-w-xl lg:max-w-none mx-auto lg:mx-0">
             <Typography.HeroHeading1 id="hero-heading">
-              Simulate real interviews.
+              Realistic <span className="text-primary">Interview</span>
             </Typography.HeroHeading1>
+            <Typography.HeroHeading1 id="hero-heading">
+              <span className="text-primary">Instant</span> Feedback
+            </Typography.HeroHeading1>
+
             <Typography.Body
               color="secondary"
               className="max-w-md mx-auto lg:mx-0"
             >
-              Define your target role and run a realistic simulation. Get scored
-              across core competencies with clear, actionable feedback on where
-              to improve.
+              <span className="text-black dark:text-white font-bold">
+                No consequences.
+              </span>{" "}
+              Practice risk-free with realistic simulations. Get scored across
+              core competencies with clear, actionable feedback on where to
+              improve.
             </Typography.Body>
           </div>
 

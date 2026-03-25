@@ -71,12 +71,8 @@ export default function GamificationSection() {
         <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
           {/* Achievement Progress */}
           <div className="text-center">
-            <div className="inline-flex items-center justify-center size-16 rounded-full bg-primary/10 mb-4">
-              <BrandMinecraftIcon
-                size={32}
-                color="currentColor"
-                strokeWidth={1.5}
-              />
+            <div className="inline-flex items-center justify-center size-16 rounded-full bg-primary/60 border-2 border-primary  mb-4">
+              <BrandMinecraftIcon size={32} strokeWidth={1.5} />
             </div>
             <Typography.BodyBold className="mb-2">Collect</Typography.BodyBold>
             <Typography.SubCaption color="secondary">
@@ -86,8 +82,8 @@ export default function GamificationSection() {
 
           {/* Current Streak */}
           <div className="text-center">
-            <div className="inline-flex items-center justify-center size-16 rounded-full bg-orange-500/10 mb-4">
-              <FlameIcon size={32} color="currentColor" strokeWidth={1.5} />
+            <div className="inline-flex items-center justify-center size-16 rounded-full bg-primary/60 border-2 border-primary  mb-4">
+              <FlameIcon size={32} color="gray" strokeWidth={1.5} />
             </div>
             <Typography.BodyBold className="mb-2">Streak</Typography.BodyBold>
             <Typography.SubCaption color="secondary">
@@ -97,8 +93,8 @@ export default function GamificationSection() {
 
           {/* Skill Progress */}
           <div className="text-center">
-            <div className="inline-flex items-center justify-center size-16 rounded-full bg-green-500/10 mb-4">
-              <AbacusIcon size={32} color="currentColor" strokeWidth={1.5} />
+            <div className="inline-flex items-center justify-center size-16 rounded-full bg-primary/60 border-2 border-primary  mb-4">
+              <AbacusIcon size={32} color="gray" strokeWidth={1.5} />
             </div>
             <Typography.BodyBold className="mb-2">Score</Typography.BodyBold>
             <Typography.SubCaption color="secondary">

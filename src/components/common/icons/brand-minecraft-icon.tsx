@@ -43,7 +43,7 @@ const BrandMinecraftIcon = ({
       <title>Minecraft</title>
       <g
         fill="none"
-        stroke="currentColor"
+        stroke={color}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={strokeWidth}
